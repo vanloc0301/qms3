@@ -60,13 +60,6 @@ namespace QMS3.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap logo2 {
-            get {
-                object obj = ResourceManager.GetObject("logo2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap logo21 {
             get {
                 object obj = ResourceManager.GetObject("logo21", resourceCulture);

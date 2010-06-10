@@ -47,11 +47,17 @@ namespace QMS3
         {
             treeView1.Nodes.Clear();
             tabControl1.SelectTab(0);
+            UNtextBox.Text = "";
+            UNtextBox.Enabled = true;
+            PSmaskedTextBox.Text = "";
+            PSmaskedTextBox.Enabled = true;
+            button1.Enabled = true;
+            button2.Enabled = false;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (textBox1.Text.Length != 0)
+            if (UNtextBox.Text.Length != 0)
                 button1.Enabled = true;
         }
 
@@ -314,7 +320,7 @@ namespace QMS3
                                                                             treeNode216});
                         break;
                     }
-                case 0:
+                case 6:
                     {
                      //just for test
                         System.Windows.Forms.TreeNode treeNode199 = new System.Windows.Forms.TreeNode("发司机卡");
@@ -366,18 +372,36 @@ namespace QMS3
         private void button1_Click(object sender, EventArgs e)
         {
            // label5.Text = textBox1.Text;
-            this.dbo_UserTableAdapter.GetDataBy("user1", "e10adc3949ba59abbe56e057f20f883e");
-            string[] a={"",""};
-            this.db_rfidtestDataSet._dbo_User.Columns.CopyTo(a,1);
-            MessageBox.Show(a[0]);
+            string k="0";
+            try
+            {
+                k = this.dbo_UserTableAdapter.ValidateUser(UNtextBox.Text, MD5.MDString(PSmaskedTextBox.Text)).ToString();
+                button1.Enabled = false;
+                button2.Enabled = true;
+                UNtextBox.Enabled = false;
+                PSmaskedTextBox.Enabled = false;
+            }
+            catch (Exception s)
+            {
+                MessageBox.Show("输入的用户名密码有误或网络超时");
+                UNtextBox.Text = "";
+                PSmaskedTextBox.Text = "";
+            }
+            label5.Text = k;
             treeView1.Nodes.Clear();
-            debugtextbox.Text = MD5.MDString(maskedTextBox1.Text);
+            debugtextbox.Text = MD5.MDString(PSmaskedTextBox.Text);
             treeviewload(int.Parse(label5.Text));
+           
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             //debugtextbox.Text= treeView1.SelectedNode.Nodes.ToString();
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
