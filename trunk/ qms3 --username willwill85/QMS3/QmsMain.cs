@@ -44,7 +44,7 @@ namespace QMS3
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            treeView1.Dispose();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -55,6 +55,7 @@ namespace QMS3
 
         private void treeView1_AfterSelect_1(object sender, TreeViewEventArgs e)
         {
+            treeView1.SelectedNode.Nodes.ToString();
             switch (treeView1.SelectedNode.ToString())
             {
                 case "TreeNode: 发司机卡":              tabControl1.SelectTab(1);
@@ -92,6 +93,40 @@ namespace QMS3
 
 
             }
+        }
+
+        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
+        public void treeviewload(int Userright)
+        {
+            switch (Userright)
+            {
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                default:
+                    break;
+
+            }
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            debugtextbox.Text = MD5.MDString(maskedTextBox1.Text);
+            treeviewload(int.Parse(label5.Text));
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            //debugtextbox.Text= treeView1.SelectedNode.Nodes.ToString();
         }
     }
 }
