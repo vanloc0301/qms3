@@ -41,5 +41,16 @@ namespace QMS3
                 "\n\t\t权限5: 系统管理员\t\t\n",
                 "  权限说明书");
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Length != 0)
+                button1.Enabled = true;
+        }
     }
 }
