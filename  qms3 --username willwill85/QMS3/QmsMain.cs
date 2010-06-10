@@ -366,6 +366,7 @@ namespace QMS3
         private void button1_Click(object sender, EventArgs e)
         {
             label5.Text = textBox1.Text;
+            treeView1.Nodes.Clear();
             debugtextbox.Text = MD5.MDString(maskedTextBox1.Text);
             treeviewload(int.Parse(label5.Text));
         }
