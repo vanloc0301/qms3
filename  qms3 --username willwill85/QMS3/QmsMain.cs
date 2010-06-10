@@ -29,6 +29,7 @@ namespace QMS3
         private void Form1_Load(object sender, EventArgs e)
         {
             tabControl1.ItemSize = new Size(1, 1);
+            treeView1.Nodes.Clear();
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -44,7 +45,8 @@ namespace QMS3
 
         private void button2_Click(object sender, EventArgs e)
         {
-            treeView1.Dispose();
+            treeView1.Nodes.Clear();
+            tabControl1.SelectTab(0);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -99,27 +101,271 @@ namespace QMS3
         {
 
         }
+        #region 权限treenode生成函数 权限为 1 2 3 4 5
         public void treeviewload(int Userright)
         {
+
+          
+            System.Windows.Forms.TreeNode treeNode207 = new System.Windows.Forms.TreeNode("车辆状态信息查询");
+            System.Windows.Forms.TreeNode treeNode208 = new System.Windows.Forms.TreeNode("垃圾楼状态信息查询");
+            System.Windows.Forms.TreeNode treeNode209 = new System.Windows.Forms.TreeNode("转运中心状态信息查询");
+            System.Windows.Forms.TreeNode treeNode210 = new System.Windows.Forms.TreeNode("转运中心结算");
+            System.Windows.Forms.TreeNode treeNode211 = new System.Windows.Forms.TreeNode("西城区状态信息查询");
+            System.Windows.Forms.TreeNode treeNode212 = new System.Windows.Forms.TreeNode("异常数据处理器");
+            System.Windows.Forms.TreeNode treeNode213 = new System.Windows.Forms.TreeNode("用户管理");
+            System.Windows.Forms.TreeNode treeNode214 = new System.Windows.Forms.TreeNode("垃圾楼管理");
+            System.Windows.Forms.TreeNode treeNode215 = new System.Windows.Forms.TreeNode("班长管理");
+            System.Windows.Forms.TreeNode treeNode216 = new System.Windows.Forms.TreeNode("报表生成器");
+            this.treeView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.treeView1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.treeView1.Location = new System.Drawing.Point(3, 22);
+            this.treeView1.Name = "treeView1";
+           
+            treeNode207.Name = "节点3";
+            treeNode207.Text = "车辆状态信息查询";
+            treeNode208.Name = "节点4";
+            treeNode208.Text = "垃圾楼状态信息查询";
+            treeNode209.Name = "节点5";
+            treeNode209.Text = "转运中心状态信息查询";
+            treeNode210.Name = "节点6";
+            treeNode210.Text = "转运中心结算";
+            treeNode211.Name = "节点7";
+            treeNode211.Text = "西城区状态信息查询";
+            treeNode212.Name = "节点8";
+            treeNode212.Text = "异常数据处理器";
+            treeNode213.Name = "节点9";
+            treeNode213.Text = "用户管理";
+            treeNode214.Name = "节点10";
+            treeNode214.Text = "垃圾楼管理";
+            treeNode215.Name = "节点11";
+            treeNode215.Text = "班长管理";
+            treeNode216.Name = "节点12";
+            treeNode216.Text = "报表生成器";
+
             switch (Userright)
             {
+
+
                 case 1:
-                    break;
+                    {
+
+                        System.Windows.Forms.TreeNode treeNode199 = new System.Windows.Forms.TreeNode("发司机卡");
+                        System.Windows.Forms.TreeNode treeNode200 = new System.Windows.Forms.TreeNode("司机信息编辑");
+                        System.Windows.Forms.TreeNode treeNode201 = new System.Windows.Forms.TreeNode("司机信息查询");
+                        System.Windows.Forms.TreeNode treeNode202 = new System.Windows.Forms.TreeNode("司机卡管理", new System.Windows.Forms.TreeNode[] {treeNode201 });
+
+                        System.Windows.Forms.TreeNode treeNode203 = new System.Windows.Forms.TreeNode("发货箱卡");
+                        System.Windows.Forms.TreeNode treeNode204 = new System.Windows.Forms.TreeNode("货箱信息编辑");
+                        System.Windows.Forms.TreeNode treeNode205 = new System.Windows.Forms.TreeNode("货箱信息查询");
+                        System.Windows.Forms.TreeNode treeNode206 = new System.Windows.Forms.TreeNode("货箱卡管理", new System.Windows.Forms.TreeNode[] {treeNode205 });
+                        treeNode199.Name = "节点1";
+                        treeNode199.Text = "发司机卡";
+                        treeNode200.Checked = true;
+                        treeNode200.Name = "节点4";
+                        treeNode200.Text = "司机信息编辑";
+                        treeNode201.Name = "节点5";
+                        treeNode201.Text = "司机信息查询";
+                        treeNode202.Name = "节点0";
+                        treeNode202.Text = "司机卡管理";
+                        treeNode203.Name = "节点0";
+                        treeNode203.Text = "发货箱卡";
+                        treeNode204.Name = "节点1";
+                        treeNode204.Text = "货箱信息编辑";
+                        treeNode205.Name = "节点2";
+                        treeNode205.Text = "货箱信息查询";
+                        treeNode206.Name = "节点2";
+                        treeNode206.Text = "货箱卡管理";
+                        this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+                                                                            treeNode202,
+                                                                            treeNode206,
+                                                                            treeNode207,
+                                                                            treeNode208,
+                                                                            treeNode209,
+                                                                            treeNode210,
+                                                                            treeNode211,
+                                                                            treeNode212,
+                                                                          //  treeNode213,
+                                                                          //  treeNode214,
+                                                                          //  treeNode215,
+                                                                            treeNode216});
+                        break;
+                    }
                 case 2:
-                    break;
+                    {
+                        this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+                                                                          //  treeNode202,
+                                                                          //  treeNode206,
+                                                                          //  treeNode207,
+                                                                            treeNode208,
+                                                                          //  treeNode209,
+                                                                         //   treeNode210,
+                                                                         //   treeNode211,
+                                                                        //    treeNode212,
+                                                                       //     treeNode213,
+                                                                        //    treeNode214,
+                                                                        //    treeNode215,
+                                                                         //   treeNode216
+                                                                                           });
+                        break;
+                    }
                 case 3:
-                    break;
+                    {
+                        this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+                                                                         //   treeNode202,
+                                                                        //    treeNode206,
+                                                                        //    treeNode207,
+                                                                         //   treeNode208,
+                                                                            treeNode209,
+                                                                            treeNode210,
+                                                                         //   treeNode211,
+                                                                         //   treeNode212,
+                                                                       //     treeNode213,
+                                                                        //    treeNode214,
+                                                                        //    treeNode215,
+                                                                       //     treeNode216
+                                                                                        });
+                        break;
+                    }
                 case 4:
-                    break;
+                    {
+                        System.Windows.Forms.TreeNode treeNode199 = new System.Windows.Forms.TreeNode("发司机卡");
+                        System.Windows.Forms.TreeNode treeNode200 = new System.Windows.Forms.TreeNode("司机信息编辑");
+                        System.Windows.Forms.TreeNode treeNode201 = new System.Windows.Forms.TreeNode("司机信息查询");
+                        System.Windows.Forms.TreeNode treeNode202 = new System.Windows.Forms.TreeNode("司机卡管理", new System.Windows.Forms.TreeNode[] { treeNode201 });
+
+                        System.Windows.Forms.TreeNode treeNode203 = new System.Windows.Forms.TreeNode("发货箱卡");
+                        System.Windows.Forms.TreeNode treeNode204 = new System.Windows.Forms.TreeNode("货箱信息编辑");
+                        System.Windows.Forms.TreeNode treeNode205 = new System.Windows.Forms.TreeNode("货箱信息查询");
+                        System.Windows.Forms.TreeNode treeNode206 = new System.Windows.Forms.TreeNode("货箱卡管理", new System.Windows.Forms.TreeNode[] { treeNode205 });
+                        treeNode199.Name = "节点1";
+                        treeNode199.Text = "发司机卡";
+                        treeNode200.Checked = true;
+                        treeNode200.Name = "节点4";
+                        treeNode200.Text = "司机信息编辑";
+                        treeNode201.Name = "节点5";
+                        treeNode201.Text = "司机信息查询";
+                        treeNode202.Name = "节点0";
+                        treeNode202.Text = "司机卡管理";
+                        treeNode203.Name = "节点0";
+                        treeNode203.Text = "发货箱卡";
+                        treeNode204.Name = "节点1";
+                        treeNode204.Text = "货箱信息编辑";
+                        treeNode205.Name = "节点2";
+                        treeNode205.Text = "货箱信息查询";
+                        treeNode206.Name = "节点2";
+                        treeNode206.Text = "货箱卡管理";
+                        this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+                                                                            treeNode202,
+                                                                            treeNode206,
+                                                                            treeNode207,
+                                                                            treeNode208,
+                                                                        //    treeNode209,
+                                                                            treeNode210,
+                                                                            treeNode211,
+                                                                        //    treeNode212,
+                                                                        //    treeNode213,
+                                                                         //   treeNode214,
+                                                                        //    treeNode215,
+                                                                            treeNode216});
+                        break;
+                    }
                 case 5:
-                    break;
-                default:
-                    break;
+                    {
+                        System.Windows.Forms.TreeNode treeNode199 = new System.Windows.Forms.TreeNode("发司机卡");
+                        System.Windows.Forms.TreeNode treeNode200 = new System.Windows.Forms.TreeNode("司机信息编辑");
+                        System.Windows.Forms.TreeNode treeNode201 = new System.Windows.Forms.TreeNode("司机信息查询");
+                        System.Windows.Forms.TreeNode treeNode202 = new System.Windows.Forms.TreeNode("司机卡管理", new System.Windows.Forms.TreeNode[] { treeNode199, treeNode200, treeNode201 });
+
+                        System.Windows.Forms.TreeNode treeNode203 = new System.Windows.Forms.TreeNode("发货箱卡");
+                        System.Windows.Forms.TreeNode treeNode204 = new System.Windows.Forms.TreeNode("货箱信息编辑");
+                        System.Windows.Forms.TreeNode treeNode205 = new System.Windows.Forms.TreeNode("货箱信息查询");
+                        System.Windows.Forms.TreeNode treeNode206 = new System.Windows.Forms.TreeNode("货箱卡管理", new System.Windows.Forms.TreeNode[] { treeNode203, treeNode204, treeNode205 });
+                        treeNode199.Name = "节点1";
+                        treeNode199.Text = "发司机卡";
+                        treeNode200.Checked = true;
+                        treeNode200.Name = "节点4";
+                        treeNode200.Text = "司机信息编辑";
+                        treeNode201.Name = "节点5";
+                        treeNode201.Text = "司机信息查询";
+                        treeNode202.Name = "节点0";
+                        treeNode202.Text = "司机卡管理";
+                        treeNode203.Name = "节点0";
+                        treeNode203.Text = "发货箱卡";
+                        treeNode204.Name = "节点1";
+                        treeNode204.Text = "货箱信息编辑";
+                        treeNode205.Name = "节点2";
+                        treeNode205.Text = "货箱信息查询";
+                        treeNode206.Name = "节点2";
+                        treeNode206.Text = "货箱卡管理";
+                        this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+                                                                            treeNode202,
+                                                                            treeNode206,
+                                                                            treeNode207,
+                                                                            treeNode208,
+                                                                       //     treeNode209,
+                                                                            treeNode210,
+                                                                            treeNode211,
+                                                                       //     treeNode212,
+                                                                            treeNode213,
+                                                                            treeNode214,
+                                                                            treeNode215,
+                                                                            treeNode216});
+                        break;
+                    }
+                case 0:
+                    {
+                     //just for test
+                        System.Windows.Forms.TreeNode treeNode199 = new System.Windows.Forms.TreeNode("发司机卡");
+                        System.Windows.Forms.TreeNode treeNode200 = new System.Windows.Forms.TreeNode("司机信息编辑");
+                        System.Windows.Forms.TreeNode treeNode201 = new System.Windows.Forms.TreeNode("司机信息查询");
+                        System.Windows.Forms.TreeNode treeNode202 = new System.Windows.Forms.TreeNode("司机卡管理", new System.Windows.Forms.TreeNode[] { treeNode199, treeNode200, treeNode201 });
+
+                        System.Windows.Forms.TreeNode treeNode203 = new System.Windows.Forms.TreeNode("发货箱卡");
+                        System.Windows.Forms.TreeNode treeNode204 = new System.Windows.Forms.TreeNode("货箱信息编辑");
+                        System.Windows.Forms.TreeNode treeNode205 = new System.Windows.Forms.TreeNode("货箱信息查询");
+                        System.Windows.Forms.TreeNode treeNode206 = new System.Windows.Forms.TreeNode("货箱卡管理", new System.Windows.Forms.TreeNode[] { treeNode203, treeNode204, treeNode205 });
+                        treeNode199.Name = "节点1";
+                        treeNode199.Text = "发司机卡";
+                        treeNode200.Checked = true;
+                        treeNode200.Name = "节点4";
+                        treeNode200.Text = "司机信息编辑";
+                        treeNode201.Name = "节点5";
+                        treeNode201.Text = "司机信息查询";
+                        treeNode202.Name = "节点0";
+                        treeNode202.Text = "司机卡管理";
+                        treeNode203.Name = "节点0";
+                        treeNode203.Text = "发货箱卡";
+                        treeNode204.Name = "节点1";
+                        treeNode204.Text = "货箱信息编辑";
+                        treeNode205.Name = "节点2";
+                        treeNode205.Text = "货箱信息查询";
+                        treeNode206.Name = "节点2";
+                        treeNode206.Text = "货箱卡管理";
+                        this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+                                                                            treeNode202,
+                                                                            treeNode206,
+                                                                            treeNode207,
+                                                                            treeNode208,
+                                                                            treeNode209,
+                                                                            treeNode210,
+                                                                            treeNode211,
+                                                                            treeNode212,
+                                                                            treeNode213,
+                                                                            treeNode214,
+                                                                            treeNode215,
+                                                                            treeNode216});
+                        // 
+                        break;
+                    }
 
             }
         }
+        #endregion
         private void button1_Click(object sender, EventArgs e)
         {
+            label5.Text = textBox1.Text;
             debugtextbox.Text = MD5.MDString(maskedTextBox1.Text);
             treeviewload(int.Parse(label5.Text));
         }
