@@ -48,6 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="db_rfidtestDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_rfidtestDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="MD5.cs" />
     <Compile Include="QmsMain.cs">
       <SubType>Form</SubType>
@@ -85,6 +90,18 @@
     <None Include="Resources\logo2.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
+    <None Include="db_rfidtestDataSet.xsc">
+      <DependentUpon>db_rfidtestDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="db_rfidtestDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_rfidtestDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_rfidtestDataSet.xss">
+      <DependentUpon>db_rfidtestDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Resources\logo21.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
