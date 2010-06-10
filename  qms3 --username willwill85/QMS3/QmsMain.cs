@@ -365,7 +365,11 @@ namespace QMS3
         #endregion
         private void button1_Click(object sender, EventArgs e)
         {
-            label5.Text = textBox1.Text;
+           // label5.Text = textBox1.Text;
+            this.dbo_UserTableAdapter.GetDataBy("user1", "e10adc3949ba59abbe56e057f20f883e");
+            string[] a={"",""};
+            this.db_rfidtestDataSet._dbo_User.Columns.CopyTo(a,1);
+            MessageBox.Show(a[0]);
             treeView1.Nodes.Clear();
             debugtextbox.Text = MD5.MDString(maskedTextBox1.Text);
             treeviewload(int.Parse(label5.Text));
