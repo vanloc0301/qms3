@@ -41,7 +41,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
+            this.t1label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -111,7 +111,7 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.t1label1);
             this.tabPage1.Location = new System.Drawing.Point(4, 34);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -120,14 +120,14 @@
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // t1label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(326, 143);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.t1label1.AutoSize = true;
+            this.t1label1.Location = new System.Drawing.Point(326, 143);
+            this.t1label1.Name = "t1label1";
+            this.t1label1.Size = new System.Drawing.Size(41, 12);
+            this.t1label1.TabIndex = 0;
+            this.t1label1.Text = "label1";
             // 
             // tabPage2
             // 
@@ -200,7 +200,7 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label t1label1;
         private System.Windows.Forms.Label label2;
     }
 }
