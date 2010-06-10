@@ -28,30 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode73 = new System.Windows.Forms.TreeNode("发司机卡");
-            System.Windows.Forms.TreeNode treeNode74 = new System.Windows.Forms.TreeNode("司机信息编辑");
-            System.Windows.Forms.TreeNode treeNode75 = new System.Windows.Forms.TreeNode("司机信息查询");
-            System.Windows.Forms.TreeNode treeNode76 = new System.Windows.Forms.TreeNode("司机卡管理", new System.Windows.Forms.TreeNode[] {
-            treeNode73,
-            treeNode74,
-            treeNode75});
-            System.Windows.Forms.TreeNode treeNode77 = new System.Windows.Forms.TreeNode("发货箱卡");
-            System.Windows.Forms.TreeNode treeNode78 = new System.Windows.Forms.TreeNode("货箱信息编辑");
-            System.Windows.Forms.TreeNode treeNode79 = new System.Windows.Forms.TreeNode("货箱信息查询");
-            System.Windows.Forms.TreeNode treeNode80 = new System.Windows.Forms.TreeNode("货箱卡管理", new System.Windows.Forms.TreeNode[] {
-            treeNode77,
-            treeNode78,
-            treeNode79});
-            System.Windows.Forms.TreeNode treeNode81 = new System.Windows.Forms.TreeNode("车辆状态信息查询");
-            System.Windows.Forms.TreeNode treeNode82 = new System.Windows.Forms.TreeNode("垃圾楼状态信息查询");
-            System.Windows.Forms.TreeNode treeNode83 = new System.Windows.Forms.TreeNode("转运中心状态信息查询");
-            System.Windows.Forms.TreeNode treeNode84 = new System.Windows.Forms.TreeNode("转运中心结算");
-            System.Windows.Forms.TreeNode treeNode85 = new System.Windows.Forms.TreeNode("西城区状态信息查询");
-            System.Windows.Forms.TreeNode treeNode86 = new System.Windows.Forms.TreeNode("异常数据处理器");
-            System.Windows.Forms.TreeNode treeNode87 = new System.Windows.Forms.TreeNode("用户管理");
-            System.Windows.Forms.TreeNode treeNode88 = new System.Windows.Forms.TreeNode("垃圾楼管理");
-            System.Windows.Forms.TreeNode treeNode89 = new System.Windows.Forms.TreeNode("班长管理");
-            System.Windows.Forms.TreeNode treeNode90 = new System.Windows.Forms.TreeNode("报表生成器");
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.TreeNode treeNode163 = new System.Windows.Forms.TreeNode("发司机卡");
+            System.Windows.Forms.TreeNode treeNode164 = new System.Windows.Forms.TreeNode("司机信息编辑");
+            System.Windows.Forms.TreeNode treeNode165 = new System.Windows.Forms.TreeNode("司机信息查询");
+            System.Windows.Forms.TreeNode treeNode166 = new System.Windows.Forms.TreeNode("司机卡管理", new System.Windows.Forms.TreeNode[] {
+            treeNode163,
+            treeNode164,
+            treeNode165});
+            System.Windows.Forms.TreeNode treeNode167 = new System.Windows.Forms.TreeNode("发货箱卡");
+            System.Windows.Forms.TreeNode treeNode168 = new System.Windows.Forms.TreeNode("货箱信息编辑");
+            System.Windows.Forms.TreeNode treeNode169 = new System.Windows.Forms.TreeNode("货箱信息查询");
+            System.Windows.Forms.TreeNode treeNode170 = new System.Windows.Forms.TreeNode("货箱卡管理", new System.Windows.Forms.TreeNode[] {
+            treeNode167,
+            treeNode168,
+            treeNode169});
+            System.Windows.Forms.TreeNode treeNode171 = new System.Windows.Forms.TreeNode("车辆状态信息查询");
+            System.Windows.Forms.TreeNode treeNode172 = new System.Windows.Forms.TreeNode("垃圾楼状态信息查询");
+            System.Windows.Forms.TreeNode treeNode173 = new System.Windows.Forms.TreeNode("转运中心状态信息查询");
+            System.Windows.Forms.TreeNode treeNode174 = new System.Windows.Forms.TreeNode("转运中心结算");
+            System.Windows.Forms.TreeNode treeNode175 = new System.Windows.Forms.TreeNode("西城区状态信息查询");
+            System.Windows.Forms.TreeNode treeNode176 = new System.Windows.Forms.TreeNode("异常数据处理器");
+            System.Windows.Forms.TreeNode treeNode177 = new System.Windows.Forms.TreeNode("用户管理");
+            System.Windows.Forms.TreeNode treeNode178 = new System.Windows.Forms.TreeNode("垃圾楼管理");
+            System.Windows.Forms.TreeNode treeNode179 = new System.Windows.Forms.TreeNode("班长管理");
+            System.Windows.Forms.TreeNode treeNode180 = new System.Windows.Forms.TreeNode("报表生成器");
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -90,6 +91,7 @@
             this.tabPage16 = new System.Windows.Forms.TabPage();
             this.debugtextbox = new System.Windows.Forms.TextBox();
             this.tabPage17 = new System.Windows.Forms.TabPage();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -256,56 +258,56 @@
             this.treeView1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.treeView1.Location = new System.Drawing.Point(3, 22);
             this.treeView1.Name = "treeView1";
-            treeNode73.Name = "节点1";
-            treeNode73.Text = "发司机卡";
-            treeNode74.Checked = true;
-            treeNode74.Name = "节点4";
-            treeNode74.Text = "司机信息编辑";
-            treeNode75.Name = "节点5";
-            treeNode75.Text = "司机信息查询";
-            treeNode76.Name = "节点0";
-            treeNode76.Text = "司机卡管理";
-            treeNode77.Name = "节点0";
-            treeNode77.Text = "发货箱卡";
-            treeNode78.Name = "节点1";
-            treeNode78.Text = "货箱信息编辑";
-            treeNode79.Name = "节点2";
-            treeNode79.Text = "货箱信息查询";
-            treeNode80.Name = "节点2";
-            treeNode80.Text = "货箱卡管理";
-            treeNode81.Name = "节点3";
-            treeNode81.Text = "车辆状态信息查询";
-            treeNode82.Name = "节点4";
-            treeNode82.Text = "垃圾楼状态信息查询";
-            treeNode83.Name = "节点5";
-            treeNode83.Text = "转运中心状态信息查询";
-            treeNode84.Name = "节点6";
-            treeNode84.Text = "转运中心结算";
-            treeNode85.Name = "节点7";
-            treeNode85.Text = "西城区状态信息查询";
-            treeNode86.Name = "节点8";
-            treeNode86.Text = "异常数据处理器";
-            treeNode87.Name = "节点9";
-            treeNode87.Text = "用户管理";
-            treeNode88.Name = "节点10";
-            treeNode88.Text = "垃圾楼管理";
-            treeNode89.Name = "节点11";
-            treeNode89.Text = "班长管理";
-            treeNode90.Name = "节点12";
-            treeNode90.Text = "报表生成器";
+            treeNode163.Name = "节点1";
+            treeNode163.Text = "发司机卡";
+            treeNode164.Checked = true;
+            treeNode164.Name = "节点4";
+            treeNode164.Text = "司机信息编辑";
+            treeNode165.Name = "节点5";
+            treeNode165.Text = "司机信息查询";
+            treeNode166.Name = "节点0";
+            treeNode166.Text = "司机卡管理";
+            treeNode167.Name = "节点0";
+            treeNode167.Text = "发货箱卡";
+            treeNode168.Name = "节点1";
+            treeNode168.Text = "货箱信息编辑";
+            treeNode169.Name = "节点2";
+            treeNode169.Text = "货箱信息查询";
+            treeNode170.Name = "节点2";
+            treeNode170.Text = "货箱卡管理";
+            treeNode171.Name = "节点3";
+            treeNode171.Text = "车辆状态信息查询";
+            treeNode172.Name = "节点4";
+            treeNode172.Text = "垃圾楼状态信息查询";
+            treeNode173.Name = "节点5";
+            treeNode173.Text = "转运中心状态信息查询";
+            treeNode174.Name = "节点6";
+            treeNode174.Text = "转运中心结算";
+            treeNode175.Name = "节点7";
+            treeNode175.Text = "西城区状态信息查询";
+            treeNode176.Name = "节点8";
+            treeNode176.Text = "异常数据处理器";
+            treeNode177.Name = "节点9";
+            treeNode177.Text = "用户管理";
+            treeNode178.Name = "节点10";
+            treeNode178.Text = "垃圾楼管理";
+            treeNode179.Name = "节点11";
+            treeNode179.Text = "班长管理";
+            treeNode180.Name = "节点12";
+            treeNode180.Text = "报表生成器";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode76,
-            treeNode80,
-            treeNode81,
-            treeNode82,
-            treeNode83,
-            treeNode84,
-            treeNode85,
-            treeNode86,
-            treeNode87,
-            treeNode88,
-            treeNode89,
-            treeNode90});
+            treeNode166,
+            treeNode170,
+            treeNode171,
+            treeNode172,
+            treeNode173,
+            treeNode174,
+            treeNode175,
+            treeNode176,
+            treeNode177,
+            treeNode178,
+            treeNode179,
+            treeNode180});
             this.treeView1.Size = new System.Drawing.Size(234, 299);
             this.treeView1.TabIndex = 1;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect_1);
@@ -324,6 +326,7 @@
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(100, 26);
             this.maskedTextBox1.TabIndex = 1;
+            this.maskedTextBox1.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox1_MaskInputRejected);
             // 
             // label1
             // 
@@ -352,6 +355,7 @@
             this.button1.TabIndex = 4;
             this.button1.Text = "登录";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -540,7 +544,6 @@
             this.debugtextbox.Name = "debugtextbox";
             this.debugtextbox.Size = new System.Drawing.Size(285, 81);
             this.debugtextbox.TabIndex = 5;
-            this.debugtextbox.Visible = false;
             // 
             // tabPage17
             // 
@@ -551,6 +554,11 @@
             this.tabPage17.TabIndex = 16;
             this.tabPage17.Text = "tabPage17";
             this.tabPage17.UseVisualStyleBackColor = true;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // QmsMain
             // 
@@ -623,6 +631,7 @@
         private System.Windows.Forms.TabPage tabPage16;
         private System.Windows.Forms.TextBox debugtextbox;
         private System.Windows.Forms.TabPage tabPage17;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
