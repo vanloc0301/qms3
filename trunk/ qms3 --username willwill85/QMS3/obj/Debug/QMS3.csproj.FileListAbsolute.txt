@@ -6,3 +6,5 @@ C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS3\QMS
 C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS3\QMS3\obj\Debug\QMS3.exe
 C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS3\QMS3\obj\Debug\QMS3.pdb
 C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS3\QMS3\obj\Debug\QMS3.qmsmain.resources
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS31\QMS3\obj\Debug\QMS3.exe
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS31\QMS3\obj\Debug\QMS3.pdb
