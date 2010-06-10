@@ -8,3 +8,9 @@ C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS3\QMS
 C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS3\QMS3\obj\Debug\QMS3.qmsmain.resources
 C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS31\QMS3\obj\Debug\QMS3.exe
 C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS31\QMS3\obj\Debug\QMS3.pdb
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS31\QMS3\bin\Debug\QMS3.exe
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS31\QMS3\bin\Debug\QMS3.pdb
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS31\QMS3\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS31\QMS3\obj\Debug\QMS3.QmsMain.resources
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS31\QMS3\obj\Debug\QMS3.Properties.Resources.resources
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS31\QMS3\obj\Debug\QMS3.csproj.GenerateResource.Cache
