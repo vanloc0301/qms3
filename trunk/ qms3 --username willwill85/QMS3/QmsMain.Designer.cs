@@ -28,14 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("节点1");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("节点4");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("节点5");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("司机卡管理", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("发卡");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("司机信息编辑");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("司机信息查询");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("司机卡管理", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3});
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("发卡");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("货箱信息编辑");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("货箱信息查询");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("货箱卡管理", new System.Windows.Forms.TreeNode[] {
+            treeNode5,
             treeNode6,
-            treeNode7,
-            treeNode8});
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("节点2");
+            treeNode7});
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("车辆状态信息查询");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("垃圾楼状态信息查询");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("转运中心状态信息查询");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("转运中心结算");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("西城区状态信息查询");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("异常数据处理器");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("用户管理");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("垃圾楼管理");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("班长管理");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("报表生成器");
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -206,20 +222,56 @@
             this.treeView1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.treeView1.Location = new System.Drawing.Point(3, 22);
             this.treeView1.Name = "treeView1";
+            treeNode1.Name = "节点1";
+            treeNode1.Text = "发卡";
+            treeNode2.Checked = true;
+            treeNode2.Name = "节点4";
+            treeNode2.Text = "司机信息编辑";
+            treeNode3.Name = "节点5";
+            treeNode3.Text = "司机信息查询";
+            treeNode4.Name = "节点0";
+            treeNode4.Text = "司机卡管理";
+            treeNode5.Name = "节点0";
+            treeNode5.Text = "发卡";
             treeNode6.Name = "节点1";
-            treeNode6.Text = "节点1";
-            treeNode7.Checked = true;
-            treeNode7.Name = "节点4";
-            treeNode7.Text = "节点4";
-            treeNode8.Name = "节点5";
-            treeNode8.Text = "节点5";
-            treeNode9.Name = "节点0";
-            treeNode9.Text = "司机卡管理";
-            treeNode10.Name = "节点2";
-            treeNode10.Text = "节点2";
+            treeNode6.Text = "货箱信息编辑";
+            treeNode7.Name = "节点2";
+            treeNode7.Text = "货箱信息查询";
+            treeNode8.Name = "节点2";
+            treeNode8.Text = "货箱卡管理";
+            treeNode9.Name = "节点3";
+            treeNode9.Text = "车辆状态信息查询";
+            treeNode10.Name = "节点4";
+            treeNode10.Text = "垃圾楼状态信息查询";
+            treeNode11.Name = "节点5";
+            treeNode11.Text = "转运中心状态信息查询";
+            treeNode12.Name = "节点6";
+            treeNode12.Text = "转运中心结算";
+            treeNode13.Name = "节点7";
+            treeNode13.Text = "西城区状态信息查询";
+            treeNode14.Name = "节点8";
+            treeNode14.Text = "异常数据处理器";
+            treeNode15.Name = "节点9";
+            treeNode15.Text = "用户管理";
+            treeNode16.Name = "节点10";
+            treeNode16.Text = "垃圾楼管理";
+            treeNode17.Name = "节点11";
+            treeNode17.Text = "班长管理";
+            treeNode18.Name = "节点12";
+            treeNode18.Text = "报表生成器";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode4,
+            treeNode8,
             treeNode9,
-            treeNode10});
+            treeNode10,
+            treeNode11,
+            treeNode12,
+            treeNode13,
+            treeNode14,
+            treeNode15,
+            treeNode16,
+            treeNode17,
+            treeNode18});
             this.treeView1.Size = new System.Drawing.Size(244, 299);
             this.treeView1.TabIndex = 1;
             // 
@@ -291,6 +343,7 @@
             this.linkLabel1.TabIndex = 7;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "什么是权限";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // label5
             // 

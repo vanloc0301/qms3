@@ -30,5 +30,16 @@ namespace QMS3
         {
             tabControl1.ItemSize = new Size(1, 1);
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MessageBox.Show(
+                "\n\t\t权限1: 二队队长\t\t\n" +
+                "\n\t\t权限2: 垃圾楼楼长\t\t\n" +
+                "\n\t\t权限3: 转运中心\t\t\n" +
+                "\n\t\t权限4: 监管员\t\t\n" +
+                "\n\t\t权限5: 系统管理员\t\t\n",
+                "  权限说明书");
+        }
     }
 }
