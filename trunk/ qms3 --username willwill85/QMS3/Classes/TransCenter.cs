@@ -5,7 +5,7 @@ using System.Text;
 using System.Runtime.InteropServices;
 using System.Net.Sockets;
 using System.IO;
-using System.Net.Sockets;
+
 using System.Net;
 using System.Windows.Forms;
 namespace QMS3
@@ -101,7 +101,7 @@ namespace QMS3
                 //  MessageBox.Show(st);
 
             }
-            catch (Exception ee)
+            catch 
             {
                 MessageBox.Show("ip.ini配置文件丢失！\n请联系技术人员解决。");
                 return false;
@@ -194,7 +194,7 @@ namespace QMS3
             {
                 nStartSpotNum = int.Parse(sStartSpotNum);
             }
-            catch (System.Exception eStartSpotNum)
+            catch 
             {
                 MessageBox.Show("卡中的始发站号有误！");
                 info="卡中的始发站号有误！";

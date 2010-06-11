@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseOperate.cs" />
     <Compile Include="db_rfidtestDataSet.cs">
       <DependentUpon>db_rfidtestDataSet.xsd</DependentUpon>
       <SubType>Component</SubType>
