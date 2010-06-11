@@ -461,7 +461,12 @@ namespace QMS3
             // WritetoDatabase(textBox1.Text);
             string ID = "";
             int Ccount = 0;
-
+            if (TransCenter.connect())
+            { }
+            else
+            {
+                return;
+            }
             if (TransCenter.Request(ref ID, ref Ccount) == 0)
             {
                 debugtextbox.Text += "\n读到卡数"+ Ccount.ToString()+"\n";
