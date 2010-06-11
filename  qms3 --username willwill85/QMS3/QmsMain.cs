@@ -716,5 +716,39 @@ namespace QMS3
             
         }
 
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            dataGridView2.MultiSelect=false;
+
+            debugtextbox.Text = dataGridView2.SelectedRows.ToString();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string systime = "10-06-11";
+           // System.DateTime.Now.ToString("yy-MM-dd");
+            
+            string strSQL = "SELECT DISTINCT  [db_rfidtest].[rfidtest].[dbo.Station].[Name] AS '起始站点' , " +
+                " [db_rfidtest].[rfidtest].[dbo.Goods].[BoxCardID] AS '货箱卡号' ,  " +
+                "[db_rfidtest].[rfidtest].[dbo.Goods].[TruckNo] AS '货车牌号' ,  " +
+                "[db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] AS '开始时间' ,  " +
+                "[db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] AS '结束时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[Weight] AS '重量(单位:吨)'" +
+                " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] ON   " +
+                "[db_rfidtest].[rfidtest].[dbo.Goods].[StartStationID] = [db_rfidtest].[rfidtest].[dbo.Station].[StationID] " +
+                "WHERE  [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] > '" + systime + ",00:00' AND [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] < '" + systime + ",23:59'";
+            string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
+            
+            try
+            {
+                ds = boperate.getds(strSQL, strTable);
+            }
+            catch
+            {
+                MessageBox.Show("网络连接失败！请稍后重试");
+                //showDayreport.CancelAsync();
+            }
+            dataGridView2.DataSource = ds.Tables[0];
+        }
+
     }
 }

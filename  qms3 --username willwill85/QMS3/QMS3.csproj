@@ -12,6 +12,7 @@
     <AssemblyName>QMS3</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>netvibes2-logo-square-webtreats.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -109,6 +110,9 @@
       <DependentUpon>db_rfidtestDataSet.xsd</DependentUpon>
     </None>
     <None Include="Resources\logo21.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="netvibes2-logo-square-webtreats.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
