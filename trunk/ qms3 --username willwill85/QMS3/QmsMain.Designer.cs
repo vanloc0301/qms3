@@ -120,6 +120,7 @@
             this.dbo_UserTableAdapter = new QMS3.db_rfidtestDataSetTableAdapters.dbo_UserTableAdapter();
             this.showDayreport = new System.ComponentModel.BackgroundWorker();
             this.showDayImagereport = new System.ComponentModel.BackgroundWorker();
+            this.login = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.MainTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -394,8 +395,9 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Left;
             this.dateTimePicker1.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(630, 20);
+            this.dateTimePicker1.Location = new System.Drawing.Point(3, 17);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 26);
             this.dateTimePicker1.TabIndex = 1;
@@ -830,6 +832,10 @@
             this.showDayImagereport.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.showDayImagereport_RunWorkerCompleted);
             this.showDayImagereport.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.showDayImagereport_ProgressChanged);
             // 
+            // login
+            // 
+            this.login.DoWork += new System.ComponentModel.DoWorkEventHandler(this.login_DoWork);
+            // 
             // QmsMain
             // 
             this.AcceptButton = this.button1;
@@ -940,6 +946,7 @@
         private System.ComponentModel.BackgroundWorker showDayImagereport;
         private System.Windows.Forms.ProgressBar progressBar2;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.ComponentModel.BackgroundWorker login;
     }
 }
 
