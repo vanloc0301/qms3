@@ -476,7 +476,7 @@ namespace QMS3
             // WritetoDatabase(textBox1.Text);
             string ID = "";
             int Ccount = 0;
-
+            //sEndTime = System.DateTime.Now.ToString("yy-MM-dd,HH:mm");
             if (TransCenter.Request(ref ID, ref Ccount) == 0)
             {
                 debugtextbox.Text += "\n读到卡数"+ Ccount.ToString()+"\n";
@@ -503,7 +503,7 @@ namespace QMS3
                 //MessageBox.Show("OK");
                 try
                 {
-                    this.dbo_GoodsTableAdapter.UpdateGoodsByTime(1, double.Parse(textBox1.Text), Starttime, StartStation);   
+                    this.dbo_GoodsTableAdapter.UpdateGoodsByTime(1, double.Parse(textBox1.Text),TransCenter.sEndTime, Starttime, StartStation);   
                     listBox1.Items.Add(info);
                 }
                 catch(Exception xs)

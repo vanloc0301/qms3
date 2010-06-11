@@ -5289,11 +5289,12 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "UPDATE [dbo.Goods]\r\nSET [State] = @State, [Weight] = @Weight\r\nWHERE (StartTime = " +
-                "@StartTime) AND (StartStationID = @StartStationID)";
+            this._commandCollection[1].CommandText = "UPDATE [dbo.Goods]\r\nSET [State] = @State, [Weight] = @Weight, [EndTime]=@Endtime\r" +
+                "\nWHERE (StartTime = @StartTime) AND (StartStationID = @StartStationID)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@State", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "State", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Weight", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Weight", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Endtime", global::System.Data.SqlDbType.NChar, 16, global::System.Data.ParameterDirection.Input, 0, 0, "EndTime", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StartTime", global::System.Data.SqlDbType.NChar, 16, global::System.Data.ParameterDirection.Input, 0, 0, "StartTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StartStationID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "StartStationID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
@@ -5673,7 +5674,7 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateGoodsByTime(global::System.Nullable<int> State, global::System.Nullable<double> Weight, string StartTime, global::System.Nullable<int> StartStationID) {
+        public virtual int UpdateGoodsByTime(global::System.Nullable<int> State, global::System.Nullable<double> Weight, string Endtime, string StartTime, global::System.Nullable<int> StartStationID) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[1];
             if ((State.HasValue == true)) {
                 command.Parameters[0].Value = ((int)(State.Value));
@@ -5687,17 +5688,23 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
             else {
                 command.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((StartTime == null)) {
+            if ((Endtime == null)) {
                 command.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[2].Value = ((string)(StartTime));
+                command.Parameters[2].Value = ((string)(Endtime));
             }
-            if ((StartStationID.HasValue == true)) {
-                command.Parameters[3].Value = ((int)(StartStationID.Value));
+            if ((StartTime == null)) {
+                command.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[3].Value = global::System.DBNull.Value;
+                command.Parameters[3].Value = ((string)(StartTime));
+            }
+            if ((StartStationID.HasValue == true)) {
+                command.Parameters[4].Value = ((int)(StartStationID.Value));
+            }
+            else {
+                command.Parameters[4].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
