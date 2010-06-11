@@ -96,8 +96,12 @@ namespace QMS3
                 break;
                 case "TreeNode: 班长管理":              tabControl1.SelectTab(15);
                 break;
-                case "TreeNode: 报表生成器":            tabControl1.SelectTab(16);
-                break;
+                case "TreeNode: 日垃圾清运完成情况":    tabControl1.SelectTab(16);
+                    break;
+                case "TreeNode: 月清运垃圾明细表":      tabControl1.SelectTab(17);
+                    break;
+                case "TreeNode: 年度垃圾垃圾明细表":    tabControl1.SelectTab(18);
+                    break;
 
 
             }
@@ -121,7 +125,13 @@ namespace QMS3
             System.Windows.Forms.TreeNode treeNode213 = new System.Windows.Forms.TreeNode("用户管理");
             System.Windows.Forms.TreeNode treeNode214 = new System.Windows.Forms.TreeNode("垃圾楼管理");
             System.Windows.Forms.TreeNode treeNode215 = new System.Windows.Forms.TreeNode("班长管理");
-            System.Windows.Forms.TreeNode treeNode216 = new System.Windows.Forms.TreeNode("报表生成器");
+
+            System.Windows.Forms.TreeNode treeNode216 = new System.Windows.Forms.TreeNode("日垃圾清运完成情况");
+            System.Windows.Forms.TreeNode treeNode217 = new System.Windows.Forms.TreeNode("月清运垃圾明细表");
+            System.Windows.Forms.TreeNode treeNode218 = new System.Windows.Forms.TreeNode("年度垃圾垃圾明细表");
+
+
+            System.Windows.Forms.TreeNode treeNode236 = new System.Windows.Forms.TreeNode("报表生成器", new System.Windows.Forms.TreeNode[] {treeNode216,treeNode217,treeNode218 });
             this.treeView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.treeView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -147,8 +157,19 @@ namespace QMS3
             treeNode214.Text = "垃圾楼管理";
             treeNode215.Name = "节点11";
             treeNode215.Text = "班长管理";
-            treeNode216.Name = "节点12";
-            treeNode216.Text = "报表生成器";
+
+            treeNode213.Name = "节点12";
+            treeNode213.Text = "日垃圾清运完成情况";
+            treeNode214.Name = "节点13";
+            treeNode214.Text = "月清运垃圾明细表";
+            treeNode215.Name = "节点14";
+            treeNode215.Text = "年度垃圾垃圾明细表";
+
+
+
+
+            treeNode236.Name = "节点36";
+            treeNode236.Text = "报表生成器";
 
             switch (Userright)
             {
@@ -195,7 +216,7 @@ namespace QMS3
                                                                           //  treeNode213,
                                                                           //  treeNode214,
                                                                           //  treeNode215,
-                                                                            treeNode216});
+                                                                            treeNode236});
                         break;
                     }
                 case 2:
@@ -212,7 +233,7 @@ namespace QMS3
                                                                        //     treeNode213,
                                                                         //    treeNode214,
                                                                         //    treeNode215,
-                                                                         //   treeNode216
+                                                                         //   treeNode236
                                                                                            });
                         break;
                     }
@@ -230,7 +251,7 @@ namespace QMS3
                                                                        //     treeNode213,
                                                                         //    treeNode214,
                                                                         //    treeNode215,
-                                                                       //     treeNode216
+                                                                       //     treeNode236
                                                                                         });
                         break;
                     }
@@ -274,7 +295,7 @@ namespace QMS3
                                                                         //    treeNode213,
                                                                          //   treeNode214,
                                                                         //    treeNode215,
-                                                                            treeNode216});
+                                                                            treeNode236});
                         break;
                     }
                 case 5:
@@ -317,7 +338,7 @@ namespace QMS3
                                                                             treeNode213,
                                                                             treeNode214,
                                                                             treeNode215,
-                                                                            treeNode216});
+                                                                            treeNode236});
                         break;
                     }
                 case 6:
@@ -361,7 +382,7 @@ namespace QMS3
                                                                             treeNode213,
                                                                             treeNode214,
                                                                             treeNode215,
-                                                                            treeNode216});
+                                                                            treeNode236});
                         // 
                         break;
                     }
