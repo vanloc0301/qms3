@@ -18,6 +18,8 @@ namespace QMS3
         //用于锁定数据卡的标签
         public static byte[] TagBuffer = new byte[16];
         private const string MISSION_ING = "S";
+        private const string MISSION_FINISH = "E";
+        public static string sEndTime = "";
         static char[] hexDigits = { 
             '0','1','2','3','4','5','6','7',
             '8','9','A','B','C','D','E','F'};
@@ -141,7 +143,7 @@ namespace QMS3
             {
                 MessageBox.Show("任务已完成！不能重复操作！");
                 info="任务已完成！不能重复操作！";
-                //      return false;
+                return false;
             }
 
             //读取车牌号
@@ -198,11 +200,26 @@ namespace QMS3
                 info="卡中的始发站号有误！";
                 return false;
             }
+            sEndTime = System.DateTime.Now.ToString("yy-MM-dd,HH:mm");
+            string sEndTime2 = System.DateTime.Now.ToString("yyMMddHHmm");
+            if (PutDataIntoCardHex(3,9,4,sEndTime2) != 0)
+            {
+                MessageBox.Show("写卡失败！");
+                info = "写卡失败！";
+                return false;
+            }
+            if (  PutDataIntoCard(3,13,1,MISSION_FINISH) != 0)
+            {
+                MessageBox.Show("写卡失败！");
+                info = "写卡失败！";
+                return false;
+            }
 
                 //this.GoodsTableAdaper.UpdateQueryByTime(2, double.Parse(textBox1.Text), sStartTime, nStartSpotNum);
                 st=sStartTime;
                 ss = nStartSpotNum;
-                info="车号：" + sCarNum + ";      " + "发车时间：" + sStartTime + ";      " + "重量：" + weight + ";      " + "始发站：" + StationName[nStartSpotNum - 31] + ".";
+
+                info = "车号：" + sCarNum + ";      " + "发车时间：" + sStartTime + ";      " + "到达时间：" + sEndTime + ";      " + "重量：" + weight + ";      " + "始发站：" + StationName[nStartSpotNum - 31] + ".";
 
 
             //listBox1.Items.Add("始发站：" + StationName[nStartSpotNum - 30] + ";      " + "发车时间：" + sStartTime + ";      " + "车号：" + sCarNum + ".");
@@ -453,13 +470,9 @@ namespace QMS3
         /// 6：数据与长度不符合
         /// 7：写入数据区错误
         /// </returns>
-        private int PutDataIntoCard(int block, int n_ptr, int n_len, string PutString)
+        public  static int PutDataIntoCard(int block, int n_ptr, int n_len, string PutString)
         {
-            if (!bConnectedDevice)
-            {
-                MessageBox.Show("请注意！尚未连接到读卡器！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return -1;
-            }
+
 
             int m_antenna_sel = 1;
             int status = -1;
@@ -472,7 +485,7 @@ namespace QMS3
             byte[] DB = new byte[128];
             byte[] IDBuffer = new byte[7680];
             byte[] mask = new byte[96];
-            mask = System.Text.Encoding.UTF8.GetBytes(PutString);
+            mask = System.Text.Encoding.Default.GetBytes(PutString);
 
             byte[] AccessPassword = new byte[4];
 
@@ -522,6 +535,7 @@ namespace QMS3
                 }
                 else if (block == 1)
                 {
+
                 }
                 else
                     return 7;
@@ -569,7 +583,128 @@ namespace QMS3
             }
             return 0;
         }
+        public static int PutDataIntoCardHex(int block, int n_ptr, int n_len, string PutString)
+        {
 
+
+            int m_antenna_sel = 1;
+            int status = -1;
+
+            //string str = "", strtemp = "";
+            string str = "";
+
+            byte EPC_BYTE = 0x00;
+
+            byte[] DB = new byte[128];
+            byte[] IDBuffer = new byte[7680];
+            byte[] mask = new byte[96];
+            //mask = System.Text.Encoding.Default.GetBytes(PutString);
+            mask = ToDigitsBytes(PutString);
+
+            byte[] AccessPassword = new byte[4];
+
+            string str_temp = "00000000";           // 读取密码
+            for (int i = 0; i < 4; i++)
+            {
+                AccessPassword[i] = Convert.ToByte(str_temp[i * 2] + str_temp[i * 2 + 1]);
+            }
+
+            EPC_BYTE = Convert.ToByte("6");            //目前认为ID是6位
+            byte ptr = Convert.ToByte(n_ptr);          //准备读的首地址是n_ptr
+            byte len = Convert.ToByte(n_len);          //准备读的长度是n_len
+
+            for (int n = 0; n < 50; n++)
+            {
+                //设置天线
+                for (int i = 0; i < 4; i++)
+                {
+                    status = Net_SetAntenna(m_hScanner, m_antenna_sel);
+                    if (status == OK)
+                        break;
+                    m_antenna_sel = m_antenna_sel * 2;
+                    Sleep(20);
+                }
+                if (status != OK)
+                {
+                    MessageBox.Show("读卡器天线出现问题，请重试！\n若仍然有问题，请联系生产厂家！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return -1;
+                }
+                //MessageBox.Show("天线成功！");
+
+                //写入卡片指定区域
+                if (block == 3)
+                {
+                    //目前写入User区的 
+                    byte[] IDTemp = new byte[12];               //目前认为ID是6位
+
+                    for (int i = 0; i < TagBuffer[0] * 2; i++)
+                    {
+                        IDTemp[i] = TagBuffer[i + 1];
+                    }
+
+                    str = PutString;
+
+                    Sleep(20);
+                    status = Net_EPC1G2_WriteWordBlock(m_hScanner, EPC_BYTE, IDTemp, 3, ptr, len, mask, AccessPassword);
+                }
+                else if (block == 1)
+                {
+
+                }
+                else
+                    return 7;
+                if (status == OK)
+                    break;
+
+                Sleep(10);
+            }
+            if (status != OK)
+            {
+                switch (status)
+                {
+                    case 1:
+                        MessageBox.Show("出问题啦！读卡器天线连接失败！", "出问题啦！", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    case 2:
+                        MessageBox.Show("未检测到有效的数据卡！请扫描卡片！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        break;
+                    case 3:
+                        MessageBox.Show("出问题啦！检测到非法的数据卡！", "出问题啦！", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    case 4:
+                        MessageBox.Show("出问题啦！读写功率不够！", "出问题啦！", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    case 5:
+                        MessageBox.Show("出问题啦！数据卡ID区读写保护！", "出问题啦！", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    case 6:
+                        MessageBox.Show("出问题啦！校验和错误！", "出问题啦！", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    case 7:
+                        MessageBox.Show("出问题啦！参数错误！", "出问题啦！", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    case 8:
+                        MessageBox.Show("出问题啦！数据区不存在！", "出问题啦！", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    case 9:
+                        MessageBox.Show("出问题啦！数据卡的密码不正确！", "出问题啦！", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                    default:
+                        MessageBox.Show("出现了位置问题！\n错误代码：" + status.ToString(), "出问题啦！", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                }
+                return 5;
+            }
+            return 0;
+        }
+        //public int write(string input, int ptr,int len)
+        //{
+ 
+        //}
+        //public int write2(string intput, int ptr,int len)
+        //{
+ 
+        //}
         #endregion
         #region 获取取卡片的编号
         /// <summary>
