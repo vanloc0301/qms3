@@ -21,6 +21,7 @@ namespace QMS3
        // QMS3.CfCardPC.CfCardPC cardrelated = new QMS.CfCardPC.CfCardPC();
         /******************************/
         bool ifcon = false;
+        DataSet ds;
         public QmsMain()
         {
             InitializeComponent();
@@ -101,17 +102,20 @@ namespace QMS3
                                                     "&chxt=x,y&chxl=0:|5:00|6:00|7:00|8:00|9:00|10:00|11:00|12:00|13:00|14:00|15:00|16:00|17:00|18:00|19:00|20:00|1:|0|5|10|15&chf=bg,s,EFEFEF"+
                                                     "&chtt=转运中心当天时间分布情况&chco=ff0000&chts=0000FF,20" +
                                                     "&chg=5,20";
-                    pictureBox2.Load();
-                    string systime=System.DateTime.Now.ToString("yy-MM-dd");
-                    debugtextbox.Text = systime;
-                    DataSet ds;
-                    string strSQL = "SELECT DISTINCT  [db_rfidtest].[rfidtest].[dbo.Station].[Name] AS '起始站点' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[BoxCardID] AS '货箱卡号' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[TruckNo] AS '货车牌号' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] AS '开始时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] AS '结束时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[Weight] AS '重量(单位:吨)' FROM  [db_rfidtest].[rfidtest].[dbo.Goods] INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] ON   [db_rfidtest].[rfidtest].[dbo.Goods].[StartStationID] = [db_rfidtest].[rfidtest].[dbo.Station].[StationID] WHERE  [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] > '"+systime+",00:00+'";
-                    string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
+                    pictureBox2.Load(); 
+                    //debugtextbox.Text = systime;
+                    showDayreport.RunWorkerAsync();
+                    //DataSet ds;
+                    //string strSQL = "SELECT DISTINCT  [db_rfidtest].[rfidtest].[dbo.Station].[Name] AS '起始站点' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[BoxCardID] AS '货箱卡号' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[TruckNo] AS '货车牌号' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] AS '开始时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] AS '结束时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[Weight] AS '重量(单位:吨)' FROM  [db_rfidtest].[rfidtest].[dbo.Goods] INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] ON   [db_rfidtest].[rfidtest].[dbo.Goods].[StartStationID] = [db_rfidtest].[rfidtest].[dbo.Station].[StationID] WHERE  [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] > '" + systime + ",00:00+'";
+                    //string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
 
-                    ds = boperate.getds(strSQL, strTable);
-                    //DataSet中的SQL查询结果放入DataGridView中
-                    //dataGridView1.DataSource = db_rfidtestDataSet._dbo_Goods;
-                    dataGridView1.DataSource = ds.Tables[0];
+                    //ds = boperate.getds(strSQL, strTable);
+                    ////DataSet中的SQL查询结果放入DataGridView中
+                    ////dataGridView1.DataSource = db_rfidtestDataSet._dbo_Goods;
+                    //dataGridView1.DataSource = ds.Tables[0];
+                    //string systime=System.DateTime.Now.ToString("yy-MM-dd");
+                    //
+
                     
   
                     MainTab.SelectTab(9);
@@ -555,6 +559,28 @@ namespace QMS3
 
         }
 
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            
+            string systime = System.DateTime.Now.ToString("yy-MM-dd");
+            string strSQL = "SELECT DISTINCT  [db_rfidtest].[rfidtest].[dbo.Station].[Name] AS '起始站点' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[BoxCardID] AS '货箱卡号' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[TruckNo] AS '货车牌号' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] AS '开始时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] AS '结束时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[Weight] AS '重量(单位:吨)' FROM  [db_rfidtest].[rfidtest].[dbo.Goods] INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] ON   [db_rfidtest].[rfidtest].[dbo.Goods].[StartStationID] = [db_rfidtest].[rfidtest].[dbo.Station].[StationID] WHERE  [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] > '" + systime + ",00:00+'";
+            string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
+
+            ds = boperate.getds(strSQL, strTable);
+            ////DataSet中的SQL查询结果放入DataGridView中
+            ////dataGridView1.DataSource = db_rfidtestDataSet._dbo_Goods;
+            
+            
+        }
+        void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            dataGridView1.DataSource = ds.Tables[0];
+        }
 
     }
 }
