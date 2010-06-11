@@ -6,11 +6,20 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+
+using System.Runtime.InteropServices;
+using System.Diagnostics; 
 
 namespace QMS3
 {
     public partial class QmsMain : Form
-    {
+    {   
+        /****三个自定义类对象的初始化****/
+        QMS3.BaseClass.BaseOperate boperate = new QMS3.BaseClass.BaseOperate();//建一个BaseOperate类的对象boperate
+       // QMS3.BaseClass.OperateAndValidate opAndvalidate = new QMS.BaseClass.OperateAndValidate();
+       // QMS3.CfCardPC.CfCardPC cardrelated = new QMS.CfCardPC.CfCardPC();
+        /******************************/
         bool ifcon = false;
         public QmsMain()
         {
@@ -93,7 +102,18 @@ namespace QMS3
                                                     "&chtt=转运中心当天时间分布情况&chco=ff0000&chts=0000FF,20" +
                                                     "&chg=5,20";
                     pictureBox2.Load();
+                    string systime=System.DateTime.Now.ToString("yy-MM-dd");
+                    debugtextbox.Text = systime;
+                    DataSet ds;
+                    string strSQL = "SELECT DISTINCT  [db_rfidtest].[rfidtest].[dbo.Station].[Name] AS '起始站点' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[BoxCardID] AS '货箱卡号' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[TruckNo] AS '货车牌号' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] AS '开始时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] AS '结束时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[Weight] AS '重量(单位:吨)' FROM  [db_rfidtest].[rfidtest].[dbo.Goods] INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] ON   [db_rfidtest].[rfidtest].[dbo.Goods].[StartStationID] = [db_rfidtest].[rfidtest].[dbo.Station].[StationID] WHERE  [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] > '"+systime+",00:00+'";
+                    string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
+
+                    ds = boperate.getds(strSQL, strTable);
+                    //DataSet中的SQL查询结果放入DataGridView中
+                    //dataGridView1.DataSource = db_rfidtestDataSet._dbo_Goods;
+                    dataGridView1.DataSource = ds.Tables[0];
                     
+  
                     MainTab.SelectTab(9);
                 }
                 break;
@@ -429,7 +449,7 @@ namespace QMS3
                 UNtextBox.Enabled = false;
                 PSmaskedTextBox.Enabled = false;
             }
-            catch (Exception s)
+            catch 
             {
                 MessageBox.Show("输入的用户名密码有误或网络超时");
                 UNtextBox.Text = "";
@@ -476,7 +496,7 @@ namespace QMS3
                 }
 
             }
-            catch (Exception ex)
+            catch 
             {
                 MessageBox.Show("输入数值非法！");
                 textBox1.Text = "";
@@ -518,7 +538,7 @@ namespace QMS3
                     this.dbo_GoodsTableAdapter.UpdateGoodsByTime(1, double.Parse(textBox1.Text),TransCenter.sEndTime, Starttime, StartStation);   
                     listBox1.Items.Add(info);
                 }
-                catch(Exception xs)
+                catch
                 {
                     MessageBox.Show("数据库同步失败！");
                     listBox1.Items.Add(info + "   " + "数据库同步失败！");
