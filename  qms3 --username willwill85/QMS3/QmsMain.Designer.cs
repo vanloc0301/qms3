@@ -835,6 +835,7 @@
             // login
             // 
             this.login.DoWork += new System.ComponentModel.DoWorkEventHandler(this.login_DoWork);
+            this.login.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.login_RunWorkerCompleted);
             // 
             // QmsMain
             // 

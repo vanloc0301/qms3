@@ -24,6 +24,7 @@ namespace QMS3
         DataSet ds;
         string Dayreport;
         string right;
+        bool conneted = false;
         public QmsMain()
         {
             InitializeComponent();
@@ -66,6 +67,7 @@ namespace QMS3
             PSmaskedTextBox.Enabled = true;
             button1.Enabled = true;
             button2.Enabled = false;
+            conneted = false;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -431,24 +433,27 @@ namespace QMS3
         private void button1_Click(object sender, EventArgs e)
         {
            // label5.Text = textBox1.Text;
-            string k="0";
-            try
-            {
-                k = this.dbo_UserTableAdapter.ValidateUser(UNtextBox.Text, MD5.MDString(PSmaskedTextBox.Text)).ToString();
-                button1.Enabled = false;
-                button2.Enabled = true;
-                UNtextBox.Enabled = false;
-                PSmaskedTextBox.Enabled = false;
-            }
-            catch 
-            {
-                MessageBox.Show("输入的用户名密码有误或网络超时");
-                UNtextBox.Text = "";
-                PSmaskedTextBox.Text = "";
-            }
-            label5.Text = k;
-            treeView1.Nodes.Clear();
-            treeviewload(int.Parse(label5.Text));
+            if (!login.IsBusy)
+                login.RunWorkerAsync();
+            else
+                MessageBox.Show("正在登陆中情耐心等待！");
+            //try
+            //{
+                
+            //    button1.Enabled = false;
+            //    button2.Enabled = true;
+            //    UNtextBox.Enabled = false;
+            //    PSmaskedTextBox.Enabled = false;
+            //}
+            //catch 
+            //{
+            //    MessageBox.Show("输入的用户名密码有误或网络超时");
+            //    UNtextBox.Text = "";
+            //    PSmaskedTextBox.Text = "";
+            //}
+            //label5.Text = k;
+            //treeView1.Nodes.Clear();
+            //treeviewload(int.Parse(label5.Text));
            
         }
 
@@ -663,7 +668,38 @@ namespace QMS3
 
         private void login_DoWork(object sender, DoWorkEventArgs e)
         {
+            try
+            {
+                right = this.dbo_UserTableAdapter.ValidateUser(UNtextBox.Text, MD5.MDString(PSmaskedTextBox.Text)).ToString();
+                conneted = true;
+            }
+            catch
+            {
+                right = "0";
+                conneted = false;
+            }
 
         }
+        void login_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if(conneted)
+            {
+
+                button1.Enabled = false;
+                button2.Enabled = true;
+                UNtextBox.Enabled = false;
+                PSmaskedTextBox.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("输入的用户名密码有误或网络超时");
+                UNtextBox.Text = "";
+                PSmaskedTextBox.Text = "";
+            }
+            label5.Text = right;
+            treeView1.Nodes.Clear();
+            treeviewload(int.Parse(label5.Text));
+        }
+
     }
 }
