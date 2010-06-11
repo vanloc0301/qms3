@@ -172,10 +172,10 @@ namespace QMS3
 
 
             System.Windows.Forms.TreeNode treeNode236 = new System.Windows.Forms.TreeNode("报表生成器", new System.Windows.Forms.TreeNode[] {treeNode216,treeNode217,treeNode218 });
-            this.treeView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            //this.treeView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.treeView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            //this.treeView1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.treeView1.Location = new System.Drawing.Point(3, 22);
             this.treeView1.Name = "treeView1";
            
@@ -434,7 +434,10 @@ namespace QMS3
         {
            // label5.Text = textBox1.Text;
             if (!login.IsBusy)
+            {
                 login.RunWorkerAsync();
+                LogingroupBox.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            }
             else
                 MessageBox.Show("正在登陆中情耐心等待！");
             //try
@@ -579,7 +582,7 @@ namespace QMS3
             catch
             {
                 MessageBox.Show("网络连接失败！请稍后重试");
-                showDayreport.CancelAsync();
+                //showDayreport.CancelAsync();
             }
             ////DataSet中的SQL查询结果放入DataGridView中
             ////dataGridView1.DataSource = db_rfidtestDataSet._dbo_Goods;
@@ -588,8 +591,15 @@ namespace QMS3
         }
         void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            dataGridView1.DataSource = ds.Tables[0];
-            progressBar2.Visible = false;
+            try
+            {
+                dataGridView1.DataSource = ds.Tables[0];
+                progressBar2.Visible = false;
+            }
+            catch
+            {
+            }
+
         }
        
         void backgroundWorker1_ProgressChanged(Object sender, ProgressChangedEventArgs e)
@@ -613,39 +623,42 @@ namespace QMS3
         private void showDayImagereport_DoWork(object sender, DoWorkEventArgs e)
         {
             //pictureBox2.ImageLocation 
-             Dayreport= "http://chart.apis.google.com/chart?cht=lc" +
+             Dayreport= "http://chart.apis.google.com/chart?cht=ls" +
                                 "&chs=836x250" +
                               //  "&chd=t:1,0,3,9,5,8,14,8,9,6,11,12,4,6,4,2" +
                                 "&chds=0,15" +
                                 "&chxt=x,y&chxl=0:|5:00|6:00|7:00|8:00|9:00|10:00|11:00|12:00|13:00|14:00|15:00|16:00|17:00|18:00|19:00|20:00|1:|0|5|10|15&chf=bg,s,EFEFEF" +
-                                "&chtt=转运中心当天时间分布情况&chco=ff0000&chts=0000FF,20" +
+                                "&chtt=转运中心当天时间分布情况&chco=4d89f9&chts=0000FF,20" +
                                 "&chg=5,20";
              string chd = "&chd=t:";
              int pc = 0;
-             for (int i = 5; i <= 20; i++)
+             try
              {
-                 string p1,p2;
-                 if(i<10)
-                      p1 = dateTimePicker1.Value.ToString("yy-MM-dd")+",0"+i.ToString();
-                 else
-                      p1= dateTimePicker1.Value.ToString("yy-MM-dd")+","+i.ToString();
-                 if((i+1)<10)
-                      p2 = dateTimePicker1.Value.ToString("yy-MM-dd")+",0"+(i+1).ToString();
-                 else
-                     p2 = dateTimePicker1.Value.ToString("yy-MM-dd") + "," + (i + 1).ToString();
+                 for (int i = 5; i <= 20; i++)
+                 {
+                     string p1,p2;
+                     if(i<10)
+                          p1 = dateTimePicker1.Value.ToString("yy-MM-dd")+",0"+i.ToString();
+                     else
+                          p1= dateTimePicker1.Value.ToString("yy-MM-dd")+","+i.ToString();
+                     if((i+1)<10)
+                          p2 = dateTimePicker1.Value.ToString("yy-MM-dd")+",0"+(i+1).ToString();
+                     else
+                         p2 = dateTimePicker1.Value.ToString("yy-MM-dd") + "," + (i + 1).ToString();
 
-                 try
-                 {
-                     chd += this.dbo_GoodsTableAdapter.NumBetweenTime(p1, p2) + ",";
-                 }
-                 catch
-                 {
-                     MessageBox.Show("网络连接失败！请稍后重试");
-                     showDayImagereport.CancelAsync();
-                 }
-                 pc += 6;
-                 showDayImagereport.ReportProgress(pc);
-                 
+                   
+                         chd += this.dbo_GoodsTableAdapter.NumBetweenTime(p1, p2) + ",";
+                    
+
+                     pc += 6;
+                     showDayImagereport.ReportProgress(pc);
+                     
+                  }
+             }
+             catch
+             {
+                    MessageBox.Show("网络连接失败！请稍后重试");
+                  //showDayImagereport.CancelAsync();
              }
              Dayreport += chd;
              Dayreport = Dayreport.Substring(0, Dayreport.Length - 1);
@@ -699,6 +712,8 @@ namespace QMS3
             label5.Text = right;
             treeView1.Nodes.Clear();
             treeviewload(int.Parse(label5.Text));
+            LogingroupBox.Cursor = System.Windows.Forms.Cursors.Arrow;
+            
         }
 
     }

@@ -206,7 +206,8 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(126, 97);
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.Location = new System.Drawing.Point(3, 24);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(221, 60);
             this.label6.TabIndex = 1;
@@ -215,7 +216,7 @@
             // t1label1
             // 
             this.t1label1.AutoSize = true;
-            this.t1label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.t1label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.t1label1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.t1label1.Location = new System.Drawing.Point(3, 3);
             this.t1label1.Name = "t1label1";
@@ -619,10 +620,10 @@
             // 
             // treeView1
             // 
-            this.treeView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.treeView1.BackColor = System.Drawing.SystemColors.Control;
             this.treeView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.treeView1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.treeView1.Location = new System.Drawing.Point(3, 22);
             this.treeView1.Name = "treeView1";
             treeNode1.Name = "节点1";
