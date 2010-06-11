@@ -83,7 +83,19 @@ namespace QMS3
                 break;
                 case "TreeNode: 垃圾楼状态信息查询":    MainTab.SelectTab(8);
                 break;
-                case "TreeNode: 转运中心状态信息查询":  MainTab.SelectTab(9);
+                case "TreeNode: 转运中心状态信息查询":
+                {
+                    pictureBox2.ImageLocation =     "http://chart.apis.google.com/chart?cht=lc"+
+                                                    "&chs=836x250"+
+                                                    "&chd=t:1,0,3,9,5,8,14,8,9,6,11,12,4,6,4,2"+
+                                                    "&chds=0,15"+
+                                                    "&chxt=x,y&chxl=0:|5:00|6:00|7:00|8:00|9:00|10:00|11:00|12:00|13:00|14:00|15:00|16:00|17:00|18:00|19:00|20:00|1:|0|5|10|15&chf=bg,s,EFEFEF"+
+                                                    "&chtt=转运中心当天时间分布情况&chco=ff0000&chts=0000FF,20" +
+                                                    "&chg=5,20";
+                    pictureBox2.Load();
+                    
+                    MainTab.SelectTab(9);
+                }
                 break;
                 case "TreeNode: 转运中心结算":
                 {
@@ -522,5 +534,7 @@ namespace QMS3
             textBox1.Text = "";
 
         }
+
+
     }
 }
