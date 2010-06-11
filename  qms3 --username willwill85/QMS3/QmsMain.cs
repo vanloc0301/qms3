@@ -436,7 +436,64 @@ namespace QMS3
 
         private void button3_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("!");
+            double x;
+            try
+            {
+                x = Convert.ToDouble(textBox1.Text.Trim());
+                //直接转换，如果是数字无异常，如果不是数字会抛异常
+                if (x > 10 || x < 0)
+                {
+                    MessageBox.Show("输入数值过大！");
+                    textBox1.Text = "";
+                    return;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("输入数值非法！");
+                textBox1.Text = "";
+                return;
+            }
+            //  if (!CheckState())
+            //    return;
+            // WritetoCard(textBox1.Text);
+            // WritetoDatabase(textBox1.Text);
+            string ID = "";
+            int Ccount = 0;
+
+            if (TransCenter.Request(ref ID, ref Ccount) == 0)
+            {
+                debugtextbox.Text += "\n读到卡数"+ Ccount.ToString()+"\n";
+                if (Ccount == 1)
+                    listBox1.Items.Add("操作卡号：" + TransCenter.ToHexString(TransCenter.TagBuffer).Substring(2, 6));
+                else
+                {
+                    MessageBox.Show("区域内检查到" + Ccount.ToString() + "张卡片！\n请确保1张卡片在扫描区域中再操作！");
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("没有读到卡片！");
+                return;
+            }
+            string info = "";
+            if (TransCenter.readinfo(ref info,textBox1.Text))
+            {
+                //this.myadapter.UpdateCommand = new SqlCommand(" UPDATE [dbo.Goods] SET [State] = @State, [Weight] = @Weight WHERE (BoxCardID = @BoxCardID) AND (TruckNo = @TruckNo) AND (StartTime = @StartTime) AND (StartStationID = @StartStationID)");
+
+                //MessageBox.Show("OK");
+            }
+            else
+            {
+                MessageBox.Show("操作失败！");
+                return;
+            }
+            listBox1.Items.Add(info);
+            MessageBox.Show("操作成功！");
+            textBox1.Text = "";
+
         }
     }
 }
