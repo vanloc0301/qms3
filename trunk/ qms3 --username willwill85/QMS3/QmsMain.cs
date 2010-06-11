@@ -22,6 +22,7 @@ namespace QMS3
         /******************************/
         bool ifcon = false;
         DataSet ds;
+        string Dayreport;
         public QmsMain()
         {
             InitializeComponent();
@@ -95,29 +96,14 @@ namespace QMS3
                 break;
                 case "TreeNode: 转运中心状态信息查询":
                 {
-                    pictureBox2.ImageLocation =     "http://chart.apis.google.com/chart?cht=lc"+
-                                                    "&chs=836x250"+
-                                                    "&chd=t:1,0,3,9,5,8,14,8,9,6,11,12,4,6,4,2"+
-                                                    "&chds=0,15"+
-                                                    "&chxt=x,y&chxl=0:|5:00|6:00|7:00|8:00|9:00|10:00|11:00|12:00|13:00|14:00|15:00|16:00|17:00|18:00|19:00|20:00|1:|0|5|10|15&chf=bg,s,EFEFEF"+
-                                                    "&chtt=转运中心当天时间分布情况&chco=ff0000&chts=0000FF,20" +
-                                                    "&chg=5,20";
-                    pictureBox2.Load(); 
-                    //debugtextbox.Text = systime;
-                    showDayreport.RunWorkerAsync();
-                    //DataSet ds;
-                    //string strSQL = "SELECT DISTINCT  [db_rfidtest].[rfidtest].[dbo.Station].[Name] AS '起始站点' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[BoxCardID] AS '货箱卡号' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[TruckNo] AS '货车牌号' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] AS '开始时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] AS '结束时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[Weight] AS '重量(单位:吨)' FROM  [db_rfidtest].[rfidtest].[dbo.Goods] INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] ON   [db_rfidtest].[rfidtest].[dbo.Goods].[StartStationID] = [db_rfidtest].[rfidtest].[dbo.Station].[StationID] WHERE  [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] > '" + systime + ",00:00+'";
-                    //string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
+                    progressBar2.Visible = true;
+                    progressBar1.Visible = true;
 
-                    //ds = boperate.getds(strSQL, strTable);
-                    ////DataSet中的SQL查询结果放入DataGridView中
-                    ////dataGridView1.DataSource = db_rfidtestDataSet._dbo_Goods;
-                    //dataGridView1.DataSource = ds.Tables[0];
-                    //string systime=System.DateTime.Now.ToString("yy-MM-dd");
-                    //
-
-                    
-  
+                    if(!showDayreport.IsBusy)
+                        showDayreport.RunWorkerAsync();
+                    if (!showDayImagereport.IsBusy)
+                        showDayImagereport.RunWorkerAsync();
+                    dateTimePicker1.Value = System.DateTime.Now;  
                     MainTab.SelectTab(9);
                 }
                 break;
@@ -567,20 +553,96 @@ namespace QMS3
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             
-            string systime = System.DateTime.Now.ToString("yy-MM-dd");
-            string strSQL = "SELECT DISTINCT  [db_rfidtest].[rfidtest].[dbo.Station].[Name] AS '起始站点' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[BoxCardID] AS '货箱卡号' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[TruckNo] AS '货车牌号' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] AS '开始时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] AS '结束时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[Weight] AS '重量(单位:吨)' FROM  [db_rfidtest].[rfidtest].[dbo.Goods] INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] ON   [db_rfidtest].[rfidtest].[dbo.Goods].[StartStationID] = [db_rfidtest].[rfidtest].[dbo.Station].[StationID] WHERE  [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] > '" + systime + ",00:00+'";
+            
+            string systime = dateTimePicker1.Value.ToString("yy-MM-dd");
+            
+            showDayreport.ReportProgress(30);
+            string strSQL = "SELECT DISTINCT  [db_rfidtest].[rfidtest].[dbo.Station].[Name] AS '起始站点' , "+
+                " [db_rfidtest].[rfidtest].[dbo.Goods].[BoxCardID] AS '货箱卡号' ,  "+
+                "[db_rfidtest].[rfidtest].[dbo.Goods].[TruckNo] AS '货车牌号' ,  "+
+                "[db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] AS '开始时间' ,  "+
+                "[db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] AS '结束时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[Weight] AS '重量(单位:吨)'"+
+                " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] ON   "+
+                "[db_rfidtest].[rfidtest].[dbo.Goods].[StartStationID] = [db_rfidtest].[rfidtest].[dbo.Station].[StationID] "+
+                "WHERE  [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] > '" + systime + ",00:00' AND [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] < '" + systime + ",23:59'";
             string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
-
+            showDayreport.ReportProgress(80);
             ds = boperate.getds(strSQL, strTable);
             ////DataSet中的SQL查询结果放入DataGridView中
             ////dataGridView1.DataSource = db_rfidtestDataSet._dbo_Goods;
-            
+            showDayreport.ReportProgress(99);
             
         }
         void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             dataGridView1.DataSource = ds.Tables[0];
+            progressBar2.Visible = false;
+        }
+       
+        void backgroundWorker1_ProgressChanged(Object sender, ProgressChangedEventArgs e)
+        {
+            progressBar2.Value = e.ProgressPercentage;
+            debugtextbox.Text += e.ProgressPercentage.ToString()+".";
+
         }
 
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            //showDayreport.RunWorkerAsync();
+            progressBar2.Visible = true;
+            progressBar1.Visible = true;
+            if (!showDayreport.IsBusy)
+                showDayreport.RunWorkerAsync();
+            if (!showDayImagereport.IsBusy)
+                showDayImagereport.RunWorkerAsync();
+        }
+
+        private void showDayImagereport_DoWork(object sender, DoWorkEventArgs e)
+        {
+            //pictureBox2.ImageLocation 
+             Dayreport= "http://chart.apis.google.com/chart?cht=lc" +
+                                "&chs=836x250" +
+                              //  "&chd=t:1,0,3,9,5,8,14,8,9,6,11,12,4,6,4,2" +
+                                "&chds=0,15" +
+                                "&chxt=x,y&chxl=0:|5:00|6:00|7:00|8:00|9:00|10:00|11:00|12:00|13:00|14:00|15:00|16:00|17:00|18:00|19:00|20:00|1:|0|5|10|15&chf=bg,s,EFEFEF" +
+                                "&chtt=转运中心当天时间分布情况&chco=ff0000&chts=0000FF,20" +
+                                "&chg=5,20";
+             string chd = "&chd=t:";
+             int pc = 0;
+             for (int i = 5; i <= 20; i++)
+             {
+                 string p1,p2;
+                 if(i<10)
+                      p1 = dateTimePicker1.Value.ToString("yy-MM-dd")+",0"+i.ToString();
+                 else
+                      p1= dateTimePicker1.Value.ToString("yy-MM-dd")+","+i.ToString();
+                 if((i+1)<10)
+                      p2 = dateTimePicker1.Value.ToString("yy-MM-dd")+",0"+(i+1).ToString();
+                 else
+                     p2 = dateTimePicker1.Value.ToString("yy-MM-dd") + "," + (i + 1).ToString();
+
+                 chd += this.dbo_GoodsTableAdapter.NumBetweenTime(p1,p2)+",";
+                 pc += 6;
+                 showDayImagereport.ReportProgress(pc);
+                 
+             }
+             Dayreport += chd;
+             Dayreport = Dayreport.Substring(0, Dayreport.Length - 1);
+            //pictureBox2.Load(); 
+        }
+        void showDayImagereport_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            debugtextbox.Text +="    "+ Dayreport;
+            progressBar1.Visible = false;
+            pictureBox2.ImageLocation = Dayreport;
+            pictureBox2.Load();
+        }
+
+        void showDayImagereport_ProgressChanged(Object sender, ProgressChangedEventArgs e)
+        {
+            progressBar1.Value = e.ProgressPercentage;
+            debugtextbox.Text += e.ProgressPercentage.ToString() + ".";
+
+        }
     }
 }
