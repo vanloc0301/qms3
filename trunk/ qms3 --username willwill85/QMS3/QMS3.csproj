@@ -57,7 +57,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>db_rfidtestDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="MD5.cs" />
+    <Compile Include="Classes\MD5.cs" />
     <Compile Include="QmsMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,7 +89,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="TransCenter.cs" />
+    <Compile Include="Classes\TransCenter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo2.jpg" />

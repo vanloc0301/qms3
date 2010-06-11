@@ -82,7 +82,7 @@ namespace QMS3
         #endregion
         const int OK = 0;
 
-        public bool connect()
+        public static bool connect()
         {
             char[] ipaddr = "192.168.0.88".ToCharArray();
             char[] ipaddr2 = "192.168.0.100".ToCharArray();
