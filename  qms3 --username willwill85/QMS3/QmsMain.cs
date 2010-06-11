@@ -28,7 +28,7 @@ namespace QMS3
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            tabControl1.ItemSize = new Size(1, 1);
+            结算.ItemSize = new Size(1, 1);
             treeView1.Nodes.Clear();
         }
 
@@ -46,7 +46,7 @@ namespace QMS3
         private void button2_Click(object sender, EventArgs e)
         {
             treeView1.Nodes.Clear();
-            tabControl1.SelectTab(0);
+            结算.SelectTab(0);
             UNtextBox.Text = "";
             UNtextBox.Enabled = true;
             PSmaskedTextBox.Text = "";
@@ -66,41 +66,41 @@ namespace QMS3
             treeView1.SelectedNode.Nodes.ToString();
             switch (treeView1.SelectedNode.ToString())
             {
-                case "TreeNode: 发司机卡":              tabControl1.SelectTab(1);
+                case "TreeNode: 发司机卡":              结算.SelectTab(1);
                 break;
-                case "TreeNode: 司机信息编辑":          tabControl1.SelectTab(2);
+                case "TreeNode: 司机信息编辑":          结算.SelectTab(2);
                 break;
-                case "TreeNode: 司机信息查询":          tabControl1.SelectTab(3);
+                case "TreeNode: 司机信息查询":          结算.SelectTab(3);
                 break;
-                case "TreeNode: 发货箱卡":              tabControl1.SelectTab(4);
+                case "TreeNode: 发货箱卡":              结算.SelectTab(4);
                 break;
-                case "TreeNode: 货箱信息编辑":          tabControl1.SelectTab(5);
+                case "TreeNode: 货箱信息编辑":          结算.SelectTab(5);
                 break;
-                case "TreeNode: 货箱信息查询":          tabControl1.SelectTab(6);
+                case "TreeNode: 货箱信息查询":          结算.SelectTab(6);
                 break;
-                case "TreeNode: 车辆状态信息查询":      tabControl1.SelectTab(7);
+                case "TreeNode: 车辆状态信息查询":      结算.SelectTab(7);
                 break;
-                case "TreeNode: 垃圾楼状态信息查询":    tabControl1.SelectTab(8);
+                case "TreeNode: 垃圾楼状态信息查询":    结算.SelectTab(8);
                 break;
-                case "TreeNode: 转运中心状态信息查询":  tabControl1.SelectTab(9);
+                case "TreeNode: 转运中心状态信息查询":  结算.SelectTab(9);
                 break;
-                case "TreeNode: 转运中心结算":          tabControl1.SelectTab(10);
+                case "TreeNode: 转运中心结算":          结算.SelectTab(10);
                 break;
-                case "TreeNode: 西城区状态信息查询":    tabControl1.SelectTab(11);
+                case "TreeNode: 西城区状态信息查询":    结算.SelectTab(11);
                 break;
-                case "TreeNode: 异常数据处理器":        tabControl1.SelectTab(12);
+                case "TreeNode: 异常数据处理器":        结算.SelectTab(12);
                 break;
-                case "TreeNode: 用户管理":              tabControl1.SelectTab(13);
+                case "TreeNode: 用户管理":              结算.SelectTab(13);
                 break;
-                case "TreeNode: 垃圾楼管理":            tabControl1.SelectTab(14);
+                case "TreeNode: 垃圾楼管理":            结算.SelectTab(14);
                 break;
-                case "TreeNode: 班长管理":              tabControl1.SelectTab(15);
+                case "TreeNode: 班长管理":              结算.SelectTab(15);
                 break;
-                case "TreeNode: 日垃圾清运完成情况":    tabControl1.SelectTab(16);
+                case "TreeNode: 日垃圾清运完成情况":    结算.SelectTab(16);
                     break;
-                case "TreeNode: 月清运垃圾明细表":      tabControl1.SelectTab(17);
+                case "TreeNode: 月清运垃圾明细表":      结算.SelectTab(17);
                     break;
-                case "TreeNode: 年度垃圾垃圾明细表":    tabControl1.SelectTab(18);
+                case "TreeNode: 年度垃圾垃圾明细表":    结算.SelectTab(18);
                     break;
 
 
@@ -418,11 +418,25 @@ namespace QMS3
         private void timer1_Tick(object sender, EventArgs e)
         {
             //debugtextbox.Text= treeView1.SelectedNode.Nodes.ToString();
+
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Length > 0)
+                this.AcceptButton = button3;
+            else
+                this.AcceptButton = button1;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("!");
         }
     }
 }
