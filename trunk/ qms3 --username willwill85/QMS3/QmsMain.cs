@@ -11,6 +11,7 @@ namespace QMS3
 {
     public partial class QmsMain : Form
     {
+        bool ifcon = false;
         public QmsMain()
         {
             InitializeComponent();
@@ -28,7 +29,7 @@ namespace QMS3
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            结算.ItemSize = new Size(1, 1);
+            MainTab.ItemSize = new Size(1, 1);
             treeView1.Nodes.Clear();
         }
 
@@ -46,7 +47,7 @@ namespace QMS3
         private void button2_Click(object sender, EventArgs e)
         {
             treeView1.Nodes.Clear();
-            结算.SelectTab(0);
+            MainTab.SelectTab(0);
             UNtextBox.Text = "";
             UNtextBox.Enabled = true;
             PSmaskedTextBox.Text = "";
@@ -66,41 +67,55 @@ namespace QMS3
             treeView1.SelectedNode.Nodes.ToString();
             switch (treeView1.SelectedNode.ToString())
             {
-                case "TreeNode: 发司机卡":              结算.SelectTab(1);
+                case "TreeNode: 发司机卡":              MainTab.SelectTab(1);
                 break;
-                case "TreeNode: 司机信息编辑":          结算.SelectTab(2);
+                case "TreeNode: 司机信息编辑":          MainTab.SelectTab(2);
                 break;
-                case "TreeNode: 司机信息查询":          结算.SelectTab(3);
+                case "TreeNode: 司机信息查询":          MainTab.SelectTab(3);
                 break;
-                case "TreeNode: 发货箱卡":              结算.SelectTab(4);
+                case "TreeNode: 发货箱卡":              MainTab.SelectTab(4);
                 break;
-                case "TreeNode: 货箱信息编辑":          结算.SelectTab(5);
+                case "TreeNode: 货箱信息编辑":          MainTab.SelectTab(5);
                 break;
-                case "TreeNode: 货箱信息查询":          结算.SelectTab(6);
+                case "TreeNode: 货箱信息查询":          MainTab.SelectTab(6);
                 break;
-                case "TreeNode: 车辆状态信息查询":      结算.SelectTab(7);
+                case "TreeNode: 车辆状态信息查询":      MainTab.SelectTab(7);
                 break;
-                case "TreeNode: 垃圾楼状态信息查询":    结算.SelectTab(8);
+                case "TreeNode: 垃圾楼状态信息查询":    MainTab.SelectTab(8);
                 break;
-                case "TreeNode: 转运中心状态信息查询":  结算.SelectTab(9);
+                case "TreeNode: 转运中心状态信息查询":  MainTab.SelectTab(9);
                 break;
-                case "TreeNode: 转运中心结算":          结算.SelectTab(10);
-                break;
-                case "TreeNode: 西城区状态信息查询":    结算.SelectTab(11);
-                break;
-                case "TreeNode: 异常数据处理器":        结算.SelectTab(12);
-                break;
-                case "TreeNode: 用户管理":              结算.SelectTab(13);
-                break;
-                case "TreeNode: 垃圾楼管理":            结算.SelectTab(14);
-                break;
-                case "TreeNode: 班长管理":              结算.SelectTab(15);
-                break;
-                case "TreeNode: 日垃圾清运完成情况":    结算.SelectTab(16);
+                case "TreeNode: 转运中心结算":
+                {
+                    MainTab.SelectTab(10);
+                    if (!ifcon)
+                    {
+                        if (TransCenter.connect())
+                        {
+                            ifcon = true;
+                        }
+                        else
+                        {
+                            MainTab.SelectTab(0);
+                        }
+                    }
                     break;
-                case "TreeNode: 月清运垃圾明细表":      结算.SelectTab(17);
+                }
+                case "TreeNode: 西城区状态信息查询":    MainTab.SelectTab(11);
+                break;
+                case "TreeNode: 异常数据处理器":        MainTab.SelectTab(12);
+                break;
+                case "TreeNode: 用户管理":              MainTab.SelectTab(13);
+                break;
+                case "TreeNode: 垃圾楼管理":            MainTab.SelectTab(14);
+                break;
+                case "TreeNode: 班长管理":              MainTab.SelectTab(15);
+                break;
+                case "TreeNode: 日垃圾清运完成情况":    MainTab.SelectTab(16);
                     break;
-                case "TreeNode: 年度垃圾垃圾明细表":    结算.SelectTab(18);
+                case "TreeNode: 月清运垃圾明细表":      MainTab.SelectTab(17);
+                    break;
+                case "TreeNode: 年度垃圾垃圾明细表":    MainTab.SelectTab(18);
                     break;
 
 
@@ -158,12 +173,12 @@ namespace QMS3
             treeNode215.Name = "节点11";
             treeNode215.Text = "班长管理";
 
-            treeNode213.Name = "节点12";
-            treeNode213.Text = "日垃圾清运完成情况";
-            treeNode214.Name = "节点13";
-            treeNode214.Text = "月清运垃圾明细表";
-            treeNode215.Name = "节点14";
-            treeNode215.Text = "年度垃圾垃圾明细表";
+            treeNode216.Name = "节点12";
+            treeNode216.Text = "日垃圾清运完成情况";
+            treeNode217.Name = "节点13";
+            treeNode217.Text = "月清运垃圾明细表";
+            treeNode218.Name = "节点14";
+            treeNode218.Text = "年度垃圾垃圾明细表";
 
 
 
@@ -461,12 +476,7 @@ namespace QMS3
             // WritetoDatabase(textBox1.Text);
             string ID = "";
             int Ccount = 0;
-            if (TransCenter.connect())
-            { }
-            else
-            {
-                return;
-            }
+
             if (TransCenter.Request(ref ID, ref Ccount) == 0)
             {
                 debugtextbox.Text += "\n读到卡数"+ Ccount.ToString()+"\n";
@@ -484,18 +494,30 @@ namespace QMS3
                 return;
             }
             string info = "";
-            if (TransCenter.readinfo(ref info,textBox1.Text))
+            string Starttime="";
+            int StartStation = 0;
+            if (TransCenter.readinfo(ref info,textBox1.Text,ref Starttime,ref StartStation))
             {
                 //this.myadapter.UpdateCommand = new SqlCommand(" UPDATE [dbo.Goods] SET [State] = @State, [Weight] = @Weight WHERE (BoxCardID = @BoxCardID) AND (TruckNo = @TruckNo) AND (StartTime = @StartTime) AND (StartStationID = @StartStationID)");
 
                 //MessageBox.Show("OK");
+                try
+                {
+                    this.dbo_GoodsTableAdapter.UpdateGoodsByTime(1, double.Parse(textBox1.Text), Starttime, StartStation);   
+                    listBox1.Items.Add(info);
+                }
+                catch(Exception xs)
+                {
+                    MessageBox.Show("数据库同步失败！");
+                    listBox1.Items.Add(info + "   " + "数据库同步失败！");
+                }
             }
             else
             {
                 MessageBox.Show("操作失败！");
+                listBox1.Items.Add(info);
                 return;
             }
-            listBox1.Items.Add(info);
             MessageBox.Show("操作成功！");
             textBox1.Text = "";
 

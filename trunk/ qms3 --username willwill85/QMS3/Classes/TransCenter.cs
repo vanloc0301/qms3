@@ -127,7 +127,7 @@ namespace QMS3
             }
             return true;
         }
-        public static bool readinfo(ref string info,string weight)
+        public static bool readinfo(ref string info,string weight,ref string st,ref int ss )
         {
             string sInfoR = "";
             if (ReadString(13, 1, ref sInfoR) != 0)
@@ -198,15 +198,13 @@ namespace QMS3
                 info="卡中的始发站号有误！";
                 return false;
             }
-            try
-            {
+
                 //this.GoodsTableAdaper.UpdateQueryByTime(2, double.Parse(textBox1.Text), sStartTime, nStartSpotNum);
-                info="车号：" + sCarNum + ";      " + "发车时间：" + sStartTime + ";      " + "重量：" + weight + ";      " + "始发站：" + StationName[nStartSpotNum - 30] + ".";
-            }
-            catch (Exception k)
-            {
-                MessageBox.Show("同步数据库出错!");
-            }
+                st=sStartTime;
+                ss = nStartSpotNum;
+                info="车号：" + sCarNum + ";      " + "发车时间：" + sStartTime + ";      " + "重量：" + weight + ";      " + "始发站：" + StationName[nStartSpotNum - 31] + ".";
+
+
             //listBox1.Items.Add("始发站：" + StationName[nStartSpotNum - 30] + ";      " + "发车时间：" + sStartTime + ";      " + "车号：" + sCarNum + ".");
             //MessageBox.Show(sInfoR);
             //MessageBox.Show(sCarNum);
