@@ -23,6 +23,7 @@ namespace QMS3
         bool ifcon = false;
         DataSet ds;
         string Dayreport;
+        string right;
         public QmsMain()
         {
             InitializeComponent();
@@ -447,7 +448,6 @@ namespace QMS3
             }
             label5.Text = k;
             treeView1.Nodes.Clear();
-            debugtextbox.Text = MD5.MDString(PSmaskedTextBox.Text);
             treeviewload(int.Parse(label5.Text));
            
         }
@@ -567,7 +567,15 @@ namespace QMS3
                 "WHERE  [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] > '" + systime + ",00:00' AND [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] < '" + systime + ",23:59'";
             string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
             showDayreport.ReportProgress(80);
-            ds = boperate.getds(strSQL, strTable);
+            try
+            {
+                ds = boperate.getds(strSQL, strTable);
+            }
+            catch
+            {
+                MessageBox.Show("网络连接失败！请稍后重试");
+                showDayreport.CancelAsync();
+            }
             ////DataSet中的SQL查询结果放入DataGridView中
             ////dataGridView1.DataSource = db_rfidtestDataSet._dbo_Goods;
             showDayreport.ReportProgress(99);
@@ -621,7 +629,15 @@ namespace QMS3
                  else
                      p2 = dateTimePicker1.Value.ToString("yy-MM-dd") + "," + (i + 1).ToString();
 
-                 chd += this.dbo_GoodsTableAdapter.NumBetweenTime(p1,p2)+",";
+                 try
+                 {
+                     chd += this.dbo_GoodsTableAdapter.NumBetweenTime(p1, p2) + ",";
+                 }
+                 catch
+                 {
+                     MessageBox.Show("网络连接失败！请稍后重试");
+                     showDayImagereport.CancelAsync();
+                 }
                  pc += 6;
                  showDayImagereport.ReportProgress(pc);
                  
@@ -642,6 +658,11 @@ namespace QMS3
         {
             progressBar1.Value = e.ProgressPercentage;
             debugtextbox.Text += e.ProgressPercentage.ToString() + ".";
+
+        }
+
+        private void login_DoWork(object sender, DoWorkEventArgs e)
+        {
 
         }
     }
