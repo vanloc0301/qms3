@@ -25,6 +25,14 @@ namespace QMS3
         string Dayreport;
         string right;
         bool conneted = false;
+
+        //***added by wangchao
+        SqlConnection sqlcon;
+        DataSet crform_ds;
+        DataTable result_tb;
+        DataTable dt_goods;
+        //***
+
         public QmsMain()
         {
             InitializeComponent();
@@ -138,7 +146,19 @@ namespace QMS3
                 break;
                 case "TreeNode: 日垃圾清运完成情况":    MainTab.SelectTab(16);
                     break;
-                case "TreeNode: 每月清运垃圾明细表":    MainTab.SelectTab(17);
+                case "TreeNode: 每月清运垃圾明细表":
+                    {
+                        sqlcon = boperate.getcon();
+                        crform_ds = new DataSet();
+                        dt_goods = crform_ds.Tables.Add("Goods_Table");
+                        //用来存储最终的结果
+                        result_tb = crform_ds.Tables.Add("Result");
+                        toolStripButtonMonExl.Enabled = false;
+                        toolStripButtonDayCompExl.Enabled = false;
+                        groupBoxReport.Enabled = false;
+                        MainTab.SelectTab(17);                    
+                    }
+                    
                     break;
                 case "TreeNode: 年度清运垃圾明细表":    MainTab.SelectTab(18);
                     break;
