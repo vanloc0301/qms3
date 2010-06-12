@@ -24,9 +24,20 @@ namespace QMS3
     {   
         /****三个自定义类对象的初始化****/
         QMS3.BaseClass.BaseOperate boperate = new QMS3.BaseClass.BaseOperate();//建一个BaseOperate类的对象boperate
-       // QMS3.BaseClass.OperateAndValidate opAndvalidate = new QMS.BaseClass.OperateAndValidate();
-       // QMS3.CfCardPC.CfCardPC cardrelated = new QMS.CfCardPC.CfCardPC();
+        QMS3.OperateAndValidate.OperateAndValidate opAndvalidate = new QMS3.OperateAndValidate.OperateAndValidate();
+        QMS3.CfCardPC.CfCardPC cardrelated = new QMS3.CfCardPC.CfCardPC();
         /******************************/
+
+        #region 以下内容与读写卡有关，林秀峰
+        /*********************************************以下内容与读写卡有关，林秀峰***************************************/
+        private int CardClass = -1, DataState = -1;
+        // CardClass: 记录选择卡的类型: 0为司机卡, 1为货箱卡. 其它值无效.
+        // DateState: 记录数据库中是否有该卡: 2为数据库中含有该卡,但需要修改;
+        //                                    1为数据库中含有该卡,无需添加以及修改; 
+        //                                    0为添加新卡. 其它值无效.
+        string CardID = "";
+        #endregion
+        
         bool ifcon = false;
         DataSet ds;
         string Dayreport;
@@ -3403,6 +3414,83 @@ else
                 flag_everydayexl = false;
             }
         }
+
+        #region 司机发卡中读卡按钮
+        /// <summary>
+        /// 司机发卡中读卡按钮
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnReadCard_Click(object sender, EventArgs e)
+        {
+            bool bStatus = cardrelated.Connect();
+
+            if (!bStatus)
+            {
+                MessageBox.Show("读卡失败");
+
+                return;
+            }
+            string strStatus = "";
+            int intStatus = cardrelated.Request(ref strStatus);
+
+            ReadDriverCard();
+        }
+        #endregion
+
+        #region 读司机卡
+        /// <summary>
+        /// 读司机卡
+        /// </summary>
+        public void ReadDriverCard()
+        {
+            CardID = "";
+            int status = 0;
+            bool bStatus;
+
+            status = cardrelated.GetCardID(0, ref CardID); //0为司机卡
+
+            if (status != 0)
+            //读卡不成功
+            {
+                if (status != 3)
+                    MessageBox.Show("读卡不成功", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //ResetAll();
+                //txtCNo.Enabled = txtTruckNo.Enabled = false;
+                bStatus = cardrelated.Disconnect();
+                return;
+            }
+
+            bStatus = cardrelated.Disconnect();
+        }
+        #endregion
+
+        #region 写司机卡
+        /// <summary>
+        /// 写司机卡
+        /// </summary>
+        public void WriteDriverCard()
+        {
+        }
+        #endregion
+
+        #region 读货箱卡
+        /// <summary>
+        /// 读货箱卡
+        /// </summary>
+        public void ReadBoxCard()
+        {
+        }
+        #endregion
+
+        #region 写货箱卡
+        /// <summary>
+        /// 写货箱卡
+        /// </summary>
+        public void WriteBoxCard()
+        {
+        }
+        #endregion
         
         //*******************
 

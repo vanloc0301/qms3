@@ -36,3 +36,12 @@ F:\Documents\Xiaoxiong\Visual Studio 2005\Projects\QMS_3\QMS --username linxiufe
 F:\Documents\Xiaoxiong\Visual Studio 2005\Projects\QMS_3\QMS --username linxiufeng.work\QMS3\obj\Debug\QMS3.csproj.ResolveComReference.cache
 F:\Documents\Xiaoxiong\Visual Studio 2005\Projects\QMS_3\QMS --username linxiufeng.work\QMS3\obj\Debug\QMS3.exe
 F:\Documents\Xiaoxiong\Visual Studio 2005\Projects\QMS_3\QMS --username linxiufeng.work\QMS3\obj\Debug\QMS3.pdb
+F:\Documents\Xiaoxiong\Visual Studio 2005\Projects\QMS_3\QMS --username linxiufeng.work\QMS3\obj\Debug\ResolveAssemblyReference.cache
+F:\Documents\Xiaoxiong\Visual Studio 2005\Projects\QMS_3\QMS --username linxiufeng.work\QMS3\obj\Debug\QMS3.QmsMain.resources
+F:\Documents\Xiaoxiong\Visual Studio 2005\Projects\QMS_3\QMS --username linxiufeng.work\QMS3\obj\Debug\QMS3.Properties.Resources.resources
+F:\Documents\Xiaoxiong\Visual Studio 2005\Projects\QMS_3\QMS --username linxiufeng.work\QMS3\obj\Debug\QMS3.csproj.GenerateResource.Cache
+F:\Documents\Xiaoxiong\Visual Studio 2005\Projects\QMS_3\QMS --username linxiufeng.work\QMS3\bin\Debug\QMS3.exe
+F:\Documents\Xiaoxiong\Visual Studio 2005\Projects\QMS_3\QMS --username linxiufeng.work\QMS3\bin\Debug\QMS3.pdb
+F:\Documents\Xiaoxiong\Visual Studio 2005\Projects\QMS_3\QMS --username linxiufeng.work\QMS3\bin\Debug\Microsoft.Office.Interop.Excel.dll
+F:\Documents\Xiaoxiong\Visual Studio 2005\Projects\QMS_3\QMS --username linxiufeng.work\QMS3\bin\Debug\office.dll
+F:\Documents\Xiaoxiong\Visual Studio 2005\Projects\QMS_3\QMS --username linxiufeng.work\QMS3\bin\Debug\Microsoft.Vbe.Interop.dll
