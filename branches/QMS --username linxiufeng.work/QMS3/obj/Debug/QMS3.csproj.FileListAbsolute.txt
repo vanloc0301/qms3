@@ -32,3 +32,7 @@ C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS31\QM
 C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS31\QMS3\bin\Debug\Microsoft.Office.Interop.Excel.dll
 C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS31\QMS3\bin\Debug\office.dll
 C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS31\QMS3\bin\Debug\Microsoft.Vbe.Interop.dll
+F:\Documents\Xiaoxiong\Visual Studio 2005\Projects\QMS_3\QMS --username linxiufeng.work\QMS3\bin\Debug\QMS3.exe.config
+F:\Documents\Xiaoxiong\Visual Studio 2005\Projects\QMS_3\QMS --username linxiufeng.work\QMS3\obj\Debug\QMS3.csproj.ResolveComReference.cache
+F:\Documents\Xiaoxiong\Visual Studio 2005\Projects\QMS_3\QMS --username linxiufeng.work\QMS3\obj\Debug\QMS3.exe
+F:\Documents\Xiaoxiong\Visual Studio 2005\Projects\QMS_3\QMS --username linxiufeng.work\QMS3\obj\Debug\QMS3.pdb

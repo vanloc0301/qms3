@@ -63,6 +63,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseOperate.cs" />
+    <Compile Include="Classes\CfCardPC.cs" />
+    <Compile Include="Classes\OperateAndValidate.cs" />
     <Compile Include="CrystalReport1.cs">
       <SubType>Component</SubType>
     </Compile>
