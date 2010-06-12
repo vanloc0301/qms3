@@ -167,8 +167,8 @@ namespace QMS3
             System.Windows.Forms.TreeNode treeNode215 = new System.Windows.Forms.TreeNode("班长管理");
 
             System.Windows.Forms.TreeNode treeNode216 = new System.Windows.Forms.TreeNode("日垃圾清运完成情况");
-            System.Windows.Forms.TreeNode treeNode217 = new System.Windows.Forms.TreeNode("月清运垃圾明细表");
-            System.Windows.Forms.TreeNode treeNode218 = new System.Windows.Forms.TreeNode("年度垃圾垃圾明细表");
+            System.Windows.Forms.TreeNode treeNode217 = new System.Windows.Forms.TreeNode("每月清运垃圾明细表");
+            System.Windows.Forms.TreeNode treeNode218 = new System.Windows.Forms.TreeNode("年度清运垃圾明细表");
 
 
             System.Windows.Forms.TreeNode treeNode236 = new System.Windows.Forms.TreeNode("报表生成器", new System.Windows.Forms.TreeNode[] {treeNode216,treeNode217,treeNode218 });
@@ -201,9 +201,9 @@ namespace QMS3
             treeNode216.Name = "节点12";
             treeNode216.Text = "日垃圾清运完成情况";
             treeNode217.Name = "节点13";
-            treeNode217.Text = "月清运垃圾明细表";
+            treeNode217.Text = "每月清运垃圾明细表";
             treeNode218.Name = "节点14";
-            treeNode218.Text = "年度垃圾垃圾明细表";
+            treeNode218.Text = "年度清运垃圾明细表";
 
 
 
