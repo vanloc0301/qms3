@@ -14,7 +14,7 @@ namespace QMS3.OperateAndValidate
 {
     class OperateAndValidate
     {
-        BaseOperate boperate = new BaseOperate();//声明BaseOperate类的一个对象，以调用其方法
+        QMS3.BaseClass.BaseOperate boperate = new QMS3.BaseClass.BaseOperate();//声明BaseOperate类的一个对象，以调用其方法
 
         #region  绑定ComboBox控件
         /// <summary>
