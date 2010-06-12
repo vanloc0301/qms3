@@ -138,9 +138,9 @@ namespace QMS3
                 break;
                 case "TreeNode: 日垃圾清运完成情况":    MainTab.SelectTab(16);
                     break;
-                case "TreeNode: 月清运垃圾明细表":      MainTab.SelectTab(17);
+                case "TreeNode: 每月清运垃圾明细表":    MainTab.SelectTab(17);
                     break;
-                case "TreeNode: 年度垃圾垃圾明细表":    MainTab.SelectTab(18);
+                case "TreeNode: 年度清运垃圾明细表":    MainTab.SelectTab(18);
                     break;
 
 
