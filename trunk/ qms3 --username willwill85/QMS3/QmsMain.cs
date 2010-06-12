@@ -9,7 +9,14 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 
 using System.Runtime.InteropServices;
-using System.Diagnostics; 
+using System.Diagnostics;
+
+
+using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+using Microsoft.Office.Interop;
+using Microsoft.Office.Core;
+using System.Threading;
 
 namespace QMS3
 {
@@ -29,8 +36,14 @@ namespace QMS3
         //***added by wangchao
         SqlConnection sqlcon;
         DataSet crform_ds;
+        SqlDataAdapter crform_sqlda;
         DataTable result_tb;
         DataTable dt_goods;
+        bool flag_mon;
+        bool flag_day;
+        bool flag_exl;
+        bool flag_everyday;
+        bool flag_everydayexl;
         //***
 
         public QmsMain()
@@ -153,6 +166,53 @@ namespace QMS3
                         dt_goods = crform_ds.Tables.Add("Goods_Table");
                         //用来存储最终的结果
                         result_tb = crform_ds.Tables.Add("Result");
+
+                        #region  建立存储结果的datatable Result
+                        //向新建的存储最终的结果的DataTable加入列名
+                        DataColumn col = result_tb.Columns.Add("StaName", Type.GetType("System.String"));
+                        col.AllowDBNull = false;
+                        col.MaxLength = 20;
+                        col = result_tb.Columns.Add("SumBox", Type.GetType("System.Int32"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_2", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_3", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_4", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_5", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_6", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_7", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_8", Type.GetType("System.Decimal"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_9", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_10", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_11", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_12", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_13", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_14", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_15", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("SumWeight", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("SumBoxTail", Type.GetType("System.Int32"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("DateID", Type.GetType("System.String"));
+                        col.AllowDBNull = true;
+                        #endregion
+
+                        flag_mon = false;
+                        flag_day = false;
+                        flag_exl = false;
                         toolStripButtonMonExl.Enabled = false;
                         groupBoxReport.Enabled = false;
                         MainTab.SelectTab(17);                    
@@ -769,8 +829,1772 @@ namespace QMS3
             dataGridView2.DataSource = ds.Tables[0];
         }
 
+        //*******************added by wanchao
+        private void comboBoxDay1_DropDown(object sender, EventArgs e)//生成每个月对应的天数
+        {
+            if (comboBoxYear1.Text.Trim() == "" || comboBoxMon1.Text.Trim() == "")
+            {
+                MessageBox.Show("请先选择年月，再选择日", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+            }
+            else
+            {
+                comboBoxDay1.Items.Clear();
+                if (comboBoxMon1.Text.Trim() == "1" || comboBoxMon1.Text.Trim() == "3" || comboBoxMon1.Text.Trim() == "5" || comboBoxMon1.Text.Trim() == "7" || comboBoxMon1.Text.Trim() == "8" || comboBoxMon1.Text.Trim() == "10" || comboBoxMon1.Text.Trim() == "12")
+                {
 
 
+                    comboBoxDay1.Items.Add("1");
+                    comboBoxDay1.Items.Add("2");
+                    comboBoxDay1.Items.Add("3");
+                    comboBoxDay1.Items.Add("4");
+                    comboBoxDay1.Items.Add("5");
+                    comboBoxDay1.Items.Add("6");
+                    comboBoxDay1.Items.Add("7");
+                    comboBoxDay1.Items.Add("8");
+                    comboBoxDay1.Items.Add("9");
+                    comboBoxDay1.Items.Add("10");
+                    comboBoxDay1.Items.Add("11");
+                    comboBoxDay1.Items.Add("12");
+                    comboBoxDay1.Items.Add("13");
+                    comboBoxDay1.Items.Add("14");
+                    comboBoxDay1.Items.Add("15");
+                    comboBoxDay1.Items.Add("16");
+                    comboBoxDay1.Items.Add("17");
+                    comboBoxDay1.Items.Add("18");
+                    comboBoxDay1.Items.Add("19");
+                    comboBoxDay1.Items.Add("20");
+                    comboBoxDay1.Items.Add("21");
+                    comboBoxDay1.Items.Add("22");
+                    comboBoxDay1.Items.Add("23");
+                    comboBoxDay1.Items.Add("24");
+                    comboBoxDay1.Items.Add("25");
+                    comboBoxDay1.Items.Add("26");
+                    comboBoxDay1.Items.Add("27");
+                    comboBoxDay1.Items.Add("28");
+                    comboBoxDay1.Items.Add("29");
+                    comboBoxDay1.Items.Add("30");
+                    comboBoxDay1.Items.Add("31");
+                }
+                else if (comboBoxMon1.Text.Trim() == "4" || comboBoxMon1.Text.Trim() == "6" || comboBoxMon1.Text.Trim() == "9" || comboBoxMon1.Text.Trim() == "11")
+                {
+                    comboBoxDay1.Items.Add("1");
+                    comboBoxDay1.Items.Add("2");
+                    comboBoxDay1.Items.Add("3");
+                    comboBoxDay1.Items.Add("4");
+                    comboBoxDay1.Items.Add("5");
+                    comboBoxDay1.Items.Add("6");
+                    comboBoxDay1.Items.Add("7");
+                    comboBoxDay1.Items.Add("8");
+                    comboBoxDay1.Items.Add("9");
+                    comboBoxDay1.Items.Add("10");
+                    comboBoxDay1.Items.Add("11");
+                    comboBoxDay1.Items.Add("12");
+                    comboBoxDay1.Items.Add("13");
+                    comboBoxDay1.Items.Add("14");
+                    comboBoxDay1.Items.Add("15");
+                    comboBoxDay1.Items.Add("16");
+                    comboBoxDay1.Items.Add("17");
+                    comboBoxDay1.Items.Add("18");
+                    comboBoxDay1.Items.Add("19");
+                    comboBoxDay1.Items.Add("20");
+                    comboBoxDay1.Items.Add("21");
+                    comboBoxDay1.Items.Add("22");
+                    comboBoxDay1.Items.Add("23");
+                    comboBoxDay1.Items.Add("24");
+                    comboBoxDay1.Items.Add("25");
+                    comboBoxDay1.Items.Add("26");
+                    comboBoxDay1.Items.Add("27");
+                    comboBoxDay1.Items.Add("28");
+                    comboBoxDay1.Items.Add("29");
+                    comboBoxDay1.Items.Add("30");
+                }
+                else
+                {
+                    string year_str = comboBoxYear1.Text.Trim();
+                    int year_int = Convert.ToInt32(year_str);
+                    if (year_int % 4 == 0 || (year_int % 100 == 0 && year_int % 400 == 0))
+                    {
+                        comboBoxDay1.Items.Add("1");
+                        comboBoxDay1.Items.Add("2");
+                        comboBoxDay1.Items.Add("3");
+                        comboBoxDay1.Items.Add("4");
+                        comboBoxDay1.Items.Add("5");
+                        comboBoxDay1.Items.Add("6");
+                        comboBoxDay1.Items.Add("7");
+                        comboBoxDay1.Items.Add("8");
+                        comboBoxDay1.Items.Add("9");
+                        comboBoxDay1.Items.Add("10");
+                        comboBoxDay1.Items.Add("11");
+                        comboBoxDay1.Items.Add("12");
+                        comboBoxDay1.Items.Add("13");
+                        comboBoxDay1.Items.Add("14");
+                        comboBoxDay1.Items.Add("15");
+                        comboBoxDay1.Items.Add("16");
+                        comboBoxDay1.Items.Add("17");
+                        comboBoxDay1.Items.Add("18");
+                        comboBoxDay1.Items.Add("19");
+                        comboBoxDay1.Items.Add("20");
+                        comboBoxDay1.Items.Add("21");
+                        comboBoxDay1.Items.Add("22");
+                        comboBoxDay1.Items.Add("23");
+                        comboBoxDay1.Items.Add("24");
+                        comboBoxDay1.Items.Add("25");
+                        comboBoxDay1.Items.Add("26");
+                        comboBoxDay1.Items.Add("27");
+                        comboBoxDay1.Items.Add("28");
+                        comboBoxDay1.Items.Add("29");
+                    }
+                    else
+                    {
+                        comboBoxDay1.Items.Add("1");
+                        comboBoxDay1.Items.Add("2");
+                        comboBoxDay1.Items.Add("3");
+                        comboBoxDay1.Items.Add("4");
+                        comboBoxDay1.Items.Add("5");
+                        comboBoxDay1.Items.Add("6");
+                        comboBoxDay1.Items.Add("7");
+                        comboBoxDay1.Items.Add("8");
+                        comboBoxDay1.Items.Add("9");
+                        comboBoxDay1.Items.Add("10");
+                        comboBoxDay1.Items.Add("11");
+                        comboBoxDay1.Items.Add("12");
+                        comboBoxDay1.Items.Add("13");
+                        comboBoxDay1.Items.Add("14");
+                        comboBoxDay1.Items.Add("15");
+                        comboBoxDay1.Items.Add("16");
+                        comboBoxDay1.Items.Add("17");
+                        comboBoxDay1.Items.Add("18");
+                        comboBoxDay1.Items.Add("19");
+                        comboBoxDay1.Items.Add("20");
+                        comboBoxDay1.Items.Add("21");
+                        comboBoxDay1.Items.Add("22");
+                        comboBoxDay1.Items.Add("23");
+                        comboBoxDay1.Items.Add("24");
+                        comboBoxDay1.Items.Add("25");
+                        comboBoxDay1.Items.Add("26");
+                        comboBoxDay1.Items.Add("27");
+                        comboBoxDay1.Items.Add("28");
+                    }
+                }
+            }
+
+        }
+        private void comboBoxMon1_SelectedIndexChanged(object sender, EventArgs e)//换月，天数要变换
+        {
+            comboBoxDay1.Items.Clear();
+        }
+
+        private void toolStripButtonMonRpt_Click(object sender, EventArgs e)
+        {
+            crystalReportViewerMon.ReportSource = null;
+            #region  建立用于测试的MyDate表，并且如果查询条件合适，开启子线程
+
+            if (comboBoxYear1.Text.Trim() == "" || comboBoxMon1.Text.Trim() == "")
+            {
+                MessageBox.Show("请选择年月", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+                this.Enabled = true;
+            }
+            else
+            {
+
+
+                string yr_str = comboBoxYear1.Text.Trim();
+                string yr_nian = yr_str + "年";
+                int yr_int = Convert.ToInt32(yr_str);
+                string mon_str = comboBoxMon1.Text.Trim();
+                string mon_yue = mon_str + "月";
+                int mon_int = Convert.ToInt32(mon_str);
+                if (mon_int < 10)
+                    mon_str = "0" + mon_str;
+                string totalDate = yr_str.Substring(2, 2) + "-" + mon_str + "-";
+                //groupBox1.Enabled = true;
+                //查询时间
+
+                if (mon_int == 1 || mon_int == 3 || mon_int == 5 || mon_int == 7 || mon_int == 8 || mon_int == 10 || mon_int == 12)
+                {
+                    #region  建立用于测试的MyDate表，数据库中没有，以后可加入
+                    DataTable mydate_tb = crform_ds.Tables.Add("MyDate");
+                    DataColumn col_mydate = mydate_tb.Columns.Add("Year", Type.GetType("System.String"));
+                    col_mydate.AllowDBNull = true;
+                    col_mydate = mydate_tb.Columns.Add("Month", Type.GetType("System.String"));
+                    col_mydate.AllowDBNull = true;
+                    col_mydate = mydate_tb.Columns.Add("Day", Type.GetType("System.String"));
+                    col_mydate.AllowDBNull = true;
+                    col_mydate = mydate_tb.Columns.Add("DateID", Type.GetType("System.String"));
+                    col_mydate.AllowDBNull = false;
+                    col_mydate = mydate_tb.Columns.Add("TotalBox", Type.GetType("System.Int32"));
+                    col_mydate.AllowDBNull = true;
+                    col_mydate = mydate_tb.Columns.Add("TotalWeight", Type.GetType("System.Double"));
+                    col_mydate.AllowDBNull = true;
+                    DataRow new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "1日";
+                    new_row_mydate["DateID"] = totalDate + "01";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "2日";
+                    new_row_mydate["DateID"] = totalDate + "02";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "3日";
+                    new_row_mydate["DateID"] = totalDate + "03";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "4日";
+                    new_row_mydate["DateID"] = totalDate + "04";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "5日";
+                    new_row_mydate["DateID"] = totalDate + "05";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "6日";
+                    new_row_mydate["DateID"] = totalDate + "06";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "7日";
+                    new_row_mydate["DateID"] = totalDate + "07";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "8日";
+                    new_row_mydate["DateID"] = totalDate + "08";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "9日";
+                    new_row_mydate["DateID"] = totalDate + "09";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "10日";
+                    new_row_mydate["DateID"] = totalDate + "10";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "11日";
+                    new_row_mydate["DateID"] = totalDate + "11";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "12日";
+                    new_row_mydate["DateID"] = totalDate + "12";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "13日";
+                    new_row_mydate["DateID"] = totalDate + "13";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "14日";
+                    new_row_mydate["DateID"] = totalDate + "14";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "15日";
+                    new_row_mydate["DateID"] = totalDate + "15";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "16日";
+                    new_row_mydate["DateID"] = totalDate + "16";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "17日";
+                    new_row_mydate["DateID"] = totalDate + "17";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "18日";
+                    new_row_mydate["DateID"] = totalDate + "18";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "19日";
+                    new_row_mydate["DateID"] = totalDate + "19";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "20日";
+                    new_row_mydate["DateID"] = totalDate + "20";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "21日";
+                    new_row_mydate["DateID"] = totalDate + "21";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "22日";
+                    new_row_mydate["DateID"] = totalDate + "22";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "23日";
+                    new_row_mydate["DateID"] = totalDate + "23";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "24日";
+                    new_row_mydate["DateID"] = totalDate + "24";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "25日";
+                    new_row_mydate["DateID"] = totalDate + "25";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "26日";
+                    new_row_mydate["DateID"] = totalDate + "26";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "27日";
+                    new_row_mydate["DateID"] = totalDate + "27";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "28日";
+                    new_row_mydate["DateID"] = totalDate + "28";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "29日";
+                    new_row_mydate["DateID"] = totalDate + "29";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "30日";
+                    new_row_mydate["DateID"] = totalDate + "30";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "31日";
+                    new_row_mydate["DateID"] = totalDate + "31";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+
+                    #endregion
+                }
+                else if (mon_int == 4 || mon_int == 6 || mon_int == 9 || mon_int == 11)
+                {
+                    #region  建立用于测试的MyDate表，数据库中没有，以后可加入
+                    DataTable mydate_tb = crform_ds.Tables.Add("MyDate");
+                    DataColumn col_mydate = mydate_tb.Columns.Add("Year", Type.GetType("System.String"));
+                    col_mydate.AllowDBNull = true;
+                    col_mydate = mydate_tb.Columns.Add("Month", Type.GetType("System.String"));
+                    col_mydate.AllowDBNull = true;
+                    col_mydate = mydate_tb.Columns.Add("Day", Type.GetType("System.String"));
+                    col_mydate.AllowDBNull = true;
+                    col_mydate = mydate_tb.Columns.Add("DateID", Type.GetType("System.String"));
+                    col_mydate.AllowDBNull = false;
+                    col_mydate = mydate_tb.Columns.Add("TotalBox", Type.GetType("System.Int32"));
+                    col_mydate.AllowDBNull = true;
+                    col_mydate = mydate_tb.Columns.Add("TotalWeight", Type.GetType("System.Double"));
+                    col_mydate.AllowDBNull = true;
+                    DataRow new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "1日";
+                    new_row_mydate["DateID"] = totalDate + "01";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "2日";
+                    new_row_mydate["DateID"] = totalDate + "02";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "3日";
+                    new_row_mydate["DateID"] = totalDate + "03";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "4日";
+                    new_row_mydate["DateID"] = totalDate + "04";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "5日";
+                    new_row_mydate["DateID"] = totalDate + "05";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "6日";
+                    new_row_mydate["DateID"] = totalDate + "06";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "7日";
+                    new_row_mydate["DateID"] = totalDate + "07";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "8日";
+                    new_row_mydate["DateID"] = totalDate + "08";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "9日";
+                    new_row_mydate["DateID"] = totalDate + "09";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "10日";
+                    new_row_mydate["DateID"] = totalDate + "10";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "11日";
+                    new_row_mydate["DateID"] = totalDate + "11";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "12日";
+                    new_row_mydate["DateID"] = totalDate + "12";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "13日";
+                    new_row_mydate["DateID"] = totalDate + "13";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "14日";
+                    new_row_mydate["DateID"] = totalDate + "14";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "15日";
+                    new_row_mydate["DateID"] = totalDate + "15";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "16日";
+                    new_row_mydate["DateID"] = totalDate + "16";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "17日";
+                    new_row_mydate["DateID"] = totalDate + "17";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "18日";
+                    new_row_mydate["DateID"] = totalDate + "18";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "19日";
+                    new_row_mydate["DateID"] = totalDate + "19";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "20日";
+                    new_row_mydate["DateID"] = totalDate + "20";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "21日";
+                    new_row_mydate["DateID"] = totalDate + "21";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "22日";
+                    new_row_mydate["DateID"] = totalDate + "22";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "23日";
+                    new_row_mydate["DateID"] = totalDate + "23";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "24日";
+                    new_row_mydate["DateID"] = totalDate + "24";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "25日";
+                    new_row_mydate["DateID"] = totalDate + "25";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "26日";
+                    new_row_mydate["DateID"] = totalDate + "26";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "27日";
+                    new_row_mydate["DateID"] = totalDate + "27";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "28日";
+                    new_row_mydate["DateID"] = totalDate + "28";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "29日";
+                    new_row_mydate["DateID"] = totalDate + "29";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                    new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                    new_row_mydate["Year"] = yr_nian;
+                    new_row_mydate["Month"] = mon_yue;
+                    new_row_mydate["Day"] = "30日";
+                    new_row_mydate["DateID"] = totalDate + "30";
+                    crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+
+                    #endregion
+                }
+                else
+                {
+                    if (yr_int % 4 == 0)
+                    {
+                        #region  建立用于测试的MyDate表，数据库中没有，以后可加入
+                        DataTable mydate_tb = crform_ds.Tables.Add("MyDate");
+                        DataColumn col_mydate = mydate_tb.Columns.Add("Year", Type.GetType("System.String"));
+                        col_mydate.AllowDBNull = true;
+                        col_mydate = mydate_tb.Columns.Add("Month", Type.GetType("System.String"));
+                        col_mydate.AllowDBNull = true;
+                        col_mydate = mydate_tb.Columns.Add("Day", Type.GetType("System.String"));
+                        col_mydate.AllowDBNull = true;
+                        col_mydate = mydate_tb.Columns.Add("DateID", Type.GetType("System.String"));
+                        col_mydate.AllowDBNull = false;
+                        col_mydate = mydate_tb.Columns.Add("TotalBox", Type.GetType("System.Int32"));
+                        col_mydate.AllowDBNull = true;
+                        col_mydate = mydate_tb.Columns.Add("TotalWeight", Type.GetType("System.Double"));
+                        col_mydate.AllowDBNull = true;
+                        DataRow new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "1日";
+                        new_row_mydate["DateID"] = totalDate + "01";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "2日";
+                        new_row_mydate["DateID"] = totalDate + "02";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "3日";
+                        new_row_mydate["DateID"] = totalDate + "03";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "4日";
+                        new_row_mydate["DateID"] = totalDate + "04";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "5日";
+                        new_row_mydate["DateID"] = totalDate + "05";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "6日";
+                        new_row_mydate["DateID"] = totalDate + "06";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "7日";
+                        new_row_mydate["DateID"] = totalDate + "07";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "8日";
+                        new_row_mydate["DateID"] = totalDate + "08";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "9日";
+                        new_row_mydate["DateID"] = totalDate + "09";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "10日";
+                        new_row_mydate["DateID"] = totalDate + "10";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "11日";
+                        new_row_mydate["DateID"] = totalDate + "11";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "12日";
+                        new_row_mydate["DateID"] = totalDate + "12";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "13日";
+                        new_row_mydate["DateID"] = totalDate + "13";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "14日";
+                        new_row_mydate["DateID"] = totalDate + "14";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "15日";
+                        new_row_mydate["DateID"] = totalDate + "15";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "16日";
+                        new_row_mydate["DateID"] = totalDate + "16";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "17日";
+                        new_row_mydate["DateID"] = totalDate + "17";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "18日";
+                        new_row_mydate["DateID"] = totalDate + "18";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "19日";
+                        new_row_mydate["DateID"] = totalDate + "19";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "20日";
+                        new_row_mydate["DateID"] = totalDate + "20";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "21日";
+                        new_row_mydate["DateID"] = totalDate + "21";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "22日";
+                        new_row_mydate["DateID"] = totalDate + "22";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "23日";
+                        new_row_mydate["DateID"] = totalDate + "23";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "24日";
+                        new_row_mydate["DateID"] = totalDate + "24";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "25日";
+                        new_row_mydate["DateID"] = totalDate + "25";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "26日";
+                        new_row_mydate["DateID"] = totalDate + "26";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "27日";
+                        new_row_mydate["DateID"] = totalDate + "27";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "28日";
+                        new_row_mydate["DateID"] = totalDate + "28";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "29日";
+                        new_row_mydate["DateID"] = totalDate + "29";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+
+                        #endregion
+                    }
+
+                    else
+                    {
+                        #region  建立用于测试的MyDate表，数据库中没有，以后可加入
+                        DataTable mydate_tb = crform_ds.Tables.Add("MyDate");
+                        DataColumn col_mydate = mydate_tb.Columns.Add("Year", Type.GetType("System.String"));
+                        col_mydate.AllowDBNull = true;
+                        col_mydate = mydate_tb.Columns.Add("Month", Type.GetType("System.String"));
+                        col_mydate.AllowDBNull = true;
+                        col_mydate = mydate_tb.Columns.Add("Day", Type.GetType("System.String"));
+                        col_mydate.AllowDBNull = true;
+                        col_mydate = mydate_tb.Columns.Add("DateID", Type.GetType("System.String"));
+                        col_mydate.AllowDBNull = false;
+                        col_mydate = mydate_tb.Columns.Add("TotalBox", Type.GetType("System.Int32"));
+                        col_mydate.AllowDBNull = true;
+                        col_mydate = mydate_tb.Columns.Add("TotalWeight", Type.GetType("System.Double"));
+                        col_mydate.AllowDBNull = true;
+                        DataRow new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "1日";
+                        new_row_mydate["DateID"] = totalDate + "01";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "2日";
+                        new_row_mydate["DateID"] = totalDate + "02";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "3日";
+                        new_row_mydate["DateID"] = totalDate + "03";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "4日";
+                        new_row_mydate["DateID"] = totalDate + "04";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "5日";
+                        new_row_mydate["DateID"] = totalDate + "05";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "6日";
+                        new_row_mydate["DateID"] = totalDate + "06";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "7日";
+                        new_row_mydate["DateID"] = totalDate + "07";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "8日";
+                        new_row_mydate["DateID"] = totalDate + "08";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "9日";
+                        new_row_mydate["DateID"] = totalDate + "09";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "10日";
+                        new_row_mydate["DateID"] = totalDate + "10";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "11日";
+                        new_row_mydate["DateID"] = totalDate + "11";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "12日";
+                        new_row_mydate["DateID"] = totalDate + "12";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "13日";
+                        new_row_mydate["DateID"] = totalDate + "13";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "14日";
+                        new_row_mydate["DateID"] = totalDate + "14";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "15日";
+                        new_row_mydate["DateID"] = totalDate + "15";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "16日";
+                        new_row_mydate["DateID"] = totalDate + "16";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "17日";
+                        new_row_mydate["DateID"] = totalDate + "17";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "18日";
+                        new_row_mydate["DateID"] = totalDate + "18";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "19日";
+                        new_row_mydate["DateID"] = totalDate + "19";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "20日";
+                        new_row_mydate["DateID"] = totalDate + "20";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "21日";
+                        new_row_mydate["DateID"] = totalDate + "21";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "22日";
+                        new_row_mydate["DateID"] = totalDate + "22";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "23日";
+                        new_row_mydate["DateID"] = totalDate + "23";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "24日";
+                        new_row_mydate["DateID"] = totalDate + "24";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "25日";
+                        new_row_mydate["DateID"] = totalDate + "25";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "26日";
+                        new_row_mydate["DateID"] = totalDate + "26";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "27日";
+                        new_row_mydate["DateID"] = totalDate + "27";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+                        new_row_mydate = crform_ds.Tables["MyDate"].NewRow();
+                        new_row_mydate["Year"] = yr_nian;
+                        new_row_mydate["Month"] = mon_yue;
+                        new_row_mydate["Day"] = "28日";
+                        new_row_mydate["DateID"] = totalDate + "28";
+                        crform_ds.Tables["MyDate"].Rows.Add(new_row_mydate);
+
+                        #endregion
+                    }
+                }
+
+                flag_mon = false;
+                timerMon1.Start();
+                System.Threading.Thread myThread = new System.Threading.Thread(new System.Threading.ThreadStart(CheckConfig));
+                myThread.Start();
+
+            }
+            # endregion
+        }
+        private void CheckConfig()//生成月表子线程
+        {
+            this.Enabled = false;
+            //this.Update();
+            //this.Refresh();
+            // this.loadFiles();
+            //label5.Text = "正在处理...";
+            //progressBar1.Visible = true;
+            //progressBar1.Value = 0;
+            //new System.Threading.Thread(new System.Threading.ThreadStart(StartDownload)).Start();
+            //Thread fThread = new Thread(new ThreadStart(SleepT));//开辟一个新的线程
+            //fThread.Start();
+
+            progressBarMon.Visible = true;
+            progressBarMon.Value = 0;
+            progressBarMon.Update();
+            labelProgMon.Text = "";
+            labelProgMon.Update();
+            //this.Enabled = false;
+            //Form1 waitingform = new Form1();
+            //waitingform.ShowDialog(this);
+
+
+
+
+            crform_ds.Tables["Result"].Clear();
+
+
+            string yr_str = comboBoxYear1.Text.Trim();
+            int yr_int = Convert.ToInt32(yr_str);
+            string mon_str = comboBoxMon1.Text.Trim();
+            int mon_int = Convert.ToInt32(mon_str);
+            if (mon_int < 10)
+                mon_str = "0" + mon_str;
+            groupBoxReport.Enabled = true;
+            //查询时间
+            int cur_month_days;
+            if (mon_int == 1 || mon_int == 3 || mon_int == 5 || mon_int == 7 || mon_int == 8 || mon_int == 10 || mon_int == 12)
+            {
+
+                cur_month_days = 31;
+            }
+            else if (mon_int == 4 || mon_int == 6 || mon_int == 9 || mon_int == 11)
+            {
+
+                cur_month_days = 30;
+            }
+            else
+            {
+                if (yr_int % 4 == 0)
+                {
+
+                    cur_month_days = 29;
+                }
+
+                else
+                {
+
+                    cur_month_days = 28;
+                }
+            }
+            //ts1 = Process.GetCurrentProcess().TotalProcessorTime;//测试cpu时间
+            //string month_first_day = new DateTime(yr_int, mon_int, 1, 0, 0, 0).ToString().Substring(2, 8);////要查询的月的第一天，10-01-01，这里月份用1月，以后用 System.DateTime.Now.Month，下一行同样
+            //DateTime next_month_first_day = new DateTime(yr_int, mon_int + 1, 1, 0, 0, 0);
+            //next_month_first_day = next_month_first_day.AddDays(-1);//得到要查询月最后一天
+            //int second_pos = next_month_first_day.ToString().LastIndexOf("/");
+            //int cur_month_days = int.Parse(next_month_first_day.ToString().Substring(second_pos + 1, 2));//当前月的天数
+            string cur_month_days_str = cur_month_days.ToString();
+
+            //MessageBox.Show(cur_month_days_str, "day", MessageBoxButtons.OK, MessageBoxIcon.None);
+            string day_str = "";
+
+            ////string sql_startTime = System.DateTime.Now.Year.ToString().Substring(2, 2) + "-01-" + str_cur_day + ",12:00";
+
+
+            string sql_startTime = yr_str.Substring(2, 2) + "-" + mon_str + "-";
+            ////string sql_goods = "select * from [rfidtest].[dbo.Goods] where StartStationID=" + staID.ToString() + " and StartTime = \'" + sql_startTime + "\'";
+            //string sql_goods = "select * from [rfidtest].[dbo.Goods] where StartTime LIKE \'" + sql_startTime + "%\'";
+
+            for (int cur_day = 1; cur_day <= cur_month_days; cur_day++)//2替换cur_month_days。按站分组，每次生成新表的一行
+            {
+
+                labelProgMon.Text = "完成  " + progressBarMon.Value.ToString() + "%";
+                labelProgMon.Update();
+                progressBarMon.Value = Convert.ToInt32(cur_day * 3.15);
+                progressBarMon.Update();
+                //System.Threading.Thread.Sleep(1);
+                //this.Update();
+                //this.Refresh();
+
+                int first_line = (cur_day - 1) * 56;//当天在Result表中第一行
+                string str_cur_day = cur_day.ToString();
+                if (cur_day < 10)
+                {
+                    day_str = "0" + str_cur_day;
+                    str_cur_day = sql_startTime + day_str;
+                }
+                else
+                {
+                    day_str = str_cur_day;
+                    str_cur_day = sql_startTime + day_str;
+                }
+                string sql_goods = @"if not exists(select name from sysobjects where name='res' and type='u')
+  create table res(staname  varchar(100),sumbox int,weight2 float,weight3 float,weight4 float,weight5 float,weight6 float,weight7 float,weight8 float,weight9 float,weight10 float,weight11 float,weight12 float,weight13 float,weight14 float,weight15 float,sumweight float,sumboxtail float,dateid varchar(100));
+else
+  begin
+  drop table res;
+  create table res(staname  varchar(100),sumbox int,weight2 float,weight3 float,weight4 float,weight5 float,weight6 float,weight7 float,weight8 float,weight9 float,weight10 float,weight11 float,weight12 float,weight13 float,weight14 float,weight15 float,sumweight float,sumboxtail float,dateid varchar(100));
+  end
+
+declare @tmpweight float;/*每行获取的weight*/
+declare @ttlweight float;
+declare @col varchar(100);/*weight2-15的列名*/
+declare @sqls varchar(1000);
+declare @i int;
+
+declare @cur_date varchar(10);
+set @cur_date=CONVERT(varchar(10),getDate(),120);/*当前日期*/
+declare @q_date varchar(10);
+set @q_date='" + yr_str.Substring(2, 2) + "-" + mon_str + "-" + day_str + @"'" + @"
+
+declare @day_str varchar(20);
+set @day_str=@q_date+'%';
+
+declare @staid int;
+set @staid=31;
+while @staid<=85
+begin
+    declare @stationname varchar(100);
+	set @stationname=(select Name from [rfidtest].[dbo.Station] WHERE StationID=@staid);
+	declare @date varchar(30);
+	set @date=substring(@day_str,1,8);
+	declare @boxnum int;
+	set @boxnum=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartStationID=@staid AND StartTime LIKE @day_str GROUP BY StartStationID);
+    if @boxnum<>0
+	insert into res(staname,sumbox,sumboxtail,dateid) values(@stationname,@boxnum,@boxnum,@date);
+    else
+    insert into res(staname,sumbox,sumboxtail,dateid) values(@stationname,0,0,@date);
+ 
+    select ID=identity(int,   1,   1), Weight into #t  from [rfidtest].[dbo.Goods] WHERE StartStationID=@staid AND StartTime LIKE @day_str; 
+	/*select   *   from   #t*/
+	set @ttlweight=0;
+	set @i=1;
+	while @i<=@boxnum
+	begin
+		set @col='weight'+cast(@i+1 as varchar)
+		set @tmpweight=(select Weight from #t where ID=@i);
+        if @tmpweight is null
+        set @tmpweight=0 
+		set @ttlweight=@ttlweight+@tmpweight;
+		set @sqls='update res set '+@col+'='+cast(@tmpweight as varchar)+' WHERE staname='''+@stationname+''' AND dateid='''+substring(@day_str,1,8)+'''';
+		exec(@sqls) 
+		set @i=@i+1;
+	end
+    set @sqls='update res set sumweight='+cast(@ttlweight as varchar)+' WHERE staname='''+@stationname+''' AND dateid='''+substring(@day_str,1,8)+'''';
+    exec(@sqls)
+    drop table #t;	
+    set @staid=@staid+1;
+end
+
+select * from res;
+drop table res;";
+                //MessageBox.Show(sql_goods, "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+                ////string sql_starion = "select * from [rfidtest].[dbo.Station] where StationID=" + staID.ToString();
+                //string sql_starion = "select * from [rfidtest].[dbo.Station]";
+
+
+                //SqlCommand cmd = new SqlCommand(sql_goods, sqlcon);
+                //sqlcon.Open();
+                //SqlDataReader dr = cmd.ExecuteReader();
+                //sqlcon.Close();
+
+                //msecs = Process.GetCurrentProcess().TotalProcessorTime.Subtract(ts1).TotalMilliseconds;
+                //MessageBox.Show(msecs.ToString(), "reader", MessageBoxButtons.OK, MessageBoxIcon.None);
+
+                //ts1 = Process.GetCurrentProcess().TotalProcessorTime;//测试cpu时间
+
+                //两个表连接，并加入到DataSet
+                //sqlcon.ConnectionTimeout = 0;
+
+
+                crform_sqlda = new SqlDataAdapter(sql_goods, sqlcon);
+
+                crform_sqlda.SelectCommand.CommandTimeout = 100000000;
+                try
+                {
+                    crform_sqlda.Fill(crform_ds, "Goods_Table");//得到要查询的月的所有的运输信息，包括所有站。
+                }
+                catch (Exception x)
+                {
+                    MessageBox.Show("不能生成报表！\n单日箱数超过15箱，请检查数据真实性！");
+                    this.Enabled = true;
+                    progressBarMon.Visible = false;
+                    labelProgMon.Text = "";
+                    labelProgMon.Update();
+                    groupBoxReport.Enabled = false;
+                    groupBoxSelect.Enabled = true;
+                    dt_goods.Clear();
+                    crform_ds.Tables.Remove("MyDate");
+                    return;
+                }
+
+
+
+                //crform_ds.
+                //crform_sqlda = new SqlDataAdapter(sql_starion, sqlcon);
+                //crform_sqlda.Fill(crform_ds, "Station_Table");//得到所有站信息
+
+                //msecs = Process.GetCurrentProcess().TotalProcessorTime.Subtract(ts1).TotalMilliseconds;
+                //MessageBox.Show(msecs.ToString(), "fill", MessageBoxButtons.OK, MessageBoxIcon.None);
+
+                //ts1 = Process.GetCurrentProcess().TotalProcessorTime;//测试cpu时间
+
+
+                DataRow new_row = crform_ds.Tables["Result"].NewRow();
+                //DataTable dt_goods = crform_ds.Tables["Goods_Table"];
+                foreach (DataRow row in dt_goods.Rows)
+                {
+                    if (row["DateID"].ToString() == str_cur_day)
+                    {
+                        //new_row["StaName"] = row["staname"].ToString();
+                        //new_row["DateID"] = row["dateid"].ToString().Substring(0, 8);
+                        new_row = row;
+                        crform_ds.Tables["Result"].Rows.Add(new_row.ItemArray);
+                    }
+                }
+                DataTable tb_result = crform_ds.Tables["Result"];
+                DataRow total_row = tb_result.NewRow();
+                total_row["StaName"] = "合计";
+
+                int total_box = 0;
+                for (int line_tb_result = first_line; line_tb_result <= first_line + 54; line_tb_result++)//当天的所有记录在Result表中的行数范围，不包括合计
+                    total_box += Convert.ToInt32(tb_result.Rows[line_tb_result][1].ToString());
+                total_row["SumBox"] = total_box;
+
+                //DataTableSQL查询后得到DateSet中的第一个表Goods_Table，处理每天的箱数和重量
+                for (int col_num = 2; col_num <= 16; col_num++)
+                {
+                    double total_col_weight = 0;
+                    for (int line_tb_result = first_line; line_tb_result <= first_line + 54; line_tb_result++)//当天的所有记录在Result表中的行数范围，不包括合计
+                    {
+                        string weight_str = tb_result.Rows[line_tb_result][col_num].ToString();
+                        if (weight_str != "")
+                            total_col_weight += Convert.ToDouble(weight_str);
+
+                    }
+                    ///////////if (total_col_weight != 0)//0不显示
+                    total_row[col_num] = total_col_weight;
+
+                }
+                total_row["SumBoxTail"] = total_box;
+                total_row["DateID"] = crform_ds.Tables["Result"].Rows[crform_ds.Tables["Result"].Rows.Count - 1]["DateID"].ToString();
+                DataRow mdRow = crform_ds.Tables["MyDate"].Rows[cur_day - 1];
+                mdRow["TotalBox"] = total_box;
+                mdRow["TotalWeight"] = total_row["SumWeight"];
+                crform_ds.Tables["Result"].Rows.Add(total_row);
+
+
+
+            }
+            //msecs = Process.GetCurrentProcess().TotalProcessorTime.Subtract(ts1).TotalMilliseconds;
+            //MessageBox.Show(msecs.ToString(), "process", MessageBoxButtons.OK, MessageBoxIcon.None);
+
+           flag_mon = true;
+
+
+        }
+        private void timerMon1_Tick_1(object sender, EventArgs e)
+        {
+            if (flag_mon == true)
+            {
+                timerMon1.Stop();
+                //MessageBox.Show("请选择年月日", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+                dataGridViewMon.DataSource = crform_ds.Tables["Result"];
+                dataGridViewMon.Visible = false;
+                //报表对象，绑定报表文件
+
+                //string crPath = Application.StartupPath.Substring(0, Application.StartupPath.Substring(0,
+                //     Application.StartupPath.LastIndexOf("\\")).LastIndexOf("\\"));
+                string crPath = "CrystalReport3.rpt";
+                //crDocument.Refresh();
+                ReportDocument crDocument = new ReportDocument();
+                crDocument.Load(crPath);
+                //绑定数据集，注意，一个报表用一个数据集。
+                crDocument.SetDataSource(crform_ds);
+
+                //在Viewer中呈现
+                crystalReportViewerMon.ReportSource = crDocument;
+                // MessageBox.Show("请选择年", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+                dt_goods.Clear();
+                toolStripButtonMonExl.Enabled = true;
+                progressBarMon.Value = progressBarMon.Maximum;
+                progressBarMon.Update();
+                labelProgMon.Text = "已完成";
+                labelProgMon.Update();
+                //MessageBox.Show("请选择", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+                this.Enabled = true;
+                flag_mon = false;
+                crform_ds.Tables.Remove("MyDate");
+
+
+            }
+
+        }
+
+        private void toolStripButtonDayRpt_Click(object sender, EventArgs e)
+        {
+            crystalReportViewerMon.ReportSource = null;
+            //label5.Text = "正在处理...";
+            //progressBar1.Visible = true;
+            //progressBar1.Value = 0;
+
+            //Thread fThread = new Thread(new ThreadStart(SleepT));//开辟一个新的线程
+
+            flag_day = false;
+            timerMon2.Start();
+            System.Threading.Thread myThread = new System.Threading.Thread(new System.Threading.ThreadStart(DayReport));
+            myThread.Start();
+        }
+        private void DayReport()//生成日表子线程
+        {
+            if (comboBoxYear1.Text.Trim() == "" || comboBoxMon1.Text.Trim() == "" || comboBoxDay1.Text.Trim() == "")
+            {
+                MessageBox.Show("请选择年月日", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+            }
+            else
+            {
+                //Form1 waitingform = new Form1();
+                //waitingform.ShowDialog(this);
+
+                //new System.Threading.Thread(new System.Threading.ThreadStart(StartDownload)).Start();
+                this.Enabled = false;
+                progressBarMon.Visible = true;
+                progressBarMon.Value = 0;
+                progressBarMon.Update();
+                labelProgMon.Text = "";
+                labelProgMon.Update();
+
+                progressBarMon.Value = 15;
+                progressBarMon.Update();
+                labelProgMon.Text = "处理中...";
+                labelProgMon.Update();
+
+                crform_ds.Tables["Result"].Clear();
+                groupBoxReport.Enabled = true;
+                string yr_str = comboBoxYear1.Text.Trim();
+                int yr_int = Convert.ToInt32(yr_str);
+                string mon_str = comboBoxMon1.Text.Trim();
+                int mon_int = Convert.ToInt32(mon_str);
+                if (mon_int < 10)
+                    mon_str = "0" + mon_str;
+                string day_str = comboBoxDay1.Text.Trim();
+                int day_int = Convert.ToInt32(day_str);
+                if (day_int < 10)
+                    day_str = "0" + day_str;
+                //查询时间
+                //ts1 = Process.GetCurrentProcess().TotalProcessorTime;//测试cpu时间
+                string month_first_day = new DateTime(yr_int, mon_int, 1, 0, 0, 0).ToString().Substring(2, 8);////要查询的月的第一天，10-01-01，这里月份用1月，以后用 System.DateTime.Now.Month，下一行同样
+                DateTime next_month_first_day = new DateTime(yr_int, mon_int + 1, 1, 0, 0, 0);
+                next_month_first_day = next_month_first_day.AddDays(-1);//得到要查询月最后一天
+                int second_pos = next_month_first_day.ToString().LastIndexOf("/");
+                int cur_month_days = int.Parse(next_month_first_day.ToString().Substring(second_pos + 1, 2));//当前月的天数
+                string cur_month_days_str = cur_month_days.ToString();
+
+                ////string sql_startTime = System.DateTime.Now.Year.ToString().Substring(2, 2) + "-01-" + str_cur_day + ",12:00";
+
+
+                string sql_startTime = yr_str.Substring(2, 2) + "-" + mon_str + "-";
+                ////string sql_goods = "select * from [rfidtest].[dbo.Goods] where StartStationID=" + staID.ToString() + " and StartTime = \'" + sql_startTime + "\'";
+                //string sql_goods = "select * from [rfidtest].[dbo.Goods] where StartTime LIKE \'" + sql_startTime + "%\'";
+                string sql_goods = @"if not exists(select name from sysobjects where name='res' and type='u')
+  create table res(staname  varchar(100),sumbox int,weight2 float,weight3 float,weight4 float,weight5 float,weight6 float,weight7 float,weight8 float,weight9 float,weight10 float,weight11 float,weight12 float,weight13 float,weight14 float,weight15 float,sumweight float,sumboxtail float,dateid varchar(100));
+else
+  begin
+  drop table res;
+  create table res(staname  varchar(100),sumbox int,weight2 float,weight3 float,weight4 float,weight5 float,weight6 float,weight7 float,weight8 float,weight9 float,weight10 float,weight11 float,weight12 float,weight13 float,weight14 float,weight15 float,sumweight float,sumboxtail float,dateid varchar(100));
+  end
+
+                    declare @tmpweight float;/*每行获取的weight*/
+                    declare @ttlweight float;
+                    declare @col varchar(100);/*weight2-15的列名*/
+                    declare @sqls varchar(1000);
+                    declare @i int;
+
+                    declare @cur_date varchar(10);
+                    set @cur_date=CONVERT(varchar(10),getDate(),120);/*当前日期*/
+                    declare @q_date varchar(10);
+                    set @q_date='" + yr_str.Substring(2, 2) + "-" + mon_str + "-" + day_str + @"'" + @"
+
+                    declare @day_str varchar(20);
+                    set @day_str=@q_date+'%';
+
+                    declare @staid int;
+                    set @staid=31;
+                    while @staid<=85
+                    begin
+                        declare @stationname varchar(100);
+	                    set @stationname=(select Name from [rfidtest].[dbo.Station] WHERE StationID=@staid);
+	                    declare @date varchar(30);
+	                    set @date=substring(@day_str,1,8);
+	                    declare @boxnum int;
+	                    set @boxnum=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartStationID=@staid AND StartTime LIKE @day_str GROUP BY StartStationID);
+                        if @boxnum<>0
+	                    insert into res(staname,sumbox,sumboxtail,dateid) values(@stationname,@boxnum,@boxnum,@date);
+                        else
+                        insert into res(staname,sumbox,sumboxtail,dateid) values(@stationname,0,0,@date);
+                     
+                        select ID=identity(int,   1,   1), Weight into #t  from [rfidtest].[dbo.Goods] WHERE StartStationID=@staid AND StartTime LIKE @day_str; 
+	                    /*select   *   from   #t*/
+	                    set @ttlweight=0;
+	                    set @i=1;
+	                    while @i<=@boxnum
+	                    begin
+		                    set @col='weight'+cast(@i+1 as varchar)
+		                    set @tmpweight=(select Weight from #t where ID=@i);
+                            if @tmpweight is null
+                            set @tmpweight=0 
+		                    set @ttlweight=@ttlweight+@tmpweight;
+		                    set @sqls='update res set '+@col+'='+cast(@tmpweight as varchar)+' WHERE staname='''+@stationname+''' AND dateid='''+substring(@day_str,1,8)+'''';
+		                    exec(@sqls) 
+		                    set @i=@i+1;
+	                    end
+                        set @sqls='update res set sumweight='+cast(@ttlweight as varchar)+' WHERE staname='''+@stationname+''' AND dateid='''+substring(@day_str,1,8)+'''';
+                        exec(@sqls)
+                        drop table #t;	
+                        set @staid=@staid+1;
+                    end
+
+                    select * from res;
+                    drop table res;";
+                //MessageBox.Show(sql_goods, "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+                ////string sql_starion = "select * from [rfidtest].[dbo.Station] where StationID=" + staID.ToString();
+                //string sql_starion = "select * from [rfidtest].[dbo.Station]";
+
+
+                //SqlCommand cmd = new SqlCommand(sql_goods, sqlcon);
+                //sqlcon.Open();
+                //SqlDataReader dr = cmd.ExecuteReader();
+                //sqlcon.Close();
+
+                //msecs = Process.GetCurrentProcess().TotalProcessorTime.Subtract(ts1).TotalMilliseconds;
+                //MessageBox.Show(msecs.ToString(), "reader", MessageBoxButtons.OK, MessageBoxIcon.None);
+
+                //ts1 = Process.GetCurrentProcess().TotalProcessorTime;//测试cpu时间
+
+                //两个表连接，并加入到DataSet
+
+                //sqlcon.ConnectionTimeout = 0;
+                crform_sqlda = new SqlDataAdapter(sql_goods, sqlcon);
+                crform_sqlda.SelectCommand.CommandTimeout = 100000000;
+                try
+                {
+                    crform_sqlda.Fill(crform_ds, "Goods_table");//得到要查询的月的所有的运输信息，包括所有站。
+                }
+                catch (Exception xx)
+                {
+                    MessageBox.Show("不能生成报表！\n单日箱数超过15箱，请检查数据真实性！");
+                    this.Enabled = true;
+                    progressBarMon.Visible = false;
+                    labelProgMon.Text = "";
+                    labelProgMon.Update();
+                    groupBoxReport.Enabled = false;
+                    groupBoxSelect.Enabled = true;
+                    dt_goods.Clear();
+                    return;
+
+                }
+                progressBarMon.Value = 70;
+                progressBarMon.Update();
+                labelProgMon.Text = "处理中...";
+                labelProgMon.Update();
+                this.Update();
+
+                //crform_sqlda = new SqlDataAdapter(sql_starion, sqlcon);
+                //crform_sqlda.Fill(crform_ds, "Station_Table");//得到所有站信息
+
+                //msecs = Process.GetCurrentProcess().TotalProcessorTime.Subtract(ts1).TotalMilliseconds;
+                //MessageBox.Show(msecs.ToString(), "fill", MessageBoxButtons.OK, MessageBoxIcon.None);
+
+                //ts1 = Process.GetCurrentProcess().TotalProcessorTime;//测试cpu时间
+
+                int first_line = 0;//当天在Result表中第一行
+                string str_cur_day = day_int.ToString();
+                if (day_int < 10)
+                    str_cur_day = sql_startTime + "0" + str_cur_day;
+                else
+                    str_cur_day = sql_startTime + str_cur_day;
+                DataRow new_row = crform_ds.Tables["Result"].NewRow();
+                //DataTable dt_goods = crform_ds.Tables["Goods_Table"];
+                foreach (DataRow row in dt_goods.Rows)
+                {
+                    if (row["DateID"].ToString() == str_cur_day)
+                    {
+                        //new_row["StaName"] = row["staname"].ToString();
+                        //new_row["DateID"] = row["dateid"].ToString().Substring(0, 8);
+                        new_row = row;
+                        crform_ds.Tables["Result"].Rows.Add(new_row.ItemArray);
+                    }
+                }
+                DataTable tb_result = crform_ds.Tables["Result"];
+                DataRow total_row = tb_result.NewRow();
+                total_row["StaName"] = "合计";
+
+                int total_box = 0;
+                for (int line_tb_result = first_line; line_tb_result <= first_line + 54; line_tb_result++)//当天的所有记录在Result表中的行数范围，不包括合计
+                    total_box += Convert.ToInt32(tb_result.Rows[line_tb_result][1].ToString());
+                total_row["SumBox"] = total_box;
+
+
+                //DataTableSQL查询后得到DateSet中的第一个表Goods_Table，处理每天的箱数和重量
+                for (int col_num = 2; col_num <= 16; col_num++)
+                {
+                    double total_col_weight = 0;
+                    for (int line_tb_result = first_line; line_tb_result <= first_line + 54; line_tb_result++)//当天的所有记录在Result表中的行数范围，不包括合计
+                    {
+                        string weight_str = tb_result.Rows[line_tb_result][col_num].ToString();
+                        if (weight_str != "")
+                            total_col_weight += Convert.ToDouble(weight_str);
+
+                    }
+                    /////////if (total_col_weight != 0)//0不显示
+                    total_row[col_num] = total_col_weight;
+
+                }
+                total_row["SumBoxTail"] = total_box;
+                total_row["DateID"] = crform_ds.Tables["Result"].Rows[crform_ds.Tables["Result"].Rows.Count - 1]["DateID"].ToString();
+                crform_ds.Tables["Result"].Rows.Add(total_row);
+                //msecs = Process.GetCurrentProcess().TotalProcessorTime.Subtract(ts1).TotalMilliseconds;
+                //MessageBox.Show(msecs.ToString(), "process", MessageBoxButtons.OK, MessageBoxIcon.None);
+
+                
+                flag_day = true;
+            }
+        }
+        private void timerMon2_Tick(object sender, EventArgs e)
+        {
+
+            if (flag_day == true)
+            {
+                timerMon2.Stop();
+                //MessageBox.Show("请选择年月日", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+                dataGridViewMon.DataSource = crform_ds.Tables["Result"];
+
+                dataGridViewMon.Visible = false;
+                //报表对象，绑定报表文件
+
+                //string crPath = Application.StartupPath.Substring(0, Application.StartupPath.Substring(0,
+                //     Application.StartupPath.LastIndexOf("\\")).LastIndexOf("\\"));
+                string crPath = "CrystalReport2.rpt";
+                //crDocument.Refresh();
+                ReportDocument crDocument = new ReportDocument();
+                crDocument.Load(crPath);
+                //绑定数据集，注意，一个报表用一个数据集。
+                crDocument.SetDataSource(crform_ds);
+
+                //在Viewer中呈现
+                crystalReportViewerMon.ReportSource = crDocument;
+                // MessageBox.Show("请选择年", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+                dt_goods.Clear();
+                toolStripButtonMonExl.Enabled = true;
+                progressBarMon.Value = progressBarMon.Maximum;
+                progressBarMon.Update();
+                labelProgMon.Text = "已完成";
+                labelProgMon.Update();
+                //MessageBox.Show("请选择", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+                this.Enabled = true;
+                flag_day = false;
+
+
+            }
+        }
+
+        private void toolStripButtonMonExl_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                this.Enabled = false;
+                progressBarMon.Visible = true;
+                progressBarMon.Value = 0;
+                progressBarMon.Update();
+                labelProgMon.Text = "";
+                labelProgMon.Update();
+                flag_exl = false;
+                timerMon3.Start();
+                System.Threading.Thread myThread = new System.Threading.Thread(new System.Threading.ThreadStart(GenExcel));
+                myThread.Start();
+
+
+
+            }
+            catch
+            {
+                MessageBox.Show("导出错误", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+            }
+        }
+        private void GenExcel()//导出EXCEL子线程
+        {
+            //MessageBox.Show("11", "process", MessageBoxButtons.OK, MessageBoxIcon.None);
+            flag_exl = true;
+
+        }
+        private void timerMon3_Tick(object sender, EventArgs e)
+        {
+            if (flag_exl == true)
+            {
+                timerMon3.Stop();
+                ExportExcel(dataGridViewMon);
+                this.Enabled = true;
+                flag_exl = false;
+
+
+            }
+        }
+        private void ExportExcel(DataGridView dgv)
+        {
+            try
+            {
+                //MessageBox.Show("22", "process", MessageBoxButtons.OK, MessageBoxIcon.None);
+                if (dgv.Rows.Count >= 1)
+                {
+                    labelProgMon.Text = "开始导出";
+                    labelProgMon.Update();
+                    //MessageBox.Show("33", "process", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    string yr_str = comboBoxYear1.Text.Trim();
+                    string mon_str = comboBoxMon1.Text.Trim();
+                    string day_str = comboBoxDay1.Text.Trim();
+                    string fName = "";
+                    SaveFileDialog saveFileDialog = new SaveFileDialog();
+                    saveFileDialog.InitialDirectory = "d:";
+                    saveFileDialog.Filter = "EXCEL文件|*.xlsx";
+                    saveFileDialog.FilterIndex = 2;
+                    if (day_str == "")
+                    {
+                        saveFileDialog.FileName = yr_str + "年" + mon_str + "月清运垃圾明细表";
+                    }
+                    else
+                    {
+                        saveFileDialog.FileName = yr_str + "年" + mon_str + "月" + day_str + "日清运垃圾明细表";
+                    }
+                    saveFileDialog.RestoreDirectory = true;
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        fName = saveFileDialog.FileName;
+                        //MessageBox.Show("44", "process", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        progressBarMon.Value = 12;
+                        progressBarMon.Update();
+
+
+                        this.Refresh();
+                        //建立Excel对象 
+                        Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+                        Microsoft.Office.Interop.Excel.Workbooks wbs = excel.Workbooks;// new Microsoft.Office.Interop.Excel.Workbooks();
+                        Microsoft.Office.Interop.Excel.Workbook wb = wbs.Add(true);// new Microsoft.Office.Interop.Excel.Workbook   
+                        Microsoft.Office.Interop.Excel.Worksheet ws;
+                        //MessageBox.Show("355", "process", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        int num_sheet = dgv.Rows.Count / 55;
+                        labelProgMon.Text = "完成  " + progressBarMon.Value.ToString() + "%";
+                        labelProgMon.Update();
+                        //MessageBox.Show(num_sheet.ToString(), "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        for (int cur_sheet = 1; cur_sheet <= num_sheet; cur_sheet++)
+                        {
+                            if (num_sheet != 1)
+                            {
+                                progressBarMon.Value = Convert.ToInt32(12 + cur_sheet * 87 / num_sheet);
+                                progressBarMon.Update();
+                                //label5.Text = "完成  " + progressBar1.Value.ToString() + "%";
+                                //label5.Update();
+                            }
+                            else
+                            {
+                                progressBarMon.Value = 50;
+                                progressBarMon.Update();
+                                //label5.Text = "完成  " + progressBar1.Value.ToString() + "%";
+                                //label5.Update();
+                            }
+                            if (cur_sheet == 1)
+                                ws = (Microsoft.Office.Interop.Excel.Worksheet)wb.Worksheets["Sheet1"];
+                            else
+                                ws = wb.Worksheets.Add(Type.Missing, Type.Missing, Type.Missing, Type.Missing) as Microsoft.Office.Interop.Excel.Worksheet;
+                            ws.Name = cur_sheet.ToString();
+                            //生成字段名称 
+                            excel.Cells[1, 1] = "      日期\n名称";
+                            excel.Cells[1, 2] = "1";
+                            excel.Cells[1, 3] = "2";
+                            excel.Cells[1, 4] = "3";
+                            excel.Cells[1, 5] = "4";
+                            excel.Cells[1, 6] = "5";
+                            excel.Cells[1, 7] = "6";
+                            excel.Cells[1, 8] = "7";
+                            excel.Cells[1, 9] = "8";
+                            excel.Cells[1, 10] = "9";
+                            excel.Cells[1, 11] = "10";
+                            excel.Cells[1, 12] = "11";
+                            excel.Cells[1, 13] = "12";
+                            excel.Cells[1, 14] = "13";
+                            excel.Cells[1, 15] = "14";
+                            excel.Cells[1, 16] = "15";
+                            excel.Cells[1, 17] = "合计";
+                            excel.Cells[1, 18] = "";
+                            excel.Cells[2, 1] = "";
+                            excel.Cells[2, 2] = "箱数";
+                            excel.Cells[2, 3] = "吨数";
+                            excel.Cells[2, 4] = "吨数";
+                            excel.Cells[2, 5] = "吨数";
+                            excel.Cells[2, 6] = "吨数";
+                            excel.Cells[2, 7] = "吨数";
+                            excel.Cells[2, 8] = "吨数";
+                            excel.Cells[2, 9] = "吨数";
+                            excel.Cells[2, 10] = "吨数";
+                            excel.Cells[2, 11] = "吨数";
+                            excel.Cells[2, 12] = "吨数";
+                            excel.Cells[2, 13] = "吨数";
+                            excel.Cells[2, 14] = "吨数";
+                            excel.Cells[2, 15] = "吨数";
+                            excel.Cells[2, 16] = "吨数";
+                            excel.Cells[2, 17] = "吨数";
+                            excel.Cells[2, 18] = "总箱数";
+                            Microsoft.Office.Interop.Excel.Range merge_range = excel.get_Range(excel.Cells[1, 17], excel.Cells[1, 18]);
+                            merge_range.Merge(Type.Missing);
+                            Microsoft.Office.Interop.Excel.Range merge_range2 = excel.get_Range(excel.Cells[1, 1], excel.Cells[2, 1]);
+                            merge_range2.Merge(Type.Missing);
+
+                            //填充数据 
+                            for (int i = (cur_sheet - 1) * 56 + 1; i < (cur_sheet - 1) * 56 + 57; i++)
+                            {
+                                for (int j = 0; j < dgv.ColumnCount - 1; j++)
+                                {
+                                    if (dgv[j, i - 1].Value != null)
+                                    {
+                                        excel.Cells[i - (cur_sheet - 1) * 56 + 2, j + 1] = dgv[j, i - 1].Value;
+                                    }
+                                    else
+                                        excel.Cells[i - (cur_sheet - 1) * 56 + 2, j + 1] = "";
+                                }
+                            }
+
+                            Microsoft.Office.Interop.Excel.Range all_range = excel.get_Range(excel.Cells[1, 1], excel.Cells[58, 18]);//现有的
+                            all_range.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                            Microsoft.Office.Interop.Excel.Range c11_range = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]);
+                            c11_range.HorizontalAlignment = XlHAlign.xlHAlignLeft;
+                            all_range.EntireColumn.AutoFit();     //自动调整列宽
+                            all_range.EntireRow.AutoFit();
+                            all_range.Borders.LineStyle = 1;
+                            labelProgMon.Text = "完成  " + progressBarMon.Value.ToString() + "%";
+                            labelProgMon.Update();
+                        }//end for每个sheet                   
+
+                        progressBarMon.Value = progressBarMon.Maximum;
+                        progressBarMon.Update();
+
+
+                        wb.Saved = true;
+                        wb.SaveCopyAs(fName); //保存
+                        excel.Quit(); //关闭进程
+                        labelProgMon.Text = "已完成";
+                        labelProgMon.Update();
+                        MessageBox.Show("导出成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        //label5.Text = "完成";
+                        toolStripButtonMonExl.Enabled = false;
+
+
+                    }
+                    else
+                    {
+                        progressBarMon.Visible = false;
+                        progressBarMon.Update();
+                        labelProgMon.Text = "";
+                        labelProgMon.Update();
+                        MessageBox.Show("未导出！", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                progressBarMon.Visible = false;
+                progressBarMon.Update();
+                labelProgMon.Text = "";
+                labelProgMon.Update();
+                MessageBox.Show(ex.Message.ToString());
+            }
+
+
+            //*/
+        }
+
+        
+        //*******************
 
     }
 }

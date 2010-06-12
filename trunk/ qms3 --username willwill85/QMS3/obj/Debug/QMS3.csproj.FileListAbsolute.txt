@@ -24,3 +24,7 @@ D:\水晶报表\UHF\ qms3 --username willwill85\QMS3\obj\Debug\ResolveAssemblyRe
 D:\水晶报表\UHF\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.QmsMain.resources
 D:\水晶报表\UHF\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.Properties.Resources.resources
 D:\水晶报表\UHF\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.csproj.GenerateResource.Cache
+D:\水晶报表\UHF\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.csproj.ResolveComReference.cache
+D:\水晶报表\UHF\ qms3 --username willwill85\QMS3\bin\Debug\Microsoft.Office.Interop.Excel.dll
+D:\水晶报表\UHF\ qms3 --username willwill85\QMS3\bin\Debug\office.dll
+D:\水晶报表\UHF\ qms3 --username willwill85\QMS3\bin\Debug\Microsoft.Vbe.Interop.dll
