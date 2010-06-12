@@ -28,3 +28,7 @@ D:\水晶报表\UHF\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.csproj.Resol
 D:\水晶报表\UHF\ qms3 --username willwill85\QMS3\bin\Debug\Microsoft.Office.Interop.Excel.dll
 D:\水晶报表\UHF\ qms3 --username willwill85\QMS3\bin\Debug\office.dll
 D:\水晶报表\UHF\ qms3 --username willwill85\QMS3\bin\Debug\Microsoft.Vbe.Interop.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS31\QMS3\obj\Debug\QMS3.csproj.ResolveComReference.cache
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS31\QMS3\bin\Debug\Microsoft.Office.Interop.Excel.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS31\QMS3\bin\Debug\office.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS31\QMS3\bin\Debug\Microsoft.Vbe.Interop.dll
