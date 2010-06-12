@@ -154,7 +154,6 @@ namespace QMS3
                         //用来存储最终的结果
                         result_tb = crform_ds.Tables.Add("Result");
                         toolStripButtonMonExl.Enabled = false;
-                        toolStripButtonDayCompExl.Enabled = false;
                         groupBoxReport.Enabled = false;
                         MainTab.SelectTab(17);                    
                     }
@@ -769,6 +768,9 @@ namespace QMS3
             }
             dataGridView2.DataSource = ds.Tables[0];
         }
+
+
+
 
     }
 }
