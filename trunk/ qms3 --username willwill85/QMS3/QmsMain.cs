@@ -157,10 +157,67 @@ namespace QMS3
                 break;
                 case "TreeNode: 班长管理":              MainTab.SelectTab(15);
                 break;
-                case "TreeNode: 日垃圾清运完成情况":    MainTab.SelectTab(16);
-                    break;
+                case "TreeNode: 日垃圾清运完成情况":
+                {
+                    sqlcon = boperate.getcon();
+                    crform_ds = new DataSet();
+                    dt_goods = crform_ds.Tables.Add("Goods_Table");
+                    //用来存储最终的结果
+                    result_tb = crform_ds.Tables.Add("Result");
+
+                    #region  建立存储结果的datatable Result
+                    //向新建的存储最终的结果的DataTable加入列名
+                    DataColumn col = result_tb.Columns.Add("StaName", Type.GetType("System.String"));
+                    col.AllowDBNull = false;
+                    col.MaxLength = 20;
+                    col = result_tb.Columns.Add("SumBox", Type.GetType("System.Int32"));
+                    col.AllowDBNull = true;
+                    col = result_tb.Columns.Add("Weight_2", Type.GetType("System.Double"));
+                    col.AllowDBNull = true;
+                    col = result_tb.Columns.Add("Weight_3", Type.GetType("System.Double"));
+                    col.AllowDBNull = true;
+                    col = result_tb.Columns.Add("Weight_4", Type.GetType("System.Double"));
+                    col.AllowDBNull = true;
+                    col = result_tb.Columns.Add("Weight_5", Type.GetType("System.Double"));
+                    col.AllowDBNull = true;
+                    col = result_tb.Columns.Add("Weight_6", Type.GetType("System.Double"));
+                    col.AllowDBNull = true;
+                    col = result_tb.Columns.Add("Weight_7", Type.GetType("System.Double"));
+                    col.AllowDBNull = true;
+                    col = result_tb.Columns.Add("Weight_8", Type.GetType("System.Decimal"));
+                    col.AllowDBNull = true;
+                    col = result_tb.Columns.Add("Weight_9", Type.GetType("System.Double"));
+                    col.AllowDBNull = true;
+                    col = result_tb.Columns.Add("Weight_10", Type.GetType("System.Double"));
+                    col.AllowDBNull = true;
+                    col = result_tb.Columns.Add("Weight_11", Type.GetType("System.Double"));
+                    col.AllowDBNull = true;
+                    col = result_tb.Columns.Add("Weight_12", Type.GetType("System.Double"));
+                    col.AllowDBNull = true;
+                    col = result_tb.Columns.Add("Weight_13", Type.GetType("System.Double"));
+                    col.AllowDBNull = true;
+                    col = result_tb.Columns.Add("Weight_14", Type.GetType("System.Double"));
+                    col.AllowDBNull = true;
+                    col = result_tb.Columns.Add("Weight_15", Type.GetType("System.Double"));
+                    col.AllowDBNull = true;
+                    col = result_tb.Columns.Add("SumWeight", Type.GetType("System.Double"));
+                    col.AllowDBNull = true;
+                    col = result_tb.Columns.Add("SumBoxTail", Type.GetType("System.Int32"));
+                    col.AllowDBNull = true;
+                    col = result_tb.Columns.Add("DateID", Type.GetType("System.String"));
+                    col.AllowDBNull = true;
+                    #endregion
+
+
+                    flag_everyday = false;
+                    flag_everydayexl = false;
+                    toolStripButtonDayCompExl.Enabled = false;
+                    groupBoxReport2.Enabled = false;
+                    MainTab.SelectTab(16);
+                }
+                break;
                 case "TreeNode: 每月清运垃圾明细表":
-                    {
+                {
                         sqlcon = boperate.getcon();
                         crform_ds = new DataSet();
                         dt_goods = crform_ds.Tables.Add("Goods_Table");
@@ -216,7 +273,7 @@ namespace QMS3
                         toolStripButtonMonExl.Enabled = false;
                         groupBoxReport.Enabled = false;
                         MainTab.SelectTab(17);                    
-                    }
+                 }
                     
                     break;
                 case "TreeNode: 年度清运垃圾明细表":    MainTab.SelectTab(18);
@@ -830,6 +887,7 @@ namespace QMS3
         }
 
         //*******************added by wanchao
+        //TAB18
         private void comboBoxDay1_DropDown(object sender, EventArgs e)//生成每个月对应的天数
         {
             if (comboBoxYear1.Text.Trim() == "" || comboBoxMon1.Text.Trim() == "")
@@ -2593,6 +2651,758 @@ else
             //*/
         }
 
+        //TAB17
+        private void comboBoxDay2_DropDown(object sender, EventArgs e)
+        {
+            if (comboBoxYear2.Text.Trim() == "" || comboBoxMon2.Text.Trim() == "")
+            {
+                MessageBox.Show("请先选择年月，再选择日", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+            }
+            else
+            {
+                comboBoxDay2.Items.Clear();
+                if (comboBoxMon2.Text.Trim() == "1" || comboBoxMon2.Text.Trim() == "3" || comboBoxMon2.Text.Trim() == "5" || comboBoxMon2.Text.Trim() == "7" || comboBoxMon2.Text.Trim() == "8" || comboBoxMon2.Text.Trim() == "10" || comboBoxMon2.Text.Trim() == "12")
+                {
+
+
+                    comboBoxDay2.Items.Add("1");
+                    comboBoxDay2.Items.Add("2");
+                    comboBoxDay2.Items.Add("3");
+                    comboBoxDay2.Items.Add("4");
+                    comboBoxDay2.Items.Add("5");
+                    comboBoxDay2.Items.Add("6");
+                    comboBoxDay2.Items.Add("7");
+                    comboBoxDay2.Items.Add("8");
+                    comboBoxDay2.Items.Add("9");
+                    comboBoxDay2.Items.Add("10");
+                    comboBoxDay2.Items.Add("11");
+                    comboBoxDay2.Items.Add("12");
+                    comboBoxDay2.Items.Add("13");
+                    comboBoxDay2.Items.Add("14");
+                    comboBoxDay2.Items.Add("15");
+                    comboBoxDay2.Items.Add("16");
+                    comboBoxDay2.Items.Add("17");
+                    comboBoxDay2.Items.Add("18");
+                    comboBoxDay2.Items.Add("19");
+                    comboBoxDay2.Items.Add("20");
+                    comboBoxDay2.Items.Add("21");
+                    comboBoxDay2.Items.Add("22");
+                    comboBoxDay2.Items.Add("23");
+                    comboBoxDay2.Items.Add("24");
+                    comboBoxDay2.Items.Add("25");
+                    comboBoxDay2.Items.Add("26");
+                    comboBoxDay2.Items.Add("27");
+                    comboBoxDay2.Items.Add("28");
+                    comboBoxDay2.Items.Add("29");
+                    comboBoxDay2.Items.Add("30");
+                    comboBoxDay2.Items.Add("31");
+                }
+                else if (comboBoxMon2.Text.Trim() == "4" || comboBoxMon2.Text.Trim() == "6" || comboBoxMon2.Text.Trim() == "9" || comboBoxMon2.Text.Trim() == "11")
+                {
+                    comboBoxDay2.Items.Add("1");
+                    comboBoxDay2.Items.Add("2");
+                    comboBoxDay2.Items.Add("3");
+                    comboBoxDay2.Items.Add("4");
+                    comboBoxDay2.Items.Add("5");
+                    comboBoxDay2.Items.Add("6");
+                    comboBoxDay2.Items.Add("7");
+                    comboBoxDay2.Items.Add("8");
+                    comboBoxDay2.Items.Add("9");
+                    comboBoxDay2.Items.Add("10");
+                    comboBoxDay2.Items.Add("11");
+                    comboBoxDay2.Items.Add("12");
+                    comboBoxDay2.Items.Add("13");
+                    comboBoxDay2.Items.Add("14");
+                    comboBoxDay2.Items.Add("15");
+                    comboBoxDay2.Items.Add("16");
+                    comboBoxDay2.Items.Add("17");
+                    comboBoxDay2.Items.Add("18");
+                    comboBoxDay2.Items.Add("19");
+                    comboBoxDay2.Items.Add("20");
+                    comboBoxDay2.Items.Add("21");
+                    comboBoxDay2.Items.Add("22");
+                    comboBoxDay2.Items.Add("23");
+                    comboBoxDay2.Items.Add("24");
+                    comboBoxDay2.Items.Add("25");
+                    comboBoxDay2.Items.Add("26");
+                    comboBoxDay2.Items.Add("27");
+                    comboBoxDay2.Items.Add("28");
+                    comboBoxDay2.Items.Add("29");
+                    comboBoxDay2.Items.Add("30");
+                }
+                else
+                {
+                    string year_str = comboBoxYear2.Text.Trim();
+                    int year_int = Convert.ToInt32(year_str);
+                    if (year_int % 4 == 0 || (year_int % 100 == 0 && year_int % 400 == 0))
+                    {
+                        comboBoxDay2.Items.Add("1");
+                        comboBoxDay2.Items.Add("2");
+                        comboBoxDay2.Items.Add("3");
+                        comboBoxDay2.Items.Add("4");
+                        comboBoxDay2.Items.Add("5");
+                        comboBoxDay2.Items.Add("6");
+                        comboBoxDay2.Items.Add("7");
+                        comboBoxDay2.Items.Add("8");
+                        comboBoxDay2.Items.Add("9");
+                        comboBoxDay2.Items.Add("10");
+                        comboBoxDay2.Items.Add("11");
+                        comboBoxDay2.Items.Add("12");
+                        comboBoxDay2.Items.Add("13");
+                        comboBoxDay2.Items.Add("14");
+                        comboBoxDay2.Items.Add("15");
+                        comboBoxDay2.Items.Add("16");
+                        comboBoxDay2.Items.Add("17");
+                        comboBoxDay2.Items.Add("18");
+                        comboBoxDay2.Items.Add("19");
+                        comboBoxDay2.Items.Add("20");
+                        comboBoxDay2.Items.Add("21");
+                        comboBoxDay2.Items.Add("22");
+                        comboBoxDay2.Items.Add("23");
+                        comboBoxDay2.Items.Add("24");
+                        comboBoxDay2.Items.Add("25");
+                        comboBoxDay2.Items.Add("26");
+                        comboBoxDay2.Items.Add("27");
+                        comboBoxDay2.Items.Add("28");
+                        comboBoxDay2.Items.Add("29");
+                    }
+                    else
+                    {
+                        comboBoxDay2.Items.Add("1");
+                        comboBoxDay2.Items.Add("2");
+                        comboBoxDay2.Items.Add("3");
+                        comboBoxDay2.Items.Add("4");
+                        comboBoxDay2.Items.Add("5");
+                        comboBoxDay2.Items.Add("6");
+                        comboBoxDay2.Items.Add("7");
+                        comboBoxDay2.Items.Add("8");
+                        comboBoxDay2.Items.Add("9");
+                        comboBoxDay2.Items.Add("10");
+                        comboBoxDay2.Items.Add("11");
+                        comboBoxDay2.Items.Add("12");
+                        comboBoxDay2.Items.Add("13");
+                        comboBoxDay2.Items.Add("14");
+                        comboBoxDay2.Items.Add("15");
+                        comboBoxDay2.Items.Add("16");
+                        comboBoxDay2.Items.Add("17");
+                        comboBoxDay2.Items.Add("18");
+                        comboBoxDay2.Items.Add("19");
+                        comboBoxDay2.Items.Add("20");
+                        comboBoxDay2.Items.Add("21");
+                        comboBoxDay2.Items.Add("22");
+                        comboBoxDay2.Items.Add("23");
+                        comboBoxDay2.Items.Add("24");
+                        comboBoxDay2.Items.Add("25");
+                        comboBoxDay2.Items.Add("26");
+                        comboBoxDay2.Items.Add("27");
+                        comboBoxDay2.Items.Add("28");
+                    }
+                }
+            }
+
+        }
+        private void comboBoxMon2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBoxDay2.Items.Clear();
+        }
+
+        private void toolStripButtonDayComp_Click(object sender, EventArgs e)
+        {
+            crystalReportViewerDay.ReportSource = null;
+            flag_everyday = false;
+            timerMon4.Start();
+            System.Threading.Thread myThread = new System.Threading.Thread(new System.Threading.ThreadStart(DayComp));
+            myThread.Start();
+        }
+        private void DayComp()//生成每日完成情况报表子线程
+        {
+            if (comboBoxYear2.Text.Trim() == "" || comboBoxMon2.Text.Trim() == "" || comboBoxDay2.Text.Trim() == "")
+            {
+                MessageBox.Show("请选择年月日", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+            }
+            else
+            {
+                //Form1 waitingform = new Form1();
+                //waitingform.ShowDialog(this);
+
+                //new System.Threading.Thread(new System.Threading.ThreadStart(StartDownload)).Start();
+                this.Enabled = false;
+                progressBarDay.Visible = true;
+                progressBarDay.Value = 0;
+                progressBarDay.Update();
+                labelProgDay.Text = "";
+                labelProgDay.Update();
+
+                progressBarDay.Value = 15;
+                progressBarDay.Update();
+                labelProgDay.Text = "处理中...";
+                labelProgDay.Update();
+
+                crform_ds.Tables["Result"].Clear();
+                groupBoxReport2.Enabled = true;
+                string yr_str = comboBoxYear2.Text.Trim();
+                int yr_int = Convert.ToInt32(yr_str);
+                string mon_str = comboBoxMon2.Text.Trim();
+                int mon_int = Convert.ToInt32(mon_str);
+                if (mon_int < 10)
+                    mon_str = "0" + mon_str;
+                string day_str = comboBoxDay2.Text.Trim();
+                int day_int = Convert.ToInt32(day_str);
+                if (day_int < 10)
+                    day_str = "0" + day_str;
+
+                string month_first_day = new DateTime(yr_int, mon_int, 1, 0, 0, 0).ToString().Substring(2, 8);////要查询的月的第一天，10-01-01，这里月份用1月，以后用 System.DateTime.Now.Month，下一行同样
+                DateTime next_month_first_day = new DateTime(yr_int, mon_int + 1, 1, 0, 0, 0);
+                next_month_first_day = next_month_first_day.AddDays(-1);//得到要查询月最后一天
+                int second_pos = next_month_first_day.ToString().LastIndexOf("/");
+                int cur_month_days = int.Parse(next_month_first_day.ToString().Substring(second_pos + 1, 2));//当前月的天数
+                string cur_month_days_str = cur_month_days.ToString();
+
+                string sql_startTime = yr_str.Substring(2, 2) + "-" + mon_str + "-";
+                string sql_goods = @"if not exists(select name from sysobjects where name='res' and type='u')
+  create table res(staname  varchar(100),sumbox int,weight2 float,weight3 float,weight4 float,weight5 float,weight6 float,weight7 float,weight8 float,weight9 float,weight10 float,weight11 float,weight12 float,weight13 float,weight14 float,weight15 float,sumweight float,sumboxtail float,dateid varchar(100));
+else
+  begin
+  drop table res;
+  create table res(staname  varchar(100),sumbox int,weight2 float,weight3 float,weight4 float,weight5 float,weight6 float,weight7 float,weight8 float,weight9 float,weight10 float,weight11 float,weight12 float,weight13 float,weight14 float,weight15 float,sumweight float,sumboxtail float,dateid varchar(100));
+  end
+
+                    declare @tmpweight float;/*每行获取的weight*/
+                    declare @ttlweight float;
+                    declare @col varchar(100);/*weight2-15的列名*/
+                    declare @sqls varchar(1000);
+                    declare @i int;
+
+                    declare @cur_date varchar(10);
+                    set @cur_date=CONVERT(varchar(10),getDate(),120);/*当前日期*/
+                    declare @q_date varchar(10);
+                    set @q_date='" + yr_str.Substring(2, 2) + "-" + mon_str + "-" + day_str + @"'" + @"
+
+                    declare @day_str varchar(20);
+                    set @day_str=@q_date+'%';
+
+                    declare @staid int;
+                    set @staid=31;
+                    while @staid<=85
+                    begin
+                        declare @stationname varchar(100);
+	                    set @stationname=(select Name from [rfidtest].[dbo.Station] WHERE StationID=@staid);
+	                    declare @date varchar(30);
+	                    set @date=substring(@day_str,1,8);
+	                    declare @boxnum int;
+	                    set @boxnum=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartStationID=@staid AND StartTime LIKE @day_str GROUP BY StartStationID);
+                        if @boxnum<>0
+	                    insert into res(staname,sumbox,sumboxtail,dateid) values(@stationname,@boxnum,@boxnum,@date);
+                        else
+                        insert into res(staname,sumbox,sumboxtail,dateid) values(@stationname,0,0,@date);
+                     
+                        select ID=identity(int,   1,   1), Weight into #t  from [rfidtest].[dbo.Goods] WHERE StartStationID=@staid AND StartTime LIKE @day_str; 
+	                    /*select   *   from   #t*/
+	                    set @ttlweight=0;
+	                    set @i=1;
+	                    while @i<=@boxnum
+	                    begin
+		                    set @col='weight'+cast(@i+1 as varchar)
+		                    set @tmpweight=(select Weight from #t where ID=@i);
+                            if @tmpweight is null
+                            set @tmpweight=0 
+		                    set @ttlweight=@ttlweight+@tmpweight;
+		                    set @sqls='update res set '+@col+'='+cast(@tmpweight as varchar)+' WHERE staname='''+@stationname+''' AND dateid='''+substring(@day_str,1,8)+'''';
+		                    exec(@sqls) 
+		                    set @i=@i+1;
+	                    end
+                        set @sqls='update res set sumweight='+cast(@ttlweight as varchar)+' WHERE staname='''+@stationname+''' AND dateid='''+substring(@day_str,1,8)+'''';
+                        exec(@sqls)
+                        drop table #t;	
+                        set @staid=@staid+1;
+                    end
+
+                    select * from res;
+                    drop table res;";
+
+                crform_sqlda = new SqlDataAdapter(sql_goods, sqlcon);
+                crform_sqlda.SelectCommand.CommandTimeout = 100000000;
+                try
+                {
+                    crform_sqlda.Fill(crform_ds, "Goods_table");//得到要查询的月的所有的运输信息，包括所有站。
+                }
+                catch (Exception xx)
+                {
+                    MessageBox.Show("不能生成报表！\n单日箱数超过15箱，请检查数据真实性！");
+                    this.Enabled = true;
+                    progressBarDay.Visible = false;
+                    labelProgDay.Text = "";
+                    labelProgDay.Update();
+                    groupBoxReport2.Enabled = false;
+                    groupBoxSelect2.Enabled = true;
+                    dt_goods.Clear();
+                    return;
+
+                }
+                progressBarDay.Value = 60;
+                progressBarDay.Update();
+                labelProgDay.Text = "处理中...";
+                labelProgDay.Update();
+                this.Update();
+
+
+                int first_line = 0;//当天在Result表中第一行
+                string str_cur_day = day_int.ToString();
+                if (day_int < 10)
+                    str_cur_day = sql_startTime + "0" + str_cur_day;
+                else
+                    str_cur_day = sql_startTime + str_cur_day;
+                DataRow new_row = crform_ds.Tables["Result"].NewRow();
+                //DataTable dt_goods = crform_ds.Tables["Goods_Table"];
+                foreach (DataRow row in dt_goods.Rows)
+                {
+                    if (row["DateID"].ToString() == str_cur_day)
+                    {
+                        //new_row["StaName"] = row["staname"].ToString();
+                        //new_row["DateID"] = row["dateid"].ToString().Substring(0, 8);
+                        new_row = row;
+                        crform_ds.Tables["Result"].Rows.Add(new_row.ItemArray);
+                    }
+                }
+                DataTable tb_result = crform_ds.Tables["Result"];
+                DataRow total_row = tb_result.NewRow();
+                total_row["StaName"] = "合计";
+
+                int total_box = 0;
+                for (int line_tb_result = first_line; line_tb_result <= first_line + 54; line_tb_result++)//当天的所有记录在Result表中的行数范围，不包括合计
+                    total_box += Convert.ToInt32(tb_result.Rows[line_tb_result][1].ToString());
+                total_row["SumBox"] = total_box;
+
+
+                //DataTableSQL查询后得到DateSet中的第一个表Goods_Table，处理每天的箱数和重量
+                for (int col_num = 2; col_num <= 16; col_num++)
+                {
+                    double total_col_weight = 0;
+                    for (int line_tb_result = first_line; line_tb_result <= first_line + 54; line_tb_result++)//当天的所有记录在Result表中的行数范围，不包括合计
+                    {
+                        string weight_str = tb_result.Rows[line_tb_result][col_num].ToString();
+                        if (weight_str != "")
+                            total_col_weight += Convert.ToDouble(weight_str);
+
+                    }
+                    /////////if (total_col_weight != 0)//0不显示
+                    total_row[col_num] = total_col_weight;
+
+                }
+                total_row["SumBoxTail"] = total_box;
+                total_row["DateID"] = crform_ds.Tables["Result"].Rows[crform_ds.Tables["Result"].Rows.Count - 1]["DateID"].ToString();
+                crform_ds.Tables["Result"].Rows.Add(total_row);
+
+
+                //讲结果按队分为三个表
+
+
+                int team_num = 3;//获得班的个数
+                DataTable[] team = new DataTable[team_num + 1];
+                //dgdv = new DataGridView[team_num];
+                for (int i = 0; i <= team_num; i++)
+                {
+                    string table_name = "Result_t" + i.ToString();
+                    string col1_name = "StaName" + i.ToString();
+                    string col2_name = "SumBox" + i.ToString();
+                    string col3_name = "SumWeight" + i.ToString();
+                    string col4_name = "AveWeight" + i.ToString();
+                    int sum_box = 0;
+                    double sum_weight = 0;
+                    if (crform_ds.Tables.Contains(table_name))//判断一下是否已经有了这个表
+                    {
+                        crform_ds.Tables[table_name].Clear();
+                        team[i] = crform_ds.Tables[table_name];
+                    }
+                    else
+                    {
+                        team[i] = crform_ds.Tables.Add(table_name);
+                        DataColumn col = team[i].Columns.Add(col1_name, Type.GetType("System.String"));
+                        col.AllowDBNull = false;
+                        col.MaxLength = 20;
+                        col = team[i].Columns.Add(col2_name, Type.GetType("System.Int32"));
+                        col.AllowDBNull = true;
+                        col = team[i].Columns.Add(col3_name, Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = team[i].Columns.Add(col4_name, Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                    }
+
+                    if (i == 0)//result_t0表作为汇总表，只建表
+                        continue;
+
+                    string sql_team = "select * from [rfidtest].[dbo.Station] where Class=" + i.ToString();
+                    crform_sqlda = new SqlDataAdapter(sql_team, sqlcon);
+                    crform_sqlda.Fill(crform_ds, "Temp_Result");
+
+
+                    foreach (DataRow row in crform_ds.Tables["Temp_Result"].Rows)
+                    {
+                        DataRow team_row = team[i].NewRow();
+                        team_row[col1_name] = row["Name"];
+                        //MessageBox.Show(row["Name"].ToString());
+                        foreach (DataRow res_row in crform_ds.Tables["Result"].Rows)
+                        {
+                            if (res_row["StaName"].ToString() == team_row[col1_name].ToString())
+                            {
+                                //MessageBox.Show(team_row["StaName"].ToString());
+                                team_row[col2_name] = res_row["SumBox"];
+                                sum_box += Convert.ToInt32(team_row[col2_name].ToString());
+                                team_row[col3_name] = res_row["SumWeight"];
+                                sum_weight += Convert.ToDouble(team_row[col3_name].ToString());
+                                if (Convert.ToInt32(team_row[col2_name].ToString()) == 0)
+                                    team_row[col4_name] = Convert.ToDouble("0");
+                                else
+                                    team_row[col4_name] = Convert.ToDouble(string.Format("{0:f2}", (Convert.ToDouble(team_row[col3_name].ToString()) / Convert.ToDouble(team_row[col2_name].ToString()))));
+                                break;
+                            }
+                        }
+                        team[i].Rows.Add(team_row);
+                        team[0].Rows.Add(team_row.ItemArray);
+                    }
+                    DataRow team_total_row = team[i].NewRow();
+                    team_total_row[col1_name] = "实际数";
+                    team_total_row[col2_name] = sum_box;
+                    team_total_row[col3_name] = sum_weight;
+                    if (sum_box != 0)
+                        team_total_row[col4_name] = Convert.ToDouble(string.Format("{0:f2}", sum_weight / sum_box));
+                    else
+                        team_total_row[col4_name] = 0;
+                    team[i].Rows.Add(team_total_row);
+                    team[0].Rows.Add(team_total_row.ItemArray);
+
+                    DataRow team_plan_row = team[i].NewRow();
+                    team_plan_row[col1_name] = "核算数";
+                    team_plan_row[col2_name] = sum_box;
+                    team_plan_row[col3_name] = sum_weight;
+                    if (sum_box != 0)
+                        team_plan_row[col4_name] = Convert.ToDouble(string.Format("{0:f2}", sum_weight / sum_box));
+                    else
+                        team_plan_row[col4_name] = 0;
+                    team[i].Rows.Add(team_plan_row);
+                    team[0].Rows.Add(team_plan_row.ItemArray);
+
+                    DataRow team_diff_row = team[i].NewRow();
+                    team_diff_row[col1_name] = "差额";
+                    team_diff_row[col2_name] = 0;
+                    team_diff_row[col3_name] = 0;
+                    team_diff_row[col4_name] = 0;
+                    team[i].Rows.Add(team_diff_row);
+                    team[0].Rows.Add(team_diff_row.ItemArray);
+
+                    //dgdv[i - 1] = new DataGridView();
+                    //BindingSource myBindingSource = new BindingSource();
+                    //myBindingSource.DataSource = crform_ds.Tables[table_name];
+                    //DataGridView ss = new DataGridView();
+                    //dgdv[i - 1].AutoGenerateColumns = false;
+                    //dgdv[i-1]
+                    //this.groupBox1.Controls.Add(dgdv[i - 1]);
+                    //ss.DataSource = crform_ds.Tables[table_name];
+                    //dgdv[i - 1].DataSource = myBindingSource; //crform_ds.Tables[table_name];
+                    //dgdv[i-1].DataMember="Result";
+
+
+                    //MessageBox.Show(ss.Rows.Count.ToString());
+                    //MessageBox.Show(dgdv[i - 1].RowCount.ToString());
+
+                    crform_ds.Tables["Temp_Result"].Clear();
+                }//每次循环处理一班，一个datatable
+                //foreach (DataRow row in crform_ds.Tables["Result_t2"].Rows)
+                //{
+
+                //    MessageBox.Show(row["StaName"].ToString());
+                //}
+                flag_everyday = true;
+            }
+
+        }
+        private void timerMon4_Tick(object sender, EventArgs e)
+        {
+            if (flag_everyday == true)
+            {
+                timerMon4.Stop();
+                //MessageBox.Show("请选择年月日", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+                dataGridViewMon.DataSource = crform_ds.Tables["Result"];
+                dataGridViewMon.Visible = false;
+                //报表对象，绑定报表文件
+
+                //string crPath = Application.StartupPath.Substring(0, Application.StartupPath.Substring(0,
+                //     Application.StartupPath.LastIndexOf("\\")).LastIndexOf("\\"));
+                string crPath = "CrystalReport1.rpt";
+                //crDocument.Refresh();
+                ReportDocument crDocument = new ReportDocument();
+                crDocument.Load(crPath);
+                //绑定数据集，注意，一个报表用一个数据集。
+                crDocument.SetDataSource(crform_ds);
+
+                //在Viewer中呈现
+                crystalReportViewerDay.ReportSource = crDocument;
+                // MessageBox.Show("请选择年", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+                dt_goods.Clear();
+                toolStripButtonDayCompExl.Enabled = true;
+                progressBarDay.Value = progressBarDay.Maximum;
+                progressBarDay.Update();
+                labelProgDay.Text = "已完成";
+                labelProgDay.Update();
+                //MessageBox.Show("请选择", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+                this.Enabled = true;
+                flag_everyday = false;
+
+
+            }
+        }
+
+        private void toolStripButtonDayCompExl_Click(object sender, EventArgs e)
+        {
+            flag_everydayexl = false;
+            timerMon5.Start();
+            //MessageBox.Show("FUCK!");
+            System.Threading.Thread myThread = new System.Threading.Thread(new System.Threading.ThreadStart(GenDayCompExcel));
+            myThread.Start();
+        }
+        private void GenDayCompExcel()//导出每日完成情况EXCEL子线程
+        {
+            flag_everydayexl = true;
+        }
+        private void timerMon5_Tick(object sender, EventArgs e)
+        {
+            if (flag_everydayexl == true)
+            {
+                timerMon5.Stop();
+                dataGridViewMon.DataSource = crform_ds.Tables["Result_t0"];
+
+                //MessageBox.Show(dataGridView1[0, 0].Value.ToString());
+                //MessageBox.Show(dataGridView1[0, 1].Value.ToString());
+                //MessageBox.Show(dataGridView1[1, 0].Value.ToString());
+                //MessageBox.Show(dataGridView1[1, 1].Value.ToString());
+                //ExportExcel(dataGridView1);
+                try
+                {
+
+                    if (dataGridViewMon.Rows.Count >= 1)
+                    {
+                        this.Enabled = false;
+                        //MessageBox.Show("FUCK@@");
+                        progressBarDay.Visible = true;
+                        progressBarDay.Value = 0;
+                        progressBarDay.Update();
+                        labelProgDay.Text = "开始导出";
+                        labelProgDay.Update();
+                        string yr_str = comboBoxYear2.Text.Trim();
+                        string mon_str = comboBoxMon2.Text.Trim();
+                        string day_str = comboBoxDay2.Text.Trim();
+                        string fName = "";
+                        SaveFileDialog saveFileDialog = new SaveFileDialog();
+                        saveFileDialog.InitialDirectory = "d:";
+                        saveFileDialog.Filter = "EXCEL文件|*.xlsx";
+                        saveFileDialog.FilterIndex = 2;
+                        saveFileDialog.FileName = mon_str + "月" + day_str + "日完成情况";
+
+                        saveFileDialog.RestoreDirectory = true;
+                        if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            fName = saveFileDialog.FileName;
+
+                            progressBarDay.Value = 12;
+                            progressBarDay.Update();
+
+                            this.Refresh();
+                            //建立Excel对象 
+                            Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+                            Microsoft.Office.Interop.Excel.Workbooks wbs = excel.Workbooks;//一个xls文档 new Microsoft.Office.Interop.Excel.Workbooks();
+                            Microsoft.Office.Interop.Excel.Workbook wb = wbs.Add(true);// new Microsoft.Office.Interop.Excel.Workbook   
+                            Microsoft.Office.Interop.Excel.Worksheet ws;//excel中的一个sheet
+                            ws = (Microsoft.Office.Interop.Excel.Worksheet)wb.Worksheets["Sheet1"];
+
+                            //int num_sheet = dgv.Rows.Count / 55;
+                            //label5.Text = "完成  " + progressBar1.Value.ToString() + "%";
+                            //label5.Update();
+
+                            //for (int cur_sheet = 1; cur_sheet <= num_sheet; cur_sheet++)
+                            //{
+                            //    if (num_sheet != 1)
+                            //    {
+                            //        progressBar1.Value = Convert.ToInt32(12 + cur_sheet * 87 / num_sheet);
+                            //        progressBar1.Update();
+                            //label5.Text = "完成  " + progressBar1.Value.ToString() + "%";
+                            //label5.Update();
+                            //    }
+                            //    else
+                            //    {
+                            //        progressBar1.Value = 50;
+                            //        progressBar1.Update();
+                            //label5.Text = "完成  " + progressBar1.Value.ToString() + "%";
+                            //label5.Update();
+                            //    }
+                            //    if (cur_sheet == 1)
+                            //        ws = (Microsoft.Office.Interop.Excel.Worksheet)wb.Worksheets["Sheet1"];
+                            //    else
+                            //        ws = wb.Worksheets.Add(Type.Missing, Type.Missing, Type.Missing, Type.Missing) as Microsoft.Office.Interop.Excel.Worksheet;
+                            //    ws.Name = cur_sheet.ToString();
+                            excel.Cells[2, 1] = "一班：王玉宝";
+                            excel.Cells[2, 6] = "二班：蔡震";
+                            excel.Cells[2, 11] = "三班：韩培元";
+                            excel.Cells[2, 13] = "日期：" + mon_str + "月" + day_str + "日";
+                            Microsoft.Office.Interop.Excel.Range merge_range = excel.get_Range(excel.Cells[2, 13], excel.Cells[2, 14]);
+                            merge_range.Merge(Type.Missing);
+                            Microsoft.Office.Interop.Excel.Range bold_range = excel.get_Range(excel.Cells[2, 1], excel.Cells[2, 15]);
+                            bold_range.Font.Bold = true;
+
+                            //生成字段名称 
+                            excel.Cells[3, 1] = "楼名";
+                            excel.Cells[3, 2] = "日产箱数";
+                            excel.Cells[3, 3] = "实际吨数";
+                            excel.Cells[3, 4] = "平均吨数";
+
+                            excel.Cells[3, 6] = "楼名";
+                            excel.Cells[3, 7] = "日产箱数";
+                            excel.Cells[3, 8] = "实际吨数";
+                            excel.Cells[3, 9] = "平均吨数";
+
+                            excel.Cells[3, 11] = "楼名";
+                            excel.Cells[3, 12] = "日产箱数";
+                            excel.Cells[3, 13] = "实际吨数";
+                            excel.Cells[3, 14] = "平均吨数";
+
+                            //填充数据 
+                            for (int x = 0; x < 15; x++)
+                            {
+                                for (int y = 0; y < dataGridViewMon.ColumnCount; y++)
+                                {
+                                    if (dataGridViewMon[y, x].Value != null)
+                                    {
+                                        //MessageBox.Show(dataGridView1[y, x].Value.ToString());
+                                        excel.Cells[x + 4, y + 1] = dataGridViewMon[y, x].Value;
+                                    }
+                                    else
+                                        excel.Cells[x + 4, y + 1] = "";
+                                }
+                            }
+                            for (int x = 18; x < 40; x++)
+                            {
+                                for (int y = 0; y < dataGridViewMon.ColumnCount; y++)
+                                {
+                                    if (dataGridViewMon[y, x].Value != null)
+                                    {
+                                        //MessageBox.Show(dataGridView1[y, x].Value.ToString());
+                                        excel.Cells[x - 18 + 4, y + 1 + 5] = dataGridViewMon[y, x].Value;
+                                    }
+                                    else
+                                        excel.Cells[x - 18 + 4, y + 1 + 5] = "";
+                                }
+                            }
+                            for (int x = 43; x < 59; x++)
+                            {
+                                for (int y = 0; y < dataGridViewMon.ColumnCount; y++)
+                                {
+                                    if (dataGridViewMon[y, x].Value != null)
+                                    {
+                                        //MessageBox.Show(dataGridView1[y, x].Value.ToString());
+                                        excel.Cells[x - 43 + 4, y + 1 + 10] = dataGridViewMon[y, x].Value;
+                                    }
+                                    else
+                                        excel.Cells[x - 43 + 4, y + 1 + 10] = "";
+                                }
+                            }
+
+                            for (int x = 15; x < 18; x++)
+                            {
+                                for (int y = 0; y < dataGridViewMon.ColumnCount; y++)
+                                {
+                                    if (dataGridViewMon[y, x].Value != null)
+                                    {
+                                        //MessageBox.Show(dataGridView1[y, x].Value.ToString());
+                                        excel.Cells[x + 13, y + 1] = dataGridViewMon[y, x].Value;
+                                    }
+                                    else
+                                        excel.Cells[x + 13, y + 1] = "";
+                                }
+                            }
+                            for (int x = 40; x < 43; x++)
+                            {
+                                for (int y = 0; y < dataGridViewMon.ColumnCount; y++)
+                                {
+                                    if (dataGridViewMon[y, x].Value != null)
+                                    {
+                                        //MessageBox.Show(dataGridView1[y, x].Value.ToString());
+                                        excel.Cells[x - 12, y + 1 + 5] = dataGridViewMon[y, x].Value;
+                                    }
+                                    else
+                                        excel.Cells[x - 12, y + 1 + 5] = "";
+                                }
+                            }
+                            for (int x = 59; x < 62; x++)
+                            {
+                                for (int y = 0; y < dataGridViewMon.ColumnCount; y++)
+                                {
+                                    if (dataGridViewMon[y, x].Value != null)
+                                    {
+                                        //MessageBox.Show(dataGridView1[y, x].Value.ToString());
+                                        excel.Cells[x - 31, y + 1 + 10] = dataGridViewMon[y, x].Value;
+                                    }
+                                    else
+                                        excel.Cells[x - 31, y + 1 + 10] = "";
+                                }
+                            }
+
+                            Microsoft.Office.Interop.Excel.Range all_range = excel.get_Range(excel.Cells[3, 1], excel.Cells[30, 14]);//现有的
+                            //all_range.NumberFormatLocal = "0.00_";
+                            all_range.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                            all_range.EntireColumn.AutoFit();     //自动调整列宽
+                            all_range.EntireRow.AutoFit();
+
+                            Microsoft.Office.Interop.Excel.Range t1_range = excel.get_Range(excel.Cells[3, 1], excel.Cells[30, 4]);
+                            t1_range.Borders.LineStyle = 1;
+                            Microsoft.Office.Interop.Excel.Range t2_range = excel.get_Range(excel.Cells[3, 6], excel.Cells[30, 9]);
+                            t2_range.Borders.LineStyle = 1;
+                            Microsoft.Office.Interop.Excel.Range t3_range = excel.get_Range(excel.Cells[3, 11], excel.Cells[30, 14]);
+                            t3_range.Borders.LineStyle = 1;
+
+
+                            labelProgDay.Text = "完成  " + progressBarDay.Value.ToString() + "%";
+                            labelProgDay.Update();
+                            //}//end for每个datagridview,也就是每个table_team
+                            //}//end for每个sheet                   
+
+                            progressBarDay.Value = progressBarDay.Maximum;
+                            progressBarDay.Update();
+
+
+                            wb.Saved = true;
+                            wb.SaveCopyAs(fName); //保存
+                            excel.Quit(); //关闭进程
+                            labelProgDay.Text = "已完成";
+                            labelProgDay.Update();
+                            MessageBox.Show("导出成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+                            //label5.Text = "完成";
+                            toolStripButtonDayCompExl.Enabled = false;
+                            this.Enabled = true;
+
+
+                        }
+                        else
+                        {
+                            progressBarDay.Visible = false;
+                            progressBarDay.Update();
+                            labelProgDay.Text = "";
+                            labelProgDay.Update();
+                            MessageBox.Show("未导出！", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                    progressBarDay.Visible = false;
+                    progressBarDay.Update();
+                    labelProgDay.Text = "";
+                    labelProgDay.Update();
+                    this.Enabled = true;
+                }
+                this.Enabled = true;
+                flag_everydayexl = false;
+            }
+        }
         
         //*******************
 
