@@ -818,9 +818,9 @@ namespace QMS3
         {
             try
             {
-                //right = this.dbo_UserTableAdapter.ValidateUser(UNtextBox.Text, MD5.MDString(PSmaskedTextBox.Text)).ToString();
+                right = this.dbo_UserTableAdapter.ValidateUser(UNtextBox.Text, MD5.MDString(PSmaskedTextBox.Text)).ToString();
                 //********************测试用，登录服务器慢，取消登录*****************************/
-                right = "6";
+                //right = "6";
                 //********************测试用，登录服务器慢，取消登录*****************************/
                 conneted = true;
             }

@@ -1,0 +1,30 @@
+CREATE PROCEDURE ReadDriverCard
+@DriverCardID nchar(16)
+AS
+SELECT DriverCardID, TruckNo
+FROM [db_rfidtest].[dbo].[Driver]
+WHERE DriverCardID = @DriverCardID
+GO
+
+
+CREATE PROCEDURE InsertIntoDriverCard
+@DriverCardID nchar(16),
+@TruckNo nchar(16)
+AS
+INSERT INTO [db_rfidtest].[dbo].[Driver]
+([DriverCardID] ,[TruckNo])
+VALUES
+(@DriverCardID,@TruckNo)
+GO
+
+CREATE PROCEDURE UpdateDriverCard
+@DriverCardID nchar(16),
+@TruckNo nchar(16)
+AS
+UPDATE [db_rfidtest].[dbo].[Driver]
+SET [TruckNo] = @TruckNo
+WHERE [DriverCardID] = @DriverCardID
+GO
+
+//**********以上是创建脚本***********************
+EXEC InsertIntoDriverCard '87654321','174935'

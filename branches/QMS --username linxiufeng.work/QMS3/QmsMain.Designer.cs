@@ -64,6 +64,7 @@
             this.t1label1 = new System.Windows.Forms.Label();
             this.tabDCardSent = new System.Windows.Forms.TabPage();
             this.gBoxOperate = new System.Windows.Forms.GroupBox();
+            this.btnResetDCard = new System.Windows.Forms.Button();
             this.btnCheckDriver = new System.Windows.Forms.Button();
             this.btnReadDCard = new System.Windows.Forms.Button();
             this.btnResetDCardAll = new System.Windows.Forms.Button();
@@ -85,6 +86,24 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabBCardSent = new System.Windows.Forms.TabPage();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnReadBCard = new System.Windows.Forms.Button();
+            this.btnResetBCardAll = new System.Windows.Forms.Button();
+            this.btnSendBCard = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtBCNo = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.lblBCNo = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
@@ -195,25 +214,6 @@
             this.timerMon3 = new System.Windows.Forms.Timer(this.components);
             this.timerMon4 = new System.Windows.Forms.Timer(this.components);
             this.timerMon5 = new System.Windows.Forms.Timer(this.components);
-            this.btnResetDCard = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btnReadBCard = new System.Windows.Forms.Button();
-            this.btnResetBCardAll = new System.Windows.Forms.Button();
-            this.btnSendBCard = new System.Windows.Forms.Button();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.txtBCNo = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.lblBCNo = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.MainTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -221,6 +221,8 @@
             this.gBoxOperate.SuspendLayout();
             this.gBoxCinfo.SuspendLayout();
             this.tabBCardSent.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.tabPage10.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -247,8 +249,6 @@
             this.MenugroupBox.SuspendLayout();
             this.LogingroupBox.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -363,6 +363,16 @@
             this.gBoxOperate.TabIndex = 5;
             this.gBoxOperate.TabStop = false;
             this.gBoxOperate.Text = "操作";
+            // 
+            // btnResetDCard
+            // 
+            this.btnResetDCard.Location = new System.Drawing.Point(157, 113);
+            this.btnResetDCard.Name = "btnResetDCard";
+            this.btnResetDCard.Size = new System.Drawing.Size(82, 28);
+            this.btnResetDCard.TabIndex = 5;
+            this.btnResetDCard.Text = "重置卡片";
+            this.btnResetDCard.UseVisualStyleBackColor = true;
+            this.btnResetDCard.Click += new System.EventHandler(this.btnResetDCard_Click_1);
             // 
             // btnCheckDriver
             // 
@@ -579,6 +589,193 @@
             this.tabBCardSent.TabIndex = 4;
             this.tabBCardSent.Text = "发货箱卡";
             this.tabBCardSent.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.btnReadBCard);
+            this.groupBox4.Controls.Add(this.btnResetBCardAll);
+            this.groupBox4.Controls.Add(this.btnSendBCard);
+            this.groupBox4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox4.Location = new System.Drawing.Point(627, 11);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox4.Size = new System.Drawing.Size(211, 458);
+            this.groupBox4.TabIndex = 7;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "操作";
+            // 
+            // btnReadBCard
+            // 
+            this.btnReadBCard.Location = new System.Drawing.Point(69, 106);
+            this.btnReadBCard.Name = "btnReadBCard";
+            this.btnReadBCard.Size = new System.Drawing.Size(82, 28);
+            this.btnReadBCard.TabIndex = 2;
+            this.btnReadBCard.Text = "读卡";
+            this.btnReadBCard.UseVisualStyleBackColor = true;
+            // 
+            // btnResetBCardAll
+            // 
+            this.btnResetBCardAll.Location = new System.Drawing.Point(69, 306);
+            this.btnResetBCardAll.Name = "btnResetBCardAll";
+            this.btnResetBCardAll.Size = new System.Drawing.Size(82, 28);
+            this.btnResetBCardAll.TabIndex = 1;
+            this.btnResetBCardAll.Text = "重置";
+            this.btnResetBCardAll.UseVisualStyleBackColor = true;
+            // 
+            // btnSendBCard
+            // 
+            this.btnSendBCard.Location = new System.Drawing.Point(69, 206);
+            this.btnSendBCard.Name = "btnSendBCard";
+            this.btnSendBCard.Size = new System.Drawing.Size(82, 28);
+            this.btnSendBCard.TabIndex = 0;
+            this.btnSendBCard.Text = "发卡";
+            this.btnSendBCard.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.textBox2);
+            this.groupBox5.Controls.Add(this.label2);
+            this.groupBox5.Controls.Add(this.textBox3);
+            this.groupBox5.Controls.Add(this.label14);
+            this.groupBox5.Controls.Add(this.label15);
+            this.groupBox5.Controls.Add(this.textBox4);
+            this.groupBox5.Controls.Add(this.label16);
+            this.groupBox5.Controls.Add(this.textBox5);
+            this.groupBox5.Controls.Add(this.textBox6);
+            this.groupBox5.Controls.Add(this.txtBCNo);
+            this.groupBox5.Controls.Add(this.label17);
+            this.groupBox5.Controls.Add(this.lblBCNo);
+            this.groupBox5.Controls.Add(this.label19);
+            this.groupBox5.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBox5.Location = new System.Drawing.Point(5, 11);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox5.Size = new System.Drawing.Size(560, 458);
+            this.groupBox5.TabIndex = 6;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "信息";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox2.Location = new System.Drawing.Point(114, 71);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(282, 29);
+            this.textBox2.TabIndex = 24;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.Location = new System.Drawing.Point(34, 74);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 21);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "司机编号";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox3.Location = new System.Drawing.Point(114, 200);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(282, 29);
+            this.textBox3.TabIndex = 21;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label14.Location = new System.Drawing.Point(34, 203);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(74, 21);
+            this.label14.TabIndex = 20;
+            this.label14.Text = "所属车队";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label15.Location = new System.Drawing.Point(241, 161);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(74, 21);
+            this.label15.TabIndex = 19;
+            this.label15.Text = "司机年龄";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox4.Location = new System.Drawing.Point(321, 158);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(75, 29);
+            this.textBox4.TabIndex = 18;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label16.Location = new System.Drawing.Point(34, 161);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(74, 21);
+            this.label16.TabIndex = 17;
+            this.label16.Text = "司机性别";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox5.Location = new System.Drawing.Point(114, 114);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(282, 29);
+            this.textBox5.TabIndex = 15;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox6.Location = new System.Drawing.Point(114, 242);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(282, 29);
+            this.textBox6.TabIndex = 14;
+            // 
+            // txtBCNo
+            // 
+            this.txtBCNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtBCNo.Location = new System.Drawing.Point(114, 290);
+            this.txtBCNo.Name = "txtBCNo";
+            this.txtBCNo.ReadOnly = true;
+            this.txtBCNo.Size = new System.Drawing.Size(282, 29);
+            this.txtBCNo.TabIndex = 10;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label17.Location = new System.Drawing.Point(34, 245);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(74, 21);
+            this.label17.TabIndex = 9;
+            this.label17.Text = "司机车牌";
+            // 
+            // lblBCNo
+            // 
+            this.lblBCNo.AutoSize = true;
+            this.lblBCNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblBCNo.Location = new System.Drawing.Point(34, 293);
+            this.lblBCNo.Name = "lblBCNo";
+            this.lblBCNo.Size = new System.Drawing.Size(74, 21);
+            this.lblBCNo.TabIndex = 2;
+            this.lblBCNo.Text = "卡片编号";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label19.Location = new System.Drawing.Point(34, 117);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(74, 21);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "司机姓名";
             // 
             // tabPage6
             // 
@@ -1796,203 +1993,6 @@
             this.timerMon5.Interval = 500;
             this.timerMon5.Tick += new System.EventHandler(this.timerMon5_Tick);
             // 
-            // btnResetDCard
-            // 
-            this.btnResetDCard.Location = new System.Drawing.Point(157, 113);
-            this.btnResetDCard.Name = "btnResetDCard";
-            this.btnResetDCard.Size = new System.Drawing.Size(82, 28);
-            this.btnResetDCard.TabIndex = 5;
-            this.btnResetDCard.Text = "重置卡片";
-            this.btnResetDCard.UseVisualStyleBackColor = true;
-            this.btnResetDCard.Click += new System.EventHandler(this.btnResetDCard_Click_1);
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.btnReadBCard);
-            this.groupBox4.Controls.Add(this.btnResetBCardAll);
-            this.groupBox4.Controls.Add(this.btnSendBCard);
-            this.groupBox4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox4.Location = new System.Drawing.Point(627, 11);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox4.Size = new System.Drawing.Size(211, 458);
-            this.groupBox4.TabIndex = 7;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "操作";
-            // 
-            // btnReadBCard
-            // 
-            this.btnReadBCard.Location = new System.Drawing.Point(69, 106);
-            this.btnReadBCard.Name = "btnReadBCard";
-            this.btnReadBCard.Size = new System.Drawing.Size(82, 28);
-            this.btnReadBCard.TabIndex = 2;
-            this.btnReadBCard.Text = "读卡";
-            this.btnReadBCard.UseVisualStyleBackColor = true;
-            // 
-            // btnResetBCardAll
-            // 
-            this.btnResetBCardAll.Location = new System.Drawing.Point(69, 306);
-            this.btnResetBCardAll.Name = "btnResetBCardAll";
-            this.btnResetBCardAll.Size = new System.Drawing.Size(82, 28);
-            this.btnResetBCardAll.TabIndex = 1;
-            this.btnResetBCardAll.Text = "重置";
-            this.btnResetBCardAll.UseVisualStyleBackColor = true;
-            // 
-            // btnSendBCard
-            // 
-            this.btnSendBCard.Location = new System.Drawing.Point(69, 206);
-            this.btnSendBCard.Name = "btnSendBCard";
-            this.btnSendBCard.Size = new System.Drawing.Size(82, 28);
-            this.btnSendBCard.TabIndex = 0;
-            this.btnSendBCard.Text = "发卡";
-            this.btnSendBCard.UseVisualStyleBackColor = true;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.textBox2);
-            this.groupBox5.Controls.Add(this.label2);
-            this.groupBox5.Controls.Add(this.textBox3);
-            this.groupBox5.Controls.Add(this.label14);
-            this.groupBox5.Controls.Add(this.label15);
-            this.groupBox5.Controls.Add(this.textBox4);
-            this.groupBox5.Controls.Add(this.label16);
-            this.groupBox5.Controls.Add(this.textBox5);
-            this.groupBox5.Controls.Add(this.textBox6);
-            this.groupBox5.Controls.Add(this.txtBCNo);
-            this.groupBox5.Controls.Add(this.label17);
-            this.groupBox5.Controls.Add(this.lblBCNo);
-            this.groupBox5.Controls.Add(this.label19);
-            this.groupBox5.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox5.Location = new System.Drawing.Point(5, 11);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox5.Size = new System.Drawing.Size(560, 458);
-            this.groupBox5.TabIndex = 6;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "信息";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox2.Location = new System.Drawing.Point(114, 71);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(282, 29);
-            this.textBox2.TabIndex = 24;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(34, 74);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 21);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "司机编号";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox3.Location = new System.Drawing.Point(114, 200);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(282, 29);
-            this.textBox3.TabIndex = 21;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label14.Location = new System.Drawing.Point(34, 203);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(74, 21);
-            this.label14.TabIndex = 20;
-            this.label14.Text = "所属车队";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label15.Location = new System.Drawing.Point(241, 161);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(74, 21);
-            this.label15.TabIndex = 19;
-            this.label15.Text = "司机年龄";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox4.Location = new System.Drawing.Point(321, 158);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(75, 29);
-            this.textBox4.TabIndex = 18;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label16.Location = new System.Drawing.Point(34, 161);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(74, 21);
-            this.label16.TabIndex = 17;
-            this.label16.Text = "司机性别";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox5.Location = new System.Drawing.Point(114, 114);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(282, 29);
-            this.textBox5.TabIndex = 15;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox6.Location = new System.Drawing.Point(114, 242);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(282, 29);
-            this.textBox6.TabIndex = 14;
-            // 
-            // txtBCNo
-            // 
-            this.txtBCNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtBCNo.Location = new System.Drawing.Point(114, 290);
-            this.txtBCNo.Name = "txtBCNo";
-            this.txtBCNo.ReadOnly = true;
-            this.txtBCNo.Size = new System.Drawing.Size(282, 29);
-            this.txtBCNo.TabIndex = 10;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label17.Location = new System.Drawing.Point(34, 245);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(74, 21);
-            this.label17.TabIndex = 9;
-            this.label17.Text = "司机车牌";
-            // 
-            // lblBCNo
-            // 
-            this.lblBCNo.AutoSize = true;
-            this.lblBCNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblBCNo.Location = new System.Drawing.Point(34, 293);
-            this.lblBCNo.Name = "lblBCNo";
-            this.lblBCNo.Size = new System.Drawing.Size(74, 21);
-            this.lblBCNo.TabIndex = 2;
-            this.lblBCNo.Text = "卡片编号";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label19.Location = new System.Drawing.Point(34, 117);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(74, 21);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "司机姓名";
-            // 
             // QmsMain
             // 
             this.AcceptButton = this.button1;
@@ -2019,6 +2019,9 @@
             this.gBoxCinfo.ResumeLayout(false);
             this.gBoxCinfo.PerformLayout();
             this.tabBCardSent.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.tabPage10.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -2052,9 +2055,6 @@
             this.LogingroupBox.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
