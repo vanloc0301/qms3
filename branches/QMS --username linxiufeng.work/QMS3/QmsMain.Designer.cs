@@ -29,33 +29,33 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QmsMain));
-            System.Windows.Forms.TreeNode treeNode91 = new System.Windows.Forms.TreeNode("发司机卡");
-            System.Windows.Forms.TreeNode treeNode92 = new System.Windows.Forms.TreeNode("司机信息编辑");
-            System.Windows.Forms.TreeNode treeNode93 = new System.Windows.Forms.TreeNode("司机信息查询");
-            System.Windows.Forms.TreeNode treeNode94 = new System.Windows.Forms.TreeNode("司机卡管理", new System.Windows.Forms.TreeNode[] {
-            treeNode91,
-            treeNode92,
-            treeNode93});
-            System.Windows.Forms.TreeNode treeNode95 = new System.Windows.Forms.TreeNode("发货箱卡");
-            System.Windows.Forms.TreeNode treeNode96 = new System.Windows.Forms.TreeNode("货箱信息编辑");
-            System.Windows.Forms.TreeNode treeNode97 = new System.Windows.Forms.TreeNode("货箱信息查询");
-            System.Windows.Forms.TreeNode treeNode98 = new System.Windows.Forms.TreeNode("货箱卡管理", new System.Windows.Forms.TreeNode[] {
-            treeNode95,
-            treeNode96,
-            treeNode97});
-            System.Windows.Forms.TreeNode treeNode99 = new System.Windows.Forms.TreeNode("车辆状态信息查询");
-            System.Windows.Forms.TreeNode treeNode100 = new System.Windows.Forms.TreeNode("垃圾楼状态信息查询");
-            System.Windows.Forms.TreeNode treeNode101 = new System.Windows.Forms.TreeNode("转运中心状态信息查询");
-            System.Windows.Forms.TreeNode treeNode102 = new System.Windows.Forms.TreeNode("转运中心结算");
-            System.Windows.Forms.TreeNode treeNode103 = new System.Windows.Forms.TreeNode("西城区状态信息查询");
-            System.Windows.Forms.TreeNode treeNode104 = new System.Windows.Forms.TreeNode("异常数据处理器");
-            System.Windows.Forms.TreeNode treeNode105 = new System.Windows.Forms.TreeNode("用户管理");
-            System.Windows.Forms.TreeNode treeNode106 = new System.Windows.Forms.TreeNode("垃圾楼管理");
-            System.Windows.Forms.TreeNode treeNode107 = new System.Windows.Forms.TreeNode("班长管理");
-            System.Windows.Forms.TreeNode treeNode108 = new System.Windows.Forms.TreeNode("报表生成器");
+            System.Windows.Forms.TreeNode treeNode109 = new System.Windows.Forms.TreeNode("发司机卡");
+            System.Windows.Forms.TreeNode treeNode110 = new System.Windows.Forms.TreeNode("司机信息编辑");
+            System.Windows.Forms.TreeNode treeNode111 = new System.Windows.Forms.TreeNode("司机信息查询");
+            System.Windows.Forms.TreeNode treeNode112 = new System.Windows.Forms.TreeNode("司机卡管理", new System.Windows.Forms.TreeNode[] {
+            treeNode109,
+            treeNode110,
+            treeNode111});
+            System.Windows.Forms.TreeNode treeNode113 = new System.Windows.Forms.TreeNode("发货箱卡");
+            System.Windows.Forms.TreeNode treeNode114 = new System.Windows.Forms.TreeNode("货箱信息编辑");
+            System.Windows.Forms.TreeNode treeNode115 = new System.Windows.Forms.TreeNode("货箱信息查询");
+            System.Windows.Forms.TreeNode treeNode116 = new System.Windows.Forms.TreeNode("货箱卡管理", new System.Windows.Forms.TreeNode[] {
+            treeNode113,
+            treeNode114,
+            treeNode115});
+            System.Windows.Forms.TreeNode treeNode117 = new System.Windows.Forms.TreeNode("车辆状态信息查询");
+            System.Windows.Forms.TreeNode treeNode118 = new System.Windows.Forms.TreeNode("垃圾楼状态信息查询");
+            System.Windows.Forms.TreeNode treeNode119 = new System.Windows.Forms.TreeNode("转运中心状态信息查询");
+            System.Windows.Forms.TreeNode treeNode120 = new System.Windows.Forms.TreeNode("转运中心结算");
+            System.Windows.Forms.TreeNode treeNode121 = new System.Windows.Forms.TreeNode("西城区状态信息查询");
+            System.Windows.Forms.TreeNode treeNode122 = new System.Windows.Forms.TreeNode("异常数据处理器");
+            System.Windows.Forms.TreeNode treeNode123 = new System.Windows.Forms.TreeNode("用户管理");
+            System.Windows.Forms.TreeNode treeNode124 = new System.Windows.Forms.TreeNode("垃圾楼管理");
+            System.Windows.Forms.TreeNode treeNode125 = new System.Windows.Forms.TreeNode("班长管理");
+            System.Windows.Forms.TreeNode treeNode126 = new System.Windows.Forms.TreeNode("报表生成器");
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.MainTab = new System.Windows.Forms.TabControl();
@@ -380,6 +380,7 @@
             this.btnSendDCard.TabIndex = 0;
             this.btnSendDCard.Text = "发卡";
             this.btnSendDCard.UseVisualStyleBackColor = true;
+            this.btnSendDCard.Click += new System.EventHandler(this.btnSendDCard_Click);
             // 
             // gBoxCinfo
             // 
@@ -630,8 +631,8 @@
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -640,8 +641,8 @@
             this.dataGridView1.Location = new System.Drawing.Point(3, 17);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(830, 196);
             this.dataGridView1.TabIndex = 0;
@@ -1355,56 +1356,56 @@
             this.treeView1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.treeView1.Location = new System.Drawing.Point(3, 22);
             this.treeView1.Name = "treeView1";
-            treeNode91.Name = "节点1";
-            treeNode91.Text = "发司机卡";
-            treeNode92.Checked = true;
-            treeNode92.Name = "节点4";
-            treeNode92.Text = "司机信息编辑";
-            treeNode93.Name = "节点5";
-            treeNode93.Text = "司机信息查询";
-            treeNode94.Name = "节点0";
-            treeNode94.Text = "司机卡管理";
-            treeNode95.Name = "节点0";
-            treeNode95.Text = "发货箱卡";
-            treeNode96.Name = "节点1";
-            treeNode96.Text = "货箱信息编辑";
-            treeNode97.Name = "节点2";
-            treeNode97.Text = "货箱信息查询";
-            treeNode98.Name = "节点2";
-            treeNode98.Text = "货箱卡管理";
-            treeNode99.Name = "节点3";
-            treeNode99.Text = "车辆状态信息查询";
-            treeNode100.Name = "节点4";
-            treeNode100.Text = "垃圾楼状态信息查询";
-            treeNode101.Name = "节点5";
-            treeNode101.Text = "转运中心状态信息查询";
-            treeNode102.Name = "节点6";
-            treeNode102.Text = "转运中心结算";
-            treeNode103.Name = "节点7";
-            treeNode103.Text = "西城区状态信息查询";
-            treeNode104.Name = "节点8";
-            treeNode104.Text = "异常数据处理器";
-            treeNode105.Name = "节点9";
-            treeNode105.Text = "用户管理";
-            treeNode106.Name = "节点10";
-            treeNode106.Text = "垃圾楼管理";
-            treeNode107.Name = "节点11";
-            treeNode107.Text = "班长管理";
-            treeNode108.Name = "节点12";
-            treeNode108.Text = "报表生成器";
+            treeNode109.Name = "节点1";
+            treeNode109.Text = "发司机卡";
+            treeNode110.Checked = true;
+            treeNode110.Name = "节点4";
+            treeNode110.Text = "司机信息编辑";
+            treeNode111.Name = "节点5";
+            treeNode111.Text = "司机信息查询";
+            treeNode112.Name = "节点0";
+            treeNode112.Text = "司机卡管理";
+            treeNode113.Name = "节点0";
+            treeNode113.Text = "发货箱卡";
+            treeNode114.Name = "节点1";
+            treeNode114.Text = "货箱信息编辑";
+            treeNode115.Name = "节点2";
+            treeNode115.Text = "货箱信息查询";
+            treeNode116.Name = "节点2";
+            treeNode116.Text = "货箱卡管理";
+            treeNode117.Name = "节点3";
+            treeNode117.Text = "车辆状态信息查询";
+            treeNode118.Name = "节点4";
+            treeNode118.Text = "垃圾楼状态信息查询";
+            treeNode119.Name = "节点5";
+            treeNode119.Text = "转运中心状态信息查询";
+            treeNode120.Name = "节点6";
+            treeNode120.Text = "转运中心结算";
+            treeNode121.Name = "节点7";
+            treeNode121.Text = "西城区状态信息查询";
+            treeNode122.Name = "节点8";
+            treeNode122.Text = "异常数据处理器";
+            treeNode123.Name = "节点9";
+            treeNode123.Text = "用户管理";
+            treeNode124.Name = "节点10";
+            treeNode124.Text = "垃圾楼管理";
+            treeNode125.Name = "节点11";
+            treeNode125.Text = "班长管理";
+            treeNode126.Name = "节点12";
+            treeNode126.Text = "报表生成器";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode94,
-            treeNode98,
-            treeNode99,
-            treeNode100,
-            treeNode101,
-            treeNode102,
-            treeNode103,
-            treeNode104,
-            treeNode105,
-            treeNode106,
-            treeNode107,
-            treeNode108});
+            treeNode112,
+            treeNode116,
+            treeNode117,
+            treeNode118,
+            treeNode119,
+            treeNode120,
+            treeNode121,
+            treeNode122,
+            treeNode123,
+            treeNode124,
+            treeNode125,
+            treeNode126});
             this.treeView1.Size = new System.Drawing.Size(234, 299);
             this.treeView1.TabIndex = 1;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect_1);

@@ -3442,9 +3442,6 @@ else
             int intStatus = cardrelated.Request(ref strStatus);
 
             ReadDriverCard();
-
-            btnSendDCard.Enabled = true;
-            btnReadDCard.Enabled = false;
         }
         #endregion
 
@@ -3476,7 +3473,7 @@ else
             bStatus = cardrelated.Disconnect();
 
             //*****************************************************************
-            MessageBox.Show(CardID);
+            //MessageBox.Show(CardID);
             #endregion
 
             #region 读数据库
@@ -3512,7 +3509,8 @@ else
                         }
 
                         DataState = 2;
-                        btnResetDCardAll.Enabled = btnSendDCard.Enabled = true;
+                        btnResetDCardAll.Enabled = btnSendDCard.Enabled = btnResetDCard.Enabled = true;
+                        btnReadDCard.Enabled = false;
                     }
                     else
                     {
@@ -3521,6 +3519,8 @@ else
                         //调试用
                         txtDCNo.Text = "";
                         txtDCNo.Enabled = txtTruckNo.Enabled = false;
+                        btnReadDCard.Enabled = true;
+                        btnSendDCard.Enabled = false;
                     }
                 }
                 else if (MessageBox.Show("您扫描的卡号没有在数据库中查到，是否添加新卡？", "提示",
@@ -3555,6 +3555,7 @@ else
                     //MessageBox.Show(nStatus.ToString());
 
                     btnResetDCardAll.Enabled = btnSendDCard.Enabled = true;
+                    btnReadDCard.Enabled = false;
 
                     if (nStatus == 0 && b_t_Status == true)
                     {
@@ -3573,6 +3574,9 @@ else
                     //调试用
                     txtDCNo.Text = "";
                     txtDCNo.Enabled = txtTruckNo.Enabled = false;
+
+                    btnReadDCard.Enabled = true;
+                    btnSendDCard.Enabled = false;
                 }
             }
             catch (Exception ex)
@@ -3599,9 +3603,16 @@ else
         /// </summary>
         public void WriteDriverCard()
         {
-            #region 验证数据的正确性
+            #region 验证数据的正确性 (目前未严格验证)
             //验证数据的正确性
-            bool validity = opAndvalidate.validateTruckNo(txtTruckNo.Text.Trim());
+            bool validity = true;// opAndvalidate.validateTruckNo(txtTruckNo.Text.Trim());
+
+            //仅测试用
+            if ("" == txtTruckNo.Text.Trim())
+                //|| "" == txtDriverName.Text.Trim()) 
+            {
+                validity = false;
+            }
 
             if (!validity)
             {
@@ -3676,6 +3687,69 @@ else
                 return;
             }
             #endregion
+
+            #region 写数据库
+            //写数据库
+            if (DataState == 0)
+            {
+                try
+                {
+                    //boperate.getcom("INSERT INTO [TranspoartSystem].[dbo].[Driver] ([DriverCardID] ,[TruckNo]) VALUES ('" + txtDCNo.Text + "','" + txtTruckNo.Text + "')");
+                    boperate.getcom("EXEC InsertIntoDriverCard '" + txtDCNo.Text.Trim() + "','" + txtTruckNo.Text.Trim() + "'");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    MessageBox.Show("数据库连接或者配置有误，发卡写入数据库失败！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    ResetDCardSent_All();
+
+                    //调试用
+                    txtDCNo.Text = "";
+                    txtDCNo.Enabled = txtTruckNo.Enabled = false;
+
+                    return;
+                }
+            }
+            else if (DataState == 2)
+            {
+                try
+                {
+                    /*
+                    boperate.getcom("UPDATE [TranspoartSystem].[dbo].[Driver] SET [TruckNo] = '" + txtTruckNo.Text + "'"
+                                    + "WHERE [DriverCardID] = '" + txtDCNo.Text + "'");
+                    //*/
+                    boperate.getcom("Exec UpdateDriverCard'" + txtDCNo.Text.Trim() + "'"
+                                    + ", '" + txtTruckNo.Text.Trim() + "'");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    MessageBox.Show("数据库连接或者配置有误，发卡写入数据库失败！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    ResetDCardSent_All();
+
+                    //调试用
+                    txtDCNo.Text = "";
+                    txtDCNo.Enabled = txtTruckNo.Enabled = false;
+
+                    return;
+                }
+            }
+            #endregion
+
+            MessageBox.Show("发卡成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            #region 清空
+
+            ResetDCardSent_All();
+
+            //调试用
+            txtDCNo.Text = "";
+            txtDCNo.Enabled = txtTruckNo.Enabled = false;
+            #endregion
         }
         #endregion
 
@@ -3715,12 +3789,38 @@ else
                 = txtDCNo.Text = "";
             
             cardrelated.Disconnect();
+
+            btnReadDCard.Enabled = true;
+            btnSendDCard.Enabled = btnResetDCard.Enabled = false;
         }
         #endregion
 
         #region 重置司机发卡Tab中司机信息
         private void btnResetDCard_Click_1(object sender, EventArgs e)
         {
+            btnReadDCard.Enabled = true;
+            btnSendDCard.Enabled = false;
+
+            txtTruckNo.Text = txtDCNo.Text = "";
+
+            cardrelated.Disconnect();
+
+            btnReadDCard.Enabled = true;
+            btnSendDCard.Enabled = btnResetDCard.Enabled = false;
+        }
+        #endregion
+
+        #region 司机发卡中写卡按钮
+        private void btnSendDCard_Click(object sender, EventArgs e)
+        {
+            bool bStatus = cardrelated.Connect();
+
+            if (!bStatus)
+                return;
+            
+            WriteDriverCard();
+
+            cardrelated.Disconnect();
         }
         #endregion
 
