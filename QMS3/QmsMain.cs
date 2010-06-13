@@ -24,19 +24,7 @@ namespace QMS3
     {   
         /****三个自定义类对象的初始化****/
         QMS3.BaseClass.BaseOperate boperate = new QMS3.BaseClass.BaseOperate();//建一个BaseOperate类的对象boperate
-        QMS3.OperateAndValidate.OperateAndValidate opAndvalidate = new QMS3.OperateAndValidate.OperateAndValidate();
-        QMS3.CfCardPC.CfCardPC cardrelated = new QMS3.CfCardPC.CfCardPC();
         /******************************/
-
-        #region 以下内容与读写卡有关，林秀峰
-        /*********************************************以下内容与读写卡有关，林秀峰***************************************/
-        private int CardClass = -1, DataState = -1;
-        // CardClass: 记录选择卡的类型: 0为司机卡, 1为货箱卡. 其它值无效.
-        // DateState: 记录数据库中是否有该卡: 2为数据库中含有该卡,但需要修改;
-        //                                    1为数据库中含有该卡,无需添加以及修改; 
-        //                                    0为添加新卡. 其它值无效.
-        string CardID = "";
-        #endregion
         
         bool ifcon = false;
         DataSet ds;
@@ -3415,6 +3403,22 @@ else
             }
         }
 
+        #region 以下代码 by 林秀峰
+
+        #region 以下内容与读写卡有关，林秀峰
+        /*************New by 林秀峰*****************/
+        QMS3.OperateAndValidate.OperateAndValidate opAndvalidate = new QMS3.OperateAndValidate.OperateAndValidate();
+        QMS3.CfCardPC.CfCardPC cardrelated = new QMS3.CfCardPC.CfCardPC();
+        /******************************/
+        /*********************************************以下内容与读写卡有关，林秀峰***************************************/
+        private int CardClass = -1, DataState = -1;
+        // CardClass: 记录选择卡的类型: 0为司机卡, 1为货箱卡. 其它值无效.
+        // DateState: 记录数据库中是否有该卡: 2为数据库中含有该卡,但需要修改;
+        //                                    1为数据库中含有该卡,无需添加以及修改; 
+        //                                    0为添加新卡. 其它值无效.
+        string CardID = "";
+        #endregion
+
         #region 司机发卡中读卡按钮
         /// <summary>
         /// 司机发卡中读卡按钮
@@ -3491,7 +3495,16 @@ else
         {
         }
         #endregion
-        
+
+        private void btnResetDCard_Click(object sender, EventArgs e)
+        {
+            txtDriverNo.Text = txtDriverName.Text = txtDriverGender.Text
+                = txtDriverAge.Text = txtDriverStation.Text = txtTruckNo.Text
+                = txtDCNo.Text = ""; 
+        }
+
+
+        #endregion
         //*******************
 
     }
