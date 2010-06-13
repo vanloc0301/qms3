@@ -17,8 +17,10 @@ namespace QMS3.BaseClass
         public SqlConnection getcon()
         {
             //SQL Server服务器登录方式：Windows登录方式，本地登录
-            //  string MStrSQLCon = "Data Source=localhost;User Id=;Password=;packet size=4096;Database=TranspoartSystem;Integrated Security=True";
-            string MStrSQLCon = "Data Source=db113.72dns.net;User Id=rfidtest;Password=123456;packet size=4096;Database=db_rfidtest";
+            //string MStrSQLCon = "Data Source=localhost;User Id=;Password=;packet size=4096;Database=TranspoartSystem;Integrated Security=True";
+            string MStrSQLCon = "Data Source=localhost;User Id=;Password=;packet size=4096;Database=db_rfidtest;Integrated Security=True";
+            //string MStrSQLCon = "Data Source=db113.72dns.net;User Id=rfidtest;Password=123456;packet size=4096;Database=db_rfidtest";
+            
             //SQL Server服务器登录方式：SQL Server登录方式，远程登录，IP地址在Data Source中修改，用户名在User Id中修改，密码在Password中修改
             //  string MStrSQLCon = "Data Source=192.168.0.104;User Id=myt;Password=xiaoyuemian;packet size=4096;Database=TransportSystem;Integrated Security=True";
 

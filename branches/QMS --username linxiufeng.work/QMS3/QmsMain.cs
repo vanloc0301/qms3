@@ -818,7 +818,10 @@ namespace QMS3
         {
             try
             {
-                right = this.dbo_UserTableAdapter.ValidateUser(UNtextBox.Text, MD5.MDString(PSmaskedTextBox.Text)).ToString();
+                //right = this.dbo_UserTableAdapter.ValidateUser(UNtextBox.Text, MD5.MDString(PSmaskedTextBox.Text)).ToString();
+                //********************测试用，登录服务器慢，取消登录*****************************/
+                right = "6";
+                //********************测试用，登录服务器慢，取消登录*****************************/
                 conneted = true;
             }
             catch
@@ -3403,7 +3406,7 @@ else
             }
         }
 
-        #region 以下代码 by 林秀峰
+        #region 本区域代码 by 林秀峰
 
         #region 以下内容与读写卡有关，林秀峰
         /*************New by 林秀峰*****************/
@@ -3439,6 +3442,9 @@ else
             int intStatus = cardrelated.Request(ref strStatus);
 
             ReadDriverCard();
+
+            btnSendDCard.Enabled = true;
+            btnReadDCard.Enabled = false;
         }
         #endregion
 
@@ -3448,6 +3454,7 @@ else
         /// </summary>
         public void ReadDriverCard()
         {
+            #region 读卡
             CardID = "";
             int status = 0;
             bool bStatus;
@@ -3457,15 +3464,24 @@ else
             if (status != 0)
             //读卡不成功
             {
-                if (status != 3)
+                /*
+                if (status != 3 && status != 5)
                     MessageBox.Show("读卡不成功", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                */
                 //ResetAll();
-                //txtCNo.Enabled = txtTruckNo.Enabled = false;
                 bStatus = cardrelated.Disconnect();
                 return;
             }
 
             bStatus = cardrelated.Disconnect();
+
+            //*****************************************************************
+            MessageBox.Show(CardID);
+            #endregion
+
+            #region 读数据库
+
+            #endregion
         }
         #endregion
 
@@ -3475,6 +3491,83 @@ else
         /// </summary>
         public void WriteDriverCard()
         {
+            #region 验证数据的正确性
+            //验证数据的正确性
+            bool validity = opAndvalidate.validateTruckNo(txtTruckNo.Text.Trim());
+
+            if (!validity)
+            {
+                MessageBox.Show("您输入的数据有误，请检查后重新提交！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            #endregion
+
+            #region 写卡
+            /* ***********************************************************************************
+             *                                                                                   *
+             *                                 有关写卡                                          *
+             *                                                                                   *
+             * ***********************************************************************************/
+
+            //调用写卡函数，此处调试用，显示对话框
+            //if (DialogResult.Yes == MessageBox.Show("是否发放司机卡？", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            DialogResult DiaResult = MessageBox.Show("是否发放司机卡？", "提示", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (DialogResult.Yes == DiaResult)
+            {
+                int status;
+
+                //写卡之前先确认卡片是否存在
+                string t_CardID = "";
+                status = cardrelated.GetCardID(-1, ref t_CardID); //-1为不验证卡类型
+                if (t_CardID != CardID)
+                {
+                    //MessageBox.Show("当前卡片与刚读取的卡片编号不一致", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    status = 3;
+                }
+
+                if (status != 0)
+                {
+                    //if (status != 3 )
+                    //MessageBox.Show("读卡不成功", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    ResetDCardSent_All();
+
+                    cardrelated.Disconnect();
+                    return;
+                }
+
+                //写卡类型
+                //status = cardrelated_old.WriteCardClass("CARCARD");
+                status = cardrelated.WriteCardClass("C");
+                if (status != 0)
+                {
+                    MessageBox.Show("出错啦！写入卡类型不成功！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ResetDCardSent_All();
+
+                    return;
+                }
+                //MessageBox.Show("写入卡类型成功");//*/
+
+                //写车牌号
+                status = cardrelated.WriteTruckNo(txtTruckNo.Text.Trim());
+                if (status != 0)
+                {
+                    MessageBox.Show("出错啦！写入司机牌号不成功！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ResetDCardSent_All();
+
+                    return;
+                }
+            }
+            else if (DialogResult.No == DiaResult)
+            {
+                ResetDCardSent_All();
+                return;
+            }
+            else
+            {
+                return;
+            }
+            #endregion
         }
         #endregion
 
@@ -3496,13 +3589,32 @@ else
         }
         #endregion
 
+        #region 司机发卡中重置按钮
         private void btnResetDCard_Click(object sender, EventArgs e)
         {
+            ResetDCardSent_All();
+        }
+        #endregion
+
+        #region 重置司机发卡Tab
+        public void ResetDCardSent_All() 
+        {
+            btnReadDCard.Enabled = true;
+            btnSendDCard.Enabled = false;
+
             txtDriverNo.Text = txtDriverName.Text = txtDriverGender.Text
                 = txtDriverAge.Text = txtDriverStation.Text = txtTruckNo.Text
-                = txtDCNo.Text = ""; 
+                = txtDCNo.Text = "";
+            
+            cardrelated.Disconnect();
         }
+        #endregion
 
+        #region 重置司机发卡Tab中司机信息
+        private void btnResetDCard_Click_1(object sender, EventArgs e)
+        {
+        }
+        #endregion
 
         #endregion
         //*******************
