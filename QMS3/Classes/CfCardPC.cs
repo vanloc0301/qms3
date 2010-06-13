@@ -529,6 +529,7 @@ namespace QMS3.CfCardPC
         /// <returns>
         /// 0：成功返回
         /// -1：未连接读卡器
+        /// -2：存在多余卡片
         /// </returns>
 
         public int Request(ref string CardID)
@@ -590,7 +591,12 @@ namespace QMS3.CfCardPC
                 }//
 
                 //转换ID Buffer到 String
-                //取ID Buffer中第一个ID，若有多个ID，则只保留第一个，忽略其余
+                //取ID Buffer中第一个ID，若有多个ID，则提示错误！
+                if (nCounter > 1) 
+                {
+                    status = 11;
+                    break;
+                }
                 ID_len_temp = IDBuffer[ID_len] * 2 + 1;
                 for (int j = 0; j < ID_len_temp; j++)
                 {
@@ -651,8 +657,13 @@ namespace QMS3.CfCardPC
                     case 9:
                         MessageBox.Show("出问题啦！数据卡的密码不正确！", "出问题啦！", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
+                    case 11:
+                        MessageBox.Show("读卡器有效区域内检测到多余的卡片。"
+                            + "\n请确保有且仅有一张卡片在扫描区域中再操作！", "出问题啦！",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return -2;
                     default:
-                        MessageBox.Show("出现了位置问题！\n错误代码：" + status.ToString(), "出问题啦！", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("出现了未知问题！\n错误代码：" + status.ToString(), "出问题啦！", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                 }
                 return -1;
@@ -674,6 +685,7 @@ namespace QMS3.CfCardPC
         /// 2：读取卡片错误
         /// 3：卡片类型不一致
         /// 4：卡片密钥验证错误
+        /// 5：多余一张卡片
         /// </returns>
 
         public int GetCardID(int CardClass, ref string CardID)
@@ -694,6 +706,10 @@ namespace QMS3.CfCardPC
             {
                 //MessageBox.Show("请注意！尚未连接到读卡器！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return 1;
+            }
+            else if (-2 == status) 
+            {
+                return 5;
             }
 
             //MessageBox.Show(Pc_str_CardID.Trim(), "读出卡片编号", MessageBoxButtons.OK, MessageBoxIcon.Information);
