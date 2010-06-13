@@ -29,33 +29,33 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QmsMain));
-            System.Windows.Forms.TreeNode treeNode73 = new System.Windows.Forms.TreeNode("发司机卡");
-            System.Windows.Forms.TreeNode treeNode74 = new System.Windows.Forms.TreeNode("司机信息编辑");
-            System.Windows.Forms.TreeNode treeNode75 = new System.Windows.Forms.TreeNode("司机信息查询");
-            System.Windows.Forms.TreeNode treeNode76 = new System.Windows.Forms.TreeNode("司机卡管理", new System.Windows.Forms.TreeNode[] {
-            treeNode73,
-            treeNode74,
-            treeNode75});
-            System.Windows.Forms.TreeNode treeNode77 = new System.Windows.Forms.TreeNode("发货箱卡");
-            System.Windows.Forms.TreeNode treeNode78 = new System.Windows.Forms.TreeNode("货箱信息编辑");
-            System.Windows.Forms.TreeNode treeNode79 = new System.Windows.Forms.TreeNode("货箱信息查询");
-            System.Windows.Forms.TreeNode treeNode80 = new System.Windows.Forms.TreeNode("货箱卡管理", new System.Windows.Forms.TreeNode[] {
-            treeNode77,
-            treeNode78,
-            treeNode79});
-            System.Windows.Forms.TreeNode treeNode81 = new System.Windows.Forms.TreeNode("车辆状态信息查询");
-            System.Windows.Forms.TreeNode treeNode82 = new System.Windows.Forms.TreeNode("垃圾楼状态信息查询");
-            System.Windows.Forms.TreeNode treeNode83 = new System.Windows.Forms.TreeNode("转运中心状态信息查询");
-            System.Windows.Forms.TreeNode treeNode84 = new System.Windows.Forms.TreeNode("转运中心结算");
-            System.Windows.Forms.TreeNode treeNode85 = new System.Windows.Forms.TreeNode("西城区状态信息查询");
-            System.Windows.Forms.TreeNode treeNode86 = new System.Windows.Forms.TreeNode("异常数据处理器");
-            System.Windows.Forms.TreeNode treeNode87 = new System.Windows.Forms.TreeNode("用户管理");
-            System.Windows.Forms.TreeNode treeNode88 = new System.Windows.Forms.TreeNode("垃圾楼管理");
-            System.Windows.Forms.TreeNode treeNode89 = new System.Windows.Forms.TreeNode("班长管理");
-            System.Windows.Forms.TreeNode treeNode90 = new System.Windows.Forms.TreeNode("报表生成器");
+            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("发司机卡");
+            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("司机信息编辑");
+            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("司机信息查询");
+            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("司机卡管理", new System.Windows.Forms.TreeNode[] {
+            treeNode37,
+            treeNode38,
+            treeNode39});
+            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("发货箱卡");
+            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("货箱信息编辑");
+            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("货箱信息查询");
+            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("货箱卡管理", new System.Windows.Forms.TreeNode[] {
+            treeNode41,
+            treeNode42,
+            treeNode43});
+            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("车辆状态信息查询");
+            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("垃圾楼状态信息查询");
+            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("转运中心状态信息查询");
+            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("转运中心结算");
+            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("西城区状态信息查询");
+            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("异常数据处理器");
+            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("用户管理");
+            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("垃圾楼管理");
+            System.Windows.Forms.TreeNode treeNode53 = new System.Windows.Forms.TreeNode("班长管理");
+            System.Windows.Forms.TreeNode treeNode54 = new System.Windows.Forms.TreeNode("报表生成器");
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.MainTab = new System.Windows.Forms.TabControl();
@@ -63,6 +63,27 @@
             this.label6 = new System.Windows.Forms.Label();
             this.t1label1 = new System.Windows.Forms.Label();
             this.tabDCardSent = new System.Windows.Forms.TabPage();
+            this.gBoxOperate = new System.Windows.Forms.GroupBox();
+            this.btnCheckDriver = new System.Windows.Forms.Button();
+            this.btnReadDCard = new System.Windows.Forms.Button();
+            this.btnResetDCard = new System.Windows.Forms.Button();
+            this.btnSendDCard = new System.Windows.Forms.Button();
+            this.gBoxCinfo = new System.Windows.Forms.GroupBox();
+            this.txtDriverNo = new System.Windows.Forms.TextBox();
+            this.lblDriverNo = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.txtDriverStation = new System.Windows.Forms.TextBox();
+            this.lblDriverStation = new System.Windows.Forms.Label();
+            this.lblDriverAge = new System.Windows.Forms.Label();
+            this.txtDriverAge = new System.Windows.Forms.TextBox();
+            this.lblDriverGender = new System.Windows.Forms.Label();
+            this.txtDriverGender = new System.Windows.Forms.TextBox();
+            this.txtDriverName = new System.Windows.Forms.TextBox();
+            this.txtTruckNo = new System.Windows.Forms.TextBox();
+            this.txtDCNo = new System.Windows.Forms.TextBox();
+            this.lblTruckNo = new System.Windows.Forms.Label();
+            this.lblCNo = new System.Windows.Forms.Label();
+            this.lblDriverName = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
@@ -176,31 +197,13 @@
             this.timerMon3 = new System.Windows.Forms.Timer(this.components);
             this.timerMon4 = new System.Windows.Forms.Timer(this.components);
             this.timerMon5 = new System.Windows.Forms.Timer(this.components);
-            this.gBoxCinfo = new System.Windows.Forms.GroupBox();
-            this.txtDriverNo = new System.Windows.Forms.TextBox();
-            this.lblDriverNo = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.txtDriverStation = new System.Windows.Forms.TextBox();
-            this.lblDriverStation = new System.Windows.Forms.Label();
-            this.lblDriverAge = new System.Windows.Forms.Label();
-            this.txtDriverAge = new System.Windows.Forms.TextBox();
-            this.lblDriverGender = new System.Windows.Forms.Label();
-            this.txtDriverGender = new System.Windows.Forms.TextBox();
-            this.txtDriverName = new System.Windows.Forms.TextBox();
-            this.txtTruckNo = new System.Windows.Forms.TextBox();
-            this.txtCNo = new System.Windows.Forms.TextBox();
-            this.lblTruckNo = new System.Windows.Forms.Label();
-            this.lblCNo = new System.Windows.Forms.Label();
-            this.lblDriverName = new System.Windows.Forms.Label();
-            this.gBoxOperate = new System.Windows.Forms.GroupBox();
-            this.btnReadCard = new System.Windows.Forms.Button();
-            this.btnReset = new System.Windows.Forms.Button();
-            this.btnSend = new System.Windows.Forms.Button();
-            this.btnCheckDriver = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.MainTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabDCardSent.SuspendLayout();
+            this.gBoxOperate.SuspendLayout();
+            this.gBoxCinfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.tabPage10.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -227,9 +230,6 @@
             this.MenugroupBox.SuspendLayout();
             this.LogingroupBox.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            this.gBoxCinfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.gBoxOperate.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -327,6 +327,223 @@
             this.tabDCardSent.TabIndex = 1;
             this.tabDCardSent.Text = "发司机卡";
             this.tabDCardSent.UseVisualStyleBackColor = true;
+            // 
+            // gBoxOperate
+            // 
+            this.gBoxOperate.Controls.Add(this.btnCheckDriver);
+            this.gBoxOperate.Controls.Add(this.btnReadDCard);
+            this.gBoxOperate.Controls.Add(this.btnResetDCard);
+            this.gBoxOperate.Controls.Add(this.btnSendDCard);
+            this.gBoxOperate.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.gBoxOperate.Location = new System.Drawing.Point(697, 7);
+            this.gBoxOperate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gBoxOperate.Name = "gBoxOperate";
+            this.gBoxOperate.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gBoxOperate.Size = new System.Drawing.Size(142, 458);
+            this.gBoxOperate.TabIndex = 5;
+            this.gBoxOperate.TabStop = false;
+            this.gBoxOperate.Text = "操作";
+            // 
+            // btnCheckDriver
+            // 
+            this.btnCheckDriver.Location = new System.Drawing.Point(37, 143);
+            this.btnCheckDriver.Name = "btnCheckDriver";
+            this.btnCheckDriver.Size = new System.Drawing.Size(82, 28);
+            this.btnCheckDriver.TabIndex = 4;
+            this.btnCheckDriver.Text = "司机概况";
+            this.btnCheckDriver.UseVisualStyleBackColor = true;
+            // 
+            // btnReadDCard
+            // 
+            this.btnReadDCard.Location = new System.Drawing.Point(37, 70);
+            this.btnReadDCard.Name = "btnReadDCard";
+            this.btnReadDCard.Size = new System.Drawing.Size(82, 28);
+            this.btnReadDCard.TabIndex = 2;
+            this.btnReadDCard.Text = "读卡";
+            this.btnReadDCard.UseVisualStyleBackColor = true;
+            this.btnReadDCard.Click += new System.EventHandler(this.btnReadCard_Click);
+            // 
+            // btnResetDCard
+            // 
+            this.btnResetDCard.Location = new System.Drawing.Point(37, 289);
+            this.btnResetDCard.Name = "btnResetDCard";
+            this.btnResetDCard.Size = new System.Drawing.Size(82, 28);
+            this.btnResetDCard.TabIndex = 1;
+            this.btnResetDCard.Text = "重置";
+            this.btnResetDCard.UseVisualStyleBackColor = true;
+            this.btnResetDCard.Click += new System.EventHandler(this.btnResetDCard_Click);
+            // 
+            // btnSendDCard
+            // 
+            this.btnSendDCard.Location = new System.Drawing.Point(37, 216);
+            this.btnSendDCard.Name = "btnSendDCard";
+            this.btnSendDCard.Size = new System.Drawing.Size(82, 28);
+            this.btnSendDCard.TabIndex = 0;
+            this.btnSendDCard.Text = "发卡";
+            this.btnSendDCard.UseVisualStyleBackColor = true;
+            // 
+            // gBoxCinfo
+            // 
+            this.gBoxCinfo.Controls.Add(this.txtDriverNo);
+            this.gBoxCinfo.Controls.Add(this.lblDriverNo);
+            this.gBoxCinfo.Controls.Add(this.pictureBox3);
+            this.gBoxCinfo.Controls.Add(this.txtDriverStation);
+            this.gBoxCinfo.Controls.Add(this.lblDriverStation);
+            this.gBoxCinfo.Controls.Add(this.lblDriverAge);
+            this.gBoxCinfo.Controls.Add(this.txtDriverAge);
+            this.gBoxCinfo.Controls.Add(this.lblDriverGender);
+            this.gBoxCinfo.Controls.Add(this.txtDriverGender);
+            this.gBoxCinfo.Controls.Add(this.txtDriverName);
+            this.gBoxCinfo.Controls.Add(this.txtTruckNo);
+            this.gBoxCinfo.Controls.Add(this.txtDCNo);
+            this.gBoxCinfo.Controls.Add(this.lblTruckNo);
+            this.gBoxCinfo.Controls.Add(this.lblCNo);
+            this.gBoxCinfo.Controls.Add(this.lblDriverName);
+            this.gBoxCinfo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.gBoxCinfo.Location = new System.Drawing.Point(6, 7);
+            this.gBoxCinfo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gBoxCinfo.Name = "gBoxCinfo";
+            this.gBoxCinfo.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gBoxCinfo.Size = new System.Drawing.Size(680, 458);
+            this.gBoxCinfo.TabIndex = 4;
+            this.gBoxCinfo.TabStop = false;
+            this.gBoxCinfo.Text = "信息";
+            // 
+            // txtDriverNo
+            // 
+            this.txtDriverNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtDriverNo.Location = new System.Drawing.Point(114, 71);
+            this.txtDriverNo.Name = "txtDriverNo";
+            this.txtDriverNo.ReadOnly = true;
+            this.txtDriverNo.Size = new System.Drawing.Size(262, 29);
+            this.txtDriverNo.TabIndex = 24;
+            // 
+            // lblDriverNo
+            // 
+            this.lblDriverNo.AutoSize = true;
+            this.lblDriverNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblDriverNo.Location = new System.Drawing.Point(34, 74);
+            this.lblDriverNo.Name = "lblDriverNo";
+            this.lblDriverNo.Size = new System.Drawing.Size(74, 21);
+            this.lblDriverNo.TabIndex = 23;
+            this.lblDriverNo.Text = "司机编号";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Location = new System.Drawing.Point(472, 65);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(96, 115);
+            this.pictureBox3.TabIndex = 22;
+            this.pictureBox3.TabStop = false;
+            // 
+            // txtDriverStation
+            // 
+            this.txtDriverStation.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtDriverStation.Location = new System.Drawing.Point(114, 200);
+            this.txtDriverStation.Name = "txtDriverStation";
+            this.txtDriverStation.Size = new System.Drawing.Size(262, 29);
+            this.txtDriverStation.TabIndex = 21;
+            // 
+            // lblDriverStation
+            // 
+            this.lblDriverStation.AutoSize = true;
+            this.lblDriverStation.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblDriverStation.Location = new System.Drawing.Point(34, 203);
+            this.lblDriverStation.Name = "lblDriverStation";
+            this.lblDriverStation.Size = new System.Drawing.Size(74, 21);
+            this.lblDriverStation.TabIndex = 20;
+            this.lblDriverStation.Text = "所属车队";
+            // 
+            // lblDriverAge
+            // 
+            this.lblDriverAge.AutoSize = true;
+            this.lblDriverAge.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblDriverAge.Location = new System.Drawing.Point(221, 161);
+            this.lblDriverAge.Name = "lblDriverAge";
+            this.lblDriverAge.Size = new System.Drawing.Size(74, 21);
+            this.lblDriverAge.TabIndex = 19;
+            this.lblDriverAge.Text = "司机年龄";
+            // 
+            // txtDriverAge
+            // 
+            this.txtDriverAge.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtDriverAge.Location = new System.Drawing.Point(301, 158);
+            this.txtDriverAge.Name = "txtDriverAge";
+            this.txtDriverAge.Size = new System.Drawing.Size(75, 29);
+            this.txtDriverAge.TabIndex = 18;
+            // 
+            // lblDriverGender
+            // 
+            this.lblDriverGender.AutoSize = true;
+            this.lblDriverGender.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblDriverGender.Location = new System.Drawing.Point(34, 161);
+            this.lblDriverGender.Name = "lblDriverGender";
+            this.lblDriverGender.Size = new System.Drawing.Size(74, 21);
+            this.lblDriverGender.TabIndex = 17;
+            this.lblDriverGender.Text = "司机性别";
+            // 
+            // txtDriverGender
+            // 
+            this.txtDriverGender.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtDriverGender.Location = new System.Drawing.Point(114, 158);
+            this.txtDriverGender.Name = "txtDriverGender";
+            this.txtDriverGender.Size = new System.Drawing.Size(64, 29);
+            this.txtDriverGender.TabIndex = 16;
+            // 
+            // txtDriverName
+            // 
+            this.txtDriverName.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtDriverName.Location = new System.Drawing.Point(114, 114);
+            this.txtDriverName.Name = "txtDriverName";
+            this.txtDriverName.Size = new System.Drawing.Size(262, 29);
+            this.txtDriverName.TabIndex = 15;
+            // 
+            // txtTruckNo
+            // 
+            this.txtTruckNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtTruckNo.Location = new System.Drawing.Point(114, 242);
+            this.txtTruckNo.Name = "txtTruckNo";
+            this.txtTruckNo.Size = new System.Drawing.Size(262, 29);
+            this.txtTruckNo.TabIndex = 14;
+            // 
+            // txtDCNo
+            // 
+            this.txtDCNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtDCNo.Location = new System.Drawing.Point(114, 290);
+            this.txtDCNo.Name = "txtDCNo";
+            this.txtDCNo.ReadOnly = true;
+            this.txtDCNo.Size = new System.Drawing.Size(262, 29);
+            this.txtDCNo.TabIndex = 10;
+            // 
+            // lblTruckNo
+            // 
+            this.lblTruckNo.AutoSize = true;
+            this.lblTruckNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblTruckNo.Location = new System.Drawing.Point(34, 245);
+            this.lblTruckNo.Name = "lblTruckNo";
+            this.lblTruckNo.Size = new System.Drawing.Size(74, 21);
+            this.lblTruckNo.TabIndex = 9;
+            this.lblTruckNo.Text = "司机车牌";
+            // 
+            // lblCNo
+            // 
+            this.lblCNo.AutoSize = true;
+            this.lblCNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblCNo.Location = new System.Drawing.Point(34, 293);
+            this.lblCNo.Name = "lblCNo";
+            this.lblCNo.Size = new System.Drawing.Size(74, 21);
+            this.lblCNo.TabIndex = 2;
+            this.lblCNo.Text = "卡片编号";
+            // 
+            // lblDriverName
+            // 
+            this.lblDriverName.AutoSize = true;
+            this.lblDriverName.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblDriverName.Location = new System.Drawing.Point(34, 117);
+            this.lblDriverName.Name = "lblDriverName";
+            this.lblDriverName.Size = new System.Drawing.Size(74, 21);
+            this.lblDriverName.TabIndex = 0;
+            this.lblDriverName.Text = "司机姓名";
             // 
             // tabPage3
             // 
@@ -432,8 +649,8 @@
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -442,8 +659,8 @@
             this.dataGridView1.Location = new System.Drawing.Point(3, 17);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(830, 196);
             this.dataGridView1.TabIndex = 0;
@@ -1157,56 +1374,56 @@
             this.treeView1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.treeView1.Location = new System.Drawing.Point(3, 22);
             this.treeView1.Name = "treeView1";
-            treeNode73.Name = "节点1";
-            treeNode73.Text = "发司机卡";
-            treeNode74.Checked = true;
-            treeNode74.Name = "节点4";
-            treeNode74.Text = "司机信息编辑";
-            treeNode75.Name = "节点5";
-            treeNode75.Text = "司机信息查询";
-            treeNode76.Name = "节点0";
-            treeNode76.Text = "司机卡管理";
-            treeNode77.Name = "节点0";
-            treeNode77.Text = "发货箱卡";
-            treeNode78.Name = "节点1";
-            treeNode78.Text = "货箱信息编辑";
-            treeNode79.Name = "节点2";
-            treeNode79.Text = "货箱信息查询";
-            treeNode80.Name = "节点2";
-            treeNode80.Text = "货箱卡管理";
-            treeNode81.Name = "节点3";
-            treeNode81.Text = "车辆状态信息查询";
-            treeNode82.Name = "节点4";
-            treeNode82.Text = "垃圾楼状态信息查询";
-            treeNode83.Name = "节点5";
-            treeNode83.Text = "转运中心状态信息查询";
-            treeNode84.Name = "节点6";
-            treeNode84.Text = "转运中心结算";
-            treeNode85.Name = "节点7";
-            treeNode85.Text = "西城区状态信息查询";
-            treeNode86.Name = "节点8";
-            treeNode86.Text = "异常数据处理器";
-            treeNode87.Name = "节点9";
-            treeNode87.Text = "用户管理";
-            treeNode88.Name = "节点10";
-            treeNode88.Text = "垃圾楼管理";
-            treeNode89.Name = "节点11";
-            treeNode89.Text = "班长管理";
-            treeNode90.Name = "节点12";
-            treeNode90.Text = "报表生成器";
+            treeNode37.Name = "节点1";
+            treeNode37.Text = "发司机卡";
+            treeNode38.Checked = true;
+            treeNode38.Name = "节点4";
+            treeNode38.Text = "司机信息编辑";
+            treeNode39.Name = "节点5";
+            treeNode39.Text = "司机信息查询";
+            treeNode40.Name = "节点0";
+            treeNode40.Text = "司机卡管理";
+            treeNode41.Name = "节点0";
+            treeNode41.Text = "发货箱卡";
+            treeNode42.Name = "节点1";
+            treeNode42.Text = "货箱信息编辑";
+            treeNode43.Name = "节点2";
+            treeNode43.Text = "货箱信息查询";
+            treeNode44.Name = "节点2";
+            treeNode44.Text = "货箱卡管理";
+            treeNode45.Name = "节点3";
+            treeNode45.Text = "车辆状态信息查询";
+            treeNode46.Name = "节点4";
+            treeNode46.Text = "垃圾楼状态信息查询";
+            treeNode47.Name = "节点5";
+            treeNode47.Text = "转运中心状态信息查询";
+            treeNode48.Name = "节点6";
+            treeNode48.Text = "转运中心结算";
+            treeNode49.Name = "节点7";
+            treeNode49.Text = "西城区状态信息查询";
+            treeNode50.Name = "节点8";
+            treeNode50.Text = "异常数据处理器";
+            treeNode51.Name = "节点9";
+            treeNode51.Text = "用户管理";
+            treeNode52.Name = "节点10";
+            treeNode52.Text = "垃圾楼管理";
+            treeNode53.Name = "节点11";
+            treeNode53.Text = "班长管理";
+            treeNode54.Name = "节点12";
+            treeNode54.Text = "报表生成器";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode76,
-            treeNode80,
-            treeNode81,
-            treeNode82,
-            treeNode83,
-            treeNode84,
-            treeNode85,
-            treeNode86,
-            treeNode87,
-            treeNode88,
-            treeNode89,
-            treeNode90});
+            treeNode40,
+            treeNode44,
+            treeNode45,
+            treeNode46,
+            treeNode47,
+            treeNode48,
+            treeNode49,
+            treeNode50,
+            treeNode51,
+            treeNode52,
+            treeNode53,
+            treeNode54});
             this.treeView1.Size = new System.Drawing.Size(234, 299);
             this.treeView1.TabIndex = 1;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect_1);
@@ -1574,222 +1791,6 @@
             this.timerMon5.Interval = 500;
             this.timerMon5.Tick += new System.EventHandler(this.timerMon5_Tick);
             // 
-            // gBoxCinfo
-            // 
-            this.gBoxCinfo.Controls.Add(this.txtDriverNo);
-            this.gBoxCinfo.Controls.Add(this.lblDriverNo);
-            this.gBoxCinfo.Controls.Add(this.pictureBox3);
-            this.gBoxCinfo.Controls.Add(this.txtDriverStation);
-            this.gBoxCinfo.Controls.Add(this.lblDriverStation);
-            this.gBoxCinfo.Controls.Add(this.lblDriverAge);
-            this.gBoxCinfo.Controls.Add(this.txtDriverAge);
-            this.gBoxCinfo.Controls.Add(this.lblDriverGender);
-            this.gBoxCinfo.Controls.Add(this.txtDriverGender);
-            this.gBoxCinfo.Controls.Add(this.txtDriverName);
-            this.gBoxCinfo.Controls.Add(this.txtTruckNo);
-            this.gBoxCinfo.Controls.Add(this.txtCNo);
-            this.gBoxCinfo.Controls.Add(this.lblTruckNo);
-            this.gBoxCinfo.Controls.Add(this.lblCNo);
-            this.gBoxCinfo.Controls.Add(this.lblDriverName);
-            this.gBoxCinfo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.gBoxCinfo.Location = new System.Drawing.Point(6, 7);
-            this.gBoxCinfo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gBoxCinfo.Name = "gBoxCinfo";
-            this.gBoxCinfo.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gBoxCinfo.Size = new System.Drawing.Size(680, 458);
-            this.gBoxCinfo.TabIndex = 4;
-            this.gBoxCinfo.TabStop = false;
-            this.gBoxCinfo.Text = "信息";
-            // 
-            // txtDriverNo
-            // 
-            this.txtDriverNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtDriverNo.Location = new System.Drawing.Point(114, 71);
-            this.txtDriverNo.Name = "txtDriverNo";
-            this.txtDriverNo.ReadOnly = true;
-            this.txtDriverNo.Size = new System.Drawing.Size(262, 29);
-            this.txtDriverNo.TabIndex = 24;
-            // 
-            // lblDriverNo
-            // 
-            this.lblDriverNo.AutoSize = true;
-            this.lblDriverNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblDriverNo.Location = new System.Drawing.Point(34, 74);
-            this.lblDriverNo.Name = "lblDriverNo";
-            this.lblDriverNo.Size = new System.Drawing.Size(74, 21);
-            this.lblDriverNo.TabIndex = 23;
-            this.lblDriverNo.Text = "司机编号";
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Location = new System.Drawing.Point(472, 65);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(96, 115);
-            this.pictureBox3.TabIndex = 22;
-            this.pictureBox3.TabStop = false;
-            // 
-            // txtDriverStation
-            // 
-            this.txtDriverStation.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtDriverStation.Location = new System.Drawing.Point(114, 200);
-            this.txtDriverStation.Name = "txtDriverStation";
-            this.txtDriverStation.Size = new System.Drawing.Size(262, 29);
-            this.txtDriverStation.TabIndex = 21;
-            // 
-            // lblDriverStation
-            // 
-            this.lblDriverStation.AutoSize = true;
-            this.lblDriverStation.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblDriverStation.Location = new System.Drawing.Point(34, 203);
-            this.lblDriverStation.Name = "lblDriverStation";
-            this.lblDriverStation.Size = new System.Drawing.Size(74, 21);
-            this.lblDriverStation.TabIndex = 20;
-            this.lblDriverStation.Text = "所属车队";
-            // 
-            // lblDriverAge
-            // 
-            this.lblDriverAge.AutoSize = true;
-            this.lblDriverAge.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblDriverAge.Location = new System.Drawing.Point(221, 161);
-            this.lblDriverAge.Name = "lblDriverAge";
-            this.lblDriverAge.Size = new System.Drawing.Size(74, 21);
-            this.lblDriverAge.TabIndex = 19;
-            this.lblDriverAge.Text = "司机年龄";
-            // 
-            // txtDriverAge
-            // 
-            this.txtDriverAge.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtDriverAge.Location = new System.Drawing.Point(301, 158);
-            this.txtDriverAge.Name = "txtDriverAge";
-            this.txtDriverAge.Size = new System.Drawing.Size(75, 29);
-            this.txtDriverAge.TabIndex = 18;
-            // 
-            // lblDriverGender
-            // 
-            this.lblDriverGender.AutoSize = true;
-            this.lblDriverGender.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblDriverGender.Location = new System.Drawing.Point(34, 161);
-            this.lblDriverGender.Name = "lblDriverGender";
-            this.lblDriverGender.Size = new System.Drawing.Size(74, 21);
-            this.lblDriverGender.TabIndex = 17;
-            this.lblDriverGender.Text = "司机性别";
-            // 
-            // txtDriverGender
-            // 
-            this.txtDriverGender.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtDriverGender.Location = new System.Drawing.Point(114, 158);
-            this.txtDriverGender.Name = "txtDriverGender";
-            this.txtDriverGender.Size = new System.Drawing.Size(64, 29);
-            this.txtDriverGender.TabIndex = 16;
-            // 
-            // txtDriverName
-            // 
-            this.txtDriverName.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtDriverName.Location = new System.Drawing.Point(114, 114);
-            this.txtDriverName.Name = "txtDriverName";
-            this.txtDriverName.Size = new System.Drawing.Size(262, 29);
-            this.txtDriverName.TabIndex = 15;
-            // 
-            // txtTruckNo
-            // 
-            this.txtTruckNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtTruckNo.Location = new System.Drawing.Point(114, 242);
-            this.txtTruckNo.Name = "txtTruckNo";
-            this.txtTruckNo.Size = new System.Drawing.Size(262, 29);
-            this.txtTruckNo.TabIndex = 14;
-            // 
-            // txtCNo
-            // 
-            this.txtCNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtCNo.Location = new System.Drawing.Point(114, 290);
-            this.txtCNo.Name = "txtCNo";
-            this.txtCNo.ReadOnly = true;
-            this.txtCNo.Size = new System.Drawing.Size(262, 29);
-            this.txtCNo.TabIndex = 10;
-            // 
-            // lblTruckNo
-            // 
-            this.lblTruckNo.AutoSize = true;
-            this.lblTruckNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblTruckNo.Location = new System.Drawing.Point(34, 245);
-            this.lblTruckNo.Name = "lblTruckNo";
-            this.lblTruckNo.Size = new System.Drawing.Size(74, 21);
-            this.lblTruckNo.TabIndex = 9;
-            this.lblTruckNo.Text = "司机车牌";
-            // 
-            // lblCNo
-            // 
-            this.lblCNo.AutoSize = true;
-            this.lblCNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblCNo.Location = new System.Drawing.Point(34, 293);
-            this.lblCNo.Name = "lblCNo";
-            this.lblCNo.Size = new System.Drawing.Size(74, 21);
-            this.lblCNo.TabIndex = 2;
-            this.lblCNo.Text = "卡片编号";
-            // 
-            // lblDriverName
-            // 
-            this.lblDriverName.AutoSize = true;
-            this.lblDriverName.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblDriverName.Location = new System.Drawing.Point(34, 117);
-            this.lblDriverName.Name = "lblDriverName";
-            this.lblDriverName.Size = new System.Drawing.Size(74, 21);
-            this.lblDriverName.TabIndex = 0;
-            this.lblDriverName.Text = "司机姓名";
-            // 
-            // gBoxOperate
-            // 
-            this.gBoxOperate.Controls.Add(this.btnCheckDriver);
-            this.gBoxOperate.Controls.Add(this.btnReadCard);
-            this.gBoxOperate.Controls.Add(this.btnReset);
-            this.gBoxOperate.Controls.Add(this.btnSend);
-            this.gBoxOperate.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.gBoxOperate.Location = new System.Drawing.Point(697, 7);
-            this.gBoxOperate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gBoxOperate.Name = "gBoxOperate";
-            this.gBoxOperate.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gBoxOperate.Size = new System.Drawing.Size(142, 458);
-            this.gBoxOperate.TabIndex = 5;
-            this.gBoxOperate.TabStop = false;
-            this.gBoxOperate.Text = "操作";
-            // 
-            // btnReadCard
-            // 
-            this.btnReadCard.Location = new System.Drawing.Point(35, 64);
-            this.btnReadCard.Name = "btnReadCard";
-            this.btnReadCard.Size = new System.Drawing.Size(82, 28);
-            this.btnReadCard.TabIndex = 2;
-            this.btnReadCard.Text = "读卡";
-            this.btnReadCard.UseVisualStyleBackColor = true;
-            this.btnReadCard.Click += new System.EventHandler(this.btnReadCard_Click);
-            // 
-            // btnReset
-            // 
-            this.btnReset.Location = new System.Drawing.Point(35, 270);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(82, 28);
-            this.btnReset.TabIndex = 1;
-            this.btnReset.Text = "重置";
-            this.btnReset.UseVisualStyleBackColor = true;
-            // 
-            // btnSend
-            // 
-            this.btnSend.Location = new System.Drawing.Point(35, 201);
-            this.btnSend.Name = "btnSend";
-            this.btnSend.Size = new System.Drawing.Size(82, 28);
-            this.btnSend.TabIndex = 0;
-            this.btnSend.Text = "发卡";
-            this.btnSend.UseVisualStyleBackColor = true;
-            // 
-            // btnCheckDriver
-            // 
-            this.btnCheckDriver.Location = new System.Drawing.Point(35, 136);
-            this.btnCheckDriver.Name = "btnCheckDriver";
-            this.btnCheckDriver.Size = new System.Drawing.Size(82, 28);
-            this.btnCheckDriver.TabIndex = 4;
-            this.btnCheckDriver.Text = "司机概况";
-            this.btnCheckDriver.UseVisualStyleBackColor = true;
-            // 
             // QmsMain
             // 
             this.AcceptButton = this.button1;
@@ -1812,6 +1813,10 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabDCardSent.ResumeLayout(false);
+            this.gBoxOperate.ResumeLayout(false);
+            this.gBoxCinfo.ResumeLayout(false);
+            this.gBoxCinfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.tabPage10.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -1845,10 +1850,6 @@
             this.LogingroupBox.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.gBoxCinfo.ResumeLayout(false);
-            this.gBoxCinfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.gBoxOperate.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1977,9 +1978,9 @@
         private System.Windows.Forms.Timer timerMon4;
         private System.Windows.Forms.Timer timerMon5;
         private System.Windows.Forms.GroupBox gBoxOperate;
-        private System.Windows.Forms.Button btnReadCard;
-        private System.Windows.Forms.Button btnReset;
-        private System.Windows.Forms.Button btnSend;
+        private System.Windows.Forms.Button btnReadDCard;
+        private System.Windows.Forms.Button btnResetDCard;
+        private System.Windows.Forms.Button btnSendDCard;
         private System.Windows.Forms.GroupBox gBoxCinfo;
         private System.Windows.Forms.TextBox txtDriverNo;
         private System.Windows.Forms.Label lblDriverNo;
@@ -1992,7 +1993,7 @@
         private System.Windows.Forms.TextBox txtDriverGender;
         private System.Windows.Forms.TextBox txtDriverName;
         private System.Windows.Forms.TextBox txtTruckNo;
-        private System.Windows.Forms.TextBox txtCNo;
+        private System.Windows.Forms.TextBox txtDCNo;
         private System.Windows.Forms.Label lblTruckNo;
         private System.Windows.Forms.Label lblCNo;
         private System.Windows.Forms.Label lblDriverName;

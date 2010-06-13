@@ -21,7 +21,7 @@ namespace QMS3.CfCardPC
         public CfCardPC()
         {
             sKey = "00000000";              //默认定义密钥为"00000000" 
-            nComPort = 2;                   //默认定义使用的COM端口为COM2
+            nComPort = 1;                   //默认定义使用的COM端口为COM1
             bConnectedDevice = false;       //默认尚未连接上读卡器
             RS485Address = 0;
         }
@@ -29,7 +29,7 @@ namespace QMS3.CfCardPC
         public CfCardPC(string Key)
         {
             sKey = Key;                     //定义密钥为Key  
-            nComPort = 2;                   //默认定义使用的COM端口为COM2
+            nComPort = 1;                   //默认定义使用的COM端口为COM1
             bConnectedDevice = false;       //默认尚未连接上读卡器
             RS485Address = 0;
         }
@@ -612,9 +612,9 @@ namespace QMS3.CfCardPC
                 //MessageBox.Show(CardID);
                 /*************************************
                   ************************************/
-                //返回卡ID，取EPC数据块的前6位字符
-                if (CardID.Length > 6)
-                    CardID = CardID.Substring(0, 6);
+                //返回卡ID，取EPC数据块的第16起共8位字符
+                if (CardID.Length > 23)
+                    CardID = CardID.Substring(16, 8);
                 //************************************/
 
                 break;//*/
