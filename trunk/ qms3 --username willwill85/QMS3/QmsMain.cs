@@ -276,7 +276,60 @@ namespace QMS3
                  }
                     
                     break;
-                case "TreeNode: 年度清运垃圾明细表":    MainTab.SelectTab(18);
+                case "TreeNode: 年度清运垃圾明细表":
+                    {
+                        sqlcon = boperate.getcon();
+                        crform_ds = new DataSet();
+                        dt_goods = crform_ds.Tables.Add("Goods_Table");
+                        //用来存储最终的结果
+                        result_tb = crform_ds.Tables.Add("Result");
+
+                        #region  建立存储结果的datatable Result
+                        //向新建的存储最终的结果的DataTable加入列名
+                        DataColumn col = result_tb.Columns.Add("StaName", Type.GetType("System.String"));
+                        col.AllowDBNull = false;
+                        col.MaxLength = 20;
+                        col = result_tb.Columns.Add("SumBox", Type.GetType("System.Int32"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_2", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_3", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_4", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_5", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_6", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_7", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_8", Type.GetType("System.Decimal"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_9", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_10", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_11", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_12", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_13", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_14", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_15", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("SumWeight", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("SumBoxTail", Type.GetType("System.Int32"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("DateID", Type.GetType("System.String"));
+                        col.AllowDBNull = true;
+                        #endregion
+
+ 
+                        MainTab.SelectTab(18);
+                    }
                     break;
 
 
