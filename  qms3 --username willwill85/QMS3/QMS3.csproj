@@ -62,7 +62,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseOperate.cs" />
+    <Compile Include="Classes\BaseOperate.cs" />
+    <Compile Include="Classes\CfCardPC.cs" />
     <Compile Include="CrystalReport1.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -112,6 +113,7 @@
       <DependentUpon>db_rfidtestDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Classes\MD5.cs" />
+    <Compile Include="Classes\OperateAndValidate.cs" />
     <Compile Include="QmsMain.cs">
       <SubType>Form</SubType>
     </Compile>
