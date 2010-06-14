@@ -3457,7 +3457,426 @@ else
                 flag_everydayexl = false;
             }
         }
-        
+
+        //TAB18
+
+        private void comboBoxDay3_DropDown_1(object sender, EventArgs e)
+        {
+            if (comboBoxYear3.Text.Trim() == "" || comboBoxMon3.Text.Trim() == "")
+            {
+                MessageBox.Show("请先选择年月，再选择日", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+            }
+            else
+            {
+                comboBoxDay3.Items.Clear();
+                if (comboBoxMon3.Text.Trim() == "1" || comboBoxMon3.Text.Trim() == "3" || comboBoxMon3.Text.Trim() == "5" || comboBoxMon3.Text.Trim() == "7" || comboBoxMon3.Text.Trim() == "8" || comboBoxMon3.Text.Trim() == "10" || comboBoxMon3.Text.Trim() == "12")
+                {
+
+
+                    comboBoxDay3.Items.Add("1");
+                    comboBoxDay3.Items.Add("2");
+                    comboBoxDay3.Items.Add("3");
+                    comboBoxDay3.Items.Add("4");
+                    comboBoxDay3.Items.Add("5");
+                    comboBoxDay3.Items.Add("6");
+                    comboBoxDay3.Items.Add("7");
+                    comboBoxDay3.Items.Add("8");
+                    comboBoxDay3.Items.Add("9");
+                    comboBoxDay3.Items.Add("10");
+                    comboBoxDay3.Items.Add("11");
+                    comboBoxDay3.Items.Add("12");
+                    comboBoxDay3.Items.Add("13");
+                    comboBoxDay3.Items.Add("14");
+                    comboBoxDay3.Items.Add("15");
+                    comboBoxDay3.Items.Add("16");
+                    comboBoxDay3.Items.Add("17");
+                    comboBoxDay3.Items.Add("18");
+                    comboBoxDay3.Items.Add("19");
+                    comboBoxDay3.Items.Add("20");
+                    comboBoxDay3.Items.Add("21");
+                    comboBoxDay3.Items.Add("22");
+                    comboBoxDay3.Items.Add("23");
+                    comboBoxDay3.Items.Add("24");
+                    comboBoxDay3.Items.Add("25");
+                    comboBoxDay3.Items.Add("26");
+                    comboBoxDay3.Items.Add("27");
+                    comboBoxDay3.Items.Add("28");
+                    comboBoxDay3.Items.Add("29");
+                    comboBoxDay3.Items.Add("30");
+                    comboBoxDay3.Items.Add("31");
+                }
+                else if (comboBoxMon3.Text.Trim() == "4" || comboBoxMon3.Text.Trim() == "6" || comboBoxMon3.Text.Trim() == "9" || comboBoxMon3.Text.Trim() == "11")
+                {
+                    comboBoxDay3.Items.Add("1");
+                    comboBoxDay3.Items.Add("2");
+                    comboBoxDay3.Items.Add("3");
+                    comboBoxDay3.Items.Add("4");
+                    comboBoxDay3.Items.Add("5");
+                    comboBoxDay3.Items.Add("6");
+                    comboBoxDay3.Items.Add("7");
+                    comboBoxDay3.Items.Add("8");
+                    comboBoxDay3.Items.Add("9");
+                    comboBoxDay3.Items.Add("10");
+                    comboBoxDay3.Items.Add("11");
+                    comboBoxDay3.Items.Add("12");
+                    comboBoxDay3.Items.Add("13");
+                    comboBoxDay3.Items.Add("14");
+                    comboBoxDay3.Items.Add("15");
+                    comboBoxDay3.Items.Add("16");
+                    comboBoxDay3.Items.Add("17");
+                    comboBoxDay3.Items.Add("18");
+                    comboBoxDay3.Items.Add("19");
+                    comboBoxDay3.Items.Add("20");
+                    comboBoxDay3.Items.Add("21");
+                    comboBoxDay3.Items.Add("22");
+                    comboBoxDay3.Items.Add("23");
+                    comboBoxDay3.Items.Add("24");
+                    comboBoxDay3.Items.Add("25");
+                    comboBoxDay3.Items.Add("26");
+                    comboBoxDay3.Items.Add("27");
+                    comboBoxDay3.Items.Add("28");
+                    comboBoxDay3.Items.Add("29");
+                    comboBoxDay3.Items.Add("30");
+                }
+                else
+                {
+                    string year_str = comboBoxYear3.Text.Trim();
+                    int year_int = Convert.ToInt32(year_str);
+                    if (year_int % 4 == 0 || (year_int % 100 == 0 && year_int % 400 == 0))
+                    {
+                        comboBoxDay3.Items.Add("1");
+                        comboBoxDay3.Items.Add("2");
+                        comboBoxDay3.Items.Add("3");
+                        comboBoxDay3.Items.Add("4");
+                        comboBoxDay3.Items.Add("5");
+                        comboBoxDay3.Items.Add("6");
+                        comboBoxDay3.Items.Add("7");
+                        comboBoxDay3.Items.Add("8");
+                        comboBoxDay3.Items.Add("9");
+                        comboBoxDay3.Items.Add("10");
+                        comboBoxDay3.Items.Add("11");
+                        comboBoxDay3.Items.Add("12");
+                        comboBoxDay3.Items.Add("13");
+                        comboBoxDay3.Items.Add("14");
+                        comboBoxDay3.Items.Add("15");
+                        comboBoxDay3.Items.Add("16");
+                        comboBoxDay3.Items.Add("17");
+                        comboBoxDay3.Items.Add("18");
+                        comboBoxDay3.Items.Add("19");
+                        comboBoxDay3.Items.Add("20");
+                        comboBoxDay3.Items.Add("21");
+                        comboBoxDay3.Items.Add("22");
+                        comboBoxDay3.Items.Add("23");
+                        comboBoxDay3.Items.Add("24");
+                        comboBoxDay3.Items.Add("25");
+                        comboBoxDay3.Items.Add("26");
+                        comboBoxDay3.Items.Add("27");
+                        comboBoxDay3.Items.Add("28");
+                        comboBoxDay3.Items.Add("29");
+                    }
+                    else
+                    {
+                        comboBoxDay3.Items.Add("1");
+                        comboBoxDay3.Items.Add("2");
+                        comboBoxDay3.Items.Add("3");
+                        comboBoxDay3.Items.Add("4");
+                        comboBoxDay3.Items.Add("5");
+                        comboBoxDay3.Items.Add("6");
+                        comboBoxDay3.Items.Add("7");
+                        comboBoxDay3.Items.Add("8");
+                        comboBoxDay3.Items.Add("9");
+                        comboBoxDay3.Items.Add("10");
+                        comboBoxDay3.Items.Add("11");
+                        comboBoxDay3.Items.Add("12");
+                        comboBoxDay3.Items.Add("13");
+                        comboBoxDay3.Items.Add("14");
+                        comboBoxDay3.Items.Add("15");
+                        comboBoxDay3.Items.Add("16");
+                        comboBoxDay3.Items.Add("17");
+                        comboBoxDay3.Items.Add("18");
+                        comboBoxDay3.Items.Add("19");
+                        comboBoxDay3.Items.Add("20");
+                        comboBoxDay3.Items.Add("21");
+                        comboBoxDay3.Items.Add("22");
+                        comboBoxDay3.Items.Add("23");
+                        comboBoxDay3.Items.Add("24");
+                        comboBoxDay3.Items.Add("25");
+                        comboBoxDay3.Items.Add("26");
+                        comboBoxDay3.Items.Add("27");
+                        comboBoxDay3.Items.Add("28");
+                    }
+                }
+            }
+
+        }
+        private void comboBoxMon3_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            comboBoxDay3.Items.Clear();
+        }
+        private void toolStripButton6_Click_1(object sender, EventArgs e)
+        {
+            crystalReportViewerYear.ReportSource = null;
+            backgroundWorkerYear.RunWorkerAsync();
+
+        }
+        private void backgroundWorkerYear_DoWork_1(object sender, DoWorkEventArgs e)
+        {
+            this.Enabled = false;
+
+
+            progressBarYear.Visible = true;
+            progressBarYear.Value = 0;
+            progressBarYear.Update();
+            labelProgYear.Text = "";
+            labelProgYear.Update();
+
+            crform_ds.Tables["Result"].Clear();
+
+
+            string yr_str = comboBoxYear3.Text.Trim();
+            int yr_int = Convert.ToInt32(yr_str);
+            string mon_str = comboBoxMon3.Text.Trim();
+            int mon_int = Convert.ToInt32(mon_str);
+            if (mon_int < 10)
+                mon_str = "0" + mon_str;
+            groupBoxReport3.Enabled = true;
+            //查询时间
+            int cur_month_days;
+            if (mon_int == 1 || mon_int == 3 || mon_int == 5 || mon_int == 7 || mon_int == 8 || mon_int == 10 || mon_int == 12)
+            {
+
+                cur_month_days = 31;
+            }
+            else if (mon_int == 4 || mon_int == 6 || mon_int == 9 || mon_int == 11)
+            {
+
+                cur_month_days = 30;
+            }
+            else
+            {
+                if (yr_int % 4 == 0)
+                {
+
+                    cur_month_days = 29;
+                }
+
+                else
+                {
+
+                    cur_month_days = 28;
+                }
+            }
+            //ts1 = Process.GetCurrentProcess().TotalProcessorTime;//测试cpu时间
+            //string month_first_day = new DateTime(yr_int, mon_int, 1, 0, 0, 0).ToString().Substring(2, 8);////要查询的月的第一天，10-01-01，这里月份用1月，以后用 System.DateTime.Now.Month，下一行同样
+            //DateTime next_month_first_day = new DateTime(yr_int, mon_int + 1, 1, 0, 0, 0);
+            //next_month_first_day = next_month_first_day.AddDays(-1);//得到要查询月最后一天
+            //int second_pos = next_month_first_day.ToString().LastIndexOf("/");
+            //int cur_month_days = int.Parse(next_month_first_day.ToString().Substring(second_pos + 1, 2));//当前月的天数
+            string cur_month_days_str = cur_month_days.ToString();
+
+            //MessageBox.Show(cur_month_days_str, "day", MessageBoxButtons.OK, MessageBoxIcon.None);
+            string day_str = "";
+
+            ////string sql_startTime = System.DateTime.Now.Year.ToString().Substring(2, 2) + "-01-" + str_cur_day + ",12:00";
+
+
+            string sql_startTime = yr_str.Substring(2, 2) + "-" + mon_str + "-";
+            ////string sql_goods = "select * from [rfidtest].[dbo.Goods] where StartStationID=" + staID.ToString() + " and StartTime = \'" + sql_startTime + "\'";
+            //string sql_goods = "select * from [rfidtest].[dbo.Goods] where StartTime LIKE \'" + sql_startTime + "%\'";
+
+            for (int cur_day = 1; cur_day <= cur_month_days; cur_day++)//2替换cur_month_days。按站分组，每次生成新表的一行
+            {
+
+                labelProgYear.Text = "完成  " + progressBarYear.Value.ToString() + "%";
+                labelProgYear.Update();
+                progressBarYear.Value = Convert.ToInt32(cur_day * 3.15);
+                progressBarYear.Update();
+                //System.Threading.Thread.Sleep(1);
+                //this.Update();
+                //this.Refresh();
+
+                int first_line = (cur_day - 1) * 56;//当天在Result表中第一行
+                string str_cur_day = cur_day.ToString();
+                if (cur_day < 10)
+                {
+                    day_str = "0" + str_cur_day;
+                    str_cur_day = sql_startTime + day_str;
+                }
+                else
+                {
+                    day_str = str_cur_day;
+                    str_cur_day = sql_startTime + day_str;
+                }
+                string sql_goods = @"if not exists(select name from sysobjects where name='res' and type='u')
+  create table res(staname  varchar(100),sumbox int,weight2 float,weight3 float,weight4 float,weight5 float,weight6 float,weight7 float,weight8 float,weight9 float,weight10 float,weight11 float,weight12 float,weight13 float,weight14 float,weight15 float,sumweight float,sumboxtail float,dateid varchar(100));
+else
+  begin
+  drop table res;
+  create table res(staname  varchar(100),sumbox int,weight2 float,weight3 float,weight4 float,weight5 float,weight6 float,weight7 float,weight8 float,weight9 float,weight10 float,weight11 float,weight12 float,weight13 float,weight14 float,weight15 float,sumweight float,sumboxtail float,dateid varchar(100));
+  end
+
+declare @tmpweight float;/*每行获取的weight*/
+declare @ttlweight float;
+declare @col varchar(100);/*weight2-15的列名*/
+declare @sqls varchar(1000);
+declare @i int;
+
+declare @cur_date varchar(10);
+set @cur_date=CONVERT(varchar(10),getDate(),120);/*当前日期*/
+declare @q_date varchar(10);
+set @q_date='" + yr_str.Substring(2, 2) + "-" + mon_str + "-" + day_str + @"'" + @"
+
+declare @day_str varchar(20);
+set @day_str=@q_date+'%';
+
+declare @staid int;
+set @staid=31;
+while @staid<=85
+begin
+    declare @stationname varchar(100);
+	set @stationname=(select Name from [rfidtest].[dbo.Station] WHERE StationID=@staid);
+	declare @date varchar(30);
+	set @date=substring(@day_str,1,8);
+	declare @boxnum int;
+	set @boxnum=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartStationID=@staid AND StartTime LIKE @day_str GROUP BY StartStationID);
+    if @boxnum<>0
+	insert into res(staname,sumbox,sumboxtail,dateid) values(@stationname,@boxnum,@boxnum,@date);
+    else
+    insert into res(staname,sumbox,sumboxtail,dateid) values(@stationname,0,0,@date);
+ 
+    select ID=identity(int,   1,   1), Weight into #t  from [rfidtest].[dbo.Goods] WHERE StartStationID=@staid AND StartTime LIKE @day_str; 
+	/*select   *   from   #t*/
+	set @ttlweight=0;
+	set @i=1;
+	while @i<=@boxnum
+	begin
+		set @col='weight'+cast(@i+1 as varchar)
+		set @tmpweight=(select Weight from #t where ID=@i);
+        if @tmpweight is null
+        set @tmpweight=0 
+		set @ttlweight=@ttlweight+@tmpweight;
+		set @sqls='update res set '+@col+'='+cast(@tmpweight as varchar)+' WHERE staname='''+@stationname+''' AND dateid='''+substring(@day_str,1,8)+'''';
+		exec(@sqls) 
+		set @i=@i+1;
+	end
+    set @sqls='update res set sumweight='+cast(@ttlweight as varchar)+' WHERE staname='''+@stationname+''' AND dateid='''+substring(@day_str,1,8)+'''';
+    exec(@sqls)
+    drop table #t;	
+    set @staid=@staid+1;
+end
+
+select * from res;
+drop table res;";
+                //MessageBox.Show(sql_goods, "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+                ////string sql_starion = "select * from [rfidtest].[dbo.Station] where StationID=" + staID.ToString();
+                //string sql_starion = "select * from [rfidtest].[dbo.Station]";
+
+
+                //SqlCommand cmd = new SqlCommand(sql_goods, sqlcon);
+                //sqlcon.Open();
+                //SqlDataReader dr = cmd.ExecuteReader();
+                //sqlcon.Close();
+
+                //msecs = Process.GetCurrentProcess().TotalProcessorTime.Subtract(ts1).TotalMilliseconds;
+                //MessageBox.Show(msecs.ToString(), "reader", MessageBoxButtons.OK, MessageBoxIcon.None);
+
+                //ts1 = Process.GetCurrentProcess().TotalProcessorTime;//测试cpu时间
+
+                //两个表连接，并加入到DataSet
+                //sqlcon.ConnectionTimeout = 0;
+
+
+                crform_sqlda = new SqlDataAdapter(sql_goods, sqlcon);
+
+                crform_sqlda.SelectCommand.CommandTimeout = 100000000;
+
+                if (crform_ds.Tables.Contains("YearOutput"))//判断一下是否已经有了这个表
+                {
+                    crform_ds.Tables["YearOutput"].Clear();
+                }
+                try
+                {
+                    crform_sqlda.Fill(crform_ds, "YearOutput");//得到要查询的月的所有的运输信息，包括所有站。
+                }
+                catch (Exception x)
+                {
+                    MessageBox.Show("不能生成报表！\n单日箱数超过15箱，请检查数据真实性！");
+                    this.Enabled = true;
+                    progressBarYear.Visible = false;
+                    labelProgYear.Text = "";
+                    labelProgYear.Update();
+                    groupBoxReport3.Enabled = false;
+                    groupBoxSelect3.Enabled = true;
+                    dt_goods.Clear();
+                    crform_ds.Tables.Remove("MyDate");
+                    return;
+                }
+
+
+
+                //crform_ds.
+                //crform_sqlda = new SqlDataAdapter(sql_starion, sqlcon);
+                //crform_sqlda.Fill(crform_ds, "Station_Table");//得到所有站信息
+
+                //msecs = Process.GetCurrentProcess().TotalProcessorTime.Subtract(ts1).TotalMilliseconds;
+                //MessageBox.Show(msecs.ToString(), "fill", MessageBoxButtons.OK, MessageBoxIcon.None);
+
+                //ts1 = Process.GetCurrentProcess().TotalProcessorTime;//测试cpu时间
+
+
+                DataRow new_row = crform_ds.Tables["Result"].NewRow();
+                //DataTable dt_goods = crform_ds.Tables["Goods_Table"];
+                foreach (DataRow row in dt_goods.Rows)
+                {
+                    if (row["DateID"].ToString() == str_cur_day)
+                    {
+                        //new_row["StaName"] = row["staname"].ToString();
+                        //new_row["DateID"] = row["dateid"].ToString().Substring(0, 8);
+                        new_row = row;
+                        crform_ds.Tables["Result"].Rows.Add(new_row.ItemArray);
+                    }
+                }
+                DataTable tb_result = crform_ds.Tables["Result"];
+                DataRow total_row = tb_result.NewRow();
+                total_row["StaName"] = "合计";
+
+                int total_box = 0;
+                for (int line_tb_result = first_line; line_tb_result <= first_line + 54; line_tb_result++)//当天的所有记录在Result表中的行数范围，不包括合计
+                    total_box += Convert.ToInt32(tb_result.Rows[line_tb_result][1].ToString());
+                total_row["SumBox"] = total_box;
+
+                //DataTableSQL查询后得到DateSet中的第一个表Goods_Table，处理每天的箱数和重量
+                for (int col_num = 2; col_num <= 16; col_num++)
+                {
+                    double total_col_weight = 0;
+                    for (int line_tb_result = first_line; line_tb_result <= first_line + 54; line_tb_result++)//当天的所有记录在Result表中的行数范围，不包括合计
+                    {
+                        string weight_str = tb_result.Rows[line_tb_result][col_num].ToString();
+                        if (weight_str != "")
+                            total_col_weight += Convert.ToDouble(weight_str);
+
+                    }
+                    ///////////if (total_col_weight != 0)//0不显示
+                    total_row[col_num] = total_col_weight;
+
+                }
+                total_row["SumBoxTail"] = total_box;
+                total_row["DateID"] = crform_ds.Tables["Result"].Rows[crform_ds.Tables["Result"].Rows.Count - 1]["DateID"].ToString();
+                DataRow mdRow = crform_ds.Tables["MyDate"].Rows[cur_day - 1];
+                mdRow["TotalBox"] = total_box;
+                mdRow["TotalWeight"] = total_row["SumWeight"];
+                crform_ds.Tables["Result"].Rows.Add(total_row);
+
+
+
+            }
+            
+
+            flag_mon = true;
+
+        }
+
+
         //*******************
         #region 本区域代码 by 林秀峰
 
@@ -3876,6 +4295,14 @@ else
             cardrelated.Disconnect();
         }
         #endregion
+
+
+
+
+
+
+
+ 
         #endregion
     }
 }
