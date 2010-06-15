@@ -818,9 +818,9 @@ namespace QMS3
         {
             try
             {
-                right = this.dbo_UserTableAdapter.ValidateUser(UNtextBox.Text, MD5.MDString(PSmaskedTextBox.Text)).ToString();
+                //right = this.dbo_UserTableAdapter.ValidateUser(UNtextBox.Text, MD5.MDString(PSmaskedTextBox.Text)).ToString();
                 //********************测试用，登录服务器慢，取消登录*****************************/
-                //right = "6";
+                right = "6";
                 //********************测试用，登录服务器慢，取消登录*****************************/
                 conneted = true;
             }
@@ -3419,6 +3419,7 @@ else
         // DateState: 记录数据库中是否有该卡: 2为数据库中含有该卡,但需要修改;
         //                                    1为数据库中含有该卡,无需添加以及修改; 
         //                                    0为添加新卡. 其它值无效.
+        SqlDataReader sqlread;
         string CardID = "";
         #endregion
 
@@ -3441,7 +3442,16 @@ else
             string strStatus = "";
             int intStatus = cardrelated.Request(ref strStatus);
 
-            ReadDriverCard();
+            //ReadDriverCard();
+
+            if (!bgwReadDCard.IsBusy)
+            {
+                bgwReadDCard.RunWorkerAsync();
+                gBoxCinfo.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+                gBoxOperate.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            }
+            else
+                MessageBox.Show("正在登陆中情耐心等待！");
         }
         #endregion
 
@@ -3789,6 +3799,7 @@ else
                 = txtDCNo.Text = "";
             
             cardrelated.Disconnect();
+            //sqlread.Read = false;
 
             btnReadDCard.Enabled = true;
             btnSendDCard.Enabled = btnResetDCard.Enabled = false;
@@ -3823,6 +3834,151 @@ else
             cardrelated.Disconnect();
         }
         #endregion
+
+        #region 读司机卡进程
+        private void bgwReadDCard_DoWork(object sender, DoWorkEventArgs e)
+        {
+            #region 读卡
+            CardID = "";
+            int status = 0;
+            bool bStatus;
+
+            status = cardrelated.GetCardID(0, ref CardID); //0为司机卡
+
+            if (status != 0)
+            //读卡不成功
+            {
+                /*
+                if (status != 3 && status != 5)
+                    MessageBox.Show("读卡不成功", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                */
+                //ResetAll();
+                bStatus = cardrelated.Disconnect();
+                return;
+            }
+
+            bStatus = cardrelated.Disconnect();
+
+            //*****************************************************************
+            //MessageBox.Show(CardID);
+            #endregion
+
+            #region 读数据库
+            try
+            {
+                ///*
+                sqlread = boperate.getread("EXEC ReadDriverCard'"
+                                        + CardID + "'");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                MessageBox.Show("数据库连接或者配置有误，请检查连接！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            #endregion
+        }
+        private void bgwReadDCard_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            gBoxCinfo.Cursor = System.Windows.Forms.Cursors.Arrow;
+            gBoxOperate.Cursor = System.Windows.Forms.Cursors.Arrow;
+
+            #region 读数据库
+            if (sqlread.Read())
+            {
+                if (MessageBox.Show("您扫描的卡号在数据库中已有记录，是否更改？", "提示",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        txtDCNo.Text = sqlread["DriverCardID"].ToString();
+                        txtTruckNo.Text = sqlread["TruckNo"].ToString();
+                        txtTruckNo.ReadOnly = false;
+                    }
+                    catch
+                    {
+                        MessageBox.Show("数据库配置有误，请确认数据库已配置完整！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        ResetDCardSent_All();
+
+                        return;
+                    }
+
+                    DataState = 2;
+                    btnResetDCardAll.Enabled = btnSendDCard.Enabled = btnResetDCard.Enabled = true;
+                    btnReadDCard.Enabled = false;
+                }
+                else
+                {
+                    ResetDCardSent_All();
+
+                    //调试用
+                    txtDCNo.Text = "";
+                    txtDCNo.Enabled = txtTruckNo.Enabled = false;
+                    btnReadDCard.Enabled = true;
+                    btnSendDCard.Enabled = false;
+                }
+            }
+            else if (MessageBox.Show("您扫描的卡号没有在数据库中查到，是否添加新卡？", "提示",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                //MessageBox.Show("您选择添加新卡", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                DataState = 0;
+
+                txtDCNo.Text = CardID;
+
+                txtTruckNo.Text = "";
+                txtTruckNo.ReadOnly = false;
+
+                string TruckNo_T = "";
+
+                int nStatus = cardrelated.ReadTruckNo(ref TruckNo_T);
+
+                //验证司机车牌，如果不是指定格式，则取空字符
+
+                try
+                {
+                    TruckNo_T = TruckNo_T.Substring(0, 7);
+                }
+                catch
+                {
+                    TruckNo_T = "";
+                }
+                //*/
+                bool b_t_Status = false;//opAndvalidate.validateTruckNo(TruckNo_T);
+                //MessageBox.Show(TruckNo_T.Length.ToString());
+                //MessageBox.Show(nStatus.ToString());
+
+                btnResetDCardAll.Enabled = btnSendDCard.Enabled = true;
+                btnReadDCard.Enabled = false;
+
+                if (nStatus == 0 && b_t_Status == true)
+                {
+                    txtTruckNo.Text = TruckNo_T;
+                }
+                else
+                {
+                    txtTruckNo.Text = "京A";
+                }
+
+            }
+            else
+            {
+                ResetDCardSent_All();
+
+                //调试用
+                txtDCNo.Text = "";
+                txtDCNo.Enabled = txtTruckNo.Enabled = false;
+
+                btnReadDCard.Enabled = true;
+                btnSendDCard.Enabled = false;
+            }
+            #endregion
+        }
+        #endregion
+
 
         #endregion
         //*******************
