@@ -58,7 +58,7 @@ namespace QMS3
             treeView1.Nodes.Clear();
         }
 
-        //所有功能TAB请修改下面的tree view操作
+        //***********************所有功能TAB请修改下面的tree view操作*********************
 
         #region treeview 操作
         private void treeView1_AfterSelect_1(object sender, TreeViewEventArgs e)
@@ -166,16 +166,68 @@ namespace QMS3
                         //showDayreport.CancelAsync();
                     }
                     dataGridView4.DataSource = ds.Tables[0];
-                    MainTab.SelectTab(12);
-                   
+
                     MainTab.SelectTab(13);
                     break;
                     #endregion
                 }
-                case "TreeNode: 垃圾楼管理":            MainTab.SelectTab(14);
-                break;
-                case "TreeNode: 班长管理":              MainTab.SelectTab(15);
-                break;
+                case "TreeNode: 垃圾楼管理":
+                {
+                    string systime = System.DateTime.Now.ToString("yy-MM-dd");//  //"10-06-11";
+                    // System.DateTime.Now.ToString("yy-MM-dd");
+
+                    string strSQL = "SELECT StationID AS '站号', Name AS '站名', Class AS '所属班号' FROM [dbo.Station]";
+                    string strTable = " [db_rfidtest].[rfidtest].[dbo.Station]";
+
+                    try
+                    {
+                        ds = boperate.getds(strSQL, strTable);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("网络连接失败！请稍后重试");
+                        //showDayreport.CancelAsync();
+                    }
+                    dataGridView5.DataSource = ds.Tables[0];
+
+                    strSQL = "SELECT  Name AS '姓名', Class AS '对应班号' FROM [dbo.Class]";
+                    strTable = " [db_rfidtest].[rfidtest].[dbo.Class]";
+
+                    try
+                    {
+                        ds = boperate.getds(strSQL, strTable);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("网络连接失败！请稍后重试");
+                        //showDayreport.CancelAsync();
+                    }
+
+                    dataGridView6.DataSource = ds.Tables[0];
+
+                    MainTab.SelectTab(14);
+                    break;
+                }
+                case "TreeNode: 班长管理":
+                {
+
+                    string strSQL = "SELECT ID AS '用户ID', Name AS '姓名', Class AS '班号' FROM [dbo.Class]";
+                    string strTable = " [db_rfidtest].[rfidtest].[dbo.Class]";
+
+                    try
+                    {
+                        ds = boperate.getds(strSQL, strTable);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("网络连接失败！请稍后重试");
+                        //showDayreport.CancelAsync();
+                    }
+
+                    dataGridView7.DataSource = ds.Tables[0];
+                    MainTab.SelectTab(15);
+                    break;
+                }
                 case "TreeNode: 日垃圾清运完成情况":
                 {
                     sqlcon = boperate.getcon();
@@ -361,7 +413,7 @@ namespace QMS3
         }
         #endregion
 
-        //*******************added by wanchao
+        //*******************added by wanchao*********************************************
 
         #region 月表
         private void comboBoxDay1_DropDown(object sender, EventArgs e)//生成每个月对应的天数
@@ -3456,7 +3508,7 @@ drop table resYear;";
         }
         #endregion
 
-        //*******************
+        //*******************************************************************************
 
         #region 本区域代码 by 林秀峰
 
@@ -3882,409 +3934,7 @@ drop table resYear;";
         }
         #endregion
 
-        //*************************add by will
-        #region login
-
-        private void login_DoWork(object sender, DoWorkEventArgs e)
-        {
-            try
-            {
-                right = this.dbo_UserTableAdapter.ValidateUser(UNtextBox.Text, MD5.MDString(PSmaskedTextBox.Text)).ToString();
-                conneted = true;
-            }
-            catch
-            {
-                right = "0";
-                conneted = false;
-            }
-
-        }
-        void login_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
-        {
-            if (conneted)
-            {
-
-                button1.Enabled = false;
-                button2.Enabled = true;
-                UNtextBox.Enabled = false;
-                PSmaskedTextBox.Enabled = false;
-            }
-            else
-            {
-                MessageBox.Show("输入的用户名密码有误或网络超时");
-                UNtextBox.Text = "";
-                PSmaskedTextBox.Text = "";
-            }
-            label5.Text = right;
-            treeView1.Nodes.Clear();
-            treeviewload(int.Parse(label5.Text));
-            LogingroupBox.Cursor = System.Windows.Forms.Cursors.Arrow;
-
-        }
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            MessageBox.Show(
-                "\n\t\t权限1: 二队队长\t\t\n" +
-                "\n\t\t权限2: 垃圾楼楼长\t\t\n" +
-                "\n\t\t权限3: 转运中心\t\t\n" +
-                "\n\t\t权限4: 监管员\t\t\n" +
-                "\n\t\t权限5: 系统管理员\t\t\n",
-                "  权限说明书");
-        }
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-            if (textBox1.Text.Length > 0)
-                this.AcceptButton = button3;
-            else
-                this.AcceptButton = button1;
-        }
-        private void button2_Click(object sender, EventArgs e)
-        {
-            treeView1.Nodes.Clear();
-            MainTab.SelectTab(0);
-            UNtextBox.Text = "";
-            UNtextBox.Enabled = true;
-            PSmaskedTextBox.Text = "";
-            PSmaskedTextBox.Enabled = true;
-            button1.Enabled = true;
-            button2.Enabled = false;
-            conneted = false;
-        }
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            if (UNtextBox.Text.Length != 0)
-                button1.Enabled = true;
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            // label5.Text = textBox1.Text;
-            if (!login.IsBusy)
-            {
-                login.RunWorkerAsync();
-                LogingroupBox.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            }
-            else
-                MessageBox.Show("正在登陆中情耐心等待！");
-            //try
-            //{
-
-            //    button1.Enabled = false;
-            //    button2.Enabled = true;
-            //    UNtextBox.Enabled = false;
-            //    PSmaskedTextBox.Enabled = false;
-            //}
-            //catch 
-            //{
-            //    MessageBox.Show("输入的用户名密码有误或网络超时");
-            //    UNtextBox.Text = "";
-            //    PSmaskedTextBox.Text = "";
-            //}
-            //label5.Text = k;
-            //treeView1.Nodes.Clear();
-            //treeviewload(int.Parse(label5.Text));
-
-        }
-        #endregion
-
-        #region 异常处理
-        private void button3_Click(object sender, EventArgs e)
-        {
-            double x;
-            try
-            {
-                x = Convert.ToDouble(textBox1.Text.Trim());
-                //直接转换，如果是数字无异常，如果不是数字会抛异常
-                if (x > 10 || x < 0)
-                {
-                    MessageBox.Show("输入数值过大！");
-                    textBox1.Text = "";
-                    return;
-                }
-
-            }
-            catch
-            {
-                MessageBox.Show("输入数值非法！");
-                textBox1.Text = "";
-                return;
-            }
-            //  if (!CheckState())
-            //    return;
-            // WritetoCard(textBox1.Text);
-            // WritetoDatabase(textBox1.Text);
-            string ID = "";
-            int Ccount = 0;
-            //sEndTime = System.DateTime.Now.ToString("yy-MM-dd,HH:mm");
-            if (TransCenter.Request(ref ID, ref Ccount) == 0)
-            {
-                debugtextbox.Text += "\n读到卡数" + Ccount.ToString() + "\n";
-                if (Ccount == 1)
-                    listBox1.Items.Add("操作卡号：" + TransCenter.ToHexString(TransCenter.TagBuffer).Substring(2, 6));
-                else
-                {
-                    MessageBox.Show("区域内检查到" + Ccount.ToString() + "张卡片！\n请确保1张卡片在扫描区域中再操作！");
-                    return;
-                }
-            }
-            else
-            {
-                MessageBox.Show("没有读到卡片！");
-                return;
-            }
-            string info = "";
-            string Starttime = "";
-            int StartStation = 0;
-            if (TransCenter.readinfo(ref info, textBox1.Text, ref Starttime, ref StartStation))
-            {
-                //this.myadapter.UpdateCommand = new SqlCommand(" UPDATE [dbo.Goods] SET [State] = @State, [Weight] = @Weight WHERE (BoxCardID = @BoxCardID) AND (TruckNo = @TruckNo) AND (StartTime = @StartTime) AND (StartStationID = @StartStationID)");
-
-                //MessageBox.Show("OK");
-                try
-                {
-                    this.dbo_GoodsTableAdapter.UpdateGoodsByTime(1, double.Parse(textBox1.Text), TransCenter.sEndTime, Starttime, StartStation);
-                    listBox1.Items.Add(info);
-                }
-                catch
-                {
-                    MessageBox.Show("数据库同步失败！");
-                    listBox1.Items.Add(info + "   " + "数据库同步失败！");
-                }
-            }
-            else
-            {
-                MessageBox.Show("操作失败！");
-                listBox1.Items.Add(info);
-                return;
-            }
-            MessageBox.Show("操作成功！");
-            textBox1.Text = "";
-
-        }
-        private void goodupdatebutton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.dbo_GoodsTableAdapter.UpdateGoodsByEndTime(2, double.Parse(textBox13.Text), textBox14.Text);
-                textBox17.Text = "";
-                textBox16.Text = "";
-                textBox15.Text = "";
-                textBox14.Text = "";
-                textBox13.Text = "";
-                string systime = System.DateTime.Now.ToString("yy-MM-dd"); //"10-06-11";
-                // System.DateTime.Now.ToString("yy-MM-dd");
-
-                string strSQL = "SELECT DISTINCT  [db_rfidtest].[rfidtest].[dbo.Station].[Name] AS '起始站点' , " +
-                    " [db_rfidtest].[rfidtest].[dbo.Goods].[BoxCardID] AS '货箱卡号' ,  " +
-                    "[db_rfidtest].[rfidtest].[dbo.Goods].[TruckNo] AS '货车牌号' ,  " +
-                    "[db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] AS '开始时间' ,  " +
-                    "[db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] AS '结束时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[Weight] AS '重量(单位:吨)'" +
-                    " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] ON   " +
-                    "[db_rfidtest].[rfidtest].[dbo.Goods].[StartStationID] = [db_rfidtest].[rfidtest].[dbo.Station].[StationID] " +
-                    "WHERE  [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] > '" + systime + ",00:00' AND [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] < '" + systime + ",23:59'";
-                string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
-
-                try
-                {
-                    ds = boperate.getds(strSQL, strTable);
-                }
-                catch
-                {
-                    MessageBox.Show("网络连接失败！请稍后重试");
-                    //showDayreport.CancelAsync();
-                }
-                dataGridView2.DataSource = ds.Tables[0];
-            }
-            catch
-            {
-                MessageBox.Show("数据库操作超时！");
-            }
-        }
-
-        private void goodsdelbutton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                this.dbo_GoodsTableAdapter.DeleteByEndTime(textBox14.Text);
-                textBox2.Text = "";
-                textBox3.Text = "";
-                textBox4.Text = "";
-                textBox5.Text = "";
-                textBox6.Text = "";
-                string systime = System.DateTime.Now.ToString("yy-MM-dd"); //;
-                // System.DateTime.Now.ToString("yy-MM-dd");
-
-                string strSQL = "SELECT DISTINCT  [db_rfidtest].[rfidtest].[dbo.Station].[Name] AS '起始站点' , " +
-                    " [db_rfidtest].[rfidtest].[dbo.Goods].[BoxCardID] AS '货箱卡号' ,  " +
-                    "[db_rfidtest].[rfidtest].[dbo.Goods].[TruckNo] AS '货车牌号' ,  " +
-                    "[db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] AS '开始时间' ,  " +
-                    "[db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] AS '结束时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[Weight] AS '重量(单位:吨)'" +
-                    " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] ON   " +
-                    "[db_rfidtest].[rfidtest].[dbo.Goods].[StartStationID] = [db_rfidtest].[rfidtest].[dbo.Station].[StationID] " +
-                    "WHERE  [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] > '" + systime + ",00:00' AND [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] < '" + systime + ",23:59'";
-                string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
-
-                try
-                {
-                    ds = boperate.getds(strSQL, strTable);
-                }
-                catch
-                {
-                    MessageBox.Show("网络连接失败！请稍后重试");
-                    //showDayreport.CancelAsync();
-                }
-                dataGridView2.DataSource = ds.Tables[0];
-            }
-            catch
-            {
-                MessageBox.Show("数据库操作超时，请稍后再试！");
-            }
-        }
-
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            textBox17.Text = dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString();
-            textBox16.Text = dataGridView2.Rows[e.RowIndex].Cells[2].Value.ToString();
-            textBox15.Text = dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString();
-            textBox14.Text = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString();
-            textBox13.Text = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString();
-            
-           
-        }
-        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                textBox17.Text = dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString();
-                textBox16.Text = dataGridView2.Rows[e.RowIndex].Cells[2].Value.ToString();
-                textBox15.Text = dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString();
-                textBox14.Text = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString();
-                textBox13.Text = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString();
-            }
-            catch
-            { }
-
-        }
-        #endregion
-
-        #region 编辑用户
-        private void dataGridView4_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            UserID.Text =dataGridView4.Rows[e.RowIndex].Cells[0].Value.ToString();
-            TBuserName.Text = dataGridView4.Rows[e.RowIndex].Cells[1].Value.ToString();
-            TBright.Text = dataGridView4.Rows[e.RowIndex].Cells[2].Value.ToString();
-            TBpassword.Text = "";
-        }
-        private void dataGridView4_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                UserID.Text = dataGridView4.Rows[e.RowIndex].Cells[0].Value.ToString();
-                TBuserName.Text = dataGridView4.Rows[e.RowIndex].Cells[1].Value.ToString();
-                TBright.Text = dataGridView4.Rows[e.RowIndex].Cells[2].Value.ToString();
-                TBpassword.Text = "";
-            }
-            catch
-            { }
-        }
-
-        private void TBright_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (int.Parse(TBright.Text) < 0 || int.Parse(TBright.Text) > 5)
-                    TBright.Text = "0";
-            }
-            catch
-            {
-                TBright.Text = "0";
-            }
-            
-        }
-
-        private void BnAddUser_Click(object sender, EventArgs e)
-        {
-            if (TBuserName.Text.Length == 0)
-            {
-                MessageBox.Show("用户名不能为空！");
-                return;
-            }
-            if(TBright.Text.Length==0)
-            {
-                MessageBox.Show("权限不能为空！");
-                return;
-            }
-            if (TBpassword.Text.Length == 0)
-            {
-                MessageBox.Show("密码不能为空！");
-                return;
-            }
-            try
-            {
-                this.dbo_UserTableAdapter.InsertUser(TBuserName.Text, MD5.MDString(TBpassword.Text), TBright.Text);
-            }
-            catch
-            {
-                MessageBox.Show("连接数据库失败！请确保网络可用！");
-            }
-        }
-
-        private void bnUpateUser_Click(object sender, EventArgs e)
-        {
-            if (TBuserName.Text.Length == 0)
-            {
-                MessageBox.Show("用户名不能为空！");
-                return;
-            }
-            if (TBright.Text.Length == 0)
-            {
-                MessageBox.Show("权限不能为空！");
-                return;
-            }
-            try
-            {
-                this.dbo_UserTableAdapter.UpdateInfo(TBuserName.Text, TBright.Text, int.Parse(UserID.Text));
-            }
-            catch
-            {
-                MessageBox.Show("连接数据库失败！请确保网络可用！");
-            }
-        }
-
-        private void BnUpdatePW_Click(object sender, EventArgs e)
-        {
-            if (UserID.Text.Length == 0)
-            {
-                MessageBox.Show("请选择要重置的用户！");
-                return;
-            }
-            try
-            {
-                this.dbo_UserTableAdapter.UpdatePWD(MD5.MDString("123456"), int.Parse(UserID.Text));
-            }
-            catch
-            {
-                MessageBox.Show("连接数据库失败！请确保网络可用！");
-            }
-        }
-
-        private void bnDelUser_Click(object sender, EventArgs e)
-        {
-            if (UserID.Text.Length == 0)
-            {
-                MessageBox.Show("请选择要删除的用户！");
-                return;
-            }
-            try
-            {
-                this.dbo_UserTableAdapter.DeleteByID(int.Parse(UserID.Text));
-            }
-            catch
-            {
-                MessageBox.Show("连接数据库失败！请确保网络可用！");
-            }
-        }
-        #endregion
-
+        //*************************add by will*******************************************
         #region 权限treenode生成函数 权限为 1 2 3 4 5
         public void treeviewload(int Userright)
         {
@@ -4504,7 +4154,7 @@ drop table resYear;";
                                                                             treeNode202,
                                                                             treeNode206,
                                                                             treeNode207,
-                                                                            treeNode208,
+                                                                          treeNode208,
                                                                        //     treeNode209,
                                                                             treeNode210,
                                                                             treeNode211,
@@ -4562,6 +4212,473 @@ drop table resYear;";
                     }
 
             }
+        }
+        #endregion
+
+        #region login
+
+        private void login_DoWork(object sender, DoWorkEventArgs e)
+        {
+            try
+            {
+                right = this.dbo_UserTableAdapter.ValidateUser(UNtextBox.Text, MD5.MDString(PSmaskedTextBox.Text)).ToString();
+                conneted = true;
+            }
+            catch
+            {
+                right = "0";
+                conneted = false;
+            }
+
+        }
+        void login_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (conneted)
+            {
+
+                button1.Enabled = false;
+                button2.Enabled = true;
+                UNtextBox.Enabled = false;
+                PSmaskedTextBox.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("输入的用户名密码有误或网络超时");
+                UNtextBox.Text = "";
+                PSmaskedTextBox.Text = "";
+            }
+            label5.Text = right;
+            treeView1.Nodes.Clear();
+            treeviewload(int.Parse(label5.Text));
+            LogingroupBox.Cursor = System.Windows.Forms.Cursors.Arrow;
+
+        }
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MessageBox.Show(
+                "\n\t\t权限1: 二队队长\t\t\n" +
+                "\n\t\t权限2: 垃圾楼楼长\t\t\n" +
+                "\n\t\t权限3: 转运中心\t\t\n" +
+                "\n\t\t权限4: 监管员\t\t\n" +
+                "\n\t\t权限5: 系统管理员\t\t\n",
+                "  权限说明书");
+        }
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Length > 0)
+                this.AcceptButton = button3;
+            else
+                this.AcceptButton = button1;
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            treeView1.Nodes.Clear();
+            MainTab.SelectTab(0);
+            UNtextBox.Text = "";
+            UNtextBox.Enabled = true;
+            PSmaskedTextBox.Text = "";
+            PSmaskedTextBox.Enabled = true;
+            button1.Enabled = true;
+            button2.Enabled = false;
+            conneted = false;
+        }
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (UNtextBox.Text.Length != 0)
+                button1.Enabled = true;
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // label5.Text = textBox1.Text;
+            if (!login.IsBusy)
+            {
+                login.RunWorkerAsync();
+                LogingroupBox.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            }
+            else
+                MessageBox.Show("正在登陆中情耐心等待！");
+            //try
+            //{
+
+            //    button1.Enabled = false;
+            //    button2.Enabled = true;
+            //    UNtextBox.Enabled = false;
+            //    PSmaskedTextBox.Enabled = false;
+            //}
+            //catch 
+            //{
+            //    MessageBox.Show("输入的用户名密码有误或网络超时");
+            //    UNtextBox.Text = "";
+            //    PSmaskedTextBox.Text = "";
+            //}
+            //label5.Text = k;
+            //treeView1.Nodes.Clear();
+            //treeviewload(int.Parse(label5.Text));
+
+        }
+        #endregion
+
+        #region 结算
+        private void button3_Click(object sender, EventArgs e)
+        {
+            double x;
+            try
+            {
+                x = Convert.ToDouble(textBox1.Text.Trim());
+                //直接转换，如果是数字无异常，如果不是数字会抛异常
+                if (x > 10 || x < 0)
+                {
+                    MessageBox.Show("输入数值过大！");
+                    textBox1.Text = "";
+                    return;
+                }
+
+            }
+            catch
+            {
+                MessageBox.Show("输入数值非法！");
+                textBox1.Text = "";
+                return;
+            }
+            //  if (!CheckState())
+            //    return;
+            // WritetoCard(textBox1.Text);
+            // WritetoDatabase(textBox1.Text);
+            string ID = "";
+            int Ccount = 0;
+            //sEndTime = System.DateTime.Now.ToString("yy-MM-dd,HH:mm");
+            if (TransCenter.Request(ref ID, ref Ccount) == 0)
+            {
+                debugtextbox.Text += "\n读到卡数" + Ccount.ToString() + "\n";
+                if (Ccount == 1)
+                    listBox1.Items.Add("操作卡号：" + TransCenter.ToHexString(TransCenter.TagBuffer).Substring(2, 6));
+                else
+                {
+                    MessageBox.Show("区域内检查到" + Ccount.ToString() + "张卡片！\n请确保1张卡片在扫描区域中再操作！");
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("没有读到卡片！");
+                return;
+            }
+            string info = "";
+            string Starttime = "";
+            int StartStation = 0;
+            if (TransCenter.readinfo(ref info, textBox1.Text, ref Starttime, ref StartStation))
+            {
+                //this.myadapter.UpdateCommand = new SqlCommand(" UPDATE [dbo.Goods] SET [State] = @State, [Weight] = @Weight WHERE (BoxCardID = @BoxCardID) AND (TruckNo = @TruckNo) AND (StartTime = @StartTime) AND (StartStationID = @StartStationID)");
+
+                //MessageBox.Show("OK");
+                try
+                {
+                    this.dbo_GoodsTableAdapter.UpdateGoodsByTime(1, double.Parse(textBox1.Text), TransCenter.sEndTime, Starttime, StartStation);
+                    listBox1.Items.Add(info);
+                }
+                catch
+                {
+                    MessageBox.Show("数据库同步失败！");
+                    listBox1.Items.Add(info + "   " + "数据库同步失败！");
+                }
+            }
+            else
+            {
+                MessageBox.Show("操作失败！");
+                listBox1.Items.Add(info);
+                return;
+            }
+            MessageBox.Show("操作成功！");
+            textBox1.Text = "";
+
+        }
+        #endregion
+
+        #region 异常处理
+
+        private void goodupdatebutton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.dbo_GoodsTableAdapter.UpdateGoodsByEndTime(2, double.Parse(textBox13.Text), textBox14.Text);
+                textBox17.Text = "";
+                textBox16.Text = "";
+                textBox15.Text = "";
+                textBox14.Text = "";
+                textBox13.Text = "";
+                string systime = System.DateTime.Now.ToString("yy-MM-dd"); //"10-06-11";
+                // System.DateTime.Now.ToString("yy-MM-dd");
+
+                string strSQL = "SELECT DISTINCT  [db_rfidtest].[rfidtest].[dbo.Station].[Name] AS '起始站点' , " +
+                    " [db_rfidtest].[rfidtest].[dbo.Goods].[BoxCardID] AS '货箱卡号' ,  " +
+                    "[db_rfidtest].[rfidtest].[dbo.Goods].[TruckNo] AS '货车牌号' ,  " +
+                    "[db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] AS '开始时间' ,  " +
+                    "[db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] AS '结束时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[Weight] AS '重量(单位:吨)'" +
+                    " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] ON   " +
+                    "[db_rfidtest].[rfidtest].[dbo.Goods].[StartStationID] = [db_rfidtest].[rfidtest].[dbo.Station].[StationID] " +
+                    "WHERE  [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] > '" + systime + ",00:00' AND [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] < '" + systime + ",23:59'";
+                string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
+
+                try
+                {
+                    ds = boperate.getds(strSQL, strTable);
+                }
+                catch
+                {
+                    MessageBox.Show("网络连接失败！请稍后重试");
+                    //showDayreport.CancelAsync();
+                }
+                dataGridView2.DataSource = ds.Tables[0];
+            }
+            catch
+            {
+                MessageBox.Show("数据库操作超时！");
+            }
+        }
+
+        private void goodsdelbutton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.dbo_GoodsTableAdapter.DeleteByEndTime(textBox14.Text);
+                textBox2.Text = "";
+                textBox3.Text = "";
+                textBox4.Text = "";
+                textBox5.Text = "";
+                textBox6.Text = "";
+                string systime = System.DateTime.Now.ToString("yy-MM-dd"); //;
+                // System.DateTime.Now.ToString("yy-MM-dd");
+
+                string strSQL = "SELECT DISTINCT  [db_rfidtest].[rfidtest].[dbo.Station].[Name] AS '起始站点' , " +
+                    " [db_rfidtest].[rfidtest].[dbo.Goods].[BoxCardID] AS '货箱卡号' ,  " +
+                    "[db_rfidtest].[rfidtest].[dbo.Goods].[TruckNo] AS '货车牌号' ,  " +
+                    "[db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] AS '开始时间' ,  " +
+                    "[db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] AS '结束时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[Weight] AS '重量(单位:吨)'" +
+                    " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] ON   " +
+                    "[db_rfidtest].[rfidtest].[dbo.Goods].[StartStationID] = [db_rfidtest].[rfidtest].[dbo.Station].[StationID] " +
+                    "WHERE  [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] > '" + systime + ",00:00' AND [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] < '" + systime + ",23:59'";
+                string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
+
+                try
+                {
+                    ds = boperate.getds(strSQL, strTable);
+                }
+                catch
+                {
+                    MessageBox.Show("网络连接失败！请稍后重试");
+                    //showDayreport.CancelAsync();
+                }
+                dataGridView2.DataSource = ds.Tables[0];
+            }
+            catch
+            {
+                MessageBox.Show("数据库操作超时，请稍后再试！");
+            }
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            textBox17.Text = dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString();
+            textBox16.Text = dataGridView2.Rows[e.RowIndex].Cells[2].Value.ToString();
+            textBox15.Text = dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString();
+            textBox14.Text = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString();
+            textBox13.Text = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString();
+            
+           
+        }
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                textBox17.Text = dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString();
+                textBox16.Text = dataGridView2.Rows[e.RowIndex].Cells[2].Value.ToString();
+                textBox15.Text = dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString();
+                textBox14.Text = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString();
+                textBox13.Text = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString();
+            }
+            catch
+            { }
+
+        }
+        #endregion
+
+        #region 编辑用户
+        private void dataGridView4_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                UserID.Text = dataGridView4.Rows[e.RowIndex].Cells[0].Value.ToString();
+                TBuserName.Text = dataGridView4.Rows[e.RowIndex].Cells[1].Value.ToString();
+                TBright.Text = dataGridView4.Rows[e.RowIndex].Cells[2].Value.ToString();
+                TBpassword.Text = "";
+            }
+            catch { }
+
+        }
+        private void dataGridView4_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                UserID.Text = dataGridView4.Rows[e.RowIndex].Cells[0].Value.ToString();
+                TBuserName.Text = dataGridView4.Rows[e.RowIndex].Cells[1].Value.ToString();
+                TBright.Text = dataGridView4.Rows[e.RowIndex].Cells[2].Value.ToString();
+                TBpassword.Text = "";
+            }
+            catch
+            { }
+
+        }
+
+        private void TBright_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (int.Parse(TBright.Text) < 0 || int.Parse(TBright.Text) > 5)
+                    TBright.Text = "0";
+            }
+            catch
+            {
+                TBright.Text = "0";
+            }
+            
+        }
+
+        private void BnAddUser_Click(object sender, EventArgs e)
+        {
+            if (TBuserName.Text.Length == 0)
+            {
+                MessageBox.Show("用户名不能为空！");
+                return;
+            }
+            if(TBright.Text.Length==0)
+            {
+                MessageBox.Show("权限不能为空！");
+                return;
+            }
+            if (TBpassword.Text.Length == 0)
+            {
+                MessageBox.Show("密码不能为空！");
+                return;
+            }
+            try
+            {
+                this.dbo_UserTableAdapter.InsertUser(TBuserName.Text, MD5.MDString(TBpassword.Text), TBright.Text);
+            }
+            catch
+            {
+                MessageBox.Show("连接数据库失败！请确保网络可用！");
+                return;
+            }
+            string systime = System.DateTime.Now.ToString("yy-MM-dd");//  //"10-06-11";
+            // System.DateTime.Now.ToString("yy-MM-dd");
+
+            string strSQL = "SELECT UserID AS '用户ID', UserName AS '用户名', UserRight AS '用户权限' FROM [dbo.User]";
+            string strTable = " [db_rfidtest].[rfidtest].[dbo.user]";
+
+            try
+            {
+                ds = boperate.getds(strSQL, strTable);
+            }
+            catch
+            {
+                MessageBox.Show("网络连接失败！请稍后重试");
+                //showDayreport.CancelAsync();
+            }
+            dataGridView4.DataSource = ds.Tables[0];
+
+        }
+
+        private void bnUpateUser_Click(object sender, EventArgs e)
+        {
+            if (TBuserName.Text.Length == 0)
+            {
+                MessageBox.Show("用户名不能为空！");
+                return;
+            }
+            if (TBright.Text.Length == 0)
+            {
+                MessageBox.Show("权限不能为空！");
+                return;
+            }
+            try
+            {
+                this.dbo_UserTableAdapter.UpdateInfo(TBuserName.Text, TBright.Text, int.Parse(UserID.Text));
+            }
+            catch
+            {
+                MessageBox.Show("连接数据库失败！请确保网络可用！");
+                return;
+            }
+            string systime = System.DateTime.Now.ToString("yy-MM-dd");//  //"10-06-11";
+            // System.DateTime.Now.ToString("yy-MM-dd");
+
+            string strSQL = "SELECT UserID AS '用户ID', UserName AS '用户名', UserRight AS '用户权限' FROM [dbo.User]";
+            string strTable = " [db_rfidtest].[rfidtest].[dbo.user]";
+
+            try
+            {
+                ds = boperate.getds(strSQL, strTable);
+            }
+            catch
+            {
+                MessageBox.Show("网络连接失败！请稍后重试");
+                //showDayreport.CancelAsync();
+            }
+            dataGridView4.DataSource = ds.Tables[0];
+
+        }
+
+        private void BnUpdatePW_Click(object sender, EventArgs e)
+        {
+            if (UserID.Text.Length == 0)
+            {
+                MessageBox.Show("请选择要重置的用户！");
+                return;
+            }
+            try
+            {
+                this.dbo_UserTableAdapter.UpdatePWD(MD5.MDString("123456"), int.Parse(UserID.Text));
+            }
+            catch
+            {
+                MessageBox.Show("连接数据库失败！请确保网络可用！");
+            }
+            MessageBox.Show("重置密码成功，重置后的密码为123456！");
+        }
+
+
+        private void bnDelUser_Click_1(object sender, EventArgs e)
+        {
+            if (UserID.Text.Length == 0)
+            {
+                MessageBox.Show("请选择要删除的用户！");
+                return;
+            }
+            try
+            {
+                this.dbo_UserTableAdapter.DeleteByID(int.Parse(UserID.Text));
+            }
+            catch
+            {
+                MessageBox.Show("连接数据库失败！请确保网络可用！");
+                return;
+            }
+            string systime = System.DateTime.Now.ToString("yy-MM-dd");//  //"10-06-11";
+            // System.DateTime.Now.ToString("yy-MM-dd");
+
+            string strSQL = "SELECT UserID AS '用户ID', UserName AS '用户名', UserRight AS '用户权限' FROM [dbo.User]";
+            string strTable = " [db_rfidtest].[rfidtest].[dbo.user]";
+
+            try
+            {
+                ds = boperate.getds(strSQL, strTable);
+            }
+            catch
+            {
+                MessageBox.Show("网络连接失败！请稍后重试");
+                //showDayreport.CancelAsync();
+            }
+            dataGridView4.DataSource = ds.Tables[0];
         }
         #endregion
 
@@ -4689,6 +4806,7 @@ drop table resYear;";
 
         }
         #endregion
+
 
         
 

@@ -31,13 +31,11 @@ namespace QMS3 {
         
         private _dbo_GoodsDataTable _tabledbo_Goods;
         
-        private _dbo_StationDataTable _tabledbo_Station;
-        
         private _dbo_UserDataTable _tabledbo_User;
         
-        private testDataTable tabletest;
+        private _dbo_ClassDataTable _tabledbo_Class;
         
-        private test1DataTable tabletest1;
+        private _dbo_StationDataTable _tabledbo_Station;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -74,17 +72,14 @@ namespace QMS3 {
                 if ((ds.Tables["dbo.Goods"] != null)) {
                     base.Tables.Add(new _dbo_GoodsDataTable(ds.Tables["dbo.Goods"]));
                 }
-                if ((ds.Tables["dbo.Station"] != null)) {
-                    base.Tables.Add(new _dbo_StationDataTable(ds.Tables["dbo.Station"]));
-                }
                 if ((ds.Tables["dbo.User"] != null)) {
                     base.Tables.Add(new _dbo_UserDataTable(ds.Tables["dbo.User"]));
                 }
-                if ((ds.Tables["test"] != null)) {
-                    base.Tables.Add(new testDataTable(ds.Tables["test"]));
+                if ((ds.Tables["dbo.Class"] != null)) {
+                    base.Tables.Add(new _dbo_ClassDataTable(ds.Tables["dbo.Class"]));
                 }
-                if ((ds.Tables["test1"] != null)) {
-                    base.Tables.Add(new test1DataTable(ds.Tables["test1"]));
+                if ((ds.Tables["dbo.Station"] != null)) {
+                    base.Tables.Add(new _dbo_StationDataTable(ds.Tables["dbo.Station"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -134,15 +129,6 @@ namespace QMS3 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public _dbo_StationDataTable _dbo_Station {
-            get {
-                return this._tabledbo_Station;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public _dbo_UserDataTable _dbo_User {
             get {
                 return this._tabledbo_User;
@@ -152,18 +138,18 @@ namespace QMS3 {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public testDataTable test {
+        public _dbo_ClassDataTable _dbo_Class {
             get {
-                return this.tabletest;
+                return this._tabledbo_Class;
             }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public test1DataTable test1 {
+        public _dbo_StationDataTable _dbo_Station {
             get {
-                return this.tabletest1;
+                return this._tabledbo_Station;
             }
         }
         
@@ -235,17 +221,14 @@ namespace QMS3 {
                 if ((ds.Tables["dbo.Goods"] != null)) {
                     base.Tables.Add(new _dbo_GoodsDataTable(ds.Tables["dbo.Goods"]));
                 }
-                if ((ds.Tables["dbo.Station"] != null)) {
-                    base.Tables.Add(new _dbo_StationDataTable(ds.Tables["dbo.Station"]));
-                }
                 if ((ds.Tables["dbo.User"] != null)) {
                     base.Tables.Add(new _dbo_UserDataTable(ds.Tables["dbo.User"]));
                 }
-                if ((ds.Tables["test"] != null)) {
-                    base.Tables.Add(new testDataTable(ds.Tables["test"]));
+                if ((ds.Tables["dbo.Class"] != null)) {
+                    base.Tables.Add(new _dbo_ClassDataTable(ds.Tables["dbo.Class"]));
                 }
-                if ((ds.Tables["test1"] != null)) {
-                    base.Tables.Add(new test1DataTable(ds.Tables["test1"]));
+                if ((ds.Tables["dbo.Station"] != null)) {
+                    base.Tables.Add(new _dbo_StationDataTable(ds.Tables["dbo.Station"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -295,28 +278,22 @@ namespace QMS3 {
                     this._tabledbo_Goods.InitVars();
                 }
             }
-            this._tabledbo_Station = ((_dbo_StationDataTable)(base.Tables["dbo.Station"]));
-            if ((initTable == true)) {
-                if ((this._tabledbo_Station != null)) {
-                    this._tabledbo_Station.InitVars();
-                }
-            }
             this._tabledbo_User = ((_dbo_UserDataTable)(base.Tables["dbo.User"]));
             if ((initTable == true)) {
                 if ((this._tabledbo_User != null)) {
                     this._tabledbo_User.InitVars();
                 }
             }
-            this.tabletest = ((testDataTable)(base.Tables["test"]));
+            this._tabledbo_Class = ((_dbo_ClassDataTable)(base.Tables["dbo.Class"]));
             if ((initTable == true)) {
-                if ((this.tabletest != null)) {
-                    this.tabletest.InitVars();
+                if ((this._tabledbo_Class != null)) {
+                    this._tabledbo_Class.InitVars();
                 }
             }
-            this.tabletest1 = ((test1DataTable)(base.Tables["test1"]));
+            this._tabledbo_Station = ((_dbo_StationDataTable)(base.Tables["dbo.Station"]));
             if ((initTable == true)) {
-                if ((this.tabletest1 != null)) {
-                    this.tabletest1.InitVars();
+                if ((this._tabledbo_Station != null)) {
+                    this._tabledbo_Station.InitVars();
                 }
             }
         }
@@ -334,14 +311,12 @@ namespace QMS3 {
             base.Tables.Add(this._tabledbo_Driver);
             this._tabledbo_Goods = new _dbo_GoodsDataTable();
             base.Tables.Add(this._tabledbo_Goods);
-            this._tabledbo_Station = new _dbo_StationDataTable();
-            base.Tables.Add(this._tabledbo_Station);
             this._tabledbo_User = new _dbo_UserDataTable();
             base.Tables.Add(this._tabledbo_User);
-            this.tabletest = new testDataTable();
-            base.Tables.Add(this.tabletest);
-            this.tabletest1 = new test1DataTable();
-            base.Tables.Add(this.tabletest1);
+            this._tabledbo_Class = new _dbo_ClassDataTable();
+            base.Tables.Add(this._tabledbo_Class);
+            this._tabledbo_Station = new _dbo_StationDataTable();
+            base.Tables.Add(this._tabledbo_Station);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -360,22 +335,17 @@ namespace QMS3 {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private bool ShouldSerialize_dbo_Station() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private bool ShouldSerialize_dbo_User() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private bool ShouldSerializetest() {
+        private bool ShouldSerialize_dbo_Class() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private bool ShouldSerializetest1() {
+        private bool ShouldSerialize_dbo_Station() {
             return false;
         }
         
@@ -438,13 +408,11 @@ namespace QMS3 {
         
         public delegate void _dbo_GoodsRowChangeEventHandler(object sender, _dbo_GoodsRowChangeEvent e);
         
-        public delegate void _dbo_StationRowChangeEventHandler(object sender, _dbo_StationRowChangeEvent e);
-        
         public delegate void _dbo_UserRowChangeEventHandler(object sender, _dbo_UserRowChangeEvent e);
         
-        public delegate void testRowChangeEventHandler(object sender, testRowChangeEvent e);
+        public delegate void _dbo_ClassRowChangeEventHandler(object sender, _dbo_ClassRowChangeEvent e);
         
-        public delegate void test1RowChangeEventHandler(object sender, test1RowChangeEvent e);
+        public delegate void _dbo_StationRowChangeEventHandler(object sender, _dbo_StationRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1337,274 +1305,6 @@ namespace QMS3 {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class _dbo_StationDataTable : global::System.Data.TypedTableBase<_dbo_StationRow> {
-            
-            private global::System.Data.DataColumn columnID;
-            
-            private global::System.Data.DataColumn columnStationID;
-            
-            private global::System.Data.DataColumn columnName;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public _dbo_StationDataTable() {
-                this.TableName = "dbo.Station";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal _dbo_StationDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected _dbo_StationDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn IDColumn {
-                get {
-                    return this.columnID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn StationIDColumn {
-                get {
-                    return this.columnStationID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn NameColumn {
-                get {
-                    return this.columnName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public _dbo_StationRow this[int index] {
-                get {
-                    return ((_dbo_StationRow)(this.Rows[index]));
-                }
-            }
-            
-            public event _dbo_StationRowChangeEventHandler _dbo_StationRowChanging;
-            
-            public event _dbo_StationRowChangeEventHandler _dbo_StationRowChanged;
-            
-            public event _dbo_StationRowChangeEventHandler _dbo_StationRowDeleting;
-            
-            public event _dbo_StationRowChangeEventHandler _dbo_StationRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Add_dbo_StationRow(_dbo_StationRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public _dbo_StationRow Add_dbo_StationRow(int StationID, string Name) {
-                _dbo_StationRow row_dbo_StationRow = ((_dbo_StationRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        StationID,
-                        Name};
-                row_dbo_StationRow.ItemArray = columnValuesArray;
-                this.Rows.Add(row_dbo_StationRow);
-                return row_dbo_StationRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public _dbo_StationRow FindByID(int ID) {
-                return ((_dbo_StationRow)(this.Rows.Find(new object[] {
-                            ID})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public override global::System.Data.DataTable Clone() {
-                _dbo_StationDataTable cln = ((_dbo_StationDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new _dbo_StationDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal void InitVars() {
-                this.columnID = base.Columns["ID"];
-                this.columnStationID = base.Columns["StationID"];
-                this.columnName = base.Columns["Name"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            private void InitClass() {
-                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnID);
-                this.columnStationID = new global::System.Data.DataColumn("StationID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnStationID);
-                this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnName);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnID}, true));
-                this.columnID.AutoIncrement = true;
-                this.columnID.AutoIncrementSeed = -1;
-                this.columnID.AutoIncrementStep = -1;
-                this.columnID.AllowDBNull = false;
-                this.columnID.ReadOnly = true;
-                this.columnID.Unique = true;
-                this.columnStationID.AllowDBNull = false;
-                this.columnName.AllowDBNull = false;
-                this.columnName.MaxLength = 50;
-                this.ExtendedProperties.Add("Generator_TableVarName", "_tabledbo_Station");
-                this.ExtendedProperties.Add("Generator_UserTableName", "dbo.Station");
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public _dbo_StationRow New_dbo_StationRow() {
-                return ((_dbo_StationRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new _dbo_StationRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override global::System.Type GetRowType() {
-                return typeof(_dbo_StationRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this._dbo_StationRowChanged != null)) {
-                    this._dbo_StationRowChanged(this, new _dbo_StationRowChangeEvent(((_dbo_StationRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this._dbo_StationRowChanging != null)) {
-                    this._dbo_StationRowChanging(this, new _dbo_StationRowChangeEvent(((_dbo_StationRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this._dbo_StationRowDeleted != null)) {
-                    this._dbo_StationRowDeleted(this, new _dbo_StationRowChangeEvent(((_dbo_StationRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this._dbo_StationRowDeleting != null)) {
-                    this._dbo_StationRowDeleting(this, new _dbo_StationRowChangeEvent(((_dbo_StationRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Remove_dbo_StationRow(_dbo_StationRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                db_rfidtestDataSet ds = new db_rfidtestDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "_dbo_StationDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class _dbo_UserDataTable : global::System.Data.TypedTableBase<_dbo_UserRow> {
             
             private global::System.Data.DataColumn columnUserID;
@@ -1879,56 +1579,24 @@ namespace QMS3 {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class testDataTable : global::System.Data.TypedTableBase<testRow> {
+        public partial class _dbo_ClassDataTable : global::System.Data.TypedTableBase<_dbo_ClassRow> {
             
-            private global::System.Data.DataColumn columnstaname;
+            private global::System.Data.DataColumn columnID;
             
-            private global::System.Data.DataColumn columnsumbox;
+            private global::System.Data.DataColumn columnName;
             
-            private global::System.Data.DataColumn columnweight2;
-            
-            private global::System.Data.DataColumn columnweight3;
-            
-            private global::System.Data.DataColumn columnweight4;
-            
-            private global::System.Data.DataColumn columnweight5;
-            
-            private global::System.Data.DataColumn columnweight6;
-            
-            private global::System.Data.DataColumn columnweight7;
-            
-            private global::System.Data.DataColumn columnweight8;
-            
-            private global::System.Data.DataColumn columnweight9;
-            
-            private global::System.Data.DataColumn columnweight10;
-            
-            private global::System.Data.DataColumn columnweight11;
-            
-            private global::System.Data.DataColumn columnweight12;
-            
-            private global::System.Data.DataColumn columnweight13;
-            
-            private global::System.Data.DataColumn columnweight14;
-            
-            private global::System.Data.DataColumn columnweight15;
-            
-            private global::System.Data.DataColumn columnsumweight;
-            
-            private global::System.Data.DataColumn columnsumboxtail;
-            
-            private global::System.Data.DataColumn columndateid;
+            private global::System.Data.DataColumn columnClass;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public testDataTable() {
-                this.TableName = "test";
+            public _dbo_ClassDataTable() {
+                this.TableName = "dbo.Class";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal testDataTable(global::System.Data.DataTable table) {
+            internal _dbo_ClassDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -1944,141 +1612,29 @@ namespace QMS3 {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected testDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected _dbo_ClassDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn stanameColumn {
+            public global::System.Data.DataColumn IDColumn {
                 get {
-                    return this.columnstaname;
+                    return this.columnID;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn sumboxColumn {
+            public global::System.Data.DataColumn NameColumn {
                 get {
-                    return this.columnsumbox;
+                    return this.columnName;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn weight2Column {
+            public global::System.Data.DataColumn ClassColumn {
                 get {
-                    return this.columnweight2;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn weight3Column {
-                get {
-                    return this.columnweight3;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn weight4Column {
-                get {
-                    return this.columnweight4;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn weight5Column {
-                get {
-                    return this.columnweight5;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn weight6Column {
-                get {
-                    return this.columnweight6;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn weight7Column {
-                get {
-                    return this.columnweight7;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn weight8Column {
-                get {
-                    return this.columnweight8;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn weight9Column {
-                get {
-                    return this.columnweight9;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn weight10Column {
-                get {
-                    return this.columnweight10;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn weight11Column {
-                get {
-                    return this.columnweight11;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn weight12Column {
-                get {
-                    return this.columnweight12;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn weight13Column {
-                get {
-                    return this.columnweight13;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn weight14Column {
-                get {
-                    return this.columnweight14;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn weight15Column {
-                get {
-                    return this.columnweight15;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn sumweightColumn {
-                get {
-                    return this.columnsumweight;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn sumboxtailColumn {
-                get {
-                    return this.columnsumboxtail;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn dateidColumn {
-                get {
-                    return this.columndateid;
+                    return this.columnClass;
                 }
             }
             
@@ -2091,200 +1647,124 @@ namespace QMS3 {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public testRow this[int index] {
+            public _dbo_ClassRow this[int index] {
                 get {
-                    return ((testRow)(this.Rows[index]));
+                    return ((_dbo_ClassRow)(this.Rows[index]));
                 }
             }
             
-            public event testRowChangeEventHandler testRowChanging;
+            public event _dbo_ClassRowChangeEventHandler _dbo_ClassRowChanging;
             
-            public event testRowChangeEventHandler testRowChanged;
+            public event _dbo_ClassRowChangeEventHandler _dbo_ClassRowChanged;
             
-            public event testRowChangeEventHandler testRowDeleting;
+            public event _dbo_ClassRowChangeEventHandler _dbo_ClassRowDeleting;
             
-            public event testRowChangeEventHandler testRowDeleted;
+            public event _dbo_ClassRowChangeEventHandler _dbo_ClassRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void AddtestRow(testRow row) {
+            public void Add_dbo_ClassRow(_dbo_ClassRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public testRow AddtestRow(
-                        string staname, 
-                        int sumbox, 
-                        double weight2, 
-                        double weight3, 
-                        double weight4, 
-                        double weight5, 
-                        double weight6, 
-                        double weight7, 
-                        double weight8, 
-                        double weight9, 
-                        double weight10, 
-                        double weight11, 
-                        double weight12, 
-                        double weight13, 
-                        double weight14, 
-                        double weight15, 
-                        double sumweight, 
-                        double sumboxtail, 
-                        string dateid) {
-                testRow rowtestRow = ((testRow)(this.NewRow()));
+            public _dbo_ClassRow Add_dbo_ClassRow(string Name, int Class) {
+                _dbo_ClassRow row_dbo_ClassRow = ((_dbo_ClassRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        staname,
-                        sumbox,
-                        weight2,
-                        weight3,
-                        weight4,
-                        weight5,
-                        weight6,
-                        weight7,
-                        weight8,
-                        weight9,
-                        weight10,
-                        weight11,
-                        weight12,
-                        weight13,
-                        weight14,
-                        weight15,
-                        sumweight,
-                        sumboxtail,
-                        dateid};
-                rowtestRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowtestRow);
-                return rowtestRow;
+                        null,
+                        Name,
+                        Class};
+                row_dbo_ClassRow.ItemArray = columnValuesArray;
+                this.Rows.Add(row_dbo_ClassRow);
+                return row_dbo_ClassRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public override global::System.Data.DataTable Clone() {
-                testDataTable cln = ((testDataTable)(base.Clone()));
+                _dbo_ClassDataTable cln = ((_dbo_ClassDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new testDataTable();
+                return new _dbo_ClassDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             internal void InitVars() {
-                this.columnstaname = base.Columns["staname"];
-                this.columnsumbox = base.Columns["sumbox"];
-                this.columnweight2 = base.Columns["weight2"];
-                this.columnweight3 = base.Columns["weight3"];
-                this.columnweight4 = base.Columns["weight4"];
-                this.columnweight5 = base.Columns["weight5"];
-                this.columnweight6 = base.Columns["weight6"];
-                this.columnweight7 = base.Columns["weight7"];
-                this.columnweight8 = base.Columns["weight8"];
-                this.columnweight9 = base.Columns["weight9"];
-                this.columnweight10 = base.Columns["weight10"];
-                this.columnweight11 = base.Columns["weight11"];
-                this.columnweight12 = base.Columns["weight12"];
-                this.columnweight13 = base.Columns["weight13"];
-                this.columnweight14 = base.Columns["weight14"];
-                this.columnweight15 = base.Columns["weight15"];
-                this.columnsumweight = base.Columns["sumweight"];
-                this.columnsumboxtail = base.Columns["sumboxtail"];
-                this.columndateid = base.Columns["dateid"];
+                this.columnID = base.Columns["ID"];
+                this.columnName = base.Columns["Name"];
+                this.columnClass = base.Columns["Class"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             private void InitClass() {
-                this.columnstaname = new global::System.Data.DataColumn("staname", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstaname);
-                this.columnsumbox = new global::System.Data.DataColumn("sumbox", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsumbox);
-                this.columnweight2 = new global::System.Data.DataColumn("weight2", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnweight2);
-                this.columnweight3 = new global::System.Data.DataColumn("weight3", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnweight3);
-                this.columnweight4 = new global::System.Data.DataColumn("weight4", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnweight4);
-                this.columnweight5 = new global::System.Data.DataColumn("weight5", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnweight5);
-                this.columnweight6 = new global::System.Data.DataColumn("weight6", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnweight6);
-                this.columnweight7 = new global::System.Data.DataColumn("weight7", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnweight7);
-                this.columnweight8 = new global::System.Data.DataColumn("weight8", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnweight8);
-                this.columnweight9 = new global::System.Data.DataColumn("weight9", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnweight9);
-                this.columnweight10 = new global::System.Data.DataColumn("weight10", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnweight10);
-                this.columnweight11 = new global::System.Data.DataColumn("weight11", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnweight11);
-                this.columnweight12 = new global::System.Data.DataColumn("weight12", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnweight12);
-                this.columnweight13 = new global::System.Data.DataColumn("weight13", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnweight13);
-                this.columnweight14 = new global::System.Data.DataColumn("weight14", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnweight14);
-                this.columnweight15 = new global::System.Data.DataColumn("weight15", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnweight15);
-                this.columnsumweight = new global::System.Data.DataColumn("sumweight", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsumweight);
-                this.columnsumboxtail = new global::System.Data.DataColumn("sumboxtail", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsumboxtail);
-                this.columndateid = new global::System.Data.DataColumn("dateid", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndateid);
-                this.columnstaname.MaxLength = 100;
-                this.columndateid.MaxLength = 100;
+                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID);
+                this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnName);
+                this.columnClass = new global::System.Data.DataColumn("Class", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnClass);
+                this.columnID.AutoIncrement = true;
+                this.columnID.AutoIncrementSeed = -1;
+                this.columnID.AutoIncrementStep = -1;
+                this.columnID.AllowDBNull = false;
+                this.columnID.ReadOnly = true;
+                this.columnName.AllowDBNull = false;
+                this.columnName.MaxLength = 50;
+                this.ExtendedProperties.Add("Generator_TableVarName", "_tabledbo_Class");
+                this.ExtendedProperties.Add("Generator_UserTableName", "dbo.Class");
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public testRow NewtestRow() {
-                return ((testRow)(this.NewRow()));
+            public _dbo_ClassRow New_dbo_ClassRow() {
+                return ((_dbo_ClassRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new testRow(builder);
+                return new _dbo_ClassRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override global::System.Type GetRowType() {
-                return typeof(testRow);
+                return typeof(_dbo_ClassRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.testRowChanged != null)) {
-                    this.testRowChanged(this, new testRowChangeEvent(((testRow)(e.Row)), e.Action));
+                if ((this._dbo_ClassRowChanged != null)) {
+                    this._dbo_ClassRowChanged(this, new _dbo_ClassRowChangeEvent(((_dbo_ClassRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.testRowChanging != null)) {
-                    this.testRowChanging(this, new testRowChangeEvent(((testRow)(e.Row)), e.Action));
+                if ((this._dbo_ClassRowChanging != null)) {
+                    this._dbo_ClassRowChanging(this, new _dbo_ClassRowChangeEvent(((_dbo_ClassRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.testRowDeleted != null)) {
-                    this.testRowDeleted(this, new testRowChangeEvent(((testRow)(e.Row)), e.Action));
+                if ((this._dbo_ClassRowDeleted != null)) {
+                    this._dbo_ClassRowDeleted(this, new _dbo_ClassRowChangeEvent(((_dbo_ClassRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.testRowDeleting != null)) {
-                    this.testRowDeleting(this, new testRowChangeEvent(((testRow)(e.Row)), e.Action));
+                if ((this._dbo_ClassRowDeleting != null)) {
+                    this._dbo_ClassRowDeleting(this, new _dbo_ClassRowChangeEvent(((_dbo_ClassRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void RemovetestRow(testRow row) {
+            public void Remove_dbo_ClassRow(_dbo_ClassRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -2310,7 +1790,7 @@ namespace QMS3 {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "testDataTable";
+                attribute2.FixedValue = "_dbo_ClassDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -2357,56 +1837,26 @@ namespace QMS3 {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class test1DataTable : global::System.Data.TypedTableBase<test1Row> {
+        public partial class _dbo_StationDataTable : global::System.Data.TypedTableBase<_dbo_StationRow> {
             
-            private global::System.Data.DataColumn columnstaname;
+            private global::System.Data.DataColumn columnID;
             
-            private global::System.Data.DataColumn columnsumbox;
+            private global::System.Data.DataColumn columnStationID;
             
-            private global::System.Data.DataColumn columnweight2;
+            private global::System.Data.DataColumn columnName;
             
-            private global::System.Data.DataColumn columnweight3;
-            
-            private global::System.Data.DataColumn columnweight4;
-            
-            private global::System.Data.DataColumn columnweight5;
-            
-            private global::System.Data.DataColumn columnweight6;
-            
-            private global::System.Data.DataColumn columnweight7;
-            
-            private global::System.Data.DataColumn columnweight8;
-            
-            private global::System.Data.DataColumn columnweight9;
-            
-            private global::System.Data.DataColumn columnweight10;
-            
-            private global::System.Data.DataColumn columnweight11;
-            
-            private global::System.Data.DataColumn columnweight12;
-            
-            private global::System.Data.DataColumn columnweight13;
-            
-            private global::System.Data.DataColumn columnweight14;
-            
-            private global::System.Data.DataColumn columnweight15;
-            
-            private global::System.Data.DataColumn columnsumweight;
-            
-            private global::System.Data.DataColumn columnsumboxtail;
-            
-            private global::System.Data.DataColumn columndateid;
+            private global::System.Data.DataColumn columnClass;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public test1DataTable() {
-                this.TableName = "test1";
+            public _dbo_StationDataTable() {
+                this.TableName = "dbo.Station";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal test1DataTable(global::System.Data.DataTable table) {
+            internal _dbo_StationDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -2422,141 +1872,36 @@ namespace QMS3 {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected test1DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected _dbo_StationDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn stanameColumn {
+            public global::System.Data.DataColumn IDColumn {
                 get {
-                    return this.columnstaname;
+                    return this.columnID;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn sumboxColumn {
+            public global::System.Data.DataColumn StationIDColumn {
                 get {
-                    return this.columnsumbox;
+                    return this.columnStationID;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn weight2Column {
+            public global::System.Data.DataColumn NameColumn {
                 get {
-                    return this.columnweight2;
+                    return this.columnName;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn weight3Column {
+            public global::System.Data.DataColumn ClassColumn {
                 get {
-                    return this.columnweight3;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn weight4Column {
-                get {
-                    return this.columnweight4;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn weight5Column {
-                get {
-                    return this.columnweight5;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn weight6Column {
-                get {
-                    return this.columnweight6;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn weight7Column {
-                get {
-                    return this.columnweight7;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn weight8Column {
-                get {
-                    return this.columnweight8;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn weight9Column {
-                get {
-                    return this.columnweight9;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn weight10Column {
-                get {
-                    return this.columnweight10;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn weight11Column {
-                get {
-                    return this.columnweight11;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn weight12Column {
-                get {
-                    return this.columnweight12;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn weight13Column {
-                get {
-                    return this.columnweight13;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn weight14Column {
-                get {
-                    return this.columnweight14;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn weight15Column {
-                get {
-                    return this.columnweight15;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn sumweightColumn {
-                get {
-                    return this.columnsumweight;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn sumboxtailColumn {
-                get {
-                    return this.columnsumboxtail;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn dateidColumn {
-                get {
-                    return this.columndateid;
+                    return this.columnClass;
                 }
             }
             
@@ -2569,200 +1914,138 @@ namespace QMS3 {
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public test1Row this[int index] {
+            public _dbo_StationRow this[int index] {
                 get {
-                    return ((test1Row)(this.Rows[index]));
+                    return ((_dbo_StationRow)(this.Rows[index]));
                 }
             }
             
-            public event test1RowChangeEventHandler test1RowChanging;
+            public event _dbo_StationRowChangeEventHandler _dbo_StationRowChanging;
             
-            public event test1RowChangeEventHandler test1RowChanged;
+            public event _dbo_StationRowChangeEventHandler _dbo_StationRowChanged;
             
-            public event test1RowChangeEventHandler test1RowDeleting;
+            public event _dbo_StationRowChangeEventHandler _dbo_StationRowDeleting;
             
-            public event test1RowChangeEventHandler test1RowDeleted;
+            public event _dbo_StationRowChangeEventHandler _dbo_StationRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Addtest1Row(test1Row row) {
+            public void Add_dbo_StationRow(_dbo_StationRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public test1Row Addtest1Row(
-                        string staname, 
-                        int sumbox, 
-                        double weight2, 
-                        double weight3, 
-                        double weight4, 
-                        double weight5, 
-                        double weight6, 
-                        double weight7, 
-                        double weight8, 
-                        double weight9, 
-                        double weight10, 
-                        double weight11, 
-                        double weight12, 
-                        double weight13, 
-                        double weight14, 
-                        double weight15, 
-                        double sumweight, 
-                        double sumboxtail, 
-                        string dateid) {
-                test1Row rowtest1Row = ((test1Row)(this.NewRow()));
+            public _dbo_StationRow Add_dbo_StationRow(int StationID, string Name, int Class) {
+                _dbo_StationRow row_dbo_StationRow = ((_dbo_StationRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        staname,
-                        sumbox,
-                        weight2,
-                        weight3,
-                        weight4,
-                        weight5,
-                        weight6,
-                        weight7,
-                        weight8,
-                        weight9,
-                        weight10,
-                        weight11,
-                        weight12,
-                        weight13,
-                        weight14,
-                        weight15,
-                        sumweight,
-                        sumboxtail,
-                        dateid};
-                rowtest1Row.ItemArray = columnValuesArray;
-                this.Rows.Add(rowtest1Row);
-                return rowtest1Row;
+                        null,
+                        StationID,
+                        Name,
+                        Class};
+                row_dbo_StationRow.ItemArray = columnValuesArray;
+                this.Rows.Add(row_dbo_StationRow);
+                return row_dbo_StationRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public _dbo_StationRow FindByID(int ID) {
+                return ((_dbo_StationRow)(this.Rows.Find(new object[] {
+                            ID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public override global::System.Data.DataTable Clone() {
-                test1DataTable cln = ((test1DataTable)(base.Clone()));
+                _dbo_StationDataTable cln = ((_dbo_StationDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new test1DataTable();
+                return new _dbo_StationDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             internal void InitVars() {
-                this.columnstaname = base.Columns["staname"];
-                this.columnsumbox = base.Columns["sumbox"];
-                this.columnweight2 = base.Columns["weight2"];
-                this.columnweight3 = base.Columns["weight3"];
-                this.columnweight4 = base.Columns["weight4"];
-                this.columnweight5 = base.Columns["weight5"];
-                this.columnweight6 = base.Columns["weight6"];
-                this.columnweight7 = base.Columns["weight7"];
-                this.columnweight8 = base.Columns["weight8"];
-                this.columnweight9 = base.Columns["weight9"];
-                this.columnweight10 = base.Columns["weight10"];
-                this.columnweight11 = base.Columns["weight11"];
-                this.columnweight12 = base.Columns["weight12"];
-                this.columnweight13 = base.Columns["weight13"];
-                this.columnweight14 = base.Columns["weight14"];
-                this.columnweight15 = base.Columns["weight15"];
-                this.columnsumweight = base.Columns["sumweight"];
-                this.columnsumboxtail = base.Columns["sumboxtail"];
-                this.columndateid = base.Columns["dateid"];
+                this.columnID = base.Columns["ID"];
+                this.columnStationID = base.Columns["StationID"];
+                this.columnName = base.Columns["Name"];
+                this.columnClass = base.Columns["Class"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             private void InitClass() {
-                this.columnstaname = new global::System.Data.DataColumn("staname", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnstaname);
-                this.columnsumbox = new global::System.Data.DataColumn("sumbox", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsumbox);
-                this.columnweight2 = new global::System.Data.DataColumn("weight2", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnweight2);
-                this.columnweight3 = new global::System.Data.DataColumn("weight3", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnweight3);
-                this.columnweight4 = new global::System.Data.DataColumn("weight4", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnweight4);
-                this.columnweight5 = new global::System.Data.DataColumn("weight5", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnweight5);
-                this.columnweight6 = new global::System.Data.DataColumn("weight6", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnweight6);
-                this.columnweight7 = new global::System.Data.DataColumn("weight7", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnweight7);
-                this.columnweight8 = new global::System.Data.DataColumn("weight8", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnweight8);
-                this.columnweight9 = new global::System.Data.DataColumn("weight9", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnweight9);
-                this.columnweight10 = new global::System.Data.DataColumn("weight10", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnweight10);
-                this.columnweight11 = new global::System.Data.DataColumn("weight11", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnweight11);
-                this.columnweight12 = new global::System.Data.DataColumn("weight12", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnweight12);
-                this.columnweight13 = new global::System.Data.DataColumn("weight13", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnweight13);
-                this.columnweight14 = new global::System.Data.DataColumn("weight14", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnweight14);
-                this.columnweight15 = new global::System.Data.DataColumn("weight15", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnweight15);
-                this.columnsumweight = new global::System.Data.DataColumn("sumweight", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsumweight);
-                this.columnsumboxtail = new global::System.Data.DataColumn("sumboxtail", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsumboxtail);
-                this.columndateid = new global::System.Data.DataColumn("dateid", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndateid);
-                this.columnstaname.MaxLength = 100;
-                this.columndateid.MaxLength = 100;
+                this.columnID = new global::System.Data.DataColumn("ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID);
+                this.columnStationID = new global::System.Data.DataColumn("StationID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStationID);
+                this.columnName = new global::System.Data.DataColumn("Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnName);
+                this.columnClass = new global::System.Data.DataColumn("Class", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnClass);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnID}, true));
+                this.columnID.AutoIncrement = true;
+                this.columnID.AutoIncrementSeed = -1;
+                this.columnID.AutoIncrementStep = -1;
+                this.columnID.AllowDBNull = false;
+                this.columnID.ReadOnly = true;
+                this.columnID.Unique = true;
+                this.columnStationID.AllowDBNull = false;
+                this.columnName.AllowDBNull = false;
+                this.columnName.MaxLength = 50;
+                this.ExtendedProperties.Add("Generator_TableVarName", "_tabledbo_Station");
+                this.ExtendedProperties.Add("Generator_UserTableName", "dbo.Station");
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public test1Row Newtest1Row() {
-                return ((test1Row)(this.NewRow()));
+            public _dbo_StationRow New_dbo_StationRow() {
+                return ((_dbo_StationRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new test1Row(builder);
+                return new _dbo_StationRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override global::System.Type GetRowType() {
-                return typeof(test1Row);
+                return typeof(_dbo_StationRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.test1RowChanged != null)) {
-                    this.test1RowChanged(this, new test1RowChangeEvent(((test1Row)(e.Row)), e.Action));
+                if ((this._dbo_StationRowChanged != null)) {
+                    this._dbo_StationRowChanged(this, new _dbo_StationRowChangeEvent(((_dbo_StationRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.test1RowChanging != null)) {
-                    this.test1RowChanging(this, new test1RowChangeEvent(((test1Row)(e.Row)), e.Action));
+                if ((this._dbo_StationRowChanging != null)) {
+                    this._dbo_StationRowChanging(this, new _dbo_StationRowChangeEvent(((_dbo_StationRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.test1RowDeleted != null)) {
-                    this.test1RowDeleted(this, new test1RowChangeEvent(((test1Row)(e.Row)), e.Action));
+                if ((this._dbo_StationRowDeleted != null)) {
+                    this._dbo_StationRowDeleted(this, new _dbo_StationRowChangeEvent(((_dbo_StationRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.test1RowDeleting != null)) {
-                    this.test1RowDeleting(this, new test1RowChangeEvent(((test1Row)(e.Row)), e.Action));
+                if ((this._dbo_StationRowDeleting != null)) {
+                    this._dbo_StationRowDeleting(this, new _dbo_StationRowChangeEvent(((_dbo_StationRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Removetest1Row(test1Row row) {
+            public void Remove_dbo_StationRow(_dbo_StationRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -2788,7 +2071,7 @@ namespace QMS3 {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "test1DataTable";
+                attribute2.FixedValue = "_dbo_StationDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -3133,51 +2416,6 @@ namespace QMS3 {
         ///Represents strongly named DataRow class.
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        public partial class _dbo_StationRow : global::System.Data.DataRow {
-            
-            private _dbo_StationDataTable _tabledbo_Station;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal _dbo_StationRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this._tabledbo_Station = ((_dbo_StationDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public int ID {
-                get {
-                    return ((int)(this[this._tabledbo_Station.IDColumn]));
-                }
-                set {
-                    this[this._tabledbo_Station.IDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public int StationID {
-                get {
-                    return ((int)(this[this._tabledbo_Station.StationIDColumn]));
-                }
-                set {
-                    this[this._tabledbo_Station.StationIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string Name {
-                get {
-                    return ((string)(this[this._tabledbo_Station.NameColumn]));
-                }
-                set {
-                    this[this._tabledbo_Station.NameColumn] = value;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
         public partial class _dbo_UserRow : global::System.Data.DataRow {
             
             private _dbo_UserDataTable _tabledbo_User;
@@ -3248,489 +2486,59 @@ namespace QMS3 {
         ///Represents strongly named DataRow class.
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        public partial class testRow : global::System.Data.DataRow {
+        public partial class _dbo_ClassRow : global::System.Data.DataRow {
             
-            private testDataTable tabletest;
+            private _dbo_ClassDataTable _tabledbo_Class;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal testRow(global::System.Data.DataRowBuilder rb) : 
+            internal _dbo_ClassRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tabletest = ((testDataTable)(this.Table));
+                this._tabledbo_Class = ((_dbo_ClassDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string staname {
+            public int ID {
+                get {
+                    return ((int)(this[this._tabledbo_Class.IDColumn]));
+                }
+                set {
+                    this[this._tabledbo_Class.IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Name {
+                get {
+                    return ((string)(this[this._tabledbo_Class.NameColumn]));
+                }
+                set {
+                    this[this._tabledbo_Class.NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int Class {
                 get {
                     try {
-                        return ((string)(this[this.tabletest.stanameColumn]));
+                        return ((int)(this[this._tabledbo_Class.ClassColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test”中列“staname”的值为 DBNull。", e);
+                        throw new global::System.Data.StrongTypingException("表“dbo.Class”中列“Class”的值为 DBNull。", e);
                     }
                 }
                 set {
-                    this[this.tabletest.stanameColumn] = value;
+                    this[this._tabledbo_Class.ClassColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public int sumbox {
-                get {
-                    try {
-                        return ((int)(this[this.tabletest.sumboxColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test”中列“sumbox”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest.sumboxColumn] = value;
-                }
+            public bool IsClassNull() {
+                return this.IsNull(this._tabledbo_Class.ClassColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double weight2 {
-                get {
-                    try {
-                        return ((double)(this[this.tabletest.weight2Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test”中列“weight2”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest.weight2Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double weight3 {
-                get {
-                    try {
-                        return ((double)(this[this.tabletest.weight3Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test”中列“weight3”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest.weight3Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double weight4 {
-                get {
-                    try {
-                        return ((double)(this[this.tabletest.weight4Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test”中列“weight4”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest.weight4Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double weight5 {
-                get {
-                    try {
-                        return ((double)(this[this.tabletest.weight5Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test”中列“weight5”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest.weight5Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double weight6 {
-                get {
-                    try {
-                        return ((double)(this[this.tabletest.weight6Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test”中列“weight6”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest.weight6Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double weight7 {
-                get {
-                    try {
-                        return ((double)(this[this.tabletest.weight7Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test”中列“weight7”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest.weight7Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double weight8 {
-                get {
-                    try {
-                        return ((double)(this[this.tabletest.weight8Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test”中列“weight8”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest.weight8Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double weight9 {
-                get {
-                    try {
-                        return ((double)(this[this.tabletest.weight9Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test”中列“weight9”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest.weight9Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double weight10 {
-                get {
-                    try {
-                        return ((double)(this[this.tabletest.weight10Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test”中列“weight10”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest.weight10Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double weight11 {
-                get {
-                    try {
-                        return ((double)(this[this.tabletest.weight11Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test”中列“weight11”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest.weight11Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double weight12 {
-                get {
-                    try {
-                        return ((double)(this[this.tabletest.weight12Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test”中列“weight12”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest.weight12Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double weight13 {
-                get {
-                    try {
-                        return ((double)(this[this.tabletest.weight13Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test”中列“weight13”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest.weight13Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double weight14 {
-                get {
-                    try {
-                        return ((double)(this[this.tabletest.weight14Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test”中列“weight14”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest.weight14Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double weight15 {
-                get {
-                    try {
-                        return ((double)(this[this.tabletest.weight15Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test”中列“weight15”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest.weight15Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double sumweight {
-                get {
-                    try {
-                        return ((double)(this[this.tabletest.sumweightColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test”中列“sumweight”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest.sumweightColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double sumboxtail {
-                get {
-                    try {
-                        return ((double)(this[this.tabletest.sumboxtailColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test”中列“sumboxtail”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest.sumboxtailColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string dateid {
-                get {
-                    try {
-                        return ((string)(this[this.tabletest.dateidColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test”中列“dateid”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest.dateidColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsstanameNull() {
-                return this.IsNull(this.tabletest.stanameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetstanameNull() {
-                this[this.tabletest.stanameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IssumboxNull() {
-                return this.IsNull(this.tabletest.sumboxColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetsumboxNull() {
-                this[this.tabletest.sumboxColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Isweight2Null() {
-                return this.IsNull(this.tabletest.weight2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Setweight2Null() {
-                this[this.tabletest.weight2Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Isweight3Null() {
-                return this.IsNull(this.tabletest.weight3Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Setweight3Null() {
-                this[this.tabletest.weight3Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Isweight4Null() {
-                return this.IsNull(this.tabletest.weight4Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Setweight4Null() {
-                this[this.tabletest.weight4Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Isweight5Null() {
-                return this.IsNull(this.tabletest.weight5Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Setweight5Null() {
-                this[this.tabletest.weight5Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Isweight6Null() {
-                return this.IsNull(this.tabletest.weight6Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Setweight6Null() {
-                this[this.tabletest.weight6Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Isweight7Null() {
-                return this.IsNull(this.tabletest.weight7Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Setweight7Null() {
-                this[this.tabletest.weight7Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Isweight8Null() {
-                return this.IsNull(this.tabletest.weight8Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Setweight8Null() {
-                this[this.tabletest.weight8Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Isweight9Null() {
-                return this.IsNull(this.tabletest.weight9Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Setweight9Null() {
-                this[this.tabletest.weight9Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Isweight10Null() {
-                return this.IsNull(this.tabletest.weight10Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Setweight10Null() {
-                this[this.tabletest.weight10Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Isweight11Null() {
-                return this.IsNull(this.tabletest.weight11Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Setweight11Null() {
-                this[this.tabletest.weight11Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Isweight12Null() {
-                return this.IsNull(this.tabletest.weight12Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Setweight12Null() {
-                this[this.tabletest.weight12Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Isweight13Null() {
-                return this.IsNull(this.tabletest.weight13Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Setweight13Null() {
-                this[this.tabletest.weight13Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Isweight14Null() {
-                return this.IsNull(this.tabletest.weight14Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Setweight14Null() {
-                this[this.tabletest.weight14Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Isweight15Null() {
-                return this.IsNull(this.tabletest.weight15Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Setweight15Null() {
-                this[this.tabletest.weight15Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IssumweightNull() {
-                return this.IsNull(this.tabletest.sumweightColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetsumweightNull() {
-                this[this.tabletest.sumweightColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IssumboxtailNull() {
-                return this.IsNull(this.tabletest.sumboxtailColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetsumboxtailNull() {
-                this[this.tabletest.sumboxtailColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsdateidNull() {
-                return this.IsNull(this.tabletest.dateidColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetdateidNull() {
-                this[this.tabletest.dateidColumn] = global::System.Convert.DBNull;
+            public void SetClassNull() {
+                this[this._tabledbo_Class.ClassColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3738,489 +2546,69 @@ namespace QMS3 {
         ///Represents strongly named DataRow class.
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        public partial class test1Row : global::System.Data.DataRow {
+        public partial class _dbo_StationRow : global::System.Data.DataRow {
             
-            private test1DataTable tabletest1;
+            private _dbo_StationDataTable _tabledbo_Station;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal test1Row(global::System.Data.DataRowBuilder rb) : 
+            internal _dbo_StationRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tabletest1 = ((test1DataTable)(this.Table));
+                this._tabledbo_Station = ((_dbo_StationDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string staname {
+            public int ID {
+                get {
+                    return ((int)(this[this._tabledbo_Station.IDColumn]));
+                }
+                set {
+                    this[this._tabledbo_Station.IDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int StationID {
+                get {
+                    return ((int)(this[this._tabledbo_Station.StationIDColumn]));
+                }
+                set {
+                    this[this._tabledbo_Station.StationIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Name {
+                get {
+                    return ((string)(this[this._tabledbo_Station.NameColumn]));
+                }
+                set {
+                    this[this._tabledbo_Station.NameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public int Class {
                 get {
                     try {
-                        return ((string)(this[this.tabletest1.stanameColumn]));
+                        return ((int)(this[this._tabledbo_Station.ClassColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test1”中列“staname”的值为 DBNull。", e);
+                        throw new global::System.Data.StrongTypingException("表“dbo.Station”中列“Class”的值为 DBNull。", e);
                     }
                 }
                 set {
-                    this[this.tabletest1.stanameColumn] = value;
+                    this[this._tabledbo_Station.ClassColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public int sumbox {
-                get {
-                    try {
-                        return ((int)(this[this.tabletest1.sumboxColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test1”中列“sumbox”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest1.sumboxColumn] = value;
-                }
+            public bool IsClassNull() {
+                return this.IsNull(this._tabledbo_Station.ClassColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double weight2 {
-                get {
-                    try {
-                        return ((double)(this[this.tabletest1.weight2Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test1”中列“weight2”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest1.weight2Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double weight3 {
-                get {
-                    try {
-                        return ((double)(this[this.tabletest1.weight3Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test1”中列“weight3”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest1.weight3Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double weight4 {
-                get {
-                    try {
-                        return ((double)(this[this.tabletest1.weight4Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test1”中列“weight4”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest1.weight4Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double weight5 {
-                get {
-                    try {
-                        return ((double)(this[this.tabletest1.weight5Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test1”中列“weight5”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest1.weight5Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double weight6 {
-                get {
-                    try {
-                        return ((double)(this[this.tabletest1.weight6Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test1”中列“weight6”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest1.weight6Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double weight7 {
-                get {
-                    try {
-                        return ((double)(this[this.tabletest1.weight7Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test1”中列“weight7”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest1.weight7Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double weight8 {
-                get {
-                    try {
-                        return ((double)(this[this.tabletest1.weight8Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test1”中列“weight8”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest1.weight8Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double weight9 {
-                get {
-                    try {
-                        return ((double)(this[this.tabletest1.weight9Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test1”中列“weight9”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest1.weight9Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double weight10 {
-                get {
-                    try {
-                        return ((double)(this[this.tabletest1.weight10Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test1”中列“weight10”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest1.weight10Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double weight11 {
-                get {
-                    try {
-                        return ((double)(this[this.tabletest1.weight11Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test1”中列“weight11”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest1.weight11Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double weight12 {
-                get {
-                    try {
-                        return ((double)(this[this.tabletest1.weight12Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test1”中列“weight12”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest1.weight12Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double weight13 {
-                get {
-                    try {
-                        return ((double)(this[this.tabletest1.weight13Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test1”中列“weight13”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest1.weight13Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double weight14 {
-                get {
-                    try {
-                        return ((double)(this[this.tabletest1.weight14Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test1”中列“weight14”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest1.weight14Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double weight15 {
-                get {
-                    try {
-                        return ((double)(this[this.tabletest1.weight15Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test1”中列“weight15”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest1.weight15Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double sumweight {
-                get {
-                    try {
-                        return ((double)(this[this.tabletest1.sumweightColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test1”中列“sumweight”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest1.sumweightColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double sumboxtail {
-                get {
-                    try {
-                        return ((double)(this[this.tabletest1.sumboxtailColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test1”中列“sumboxtail”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest1.sumboxtailColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string dateid {
-                get {
-                    try {
-                        return ((string)(this[this.tabletest1.dateidColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“test1”中列“dateid”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tabletest1.dateidColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsstanameNull() {
-                return this.IsNull(this.tabletest1.stanameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetstanameNull() {
-                this[this.tabletest1.stanameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IssumboxNull() {
-                return this.IsNull(this.tabletest1.sumboxColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetsumboxNull() {
-                this[this.tabletest1.sumboxColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Isweight2Null() {
-                return this.IsNull(this.tabletest1.weight2Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Setweight2Null() {
-                this[this.tabletest1.weight2Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Isweight3Null() {
-                return this.IsNull(this.tabletest1.weight3Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Setweight3Null() {
-                this[this.tabletest1.weight3Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Isweight4Null() {
-                return this.IsNull(this.tabletest1.weight4Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Setweight4Null() {
-                this[this.tabletest1.weight4Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Isweight5Null() {
-                return this.IsNull(this.tabletest1.weight5Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Setweight5Null() {
-                this[this.tabletest1.weight5Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Isweight6Null() {
-                return this.IsNull(this.tabletest1.weight6Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Setweight6Null() {
-                this[this.tabletest1.weight6Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Isweight7Null() {
-                return this.IsNull(this.tabletest1.weight7Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Setweight7Null() {
-                this[this.tabletest1.weight7Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Isweight8Null() {
-                return this.IsNull(this.tabletest1.weight8Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Setweight8Null() {
-                this[this.tabletest1.weight8Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Isweight9Null() {
-                return this.IsNull(this.tabletest1.weight9Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Setweight9Null() {
-                this[this.tabletest1.weight9Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Isweight10Null() {
-                return this.IsNull(this.tabletest1.weight10Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Setweight10Null() {
-                this[this.tabletest1.weight10Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Isweight11Null() {
-                return this.IsNull(this.tabletest1.weight11Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Setweight11Null() {
-                this[this.tabletest1.weight11Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Isweight12Null() {
-                return this.IsNull(this.tabletest1.weight12Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Setweight12Null() {
-                this[this.tabletest1.weight12Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Isweight13Null() {
-                return this.IsNull(this.tabletest1.weight13Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Setweight13Null() {
-                this[this.tabletest1.weight13Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Isweight14Null() {
-                return this.IsNull(this.tabletest1.weight14Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Setweight14Null() {
-                this[this.tabletest1.weight14Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool Isweight15Null() {
-                return this.IsNull(this.tabletest1.weight15Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void Setweight15Null() {
-                this[this.tabletest1.weight15Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IssumweightNull() {
-                return this.IsNull(this.tabletest1.sumweightColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetsumweightNull() {
-                this[this.tabletest1.sumweightColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IssumboxtailNull() {
-                return this.IsNull(this.tabletest1.sumboxtailColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetsumboxtailNull() {
-                this[this.tabletest1.sumboxtailColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsdateidNull() {
-                return this.IsNull(this.tabletest1.dateidColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetdateidNull() {
-                this[this.tabletest1.dateidColumn] = global::System.Convert.DBNull;
+            public void SetClassNull() {
+                this[this._tabledbo_Station.ClassColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4321,37 +2709,6 @@ namespace QMS3 {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        public class _dbo_StationRowChangeEvent : global::System.EventArgs {
-            
-            private _dbo_StationRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public _dbo_StationRowChangeEvent(_dbo_StationRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public _dbo_StationRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
         public class _dbo_UserRowChangeEvent : global::System.EventArgs {
             
             private _dbo_UserRow eventRow;
@@ -4383,20 +2740,20 @@ namespace QMS3 {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        public class testRowChangeEvent : global::System.EventArgs {
+        public class _dbo_ClassRowChangeEvent : global::System.EventArgs {
             
-            private testRow eventRow;
+            private _dbo_ClassRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public testRowChangeEvent(testRow row, global::System.Data.DataRowAction action) {
+            public _dbo_ClassRowChangeEvent(_dbo_ClassRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public testRow Row {
+            public _dbo_ClassRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -4414,20 +2771,20 @@ namespace QMS3 {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        public class test1RowChangeEvent : global::System.EventArgs {
+        public class _dbo_StationRowChangeEvent : global::System.EventArgs {
             
-            private test1Row eventRow;
+            private _dbo_StationRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public test1RowChangeEvent(test1Row row, global::System.Data.DataRowAction action) {
+            public _dbo_StationRowChangeEvent(_dbo_StationRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public test1Row Row {
+            public _dbo_StationRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -5883,317 +4240,6 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class dbo_StationTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
-        
-        private global::System.Data.SqlClient.SqlConnection _connection;
-        
-        private global::System.Data.SqlClient.SqlTransaction _transaction;
-        
-        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public dbo_StationTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        internal global::System.Data.SqlClient.SqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        internal global::System.Data.SqlClient.SqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private void InitAdapter() {
-            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "dbo.Station";
-            tableMapping.ColumnMappings.Add("ID", "ID");
-            tableMapping.ColumnMappings.Add("StationID", "StationID");
-            tableMapping.ColumnMappings.Add("Name", "Name");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [rfidtest].[dbo.Station] WHERE (([ID] = @Original_ID) AND ([StationID" +
-                "] = @Original_StationID) AND ([Name] = @Original_Name))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StationID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StationID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [rfidtest].[dbo.Station] ([StationID], [Name]) VALUES (@StationID, @N" +
-                "ame);\r\nSELECT ID, StationID, Name FROM [dbo.Station] WHERE (ID = SCOPE_IDENTITY(" +
-                "))";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StationID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StationID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [rfidtest].[dbo.Station] SET [StationID] = @StationID, [Name] = @Name WHER" +
-                "E (([ID] = @Original_ID) AND ([StationID] = @Original_StationID) AND ([Name] = @" +
-                "Original_Name));\r\nSELECT ID, StationID, Name FROM [dbo.Station] WHERE (ID = @ID)" +
-                "";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StationID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StationID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StationID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StationID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private void InitConnection() {
-            this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::QMS3.Properties.Settings.Default.db_rfidtestConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
-            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, StationID, Name FROM rfidtest.[dbo.Station]";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(db_rfidtestDataSet._dbo_StationDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual db_rfidtestDataSet._dbo_StationDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            db_rfidtestDataSet._dbo_StationDataTable dataTable = new db_rfidtestDataSet._dbo_StationDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(db_rfidtestDataSet._dbo_StationDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(db_rfidtestDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "dbo.Station");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_ID, int Original_StationID, string Original_Name) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(Original_StationID));
-            if ((Original_Name == null)) {
-                throw new global::System.ArgumentNullException("Original_Name");
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_Name));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(int StationID, string Name) {
-            this.Adapter.InsertCommand.Parameters[0].Value = ((int)(StationID));
-            if ((Name == null)) {
-                throw new global::System.ArgumentNullException("Name");
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Name));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int StationID, string Name, int Original_ID, int Original_StationID, string Original_Name, int ID) {
-            this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(StationID));
-            if ((Name == null)) {
-                throw new global::System.ArgumentNullException("Name");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Name));
-            }
-            this.Adapter.UpdateCommand.Parameters[2].Value = ((int)(Original_ID));
-            this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(Original_StationID));
-            if ((Original_Name == null)) {
-                throw new global::System.ArgumentNullException("Original_Name");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Original_Name));
-            }
-            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(ID));
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int StationID, string Name, int Original_ID, int Original_StationID, string Original_Name) {
-            return this.Update(StationID, Name, Original_ID, Original_StationID, Original_Name, Original_ID);
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class dbo_UserTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
@@ -6625,7 +4671,7 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class testTableAdapter : global::System.ComponentModel.Component {
+    public partial class dbo_ClassTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -6638,7 +4684,7 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
         private bool _clearBeforeFill;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public testTableAdapter() {
+        public dbo_ClassTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -6729,50 +4775,17 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "test";
-            tableMapping.ColumnMappings.Add("staname", "staname");
-            tableMapping.ColumnMappings.Add("sumbox", "sumbox");
-            tableMapping.ColumnMappings.Add("weight2", "weight2");
-            tableMapping.ColumnMappings.Add("weight3", "weight3");
-            tableMapping.ColumnMappings.Add("weight4", "weight4");
-            tableMapping.ColumnMappings.Add("weight5", "weight5");
-            tableMapping.ColumnMappings.Add("weight6", "weight6");
-            tableMapping.ColumnMappings.Add("weight7", "weight7");
-            tableMapping.ColumnMappings.Add("weight8", "weight8");
-            tableMapping.ColumnMappings.Add("weight9", "weight9");
-            tableMapping.ColumnMappings.Add("weight10", "weight10");
-            tableMapping.ColumnMappings.Add("weight11", "weight11");
-            tableMapping.ColumnMappings.Add("weight12", "weight12");
-            tableMapping.ColumnMappings.Add("weight13", "weight13");
-            tableMapping.ColumnMappings.Add("weight14", "weight14");
-            tableMapping.ColumnMappings.Add("weight15", "weight15");
-            tableMapping.ColumnMappings.Add("sumweight", "sumweight");
-            tableMapping.ColumnMappings.Add("sumboxtail", "sumboxtail");
-            tableMapping.ColumnMappings.Add("dateid", "dateid");
+            tableMapping.DataSetTable = "dbo.Class";
+            tableMapping.ColumnMappings.Add("ID", "ID");
+            tableMapping.ColumnMappings.Add("Name", "Name");
+            tableMapping.ColumnMappings.Add("Class", "Class");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[test] ([staname], [sumbox], [weight2], [weight3], [weight4], [weight5], [weight6], [weight7], [weight8], [weight9], [weight10], [weight11], [weight12], [weight13], [weight14], [weight15], [sumweight], [sumboxtail], [dateid]) VALUES (@staname, @sumbox, @weight2, @weight3, @weight4, @weight5, @weight6, @weight7, @weight8, @weight9, @weight10, @weight11, @weight12, @weight13, @weight14, @weight15, @sumweight, @sumboxtail, @dateid)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo.Class] ([Name], [Class]) VALUES (@Name, @Class)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@staname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staname", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sumbox", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sumbox", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight2", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight3", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight3", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight4", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight4", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight5", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight5", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight6", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight6", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight7", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight7", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight8", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight8", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight9", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight9", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight10", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight10", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight11", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight11", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight12", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight12", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight13", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight13", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight14", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight14", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight15", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight15", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sumweight", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sumweight", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sumboxtail", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sumboxtail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dateid", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Class", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Class", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6786,16 +4799,14 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT staname, sumbox, weight2, weight3, weight4, weight5, weight6, weight7, wei" +
-                "ght8, weight9, weight10, weight11, weight12, weight13, weight14, weight15, sumwe" +
-                "ight, sumboxtail, dateid FROM dbo.test";
+            this._commandCollection[0].CommandText = "SELECT [dbo.Class].*\r\nFROM [dbo.Class]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(db_rfidtestDataSet.testDataTable dataTable) {
+        public virtual int Fill(db_rfidtestDataSet._dbo_ClassDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -6807,23 +4818,23 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual db_rfidtestDataSet.testDataTable GetData() {
+        public virtual db_rfidtestDataSet._dbo_ClassDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            db_rfidtestDataSet.testDataTable dataTable = new db_rfidtestDataSet.testDataTable();
+            db_rfidtestDataSet._dbo_ClassDataTable dataTable = new db_rfidtestDataSet._dbo_ClassDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(db_rfidtestDataSet.testDataTable dataTable) {
+        public virtual int Update(db_rfidtestDataSet._dbo_ClassDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(db_rfidtestDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "test");
+            return this.Adapter.Update(dataSet, "dbo.Class");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6837,159 +4848,6 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(global::System.Data.DataRow[] dataRows) {
             return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(
-                    string staname, 
-                    global::System.Nullable<int> sumbox, 
-                    global::System.Nullable<double> weight2, 
-                    global::System.Nullable<double> weight3, 
-                    global::System.Nullable<double> weight4, 
-                    global::System.Nullable<double> weight5, 
-                    global::System.Nullable<double> weight6, 
-                    global::System.Nullable<double> weight7, 
-                    global::System.Nullable<double> weight8, 
-                    global::System.Nullable<double> weight9, 
-                    global::System.Nullable<double> weight10, 
-                    global::System.Nullable<double> weight11, 
-                    global::System.Nullable<double> weight12, 
-                    global::System.Nullable<double> weight13, 
-                    global::System.Nullable<double> weight14, 
-                    global::System.Nullable<double> weight15, 
-                    global::System.Nullable<double> sumweight, 
-                    global::System.Nullable<double> sumboxtail, 
-                    string dateid) {
-            if ((staname == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(staname));
-            }
-            if ((sumbox.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(sumbox.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((weight2.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((double)(weight2.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((weight3.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((double)(weight3.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((weight4.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((double)(weight4.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((weight5.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((double)(weight5.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((weight6.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((double)(weight6.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((weight7.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((double)(weight7.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((weight8.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((double)(weight8.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((weight9.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((double)(weight9.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            if ((weight10.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((double)(weight10.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            if ((weight11.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((double)(weight11.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            if ((weight12.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((double)(weight12.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            if ((weight13.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[13].Value = ((double)(weight13.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            if ((weight14.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[14].Value = ((double)(weight14.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            if ((weight15.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[15].Value = ((double)(weight15.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            if ((sumweight.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[16].Value = ((double)(sumweight.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            if ((sumboxtail.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[17].Value = ((double)(sumboxtail.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            if ((dateid == null)) {
-                this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[18].Value = ((string)(dateid));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
         }
     }
     
@@ -7003,7 +4861,7 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class test1TableAdapter : global::System.ComponentModel.Component {
+    public partial class dbo_StationTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -7016,7 +4874,7 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
         private bool _clearBeforeFill;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public test1TableAdapter() {
+        public dbo_StationTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -7107,50 +4965,46 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "test1";
-            tableMapping.ColumnMappings.Add("staname", "staname");
-            tableMapping.ColumnMappings.Add("sumbox", "sumbox");
-            tableMapping.ColumnMappings.Add("weight2", "weight2");
-            tableMapping.ColumnMappings.Add("weight3", "weight3");
-            tableMapping.ColumnMappings.Add("weight4", "weight4");
-            tableMapping.ColumnMappings.Add("weight5", "weight5");
-            tableMapping.ColumnMappings.Add("weight6", "weight6");
-            tableMapping.ColumnMappings.Add("weight7", "weight7");
-            tableMapping.ColumnMappings.Add("weight8", "weight8");
-            tableMapping.ColumnMappings.Add("weight9", "weight9");
-            tableMapping.ColumnMappings.Add("weight10", "weight10");
-            tableMapping.ColumnMappings.Add("weight11", "weight11");
-            tableMapping.ColumnMappings.Add("weight12", "weight12");
-            tableMapping.ColumnMappings.Add("weight13", "weight13");
-            tableMapping.ColumnMappings.Add("weight14", "weight14");
-            tableMapping.ColumnMappings.Add("weight15", "weight15");
-            tableMapping.ColumnMappings.Add("sumweight", "sumweight");
-            tableMapping.ColumnMappings.Add("sumboxtail", "sumboxtail");
-            tableMapping.ColumnMappings.Add("dateid", "dateid");
+            tableMapping.DataSetTable = "dbo.Station";
+            tableMapping.ColumnMappings.Add("ID", "ID");
+            tableMapping.ColumnMappings.Add("StationID", "StationID");
+            tableMapping.ColumnMappings.Add("Name", "Name");
+            tableMapping.ColumnMappings.Add("Class", "Class");
             this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo.Station] WHERE (([ID] = @Original_ID) AND ([StationID] = @Origin" +
+                "al_StationID) AND ([Name] = @Original_Name) AND ((@IsNull_Class = 1 AND [Class] " +
+                "IS NULL) OR ([Class] = @Original_Class)))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StationID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StationID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Class", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Class", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Class", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Class", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[test1] ([staname], [sumbox], [weight2], [weight3], [weight4], [weight5], [weight6], [weight7], [weight8], [weight9], [weight10], [weight11], [weight12], [weight13], [weight14], [weight15], [sumweight], [sumboxtail], [dateid]) VALUES (@staname, @sumbox, @weight2, @weight3, @weight4, @weight5, @weight6, @weight7, @weight8, @weight9, @weight10, @weight11, @weight12, @weight13, @weight14, @weight15, @sumweight, @sumboxtail, @dateid)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo.Station] ([StationID], [Name], [Class]) VALUES (@StationID, @Nam" +
+                "e, @Class);\r\nSELECT ID, StationID, Name, Class FROM [dbo.Station] WHERE (ID = SC" +
+                "OPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@staname", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "staname", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sumbox", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sumbox", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight2", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight2", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight3", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight3", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight4", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight4", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight5", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight5", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight6", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight6", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight7", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight7", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight8", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight8", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight9", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight9", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight10", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight10", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight11", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight11", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight12", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight12", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight13", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight13", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight14", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight14", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@weight15", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "weight15", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sumweight", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sumweight", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sumboxtail", global::System.Data.SqlDbType.Float, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sumboxtail", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dateid", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dateid", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StationID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StationID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Class", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Class", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo.Station] SET [StationID] = @StationID, [Name] = @Name, [Class] = @Class WHERE (([ID] = @Original_ID) AND ([StationID] = @Original_StationID) AND ([Name] = @Original_Name) AND ((@IsNull_Class = 1 AND [Class] IS NULL) OR ([Class] = @Original_Class)));
+SELECT ID, StationID, Name, Class FROM [dbo.Station] WHERE (ID = @ID)";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StationID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StationID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Class", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Class", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_StationID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "StationID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Class", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Class", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Class", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Class", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7164,16 +5018,14 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT staname, sumbox, weight2, weight3, weight4, weight5, weight6, weight7, wei" +
-                "ght8, weight9, weight10, weight11, weight12, weight13, weight14, weight15, sumwe" +
-                "ight, sumboxtail, dateid FROM dbo.test1";
+            this._commandCollection[0].CommandText = "SELECT [dbo.Station].*\r\nFROM [dbo.Station]";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(db_rfidtestDataSet.test1DataTable dataTable) {
+        public virtual int Fill(db_rfidtestDataSet._dbo_StationDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -7185,23 +5037,23 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual db_rfidtestDataSet.test1DataTable GetData() {
+        public virtual db_rfidtestDataSet._dbo_StationDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            db_rfidtestDataSet.test1DataTable dataTable = new db_rfidtestDataSet.test1DataTable();
+            db_rfidtestDataSet._dbo_StationDataTable dataTable = new db_rfidtestDataSet._dbo_StationDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(db_rfidtestDataSet.test1DataTable dataTable) {
+        public virtual int Update(db_rfidtestDataSet._dbo_StationDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(db_rfidtestDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "test1");
+            return this.Adapter.Update(dataSet, "dbo.Station");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7215,159 +5067,6 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(global::System.Data.DataRow[] dataRows) {
             return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(
-                    string staname, 
-                    global::System.Nullable<int> sumbox, 
-                    global::System.Nullable<double> weight2, 
-                    global::System.Nullable<double> weight3, 
-                    global::System.Nullable<double> weight4, 
-                    global::System.Nullable<double> weight5, 
-                    global::System.Nullable<double> weight6, 
-                    global::System.Nullable<double> weight7, 
-                    global::System.Nullable<double> weight8, 
-                    global::System.Nullable<double> weight9, 
-                    global::System.Nullable<double> weight10, 
-                    global::System.Nullable<double> weight11, 
-                    global::System.Nullable<double> weight12, 
-                    global::System.Nullable<double> weight13, 
-                    global::System.Nullable<double> weight14, 
-                    global::System.Nullable<double> weight15, 
-                    global::System.Nullable<double> sumweight, 
-                    global::System.Nullable<double> sumboxtail, 
-                    string dateid) {
-            if ((staname == null)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(staname));
-            }
-            if ((sumbox.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(sumbox.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((weight2.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((double)(weight2.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((weight3.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((double)(weight3.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((weight4.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((double)(weight4.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((weight5.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((double)(weight5.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            if ((weight6.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((double)(weight6.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
-            }
-            if ((weight7.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((double)(weight7.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            if ((weight8.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((double)(weight8.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
-            }
-            if ((weight9.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((double)(weight9.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            if ((weight10.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((double)(weight10.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            if ((weight11.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[11].Value = ((double)(weight11.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
-            }
-            if ((weight12.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[12].Value = ((double)(weight12.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            if ((weight13.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[13].Value = ((double)(weight13.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            if ((weight14.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[14].Value = ((double)(weight14.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[14].Value = global::System.DBNull.Value;
-            }
-            if ((weight15.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[15].Value = ((double)(weight15.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            if ((sumweight.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[16].Value = ((double)(sumweight.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            if ((sumboxtail.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[17].Value = ((double)(sumboxtail.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[17].Value = global::System.DBNull.Value;
-            }
-            if ((dateid == null)) {
-                this.Adapter.InsertCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[18].Value = ((string)(dateid));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
         }
     }
     
@@ -7390,13 +5089,11 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
         
         private dbo_GoodsTableAdapter _dbo_GoodsTableAdapter;
         
-        private dbo_StationTableAdapter _dbo_StationTableAdapter;
-        
         private dbo_UserTableAdapter _dbo_UserTableAdapter;
         
-        private testTableAdapter _testTableAdapter;
+        private dbo_ClassTableAdapter _dbo_ClassTableAdapter;
         
-        private test1TableAdapter _test1TableAdapter;
+        private dbo_StationTableAdapter _dbo_StationTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -7455,19 +5152,6 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" +
             "", "System.Drawing.Design.UITypeEditor")]
-        public dbo_StationTableAdapter dbo_StationTableAdapter {
-            get {
-                return this._dbo_StationTableAdapter;
-            }
-            set {
-                this._dbo_StationTableAdapter = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" +
-            "", "System.Drawing.Design.UITypeEditor")]
         public dbo_UserTableAdapter dbo_UserTableAdapter {
             get {
                 return this._dbo_UserTableAdapter;
@@ -7481,12 +5165,12 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" +
             "", "System.Drawing.Design.UITypeEditor")]
-        public testTableAdapter testTableAdapter {
+        public dbo_ClassTableAdapter dbo_ClassTableAdapter {
             get {
-                return this._testTableAdapter;
+                return this._dbo_ClassTableAdapter;
             }
             set {
-                this._testTableAdapter = value;
+                this._dbo_ClassTableAdapter = value;
             }
         }
         
@@ -7494,12 +5178,12 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" +
             "", "System.Drawing.Design.UITypeEditor")]
-        public test1TableAdapter test1TableAdapter {
+        public dbo_StationTableAdapter dbo_StationTableAdapter {
             get {
-                return this._test1TableAdapter;
+                return this._dbo_StationTableAdapter;
             }
             set {
-                this._test1TableAdapter = value;
+                this._dbo_StationTableAdapter = value;
             }
         }
         
@@ -7532,21 +5216,17 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
                             && (this._dbo_GoodsTableAdapter.Connection != null))) {
                     return this._dbo_GoodsTableAdapter.Connection;
                 }
-                if (((this._dbo_StationTableAdapter != null) 
-                            && (this._dbo_StationTableAdapter.Connection != null))) {
-                    return this._dbo_StationTableAdapter.Connection;
-                }
                 if (((this._dbo_UserTableAdapter != null) 
                             && (this._dbo_UserTableAdapter.Connection != null))) {
                     return this._dbo_UserTableAdapter.Connection;
                 }
-                if (((this._testTableAdapter != null) 
-                            && (this._testTableAdapter.Connection != null))) {
-                    return this._testTableAdapter.Connection;
+                if (((this._dbo_ClassTableAdapter != null) 
+                            && (this._dbo_ClassTableAdapter.Connection != null))) {
+                    return this._dbo_ClassTableAdapter.Connection;
                 }
-                if (((this._test1TableAdapter != null) 
-                            && (this._test1TableAdapter.Connection != null))) {
-                    return this._test1TableAdapter.Connection;
+                if (((this._dbo_StationTableAdapter != null) 
+                            && (this._dbo_StationTableAdapter.Connection != null))) {
+                    return this._dbo_StationTableAdapter.Connection;
                 }
                 return null;
             }
@@ -7569,16 +5249,13 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
                 if ((this._dbo_GoodsTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._dbo_StationTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 if ((this._dbo_UserTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._testTableAdapter != null)) {
+                if ((this._dbo_ClassTableAdapter != null)) {
                     count = (count + 1);
                 }
-                if ((this._test1TableAdapter != null)) {
+                if ((this._dbo_StationTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -7600,21 +5277,12 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._testTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.test.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._dbo_ClassTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet._dbo_Class.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._testTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._test1TableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.test1.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._test1TableAdapter.Update(updatedRows));
+                    result = (result + this._dbo_ClassTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -7671,19 +5339,11 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._testTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.test.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._dbo_ClassTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet._dbo_Class.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._testTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._test1TableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.test1.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._test1TableAdapter.Update(addedRows));
+                    result = (result + this._dbo_ClassTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -7760,19 +5420,11 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._test1TableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.test1.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._dbo_ClassTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet._dbo_Class.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._test1TableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._testTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.test.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._testTableAdapter.Update(deletedRows));
+                    result = (result + this._dbo_ClassTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -7833,20 +5485,16 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
                         && (this.MatchTableAdapterConnection(this._dbo_GoodsTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("由 TableAdapterManager 管理的所有 TableAdapter 必须使用相同的连接字符串。");
             }
-            if (((this._dbo_StationTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._dbo_StationTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("由 TableAdapterManager 管理的所有 TableAdapter 必须使用相同的连接字符串。");
-            }
             if (((this._dbo_UserTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._dbo_UserTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("由 TableAdapterManager 管理的所有 TableAdapter 必须使用相同的连接字符串。");
             }
-            if (((this._testTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._testTableAdapter.Connection) == false))) {
+            if (((this._dbo_ClassTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._dbo_ClassTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("由 TableAdapterManager 管理的所有 TableAdapter 必须使用相同的连接字符串。");
             }
-            if (((this._test1TableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._test1TableAdapter.Connection) == false))) {
+            if (((this._dbo_StationTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._dbo_StationTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("由 TableAdapterManager 管理的所有 TableAdapter 必须使用相同的连接字符串。");
             }
             global::System.Data.IDbConnection workConnection = this.Connection;
@@ -7907,15 +5555,6 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
                         adaptersWithAcceptChangesDuringUpdate.Add(this._dbo_GoodsTableAdapter.Adapter);
                     }
                 }
-                if ((this._dbo_StationTableAdapter != null)) {
-                    revertConnections.Add(this._dbo_StationTableAdapter, this._dbo_StationTableAdapter.Connection);
-                    this._dbo_StationTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._dbo_StationTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._dbo_StationTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._dbo_StationTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._dbo_StationTableAdapter.Adapter);
-                    }
-                }
                 if ((this._dbo_UserTableAdapter != null)) {
                     revertConnections.Add(this._dbo_UserTableAdapter, this._dbo_UserTableAdapter.Connection);
                     this._dbo_UserTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
@@ -7925,22 +5564,22 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
                         adaptersWithAcceptChangesDuringUpdate.Add(this._dbo_UserTableAdapter.Adapter);
                     }
                 }
-                if ((this._testTableAdapter != null)) {
-                    revertConnections.Add(this._testTableAdapter, this._testTableAdapter.Connection);
-                    this._testTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._testTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._testTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._testTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._testTableAdapter.Adapter);
+                if ((this._dbo_ClassTableAdapter != null)) {
+                    revertConnections.Add(this._dbo_ClassTableAdapter, this._dbo_ClassTableAdapter.Connection);
+                    this._dbo_ClassTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._dbo_ClassTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._dbo_ClassTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._dbo_ClassTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._dbo_ClassTableAdapter.Adapter);
                     }
                 }
-                if ((this._test1TableAdapter != null)) {
-                    revertConnections.Add(this._test1TableAdapter, this._test1TableAdapter.Connection);
-                    this._test1TableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._test1TableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._test1TableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._test1TableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._test1TableAdapter.Adapter);
+                if ((this._dbo_StationTableAdapter != null)) {
+                    revertConnections.Add(this._dbo_StationTableAdapter, this._dbo_StationTableAdapter.Connection);
+                    this._dbo_StationTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._dbo_StationTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._dbo_StationTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._dbo_StationTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._dbo_StationTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -8013,21 +5652,17 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
                     this._dbo_GoodsTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._dbo_GoodsTableAdapter]));
                     this._dbo_GoodsTableAdapter.Transaction = null;
                 }
-                if ((this._dbo_StationTableAdapter != null)) {
-                    this._dbo_StationTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._dbo_StationTableAdapter]));
-                    this._dbo_StationTableAdapter.Transaction = null;
-                }
                 if ((this._dbo_UserTableAdapter != null)) {
                     this._dbo_UserTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._dbo_UserTableAdapter]));
                     this._dbo_UserTableAdapter.Transaction = null;
                 }
-                if ((this._testTableAdapter != null)) {
-                    this._testTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._testTableAdapter]));
-                    this._testTableAdapter.Transaction = null;
+                if ((this._dbo_ClassTableAdapter != null)) {
+                    this._dbo_ClassTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._dbo_ClassTableAdapter]));
+                    this._dbo_ClassTableAdapter.Transaction = null;
                 }
-                if ((this._test1TableAdapter != null)) {
-                    this._test1TableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._test1TableAdapter]));
-                    this._test1TableAdapter.Transaction = null;
+                if ((this._dbo_StationTableAdapter != null)) {
+                    this._dbo_StationTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._dbo_StationTableAdapter]));
+                    this._dbo_StationTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
