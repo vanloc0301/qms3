@@ -4165,7 +4165,9 @@ else
                                     + "WHERE [DriverCardID] = '" + txtDCNo.Text + "'");
                     //*/
                     boperate.getcom("Exec UpdateDriverCard'" + txtDCNo.Text.Trim() + "'"
-                                    + ", '" + txtTruckNo.Text.Trim() + "'");
+                                    + ", '" + txtTruckNo.Text.Trim() + "'"
+                                    + ", '" + txtDriverName.Text.Trim()
+                                    + "'");
                 }
                 catch (Exception ex)
                 {
@@ -4204,7 +4206,509 @@ else
         }
         #endregion
 
+        #region 安装姓名查询司机信息进程
+        private void bgwQueryDriver_DoWork(object sender, DoWorkEventArgs e)
+        {
+            #region 读数据库
+            try
+            {
+                ///*
+                sqlread = boperate.getread("EXEC QueryDriver'"
+                                        + txtDriverName.Text + "'");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                MessageBox.Show("数据库连接或者配置有误，请检查连接！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            #endregion
+
+        }
+        private void bgwQueryDriver_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            #region 读数据库
+            try
+            {
+                if (sqlread.Read())
+                {
+                    try
+                    {
+                        txtDriverGender.Text = sqlread["DriverGender"].ToString();
+                        txtDriverAge.Text = sqlread["DriverAge"].ToString();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("数据库配置有误，请确认数据库已配置完整！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        //ResetDCardSent_All();
+
+                        return;
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("数据库配置有误，请确认数据库已配置完整！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            #endregion
+
+            gBoxCinfo.Cursor = System.Windows.Forms.Cursors.Arrow;
+            gBoxOperate.Cursor = System.Windows.Forms.Cursors.Arrow;
+        }
         #endregion
+
+        #region 司机概况查询按钮
+        private void btnCheckDriver_Click(object sender, EventArgs e)
+        {
+            if (!bgwQueryDriver.IsBusy)
+            {
+                bgwQueryDriver.RunWorkerAsync();
+                gBoxCinfo.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+                gBoxOperate.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            }
+            else
+            {
+                MessageBox.Show("正在登陆中情耐心等待！");
+            }
+        }
+        #endregion
+
+        #region 司机信息查询界面
+        private void radDriverName_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radDriverName.Checked == true)
+            {
+                txtDriverName_Q.ReadOnly = false;
+            }
+            else 
+            {
+                txtDriverName_Q.ReadOnly = true;
+            }
+        }
+
+        
+        private void radTruckNo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radTruckNo.Checked == true)
+            {
+                txtTruckNo_Q.ReadOnly = false;
+            }
+            else
+            {
+                txtTruckNo_Q.ReadOnly = true;
+            }
+        }
+
+        private void btnReset_Q_Click(object sender, EventArgs e)
+        {
+            radDriverName.Checked = radTruckNo.Checked = false;
+
+            txtDriverNumber_Q.Text = txtDriverName_Q.Text =
+                txtDriverGender_Q.Text = txtDriverAge_Q.Text =
+                txtTruckNo_Q.Text = txtDCardNo_Q.Text = "";
+        }
+        
+
+        private void btnQueryDriver_Q_Click(object sender, EventArgs e)
+        {
+            if (radDriverName.Checked)
+            {
+                if (!bgwQueryDriver_Q.IsBusy)
+                {
+                    bgwQueryDriver_Q.RunWorkerAsync();
+                    //gBoxCinfo.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+                    //gBoxOperate.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+                }
+                else
+                {
+                    MessageBox.Show("正在登陆中情耐心等待！");
+                }
+            }
+            else if (radTruckNo.Checked)
+            {
+                if (!bgwQueryDriverbyTruckNo_Q.IsBusy)
+                {
+                    bgwQueryDriverbyTruckNo_Q.RunWorkerAsync();
+                    //gBoxCinfo.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+                    //gBoxOperate.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+                }
+                else
+                {
+                    MessageBox.Show("正在登陆中情耐心等待！");
+                }
+            }
+            else
+                MessageBox.Show("请选择查询方式");
+        }
+        private void bgwQueryDriver_Q_DoWork(object sender, DoWorkEventArgs e)
+        {
+            #region 读数据库
+            try
+            {
+                ///*
+                sqlread = boperate.getread("EXEC QueryDriver'"
+                                        + txtDriverName_Q.Text + "'");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                MessageBox.Show("数据库连接或者配置有误，请检查连接！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            #endregion
+        }
+        private void bgwQueryDriver_Q_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            #region 读数据库
+            try
+            {
+                if (sqlread.Read())
+                {
+                    try
+                    {
+                        txtDriverNumber_Q.Text = sqlread["ID"].ToString();
+                        txtDriverGender_Q.Text = sqlread["DriverGender"].ToString();
+                        txtDriverAge_Q.Text = sqlread["DriverAge"].ToString();
+                        txtDriverGender_Q.Text = sqlread["DriverGender"].ToString();
+                        txtTruckNo_Q.Text = sqlread["TruckNo"].ToString();
+                        txtDCardNo_Q.Text = sqlread["DriverCardID"].ToString();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("数据库配置有误，请确认数据库已配置完整！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        //ResetDCardSent_All();
+
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("未找到相应信息");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("数据库配置有误，请确认数据库已配置完整！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            #endregion
+
+            //gBoxCinfo.Cursor = System.Windows.Forms.Cursors.Arrow;
+            //gBoxOperate.Cursor = System.Windows.Forms.Cursors.Arrow;
+        }
+
+        private void bgwQueryDriverbyTruckNo_Q_DoWork(object sender, DoWorkEventArgs e)
+        {
+            #region 读数据库
+            try
+            {
+                ///*
+                sqlread = boperate.getread("EXEC QueryDriverByTruckNo'"
+                                        + txtTruckNo_Q.Text.Trim() + "'");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                MessageBox.Show("数据库连接或者配置有误，请检查连接！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            #endregion
+        }
+
+        private void bgwQueryDriverbyTruckNo_Q_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            #region 读数据库
+            try
+            {
+                if (sqlread.Read())
+                {
+                    try
+                    {
+                        txtDriverNumber_Q.Text = sqlread["ID"].ToString();
+                        txtDriverGender_Q.Text = sqlread["DriverGender"].ToString();
+                        txtDriverAge_Q.Text = sqlread["DriverAge"].ToString();
+                        txtDriverGender_Q.Text = sqlread["DriverGender"].ToString();
+                        txtDriverName_Q.Text = sqlread["DriverName"].ToString();
+                        txtDCardNo_Q.Text = sqlread["DriverCardID"].ToString();
+                    }
+                    catch
+                    {
+                        MessageBox.Show("数据库配置有误，请确认数据库已配置完整！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        //ResetDCardSent_All();
+
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("未找到相应信息");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("数据库配置有误，请确认数据库已配置完整！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            #endregion
+
+            //gBoxCinfo.Cursor = System.Windows.Forms.Cursors.Arrow;
+            //gBoxOperate.Cursor = System.Windows.Forms.Cursors.Arrow;
+        }
+        #endregion
+
+        #region 司机信息编辑界面
+        private void radDriverName_R_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radDriverName_R.Checked == true)
+            {
+                txtDriverName_R.ReadOnly = false;
+            }
+            else
+            {
+                txtDriverName_R.ReadOnly = true;
+            }
+        }
+
+        private void radTruckNo_R_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radTruckNo_R.Checked == true)
+            {
+                txtTruckNo_R.ReadOnly = false;
+            }
+            else
+            {
+                txtTruckNo_R.ReadOnly = true;
+            }
+        }
+
+        private void btnReset_R_Click(object sender, EventArgs e)
+        {
+            radDriverName_R.Checked = radTruckNo_R.Checked = false;
+
+            txtDriverNumber_R.Text = txtDriverName_R.Text =
+                txtDriverGender_R.Text = txtDriverAge_R.Text =
+                txtTruckNo_R.Text = txtDCardNo_R.Text = "";
+
+            txtDriverNumber_R.ReadOnly = txtDriverName_R.ReadOnly =
+                txtDriverGender_R.ReadOnly = txtDriverAge_R.ReadOnly =
+                txtTruckNo_R.ReadOnly = txtDCardNo_R.ReadOnly = true;
+        }
+
+        private void btnQueryDriver_R_Click(object sender, EventArgs e)
+        {
+            if (radDriverName_R.Checked)
+            {
+                if (!bgwQueryDriver_R.IsBusy)
+                {
+                    bgwQueryDriver_R.RunWorkerAsync();
+                    //gBoxCinfo.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+                    //gBoxOperate.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+                }
+                else
+                {
+                    MessageBox.Show("正在登陆中情耐心等待！");
+                }
+            }
+            else if (radTruckNo_R.Checked)
+            {
+                if (!bgwQueryDriverbyTruckNo_R.IsBusy)
+                {
+                    bgwQueryDriverbyTruckNo_R.RunWorkerAsync();
+                    //gBoxCinfo.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+                    //gBoxOperate.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+                }
+                else
+                {
+                    MessageBox.Show("正在登陆中情耐心等待！");
+                }
+            }
+            else
+                MessageBox.Show("请选择查询方式");
+        }
+
+        private void bgwQueryDriver_R_DoWork(object sender, DoWorkEventArgs e)
+        {
+            #region 读数据库
+            try
+            {
+                ///*
+                sqlread = boperate.getread("EXEC QueryDriver'"
+                                        + txtDriverName_R.Text + "'");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                MessageBox.Show("数据库连接或者配置有误，请检查连接！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            #endregion
+        }
+        private void bgwQueryDriver_R_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            #region 读数据库
+            try
+            {
+                if (sqlread.Read())
+                {
+                    try
+                    {
+                        txtDriverNumber_R.Text = sqlread["ID"].ToString();
+                        txtDriverGender_R.Text = sqlread["DriverGender"].ToString();
+                        txtDriverAge_R.Text = sqlread["DriverAge"].ToString();
+                        txtDriverGender_R.Text = sqlread["DriverGender"].ToString();
+                        txtTruckNo_R.Text = sqlread["TruckNo"].ToString();
+                        txtDCardNo_R.Text = sqlread["DriverCardID"].ToString();
+                        txtDriverGender_R.ReadOnly = txtDriverAge_R.ReadOnly
+                            = false;
+                    }
+                    catch
+                    {
+                        MessageBox.Show("数据库配置有误，请确认数据库已配置完整！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        //ResetDCardSent_All();
+
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("未找到相应信息");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("数据库配置有误，请确认数据库已配置完整！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            #endregion
+
+            //gBoxCinfo.Cursor = System.Windows.Forms.Cursors.Arrow;
+            //gBoxOperate.Cursor = System.Windows.Forms.Cursors.Arrow;
+        }
+
+        private void bgwQueryDriverbyTruckNo_R_DoWork(object sender, DoWorkEventArgs e)
+        {
+            #region 读数据库
+            try
+            {
+                ///*
+                sqlread = boperate.getread("EXEC QueryDriverByTruckNo'"
+                                        + txtTruckNo_R.Text.Trim() + "'");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                MessageBox.Show("数据库连接或者配置有误，请检查连接！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            #endregion
+        }
+        private void bgwQueryDriverbyTruckNo_R_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            #region 读数据库
+            try
+            {
+                if (sqlread.Read())
+                {
+                    try
+                    {
+                        txtDriverNumber_R.Text = sqlread["ID"].ToString();
+                        txtDriverGender_R.Text = sqlread["DriverGender"].ToString();
+                        txtDriverAge_R.Text = sqlread["DriverAge"].ToString();
+                        txtDriverGender_R.Text = sqlread["DriverGender"].ToString();
+                        txtDriverName_R.Text = sqlread["DriverName"].ToString();
+                        txtDCardNo_R.Text = sqlread["DriverCardID"].ToString();
+
+                        txtDriverGender_R.ReadOnly = txtDriverAge_R.ReadOnly =
+                            txtDriverName_R.ReadOnly = false;
+
+                        txtTruckNo_R.ReadOnly = true;
+                    }
+                    catch
+                    {
+                        MessageBox.Show("数据库配置有误，请确认数据库已配置完整！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        //ResetDCardSent_All();
+
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("未找到相应信息");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("数据库配置有误，请确认数据库已配置完整！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            #endregion
+        }
+
+        private void btnDriverRevised_Click(object sender, EventArgs e)
+        {
+            if (!bgwUpdateDriver.IsBusy)
+            {
+                bgwUpdateDriver.RunWorkerAsync();
+                //gBoxCinfo.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+                //gBoxOperate.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            }
+            else
+            {
+                MessageBox.Show("正在登陆中情耐心等待！");
+            }
+        }
+        private void bgwUpdateDriver_DoWork(object sender, DoWorkEventArgs e)
+        {
+            #region 读数据库
+            try
+            {
+                ///*
+                //MessageBox.Show(txtDCardNo_R.Text.Trim());
+                sqlread = boperate.getread("EXEC UpdateDriver '"
+                                        + txtDCardNo_R.Text.Trim() + "','"
+                                        + txtTruckNo_R.Text.Trim() + "','"
+                                        + txtDriverName_R.Text.Trim() + "','"
+                                        + txtDriverGender_R.Text.Trim() + "','"
+                                        + txtDriverAge_R.Text.Trim() + "'"
+                                        );
+                MessageBox.Show("修改成功！");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                MessageBox.Show("数据库连接或者配置有误，请检查连接！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            #endregion
+        }
+        private void bgwUpdateDriver_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+
+        }
+
+        #endregion
+
+        
+        
+
+        
+        
+
+        
+        #endregion
+
+        
+
+        
+
+        
         //*******************
 
     }
