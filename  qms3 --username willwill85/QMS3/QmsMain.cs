@@ -4369,12 +4369,32 @@ drop table resYear;";
             if (TransCenter.readinfo(ref info, textBox1.Text, ref Starttime, ref StartStation))
             {
                 //this.myadapter.UpdateCommand = new SqlCommand(" UPDATE [dbo.Goods] SET [State] = @State, [Weight] = @Weight WHERE (BoxCardID = @BoxCardID) AND (TruckNo = @TruckNo) AND (StartTime = @StartTime) AND (StartStationID = @StartStationID)");
-
+                int count=0;
                 //MessageBox.Show("OK");
+                try 
+                {
+                    count=int.Parse(this.dbo_GoodsTableAdapter.ScalarQueryNumofGoods(Starttime," "+TransCenter.TruckNo).ToString());
+                    debugtextbox.Text += "========== " + count.ToString() + "==========";
+                    if(count<1)
+                    {
+                        MessageBox.Show("远程垃圾站"+TransCenter.StationName[TransCenter.startstationid]+"网络可能出错,本条记录会添加到数据库中,但请检查垃圾站的网络是否正常！");
+                        this.dbo_GoodsTableAdapter.InsertQuerya(TransCenter.ToHexString(TransCenter.TagBuffer).Substring(2, 6), " "+TransCenter.TruckNo, Starttime, TransCenter.sEndTime,-1, double.Parse(textBox1.Text), TransCenter.startstationid);
+                        listBox1.Items.Add(info);
+                    }
+
+                }
+                catch
+                {
+                    MessageBox.Show("数据库同步失败！");
+                    listBox1.Items.Add(info + "   " + "数据库同步失败！");
+                }
                 try
                 {
-                    this.dbo_GoodsTableAdapter.UpdateGoodsByTime(1, double.Parse(textBox1.Text), TransCenter.sEndTime, Starttime, StartStation);
-                    listBox1.Items.Add(info);
+                    if (count == 1)
+                    {
+                        this.dbo_GoodsTableAdapter.UpdateGoodsByTime(1, double.Parse(textBox1.Text), TransCenter.sEndTime, Starttime, StartStation, TransCenter.TruckNo);
+                        listBox1.Items.Add(info);
+                    }
                 }
                 catch
                 {
@@ -4400,7 +4420,7 @@ drop table resYear;";
         {
             try
             {
-                this.dbo_GoodsTableAdapter.UpdateGoodsByEndTime(2, double.Parse(textBox13.Text), textBox14.Text);
+                this.dbo_GoodsTableAdapter.UpdateGoodsByEndTime(2, double.Parse(textBox13.Text), textBox14.Text,textBox16.Text);
                 textBox17.Text = "";
                 textBox16.Text = "";
                 textBox15.Text = "";
@@ -4440,7 +4460,7 @@ drop table resYear;";
         {
             try
             {
-                this.dbo_GoodsTableAdapter.DeleteByEndTime(textBox14.Text);
+                this.dbo_GoodsTableAdapter.DeleteByEndTime(textBox14.Text,textBox16.Text);
                 textBox2.Text = "";
                 textBox3.Text = "";
                 textBox4.Text = "";
