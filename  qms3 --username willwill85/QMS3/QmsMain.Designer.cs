@@ -29,35 +29,36 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QmsMain));
-            System.Windows.Forms.TreeNode treeNode73 = new System.Windows.Forms.TreeNode("发司机卡");
-            System.Windows.Forms.TreeNode treeNode74 = new System.Windows.Forms.TreeNode("司机信息编辑");
-            System.Windows.Forms.TreeNode treeNode75 = new System.Windows.Forms.TreeNode("司机信息查询");
-            System.Windows.Forms.TreeNode treeNode76 = new System.Windows.Forms.TreeNode("司机卡管理", new System.Windows.Forms.TreeNode[] {
-            treeNode73,
-            treeNode74,
-            treeNode75});
-            System.Windows.Forms.TreeNode treeNode77 = new System.Windows.Forms.TreeNode("发货箱卡");
-            System.Windows.Forms.TreeNode treeNode78 = new System.Windows.Forms.TreeNode("货箱信息编辑");
-            System.Windows.Forms.TreeNode treeNode79 = new System.Windows.Forms.TreeNode("货箱信息查询");
-            System.Windows.Forms.TreeNode treeNode80 = new System.Windows.Forms.TreeNode("货箱卡管理", new System.Windows.Forms.TreeNode[] {
-            treeNode77,
-            treeNode78,
-            treeNode79});
-            System.Windows.Forms.TreeNode treeNode81 = new System.Windows.Forms.TreeNode("车辆状态信息查询");
-            System.Windows.Forms.TreeNode treeNode82 = new System.Windows.Forms.TreeNode("垃圾楼状态信息查询");
-            System.Windows.Forms.TreeNode treeNode83 = new System.Windows.Forms.TreeNode("转运中心状态信息查询");
-            System.Windows.Forms.TreeNode treeNode84 = new System.Windows.Forms.TreeNode("转运中心结算");
-            System.Windows.Forms.TreeNode treeNode85 = new System.Windows.Forms.TreeNode("西城区状态信息查询");
-            System.Windows.Forms.TreeNode treeNode86 = new System.Windows.Forms.TreeNode("异常数据处理器");
-            System.Windows.Forms.TreeNode treeNode87 = new System.Windows.Forms.TreeNode("用户管理");
-            System.Windows.Forms.TreeNode treeNode88 = new System.Windows.Forms.TreeNode("垃圾楼管理");
-            System.Windows.Forms.TreeNode treeNode89 = new System.Windows.Forms.TreeNode("班长管理");
-            System.Windows.Forms.TreeNode treeNode90 = new System.Windows.Forms.TreeNode("报表生成器");
+            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("发司机卡");
+            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("司机信息编辑");
+            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("司机信息查询");
+            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("司机卡管理", new System.Windows.Forms.TreeNode[] {
+            treeNode37,
+            treeNode38,
+            treeNode39});
+            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("发货箱卡");
+            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("货箱信息编辑");
+            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("货箱信息查询");
+            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("货箱卡管理", new System.Windows.Forms.TreeNode[] {
+            treeNode41,
+            treeNode42,
+            treeNode43});
+            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("车辆状态信息查询");
+            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("垃圾楼状态信息查询");
+            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("转运中心状态信息查询");
+            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("转运中心结算");
+            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("西城区状态信息查询");
+            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("异常数据处理器");
+            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("用户管理");
+            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("垃圾楼管理");
+            System.Windows.Forms.TreeNode treeNode53 = new System.Windows.Forms.TreeNode("班长管理");
+            System.Windows.Forms.TreeNode treeNode54 = new System.Windows.Forms.TreeNode("报表生成器");
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.MainTab = new System.Windows.Forms.TabControl();
@@ -200,8 +201,6 @@
             this.comboBoxMon3 = new System.Windows.Forms.ComboBox();
             this.comboBoxYear3 = new System.Windows.Forms.ComboBox();
             this.dboGoodsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.db_rfidtestDataSet = new QMS3.db_rfidtestDataSet();
             this.CenterPanel = new System.Windows.Forms.Panel();
             this.maskpanel = new System.Windows.Forms.Panel();
             this.Leftpanel = new System.Windows.Forms.Panel();
@@ -219,11 +218,6 @@
             this.UNtextBox = new System.Windows.Forms.TextBox();
             this.debugtextbox = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.dbo_BoxTableAdapter = new QMS3.db_rfidtestDataSetTableAdapters.dbo_BoxTableAdapter();
-            this.dbo_DriverTableAdapter = new QMS3.db_rfidtestDataSetTableAdapters.dbo_DriverTableAdapter();
-            this.dbo_GoodsTableAdapter = new QMS3.db_rfidtestDataSetTableAdapters.dbo_GoodsTableAdapter();
-            this.dbo_StationTableAdapter = new QMS3.db_rfidtestDataSetTableAdapters.dbo_StationTableAdapter();
-            this.dbo_UserTableAdapter = new QMS3.db_rfidtestDataSetTableAdapters.dbo_UserTableAdapter();
             this.showDayreport = new System.ComponentModel.BackgroundWorker();
             this.showDayImagereport = new System.ComponentModel.BackgroundWorker();
             this.login = new System.ComponentModel.BackgroundWorker();
@@ -271,14 +265,23 @@
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.TBuserName = new System.Windows.Forms.TextBox();
+            this.TBpassword = new System.Windows.Forms.TextBox();
             this.BnAddUser = new System.Windows.Forms.Button();
             this.bnDelUser = new System.Windows.Forms.Button();
             this.bnUpateUser = new System.Windows.Forms.Button();
             this.BnUpdatePW = new System.Windows.Forms.Button();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.TBright = new System.Windows.Forms.ComboBox();
             this.label32 = new System.Windows.Forms.Label();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.db_rfidtestDataSet = new QMS3.db_rfidtestDataSet();
+            this.dbo_BoxTableAdapter = new QMS3.db_rfidtestDataSetTableAdapters.dbo_BoxTableAdapter();
+            this.dbo_DriverTableAdapter = new QMS3.db_rfidtestDataSetTableAdapters.dbo_DriverTableAdapter();
+            this.dbo_GoodsTableAdapter = new QMS3.db_rfidtestDataSetTableAdapters.dbo_GoodsTableAdapter();
+            this.dbo_StationTableAdapter = new QMS3.db_rfidtestDataSetTableAdapters.dbo_StationTableAdapter();
+            this.dbo_UserTableAdapter = new QMS3.db_rfidtestDataSetTableAdapters.dbo_UserTableAdapter();
+            this.UserID = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.MainTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -315,8 +318,6 @@
             this.groupBoxSelect3.SuspendLayout();
             this.toolStrip3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dboGoodsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.db_rfidtestDataSet)).BeginInit();
             this.CenterPanel.SuspendLayout();
             this.Leftpanel.SuspendLayout();
             this.MenugroupBox.SuspendLayout();
@@ -325,6 +326,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.groupBox7.SuspendLayout();
             this.groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_rfidtestDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -935,8 +938,8 @@
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -945,8 +948,8 @@
             this.dataGridView1.Location = new System.Drawing.Point(3, 49);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(830, 164);
             this.dataGridView1.TabIndex = 0;
@@ -1131,8 +1134,8 @@
             this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.AllowUserToResizeColumns = false;
             this.dataGridView2.AllowUserToResizeRows = false;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1140,14 +1143,14 @@
             this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridView2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dataGridView2.RowTemplate.Height = 23;
             this.dataGridView2.Size = new System.Drawing.Size(830, 355);
@@ -1972,16 +1975,6 @@
             this.dboGoodsBindingSource.DataMember = "dbo.Goods";
             this.dboGoodsBindingSource.DataSource = this.bindingSource1;
             // 
-            // bindingSource1
-            // 
-            this.bindingSource1.DataSource = this.db_rfidtestDataSet;
-            this.bindingSource1.Position = 0;
-            // 
-            // db_rfidtestDataSet
-            // 
-            this.db_rfidtestDataSet.DataSetName = "db_rfidtestDataSet";
-            this.db_rfidtestDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // CenterPanel
             // 
             this.CenterPanel.Controls.Add(this.MainTab);
@@ -2028,56 +2021,56 @@
             this.treeView1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.treeView1.Location = new System.Drawing.Point(3, 22);
             this.treeView1.Name = "treeView1";
-            treeNode73.Name = "节点1";
-            treeNode73.Text = "发司机卡";
-            treeNode74.Checked = true;
-            treeNode74.Name = "节点4";
-            treeNode74.Text = "司机信息编辑";
-            treeNode75.Name = "节点5";
-            treeNode75.Text = "司机信息查询";
-            treeNode76.Name = "节点0";
-            treeNode76.Text = "司机卡管理";
-            treeNode77.Name = "节点0";
-            treeNode77.Text = "发货箱卡";
-            treeNode78.Name = "节点1";
-            treeNode78.Text = "货箱信息编辑";
-            treeNode79.Name = "节点2";
-            treeNode79.Text = "货箱信息查询";
-            treeNode80.Name = "节点2";
-            treeNode80.Text = "货箱卡管理";
-            treeNode81.Name = "节点3";
-            treeNode81.Text = "车辆状态信息查询";
-            treeNode82.Name = "节点4";
-            treeNode82.Text = "垃圾楼状态信息查询";
-            treeNode83.Name = "节点5";
-            treeNode83.Text = "转运中心状态信息查询";
-            treeNode84.Name = "节点6";
-            treeNode84.Text = "转运中心结算";
-            treeNode85.Name = "节点7";
-            treeNode85.Text = "西城区状态信息查询";
-            treeNode86.Name = "节点8";
-            treeNode86.Text = "异常数据处理器";
-            treeNode87.Name = "节点9";
-            treeNode87.Text = "用户管理";
-            treeNode88.Name = "节点10";
-            treeNode88.Text = "垃圾楼管理";
-            treeNode89.Name = "节点11";
-            treeNode89.Text = "班长管理";
-            treeNode90.Name = "节点12";
-            treeNode90.Text = "报表生成器";
+            treeNode37.Name = "节点1";
+            treeNode37.Text = "发司机卡";
+            treeNode38.Checked = true;
+            treeNode38.Name = "节点4";
+            treeNode38.Text = "司机信息编辑";
+            treeNode39.Name = "节点5";
+            treeNode39.Text = "司机信息查询";
+            treeNode40.Name = "节点0";
+            treeNode40.Text = "司机卡管理";
+            treeNode41.Name = "节点0";
+            treeNode41.Text = "发货箱卡";
+            treeNode42.Name = "节点1";
+            treeNode42.Text = "货箱信息编辑";
+            treeNode43.Name = "节点2";
+            treeNode43.Text = "货箱信息查询";
+            treeNode44.Name = "节点2";
+            treeNode44.Text = "货箱卡管理";
+            treeNode45.Name = "节点3";
+            treeNode45.Text = "车辆状态信息查询";
+            treeNode46.Name = "节点4";
+            treeNode46.Text = "垃圾楼状态信息查询";
+            treeNode47.Name = "节点5";
+            treeNode47.Text = "转运中心状态信息查询";
+            treeNode48.Name = "节点6";
+            treeNode48.Text = "转运中心结算";
+            treeNode49.Name = "节点7";
+            treeNode49.Text = "西城区状态信息查询";
+            treeNode50.Name = "节点8";
+            treeNode50.Text = "异常数据处理器";
+            treeNode51.Name = "节点9";
+            treeNode51.Text = "用户管理";
+            treeNode52.Name = "节点10";
+            treeNode52.Text = "垃圾楼管理";
+            treeNode53.Name = "节点11";
+            treeNode53.Text = "班长管理";
+            treeNode54.Name = "节点12";
+            treeNode54.Text = "报表生成器";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode76,
-            treeNode80,
-            treeNode81,
-            treeNode82,
-            treeNode83,
-            treeNode84,
-            treeNode85,
-            treeNode86,
-            treeNode87,
-            treeNode88,
-            treeNode89,
-            treeNode90});
+            treeNode40,
+            treeNode44,
+            treeNode45,
+            treeNode46,
+            treeNode47,
+            treeNode48,
+            treeNode49,
+            treeNode50,
+            treeNode51,
+            treeNode52,
+            treeNode53,
+            treeNode54});
             this.treeView1.Size = new System.Drawing.Size(234, 299);
             this.treeView1.TabIndex = 1;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect_1);
@@ -2200,26 +2193,6 @@
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // dbo_BoxTableAdapter
-            // 
-            this.dbo_BoxTableAdapter.ClearBeforeFill = true;
-            // 
-            // dbo_DriverTableAdapter
-            // 
-            this.dbo_DriverTableAdapter.ClearBeforeFill = true;
-            // 
-            // dbo_GoodsTableAdapter
-            // 
-            this.dbo_GoodsTableAdapter.ClearBeforeFill = true;
-            // 
-            // dbo_StationTableAdapter
-            // 
-            this.dbo_StationTableAdapter.ClearBeforeFill = true;
-            // 
-            // dbo_UserTableAdapter
-            // 
-            this.dbo_UserTableAdapter.ClearBeforeFill = true;
             // 
             // showDayreport
             // 
@@ -2601,14 +2574,19 @@
             // 
             this.dataGridView4.AllowUserToAddRows = false;
             this.dataGridView4.AllowUserToDeleteRows = false;
+            this.dataGridView4.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView4.Location = new System.Drawing.Point(10, 65);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.ReadOnly = true;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridView4.RowsDefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridView4.RowTemplate.Height = 23;
             this.dataGridView4.Size = new System.Drawing.Size(489, 400);
             this.dataGridView4.TabIndex = 0;
+            this.dataGridView4.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellContentClick);
+            this.dataGridView4.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellClick);
             // 
             // groupBox7
             // 
@@ -2636,14 +2614,16 @@
             // 
             // groupBox8
             // 
+            this.groupBox8.Controls.Add(this.label33);
+            this.groupBox8.Controls.Add(this.UserID);
             this.groupBox8.Controls.Add(this.label32);
-            this.groupBox8.Controls.Add(this.comboBox4);
+            this.groupBox8.Controls.Add(this.TBright);
             this.groupBox8.Controls.Add(this.BnUpdatePW);
             this.groupBox8.Controls.Add(this.bnUpateUser);
             this.groupBox8.Controls.Add(this.bnDelUser);
             this.groupBox8.Controls.Add(this.BnAddUser);
-            this.groupBox8.Controls.Add(this.textBox19);
-            this.groupBox8.Controls.Add(this.textBox18);
+            this.groupBox8.Controls.Add(this.TBpassword);
+            this.groupBox8.Controls.Add(this.TBuserName);
             this.groupBox8.Controls.Add(this.label31);
             this.groupBox8.Controls.Add(this.label30);
             this.groupBox8.Controls.Add(this.label29);
@@ -2661,7 +2641,7 @@
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label29.Location = new System.Drawing.Point(67, 161);
+            this.label29.Location = new System.Drawing.Point(67, 158);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(51, 20);
             this.label29.TabIndex = 0;
@@ -2671,7 +2651,7 @@
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label30.Location = new System.Drawing.Point(67, 93);
+            this.label30.Location = new System.Drawing.Point(67, 114);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(65, 20);
             this.label30.TabIndex = 1;
@@ -2681,33 +2661,33 @@
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label31.Location = new System.Drawing.Point(67, 230);
+            this.label31.Location = new System.Drawing.Point(67, 202);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(51, 20);
             this.label31.TabIndex = 2;
             this.label31.Text = "权限：";
             // 
-            // textBox18
+            // TBuserName
             // 
-            this.textBox18.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox18.Location = new System.Drawing.Point(149, 90);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(100, 26);
-            this.textBox18.TabIndex = 3;
+            this.TBuserName.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TBuserName.Location = new System.Drawing.Point(149, 111);
+            this.TBuserName.Name = "TBuserName";
+            this.TBuserName.Size = new System.Drawing.Size(100, 26);
+            this.TBuserName.TabIndex = 3;
             // 
-            // textBox19
+            // TBpassword
             // 
-            this.textBox19.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox19.Location = new System.Drawing.Point(149, 158);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.PasswordChar = '*';
-            this.textBox19.Size = new System.Drawing.Size(100, 26);
-            this.textBox19.TabIndex = 4;
+            this.TBpassword.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TBpassword.Location = new System.Drawing.Point(149, 155);
+            this.TBpassword.Name = "TBpassword";
+            this.TBpassword.PasswordChar = '*';
+            this.TBpassword.Size = new System.Drawing.Size(100, 26);
+            this.TBpassword.TabIndex = 4;
             // 
             // BnAddUser
             // 
             this.BnAddUser.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BnAddUser.Location = new System.Drawing.Point(71, 327);
+            this.BnAddUser.Location = new System.Drawing.Point(71, 354);
             this.BnAddUser.Name = "BnAddUser";
             this.BnAddUser.Size = new System.Drawing.Size(75, 30);
             this.BnAddUser.TabIndex = 6;
@@ -2717,7 +2697,7 @@
             // bnDelUser
             // 
             this.bnDelUser.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.bnDelUser.Location = new System.Drawing.Point(174, 399);
+            this.bnDelUser.Location = new System.Drawing.Point(174, 411);
             this.bnDelUser.Name = "bnDelUser";
             this.bnDelUser.Size = new System.Drawing.Size(75, 30);
             this.bnDelUser.TabIndex = 7;
@@ -2728,7 +2708,7 @@
             // bnUpateUser
             // 
             this.bnUpateUser.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.bnUpateUser.Location = new System.Drawing.Point(174, 327);
+            this.bnUpateUser.Location = new System.Drawing.Point(174, 354);
             this.bnUpateUser.Name = "bnUpateUser";
             this.bnUpateUser.Size = new System.Drawing.Size(75, 30);
             this.bnUpateUser.TabIndex = 8;
@@ -2738,27 +2718,27 @@
             // BnUpdatePW
             // 
             this.BnUpdatePW.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.BnUpdatePW.Location = new System.Drawing.Point(71, 399);
+            this.BnUpdatePW.Location = new System.Drawing.Point(71, 411);
             this.BnUpdatePW.Name = "BnUpdatePW";
             this.BnUpdatePW.Size = new System.Drawing.Size(75, 30);
             this.BnUpdatePW.TabIndex = 9;
             this.BnUpdatePW.Text = "重置密码";
             this.BnUpdatePW.UseVisualStyleBackColor = true;
             // 
-            // comboBox4
+            // TBright
             // 
-            this.comboBox4.AutoCompleteCustomSource.AddRange(new string[] {
+            this.TBright.AutoCompleteCustomSource.AddRange(new string[] {
             "1",
             "2",
             "3",
             "4",
             "5"});
-            this.comboBox4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(149, 226);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(100, 28);
-            this.comboBox4.TabIndex = 10;
+            this.TBright.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.TBright.FormattingEnabled = true;
+            this.TBright.Location = new System.Drawing.Point(149, 199);
+            this.TBright.Name = "TBright";
+            this.TBright.Size = new System.Drawing.Size(100, 28);
+            this.TBright.TabIndex = 10;
             // 
             // label32
             // 
@@ -2771,6 +2751,57 @@
             this.label32.Size = new System.Drawing.Size(190, 41);
             this.label32.TabIndex = 11;
             this.label32.Text = "请选择要更改的用户：";
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataSource = this.db_rfidtestDataSet;
+            this.bindingSource1.Position = 0;
+            // 
+            // db_rfidtestDataSet
+            // 
+            this.db_rfidtestDataSet.DataSetName = "db_rfidtestDataSet";
+            this.db_rfidtestDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dbo_BoxTableAdapter
+            // 
+            this.dbo_BoxTableAdapter.ClearBeforeFill = true;
+            // 
+            // dbo_DriverTableAdapter
+            // 
+            this.dbo_DriverTableAdapter.ClearBeforeFill = true;
+            // 
+            // dbo_GoodsTableAdapter
+            // 
+            this.dbo_GoodsTableAdapter.ClearBeforeFill = true;
+            // 
+            // dbo_StationTableAdapter
+            // 
+            this.dbo_StationTableAdapter.ClearBeforeFill = true;
+            // 
+            // dbo_UserTableAdapter
+            // 
+            this.dbo_UserTableAdapter.ClearBeforeFill = true;
+            // 
+            // UserID
+            // 
+            this.UserID.AutoSize = true;
+            this.UserID.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.UserID.Location = new System.Drawing.Point(67, 69);
+            this.UserID.Name = "UserID";
+            this.UserID.Size = new System.Drawing.Size(66, 20);
+            this.UserID.TabIndex = 12;
+            this.UserID.Text = "用户ID：";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label33.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.label33.Location = new System.Drawing.Point(71, 254);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(178, 68);
+            this.label33.TabIndex = 13;
+            this.label33.Text = "注： 密码只能重置;\r\n       新建用户可以输入密码;\r\n       重置后的密码为\"123456\";\r\n       \"更改用户\"键不能更改密码";
             // 
             // QmsMain
             // 
@@ -2838,8 +2869,6 @@
             this.toolStrip3.ResumeLayout(false);
             this.toolStrip3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dboGoodsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.db_rfidtestDataSet)).EndInit();
             this.CenterPanel.ResumeLayout(false);
             this.Leftpanel.ResumeLayout(false);
             this.MenugroupBox.ResumeLayout(false);
@@ -2852,6 +2881,8 @@
             this.groupBox7.PerformLayout();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_rfidtestDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3076,10 +3107,12 @@
         private System.Windows.Forms.Button bnUpateUser;
         private System.Windows.Forms.Button bnDelUser;
         private System.Windows.Forms.Button BnAddUser;
-        private System.Windows.Forms.TextBox textBox19;
-        private System.Windows.Forms.TextBox textBox18;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.TextBox TBpassword;
+        private System.Windows.Forms.TextBox TBuserName;
+        private System.Windows.Forms.ComboBox TBright;
         private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label UserID;
+        private System.Windows.Forms.Label label33;
     }
 }
 

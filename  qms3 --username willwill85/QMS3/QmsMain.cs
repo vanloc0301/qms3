@@ -178,8 +178,29 @@ namespace QMS3
                     MainTab.SelectTab(12);
                     break;
                 }
-                case "TreeNode: 用户管理":              MainTab.SelectTab(13);
-                break;
+                case "TreeNode: 用户管理":
+                {
+                    string systime = System.DateTime.Now.ToString("yy-MM-dd");//  //"10-06-11";
+                    // System.DateTime.Now.ToString("yy-MM-dd");
+
+                    string strSQL = "SELECT UserID AS '用户ID', UserName AS '用户名', UserRight AS '用户权限' FROM [dbo.User]";
+                    string strTable = " [db_rfidtest].[rfidtest].[dbo.user]";
+
+                    try
+                    {
+                        ds = boperate.getds(strSQL, strTable);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("网络连接失败！请稍后重试");
+                        //showDayreport.CancelAsync();
+                    }
+                    dataGridView4.DataSource = ds.Tables[0];
+                    MainTab.SelectTab(12);
+                   
+                    MainTab.SelectTab(13);
+                    break;
+                }
                 case "TreeNode: 垃圾楼管理":            MainTab.SelectTab(14);
                 break;
                 case "TreeNode: 班长管理":              MainTab.SelectTab(15);
@@ -4376,12 +4397,16 @@ drop table resYear;";
         }
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            textBox17.Text = dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString();
-            textBox16.Text = dataGridView2.Rows[e.RowIndex].Cells[2].Value.ToString();
-            textBox15.Text = dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString();
-            textBox14.Text = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString();
-            textBox13.Text = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString();
-
+            try
+            {
+                textBox17.Text = dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString();
+                textBox16.Text = dataGridView2.Rows[e.RowIndex].Cells[2].Value.ToString();
+                textBox15.Text = dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString();
+                textBox14.Text = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString();
+                textBox13.Text = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString();
+            }
+            catch
+            { }
 
         }
 
@@ -4399,7 +4424,26 @@ drop table resYear;";
         {
 
         }
-        
+
+        private void dataGridView4_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            UserID.Text = "用户ID：  "+dataGridView4.Rows[e.RowIndex].Cells[0].Value.ToString();
+            TBuserName.Text = dataGridView4.Rows[e.RowIndex].Cells[1].Value.ToString();
+            TBright.Text = dataGridView4.Rows[e.RowIndex].Cells[2].Value.ToString();
+            TBpassword.Text = "";
+        }
+        private void dataGridView4_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                UserID.Text = "用户ID：  " + dataGridView4.Rows[e.RowIndex].Cells[0].Value.ToString();
+                TBuserName.Text = dataGridView4.Rows[e.RowIndex].Cells[1].Value.ToString();
+                TBright.Text = dataGridView4.Rows[e.RowIndex].Cells[2].Value.ToString();
+                TBpassword.Text = "";
+            }
+            catch
+            { }
+        }
 
 
     }
