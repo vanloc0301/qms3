@@ -19,12 +19,17 @@ namespace QMS3
         public static byte[] TagBuffer = new byte[16];
         private const string MISSION_ING = "S";
         private const string MISSION_FINISH = "E";
+        public static string Cardid = "";
+        public static string sStartTime = "";
+
         public static string sEndTime = "";
+        public static string TruckNo = "";
+        public static int startstationid = 0;
         static char[] hexDigits = { 
             '0','1','2','3','4','5','6','7',
             '8','9','A','B','C','D','E','F'};
         #region 站名
-        static string[] StationName = { //55个
+        public static string[] StationName = { //55个
                                        "六部口",
                                         "新华社",
                                         "二龙路",
@@ -138,7 +143,15 @@ namespace QMS3
                 info = "无法读取任务状态！";
                 return false;
             }
-            sInfoR = sInfoR.Remove(1);
+            
+            try
+            {
+                sInfoR = sInfoR.Remove(1);
+            }
+            catch
+            {
+                sInfoR = "A";
+            }
             if (sInfoR == MISSION_FINISH)
             {
                 MessageBox.Show("任务已完成！不能重复操作！");
@@ -148,6 +161,7 @@ namespace QMS3
             else if (sInfoR != MISSION_ING)
             {
                 MessageBox.Show("任务状态字出错！");
+                info = "任务状态字出错！";
             }
 
             //读取车牌号
@@ -159,7 +173,8 @@ namespace QMS3
                 return false;
             }
             sCarNum = sCarNum.Remove(6);
-            string sStartTime = "";
+            TruckNo = sCarNum;
+            //string sStartTime = "";
             if (ReadStringHex(6, 5, ref sStartTime) != 0)
             {
                 MessageBox.Show("读取发货时间错误！");
@@ -167,7 +182,7 @@ namespace QMS3
                 return false;
             }
             //sStartTime = myCfCard.HexToStr(sStartTime);
-
+            
             sStartTime = decodetime(sStartTime);
             //MessageBox.Show(sStartTime);
             //if (sEndTime.CompareTo(sStartTime) < 0)
@@ -182,6 +197,7 @@ namespace QMS3
                 info = "读取始发站号错误！";
                 //return false;
             }
+            startstationid = int.Parse(sStartSpotNum);
             //   MessageBox.Show(sStartSpotNum);
             /* if (sStartSpotNum.Length <= 2)
             {
