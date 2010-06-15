@@ -44,6 +44,7 @@ namespace QMS3
         bool flag_exl;
         bool flag_everyday;
         bool flag_everydayexl;
+        string fName;
         //***
 
         public QmsMain()
@@ -305,6 +306,7 @@ namespace QMS3
                         result_tb = crform_ds.Tables.Add("Result");
                         toolStripButtonYearExl.Enabled = false;
                         groupBoxReport3.Enabled = false;
+                        fName = "";
 
                         #region  建立存储结果的datatable Result
                         //向新建的存储最终的结果的DataTable加入列名
@@ -3104,7 +3106,9 @@ else
   end
 
 declare @monweight float;
-declare @monbox float;
+declare @monbox int;
+declare @yrweight float;
+declare @yrbox int;
 declare @datemon varchar(30);
 declare @i int;
 
@@ -3116,6 +3120,8 @@ set @mons=1;
 declare @mon_str varchar(20);
 set @monweight=0;
 set @monbox=0;
+set @yrweight=0;
+set @yrbox=0;
 
 set @mons=" + cur_mon.ToString() + @"
 
@@ -3241,16 +3247,22 @@ drop table resYear;";
 
 
             }//end for
-            //DataTable aa = crform_ds.Tables["YearOutput"];
-            //foreach (DataRow row in aa.Rows)
-            //{
-            //    MessageBox.Show(row["MonName"].ToString());
-            //    MessageBox.Show(row["MonBox"].ToString());
-            //    MessageBox.Show(row["MonWeight"].ToString());
-            //        //new_row["StaName"] = row["staname"].ToString();
-            //        //new_row["DateID"] = row["dateid"].ToString().Substring(0, 8);
-                   
-            //}
+            double yrWeight = 0;
+            int yrBox = 0;
+            DataTable aa = crform_ds.Tables["YearOutput"];
+            foreach (DataRow row in aa.Rows)
+            {
+                //MessageBox.Show(row["MonName"].ToString());
+                yrBox += Convert.ToInt32(row["SumMonBox"].ToString());
+                yrWeight+=Convert.ToDouble(row["SumMonWeight"].ToString());
+                //new_row["StaName"] = row["staname"].ToString();
+                //new_row["DateID"] = row["dateid"].ToString().Substring(0, 8);
+            }
+            DataRow new_row = crform_ds.Tables["YearOutput"].NewRow();
+            new_row["MonName"] = "总计";
+            new_row["SumMonBox"]=yrBox;
+            new_row["SumMonWeight"]=yrWeight;
+            crform_ds.Tables["YearOutput"].Rows.Add(new_row);
 
             //flag_mon = true;
         }
@@ -3281,7 +3293,167 @@ drop table resYear;";
             //MessageBox.Show("请选择", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
             this.Enabled = true;
         }
+        private void toolStripButtonYearExl_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewMon.Rows.Count >= 1)
+            {
+                this.Enabled = false;
+                progressBarYear.Visible = true;
+                progressBarYear.Value = 0;
+                progressBarYear.Update();
+                labelProgYear.Text = "开始导出";
+                labelProgYear.Update();
+                string yr_str = comboBoxYear3.Text;
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.InitialDirectory = "d:";
+                saveFileDialog.Filter = "EXCEL文件|*.xlsx";
+                saveFileDialog.FilterIndex = 2;
+                saveFileDialog.FileName = yr_str + "年垃圾产量总计表";
+                saveFileDialog.RestoreDirectory = true;
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    fName = saveFileDialog.FileName;
+                    this.Refresh();
+                    
+                    backgroundWorkerYearExl.RunWorkerAsync();
+                }
+                else
+                {
+                    progressBarYear.Visible = false;
+                    progressBarYear.Update();
+                    labelProgYear.Text = "";
+                    labelProgYear.Update();
+                    MessageBox.Show("未导出！", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    this.Enabled = true;
+                }
+            
+            }
+           
+        }
+        private void backgroundWorkerYearExl_DoWork(object sender, DoWorkEventArgs e)
+        {
+            
+            try
+            {
+                       
 
+                        progressBarYear.Value = 12;
+                        progressBarYear.Update();
+                        labelProgYear.Text = "完成 " + progressBarYear.Value.ToString() + "%";
+                        labelProgYear.Update();
+                        
+                        //建立Excel对象 
+                        Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+                        Microsoft.Office.Interop.Excel.Workbooks wbs = excel.Workbooks;//一个xls文档 new Microsoft.Office.Interop.Excel.Workbooks();
+                        Microsoft.Office.Interop.Excel.Workbook wb = wbs.Add(true);// new Microsoft.Office.Interop.Excel.Workbook   
+                        Microsoft.Office.Interop.Excel.Worksheet ws;//excel中的一个sheet
+                        ws = (Microsoft.Office.Interop.Excel.Worksheet)wb.Worksheets["Sheet1"];
+
+                      
+                        
+                        Microsoft.Office.Interop.Excel.Range merge_range = excel.get_Range(excel.Cells[1, 1], excel.Cells[2, 11]);
+                        merge_range.Merge(Type.Missing);
+                        merge_range = excel.get_Range(excel.Cells[3, 1], excel.Cells[4, 1]);
+                        merge_range.Merge(Type.Missing);
+                        merge_range = excel.get_Range(excel.Cells[3, 2], excel.Cells[4, 2]);
+                        merge_range.Merge(Type.Missing);
+                        merge_range = excel.get_Range(excel.Cells[3, 3], excel.Cells[4, 3]);
+                        merge_range.Merge(Type.Missing);
+                        merge_range = excel.get_Range(excel.Cells[3, 10], excel.Cells[4, 10]);
+                        merge_range.Merge(Type.Missing);
+                        merge_range = excel.get_Range(excel.Cells[3, 11], excel.Cells[4, 11]);
+                        merge_range.Merge(Type.Missing);
+                        merge_range = excel.get_Range(excel.Cells[3, 4], excel.Cells[3, 6]);
+                        merge_range.Merge(Type.Missing);
+                        merge_range = excel.get_Range(excel.Cells[3, 7], excel.Cells[3, 9]);
+                        merge_range.Merge(Type.Missing);
+
+                        excel.Cells[1, 1] = comboBoxYear3.Text +"年垃圾产量总计表";
+                        Microsoft.Office.Interop.Excel.Range bold_range = excel.get_Range(excel.Cells[1, 1], excel.Cells[2,11]);
+                        bold_range.Font.Size = 20;
+                        bold_range.Font.Bold = true;
+                        bold_range.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                        bold_range.EntireColumn.AutoFit();     //自动调整列宽
+                        bold_range.EntireRow.AutoFit();
+                        excel.Cells[3, 1] = "日期";
+                        excel.Cells[3, 2] = "月产箱数";
+                        excel.Cells[3, 3] = "实际吨数";
+                        excel.Cells[3, 4] = "自运箱数";
+                        excel.Cells[3, 5] = "实际吨数";
+                        excel.Cells[3, 10] = "合计箱数";
+                        excel.Cells[3, 11] = "合计吨数";
+
+                        excel.Cells[4, 4] = "西清";
+                        excel.Cells[4, 5] = "十队";
+                        excel.Cells[4, 6] = "合计";
+                        excel.Cells[4, 7] = "西清";
+                        excel.Cells[4, 8] = "十队";
+                        excel.Cells[4, 9] = "合计";
+
+                        //填充数据 
+                        for (int x = 0; x < dataGridViewMon.RowCount; x++)
+                        {
+                            for (int y = 0; y < dataGridViewMon.ColumnCount; y++)
+                            {
+                                if (dataGridViewMon[y, x].Value != null)
+                                {
+                                    //MessageBox.Show(dataGridView1[y, x].Value.ToString());
+                                    excel.Cells[x + 5, y + 1] = dataGridViewMon[y, x].Value;
+                                }
+                                else
+                                    excel.Cells[x + 5, y + 1] = "";
+                            }
+                        }
+
+
+                        Microsoft.Office.Interop.Excel.Range all_range = excel.get_Range(excel.Cells[3, 1], excel.Cells[17, 11]);//现有的                    
+                        all_range.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                        all_range.EntireColumn.AutoFit();     //自动调整列宽
+                        all_range.EntireRow.AutoFit();
+                        all_range.Borders.LineStyle = 1;
+                        all_range.Font.Size = 12;
+
+
+
+                        labelProgYear.Text = "完成  " + progressBarYear.Value.ToString() + "%";
+                        labelProgYear.Update();
+                
+
+                        progressBarYear.Value = progressBarYear.Maximum;
+                        progressBarYear.Update();
+
+
+                        wb.Saved = true;
+                        wb.SaveCopyAs(fName); //保存
+                        excel.Quit(); //关闭进程
+                        labelProgYear.Text = "已完成";
+                        labelProgYear.Update();
+                        MessageBox.Show("导出成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        //label5.Text = "完成";
+                        toolStripButton6.Enabled = false;
+                        this.Enabled = true;
+
+
+                    
+                    
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+                progressBarDay.Visible = false;
+                progressBarDay.Update();
+                labelProgDay.Text = "";
+                labelProgDay.Update();
+                this.Enabled = true;
+            }
+            this.Enabled = true;
+
+        }
+        private void backgroundWorkerYearExl_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+
+        }
         #endregion
 
         //*******************
@@ -4517,6 +4689,12 @@ drop table resYear;";
 
         }
         #endregion
+
+        
+
+
+
+
 
 
 
