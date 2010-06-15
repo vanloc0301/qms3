@@ -392,7 +392,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "欢迎页";
             this.tabPage1.UseVisualStyleBackColor = true;
-
             // 
             // label6
             // 
@@ -1026,7 +1025,6 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // tabPage11
             // 
@@ -2425,7 +2423,6 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // showDayreport
             // 
