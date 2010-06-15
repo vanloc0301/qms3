@@ -818,9 +818,9 @@ namespace QMS3
         {
             try
             {
-                right = this.dbo_UserTableAdapter.ValidateUser(UNtextBox.Text, MD5.MDString(PSmaskedTextBox.Text)).ToString();
+                //right = this.dbo_UserTableAdapter.ValidateUser(UNtextBox.Text, MD5.MDString(PSmaskedTextBox.Text)).ToString();
                 //********************测试用，登录服务器慢，取消登录*****************************/
-                //right = "6";
+                right = "6";
                 //********************测试用，登录服务器慢，取消登录*****************************/
                 conneted = true;
             }
@@ -4206,7 +4206,7 @@ else
         }
         #endregion
 
-        #region 安装姓名查询司机信息进程
+        #region 按照姓名查询司机信息进程
         private void bgwQueryDriver_DoWork(object sender, DoWorkEventArgs e)
         {
             #region 读数据库
@@ -4695,20 +4695,406 @@ else
 
         #endregion
 
-        
-        
+        private void btnReadBCard_Click(object sender, EventArgs e)
+        {
+            bool bStatus = cardrelated.Connect();
 
-        
-        
+            if (!bStatus)
+            {
+                MessageBox.Show("读卡失败");
 
+                return;
+            }
+            string strStatus = "";
+            int intStatus = cardrelated.Request(ref strStatus);
+
+            //ReadDriverCard();
+
+            if (!bgwReadBCard.IsBusy)
+            {
+                bgwReadBCard.RunWorkerAsync();
+                gBoxBCinfo.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+                gBoxBOperate.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            }
+            else
+                MessageBox.Show("正在登陆中情耐心等待！");
+        }
+
+        #region 读箱卡进程
+        private void bgwReadBCard_DoWork(object sender, DoWorkEventArgs e)
+        {
+            #region 读卡
+            CardID = "";
+            int status = 0;
+            bool bStatus;
+
+            try
+            {
+                status = cardrelated.GetCardID(1, ref CardID); //1为货箱卡
+            }
+            catch
+            {
+                bStatus = cardrelated.Disconnect();
+                return;
+            }
+
+            if (status != 0)
+            //读卡不成功
+            {
+                /*
+                if (status != 3 && status != 5)
+                    MessageBox.Show("读卡不成功", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                */
+                //ResetAll();
+                bStatus = cardrelated.Disconnect();
+                return;
+            }
+
+            bStatus = cardrelated.Disconnect();
+
+            //*****************************************************************
+            //MessageBox.Show(CardID);
+            #endregion
+
+            #region 读数据库
+            try
+            {
+                ///*
+                sqlread = boperate.getread("EXEC ReadBoxCard'"
+                                        + CardID + "'");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                MessageBox.Show("数据库连接或者配置有误，请检查连接！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            #endregion
+        }
+
+        private void bgwReadBCard_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            gBoxBCinfo.Cursor = System.Windows.Forms.Cursors.Arrow;
+            gBoxBOperate.Cursor = System.Windows.Forms.Cursors.Arrow;
+
+            try
+            {
+                if (sqlread.Read())
+                {
+                    txtBCNo.Text = sqlread["BoxCardID"].ToString();
+
+                    string BoxCardState = sqlread["BoxCardState"].ToString();
+
+                    if (BoxCardState.Trim() == "0")
+                    {
+                        DataState = 2;
+
+                        txtBCStatus.Text = "准备发卡";
+                        btnResetBCardAll.Enabled = btnSendBCard.Enabled = true;
+                    }
+                    else
+                    {
+                        txtTruckNo.ReadOnly = true;
+                        //txtTruckNo.Text = "卡片初始化";
+
+                        DataState = -1;
+
+                        //MessageBox.Show("您扫描的卡片已经发出，请核对！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        if (MessageBox.Show("您扫描的卡号在数据库中已有记录，请核对！\n是否重新初始化该卡？", "提示",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                        {
+                            DataState = 2;
+
+                            txtBCStatus.Text = "卡片待初始化";
+                            btnResetBCardAll.Enabled = btnSendBCard.Enabled = true;
+                        }
+                        else
+                        {
+                            /*
+                            ResetAll();
+
+                            //调试用
+                            txtCNo.Text = "";
+                            txtCNo.Enabled = txtTruckNo.Enabled = false;
+                            //*/
+                            txtBCNo.Text = txtBCStatus.Text = "";
+                            return;
+                        }
+                    }
+                }
+                else if (MessageBox.Show("您扫描的卡片没有在数据库中查到，是否添加新卡？", "提示",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    //MessageBox.Show("您选择添加新卡", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    DataState = 0;
+
+                    txtBCNo.Text = CardID;
+
+                    txtBCStatus.Text = "准备发卡";
+
+                    btnResetBCardAll.Enabled = btnSendBCard.Enabled = true;
+                }
+                else
+                {
+                    /*
+                    ResetAll();
+
+                    //调试用
+                    txtCNo.Text = "";
+                    txtCNo.Enabled = txtTruckNo.Enabled = false;
+                    //*/
+                    txtBCNo.Text = txtBCStatus.Text = "";
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                MessageBox.Show("数据库连接或者配置有误，请检查连接！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                /*
+                ResetAll();
+
+                //调试用
+                txtCNo.Text = "";
+                txtCNo.Enabled = txtTruckNo.Enabled = false;
+                //*/
+                return;
+            }
+        }
+        #endregion
+
+        #region 写箱卡进程
+        private void bgwWriteBCard_DoWork(object sender, DoWorkEventArgs e)
+        {
+            
+            #region 写卡
+            /* ***********************************************************************************
+             *                                                                                   *
+             *                                 有关写卡                                          *
+             *                                                                                   *
+             * ***********************************************************************************/
+            
+            //调用写卡函数，此处调试用，显示对话框
+            DialogResult DiaResult = MessageBox.Show("是否发放货箱卡？", "提示", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
+            ///*
+            if (DialogResult.Yes == DiaResult)
+            {
+                //btnSendBCard.Enabled = false;
+
+                int status;
+
+                //写卡之前先确认卡片是否存在
+                string t_CardID = "";
+                status = cardrelated.GetCardID(-1, ref t_CardID); //-1为不验证卡类型
+                if (t_CardID != CardID)
+                {
+                    //MessageBox.Show("当前卡片与刚读取的卡片编号不一致", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    status = 3;
+                }
+
+                if (status != 0)
+                {
+                    //if (status != 3 )
+                    //MessageBox.Show("读卡不成功", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    //ResetAll();
+                    cardrelated.Disconnect();
+                    return;
+                }
+
+                //写卡类型
+                status = cardrelated.WriteCardClass("B");
+                if (status != 0)
+                {
+                    MessageBox.Show("出错啦！写入卡类型不成功！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //ResetAll();
+                    IsWriteCardSuccess = false;
+                    return;
+                }
+
+                //初始化车牌号
+                status = cardrelated.WriteTruckNo("京A00000");
+                if (status != 0)
+                {
+                    MessageBox.Show("出错啦！初始化车牌号不成功！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //ResetAll();
+                    IsWriteCardSuccess = false;
+                    return;
+                }
+
+                //初始化发货地点
+                status = cardrelated.InitSStation();
+                if (status != 0)
+                {
+                    MessageBox.Show("出错啦！初始化发货地点不成功！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //ResetAll();
+                    IsWriteCardSuccess = false;
+                    return;
+                }
+
+
+                //初始化收发货时间
+
+                status = cardrelated.InitSETime();
+                if (status != 0)
+                {
+                    MessageBox.Show("出错啦！初始化收发货时间不成功！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //ResetAll();
+                    IsWriteCardSuccess = false;
+                    return;
+                }
+
+                //初始化任务状态
+
+                status = cardrelated.InitTaskStatus();
+                if (status != 0)
+                {
+                    MessageBox.Show("出错啦！初始化卡片任务状态不成功！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //ResetAll();
+                    IsWriteCardSuccess = false;
+                    return;
+                }
+            }
+            else if (DialogResult.No == DiaResult)
+            {
+                //ResetAll();
+                //txtBCNo.Text = txtBCStatus.Text = "";
+                return;
+            }
+            else
+            {
+                return;
+            }
+            //*/
+            #endregion
+
+            #region 写数据库
+            if (DataState == 0)
+            {
+                try
+                {
+                    //MessageBox.Show("写数据库", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    boperate.getcom("EXEC InsertIntoBoxCard '"
+                                    + txtBCNo.Text + "'");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    MessageBox.Show("数据库连接或者配置有误，发卡写入数据库失败！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    //ResetAll();
+                    //调试用
+                    IsWriteCardSuccess = false;
+                    return;
+                }
+
+                IsWriteCardSuccess = true;
+                //txtBCStatus.Text = "已经发卡";
+            }
+            else if (DataState == 2)
+            {
+                try
+                {
+                    boperate.getcom("EXEC UpdateBoxCard '"
+                                    + txtBCNo.Text + "'");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    MessageBox.Show("数据库连接或者配置有误，发卡写入数据库失败！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    //ResetAll();
+
+                    //调试用
+                    IsWriteCardSuccess = false;
+
+                    return;
+                }
+                IsWriteCardSuccess = true;
+                //txtBCStatus.Text = "已经发卡";
+            }
+            #endregion
+
+            //MessageBox.Show("发卡成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        private void bgwWriteBCard_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            gBoxBCinfo.Cursor = System.Windows.Forms.Cursors.Arrow;
+            gBoxBOperate.Cursor = System.Windows.Forms.Cursors.Arrow;
+
+            //ResetDCardSent_All();
+
+            //调试用
+            txtBCNo.Text = txtBCStatus.Text = "";
+        }
+        #endregion
+
+        private void btnSendBCard_Click(object sender, EventArgs e)
+        {
+            bool bStatus = cardrelated.Connect();
+
+            if (!bStatus)
+                return;
+                     
+            if (!bgwWriteBCard.IsBusy)
+            {
+                bgwWriteBCard.RunWorkerAsync();
+                gBoxBCinfo.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+                gBoxBOperate.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            }
+            else
+            {
+                MessageBox.Show("正在登陆中情耐心等待！");
+            }
+
+            if (IsWriteCardSuccess)
+            {
+                MessageBox.Show("发卡成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            #region 清空
+            if (IsWriteCardSuccess == true)
+            {
+                //ResetDCardSent_All();
+
+                //调试用
+                txtBCNo.Text = txtBCStatus.Text = "";
+            }
+            #endregion
+
+            cardrelated.Disconnect();
+        }
         
+        private void btnResetBCardAll_Click(object sender, EventArgs e)
+        {
+            txtBCNo.Text = txtBCStatus.Text = "";
+        }
+
+
+
         #endregion
 
         
 
-        
 
-        
+
+
+
+
+
+
+
+
+
+
         //*******************
 
     }

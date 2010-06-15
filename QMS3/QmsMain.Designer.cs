@@ -29,33 +29,33 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QmsMain));
-            System.Windows.Forms.TreeNode treeNode73 = new System.Windows.Forms.TreeNode("发司机卡");
-            System.Windows.Forms.TreeNode treeNode74 = new System.Windows.Forms.TreeNode("司机信息编辑");
-            System.Windows.Forms.TreeNode treeNode75 = new System.Windows.Forms.TreeNode("司机信息查询");
-            System.Windows.Forms.TreeNode treeNode76 = new System.Windows.Forms.TreeNode("司机卡管理", new System.Windows.Forms.TreeNode[] {
-            treeNode73,
-            treeNode74,
-            treeNode75});
-            System.Windows.Forms.TreeNode treeNode77 = new System.Windows.Forms.TreeNode("发货箱卡");
-            System.Windows.Forms.TreeNode treeNode78 = new System.Windows.Forms.TreeNode("货箱信息编辑");
-            System.Windows.Forms.TreeNode treeNode79 = new System.Windows.Forms.TreeNode("货箱信息查询");
-            System.Windows.Forms.TreeNode treeNode80 = new System.Windows.Forms.TreeNode("货箱卡管理", new System.Windows.Forms.TreeNode[] {
-            treeNode77,
-            treeNode78,
-            treeNode79});
-            System.Windows.Forms.TreeNode treeNode81 = new System.Windows.Forms.TreeNode("车辆状态信息查询");
-            System.Windows.Forms.TreeNode treeNode82 = new System.Windows.Forms.TreeNode("垃圾楼状态信息查询");
-            System.Windows.Forms.TreeNode treeNode83 = new System.Windows.Forms.TreeNode("转运中心状态信息查询");
-            System.Windows.Forms.TreeNode treeNode84 = new System.Windows.Forms.TreeNode("转运中心结算");
-            System.Windows.Forms.TreeNode treeNode85 = new System.Windows.Forms.TreeNode("西城区状态信息查询");
-            System.Windows.Forms.TreeNode treeNode86 = new System.Windows.Forms.TreeNode("异常数据处理器");
-            System.Windows.Forms.TreeNode treeNode87 = new System.Windows.Forms.TreeNode("用户管理");
-            System.Windows.Forms.TreeNode treeNode88 = new System.Windows.Forms.TreeNode("垃圾楼管理");
-            System.Windows.Forms.TreeNode treeNode89 = new System.Windows.Forms.TreeNode("班长管理");
-            System.Windows.Forms.TreeNode treeNode90 = new System.Windows.Forms.TreeNode("报表生成器");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("发司机卡");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("司机信息编辑");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("司机信息查询");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("司机卡管理", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3});
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("发货箱卡");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("货箱信息编辑");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("货箱信息查询");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("货箱卡管理", new System.Windows.Forms.TreeNode[] {
+            treeNode5,
+            treeNode6,
+            treeNode7});
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("车辆状态信息查询");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("垃圾楼状态信息查询");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("转运中心状态信息查询");
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("转运中心结算");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("西城区状态信息查询");
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("异常数据处理器");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("用户管理");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("垃圾楼管理");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("班长管理");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("报表生成器");
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.MainTab = new System.Windows.Forms.TabControl();
@@ -86,26 +86,8 @@
             this.tabDriverRevised = new System.Windows.Forms.TabPage();
             this.tabDriverQuery = new System.Windows.Forms.TabPage();
             this.tabBCardSent = new System.Windows.Forms.TabPage();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btnReadBCard = new System.Windows.Forms.Button();
-            this.btnResetBCardAll = new System.Windows.Forms.Button();
-            this.btnSendBCard = new System.Windows.Forms.Button();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.txtBCNo = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.lblBCNo = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.tabGoodsRevised = new System.Windows.Forms.TabPage();
+            this.tabGoodsQuery = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.tabPage10 = new System.Windows.Forms.TabPage();
@@ -264,6 +246,17 @@
             this.bgwQueryDriver_R = new System.ComponentModel.BackgroundWorker();
             this.bgwQueryDriverbyTruckNo_R = new System.ComponentModel.BackgroundWorker();
             this.bgwUpdateDriver = new System.ComponentModel.BackgroundWorker();
+            this.gBoxBOperate = new System.Windows.Forms.GroupBox();
+            this.btnReadBCard = new System.Windows.Forms.Button();
+            this.btnResetBCardAll = new System.Windows.Forms.Button();
+            this.btnSendBCard = new System.Windows.Forms.Button();
+            this.gBoxBCinfo = new System.Windows.Forms.GroupBox();
+            this.txtBCStatus = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.txtBCNo = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.bgwReadBCard = new System.ComponentModel.BackgroundWorker();
+            this.bgwWriteBCard = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.MainTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -273,8 +266,6 @@
             this.tabDriverRevised.SuspendLayout();
             this.tabDriverQuery.SuspendLayout();
             this.tabBCardSent.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            this.groupBox5.SuspendLayout();
             this.tabPage10.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -305,6 +296,8 @@
             this.groupBox8.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox9.SuspendLayout();
+            this.gBoxBOperate.SuspendLayout();
+            this.gBoxBCinfo.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -335,8 +328,8 @@
             this.MainTab.Controls.Add(this.tabDriverRevised);
             this.MainTab.Controls.Add(this.tabDriverQuery);
             this.MainTab.Controls.Add(this.tabBCardSent);
-            this.MainTab.Controls.Add(this.tabPage6);
-            this.MainTab.Controls.Add(this.tabPage7);
+            this.MainTab.Controls.Add(this.tabGoodsRevised);
+            this.MainTab.Controls.Add(this.tabGoodsQuery);
             this.MainTab.Controls.Add(this.tabPage8);
             this.MainTab.Controls.Add(this.tabPage9);
             this.MainTab.Controls.Add(this.tabPage10);
@@ -644,8 +637,8 @@
             // 
             // tabBCardSent
             // 
-            this.tabBCardSent.Controls.Add(this.groupBox4);
-            this.tabBCardSent.Controls.Add(this.groupBox5);
+            this.tabBCardSent.Controls.Add(this.gBoxBOperate);
+            this.tabBCardSent.Controls.Add(this.gBoxBCinfo);
             this.tabBCardSent.Location = new System.Drawing.Point(4, 34);
             this.tabBCardSent.Name = "tabBCardSent";
             this.tabBCardSent.Padding = new System.Windows.Forms.Padding(3);
@@ -654,212 +647,25 @@
             this.tabBCardSent.Text = "发货箱卡";
             this.tabBCardSent.UseVisualStyleBackColor = true;
             // 
-            // groupBox4
+            // tabGoodsRevised
             // 
-            this.groupBox4.Controls.Add(this.btnReadBCard);
-            this.groupBox4.Controls.Add(this.btnResetBCardAll);
-            this.groupBox4.Controls.Add(this.btnSendBCard);
-            this.groupBox4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox4.Location = new System.Drawing.Point(627, 11);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox4.Size = new System.Drawing.Size(211, 458);
-            this.groupBox4.TabIndex = 7;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "操作";
+            this.tabGoodsRevised.Location = new System.Drawing.Point(4, 34);
+            this.tabGoodsRevised.Name = "tabGoodsRevised";
+            this.tabGoodsRevised.Padding = new System.Windows.Forms.Padding(3);
+            this.tabGoodsRevised.Size = new System.Drawing.Size(842, 481);
+            this.tabGoodsRevised.TabIndex = 5;
+            this.tabGoodsRevised.Text = "货箱信息编辑";
+            this.tabGoodsRevised.UseVisualStyleBackColor = true;
             // 
-            // btnReadBCard
+            // tabGoodsQuery
             // 
-            this.btnReadBCard.Location = new System.Drawing.Point(69, 106);
-            this.btnReadBCard.Name = "btnReadBCard";
-            this.btnReadBCard.Size = new System.Drawing.Size(82, 28);
-            this.btnReadBCard.TabIndex = 2;
-            this.btnReadBCard.Text = "读卡";
-            this.btnReadBCard.UseVisualStyleBackColor = true;
-            // 
-            // btnResetBCardAll
-            // 
-            this.btnResetBCardAll.Location = new System.Drawing.Point(69, 306);
-            this.btnResetBCardAll.Name = "btnResetBCardAll";
-            this.btnResetBCardAll.Size = new System.Drawing.Size(82, 28);
-            this.btnResetBCardAll.TabIndex = 1;
-            this.btnResetBCardAll.Text = "重置";
-            this.btnResetBCardAll.UseVisualStyleBackColor = true;
-            // 
-            // btnSendBCard
-            // 
-            this.btnSendBCard.Location = new System.Drawing.Point(69, 206);
-            this.btnSendBCard.Name = "btnSendBCard";
-            this.btnSendBCard.Size = new System.Drawing.Size(82, 28);
-            this.btnSendBCard.TabIndex = 0;
-            this.btnSendBCard.Text = "发卡";
-            this.btnSendBCard.UseVisualStyleBackColor = true;
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.textBox2);
-            this.groupBox5.Controls.Add(this.label2);
-            this.groupBox5.Controls.Add(this.textBox3);
-            this.groupBox5.Controls.Add(this.label14);
-            this.groupBox5.Controls.Add(this.label15);
-            this.groupBox5.Controls.Add(this.textBox4);
-            this.groupBox5.Controls.Add(this.label16);
-            this.groupBox5.Controls.Add(this.textBox5);
-            this.groupBox5.Controls.Add(this.textBox6);
-            this.groupBox5.Controls.Add(this.txtBCNo);
-            this.groupBox5.Controls.Add(this.label17);
-            this.groupBox5.Controls.Add(this.lblBCNo);
-            this.groupBox5.Controls.Add(this.label19);
-            this.groupBox5.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox5.Location = new System.Drawing.Point(5, 11);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox5.Size = new System.Drawing.Size(560, 458);
-            this.groupBox5.TabIndex = 6;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "信息";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox2.Location = new System.Drawing.Point(114, 71);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(282, 29);
-            this.textBox2.TabIndex = 24;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(34, 74);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 21);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "司机编号";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox3.Location = new System.Drawing.Point(114, 200);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(282, 29);
-            this.textBox3.TabIndex = 21;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label14.Location = new System.Drawing.Point(34, 203);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(74, 21);
-            this.label14.TabIndex = 20;
-            this.label14.Text = "所属车队";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label15.Location = new System.Drawing.Point(241, 161);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(74, 21);
-            this.label15.TabIndex = 19;
-            this.label15.Text = "司机年龄";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox4.Location = new System.Drawing.Point(321, 158);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(75, 29);
-            this.textBox4.TabIndex = 18;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label16.Location = new System.Drawing.Point(34, 161);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(74, 21);
-            this.label16.TabIndex = 17;
-            this.label16.Text = "司机性别";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox5.Location = new System.Drawing.Point(114, 114);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(282, 29);
-            this.textBox5.TabIndex = 15;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox6.Location = new System.Drawing.Point(114, 242);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(282, 29);
-            this.textBox6.TabIndex = 14;
-            // 
-            // txtBCNo
-            // 
-            this.txtBCNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtBCNo.Location = new System.Drawing.Point(114, 290);
-            this.txtBCNo.Name = "txtBCNo";
-            this.txtBCNo.ReadOnly = true;
-            this.txtBCNo.Size = new System.Drawing.Size(282, 29);
-            this.txtBCNo.TabIndex = 10;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label17.Location = new System.Drawing.Point(34, 245);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(74, 21);
-            this.label17.TabIndex = 9;
-            this.label17.Text = "司机车牌";
-            // 
-            // lblBCNo
-            // 
-            this.lblBCNo.AutoSize = true;
-            this.lblBCNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblBCNo.Location = new System.Drawing.Point(34, 293);
-            this.lblBCNo.Name = "lblBCNo";
-            this.lblBCNo.Size = new System.Drawing.Size(74, 21);
-            this.lblBCNo.TabIndex = 2;
-            this.lblBCNo.Text = "卡片编号";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label19.Location = new System.Drawing.Point(34, 117);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(74, 21);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "司机姓名";
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.Location = new System.Drawing.Point(4, 34);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(842, 481);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "tabPage6";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // tabPage7
-            // 
-            this.tabPage7.Location = new System.Drawing.Point(4, 34);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(842, 481);
-            this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "tabPage7";
-            this.tabPage7.UseVisualStyleBackColor = true;
+            this.tabGoodsQuery.Location = new System.Drawing.Point(4, 34);
+            this.tabGoodsQuery.Name = "tabGoodsQuery";
+            this.tabGoodsQuery.Padding = new System.Windows.Forms.Padding(3);
+            this.tabGoodsQuery.Size = new System.Drawing.Size(842, 481);
+            this.tabGoodsQuery.TabIndex = 6;
+            this.tabGoodsQuery.Text = "货箱信息查询";
+            this.tabGoodsQuery.UseVisualStyleBackColor = true;
             // 
             // tabPage8
             // 
@@ -915,8 +721,8 @@
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -925,8 +731,8 @@
             this.dataGridView1.Location = new System.Drawing.Point(3, 17);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(830, 196);
             this.dataGridView1.TabIndex = 0;
@@ -1640,56 +1446,56 @@
             this.treeView1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.treeView1.Location = new System.Drawing.Point(3, 22);
             this.treeView1.Name = "treeView1";
-            treeNode73.Name = "节点1";
-            treeNode73.Text = "发司机卡";
-            treeNode74.Checked = true;
-            treeNode74.Name = "节点4";
-            treeNode74.Text = "司机信息编辑";
-            treeNode75.Name = "节点5";
-            treeNode75.Text = "司机信息查询";
-            treeNode76.Name = "节点0";
-            treeNode76.Text = "司机卡管理";
-            treeNode77.Name = "节点0";
-            treeNode77.Text = "发货箱卡";
-            treeNode78.Name = "节点1";
-            treeNode78.Text = "货箱信息编辑";
-            treeNode79.Name = "节点2";
-            treeNode79.Text = "货箱信息查询";
-            treeNode80.Name = "节点2";
-            treeNode80.Text = "货箱卡管理";
-            treeNode81.Name = "节点3";
-            treeNode81.Text = "车辆状态信息查询";
-            treeNode82.Name = "节点4";
-            treeNode82.Text = "垃圾楼状态信息查询";
-            treeNode83.Name = "节点5";
-            treeNode83.Text = "转运中心状态信息查询";
-            treeNode84.Name = "节点6";
-            treeNode84.Text = "转运中心结算";
-            treeNode85.Name = "节点7";
-            treeNode85.Text = "西城区状态信息查询";
-            treeNode86.Name = "节点8";
-            treeNode86.Text = "异常数据处理器";
-            treeNode87.Name = "节点9";
-            treeNode87.Text = "用户管理";
-            treeNode88.Name = "节点10";
-            treeNode88.Text = "垃圾楼管理";
-            treeNode89.Name = "节点11";
-            treeNode89.Text = "班长管理";
-            treeNode90.Name = "节点12";
-            treeNode90.Text = "报表生成器";
+            treeNode1.Name = "节点1";
+            treeNode1.Text = "发司机卡";
+            treeNode2.Checked = true;
+            treeNode2.Name = "节点4";
+            treeNode2.Text = "司机信息编辑";
+            treeNode3.Name = "节点5";
+            treeNode3.Text = "司机信息查询";
+            treeNode4.Name = "节点0";
+            treeNode4.Text = "司机卡管理";
+            treeNode5.Name = "节点0";
+            treeNode5.Text = "发货箱卡";
+            treeNode6.Name = "节点1";
+            treeNode6.Text = "货箱信息编辑";
+            treeNode7.Name = "节点2";
+            treeNode7.Text = "货箱信息查询";
+            treeNode8.Name = "节点2";
+            treeNode8.Text = "货箱卡管理";
+            treeNode9.Name = "节点3";
+            treeNode9.Text = "车辆状态信息查询";
+            treeNode10.Name = "节点4";
+            treeNode10.Text = "垃圾楼状态信息查询";
+            treeNode11.Name = "节点5";
+            treeNode11.Text = "转运中心状态信息查询";
+            treeNode12.Name = "节点6";
+            treeNode12.Text = "转运中心结算";
+            treeNode13.Name = "节点7";
+            treeNode13.Text = "西城区状态信息查询";
+            treeNode14.Name = "节点8";
+            treeNode14.Text = "异常数据处理器";
+            treeNode15.Name = "节点9";
+            treeNode15.Text = "用户管理";
+            treeNode16.Name = "节点10";
+            treeNode16.Text = "垃圾楼管理";
+            treeNode17.Name = "节点11";
+            treeNode17.Text = "班长管理";
+            treeNode18.Name = "节点12";
+            treeNode18.Text = "报表生成器";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode76,
-            treeNode80,
-            treeNode81,
-            treeNode82,
-            treeNode83,
-            treeNode84,
-            treeNode85,
-            treeNode86,
-            treeNode87,
-            treeNode88,
-            treeNode89,
-            treeNode90});
+            treeNode4,
+            treeNode8,
+            treeNode9,
+            treeNode10,
+            treeNode11,
+            treeNode12,
+            treeNode13,
+            treeNode14,
+            treeNode15,
+            treeNode16,
+            treeNode17,
+            treeNode18});
             this.treeView1.Size = new System.Drawing.Size(234, 299);
             this.treeView1.TabIndex = 1;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect_1);
@@ -2555,6 +2361,115 @@
             this.bgwUpdateDriver.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwUpdateDriver_DoWork);
             this.bgwUpdateDriver.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwUpdateDriver_RunWorkerCompleted);
             // 
+            // gBoxBOperate
+            // 
+            this.gBoxBOperate.Controls.Add(this.btnReadBCard);
+            this.gBoxBOperate.Controls.Add(this.btnResetBCardAll);
+            this.gBoxBOperate.Controls.Add(this.btnSendBCard);
+            this.gBoxBOperate.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.gBoxBOperate.Location = new System.Drawing.Point(662, 11);
+            this.gBoxBOperate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gBoxBOperate.Name = "gBoxBOperate";
+            this.gBoxBOperate.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gBoxBOperate.Size = new System.Drawing.Size(176, 458);
+            this.gBoxBOperate.TabIndex = 7;
+            this.gBoxBOperate.TabStop = false;
+            this.gBoxBOperate.Text = "操作";
+            // 
+            // btnReadBCard
+            // 
+            this.btnReadBCard.Location = new System.Drawing.Point(62, 132);
+            this.btnReadBCard.Name = "btnReadBCard";
+            this.btnReadBCard.Size = new System.Drawing.Size(82, 28);
+            this.btnReadBCard.TabIndex = 2;
+            this.btnReadBCard.Text = "读卡";
+            this.btnReadBCard.UseVisualStyleBackColor = true;
+            this.btnReadBCard.Click += new System.EventHandler(this.btnReadBCard_Click);
+            // 
+            // btnResetBCardAll
+            // 
+            this.btnResetBCardAll.Location = new System.Drawing.Point(62, 306);
+            this.btnResetBCardAll.Name = "btnResetBCardAll";
+            this.btnResetBCardAll.Size = new System.Drawing.Size(82, 28);
+            this.btnResetBCardAll.TabIndex = 1;
+            this.btnResetBCardAll.Text = "重置";
+            this.btnResetBCardAll.UseVisualStyleBackColor = true;
+            this.btnResetBCardAll.Click += new System.EventHandler(this.btnResetBCardAll_Click);
+            // 
+            // btnSendBCard
+            // 
+            this.btnSendBCard.Location = new System.Drawing.Point(62, 219);
+            this.btnSendBCard.Name = "btnSendBCard";
+            this.btnSendBCard.Size = new System.Drawing.Size(82, 28);
+            this.btnSendBCard.TabIndex = 0;
+            this.btnSendBCard.Text = "发卡";
+            this.btnSendBCard.UseVisualStyleBackColor = true;
+            this.btnSendBCard.Click += new System.EventHandler(this.btnSendBCard_Click);
+            // 
+            // gBoxBCinfo
+            // 
+            this.gBoxBCinfo.Controls.Add(this.txtBCStatus);
+            this.gBoxBCinfo.Controls.Add(this.label16);
+            this.gBoxBCinfo.Controls.Add(this.txtBCNo);
+            this.gBoxBCinfo.Controls.Add(this.label19);
+            this.gBoxBCinfo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.gBoxBCinfo.Location = new System.Drawing.Point(5, 11);
+            this.gBoxBCinfo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gBoxBCinfo.Name = "gBoxBCinfo";
+            this.gBoxBCinfo.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.gBoxBCinfo.Size = new System.Drawing.Size(651, 458);
+            this.gBoxBCinfo.TabIndex = 6;
+            this.gBoxBCinfo.TabStop = false;
+            this.gBoxBCinfo.Text = "信息";
+            // 
+            // txtBCStatus
+            // 
+            this.txtBCStatus.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtBCStatus.Location = new System.Drawing.Point(217, 169);
+            this.txtBCStatus.Name = "txtBCStatus";
+            this.txtBCStatus.ReadOnly = true;
+            this.txtBCStatus.Size = new System.Drawing.Size(282, 29);
+            this.txtBCStatus.TabIndex = 21;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label16.Location = new System.Drawing.Point(137, 172);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(74, 21);
+            this.label16.TabIndex = 17;
+            this.label16.Text = "卡片状态";
+            // 
+            // txtBCNo
+            // 
+            this.txtBCNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtBCNo.Location = new System.Drawing.Point(217, 274);
+            this.txtBCNo.Name = "txtBCNo";
+            this.txtBCNo.ReadOnly = true;
+            this.txtBCNo.Size = new System.Drawing.Size(282, 29);
+            this.txtBCNo.TabIndex = 10;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label19.Location = new System.Drawing.Point(137, 277);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(74, 21);
+            this.label19.TabIndex = 2;
+            this.label19.Text = "卡片编号";
+            // 
+            // bgwReadBCard
+            // 
+            this.bgwReadBCard.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwReadBCard_DoWork);
+            this.bgwReadBCard.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwReadBCard_RunWorkerCompleted);
+            // 
+            // bgwWriteBCard
+            // 
+            this.bgwWriteBCard.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwWriteBCard_DoWork);
+            this.bgwWriteBCard.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwWriteBCard_RunWorkerCompleted);
+            // 
             // QmsMain
             // 
             this.AcceptButton = this.button1;
@@ -2583,9 +2498,6 @@
             this.tabDriverRevised.ResumeLayout(false);
             this.tabDriverQuery.ResumeLayout(false);
             this.tabBCardSent.ResumeLayout(false);
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
             this.tabPage10.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -2625,6 +2537,9 @@
             this.groupBox6.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
+            this.gBoxBOperate.ResumeLayout(false);
+            this.gBoxBCinfo.ResumeLayout(false);
+            this.gBoxBCinfo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2655,8 +2570,8 @@
         private System.Windows.Forms.TabPage tabDriverRevised;
         private System.Windows.Forms.TabPage tabDriverQuery;
         private System.Windows.Forms.TabPage tabBCardSent;
-        private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.TabPage tabGoodsRevised;
+        private System.Windows.Forms.TabPage tabGoodsQuery;
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.TabPage tabPage9;
         private System.Windows.Forms.TabPage tabPage10;
@@ -2772,24 +2687,6 @@
         private System.Windows.Forms.Label lblDriverName;
         private System.Windows.Forms.Button btnCheckDriver;
         private System.Windows.Forms.Button btnResetDCard;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button btnReadBCard;
-        private System.Windows.Forms.Button btnResetBCardAll;
-        private System.Windows.Forms.Button btnSendBCard;
-        private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox txtBCNo;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label lblBCNo;
-        private System.Windows.Forms.Label label19;
         private System.ComponentModel.BackgroundWorker bgwReadDCard;
         private System.ComponentModel.BackgroundWorker bgwWriteDCard;
         private System.Windows.Forms.TextBox txtDriverGender;
@@ -2840,6 +2737,17 @@
         private System.ComponentModel.BackgroundWorker bgwQueryDriver_R;
         private System.ComponentModel.BackgroundWorker bgwQueryDriverbyTruckNo_R;
         private System.ComponentModel.BackgroundWorker bgwUpdateDriver;
+        private System.Windows.Forms.GroupBox gBoxBOperate;
+        private System.Windows.Forms.Button btnReadBCard;
+        private System.Windows.Forms.Button btnResetBCardAll;
+        private System.Windows.Forms.Button btnSendBCard;
+        private System.Windows.Forms.GroupBox gBoxBCinfo;
+        private System.Windows.Forms.TextBox txtBCStatus;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox txtBCNo;
+        private System.Windows.Forms.Label label19;
+        private System.ComponentModel.BackgroundWorker bgwReadBCard;
+        private System.ComponentModel.BackgroundWorker bgwWriteBCard;
     }
 }
 
