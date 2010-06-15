@@ -50,17 +50,6 @@ namespace QMS3
         {
             InitializeComponent();
         }
-
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-
-        }
-
-        private void panelDriverC1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             Control.CheckForIllegalCrossThreadCalls = false;
@@ -68,6 +57,7 @@ namespace QMS3
             treeView1.Nodes.Clear();
         }
 
+        #region login
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             MessageBox.Show(
@@ -78,7 +68,13 @@ namespace QMS3
                 "\n\t\t权限5: 系统管理员\t\t\n",
                 "  权限说明书");
         }
-
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+            if (textBox1.Text.Length > 0)
+                this.AcceptButton = button3;
+            else
+                this.AcceptButton = button1;
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             treeView1.Nodes.Clear();
@@ -91,13 +87,43 @@ namespace QMS3
             button2.Enabled = false;
             conneted = false;
         }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             if (UNtextBox.Text.Length != 0)
                 button1.Enabled = true;
         }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // label5.Text = textBox1.Text;
+            if (!login.IsBusy)
+            {
+                login.RunWorkerAsync();
+                LogingroupBox.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            }
+            else
+                MessageBox.Show("正在登陆中情耐心等待！");
+            //try
+            //{
 
+            //    button1.Enabled = false;
+            //    button2.Enabled = true;
+            //    UNtextBox.Enabled = false;
+            //    PSmaskedTextBox.Enabled = false;
+            //}
+            //catch 
+            //{
+            //    MessageBox.Show("输入的用户名密码有误或网络超时");
+            //    UNtextBox.Text = "";
+            //    PSmaskedTextBox.Text = "";
+            //}
+            //label5.Text = k;
+            //treeView1.Nodes.Clear();
+            //treeviewload(int.Parse(label5.Text));
+
+        }
+        #endregion
+
+        #region treeview 操作
         private void treeView1_AfterSelect_1(object sender, TreeViewEventArgs e)
         {
             treeView1.SelectedNode.Nodes.ToString();
@@ -121,6 +147,7 @@ namespace QMS3
                 break;
                 case "TreeNode: 转运中心状态信息查询":
                 {
+                    #region 转运中心查询
                     progressBar2.Visible = true;
                     progressBar1.Visible = true;
 
@@ -130,10 +157,12 @@ namespace QMS3
                         showDayImagereport.RunWorkerAsync();
                     dateTimePicker1.Value = System.DateTime.Now;  
                     MainTab.SelectTab(9);
+                    #endregion
                 }
                 break;
                 case "TreeNode: 转运中心结算":
                 {
+                    #region 转运中心结算
                     MainTab.SelectTab(10);
                     if (!ifcon)
                     {
@@ -147,11 +176,13 @@ namespace QMS3
                         }
                     }
                     break;
+                    #endregion
                 }
                 case "TreeNode: 西城区状态信息查询":    MainTab.SelectTab(11);
                 break;
                 case "TreeNode: 异常数据处理器":
                 {
+                    #region 异常处理
                     string systime = System.DateTime.Now.ToString("yy-MM-dd");//  //"10-06-11";
                     // System.DateTime.Now.ToString("yy-MM-dd");
 
@@ -177,9 +208,11 @@ namespace QMS3
                     dataGridView2.DataSource = ds.Tables[0];
                     MainTab.SelectTab(12);
                     break;
+                    #endregion
                 }
                 case "TreeNode: 用户管理":
                 {
+                    #region 用户管理
                     string systime = System.DateTime.Now.ToString("yy-MM-dd");//  //"10-06-11";
                     // System.DateTime.Now.ToString("yy-MM-dd");
 
@@ -200,6 +233,7 @@ namespace QMS3
                    
                     MainTab.SelectTab(13);
                     break;
+                    #endregion
                 }
                 case "TreeNode: 垃圾楼管理":            MainTab.SelectTab(14);
                 break;
@@ -387,11 +421,8 @@ namespace QMS3
 
             }
         }
+        #endregion
 
-        private void maskedTextBox1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
         #region 权限treenode生成函数 权限为 1 2 3 4 5
         public void treeviewload(int Userright)
         {
@@ -671,35 +702,7 @@ namespace QMS3
             }
         }
         #endregion
-        private void button1_Click(object sender, EventArgs e)
-        {
-           // label5.Text = textBox1.Text;
-            if (!login.IsBusy)
-            {
-                login.RunWorkerAsync();
-                LogingroupBox.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-            }
-            else
-                MessageBox.Show("正在登陆中情耐心等待！");
-            //try
-            //{
-                
-            //    button1.Enabled = false;
-            //    button2.Enabled = true;
-            //    UNtextBox.Enabled = false;
-            //    PSmaskedTextBox.Enabled = false;
-            //}
-            //catch 
-            //{
-            //    MessageBox.Show("输入的用户名密码有误或网络超时");
-            //    UNtextBox.Text = "";
-            //    PSmaskedTextBox.Text = "";
-            //}
-            //label5.Text = k;
-            //treeView1.Nodes.Clear();
-            //treeviewload(int.Parse(label5.Text));
-           
-        }
+
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -707,92 +710,11 @@ namespace QMS3
 
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-            if (textBox1.Text.Length > 0)
-                this.AcceptButton = button3;
-            else
-                this.AcceptButton = button1;
-        }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            double x;
-            try
-            {
-                x = Convert.ToDouble(textBox1.Text.Trim());
-                //直接转换，如果是数字无异常，如果不是数字会抛异常
-                if (x > 10 || x < 0)
-                {
-                    MessageBox.Show("输入数值过大！");
-                    textBox1.Text = "";
-                    return;
-                }
 
-            }
-            catch 
-            {
-                MessageBox.Show("输入数值非法！");
-                textBox1.Text = "";
-                return;
-            }
-            //  if (!CheckState())
-            //    return;
-            // WritetoCard(textBox1.Text);
-            // WritetoDatabase(textBox1.Text);
-            string ID = "";
-            int Ccount = 0;
-            //sEndTime = System.DateTime.Now.ToString("yy-MM-dd,HH:mm");
-            if (TransCenter.Request(ref ID, ref Ccount) == 0)
-            {
-                debugtextbox.Text += "\n读到卡数"+ Ccount.ToString()+"\n";
-                if (Ccount == 1)
-                    listBox1.Items.Add("操作卡号：" + TransCenter.ToHexString(TransCenter.TagBuffer).Substring(2, 6));
-                else
-                {
-                    MessageBox.Show("区域内检查到" + Ccount.ToString() + "张卡片！\n请确保1张卡片在扫描区域中再操作！");
-                    return;
-                }
-            }
-            else
-            {
-                MessageBox.Show("没有读到卡片！");
-                return;
-            }
-            string info = "";
-            string Starttime="";
-            int StartStation = 0;
-            if (TransCenter.readinfo(ref info,textBox1.Text,ref Starttime,ref StartStation))
-            {
-                //this.myadapter.UpdateCommand = new SqlCommand(" UPDATE [dbo.Goods] SET [State] = @State, [Weight] = @Weight WHERE (BoxCardID = @BoxCardID) AND (TruckNo = @TruckNo) AND (StartTime = @StartTime) AND (StartStationID = @StartStationID)");
-
-                //MessageBox.Show("OK");
-                try
-                {
-                    this.dbo_GoodsTableAdapter.UpdateGoodsByTime(1, double.Parse(textBox1.Text),TransCenter.sEndTime, Starttime, StartStation);   
-                    listBox1.Items.Add(info);
-                }
-                catch
-                {
-                    MessageBox.Show("数据库同步失败！");
-                    listBox1.Items.Add(info + "   " + "数据库同步失败！");
-                }
-            }
-            else
-            {
-                MessageBox.Show("操作失败！");
-                listBox1.Items.Add(info);
-                return;
-            }
-            MessageBox.Show("操作成功！");
-            textBox1.Text = "";
-
-        }
+  
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
@@ -2536,6 +2458,7 @@ else
                 MessageBox.Show("导出错误", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
         }
+        #region 导出excel
         private void GenExcel()//导出EXCEL子线程
         {
             //MessageBox.Show("11", "process", MessageBoxButtons.OK, MessageBoxIcon.None);
@@ -2554,6 +2477,7 @@ else
 
             }
         }
+        
         private void ExportExcel(DataGridView dgv)
         {
             try
@@ -2725,7 +2649,9 @@ else
 
             //*/
         }
+        #endregion
 
+        #region 日表
         //TAB17
         private void comboBoxDay2_DropDown(object sender, EventArgs e)
         {
@@ -3478,9 +3404,10 @@ else
                 flag_everydayexl = false;
             }
         }
-
+#endregion
+        
+        #region 月表
         //TAB18
-
         private void comboBoxDay3_DropDown_1(object sender, EventArgs e)
         {
             if (comboBoxYear3.Text.Trim() == "" || comboBoxMon3.Text.Trim() == "")
@@ -3630,10 +3557,14 @@ else
             }
 
         }
+        
         private void comboBoxMon3_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             comboBoxDay3.Items.Clear();
         }
+        #endregion
+
+        #region 年表
         private void toolStripButton6_Click_1(object sender, EventArgs e)
         {
             crystalReportViewerYear.ReportSource = null;
@@ -3650,7 +3581,6 @@ else
                 MessageBox.Show("请选择要查看表的年份", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
         }
-
         private void backgroundWorkerYearOp_DoWork(object sender, DoWorkEventArgs e)
         {
         
@@ -3880,6 +3810,9 @@ drop table resYear;";
             //MessageBox.Show("请选择", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
             this.Enabled = true;
         }
+
+        #endregion
+
         //*******************
         #region 本区域代码 by 林秀峰
 
@@ -4305,6 +4238,80 @@ drop table resYear;";
         }
         #endregion
 
+        #region 异常处理
+        private void button3_Click(object sender, EventArgs e)
+        {
+            double x;
+            try
+            {
+                x = Convert.ToDouble(textBox1.Text.Trim());
+                //直接转换，如果是数字无异常，如果不是数字会抛异常
+                if (x > 10 || x < 0)
+                {
+                    MessageBox.Show("输入数值过大！");
+                    textBox1.Text = "";
+                    return;
+                }
+
+            }
+            catch
+            {
+                MessageBox.Show("输入数值非法！");
+                textBox1.Text = "";
+                return;
+            }
+            //  if (!CheckState())
+            //    return;
+            // WritetoCard(textBox1.Text);
+            // WritetoDatabase(textBox1.Text);
+            string ID = "";
+            int Ccount = 0;
+            //sEndTime = System.DateTime.Now.ToString("yy-MM-dd,HH:mm");
+            if (TransCenter.Request(ref ID, ref Ccount) == 0)
+            {
+                debugtextbox.Text += "\n读到卡数" + Ccount.ToString() + "\n";
+                if (Ccount == 1)
+                    listBox1.Items.Add("操作卡号：" + TransCenter.ToHexString(TransCenter.TagBuffer).Substring(2, 6));
+                else
+                {
+                    MessageBox.Show("区域内检查到" + Ccount.ToString() + "张卡片！\n请确保1张卡片在扫描区域中再操作！");
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("没有读到卡片！");
+                return;
+            }
+            string info = "";
+            string Starttime = "";
+            int StartStation = 0;
+            if (TransCenter.readinfo(ref info, textBox1.Text, ref Starttime, ref StartStation))
+            {
+                //this.myadapter.UpdateCommand = new SqlCommand(" UPDATE [dbo.Goods] SET [State] = @State, [Weight] = @Weight WHERE (BoxCardID = @BoxCardID) AND (TruckNo = @TruckNo) AND (StartTime = @StartTime) AND (StartStationID = @StartStationID)");
+
+                //MessageBox.Show("OK");
+                try
+                {
+                    this.dbo_GoodsTableAdapter.UpdateGoodsByTime(1, double.Parse(textBox1.Text), TransCenter.sEndTime, Starttime, StartStation);
+                    listBox1.Items.Add(info);
+                }
+                catch
+                {
+                    MessageBox.Show("数据库同步失败！");
+                    listBox1.Items.Add(info + "   " + "数据库同步失败！");
+                }
+            }
+            else
+            {
+                MessageBox.Show("操作失败！");
+                listBox1.Items.Add(info);
+                return;
+            }
+            MessageBox.Show("操作成功！");
+            textBox1.Text = "";
+
+        }
         private void goodupdatebutton_Click(object sender, EventArgs e)
         {
             try
@@ -4409,25 +4416,12 @@ drop table resYear;";
             { }
 
         }
+        #endregion
 
-        private void tabPage14_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bnDelUser_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox8_Enter(object sender, EventArgs e)
-        {
-
-        }
-
+        #region 编辑用户
         private void dataGridView4_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            UserID.Text = "用户ID：  "+dataGridView4.Rows[e.RowIndex].Cells[0].Value.ToString();
+            UserID.Text =dataGridView4.Rows[e.RowIndex].Cells[0].Value.ToString();
             TBuserName.Text = dataGridView4.Rows[e.RowIndex].Cells[1].Value.ToString();
             TBright.Text = dataGridView4.Rows[e.RowIndex].Cells[2].Value.ToString();
             TBpassword.Text = "";
@@ -4436,7 +4430,7 @@ drop table resYear;";
         {
             try
             {
-                UserID.Text = "用户ID：  " + dataGridView4.Rows[e.RowIndex].Cells[0].Value.ToString();
+                UserID.Text = dataGridView4.Rows[e.RowIndex].Cells[0].Value.ToString();
                 TBuserName.Text = dataGridView4.Rows[e.RowIndex].Cells[1].Value.ToString();
                 TBright.Text = dataGridView4.Rows[e.RowIndex].Cells[2].Value.ToString();
                 TBpassword.Text = "";
@@ -4444,6 +4438,104 @@ drop table resYear;";
             catch
             { }
         }
+
+        private void TBright_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (int.Parse(TBright.Text) < 0 || int.Parse(TBright.Text) > 5)
+                    TBright.Text = "0";
+            }
+            catch
+            {
+                TBright.Text = "0";
+            }
+            
+        }
+
+        private void BnAddUser_Click(object sender, EventArgs e)
+        {
+            if (TBuserName.Text.Length == 0)
+            {
+                MessageBox.Show("用户名不能为空！");
+                return;
+            }
+            if(TBright.Text.Length==0)
+            {
+                MessageBox.Show("权限不能为空！");
+                return;
+            }
+            if (TBpassword.Text.Length == 0)
+            {
+                MessageBox.Show("密码不能为空！");
+                return;
+            }
+            try
+            {
+                this.dbo_UserTableAdapter.InsertUser(TBuserName.Text, MD5.MDString(TBpassword.Text), TBright.Text);
+            }
+            catch
+            {
+                MessageBox.Show("连接数据库失败！请确保网络可用！");
+            }
+        }
+
+        private void bnUpateUser_Click(object sender, EventArgs e)
+        {
+            if (TBuserName.Text.Length == 0)
+            {
+                MessageBox.Show("用户名不能为空！");
+                return;
+            }
+            if (TBright.Text.Length == 0)
+            {
+                MessageBox.Show("权限不能为空！");
+                return;
+            }
+            try
+            {
+                this.dbo_UserTableAdapter.UpdateInfo(TBuserName.Text, TBright.Text, int.Parse(UserID.Text));
+            }
+            catch
+            {
+                MessageBox.Show("连接数据库失败！请确保网络可用！");
+            }
+        }
+
+        private void BnUpdatePW_Click(object sender, EventArgs e)
+        {
+            if (UserID.Text.Length == 0)
+            {
+                MessageBox.Show("请选择要重置的用户！");
+                return;
+            }
+            try
+            {
+                this.dbo_UserTableAdapter.UpdatePWD(MD5.MDString("123456"), int.Parse(UserID.Text));
+            }
+            catch
+            {
+                MessageBox.Show("连接数据库失败！请确保网络可用！");
+            }
+        }
+
+        private void bnDelUser_Click(object sender, EventArgs e)
+        {
+            if (UserID.Text.Length == 0)
+            {
+                MessageBox.Show("请选择要删除的用户！");
+                return;
+            }
+            try
+            {
+                this.dbo_UserTableAdapter.DeleteByID(int.Parse(UserID.Text));
+            }
+            catch
+            {
+                MessageBox.Show("连接数据库失败！请确保网络可用！");
+            }
+        }
+        #endregion
 
 
     }
