@@ -150,8 +150,34 @@ namespace QMS3
                 }
                 case "TreeNode: 西城区状态信息查询":    MainTab.SelectTab(11);
                 break;
-                case "TreeNode: 异常数据处理器":        MainTab.SelectTab(12);
-                break;
+                case "TreeNode: 异常数据处理器":
+                {
+                    string systime = System.DateTime.Now.ToString("yy-MM-dd");//  //"10-06-11";
+                    // System.DateTime.Now.ToString("yy-MM-dd");
+
+                    string strSQL = "SELECT DISTINCT  [db_rfidtest].[rfidtest].[dbo.Station].[Name] AS '起始站点' , " +
+                        " [db_rfidtest].[rfidtest].[dbo.Goods].[BoxCardID] AS '货箱卡号' ,  " +
+                        "[db_rfidtest].[rfidtest].[dbo.Goods].[TruckNo] AS '货车牌号' ,  " +
+                        "[db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] AS '开始时间' ,  " +
+                        "[db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] AS '结束时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[Weight] AS '重量(单位:吨)'" +
+                        " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] ON   " +
+                        "[db_rfidtest].[rfidtest].[dbo.Goods].[StartStationID] = [db_rfidtest].[rfidtest].[dbo.Station].[StationID] " +
+                        "WHERE  [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] > '" + systime + ",00:00' AND [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] < '" + systime + ",23:59'";
+                    string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
+
+                    try
+                    {
+                        ds = boperate.getds(strSQL, strTable);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("网络连接失败！请稍后重试");
+                        //showDayreport.CancelAsync();
+                    }
+                    dataGridView2.DataSource = ds.Tables[0];
+                    MainTab.SelectTab(12);
+                    break;
+                }
                 case "TreeNode: 用户管理":              MainTab.SelectTab(13);
                 break;
                 case "TreeNode: 垃圾楼管理":            MainTab.SelectTab(14);
@@ -4262,12 +4288,12 @@ drop table resYear;";
         {
             try
             {
-                this.dbo_GoodsTableAdapter.UpdateGoodsByEndTime(2, double.Parse(textBox6.Text), textBox5.Text);
-                textBox2.Text = "";
-                textBox3.Text = "";
-                textBox4.Text = "";
-                textBox5.Text = "";
-                textBox6.Text = "";
+                this.dbo_GoodsTableAdapter.UpdateGoodsByEndTime(2, double.Parse(textBox13.Text), textBox14.Text);
+                textBox17.Text = "";
+                textBox16.Text = "";
+                textBox15.Text = "";
+                textBox14.Text = "";
+                textBox13.Text = "";
                 string systime = System.DateTime.Now.ToString("yy-MM-dd"); //"10-06-11";
                 // System.DateTime.Now.ToString("yy-MM-dd");
 
@@ -4302,13 +4328,13 @@ drop table resYear;";
         {
             try
             {
-                this.dbo_GoodsTableAdapter.DeleteByEndTime(textBox5.Text);
+                this.dbo_GoodsTableAdapter.DeleteByEndTime(textBox14.Text);
                 textBox2.Text = "";
                 textBox3.Text = "";
                 textBox4.Text = "";
                 textBox5.Text = "";
                 textBox6.Text = "";
-                string systime = System.DateTime.Now.ToString("yy-MM-dd"); //"10-06-11";
+                string systime = System.DateTime.Now.ToString("yy-MM-dd"); //;
                 // System.DateTime.Now.ToString("yy-MM-dd");
 
                 string strSQL = "SELECT DISTINCT  [db_rfidtest].[rfidtest].[dbo.Station].[Name] AS '起始站点' , " +
@@ -4338,6 +4364,26 @@ drop table resYear;";
             }
         }
 
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            textBox17.Text = dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString();
+            textBox16.Text = dataGridView2.Rows[e.RowIndex].Cells[2].Value.ToString();
+            textBox15.Text = dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString();
+            textBox14.Text = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString();
+            textBox13.Text = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString();
+            
+           
+        }
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            textBox17.Text = dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString();
+            textBox16.Text = dataGridView2.Rows[e.RowIndex].Cells[2].Value.ToString();
+            textBox15.Text = dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString();
+            textBox14.Text = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString();
+            textBox13.Text = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString();
+
+
+        }
         
 
 
