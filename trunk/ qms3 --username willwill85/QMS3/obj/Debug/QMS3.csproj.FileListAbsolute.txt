@@ -45,3 +45,7 @@ D:\水晶报表\ qms3 --username willwill85\QMS3\bin\Debug\QMS3.pdb
 D:\水晶报表\ qms3 --username willwill85\QMS3\bin\Debug\Microsoft.Office.Interop.Excel.dll
 D:\水晶报表\ qms3 --username willwill85\QMS3\bin\Debug\office.dll
 D:\水晶报表\ qms3 --username willwill85\QMS3\bin\Debug\Microsoft.Vbe.Interop.dll
+D:\水晶报表\new\ qms3 --username willwill85\QMS3\bin\Debug\QMS3.exe.config
+D:\水晶报表\new\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.csproj.ResolveComReference.cache
+D:\水晶报表\new\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.exe
+D:\水晶报表\new\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.pdb
