@@ -101,7 +101,7 @@ namespace QMS3
                 //  MessageBox.Show(st);
 
             }
-            catch 
+            catch
             {
                 MessageBox.Show("ip.ini配置文件丢失！\n请联系技术人员解决。");
                 return false;
@@ -129,21 +129,25 @@ namespace QMS3
             }
             return true;
         }
-        public static bool readinfo(ref string info,string weight,ref string st,ref int ss )
+        public static bool readinfo(ref string info, string weight, ref string st, ref int ss)
         {
             string sInfoR = "";
             if (ReadString(13, 1, ref sInfoR) != 0)
             {
                 MessageBox.Show("无法读取任务状态！");
-                info="无法读取任务状态！";
+                info = "无法读取任务状态！";
                 return false;
             }
             sInfoR = sInfoR.Remove(1);
-            if (sInfoR != MISSION_ING)
+            if (sInfoR == MISSION_FINISH)
             {
                 MessageBox.Show("任务已完成！不能重复操作！");
-                info="任务已完成！不能重复操作！";
+                info = "任务已完成！不能重复操作！";
                 return false;
+            }
+            else if (sInfoR != MISSION_ING)
+            {
+                MessageBox.Show("任务状态字出错！");
             }
 
             //读取车牌号
@@ -151,7 +155,7 @@ namespace QMS3
             if (ReadString(1, 8, ref sCarNum) != 0)
             {
                 MessageBox.Show("读取车牌号错误！");
-                info="读取车牌号错误！";
+                info = "读取车牌号错误！";
                 return false;
             }
             sCarNum = sCarNum.Remove(6);
@@ -159,7 +163,7 @@ namespace QMS3
             if (ReadStringHex(6, 5, ref sStartTime) != 0)
             {
                 MessageBox.Show("读取发货时间错误！");
-                info="读取发货时间错误！";
+                info = "读取发货时间错误！";
                 return false;
             }
             //sStartTime = myCfCard.HexToStr(sStartTime);
@@ -172,11 +176,11 @@ namespace QMS3
             //    return false;
             //}
             string sStartSpotNum = "";
-            if (ReadString(12, 1, ref sStartSpotNum) != 0)
+            if (ReadString(9, 1, ref sStartSpotNum) != 0)
             {
                 MessageBox.Show("读取始发站号错误！");
-                info="读取始发站号错误！";
-                return false;
+                info = "读取始发站号错误！";
+                //return false;
             }
             //   MessageBox.Show(sStartSpotNum);
             /* if (sStartSpotNum.Length <= 2)
@@ -194,32 +198,33 @@ namespace QMS3
             {
                 nStartSpotNum = int.Parse(sStartSpotNum);
             }
-            catch 
+            catch
             {
                 MessageBox.Show("卡中的始发站号有误！");
-                info="卡中的始发站号有误！";
+                info = "卡中的始发站号有误！";
                 return false;
             }
             sEndTime = System.DateTime.Now.ToString("yy-MM-dd,HH:mm");
             string sEndTime2 = System.DateTime.Now.ToString("yyMMddHHmm");
-            if (PutDataIntoCardHex(3,9,4,sEndTime2) != 0)
+            sEndTime2 = sEndTime2.Substring(0, 10);
+            if (PutDataIntoCardHex(3, 10, 4, sEndTime2) != 0)
             {
                 MessageBox.Show("写卡失败！");
                 info = "写卡失败！";
                 return false;
             }
-            if (  PutDataIntoCard(3,13,1,MISSION_FINISH) != 0)
+            if (PutDataIntoCard(3, 13, 1, MISSION_FINISH) != 0)
             {
                 MessageBox.Show("写卡失败！");
                 info = "写卡失败！";
                 return false;
             }
 
-                //this.GoodsTableAdaper.UpdateQueryByTime(2, double.Parse(textBox1.Text), sStartTime, nStartSpotNum);
-                st=sStartTime;
-                ss = nStartSpotNum;
+            //this.GoodsTableAdaper.UpdateQueryByTime(2, double.Parse(textBox1.Text), sStartTime, nStartSpotNum);
+            st = sStartTime;
+            ss = nStartSpotNum;
 
-                info = "车号：" + sCarNum + ";      " + "发车时间：" + sStartTime + ";      " + "到达时间：" + sEndTime + ";      " + "重量：" + weight + ";      " + "始发站：" + StationName[nStartSpotNum - 31] + ".";
+            info = "车号：" + sCarNum + ";      " + "发车时间：" + sStartTime + ";      " + "到达时间：" + sEndTime + ";      " + "重量：" + weight + ";      " + "始发站：" + StationName[nStartSpotNum - 31] + ".";
 
 
             //listBox1.Items.Add("始发站：" + StationName[nStartSpotNum - 30] + ";      " + "发车时间：" + sStartTime + ";      " + "车号：" + sCarNum + ".");
@@ -267,7 +272,7 @@ namespace QMS3
                     if (status == OK)
                         break;
                     m_antenna_sel = m_antenna_sel * 2;
-                    
+
                     Sleep(20);
                 }
                 if (status != OK)
@@ -353,7 +358,7 @@ namespace QMS3
                     if (status == OK)
                         break;
                     m_antenna_sel = m_antenna_sel * 2;
-                    
+
                     Sleep(20);
                 }
                 if (status != OK)
@@ -470,7 +475,7 @@ namespace QMS3
         /// 6：数据与长度不符合
         /// 7：写入数据区错误
         /// </returns>
-        public  static int PutDataIntoCard(int block, int n_ptr, int n_len, string PutString)
+        public static int PutDataIntoCard(int block, int n_ptr, int n_len, string PutString)
         {
 
 
@@ -613,7 +618,7 @@ namespace QMS3
             byte ptr = Convert.ToByte(n_ptr);          //准备读的首地址是n_ptr
             byte len = Convert.ToByte(n_len);          //准备读的长度是n_len
 
-            for (int n = 0; n < 50; n++)
+            for (int n = 0; n < 150; n++)
             {
                 //设置天线
                 for (int i = 0; i < 4; i++)
@@ -644,7 +649,7 @@ namespace QMS3
 
                     str = PutString;
 
-                    Sleep(20);
+                    Sleep(50);
                     status = Net_EPC1G2_WriteWordBlock(m_hScanner, EPC_BYTE, IDTemp, 3, ptr, len, mask, AccessPassword);
                 }
                 else if (block == 1)
@@ -699,11 +704,11 @@ namespace QMS3
         }
         //public int write(string input, int ptr,int len)
         //{
- 
+
         //}
         //public int write2(string intput, int ptr,int len)
         //{
- 
+
         //}
         #endregion
         #region 获取取卡片的编号

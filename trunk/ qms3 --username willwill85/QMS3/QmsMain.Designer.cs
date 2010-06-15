@@ -29,33 +29,35 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QmsMain));
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("发司机卡");
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("司机信息编辑");
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("司机信息查询");
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("司机卡管理", new System.Windows.Forms.TreeNode[] {
-            treeNode19,
-            treeNode20,
-            treeNode21});
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("发货箱卡");
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("货箱信息编辑");
-            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("货箱信息查询");
-            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("货箱卡管理", new System.Windows.Forms.TreeNode[] {
-            treeNode23,
-            treeNode24,
-            treeNode25});
-            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("车辆状态信息查询");
-            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("垃圾楼状态信息查询");
-            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("转运中心状态信息查询");
-            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("转运中心结算");
-            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("西城区状态信息查询");
-            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("异常数据处理器");
-            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("用户管理");
-            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("垃圾楼管理");
-            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("班长管理");
-            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("报表生成器");
+            System.Windows.Forms.TreeNode treeNode73 = new System.Windows.Forms.TreeNode("发司机卡");
+            System.Windows.Forms.TreeNode treeNode74 = new System.Windows.Forms.TreeNode("司机信息编辑");
+            System.Windows.Forms.TreeNode treeNode75 = new System.Windows.Forms.TreeNode("司机信息查询");
+            System.Windows.Forms.TreeNode treeNode76 = new System.Windows.Forms.TreeNode("司机卡管理", new System.Windows.Forms.TreeNode[] {
+            treeNode73,
+            treeNode74,
+            treeNode75});
+            System.Windows.Forms.TreeNode treeNode77 = new System.Windows.Forms.TreeNode("发货箱卡");
+            System.Windows.Forms.TreeNode treeNode78 = new System.Windows.Forms.TreeNode("货箱信息编辑");
+            System.Windows.Forms.TreeNode treeNode79 = new System.Windows.Forms.TreeNode("货箱信息查询");
+            System.Windows.Forms.TreeNode treeNode80 = new System.Windows.Forms.TreeNode("货箱卡管理", new System.Windows.Forms.TreeNode[] {
+            treeNode77,
+            treeNode78,
+            treeNode79});
+            System.Windows.Forms.TreeNode treeNode81 = new System.Windows.Forms.TreeNode("车辆状态信息查询");
+            System.Windows.Forms.TreeNode treeNode82 = new System.Windows.Forms.TreeNode("垃圾楼状态信息查询");
+            System.Windows.Forms.TreeNode treeNode83 = new System.Windows.Forms.TreeNode("转运中心状态信息查询");
+            System.Windows.Forms.TreeNode treeNode84 = new System.Windows.Forms.TreeNode("转运中心结算");
+            System.Windows.Forms.TreeNode treeNode85 = new System.Windows.Forms.TreeNode("西城区状态信息查询");
+            System.Windows.Forms.TreeNode treeNode86 = new System.Windows.Forms.TreeNode("异常数据处理器");
+            System.Windows.Forms.TreeNode treeNode87 = new System.Windows.Forms.TreeNode("用户管理");
+            System.Windows.Forms.TreeNode treeNode88 = new System.Windows.Forms.TreeNode("垃圾楼管理");
+            System.Windows.Forms.TreeNode treeNode89 = new System.Windows.Forms.TreeNode("班长管理");
+            System.Windows.Forms.TreeNode treeNode90 = new System.Windows.Forms.TreeNode("报表生成器");
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.MainTab = new System.Windows.Forms.TabControl();
@@ -126,8 +128,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.tabPage12 = new System.Windows.Forms.TabPage();
             this.tabPage13 = new System.Windows.Forms.TabPage();
-            this.button4 = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabPage14 = new System.Windows.Forms.TabPage();
             this.tabPage15 = new System.Windows.Forms.TabPage();
             this.tabPage16 = new System.Windows.Forms.TabPage();
@@ -247,6 +247,21 @@
             this.lblBCNo = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.backgroundWorkerYearOp = new System.ComponentModel.BackgroundWorker();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.groupboxforupdate = new System.Windows.Forms.GroupBox();
+            this.goodsdelbutton = new System.Windows.Forms.Button();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.重量 = new System.Windows.Forms.Label();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.startime = new System.Windows.Forms.Label();
+            this.endtimelabel = new System.Windows.Forms.Label();
+            this.cnlabel = new System.Windows.Forms.Label();
+            this.startsn = new System.Windows.Forms.Label();
+            this.goodupdatebutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.MainTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -263,7 +278,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage11.SuspendLayout();
             this.tabPage13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabPage17.SuspendLayout();
             this.groupBoxReport2.SuspendLayout();
             this.groupBoxSelect2.SuspendLayout();
@@ -286,6 +300,9 @@
             this.MenugroupBox.SuspendLayout();
             this.LogingroupBox.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.groupboxforupdate.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -887,15 +904,15 @@
             // 
             // progressBar2
             // 
-            this.progressBar2.Location = new System.Drawing.Point(303, 97);
+            this.progressBar2.Location = new System.Drawing.Point(6, 196);
             this.progressBar2.Name = "progressBar2";
-            this.progressBar2.Size = new System.Drawing.Size(231, 23);
+            this.progressBar2.Size = new System.Drawing.Size(231, 14);
             this.progressBar2.TabIndex = 3;
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -904,8 +921,8 @@
             this.dataGridView1.Location = new System.Drawing.Point(3, 17);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(830, 196);
             this.dataGridView1.TabIndex = 0;
@@ -934,9 +951,9 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(303, 114);
+            this.progressBar1.Location = new System.Drawing.Point(6, 230);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(231, 23);
+            this.progressBar1.Size = new System.Drawing.Size(231, 14);
             this.progressBar1.TabIndex = 2;
             // 
             // dateTimePicker1
@@ -1043,8 +1060,8 @@
             // 
             // tabPage13
             // 
-            this.tabPage13.Controls.Add(this.button4);
-            this.tabPage13.Controls.Add(this.dataGridView2);
+            this.tabPage13.Controls.Add(this.groupBox6);
+            this.tabPage13.Controls.Add(this.groupboxforupdate);
             this.tabPage13.Location = new System.Drawing.Point(4, 34);
             this.tabPage13.Name = "tabPage13";
             this.tabPage13.Padding = new System.Windows.Forms.Padding(3);
@@ -1052,26 +1069,6 @@
             this.tabPage13.TabIndex = 12;
             this.tabPage13.Text = "异常";
             this.tabPage13.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(586, 323);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(76, 64);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowTemplate.Height = 23;
-            this.dataGridView2.Size = new System.Drawing.Size(471, 248);
-            this.dataGridView2.TabIndex = 0;
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // tabPage14
             // 
@@ -1817,56 +1814,56 @@
             this.treeView1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.treeView1.Location = new System.Drawing.Point(3, 22);
             this.treeView1.Name = "treeView1";
-            treeNode19.Name = "节点1";
-            treeNode19.Text = "发司机卡";
-            treeNode20.Checked = true;
-            treeNode20.Name = "节点4";
-            treeNode20.Text = "司机信息编辑";
-            treeNode21.Name = "节点5";
-            treeNode21.Text = "司机信息查询";
-            treeNode22.Name = "节点0";
-            treeNode22.Text = "司机卡管理";
-            treeNode23.Name = "节点0";
-            treeNode23.Text = "发货箱卡";
-            treeNode24.Name = "节点1";
-            treeNode24.Text = "货箱信息编辑";
-            treeNode25.Name = "节点2";
-            treeNode25.Text = "货箱信息查询";
-            treeNode26.Name = "节点2";
-            treeNode26.Text = "货箱卡管理";
-            treeNode27.Name = "节点3";
-            treeNode27.Text = "车辆状态信息查询";
-            treeNode28.Name = "节点4";
-            treeNode28.Text = "垃圾楼状态信息查询";
-            treeNode29.Name = "节点5";
-            treeNode29.Text = "转运中心状态信息查询";
-            treeNode30.Name = "节点6";
-            treeNode30.Text = "转运中心结算";
-            treeNode31.Name = "节点7";
-            treeNode31.Text = "西城区状态信息查询";
-            treeNode32.Name = "节点8";
-            treeNode32.Text = "异常数据处理器";
-            treeNode33.Name = "节点9";
-            treeNode33.Text = "用户管理";
-            treeNode34.Name = "节点10";
-            treeNode34.Text = "垃圾楼管理";
-            treeNode35.Name = "节点11";
-            treeNode35.Text = "班长管理";
-            treeNode36.Name = "节点12";
-            treeNode36.Text = "报表生成器";
+            treeNode73.Name = "节点1";
+            treeNode73.Text = "发司机卡";
+            treeNode74.Checked = true;
+            treeNode74.Name = "节点4";
+            treeNode74.Text = "司机信息编辑";
+            treeNode75.Name = "节点5";
+            treeNode75.Text = "司机信息查询";
+            treeNode76.Name = "节点0";
+            treeNode76.Text = "司机卡管理";
+            treeNode77.Name = "节点0";
+            treeNode77.Text = "发货箱卡";
+            treeNode78.Name = "节点1";
+            treeNode78.Text = "货箱信息编辑";
+            treeNode79.Name = "节点2";
+            treeNode79.Text = "货箱信息查询";
+            treeNode80.Name = "节点2";
+            treeNode80.Text = "货箱卡管理";
+            treeNode81.Name = "节点3";
+            treeNode81.Text = "车辆状态信息查询";
+            treeNode82.Name = "节点4";
+            treeNode82.Text = "垃圾楼状态信息查询";
+            treeNode83.Name = "节点5";
+            treeNode83.Text = "转运中心状态信息查询";
+            treeNode84.Name = "节点6";
+            treeNode84.Text = "转运中心结算";
+            treeNode85.Name = "节点7";
+            treeNode85.Text = "西城区状态信息查询";
+            treeNode86.Name = "节点8";
+            treeNode86.Text = "异常数据处理器";
+            treeNode87.Name = "节点9";
+            treeNode87.Text = "用户管理";
+            treeNode88.Name = "节点10";
+            treeNode88.Text = "垃圾楼管理";
+            treeNode89.Name = "节点11";
+            treeNode89.Text = "班长管理";
+            treeNode90.Name = "节点12";
+            treeNode90.Text = "报表生成器";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode22,
-            treeNode26,
-            treeNode27,
-            treeNode28,
-            treeNode29,
-            treeNode30,
-            treeNode31,
-            treeNode32,
-            treeNode33,
-            treeNode34,
-            treeNode35,
-            treeNode36});
+            treeNode76,
+            treeNode80,
+            treeNode81,
+            treeNode82,
+            treeNode83,
+            treeNode84,
+            treeNode85,
+            treeNode86,
+            treeNode87,
+            treeNode88,
+            treeNode89,
+            treeNode90});
             this.treeView1.Size = new System.Drawing.Size(234, 299);
             this.treeView1.TabIndex = 1;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect_1);
@@ -2386,6 +2383,168 @@
             this.backgroundWorkerYearOp.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerYearOp_DoWork);
             this.backgroundWorkerYearOp.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorkerYearOp_RunWorkerCompleted);
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.dataGridView2);
+            this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox6.Location = new System.Drawing.Point(3, 3);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(836, 375);
+            this.groupBox6.TabIndex = 6;
+            this.groupBox6.TabStop = false;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AllowUserToResizeColumns = false;
+            this.dataGridView2.AllowUserToResizeRows = false;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView2.Location = new System.Drawing.Point(3, 17);
+            this.dataGridView2.Name = "dataGridView2";
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            this.dataGridView2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            this.dataGridView2.RowTemplate.Height = 23;
+            this.dataGridView2.Size = new System.Drawing.Size(830, 355);
+            this.dataGridView2.TabIndex = 1;
+            // 
+            // groupboxforupdate
+            // 
+            this.groupboxforupdate.Controls.Add(this.goodsdelbutton);
+            this.groupboxforupdate.Controls.Add(this.textBox13);
+            this.groupboxforupdate.Controls.Add(this.重量);
+            this.groupboxforupdate.Controls.Add(this.textBox14);
+            this.groupboxforupdate.Controls.Add(this.textBox15);
+            this.groupboxforupdate.Controls.Add(this.textBox16);
+            this.groupboxforupdate.Controls.Add(this.textBox17);
+            this.groupboxforupdate.Controls.Add(this.startime);
+            this.groupboxforupdate.Controls.Add(this.endtimelabel);
+            this.groupboxforupdate.Controls.Add(this.cnlabel);
+            this.groupboxforupdate.Controls.Add(this.startsn);
+            this.groupboxforupdate.Controls.Add(this.goodupdatebutton);
+            this.groupboxforupdate.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupboxforupdate.Location = new System.Drawing.Point(3, 378);
+            this.groupboxforupdate.Name = "groupboxforupdate";
+            this.groupboxforupdate.Size = new System.Drawing.Size(836, 100);
+            this.groupboxforupdate.TabIndex = 5;
+            this.groupboxforupdate.TabStop = false;
+            this.groupboxforupdate.Text = "修改的条目信息";
+            // 
+            // goodsdelbutton
+            // 
+            this.goodsdelbutton.Location = new System.Drawing.Point(711, 62);
+            this.goodsdelbutton.Name = "goodsdelbutton";
+            this.goodsdelbutton.Size = new System.Drawing.Size(75, 23);
+            this.goodsdelbutton.TabIndex = 12;
+            this.goodsdelbutton.Text = "删除";
+            this.goodsdelbutton.UseVisualStyleBackColor = true;
+            this.goodsdelbutton.Click += new System.EventHandler(this.goodsdelbutton_Click);
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(531, 40);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(100, 21);
+            this.textBox13.TabIndex = 11;
+            // 
+            // 重量
+            // 
+            this.重量.AutoSize = true;
+            this.重量.Location = new System.Drawing.Point(483, 44);
+            this.重量.Name = "重量";
+            this.重量.Size = new System.Drawing.Size(29, 12);
+            this.重量.TabIndex = 10;
+            this.重量.Text = "重量";
+            // 
+            // textBox14
+            // 
+            this.textBox14.Enabled = false;
+            this.textBox14.Location = new System.Drawing.Point(321, 63);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(100, 21);
+            this.textBox14.TabIndex = 9;
+            // 
+            // textBox15
+            // 
+            this.textBox15.Enabled = false;
+            this.textBox15.Location = new System.Drawing.Point(321, 28);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(100, 21);
+            this.textBox15.TabIndex = 8;
+            // 
+            // textBox16
+            // 
+            this.textBox16.Enabled = false;
+            this.textBox16.Location = new System.Drawing.Point(112, 63);
+            this.textBox16.Name = "textBox16";
+            this.textBox16.Size = new System.Drawing.Size(100, 21);
+            this.textBox16.TabIndex = 7;
+            // 
+            // textBox17
+            // 
+            this.textBox17.Enabled = false;
+            this.textBox17.Location = new System.Drawing.Point(112, 28);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new System.Drawing.Size(100, 21);
+            this.textBox17.TabIndex = 6;
+            // 
+            // startime
+            // 
+            this.startime.AutoSize = true;
+            this.startime.Location = new System.Drawing.Point(250, 32);
+            this.startime.Name = "startime";
+            this.startime.Size = new System.Drawing.Size(53, 12);
+            this.startime.TabIndex = 5;
+            this.startime.Text = "始发时间";
+            // 
+            // endtimelabel
+            // 
+            this.endtimelabel.AutoSize = true;
+            this.endtimelabel.Location = new System.Drawing.Point(250, 67);
+            this.endtimelabel.Name = "endtimelabel";
+            this.endtimelabel.Size = new System.Drawing.Size(53, 12);
+            this.endtimelabel.TabIndex = 4;
+            this.endtimelabel.Text = "结束时间";
+            // 
+            // cnlabel
+            // 
+            this.cnlabel.AutoSize = true;
+            this.cnlabel.Location = new System.Drawing.Point(29, 67);
+            this.cnlabel.Name = "cnlabel";
+            this.cnlabel.Size = new System.Drawing.Size(41, 12);
+            this.cnlabel.TabIndex = 3;
+            this.cnlabel.Text = "车牌号";
+            // 
+            // startsn
+            // 
+            this.startsn.AutoSize = true;
+            this.startsn.Location = new System.Drawing.Point(29, 32);
+            this.startsn.Name = "startsn";
+            this.startsn.Size = new System.Drawing.Size(41, 12);
+            this.startsn.TabIndex = 2;
+            this.startsn.Text = "始发站";
+            // 
+            // goodupdatebutton
+            // 
+            this.goodupdatebutton.Location = new System.Drawing.Point(711, 27);
+            this.goodupdatebutton.Name = "goodupdatebutton";
+            this.goodupdatebutton.Size = new System.Drawing.Size(75, 23);
+            this.goodupdatebutton.TabIndex = 1;
+            this.goodupdatebutton.Text = "更新";
+            this.goodupdatebutton.UseVisualStyleBackColor = true;
+            this.goodupdatebutton.Click += new System.EventHandler(this.goodupdatebutton_Click);
+            // 
             // QmsMain
             // 
             this.AcceptButton = this.button1;
@@ -2424,7 +2583,6 @@
             this.tabPage11.ResumeLayout(false);
             this.tabPage11.PerformLayout();
             this.tabPage13.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabPage17.ResumeLayout(false);
             this.groupBoxReport2.ResumeLayout(false);
             this.groupBoxSelect2.ResumeLayout(false);
@@ -2455,6 +2613,10 @@
             this.LogingroupBox.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.groupboxforupdate.ResumeLayout(false);
+            this.groupboxforupdate.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2528,8 +2690,6 @@
         private System.Windows.Forms.ProgressBar progressBar2;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.ComponentModel.BackgroundWorker login;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ProgressBar progressBar3;
@@ -2653,6 +2813,21 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.ToolStripButton toolStripButton6;
         private System.ComponentModel.BackgroundWorker backgroundWorkerYearOp;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.GroupBox groupboxforupdate;
+        private System.Windows.Forms.Button goodsdelbutton;
+        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.Label 重量;
+        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.Label startime;
+        private System.Windows.Forms.Label endtimelabel;
+        private System.Windows.Forms.Label cnlabel;
+        private System.Windows.Forms.Label startsn;
+        private System.Windows.Forms.Button goodupdatebutton;
     }
 }
 
