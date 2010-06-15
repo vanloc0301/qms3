@@ -520,7 +520,7 @@ namespace QMS3
             byte ptr = Convert.ToByte(n_ptr);          //准备读的首地址是n_ptr
             byte len = Convert.ToByte(n_len);          //准备读的长度是n_len
 
-            for (int n = 0; n < 50; n++)
+            for (int n = 0; n < 150; n++)
             {
                 //设置天线
                 for (int i = 0; i < 4; i++)
@@ -551,7 +551,7 @@ namespace QMS3
 
                     str = PutString;
 
-                    Sleep(20);
+                    Sleep(40);
                     status = Net_EPC1G2_WriteWordBlock(m_hScanner, EPC_BYTE, IDTemp, 3, ptr, len, mask, AccessPassword);
                 }
                 else if (block == 1)
@@ -563,7 +563,7 @@ namespace QMS3
                 if (status == OK)
                     break;
 
-                Sleep(10);
+                Sleep(20);
             }
             if (status != OK)
             {
@@ -677,7 +677,7 @@ namespace QMS3
                 if (status == OK)
                     break;
 
-                Sleep(10);
+                Sleep(20);
             }
             if (status != OK)
             {
