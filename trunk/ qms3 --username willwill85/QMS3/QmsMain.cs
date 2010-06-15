@@ -4384,6 +4384,21 @@ drop table resYear;";
 
 
         }
+
+        private void tabPage14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bnDelUser_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox8_Enter(object sender, EventArgs e)
+        {
+
+        }
         
 
 
