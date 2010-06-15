@@ -3713,9 +3713,9 @@ set @mons=" + cur_mon.ToString() + @"
         set @days=@days+1;
     end
     if @monbox<>0
-	    insert into resYear(monname,summonbox,summonweight,datemonid) values(@datemon,@monbox,@monweight,substring(@date,1,5));
+	    insert into resYear(monname,summonbox,summonweight,datemonid) values(@datemon,@monbox,@monweight,' ');
     else
-        insert into resYear(monname,summonbox,summonweight,datemonid) values(@datemon,0,0,substring(@date,1,5));
+        insert into resYear(monname,summonbox,summonweight,datemonid) values(@datemon,0,0,' ');
 
 select * from resYear;
 drop table resYear;";
