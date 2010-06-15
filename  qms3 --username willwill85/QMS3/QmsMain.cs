@@ -361,7 +361,7 @@ namespace QMS3
 
         //*******************added by wanchao
 
-        #region TAB18
+        #region 月表
         private void comboBoxDay1_DropDown(object sender, EventArgs e)//生成每个月对应的天数
         {
             if (comboBoxYear1.Text.Trim() == "" || comboBoxMon1.Text.Trim() == "")
@@ -1936,9 +1936,6 @@ else
                 MessageBox.Show("导出错误", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
         }
-        #endregion
-
-        #region 导出excel
         private void GenExcel()//导出EXCEL子线程
         {
             //MessageBox.Show("11", "process", MessageBoxButtons.OK, MessageBoxIcon.None);
@@ -1957,7 +1954,6 @@ else
 
             }
         }
-        
         private void ExportExcel(DataGridView dgv)
         {
             try
@@ -2885,9 +2881,8 @@ else
             }
         }
 #endregion
-        
-        #region 月表
-        //TAB18
+
+        #region 年表
         private void comboBoxDay3_DropDown_1(object sender, EventArgs e)
         {
             if (comboBoxYear3.Text.Trim() == "" || comboBoxMon3.Text.Trim() == "")
@@ -3037,14 +3032,10 @@ else
             }
 
         }
-        
         private void comboBoxMon3_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             comboBoxDay3.Items.Clear();
         }
-        #endregion
-
-        #region 年表
         private void toolStripButton6_Click_1(object sender, EventArgs e)
         {
             crystalReportViewerYear.ReportSource = null;
