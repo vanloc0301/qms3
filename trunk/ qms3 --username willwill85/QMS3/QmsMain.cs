@@ -1557,8 +1557,15 @@ begin
 		set @col='weight'+cast(@i+1 as varchar)
 		set @tmpweight=(select Weight from #t where ID=@i);
         if @tmpweight is null
-        set @tmpweight=0 
-		set @ttlweight=@ttlweight+@tmpweight;
+        begin
+            /*set @tmpweight=0*/
+            update res set sumbox=sumbox-1 where staname=@stationname; 
+            update res set sumboxtail=sumboxtail-1 where staname=@stationname;
+        end
+        else
+        begin 
+		    set @ttlweight=@ttlweight+@tmpweight;
+        end
 		set @sqls='update res set '+@col+'='+cast(@tmpweight as varchar)+' WHERE staname='''+@stationname+''' AND dateid='''+substring(@day_str,1,8)+'''';
 		exec(@sqls) 
 		set @i=@i+1;
@@ -1826,8 +1833,15 @@ else
 		                    set @col='weight'+cast(@i+1 as varchar)
 		                    set @tmpweight=(select Weight from #t where ID=@i);
                             if @tmpweight is null
-                            set @tmpweight=0 
-		                    set @ttlweight=@ttlweight+@tmpweight;
+                            begin
+                                /*set @tmpweight=0*/
+                                update res set sumbox=sumbox-1 where staname=@stationname; 
+                                update res set sumboxtail=sumboxtail-1 where staname=@stationname;
+                            end
+                            else
+                            begin 
+		                        set @ttlweight=@ttlweight+@tmpweight;
+                            end
 		                    set @sqls='update res set '+@col+'='+cast(@tmpweight as varchar)+' WHERE staname='''+@stationname+''' AND dateid='''+substring(@day_str,1,8)+'''';
 		                    exec(@sqls) 
 		                    set @i=@i+1;
@@ -2452,8 +2466,15 @@ else
 		                    set @col='weight'+cast(@i+1 as varchar)
 		                    set @tmpweight=(select Weight from #t where ID=@i);
                             if @tmpweight is null
-                            set @tmpweight=0 
-		                    set @ttlweight=@ttlweight+@tmpweight;
+                            begin
+                                /*set @tmpweight=0*/
+                                update res set sumbox=sumbox-1 where staname=@stationname; 
+                                update res set sumboxtail=sumboxtail-1 where staname=@stationname;
+                            end
+                            else
+                            begin 
+		                        set @ttlweight=@ttlweight+@tmpweight;
+                            end
 		                    set @sqls='update res set '+@col+'='+cast(@tmpweight as varchar)+' WHERE staname='''+@stationname+''' AND dateid='''+substring(@day_str,1,8)+'''';
 		                    exec(@sqls) 
 		                    set @i=@i+1;
@@ -3221,9 +3242,9 @@ set @mons=" + cur_mon.ToString() + @"
 	        declare @date varchar(30);
 	        set @date=substring(@day_str,1,8);
 	        declare @boxnum int;
-	        set @boxnum=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartStationID=@staid AND StartTime LIKE @day_str GROUP BY StartStationID);
+	        set @boxnum=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartStationID=@staid AND StartTime LIKE @day_str AND EndTime is not null GROUP BY StartStationID);
             declare @tweight float;
-	        set @tweight=(select sum(Weight) from [rfidtest].[dbo.Goods] WHERE StartStationID=@staid AND StartTime LIKE @day_str GROUP BY StartStationID);
+	        set @tweight=(select sum(Weight) from [rfidtest].[dbo.Goods] WHERE StartStationID=@staid AND StartTime LIKE @day_str AND EndTime is not null GROUP BY StartStationID);
             if @tweight is null
                 set @tweight=0;
             if @boxnum is null
