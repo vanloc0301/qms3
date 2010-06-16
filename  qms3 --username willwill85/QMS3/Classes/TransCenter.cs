@@ -279,7 +279,7 @@ namespace QMS3
             byte[] mask = new byte[96];
             byte[] AccessPassWord = new byte[4];
 
-            for (int n = 0; n < 50; n++)
+            for (int n = 0; n < 250; n++)
             {
                 //设置天线
                 for (int i = 0; i < 4; i++)
@@ -289,7 +289,7 @@ namespace QMS3
                         break;
                     m_antenna_sel = m_antenna_sel * 2;
 
-                    Sleep(20);
+                    Sleep(50);
                 }
                 if (status != OK)
                 {
@@ -305,14 +305,14 @@ namespace QMS3
 
                 if (status != OK)
                 {
-                    Sleep(20);
+                    Sleep(50);
                     continue;
                 }
                 // 如果ID Buffer中的ID比设定的长度(目前是6)大，则说明读取错误？放弃本次读取，再读一次
                 if (IDBuffer[ID_len] > 6)
                 {
                     nCounter = 0;
-                    Sleep(20);
+                    Sleep(50);
                     continue;
                 }//
 
