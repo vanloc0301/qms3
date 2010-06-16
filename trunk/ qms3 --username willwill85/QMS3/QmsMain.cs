@@ -56,6 +56,11 @@ namespace QMS3
             Control.CheckForIllegalCrossThreadCalls = false;
             MainTab.ItemSize = new Size(1, 1);
             treeView1.Nodes.Clear();
+            dateTimePicker1.Value = System.DateTime.Now;
+            dateTimePicker2.Value = System.DateTime.Now;
+            dateTimePicker3.Value = System.DateTime.Now;
+            dateTimePicker4.Value = System.DateTime.Now;
+            dateTimePicker5.Value = System.DateTime.Now;
             #region just for demo
             try
             {
