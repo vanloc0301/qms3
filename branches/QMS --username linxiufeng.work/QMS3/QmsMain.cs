@@ -103,11 +103,11 @@ namespace QMS3
             {
                 case "TreeNode: 发司机卡":              MainTab.SelectTab(1); ResetDCardSent_All();
                 break;
-                case "TreeNode: 司机信息编辑":          MainTab.SelectTab(2);
+                case "TreeNode: 司机信息编辑":          MainTab.SelectTab(2); 
                 break;
                 case "TreeNode: 司机信息查询":          MainTab.SelectTab(3);
                 break;
-                case "TreeNode: 发货箱卡":              MainTab.SelectTab(4);
+                case "TreeNode: 发货箱卡":              MainTab.SelectTab(4); ResetBCardSent_All();
                 break;
                 case "TreeNode: 货箱信息编辑":          MainTab.SelectTab(5);
                 break;
@@ -4792,6 +4792,7 @@ else
 
                         txtBCStatus.Text = "准备发卡";
                         btnResetBCardAll.Enabled = btnSendBCard.Enabled = true;
+                        btnReadBCard.Enabled = false;
                     }
                     else
                     {
@@ -4809,6 +4810,7 @@ else
 
                             txtBCStatus.Text = "卡片待初始化";
                             btnResetBCardAll.Enabled = btnSendBCard.Enabled = true;
+                            btnReadBCard.Enabled = false;
                         }
                         else
                         {
@@ -4819,6 +4821,7 @@ else
                             txtCNo.Text = "";
                             txtCNo.Enabled = txtTruckNo.Enabled = false;
                             //*/
+                            ResetBCardSent_All();
                             txtBCNo.Text = txtBCStatus.Text = "";
                             return;
                         }
@@ -4836,6 +4839,7 @@ else
                     txtBCStatus.Text = "准备发卡";
 
                     btnResetBCardAll.Enabled = btnSendBCard.Enabled = true;
+                    btnReadBCard.Enabled = false;
                 }
                 else
                 {
@@ -4846,6 +4850,7 @@ else
                     txtCNo.Text = "";
                     txtCNo.Enabled = txtTruckNo.Enabled = false;
                     //*/
+                    ResetBCardSent_All();
                     txtBCNo.Text = txtBCStatus.Text = "";
                     return;
                 }
@@ -4881,7 +4886,7 @@ else
             
             //调用写卡函数，此处调试用，显示对话框
             DialogResult DiaResult = MessageBox.Show("是否发放货箱卡？", "提示", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
-            ///*
+            /*
             if (DialogResult.Yes == DiaResult)
             {
                 //btnSendBCard.Enabled = false;
@@ -5075,14 +5080,24 @@ else
         
         private void btnResetBCardAll_Click(object sender, EventArgs e)
         {
+            ResetBCardSent_All();
             txtBCNo.Text = txtBCStatus.Text = "";
         }
 
+        #region 重置发货箱卡Tab
+        public void ResetBCardSent_All() 
+        {
+            txtBCNo.Text = txtBCStatus.Text = "";
+
+            btnReadBCard.Enabled = true;
+            btnSendBCard.Enabled = btnResetBCardAll.Enabled = false;
+        }
+        #endregion
 
 
         #endregion
 
-        
+
 
 
 
