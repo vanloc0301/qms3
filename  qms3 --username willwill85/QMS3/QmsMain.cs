@@ -63,9 +63,9 @@ namespace QMS3
                 pictureBox4.Load("http://chart.apis.google.com/chart?cht=bvs&chs=836x250&chds=0,15&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|1:|0|5|10|15&chf=bg,s,EFEFEF&chtt=站点当月分布情况&chco=4d89f9&chts=0000FF,20&chg=5,20&chd=t:3,6,5,4,7,9,3,6,4,7,4,8,4,5,6,8,7,6,4,5,7,8,9,5,4,3,6,7,8,9");
                 pictureBox5.Load("http://chart.apis.google.com/chart?cht=bvs&chs=836x250&chds=0,15&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|1:|0|5|10|15&chf=bg,s,EFEFEF&chtt=站点去年当月分布情况&chco=00ff00&chts=0000FF,20&chg=5,20&chd=t:3,6,5,3,7,5,3,6,2,7,5,8,4,2,6,4,7,7,4,5,7,8,9,5,5,3,6,2,8,2");
                 pictureBox6.Load("http://chart.apis.google.com/chart?cht=bvs&chs=836x250&chds=0,15&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|1:|0|5|10|15&chf=bg,s,EFEFEF&chtt=站点上月分布情况&chco=ff0000&chts=0000FF,20&chg=5,20&chd=t:3,6,5,4,4,6,1,4,4,2,3,7,4,5,6,5,7,6,4,5,7,8,6,5,4,3,6,7,9,4");
-                pictureBox7.Load("http://chart.apis.google.com/chart?cht=bvs&chs=836x250&chds=0,10&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|1:|0|100|200|300 &chf=bg,s,EFEFEF&chtt=区去本月分布情况&chco=4d89f9&chts=0000FF,20&chg=5,20&chd=t:3,6,5,3,7,5,3,6,2,7,5,8,4,2,6,4,7,7,4,5,7,8,9,5,5,3,6,2,8,2");
-                pictureBox8.Load("http://chart.apis.google.com/chart?cht=bvg&chs=436x250&chds=0,10&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|1:|0|100|200|300 &chf=bg,s,EFEFEF&chtt=区去本年分布情况&chco=4d89f9,c6d9fd&chts=0000FF,20&chg=5,20&chd=t:6,7,9,4,7,9,6,8,6,5,8,7");
-                pictureBox9.Load("http://chart.apis.google.com/chart?cht=bvg&chs=736x250&chds=0,10&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|1:|0|100|200|300 &chf=bg,s,EFEFEF&chtt=区去本年分布情况&chco=4d89f9,c6d9fd&chts=0000FF,20&chg=5,20&chd=t:6,7,9,4,7,9,6,8,6,5,8,7|4,6,4,3,6,8,9,0,7,6,5,4");
+                pictureBox7.Load("http://chart.apis.google.com/chart?cht=bvs&chs=836x250&chds=0,10&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|1:|0|100|200|300 &chf=bg,s,EFEFEF&chtt=区本月分布情况&chco=4d89f9&chts=0000FF,20&chg=5,20&chd=t:3,6,5,3,7,5,3,6,2,7,5,8,4,2,6,4,7,7,4,5,7,8,9,5,5,3,6,2,8,2");
+                pictureBox8.Load("http://chart.apis.google.com/chart?cht=bvg&chs=436x250&chds=0,10&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|1:|0|100|200|300 &chf=bg,s,EFEFEF&chtt=区本年分布情况&chco=4d89f9,c6d9fd&chts=0000FF,20&chg=5,20&chd=t:6,7,9,4,7,9,6,8,6,5,8,7");
+                pictureBox9.Load("http://chart.apis.google.com/chart?cht=bvg&chs=736x250&chds=0,10&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|1:|0|100|200|300 &chf=bg,s,EFEFEF&chtt=区本年分布情况&chco=4d89f9,c6d9fd&chts=0000FF,20&chg=5,20&chd=t:6,7,9,4,7,9,6,8,6,5,8,7|4,6,4,3,6,8,9,0,7,6,5,4");
             }
             catch
             {
@@ -4496,6 +4496,7 @@ drop table resYear;";
             debugtextbox.Text = chart;
         }
         #endregion
+
         #region  车状态查询
         private void button4_Click(object sender, EventArgs e)
         {
@@ -6328,10 +6329,7 @@ drop table resYear;";
 
         #endregion
 
-        private void button14_Click_1(object sender, EventArgs e)
-        {
 
-        }
 
 
 

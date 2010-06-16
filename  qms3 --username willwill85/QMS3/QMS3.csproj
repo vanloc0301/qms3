@@ -200,6 +200,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="netvibes2-logo-square-webtreats.ico" />
+    <None Include="Resources\logo3.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
