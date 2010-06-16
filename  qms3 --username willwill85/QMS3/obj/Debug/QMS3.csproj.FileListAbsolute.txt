@@ -62,3 +62,16 @@ D:\水晶报表\0615\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.Properties.
 D:\水晶报表\0615\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.csproj.GenerateResource.Cache
 D:\水晶报表\0615\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.exe
 D:\水晶报表\0615\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.pdb
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\back\tmp\QMS3\bin\Debug\QMS3.exe.config
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\back\tmp\QMS3\obj\Debug\QMS3.csproj.ResolveComReference.cache
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\back\tmp\QMS3\obj\Debug\QMS3.exe
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\back\tmp\QMS3\obj\Debug\QMS3.pdb
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\back\tmp\QMS3\bin\Debug\QMS3.exe
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\back\tmp\QMS3\bin\Debug\QMS3.pdb
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\back\tmp\QMS3\bin\Debug\Microsoft.Office.Interop.Excel.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\back\tmp\QMS3\bin\Debug\office.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\back\tmp\QMS3\bin\Debug\Microsoft.Vbe.Interop.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\back\tmp\QMS3\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\back\tmp\QMS3\obj\Debug\QMS3.QmsMain.resources
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\back\tmp\QMS3\obj\Debug\QMS3.Properties.Resources.resources
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\back\tmp\QMS3\obj\Debug\QMS3.csproj.GenerateResource.Cache
