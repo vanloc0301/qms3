@@ -75,3 +75,7 @@ C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\back\tmp
 C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\back\tmp\QMS3\obj\Debug\QMS3.QmsMain.resources
 C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\back\tmp\QMS3\obj\Debug\QMS3.Properties.Resources.resources
 C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\back\tmp\QMS3\obj\Debug\QMS3.csproj.GenerateResource.Cache
+D:\水晶报表\0616.3\ qms3 --username willwill85\QMS3\bin\Debug\QMS3.exe.config
+D:\水晶报表\0616.3\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.csproj.ResolveComReference.cache
+D:\水晶报表\0616.3\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.exe
+D:\水晶报表\0616.3\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.pdb
