@@ -1543,6 +1543,16 @@ begin
 	set @date=substring(@day_str,1,8);
 	declare @boxnum int;
 	set @boxnum=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartStationID=@staid AND StartTime LIKE @day_str GROUP BY StartStationID);
+    if @boxnum>14
+                        begin
+                           delete from res;
+                           insert into res(staname,sumbox,sumboxtail,dateid) values(@stationname,@boxnum,@boxnum,@date);    
+                           select * from res;
+                           drop table res;
+                           return                       
+                        end
+    else
+    begin
     if @boxnum<>0
 	insert into res(staname,sumbox,sumboxtail,dateid) values(@stationname,@boxnum,@boxnum,@date);
     else
@@ -1574,6 +1584,7 @@ begin
     exec(@sqls)
     drop table #t;	
     set @staid=@staid+1;
+    end
 end
 
 select * from res;
@@ -1618,61 +1629,69 @@ drop table res;";
                     return;
                 }
 
-
-
-                //crform_ds.
-                //crform_sqlda = new SqlDataAdapter(sql_starion, sqlcon);
-                //crform_sqlda.Fill(crform_ds, "Station_Table");//得到所有站信息
-
-                //msecs = Process.GetCurrentProcess().TotalProcessorTime.Subtract(ts1).TotalMilliseconds;
-                //MessageBox.Show(msecs.ToString(), "fill", MessageBoxButtons.OK, MessageBoxIcon.None);
-
-                //ts1 = Process.GetCurrentProcess().TotalProcessorTime;//测试cpu时间
-
-
-                DataRow new_row = crform_ds.Tables["Result"].NewRow();
-                //DataTable dt_goods = crform_ds.Tables["Goods_Table"];
-                foreach (DataRow row in dt_goods.Rows)
+                if (Convert.ToInt32(crform_ds.Tables["Goods_Table"].Rows[crform_ds.Tables["Goods_Table"].Rows.Count-1]["SumBox"].ToString()) > 14)
                 {
-                    if (row["DateID"].ToString() == str_cur_day)
-                    {
-                        //new_row["StaName"] = row["staname"].ToString();
-                        //new_row["DateID"] = row["dateid"].ToString().Substring(0, 8);
-                        new_row = row;
-                        crform_ds.Tables["Result"].Rows.Add(new_row.ItemArray);
-                    }
+                    
+                        DataRow temp_row = crform_ds.Tables["Goods_Table"].Rows[crform_ds.Tables["Goods_Table"].Rows.Count - 1];
+                        string temp = "不能生成报表！\n"+temp_row["DateID"].ToString().Substring(3, 2) + "月" + temp_row["DateID"].ToString().Substring(6, 2) + "日“" + temp_row["StaName"].ToString()+"”垃圾楼的单日箱数超过14箱，请检查数据真实性";
+                        MessageBox.Show(temp);
+                        this.Enabled = true;
+                        progressBarMon.Visible = false;
+                        labelProgMon.Text = "";
+                        labelProgMon.Update();
+                        groupBoxReport.Enabled = false;
+                        groupBoxSelect.Enabled = true;
+                        dt_goods.Clear();
+                        crform_ds.Tables.Remove("MyDate");
+                        return;
+                    
                 }
-                DataTable tb_result = crform_ds.Tables["Result"];
-                DataRow total_row = tb_result.NewRow();
-                total_row["StaName"] = "合计";
-
-                int total_box = 0;
-                for (int line_tb_result = first_line; line_tb_result <= first_line + 54; line_tb_result++)//当天的所有记录在Result表中的行数范围，不包括合计
-                    total_box += Convert.ToInt32(tb_result.Rows[line_tb_result][1].ToString());
-                total_row["SumBox"] = total_box;
-
-                //DataTableSQL查询后得到DateSet中的第一个表Goods_Table，处理每天的箱数和重量
-                for (int col_num = 2; col_num <= 16; col_num++)
+                else
                 {
-                    double total_col_weight = 0;
+
+                    DataRow new_row = crform_ds.Tables["Result"].NewRow();
+                    //DataTable dt_goods = crform_ds.Tables["Goods_Table"];
+                    foreach (DataRow row in dt_goods.Rows)
+                    {
+                        if (row["DateID"].ToString() == str_cur_day)
+                        {
+                            //new_row["StaName"] = row["staname"].ToString();
+                            //new_row["DateID"] = row["dateid"].ToString().Substring(0, 8);
+                            new_row = row;
+                            crform_ds.Tables["Result"].Rows.Add(new_row.ItemArray);
+                        }
+                    }
+                    DataTable tb_result = crform_ds.Tables["Result"];
+                    DataRow total_row = tb_result.NewRow();
+                    total_row["StaName"] = "合计";
+
+                    int total_box = 0;
                     for (int line_tb_result = first_line; line_tb_result <= first_line + 54; line_tb_result++)//当天的所有记录在Result表中的行数范围，不包括合计
+                        total_box += Convert.ToInt32(tb_result.Rows[line_tb_result][1].ToString());
+                    total_row["SumBox"] = total_box;
+
+                    //DataTableSQL查询后得到DateSet中的第一个表Goods_Table，处理每天的箱数和重量
+                    for (int col_num = 2; col_num <= 16; col_num++)
                     {
-                        string weight_str = tb_result.Rows[line_tb_result][col_num].ToString();
-                        if (weight_str != "")
-                            total_col_weight += Convert.ToDouble(weight_str);
+                        double total_col_weight = 0;
+                        for (int line_tb_result = first_line; line_tb_result <= first_line + 54; line_tb_result++)//当天的所有记录在Result表中的行数范围，不包括合计
+                        {
+                            string weight_str = tb_result.Rows[line_tb_result][col_num].ToString();
+                            if (weight_str != "")
+                                total_col_weight += Convert.ToDouble(weight_str);
+
+                        }
+                        ///////////if (total_col_weight != 0)//0不显示
+                        total_row[col_num] = total_col_weight;
 
                     }
-                    ///////////if (total_col_weight != 0)//0不显示
-                    total_row[col_num] = total_col_weight;
-
+                    total_row["SumBoxTail"] = total_box;
+                    total_row["DateID"] = crform_ds.Tables["Result"].Rows[crform_ds.Tables["Result"].Rows.Count - 1]["DateID"].ToString();
+                    DataRow mdRow = crform_ds.Tables["MyDate"].Rows[cur_day - 1];
+                    mdRow["TotalBox"] = total_box;
+                    mdRow["TotalWeight"] = total_row["SumWeight"];
+                    crform_ds.Tables["Result"].Rows.Add(total_row);
                 }
-                total_row["SumBoxTail"] = total_box;
-                total_row["DateID"] = crform_ds.Tables["Result"].Rows[crform_ds.Tables["Result"].Rows.Count - 1]["DateID"].ToString();
-                DataRow mdRow = crform_ds.Tables["MyDate"].Rows[cur_day - 1];
-                mdRow["TotalBox"] = total_box;
-                mdRow["TotalWeight"] = total_row["SumWeight"];
-                crform_ds.Tables["Result"].Rows.Add(total_row);
-
 
 
             }
@@ -1819,6 +1838,16 @@ else
 	                    set @date=substring(@day_str,1,8);
 	                    declare @boxnum int;
 	                    set @boxnum=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartStationID=@staid AND StartTime LIKE @day_str GROUP BY StartStationID);
+                        if @boxnum>14
+                        begin
+                           delete from res;
+                           insert into res(staname,sumbox,sumboxtail,dateid) values(@stationname,@boxnum,@boxnum,@date);    
+                           select * from res;
+                           drop table res;
+                           return                       
+                        end
+                        else
+                        begin
                         if @boxnum<>0
 	                    insert into res(staname,sumbox,sumboxtail,dateid) values(@stationname,@boxnum,@boxnum,@date);
                         else
@@ -1850,6 +1879,7 @@ else
                         exec(@sqls)
                         drop table #t;	
                         set @staid=@staid+1;
+                        end
                     end
 
                     select * from res;
@@ -1891,70 +1921,90 @@ else
                     return;
 
                 }
-                progressBarMon.Value = 70;
-                progressBarMon.Update();
-                labelProgMon.Text = "处理中...";
-                labelProgMon.Update();
-                this.Update();
 
-                //crform_sqlda = new SqlDataAdapter(sql_starion, sqlcon);
-                //crform_sqlda.Fill(crform_ds, "Station_Table");//得到所有站信息
+                if (Convert.ToInt32(crform_ds.Tables["Goods_Table"].Rows[crform_ds.Tables["Goods_Table"].Rows.Count - 1]["SumBox"].ToString()) > 14)
+                {
 
-                //msecs = Process.GetCurrentProcess().TotalProcessorTime.Subtract(ts1).TotalMilliseconds;
-                //MessageBox.Show(msecs.ToString(), "fill", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    DataRow temp_row = crform_ds.Tables["Goods_Table"].Rows[crform_ds.Tables["Goods_Table"].Rows.Count - 1];
+                    string temp = "不能生成报表！\n" + temp_row["DateID"].ToString().Substring(3, 2) + "月" + temp_row["DateID"].ToString().Substring(6, 2) + "日“" + temp_row["StaName"].ToString() + "”垃圾楼的单日箱数超过14箱，请检查数据真实性";
+                    MessageBox.Show(temp);
+                    this.Enabled = true;
+                    progressBarMon.Visible = false;
+                    labelProgMon.Text = "";
+                    labelProgMon.Update();
+                    groupBoxReport.Enabled = false;
+                    groupBoxSelect.Enabled = true;
+                    dt_goods.Clear();
+                    crform_ds.Tables.Remove("MyDate");
+                    return;
 
-                //ts1 = Process.GetCurrentProcess().TotalProcessorTime;//测试cpu时间
-
-                int first_line = 0;//当天在Result表中第一行
-                string str_cur_day = day_int.ToString();
-                if (day_int < 10)
-                    str_cur_day = sql_startTime + "0" + str_cur_day;
+                }
                 else
-                    str_cur_day = sql_startTime + str_cur_day;
-                DataRow new_row = crform_ds.Tables["Result"].NewRow();
-                //DataTable dt_goods = crform_ds.Tables["Goods_Table"];
-                foreach (DataRow row in dt_goods.Rows)
                 {
-                    if (row["DateID"].ToString() == str_cur_day)
+                    progressBarMon.Value = 70;
+                    progressBarMon.Update();
+                    labelProgMon.Text = "处理中...";
+                    labelProgMon.Update();
+                    this.Update();
+
+                    //crform_sqlda = new SqlDataAdapter(sql_starion, sqlcon);
+                    //crform_sqlda.Fill(crform_ds, "Station_Table");//得到所有站信息
+
+                    //msecs = Process.GetCurrentProcess().TotalProcessorTime.Subtract(ts1).TotalMilliseconds;
+                    //MessageBox.Show(msecs.ToString(), "fill", MessageBoxButtons.OK, MessageBoxIcon.None);
+
+                    //ts1 = Process.GetCurrentProcess().TotalProcessorTime;//测试cpu时间
+
+                    int first_line = 0;//当天在Result表中第一行
+                    string str_cur_day = day_int.ToString();
+                    if (day_int < 10)
+                        str_cur_day = sql_startTime + "0" + str_cur_day;
+                    else
+                        str_cur_day = sql_startTime + str_cur_day;
+                    DataRow new_row = crform_ds.Tables["Result"].NewRow();
+                    //DataTable dt_goods = crform_ds.Tables["Goods_Table"];
+                    foreach (DataRow row in dt_goods.Rows)
                     {
-                        //new_row["StaName"] = row["staname"].ToString();
-                        //new_row["DateID"] = row["dateid"].ToString().Substring(0, 8);
-                        new_row = row;
-                        crform_ds.Tables["Result"].Rows.Add(new_row.ItemArray);
+                        if (row["DateID"].ToString() == str_cur_day)
+                        {
+                            //new_row["StaName"] = row["staname"].ToString();
+                            //new_row["DateID"] = row["dateid"].ToString().Substring(0, 8);
+                            new_row = row;
+                            crform_ds.Tables["Result"].Rows.Add(new_row.ItemArray);
+                        }
                     }
-                }
-                DataTable tb_result = crform_ds.Tables["Result"];
-                DataRow total_row = tb_result.NewRow();
-                total_row["StaName"] = "合计";
+                    DataTable tb_result = crform_ds.Tables["Result"];
+                    DataRow total_row = tb_result.NewRow();
+                    total_row["StaName"] = "合计";
 
-                int total_box = 0;
-                for (int line_tb_result = first_line; line_tb_result <= first_line + 54; line_tb_result++)//当天的所有记录在Result表中的行数范围，不包括合计
-                    total_box += Convert.ToInt32(tb_result.Rows[line_tb_result][1].ToString());
-                total_row["SumBox"] = total_box;
-
-
-                //DataTableSQL查询后得到DateSet中的第一个表Goods_Table，处理每天的箱数和重量
-                for (int col_num = 2; col_num <= 16; col_num++)
-                {
-                    double total_col_weight = 0;
+                    int total_box = 0;
                     for (int line_tb_result = first_line; line_tb_result <= first_line + 54; line_tb_result++)//当天的所有记录在Result表中的行数范围，不包括合计
+                        total_box += Convert.ToInt32(tb_result.Rows[line_tb_result][1].ToString());
+                    total_row["SumBox"] = total_box;
+
+
+                    //DataTableSQL查询后得到DateSet中的第一个表Goods_Table，处理每天的箱数和重量
+                    for (int col_num = 2; col_num <= 16; col_num++)
                     {
-                        string weight_str = tb_result.Rows[line_tb_result][col_num].ToString();
-                        if (weight_str != "")
-                            total_col_weight += Convert.ToDouble(weight_str);
+                        double total_col_weight = 0;
+                        for (int line_tb_result = first_line; line_tb_result <= first_line + 54; line_tb_result++)//当天的所有记录在Result表中的行数范围，不包括合计
+                        {
+                            string weight_str = tb_result.Rows[line_tb_result][col_num].ToString();
+                            if (weight_str != "")
+                                total_col_weight += Convert.ToDouble(weight_str);
+
+                        }
+                        /////////if (total_col_weight != 0)//0不显示
+                        total_row[col_num] = total_col_weight;
 
                     }
-                    /////////if (total_col_weight != 0)//0不显示
-                    total_row[col_num] = total_col_weight;
+                    total_row["SumBoxTail"] = total_box;
+                    total_row["DateID"] = crform_ds.Tables["Result"].Rows[crform_ds.Tables["Result"].Rows.Count - 1]["DateID"].ToString();
+                    crform_ds.Tables["Result"].Rows.Add(total_row);
+                    //msecs = Process.GetCurrentProcess().TotalProcessorTime.Subtract(ts1).TotalMilliseconds;
+                    //MessageBox.Show(msecs.ToString(), "process", MessageBoxButtons.OK, MessageBoxIcon.None);
 
                 }
-                total_row["SumBoxTail"] = total_box;
-                total_row["DateID"] = crform_ds.Tables["Result"].Rows[crform_ds.Tables["Result"].Rows.Count - 1]["DateID"].ToString();
-                crform_ds.Tables["Result"].Rows.Add(total_row);
-                //msecs = Process.GetCurrentProcess().TotalProcessorTime.Subtract(ts1).TotalMilliseconds;
-                //MessageBox.Show(msecs.ToString(), "process", MessageBoxButtons.OK, MessageBoxIcon.None);
-
-                
                 flag_day = true;
             }
         }
@@ -3143,7 +3193,7 @@ else
                 MessageBox.Show("请选择要查看表的年份", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
             }
         }
-        private void backgroundWorkerYearOp_DoWork(object sender, DoWorkEventArgs e)
+        private void backgroundWorkerYearOp_DoWork(object sender, DoWorkEventArgs e)//生成年表
         {
         
             this.Enabled = false;
@@ -3382,7 +3432,7 @@ drop table resYear;";
             //MessageBox.Show("请选择", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
             this.Enabled = true;
         }
-        private void toolStripButtonYearExl_Click(object sender, EventArgs e)
+        private void toolStripButtonYearExl_Click(object sender, EventArgs e)//生成excel
         {
             if (dataGridViewMon.Rows.Count >= 1)
             {

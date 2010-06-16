@@ -43,8 +43,6 @@ namespace QMS3 {
         
         private Result_t0DataTable tableResult_t0;
         
-        private YearOutputDataTable tableYearOutput;
-        
         private global::System.Data.DataRelation relationStation_Table_Goods_Table;
         
         private global::System.Data.DataRelation relationMyDate_Result;
@@ -101,9 +99,6 @@ namespace QMS3 {
                 }
                 if ((ds.Tables["Result_t0"] != null)) {
                     base.Tables.Add(new Result_t0DataTable(ds.Tables["Result_t0"]));
-                }
-                if ((ds.Tables["YearOutput"] != null)) {
-                    base.Tables.Add(new YearOutputDataTable(ds.Tables["YearOutput"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -205,15 +200,6 @@ namespace QMS3 {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public YearOutputDataTable YearOutput {
-            get {
-                return this.tableYearOutput;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -299,9 +285,6 @@ namespace QMS3 {
                 if ((ds.Tables["Result_t0"] != null)) {
                     base.Tables.Add(new Result_t0DataTable(ds.Tables["Result_t0"]));
                 }
-                if ((ds.Tables["YearOutput"] != null)) {
-                    base.Tables.Add(new YearOutputDataTable(ds.Tables["YearOutput"]));
-                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -386,12 +369,6 @@ namespace QMS3 {
                     this.tableResult_t0.InitVars();
                 }
             }
-            this.tableYearOutput = ((YearOutputDataTable)(base.Tables["YearOutput"]));
-            if ((initTable == true)) {
-                if ((this.tableYearOutput != null)) {
-                    this.tableYearOutput.InitVars();
-                }
-            }
             this.relationStation_Table_Goods_Table = this.Relations["Station_Table_Goods_Table"];
             this.relationMyDate_Result = this.Relations["MyDate_Result"];
         }
@@ -421,8 +398,6 @@ namespace QMS3 {
             base.Tables.Add(this.tableTemp_Result);
             this.tableResult_t0 = new Result_t0DataTable();
             base.Tables.Add(this.tableResult_t0);
-            this.tableYearOutput = new YearOutputDataTable();
-            base.Tables.Add(this.tableYearOutput);
             this.relationStation_Table_Goods_Table = new global::System.Data.DataRelation("Station_Table_Goods_Table", new global::System.Data.DataColumn[] {
                         this.tableStation_Table.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableGoods_Table.IDColumn}, false);
@@ -475,11 +450,6 @@ namespace QMS3 {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private bool ShouldSerializeResult_t0() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        private bool ShouldSerializeYearOutput() {
             return false;
         }
         
@@ -553,8 +523,6 @@ namespace QMS3 {
         public delegate void Temp_ResultRowChangeEventHandler(object sender, Temp_ResultRowChangeEvent e);
         
         public delegate void Result_t0RowChangeEventHandler(object sender, Result_t0RowChangeEvent e);
-        
-        public delegate void YearOutputRowChangeEventHandler(object sender, YearOutputRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -3256,268 +3224,6 @@ namespace QMS3 {
         }
         
         /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class YearOutputDataTable : global::System.Data.TypedTableBase<YearOutputRow> {
-            
-            private global::System.Data.DataColumn columnMonName;
-            
-            private global::System.Data.DataColumn columnSumMonBox;
-            
-            private global::System.Data.DataColumn columnSumMonWeight;
-            
-            private global::System.Data.DataColumn columnDateMonID;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public YearOutputDataTable() {
-                this.TableName = "YearOutput";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal YearOutputDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected YearOutputDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn MonNameColumn {
-                get {
-                    return this.columnMonName;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn SumMonBoxColumn {
-                get {
-                    return this.columnSumMonBox;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn SumMonWeightColumn {
-                get {
-                    return this.columnSumMonWeight;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataColumn DateMonIDColumn {
-                get {
-                    return this.columnDateMonID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public YearOutputRow this[int index] {
-                get {
-                    return ((YearOutputRow)(this.Rows[index]));
-                }
-            }
-            
-            public event YearOutputRowChangeEventHandler YearOutputRowChanging;
-            
-            public event YearOutputRowChangeEventHandler YearOutputRowChanged;
-            
-            public event YearOutputRowChangeEventHandler YearOutputRowDeleting;
-            
-            public event YearOutputRowChangeEventHandler YearOutputRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void AddYearOutputRow(YearOutputRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public YearOutputRow AddYearOutputRow(string MonName, int SumMonBox, double SumMonWeight, string DateMonID) {
-                YearOutputRow rowYearOutputRow = ((YearOutputRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        MonName,
-                        SumMonBox,
-                        SumMonWeight,
-                        DateMonID};
-                rowYearOutputRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowYearOutputRow);
-                return rowYearOutputRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public override global::System.Data.DataTable Clone() {
-                YearOutputDataTable cln = ((YearOutputDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new YearOutputDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal void InitVars() {
-                this.columnMonName = base.Columns["MonName"];
-                this.columnSumMonBox = base.Columns["SumMonBox"];
-                this.columnSumMonWeight = base.Columns["SumMonWeight"];
-                this.columnDateMonID = base.Columns["DateMonID"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            private void InitClass() {
-                this.columnMonName = new global::System.Data.DataColumn("MonName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMonName);
-                this.columnSumMonBox = new global::System.Data.DataColumn("SumMonBox", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSumMonBox);
-                this.columnSumMonWeight = new global::System.Data.DataColumn("SumMonWeight", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSumMonWeight);
-                this.columnDateMonID = new global::System.Data.DataColumn("DateMonID", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDateMonID);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public YearOutputRow NewYearOutputRow() {
-                return ((YearOutputRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new YearOutputRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override global::System.Type GetRowType() {
-                return typeof(YearOutputRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.YearOutputRowChanged != null)) {
-                    this.YearOutputRowChanged(this, new YearOutputRowChangeEvent(((YearOutputRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.YearOutputRowChanging != null)) {
-                    this.YearOutputRowChanging(this, new YearOutputRowChangeEvent(((YearOutputRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.YearOutputRowDeleted != null)) {
-                    this.YearOutputRowDeleted(this, new YearOutputRowChangeEvent(((YearOutputRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.YearOutputRowDeleting != null)) {
-                    this.YearOutputRowDeleting(this, new YearOutputRowChangeEvent(((YearOutputRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void RemoveYearOutputRow(YearOutputRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DataSet1 ds = new DataSet1();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "YearOutputDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -5113,121 +4819,6 @@ namespace QMS3 {
         }
         
         /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        public partial class YearOutputRow : global::System.Data.DataRow {
-            
-            private YearOutputDataTable tableYearOutput;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            internal YearOutputRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableYearOutput = ((YearOutputDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string MonName {
-                get {
-                    try {
-                        return ((string)(this[this.tableYearOutput.MonNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“YearOutput”中列“MonName”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tableYearOutput.MonNameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public int SumMonBox {
-                get {
-                    try {
-                        return ((int)(this[this.tableYearOutput.SumMonBoxColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“YearOutput”中列“SumMonBox”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tableYearOutput.SumMonBoxColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public double SumMonWeight {
-                get {
-                    try {
-                        return ((double)(this[this.tableYearOutput.SumMonWeightColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“YearOutput”中列“SumMonWeight”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tableYearOutput.SumMonWeightColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public string DateMonID {
-                get {
-                    try {
-                        return ((string)(this[this.tableYearOutput.DateMonIDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("表“YearOutput”中列“DateMonID”的值为 DBNull。", e);
-                    }
-                }
-                set {
-                    this[this.tableYearOutput.DateMonIDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsMonNameNull() {
-                return this.IsNull(this.tableYearOutput.MonNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetMonNameNull() {
-                this[this.tableYearOutput.MonNameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsSumMonBoxNull() {
-                return this.IsNull(this.tableYearOutput.SumMonBoxColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetSumMonBoxNull() {
-                this[this.tableYearOutput.SumMonBoxColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsSumMonWeightNull() {
-                return this.IsNull(this.tableYearOutput.SumMonWeightColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetSumMonWeightNull() {
-                this[this.tableYearOutput.SumMonWeightColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public bool IsDateMonIDNull() {
-                return this.IsNull(this.tableYearOutput.DateMonIDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public void SetDateMonIDNull() {
-                this[this.tableYearOutput.DateMonIDColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -5493,37 +5084,6 @@ namespace QMS3 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public Result_t0Row Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
-        public class YearOutputRowChangeEvent : global::System.EventArgs {
-            
-            private YearOutputRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public YearOutputRowChangeEvent(YearOutputRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            public YearOutputRow Row {
                 get {
                     return this.eventRow;
                 }
