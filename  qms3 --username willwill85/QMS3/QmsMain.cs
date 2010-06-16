@@ -5070,6 +5070,7 @@ drop table resYear;";
         #region 写司机卡进程
         private void bgwWriteDCard_DoWork(object sender, DoWorkEventArgs e)
         {
+            btnSendDCard.Enabled = false;
             #region 写卡
             /* ***********************************************************************************
              *                                                                                   *
@@ -5213,6 +5214,8 @@ drop table resYear;";
         {
             gBoxCinfo.Cursor = System.Windows.Forms.Cursors.Arrow;
             gBoxOperate.Cursor = System.Windows.Forms.Cursors.Arrow;
+
+            btnSendDCard.Enabled = true;
 
             ResetDCardSent_All();
 
@@ -5905,6 +5908,7 @@ drop table resYear;";
         #region 写箱卡进程
         private void bgwWriteBCard_DoWork(object sender, DoWorkEventArgs e)
         {
+            btnSendBCard.Enabled = false;
 
             #region 写卡
             /* ***********************************************************************************
@@ -6064,7 +6068,8 @@ drop table resYear;";
             gBoxBCinfo.Cursor = System.Windows.Forms.Cursors.Arrow;
             gBoxBOperate.Cursor = System.Windows.Forms.Cursors.Arrow;
 
-            //ResetDCardSent_All();
+            btnSendBCard.Enabled = true;
+            ResetBCardSent_All();
 
             //调试用
             txtBCNo.Text = txtBCStatus.Text = "";
