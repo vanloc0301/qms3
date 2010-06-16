@@ -57,14 +57,20 @@ namespace QMS3
             MainTab.ItemSize = new Size(1, 1);
             treeView1.Nodes.Clear();
             #region just for demo
-            pictureBox3.Load("http://chart.apis.google.com/chart?cht=p&chd=t:5,10,85&chs=500x300&chtt=%E6%AD%A3%E5%B8%B8%E5%92%8C%E8%B6%85%E6%97%B6%E6%AF%94%E4%BE%8B");
-            pictureBox4.Load("http://chart.apis.google.com/chart?cht=bvs&chs=836x250&chds=0,15&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|1:|0|5|10|15&chf=bg,s,EFEFEF&chtt=站点当月分布情况&chco=4d89f9&chts=0000FF,20&chg=5,20&chd=t:3,6,5,4,7,9,3,6,4,7,4,8,4,5,6,8,7,6,4,5,7,8,9,5,4,3,6,7,8,9");
-            pictureBox5.Load("http://chart.apis.google.com/chart?cht=bvs&chs=836x250&chds=0,15&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|1:|0|5|10|15&chf=bg,s,EFEFEF&chtt=站点去年当月分布情况&chco=00ff00&chts=0000FF,20&chg=5,20&chd=t:3,6,5,3,7,5,3,6,2,7,5,8,4,2,6,4,7,7,4,5,7,8,9,5,5,3,6,2,8,2");
-            pictureBox6.Load("http://chart.apis.google.com/chart?cht=bvs&chs=836x250&chds=0,15&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|1:|0|5|10|15&chf=bg,s,EFEFEF&chtt=站点上月分布情况&chco=ff0000&chts=0000FF,20&chg=5,20&chd=t:3,6,5,4,4,6,1,4,4,2,3,7,4,5,6,5,7,6,4,5,7,8,6,5,4,3,6,7,9,4");
-            pictureBox7.Load("http://chart.apis.google.com/chart?cht=bvs&chs=836x250&chds=0,10&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|1:|0|100|200|300 &chf=bg,s,EFEFEF&chtt=区去本月分布情况&chco=4d89f9&chts=0000FF,20&chg=5,20&chd=t:3,6,5,3,7,5,3,6,2,7,5,8,4,2,6,4,7,7,4,5,7,8,9,5,5,3,6,2,8,2");
-            pictureBox8.Load("http://chart.apis.google.com/chart?cht=bvg&chs=436x250&chds=0,10&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|1:|0|100|200|300 &chf=bg,s,EFEFEF&chtt=区去本年分布情况&chco=4d89f9,c6d9fd&chts=0000FF,20&chg=5,20&chd=t:6,7,9,4,7,9,6,8,6,5,8,7");
-            pictureBox9.Load("http://chart.apis.google.com/chart?cht=bvg&chs=736x250&chds=0,10&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|1:|0|100|200|300 &chf=bg,s,EFEFEF&chtt=区去本年分布情况&chco=4d89f9,c6d9fd&chts=0000FF,20&chg=5,20&chd=t:6,7,9,4,7,9,6,8,6,5,8,7|4,6,4,3,6,8,9,0,7,6,5,4");
-            
+            try
+            {
+                pictureBox3.Load("http://chart.apis.google.com/chart?cht=p&chd=t:5,10,85&chs=500x300&chtt=%E6%AD%A3%E5%B8%B8%E5%92%8C%E8%B6%85%E6%97%B6%E6%AF%94%E4%BE%8B");
+                pictureBox4.Load("http://chart.apis.google.com/chart?cht=bvs&chs=836x250&chds=0,15&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|1:|0|5|10|15&chf=bg,s,EFEFEF&chtt=站点当月分布情况&chco=4d89f9&chts=0000FF,20&chg=5,20&chd=t:3,6,5,4,7,9,3,6,4,7,4,8,4,5,6,8,7,6,4,5,7,8,9,5,4,3,6,7,8,9");
+                pictureBox5.Load("http://chart.apis.google.com/chart?cht=bvs&chs=836x250&chds=0,15&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|1:|0|5|10|15&chf=bg,s,EFEFEF&chtt=站点去年当月分布情况&chco=00ff00&chts=0000FF,20&chg=5,20&chd=t:3,6,5,3,7,5,3,6,2,7,5,8,4,2,6,4,7,7,4,5,7,8,9,5,5,3,6,2,8,2");
+                pictureBox6.Load("http://chart.apis.google.com/chart?cht=bvs&chs=836x250&chds=0,15&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|1:|0|5|10|15&chf=bg,s,EFEFEF&chtt=站点上月分布情况&chco=ff0000&chts=0000FF,20&chg=5,20&chd=t:3,6,5,4,4,6,1,4,4,2,3,7,4,5,6,5,7,6,4,5,7,8,6,5,4,3,6,7,9,4");
+                pictureBox7.Load("http://chart.apis.google.com/chart?cht=bvs&chs=836x250&chds=0,10&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|1:|0|100|200|300 &chf=bg,s,EFEFEF&chtt=区去本月分布情况&chco=4d89f9&chts=0000FF,20&chg=5,20&chd=t:3,6,5,3,7,5,3,6,2,7,5,8,4,2,6,4,7,7,4,5,7,8,9,5,5,3,6,2,8,2");
+                pictureBox8.Load("http://chart.apis.google.com/chart?cht=bvg&chs=436x250&chds=0,10&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|1:|0|100|200|300 &chf=bg,s,EFEFEF&chtt=区去本年分布情况&chco=4d89f9,c6d9fd&chts=0000FF,20&chg=5,20&chd=t:6,7,9,4,7,9,6,8,6,5,8,7");
+                pictureBox9.Load("http://chart.apis.google.com/chart?cht=bvg&chs=736x250&chds=0,10&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|1:|0|100|200|300 &chf=bg,s,EFEFEF&chtt=区去本年分布情况&chco=4d89f9,c6d9fd&chts=0000FF,20&chg=5,20&chd=t:6,7,9,4,7,9,6,8,6,5,8,7|4,6,4,3,6,8,9,0,7,6,5,4");
+            }
+            catch
+            {
+ 
+            }
             #endregion
         }
 
@@ -3953,16 +3959,16 @@ drop table resYear;";
             if (TransCenter.readinfo(ref info, textBox1.Text, ref Starttime, ref StartStation))
             {
                 //this.myadapter.UpdateCommand = new SqlCommand(" UPDATE [dbo.Goods] SET [State] = @State, [Weight] = @Weight WHERE (BoxCardID = @BoxCardID) AND (TruckNo = @TruckNo) AND (StartTime = @StartTime) AND (StartStationID = @StartStationID)");
-                int count=0;
+                int count = 0;
                 //MessageBox.Show("OK");
-                try 
+                try
                 {
-                    count=int.Parse(this.dbo_GoodsTableAdapter.ScalarQueryNumofGoods(Starttime," "+TransCenter.TruckNo).ToString());
+                    count = int.Parse(this.dbo_GoodsTableAdapter.ScalarQueryNumofGoods(Starttime, " " + TransCenter.TruckNo).ToString());
                     debugtextbox.Text += "========== " + count.ToString() + "==========";
-                    if(count<1)
+                    if (count < 1)
                     {
-                        MessageBox.Show("远程垃圾站"+TransCenter.StationName[TransCenter.startstationid]+"网络可能出错,本条记录会添加到数据库中,但请检查垃圾站的网络是否正常！");
-                        this.dbo_GoodsTableAdapter.InsertQuerya(TransCenter.ToHexString(TransCenter.TagBuffer).Substring(2, 6), " "+TransCenter.TruckNo, Starttime, TransCenter.sEndTime,-1, double.Parse(textBox1.Text), TransCenter.startstationid);
+                        MessageBox.Show("远程垃圾站" + TransCenter.StationName[TransCenter.startstationid - 31] + "网络可能出错,本条记录会添加到数据库中,但请检查垃圾站的网络是否正常！");
+                        this.dbo_GoodsTableAdapter.InsertQuerya(TransCenter.ToHexString(TransCenter.TagBuffer).Substring(2, 6), " " + TransCenter.TruckNo, Starttime, TransCenter.sEndTime, -1, double.Parse(textBox1.Text), TransCenter.startstationid);
                         listBox1.Items.Add(info);
                     }
 
@@ -3976,7 +3982,7 @@ drop table resYear;";
                 {
                     if (count == 1)
                     {
-                        this.dbo_GoodsTableAdapter.UpdateGoodsByTime(1, double.Parse(textBox1.Text), TransCenter.sEndTime, Starttime, StartStation, TransCenter.TruckNo);
+                        this.dbo_GoodsTableAdapter.UpdateGoodsByTime(1, double.Parse(textBox1.Text), TransCenter.sEndTime, Starttime, StartStation, " " + TransCenter.TruckNo);
                         listBox1.Items.Add(info);
                     }
                 }
@@ -4004,7 +4010,7 @@ drop table resYear;";
         {
             try
             {
-                this.dbo_GoodsTableAdapter.UpdateGoodsByEndTime(2, double.Parse(textBox13.Text), textBox14.Text,textBox16.Text);
+                this.dbo_GoodsTableAdapter.UpdateGoodsByEndTime(2, double.Parse(textBox13.Text), textBox14.Text, textBox16.Text);
                 textBox17.Text = "";
                 textBox16.Text = "";
                 textBox15.Text = "";
@@ -4044,7 +4050,7 @@ drop table resYear;";
         {
             try
             {
-                this.dbo_GoodsTableAdapter.DeleteByEndTime(textBox14.Text,textBox16.Text);
+                this.dbo_GoodsTableAdapter.DeleteByEndTime(textBox14.Text, textBox16.Text);
                 textBox2.Text = "";
                 textBox3.Text = "";
                 textBox4.Text = "";
@@ -4082,13 +4088,17 @@ drop table resYear;";
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            textBox17.Text = dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString();
-            textBox16.Text = dataGridView2.Rows[e.RowIndex].Cells[2].Value.ToString();
-            textBox15.Text = dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString();
-            textBox14.Text = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString();
-            textBox13.Text = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString();
-            
-           
+            try
+            {
+                textBox17.Text = dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString();
+                textBox16.Text = dataGridView2.Rows[e.RowIndex].Cells[2].Value.ToString();
+                textBox15.Text = dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString();
+                textBox14.Text = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString();
+                textBox13.Text = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString();
+            }
+            catch
+            { }
+
         }
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -4144,7 +4154,7 @@ drop table resYear;";
             {
                 TBright.Text = "0";
             }
-            
+
         }
 
         private void BnAddUser_Click(object sender, EventArgs e)
@@ -4154,7 +4164,7 @@ drop table resYear;";
                 MessageBox.Show("用户名不能为空！");
                 return;
             }
-            if(TBright.Text.Length==0)
+            if (TBright.Text.Length == 0)
             {
                 MessageBox.Show("权限不能为空！");
                 return;
@@ -4400,7 +4410,11 @@ drop table resYear;";
             debugtextbox.Text += "    " + Dayreport;
             progressBar1.Visible = false;
             pictureBox2.ImageLocation = Dayreport;
-            pictureBox2.Load();
+            try
+            {
+                pictureBox2.Load();
+            }
+            catch { }
         }
 
         void showDayImagereport_ProgressChanged(Object sender, ProgressChangedEventArgs e)
@@ -4410,6 +4424,178 @@ drop table resYear;";
 
         }
         #endregion
+
+        #region 垃圾楼
+        private void button16_Click(object sender, EventArgs e)//车查询
+        {
+
+            int stationid = comboBox5.SelectedIndex + 31;
+            if (stationid < 0)
+            {
+                MessageBox.Show("不存在该楼！");
+                return;
+            }
+
+            string sttime = dateTimePicker4.Value.ToString("yy-MM-dd");
+            string strSQL = "SELECT			[db_rfidtest].[rfidtest].[dbo.Goods].[TruckNo] AS '运输车号' , " +
+               " [db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] AS '开始时间' ,  " +
+                "[db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] AS '结束时间' ,  " +
+                "[db_rfidtest].[rfidtest].[dbo.Goods].[Weight] AS '重量(单位:吨)'" +
+                "FROM [dbo.Goods] " +
+                "WHERE (StartTime Like '" + sttime + "%') AND (StartStationID=" + stationid.ToString() + ")";
+
+            string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
+
+            try
+            {
+                debugtextbox.Text = strSQL;
+                ds = boperate.getds(strSQL, strTable);
+            }
+            catch
+            {
+                MessageBox.Show("网络连接失败！请稍后重试");
+                //showDayreport.CancelAsync();
+            }
+            //DataSet中的SQL查询结果放入DataGridView中
+            dataGridView11.DataSource = ds.Tables[0];
+            int rowsnum = dataGridView11.Rows.Count;
+            string chart = "http://chart.apis.google.com/chart?cht=lxy&chs=800x30&chxt=x,y&chxl=0:|5:00|6:00|7:00|8:00|9:00|10:00|11:00|12:00|13:00|14:00|15:00|16:00|17:00|18:00|19:00|20:00|1:|时刻表";
+            string point = "&chm=";
+            string data1 = "&chd=t:";
+            string data2 = "|";
+            int sum = 15 * 60;
+            for (int i = 0; i < rowsnum; i++)
+            {
+                //pictureBox10.Load();
+                if (dataGridView11.Rows[i].Cells[2].Value.ToString().Length == 0)
+                    point += "o,FF0000,0," + i.ToString() + ",10.0|";
+                else
+                    point += "s,00ff00,0," + i.ToString() + ",10.0|";
+                try
+                {
+                    int itsh = int.Parse(dataGridView11.Rows[i].Cells[1].Value.ToString().Substring(9, 2)) - 5;
+                    int itsm = int.Parse(dataGridView11.Rows[i].Cells[1].Value.ToString().Substring(12, 2)) + itsh * 60;
+                    data1 += (itsm * 100 / sum).ToString() + ",";
+                    data2 += "50,";
+                }
+                catch
+                {
+                    MessageBox.Show(dataGridView11.Rows[i].Cells[1].Value.ToString());
+                }
+                ;
+            }
+            chart += point + "o,FF0000,0,4.0,0.0" + data1 + "100" + data2 + "50";
+            try
+            {
+                pictureBox10.Load(chart);
+            }
+            catch
+            {
+
+            }
+            debugtextbox.Text = chart;
+        }
+        #endregion
+        #region  车状态查询
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string sttime = dateTimePicker2.Value.ToString("yy-MM-dd");
+            string strSQL = "SELECT DISTINCT  [db_rfidtest].[rfidtest].[dbo.Station].[Name] AS '起始站点' , " +
+               " [db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] AS '开始时间' ,  " +
+               " [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] AS '结束时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[Weight] AS '重量(单位:吨)'" +
+                " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] ON   " +
+               " [db_rfidtest].[rfidtest].[dbo.Goods].[StartStationID] = [db_rfidtest].[rfidtest].[dbo.Station].[StationID] WHERE (TruckNo = '" + " " + textBox22.Text + "') AND (StartTime LIKE '" + sttime + "%')";
+            string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
+
+            try
+            {
+                ds = boperate.getds(strSQL, strTable);
+            }
+            catch
+            {
+                MessageBox.Show("网络连接失败！请稍后重试");
+                //showDayreport.CancelAsync();
+            }
+            try
+            {
+                dataGridView8.DataSource = ds.Tables[0];
+            }
+            catch
+            {
+            }
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            string sttime = dateTimePicker5.Value.ToString("yy-MM-dd");
+            string strSQL = "SELECT DISTINCT  [db_rfidtest].[rfidtest].[dbo.Station].[Name] AS '起始站点' , " +
+                "[db_rfidtest].[rfidtest].[dbo.Goods].[TruckNo] AS '车牌号' ,  " +
+
+                "[db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] AS '开始时间'" +
+
+                " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] ON  " +
+                "[db_rfidtest].[rfidtest].[dbo.Goods].[StartStationID] = [db_rfidtest].[rfidtest].[dbo.Station].[StationID] " +
+                "WHERE [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] is null AND [db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] LIKE '" + sttime + "%'";
+            string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
+
+            try
+            {
+                ds = boperate.getds(strSQL, strTable);
+            }
+            catch
+            {
+                MessageBox.Show("网络连接失败！请稍后重试");
+                //showDayreport.CancelAsync();
+            }
+            try
+            {
+                dataGridView9.DataSource = ds.Tables[0];
+            }
+            catch
+            {
+            }
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            int numofrow = dataGridView9.RowCount;
+            try
+            {
+                if (dateTimePicker5.Value.ToString("yy-MM-dd") == System.DateTime.Now.ToString("yy-MM-dd"))
+                    for (int i = 0; i < numofrow; i++)
+                    {
+
+                        int itsh = int.Parse(dataGridView9.Rows[i].Cells[2].Value.ToString().Substring(9, 2));
+                        int itsm = int.Parse(dataGridView9.Rows[i].Cells[2].Value.ToString().Substring(12, 2)) + itsh * 60;
+                        int myh = int.Parse(System.DateTime.Now.ToString("yy-MM-dd,HH:mm").Substring(9, 2));
+                        int mym = int.Parse(System.DateTime.Now.ToString("yy-MM-dd,HH:mm").Substring(12, 2)) + myh * 60;
+                        if ((mym - itsm) > (double.Parse(textBox23.Text) * 60))
+                            dataGridView9.Rows[i].DefaultCellStyle.BackColor = Color.Red;
+                        else
+                            dataGridView9.Rows[i].DefaultCellStyle.BackColor = Color.White;
+                    }
+                else
+                {
+                    MessageBox.Show("此标注只对当天有效，其他日期均为超时");
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
+        private void textBox22_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox22.Text.Length < 3)
+                textBox22.Text = "4-N";
+
+            if (textBox22.Text.Substring(0, 3) != "4-N")
+                textBox22.Text = "4-N";
+        }
+
+        #endregion
+
 
 
         //*******************************************************************************
@@ -6128,8 +6314,24 @@ drop table resYear;";
         }
         #endregion
 
+        private void button19_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+ 
+
+
+
 
         #endregion
+
+        private void button14_Click_1(object sender, EventArgs e)
+        {
+
+        }
 
 
 
