@@ -1935,7 +1935,7 @@ else
                     groupBoxReport.Enabled = false;
                     groupBoxSelect.Enabled = true;
                     dt_goods.Clear();
-                    crform_ds.Tables.Remove("MyDate");
+                    //crform_ds.Tables.Remove("MyDate");
                     return;
 
                 }
