@@ -1,0 +1,17 @@
+G:\garbage\Distributor\Distributor\bin\Debug\Distributor.exe
+G:\garbage\Distributor\Distributor\bin\Debug\Distributor.pdb
+G:\garbage\Distributor\Distributor\obj\Debug\ResolveAssemblyReference.cache
+G:\garbage\Distributor\Distributor\obj\Debug\Distributor.Form1.resources
+G:\garbage\Distributor\Distributor\obj\Debug\Distributor.Properties.Resources.resources
+G:\garbage\Distributor\Distributor\obj\Debug\Distributor.csproj.GenerateResource.Cache
+G:\garbage\Distributor\Distributor\obj\Debug\Distributor.exe
+G:\garbage\Distributor\Distributor\obj\Debug\Distributor.pdb
+C:\Documents and Settings\will\桌面\new 环卫\Distributor\Distributor\Distributor\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\will\桌面\new 环卫\Distributor\Distributor\Distributor\obj\Debug\Distributor.Form1.resources
+C:\Documents and Settings\will\桌面\new 环卫\Distributor\Distributor\Distributor\obj\Debug\Distributor.Properties.Resources.resources
+C:\Documents and Settings\will\桌面\new 环卫\Distributor\Distributor\Distributor\obj\Debug\Distributor.csproj.GenerateResource.Cache
+C:\Documents and Settings\will\桌面\new 环卫\Distributor\Distributor\Distributor\obj\Debug\Distributor.exe
+C:\Documents and Settings\will\桌面\new 环卫\Distributor\Distributor\Distributor\bin\Debug\Distributor.exe
+C:\Documents and Settings\will\桌面\new 环卫\Distributor\Distributor\Distributor\bin\Debug\Distributor.pdb
+C:\Documents and Settings\will\桌面\new 环卫\Distributor\Distributor\Distributor\obj\Debug\Distributor.pdb
+C:\Documents and Settings\will\桌面\new 环卫\Distributor\Distributor\Distributor\bin\Debug\System.Data.SqlClient.dll
