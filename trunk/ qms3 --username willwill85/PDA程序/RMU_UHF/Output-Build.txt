@@ -1,0 +1,6 @@
+------ Build started: Project: RMU_UHF, Configuration: Release Any CPU ------
+C:\WINDOWS\Microsoft.NET\Framework\v3.5\Csc.exe /noconfig /nowarn:1701,1702 /nostdlib+ /errorreport:prompt /warn:4 /define:TRACE;WindowsCE /reference:"C:\Program Files\Microsoft.NET\SDK\CompactFramework\v2.0\WindowsCE\mscorlib.dll" /reference:"C:\Program Files\Microsoft.NET\SDK\CompactFramework\v2.0\WindowsCE\System.Data.dll" /reference:"C:\Program Files\Microsoft.NET\SDK\CompactFramework\v2.0\WindowsCE\System.dll" /reference:"C:\Program Files\Microsoft.NET\SDK\CompactFramework\v2.0\WindowsCE\System.Drawing.dll" /reference:"C:\Program Files\Microsoft.NET\SDK\CompactFramework\v2.0\WindowsCE\System.Windows.Forms.dll" /reference:"C:\Program Files\Microsoft.NET\SDK\CompactFramework\v2.0\WindowsCE\System.Xml.dll" /debug:pdbonly /filealign:512 /optimize+ /out:obj\Release\RMU_UHF.exe /resource:obj\Release\RMU_UHF.Form1.resources /resource:obj\Release\RMU_UHF.Properties.Resources.resources /target:winexe Form1.cs Form1.Designer.cs Program.cs Properties\AssemblyInfo.cs Properties\Resources.Designer.cs
+E:\UHF\C#uhf\RMU_UHF\RMU_UHF\Form1.cs(92,38): error CS0839: Argument missing
+
+Compile complete -- 1 errors, 0 warnings
+========== Build: 0 succeeded or up-to-date, 1 failed, 0 skipped ==========

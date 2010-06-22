@@ -1,0 +1,8 @@
+G:\garbage\Distributor\Distributor\obj\Release\ResolveAssemblyReference.cache
+G:\garbage\Distributor\Distributor\obj\Release\Distributor.Form1.resources
+G:\garbage\Distributor\Distributor\obj\Release\Distributor.Properties.Resources.resources
+G:\garbage\Distributor\Distributor\obj\Release\Distributor.csproj.GenerateResource.Cache
+G:\garbage\Distributor\Distributor\bin\Release\Distributor.exe
+G:\garbage\Distributor\Distributor\bin\Release\Distributor.pdb
+G:\garbage\Distributor\Distributor\obj\Release\Distributor.exe
+G:\garbage\Distributor\Distributor\obj\Release\Distributor.pdb
