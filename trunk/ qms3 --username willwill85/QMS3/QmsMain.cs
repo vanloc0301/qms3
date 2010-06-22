@@ -4058,7 +4058,7 @@ drop table resYear;";
                 {
                     if (count == 1)
                     {
-                        this.dbo_GoodsTableAdapter.UpdateGoodsByTime(1, double.Parse(textBox1.Text), TransCenter.sEndTime, Starttime, StartStation, " " + TransCenter.TruckNo);
+                        this.dbo_GoodsTableAdapter.UpdateGoodsByTime(1, double.Parse(textBox1.Text), TransCenter.sEndTime, Starttime, " " + TransCenter.TruckNo);
                         listBox1.Items.Add(info);
                     }
                 }
