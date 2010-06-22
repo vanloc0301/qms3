@@ -158,11 +158,11 @@ namespace QMS3
                 info = "任务已完成！不能重复操作！";
                 return false;
             }
-            else if (sInfoR != MISSION_ING)
-            {
-                MessageBox.Show("任务状态字出错！");
-                info = "任务状态字出错！";
-            }
+            //else if (sInfoR != MISSION_ING)
+            //{
+            //    MessageBox.Show("任务状态字出错！");
+            //    info = "任务状态字出错！";
+            //}
 
             //读取车牌号
             string sCarNum = "";
