@@ -3685,12 +3685,13 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[6].Connection = this.Connection;
             this._commandCollection[6].CommandText = "UPDATE [dbo.Goods]\r\nSET [State] = @State, [Weight] = @Weight\r\nWHERE (EndTime = @E" +
-                "ndTime) AND (TruckNo=@TruckNo)";
+                "ndTime) AND (TruckNo=@TruckNo) AND (StartTime=@StartTime)";
             this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@State", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "State", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Weight", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Weight", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EndTime", global::System.Data.SqlDbType.NChar, 16, global::System.Data.ParameterDirection.Input, 0, 0, "EndTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TruckNo", global::System.Data.SqlDbType.NChar, 16, global::System.Data.ParameterDirection.Input, 0, 0, "TruckNo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._commandCollection[6].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@StartTime", global::System.Data.SqlDbType.NChar, 16, global::System.Data.ParameterDirection.Input, 0, 0, "StartTime", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[7] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[7].Connection = this.Connection;
             this._commandCollection[7].CommandText = "UPDATE [dbo.Goods]\r\nSET [State] = @State, [Weight] = @Weight, [EndTime]=@Endtime\r" +
@@ -4270,7 +4271,7 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateGoodsByEndTime(global::System.Nullable<int> State, global::System.Nullable<double> Weight, string EndTime, string TruckNo) {
+        public virtual int UpdateGoodsByEndTime(global::System.Nullable<int> State, global::System.Nullable<double> Weight, string EndTime, string TruckNo, string StartTime) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[6];
             if ((State.HasValue == true)) {
                 command.Parameters[0].Value = ((int)(State.Value));
@@ -4295,6 +4296,12 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
             }
             else {
                 command.Parameters[3].Value = ((string)(TruckNo));
+            }
+            if ((StartTime == null)) {
+                command.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[4].Value = ((string)(StartTime));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
