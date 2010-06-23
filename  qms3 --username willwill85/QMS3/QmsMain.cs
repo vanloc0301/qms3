@@ -4086,7 +4086,7 @@ drop table resYear;";
         {
             try
             {
-                this.dbo_GoodsTableAdapter.UpdateGoodsByEndTime(2, double.Parse(textBox13.Text), textBox14.Text, textBox16.Text);
+                this.dbo_GoodsTableAdapter.UpdateGoodsByEndTime(2, double.Parse(textBox13.Text), textBox14.Text, textBox16.Text,textBox15.Text);
                 textBox17.Text = "";
                 textBox16.Text = "";
                 textBox15.Text = "";
