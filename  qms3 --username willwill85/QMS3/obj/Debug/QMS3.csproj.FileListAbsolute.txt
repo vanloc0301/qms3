@@ -38,3 +38,30 @@ C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms31\QM
 C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms31\QMS3\bin\Debug\zh-CN\CrystalDecisions.Windows.Forms.resources.dll
 C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms31\QMS3\bin\Debug\zh-CN\CrystalDecisions.Shared.resources.dll
 C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms31\QMS3\bin\Debug\zh-CN\CrystalDecisions.ReportSource.resources.dll
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\QMS3.exe.config
+D:\新建文件夹\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.csproj.ResolveComReference.cache
+D:\新建文件夹\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.exe
+D:\新建文件夹\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.pdb
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\QMS3.exe
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\QMS3.pdb
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Enterprise.Framework.dll
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Enterprise.InfoStore.dll
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.ReportSource.dll
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Shared.dll
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Windows.Forms.dll
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\Microsoft.Office.Interop.Excel.dll
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\office.dll
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\Microsoft.Vbe.Interop.dll
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.CrystalReports.Engine.xml
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Windows.Forms.xml
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Shared.xml
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.ReportSource.xml
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\zh-CN\CrystalDecisions.CrystalReports.Engine.resources.dll
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\zh-CN\CrystalDecisions.Windows.Forms.resources.dll
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\zh-CN\CrystalDecisions.Shared.resources.dll
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\zh-CN\CrystalDecisions.ReportSource.resources.dll
+D:\新建文件夹\ qms3 --username willwill85\QMS3\obj\Debug\ResolveAssemblyReference.cache
+D:\新建文件夹\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.QmsMain.resources
+D:\新建文件夹\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.Properties.Resources.resources
+D:\新建文件夹\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.csproj.GenerateResource.Cache
