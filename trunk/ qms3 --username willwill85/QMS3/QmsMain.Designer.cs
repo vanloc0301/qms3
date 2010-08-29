@@ -296,7 +296,6 @@
             this.labelMon2 = new System.Windows.Forms.Label();
             this.labelYear2 = new System.Windows.Forms.Label();
             this.comboBoxMon2 = new System.Windows.Forms.ComboBox();
-            this.comboBoxYear2 = new System.Windows.Forms.ComboBox();
             this.tabPage18 = new System.Windows.Forms.TabPage();
             this.groupBoxReport = new System.Windows.Forms.GroupBox();
             this.crystalReportViewerMon = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
@@ -410,6 +409,8 @@
             this.bgwWriteBCard = new System.ComponentModel.BackgroundWorker();
             this.bgwReadBCard = new System.ComponentModel.BackgroundWorker();
             this.bgwReadDCard = new System.ComponentModel.BackgroundWorker();
+            this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
+            this.comboBoxYear2 = new System.Windows.Forms.ComboBox();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.MainTab.SuspendLayout();
@@ -3111,6 +3112,7 @@
             // 
             // groupBoxSelect2
             // 
+            this.groupBoxSelect2.Controls.Add(this.dateTimePicker6);
             this.groupBoxSelect2.Controls.Add(this.labelInput2);
             this.groupBoxSelect2.Controls.Add(this.labelProgDay);
             this.groupBoxSelect2.Controls.Add(this.progressBarDay);
@@ -3197,43 +3199,47 @@
             // labelDay2
             // 
             this.labelDay2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelDay2.Location = new System.Drawing.Point(709, 24);
+            this.labelDay2.Location = new System.Drawing.Point(712, 25);
             this.labelDay2.Name = "labelDay2";
             this.labelDay2.Size = new System.Drawing.Size(20, 21);
             this.labelDay2.TabIndex = 9;
             this.labelDay2.Text = "日";
             this.labelDay2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelDay2.Visible = false;
             // 
             // comboBoxDay2
             // 
             this.comboBoxDay2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDay2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.comboBoxDay2.FormattingEnabled = true;
-            this.comboBoxDay2.Location = new System.Drawing.Point(648, 21);
+            this.comboBoxDay2.Location = new System.Drawing.Point(772, 21);
             this.comboBoxDay2.Name = "comboBoxDay2";
             this.comboBoxDay2.Size = new System.Drawing.Size(55, 29);
             this.comboBoxDay2.TabIndex = 8;
+            this.comboBoxDay2.Visible = false;
             this.comboBoxDay2.DropDown += new System.EventHandler(this.comboBoxDay2_DropDown);
             // 
             // labelMon2
             // 
             this.labelMon2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelMon2.Location = new System.Drawing.Point(628, 24);
+            this.labelMon2.Location = new System.Drawing.Point(709, 25);
             this.labelMon2.Name = "labelMon2";
             this.labelMon2.Size = new System.Drawing.Size(20, 21);
             this.labelMon2.TabIndex = 7;
             this.labelMon2.Text = "月";
             this.labelMon2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelMon2.Visible = false;
             // 
             // labelYear2
             // 
             this.labelYear2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelYear2.Location = new System.Drawing.Point(552, 25);
+            this.labelYear2.Location = new System.Drawing.Point(712, 24);
             this.labelYear2.Name = "labelYear2";
             this.labelYear2.Size = new System.Drawing.Size(17, 21);
             this.labelYear2.TabIndex = 6;
             this.labelYear2.Text = "年";
             this.labelYear2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelYear2.Visible = false;
             // 
             // comboBoxMon2
             // 
@@ -3253,27 +3259,12 @@
             "10",
             "11",
             "12"});
-            this.comboBoxMon2.Location = new System.Drawing.Point(571, 21);
+            this.comboBoxMon2.Location = new System.Drawing.Point(704, 22);
             this.comboBoxMon2.Name = "comboBoxMon2";
             this.comboBoxMon2.Size = new System.Drawing.Size(55, 29);
             this.comboBoxMon2.TabIndex = 5;
+            this.comboBoxMon2.Visible = false;
             this.comboBoxMon2.SelectedIndexChanged += new System.EventHandler(this.comboBoxMon2_SelectedIndexChanged);
-            // 
-            // comboBoxYear2
-            // 
-            this.comboBoxYear2.AutoCompleteCustomSource.AddRange(new string[] {
-            "dd"});
-            this.comboBoxYear2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxYear2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.comboBoxYear2.FormattingEnabled = true;
-            this.comboBoxYear2.Items.AddRange(new object[] {
-            "2010",
-            "2009"});
-            this.comboBoxYear2.Location = new System.Drawing.Point(439, 22);
-            this.comboBoxYear2.Name = "comboBoxYear2";
-            this.comboBoxYear2.Size = new System.Drawing.Size(109, 29);
-            this.comboBoxYear2.TabIndex = 4;
-            this.comboBoxYear2.Tag = "";
             // 
             // tabPage18
             // 
@@ -4435,6 +4426,30 @@
             this.bgwReadDCard.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwReadDCard_DoWork);
             this.bgwReadDCard.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwReadDCard_RunWorkerCompleted);
             // 
+            // dateTimePicker6
+            // 
+            this.dateTimePicker6.Location = new System.Drawing.Point(462, 28);
+            this.dateTimePicker6.Name = "dateTimePicker6";
+            this.dateTimePicker6.Size = new System.Drawing.Size(169, 23);
+            this.dateTimePicker6.TabIndex = 15;
+            // 
+            // comboBoxYear2
+            // 
+            this.comboBoxYear2.AutoCompleteCustomSource.AddRange(new string[] {
+            "dd"});
+            this.comboBoxYear2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxYear2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.comboBoxYear2.FormattingEnabled = true;
+            this.comboBoxYear2.Items.AddRange(new object[] {
+            "2010",
+            "2009"});
+            this.comboBoxYear2.Location = new System.Drawing.Point(670, 22);
+            this.comboBoxYear2.Name = "comboBoxYear2";
+            this.comboBoxYear2.Size = new System.Drawing.Size(109, 29);
+            this.comboBoxYear2.TabIndex = 4;
+            this.comboBoxYear2.Tag = "";
+            this.comboBoxYear2.Visible = false;
+            // 
             // QmsMain
             // 
             this.AcceptButton = this.button1;
@@ -4697,7 +4712,6 @@
         private System.Windows.Forms.Label labelMon2;
         private System.Windows.Forms.Label labelYear2;
         private System.Windows.Forms.ComboBox comboBoxMon2;
-        private System.Windows.Forms.ComboBox comboBoxYear2;
         private System.Windows.Forms.GroupBox groupBoxReport2;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewerDay;
         private System.Windows.Forms.Timer timerMon4;
@@ -4934,6 +4948,8 @@
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.DateTimePicker dateTimePicker6;
+        private System.Windows.Forms.ComboBox comboBoxYear2;
     }
 }
 
