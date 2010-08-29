@@ -3273,43 +3273,20 @@ set @mons=" + cur_mon.ToString() + @"
     set @monbox=0;
     set @datemon=cast(@mons as varchar)+'月';
     if @mons<10
-        set @mon_str=@q_date+'0'+cast(@mons as varchar)+'-';
+        set @mon_str=@q_date+'0'+cast(@mons as varchar)+'-%';
     if @mons>=10
-        set @mon_str=@q_date+cast(@mons as varchar)+'-';
-
-    declare @days int;/*当前月份的天数*/ 
-    set @days=1;
-    declare @day_str varchar(20);
-
-    while @days<=31
-    begin
-        if @days<10
-            set @day_str=@mon_str+'0'+cast(@days as varchar)+'%';
-        if @days>=10
-            set @day_str=@mon_str+cast(@days as varchar)+'%';
-
-        declare @staid int;
-        set @staid=31;
-        while @staid<=85
-        begin
-            declare @stationname varchar(100);
-	        set @stationname=(select Name from [rfidtest].[dbo.Station] WHERE StationID=@staid);
-	        declare @date varchar(30);
-	        set @date=substring(@day_str,1,8);
-	        declare @boxnum int;
-	        set @boxnum=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartStationID=@staid AND StartTime LIKE @day_str AND EndTime is not null GROUP BY StartStationID);
-            declare @tweight float;
-	        set @tweight=(select sum(Weight) from [rfidtest].[dbo.Goods] WHERE StartStationID=@staid AND StartTime LIKE @day_str AND EndTime is not null GROUP BY StartStationID);
-            if @tweight is null
-                set @tweight=0;
-            if @boxnum is null
-                set @boxnum=0;
-            set @monbox=@monbox+@boxnum
-            set @monweight=@monweight+@tweight
-            set @staid=@staid+1;
-        end
-        set @days=@days+1;
-    end
+        set @mon_str=@q_date+cast(@mons as varchar)+'-%';
+          
+	declare @boxnum int;
+	set @boxnum=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @mon_str AND EndTime is not null);
+    declare @tweight float;
+	set @tweight=(select sum(Weight) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @mon_str AND EndTime is not null);
+    if @tweight is null
+         set @tweight=0;
+    if @boxnum is null
+         set @boxnum=0;
+    set @monbox=@monbox+@boxnum
+    set @monweight=@monweight+@tweight    
     if @monbox<>0
 	    insert into resYear(monname,summonbox,summonweight,datemonid) values(@datemon,@monbox,@monweight,' ');
     else
