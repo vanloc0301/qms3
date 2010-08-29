@@ -2432,16 +2432,17 @@ else
         }
         private void DayComp()//生成每日完成情况报表子线程
         {
-            if (comboBoxYear2.Text.Trim() == "" || comboBoxMon2.Text.Trim() == "" || comboBoxDay2.Text.Trim() == "")
-            {
-                MessageBox.Show("请选择年月日", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
-            }
-            else
-            {
+            //if (comboBoxYear2.Text.Trim() == "" || comboBoxMon2.Text.Trim() == "" || comboBoxDay2.Text.Trim() == "")
+            //{
+            //    MessageBox.Show("请选择年月日", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+            //}
+            //else
+            //{
                 //Form1 waitingform = new Form1();
                 //waitingform.ShowDialog(this);
 
                 //new System.Threading.Thread(new System.Threading.ThreadStart(StartDownload)).Start();
+                this.dateTimePicker6.Enabled = false;
                 this.Enabled = false;
                 progressBarDay.Visible = true;
                 progressBarDay.Value = 0;
@@ -2456,25 +2457,29 @@ else
 
                 crform_ds.Tables["Result"].Clear();
                 groupBoxReport2.Enabled = true;
-                string yr_str = comboBoxYear2.Text.Trim();
-                int yr_int = Convert.ToInt32(yr_str);
-                string mon_str = comboBoxMon2.Text.Trim();
-                int mon_int = Convert.ToInt32(mon_str);
-                if (mon_int < 10)
-                    mon_str = "0" + mon_str;
-                string day_str = comboBoxDay2.Text.Trim();
-                int day_int = Convert.ToInt32(day_str);
-                if (day_int < 10)
-                    day_str = "0" + day_str;
+                string query_day;
+                query_day = this.dateTimePicker6.Value.ToString("yyyy-MM-dd");
+                query_day = query_day.Substring(2, 8);
 
-                string month_first_day = new DateTime(yr_int, mon_int, 1, 0, 0, 0).ToString().Substring(2, 8);////要查询的月的第一天，10-01-01，这里月份用1月，以后用 System.DateTime.Now.Month，下一行同样
-                DateTime next_month_first_day = new DateTime(yr_int, mon_int + 1, 1, 0, 0, 0);
-                next_month_first_day = next_month_first_day.AddDays(-1);//得到要查询月最后一天
-                int second_pos = next_month_first_day.ToString().LastIndexOf("/");
-                int cur_month_days = int.Parse(next_month_first_day.ToString().Substring(second_pos + 1, 2));//当前月的天数
-                string cur_month_days_str = cur_month_days.ToString();
+                //string yr_str = comboBoxYear2.Text.Trim();
+                //int yr_int = Convert.ToInt32(yr_str);
+                //string mon_str = comboBoxMon2.Text.Trim();
+                //int mon_int = Convert.ToInt32(mon_str);
+                //if (mon_int < 10)
+                //    mon_str = "0" + mon_str;
+                //string day_str = comboBoxDay2.Text.Trim();
+                //int day_int = Convert.ToInt32(day_str);
+                //if (day_int < 10)
+                //    day_str = "0" + day_str;
 
-                string sql_startTime = yr_str.Substring(2, 2) + "-" + mon_str + "-";
+                //string month_first_day = new DateTime(yr_int, mon_int, 1, 0, 0, 0).ToString().Substring(2, 8);////要查询的月的第一天，10-01-01，这里月份用1月，以后用 System.DateTime.Now.Month，下一行同样
+                //DateTime next_month_first_day = new DateTime(yr_int, mon_int + 1, 1, 0, 0, 0);
+                //next_month_first_day = next_month_first_day.AddDays(-1);//得到要查询月最后一天
+                //int second_pos = next_month_first_day.ToString().LastIndexOf("/");
+                //int cur_month_days = int.Parse(next_month_first_day.ToString().Substring(second_pos + 1, 2));//当前月的天数
+                //string cur_month_days_str = cur_month_days.ToString();
+
+                //string sql_startTime = yr_str.Substring(2, 2) + "-" + mon_str + "-";
                 string sql_goods = @"if not exists(select name from sysobjects where name='res' and type='u')
   create table res(staname  varchar(100),sumbox int,weight2 float,weight3 float,weight4 float,weight5 float,weight6 float,weight7 float,weight8 float,weight9 float,weight10 float,weight11 float,weight12 float,weight13 float,weight14 float,weight15 float,sumweight float,sumboxtail float,dateid varchar(100));
 else
@@ -2492,7 +2497,7 @@ else
                     declare @cur_date varchar(10);
                     set @cur_date=CONVERT(varchar(10),getDate(),120);/*当前日期*/
                     declare @q_date varchar(10);
-                    set @q_date='" + yr_str.Substring(2, 2) + "-" + mon_str + "-" + day_str + @"'" + @"
+                    set @q_date='" + query_day + @"'" + @"
 
                     declare @day_str varchar(20);
                     set @day_str=@q_date+'%';
@@ -2570,19 +2575,14 @@ else
 
 
                 int first_line = 0;//当天在Result表中第一行
-                string str_cur_day = day_int.ToString();
-                if (day_int < 10)
-                    str_cur_day = sql_startTime + "0" + str_cur_day;
-                else
-                    str_cur_day = sql_startTime + str_cur_day;
+                
+                
                 DataRow new_row = crform_ds.Tables["Result"].NewRow();
-                //DataTable dt_goods = crform_ds.Tables["Goods_Table"];
                 foreach (DataRow row in dt_goods.Rows)
                 {
-                    if (row["DateID"].ToString() == str_cur_day)
-                    {
-                        //new_row["StaName"] = row["staname"].ToString();
-                        //new_row["DateID"] = row["dateid"].ToString().Substring(0, 8);
+
+                    if (row["DateID"].ToString() == query_day)
+                    {   
                         new_row = row;
                         crform_ds.Tables["Result"].Rows.Add(new_row.ItemArray);
                     }
@@ -2592,6 +2592,7 @@ else
                 total_row["StaName"] = "合计";
 
                 int total_box = 0;
+
                 for (int line_tb_result = first_line; line_tb_result <= first_line + 54; line_tb_result++)//当天的所有记录在Result表中的行数范围，不包括合计
                     total_box += Convert.ToInt32(tb_result.Rows[line_tb_result][1].ToString());
                 total_row["SumBox"] = total_box;
@@ -2617,7 +2618,7 @@ else
                 crform_ds.Tables["Result"].Rows.Add(total_row);
 
 
-                //讲结果按队分为三个表
+                //将结果按队分为三个表
 
 
                 int team_num = 3;//获得班的个数
@@ -2736,7 +2737,7 @@ else
                 //    MessageBox.Show(row["StaName"].ToString());
                 //}
                 flag_everyday = true;
-            }
+            //}
 
         }
         private void timerMon4_Tick(object sender, EventArgs e)
@@ -2769,6 +2770,7 @@ else
                 labelProgDay.Update();
                 //MessageBox.Show("请选择", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
                 this.Enabled = true;
+                this.dateTimePicker6.Enabled = true;
                 flag_everyday = false;
 
 
@@ -2791,6 +2793,7 @@ else
         {
             if (flag_everydayexl == true)
             {
+                this.dateTimePicker6.Enabled = false;
                 timerMon5.Stop();
                 dataGridViewMon.DataSource = crform_ds.Tables["Result_t0"];
 
@@ -3023,6 +3026,7 @@ else
                     this.Enabled = true;
                 }
                 this.Enabled = true;
+                this.dateTimePicker6.Enabled = true;
                 flag_everydayexl = false;
             }
         }
