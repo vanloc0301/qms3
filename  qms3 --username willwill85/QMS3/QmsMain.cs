@@ -1417,30 +1417,14 @@ namespace QMS3
         private void CheckConfig()//生成月表子线程
         {
             this.Enabled = false;
-            //this.Update();
-            //this.Refresh();
-            // this.loadFiles();
-            //label5.Text = "正在处理...";
-            //progressBar1.Visible = true;
-            //progressBar1.Value = 0;
-            //new System.Threading.Thread(new System.Threading.ThreadStart(StartDownload)).Start();
-            //Thread fThread = new Thread(new ThreadStart(SleepT));//开辟一个新的线程
-            //fThread.Start();
-
+            groupBoxReport.Enabled = true;
             progressBarMon.Visible = true;
             progressBarMon.Value = 0;
             progressBarMon.Update();
             labelProgMon.Text = "";
             labelProgMon.Update();
-            //this.Enabled = false;
-            //Form1 waitingform = new Form1();
-            //waitingform.ShowDialog(this);
-
-
-
 
             crform_ds.Tables["Result"].Clear();
-
 
             string yr_str = comboBoxYear1.Text.Trim();
             int yr_int = Convert.ToInt32(yr_str);
@@ -1448,9 +1432,12 @@ namespace QMS3
             int mon_int = Convert.ToInt32(mon_str);
             if (mon_int < 10)
                 mon_str = "0" + mon_str;
-            groupBoxReport.Enabled = true;
+            string day_str = "";
+            string str_cur_day = yr_str.Substring(2, 2) + "-" + mon_str + "-";//年月日
+
+
             //查询时间
-            int cur_month_days;
+            int cur_month_days=0;
             if (mon_int == 1 || mon_int == 3 || mon_int == 5 || mon_int == 7 || mon_int == 8 || mon_int == 10 || mon_int == 12)
             {
 
@@ -1475,47 +1462,27 @@ namespace QMS3
                     cur_month_days = 28;
                 }
             }
-            //ts1 = Process.GetCurrentProcess().TotalProcessorTime;//测试cpu时间
-            //string month_first_day = new DateTime(yr_int, mon_int, 1, 0, 0, 0).ToString().Substring(2, 8);////要查询的月的第一天，10-01-01，这里月份用1月，以后用 System.DateTime.Now.Month，下一行同样
-            //DateTime next_month_first_day = new DateTime(yr_int, mon_int + 1, 1, 0, 0, 0);
-            //next_month_first_day = next_month_first_day.AddDays(-1);//得到要查询月最后一天
-            //int second_pos = next_month_first_day.ToString().LastIndexOf("/");
-            //int cur_month_days = int.Parse(next_month_first_day.ToString().Substring(second_pos + 1, 2));//当前月的天数
-            string cur_month_days_str = cur_month_days.ToString();
+               
 
-            //MessageBox.Show(cur_month_days_str, "day", MessageBoxButtons.OK, MessageBoxIcon.None);
-            string day_str = "";
-
-            ////string sql_startTime = System.DateTime.Now.Year.ToString().Substring(2, 2) + "-01-" + str_cur_day + ",12:00";
-
-
-            string sql_startTime = yr_str.Substring(2, 2) + "-" + mon_str + "-";
-            ////string sql_goods = "select * from [rfidtest].[dbo.Goods] where StartStationID=" + staID.ToString() + " and StartTime = \'" + sql_startTime + "\'";
-            //string sql_goods = "select * from [rfidtest].[dbo.Goods] where StartTime LIKE \'" + sql_startTime + "%\'";
-
-            for (int cur_day = 1; cur_day <= cur_month_days; cur_day++)//2替换cur_month_days。按站分组，每次生成新表的一行
+            for (int cur_day = 1; cur_day <= cur_month_days; cur_day++)//2替换cur_month_days。按站分组，每次生成新表的一行，一天一天的查
             {
 
                 labelProgMon.Text = "完成  " + progressBarMon.Value.ToString() + "%";
                 labelProgMon.Update();
                 progressBarMon.Value = Convert.ToInt32(cur_day * 3.15);
                 progressBarMon.Update();
-                //System.Threading.Thread.Sleep(1);
-                //this.Update();
-                //this.Refresh();
-
-                int first_line = (cur_day - 1) * 56;//当天在Result表中第一行
-                string str_cur_day = cur_day.ToString();
+             
                 if (cur_day < 10)
                 {
-                    day_str = "0" + str_cur_day;
-                    str_cur_day = sql_startTime + day_str;
+                    day_str = "0" + cur_day.ToString();
                 }
                 else
                 {
-                    day_str = str_cur_day;
-                    str_cur_day = sql_startTime + day_str;
+                    day_str = cur_day.ToString();
+                    
                 }
+                str_cur_day += day_str;
+
                 string sql_goods = @"if not exists(select name from sysobjects where name='res' and type='u')
   create table res(staname  varchar(100),sumbox int,weight2 float,weight3 float,weight4 float,weight5 float,weight6 float,weight7 float,weight8 float,weight9 float,weight10 float,weight11 float,weight12 float,weight13 float,weight14 float,weight15 float,sumweight float,sumboxtail float,dateid varchar(100));
 else
@@ -1594,28 +1561,10 @@ end
 
 select * from res;
 drop table res;";
-                //MessageBox.Show(sql_goods, "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
-                ////string sql_starion = "select * from [rfidtest].[dbo.Station] where StationID=" + staID.ToString();
-                //string sql_starion = "select * from [rfidtest].[dbo.Station]";
-
-
-                //SqlCommand cmd = new SqlCommand(sql_goods, sqlcon);
-                //sqlcon.Open();
-                //SqlDataReader dr = cmd.ExecuteReader();
-                //sqlcon.Close();
-
-                //msecs = Process.GetCurrentProcess().TotalProcessorTime.Subtract(ts1).TotalMilliseconds;
-                //MessageBox.Show(msecs.ToString(), "reader", MessageBoxButtons.OK, MessageBoxIcon.None);
-
-                //ts1 = Process.GetCurrentProcess().TotalProcessorTime;//测试cpu时间
-
-                //两个表连接，并加入到DataSet
-                //sqlcon.ConnectionTimeout = 0;
-
 
                 crform_sqlda = new SqlDataAdapter(sql_goods, sqlcon);
-
                 crform_sqlda.SelectCommand.CommandTimeout = 100000000;
+
                 try
                 {
                     crform_sqlda.Fill(crform_ds, "Goods_Table");//得到要查询的月的所有的运输信息，包括所有站。
@@ -1634,7 +1583,7 @@ drop table res;";
                     return;
                 }
 
-                if (Convert.ToInt32(crform_ds.Tables["Goods_Table"].Rows[crform_ds.Tables["Goods_Table"].Rows.Count-1]["SumBox"].ToString()) > 14)
+                if (Convert.ToInt32(crform_ds.Tables["Goods_Table"].Rows[crform_ds.Tables["Goods_Table"].Rows.Count-1]["SumBox"].ToString()) > 14)//一个站一天超出14箱
                 {
                     
                         DataRow temp_row = crform_ds.Tables["Goods_Table"].Rows[crform_ds.Tables["Goods_Table"].Rows.Count - 1];
@@ -1653,23 +1602,21 @@ drop table res;";
                 }
                 else
                 {
+                    int first_line = (cur_day - 1) * 56;//填Result表时用的行数。每天需要56行，从第0行开始，第一天0-55（54个站+合计）
 
-                    DataRow new_row = crform_ds.Tables["Result"].NewRow();
-                    //DataTable dt_goods = crform_ds.Tables["Goods_Table"];
-                    foreach (DataRow row in dt_goods.Rows)
+                    DataTable tb_result = crform_ds.Tables["Result"];
+                    DataRow new_row = tb_result.NewRow();
+                    foreach (DataRow row in dt_goods.Rows)//从Goods_table中取出当天的，放入Result中
                     {
                         if (row["DateID"].ToString() == str_cur_day)
                         {
-                            //new_row["StaName"] = row["staname"].ToString();
-                            //new_row["DateID"] = row["dateid"].ToString().Substring(0, 8);
                             new_row = row;
                             crform_ds.Tables["Result"].Rows.Add(new_row.ItemArray);
                         }
                     }
-                    DataTable tb_result = crform_ds.Tables["Result"];
+                    
                     DataRow total_row = tb_result.NewRow();
                     total_row["StaName"] = "合计";
-
                     int total_box = 0;
                     for (int line_tb_result = first_line; line_tb_result <= first_line + 54; line_tb_result++)//当天的所有记录在Result表中的行数范围，不包括合计
                         total_box += Convert.ToInt32(tb_result.Rows[line_tb_result][1].ToString());
@@ -1703,7 +1650,7 @@ drop table res;";
             //msecs = Process.GetCurrentProcess().TotalProcessorTime.Subtract(ts1).TotalMilliseconds;
             //MessageBox.Show(msecs.ToString(), "process", MessageBoxButtons.OK, MessageBoxIcon.None);
 
-           flag_mon = true;
+           flag_mon = true;//查询完毕，准备给timer用来显示
 
 
         }
@@ -1712,30 +1659,22 @@ drop table res;";
             if (flag_mon == true)
             {
                 timerMon1.Stop();
-                //MessageBox.Show("请选择年月日", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
-                dataGridViewMon.DataSource = crform_ds.Tables["Result"];
-                dataGridViewMon.Visible = false;
-                //报表对象，绑定报表文件
 
-                //string crPath = Application.StartupPath.Substring(0, Application.StartupPath.Substring(0,
-                //     Application.StartupPath.LastIndexOf("\\")).LastIndexOf("\\"));
+                dataGridViewMon.DataSource = crform_ds.Tables["Result"];
+                dataGridViewMon.Visible = false;//不可见，只是用于导出EXCEL
+
                 string crPath = "CrystalReport3.rpt";
-                //crDocument.Refresh();
                 ReportDocument crDocument = new ReportDocument();
                 crDocument.Load(crPath);
-                //绑定数据集，注意，一个报表用一个数据集。
                 crDocument.SetDataSource(crform_ds);
-
-                //在Viewer中呈现
                 crystalReportViewerMon.ReportSource = crDocument;
-                // MessageBox.Show("请选择年", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+
                 dt_goods.Clear();
                 toolStripButtonMonExl.Enabled = true;
                 progressBarMon.Value = progressBarMon.Maximum;
                 progressBarMon.Update();
                 labelProgMon.Text = "已完成";
                 labelProgMon.Update();
-                //MessageBox.Show("请选择", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
                 this.Enabled = true;
                 flag_mon = false;
                 crform_ds.Tables.Remove("MyDate");
@@ -1748,12 +1687,6 @@ drop table res;";
         private void toolStripButtonDayRpt_Click(object sender, EventArgs e)
         {
             crystalReportViewerMon.ReportSource = null;
-            //label5.Text = "正在处理...";
-            //progressBar1.Visible = true;
-            //progressBar1.Value = 0;
-
-            //Thread fThread = new Thread(new ThreadStart(SleepT));//开辟一个新的线程
-
             flag_day = false;
             timerMon2.Start();
             System.Threading.Thread myThread = new System.Threading.Thread(new System.Threading.ThreadStart(DayReport));
@@ -1768,24 +1701,22 @@ drop table res;";
             }
             else
             {
-                //Form1 waitingform = new Form1();
-                //waitingform.ShowDialog(this);
-
-                //new System.Threading.Thread(new System.Threading.ThreadStart(StartDownload)).Start();
+                
                 this.Enabled = false;
+                groupBoxReport.Enabled = true;
+
                 progressBarMon.Visible = true;
                 progressBarMon.Value = 0;
                 progressBarMon.Update();
                 labelProgMon.Text = "";
                 labelProgMon.Update();
-
                 progressBarMon.Value = 15;
                 progressBarMon.Update();
                 labelProgMon.Text = "处理中...";
                 labelProgMon.Update();
 
                 crform_ds.Tables["Result"].Clear();
-                groupBoxReport.Enabled = true;
+                
                 string yr_str = comboBoxYear1.Text.Trim();
                 int yr_int = Convert.ToInt32(yr_str);
                 string mon_str = comboBoxMon1.Text.Trim();
@@ -1796,19 +1727,21 @@ drop table res;";
                 int day_int = Convert.ToInt32(day_str);
                 if (day_int < 10)
                     day_str = "0" + day_str;
+                string str_cur_day = yr_str.Substring(2, 2) + "-" + mon_str + "-";
+
                 //查询时间
-                //ts1 = Process.GetCurrentProcess().TotalProcessorTime;//测试cpu时间
-                string month_first_day = new DateTime(yr_int, mon_int, 1, 0, 0, 0).ToString().Substring(2, 8);////要查询的月的第一天，10-01-01，这里月份用1月，以后用 System.DateTime.Now.Month，下一行同样
-                DateTime next_month_first_day = new DateTime(yr_int, mon_int + 1, 1, 0, 0, 0);
-                next_month_first_day = next_month_first_day.AddDays(-1);//得到要查询月最后一天
-                int second_pos = next_month_first_day.ToString().LastIndexOf("/");
-                int cur_month_days = int.Parse(next_month_first_day.ToString().Substring(second_pos + 1, 2));//当前月的天数
-                string cur_month_days_str = cur_month_days.ToString();
+                
+                //string month_first_day = new DateTime(yr_int, mon_int, 1, 0, 0, 0).ToString().Substring(2, 8);////要查询的月的第一天，10-01-01，这里月份用1月，以后用 System.DateTime.Now.Month，下一行同样
+                //DateTime next_month_first_day = new DateTime(yr_int, mon_int + 1, 1, 0, 0, 0);
+                //next_month_first_day = next_month_first_day.AddDays(-1);//得到要查询月最后一天
+                //int second_pos = next_month_first_day.ToString().LastIndexOf("/");
+                //int cur_month_days = int.Parse(next_month_first_day.ToString().Substring(second_pos + 1, 2));//当前月的天数
+                //string cur_month_days_str = cur_month_days.ToString();
 
                 ////string sql_startTime = System.DateTime.Now.Year.ToString().Substring(2, 2) + "-01-" + str_cur_day + ",12:00";
 
 
-                string sql_startTime = yr_str.Substring(2, 2) + "-" + mon_str + "-";
+                //string sql_startTime = yr_str.Substring(2, 2) + "-" + mon_str + "-";
                 ////string sql_goods = "select * from [rfidtest].[dbo.Goods] where StartStationID=" + staID.ToString() + " and StartTime = \'" + sql_startTime + "\'";
                 //string sql_goods = "select * from [rfidtest].[dbo.Goods] where StartTime LIKE \'" + sql_startTime + "%\'";
                 string sql_goods = @"if not exists(select name from sysobjects where name='res' and type='u')
@@ -1889,24 +1822,7 @@ else
 
                     select * from res;
                     drop table res;";
-                //MessageBox.Show(sql_goods, "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
-                ////string sql_starion = "select * from [rfidtest].[dbo.Station] where StationID=" + staID.ToString();
-                //string sql_starion = "select * from [rfidtest].[dbo.Station]";
 
-
-                //SqlCommand cmd = new SqlCommand(sql_goods, sqlcon);
-                //sqlcon.Open();
-                //SqlDataReader dr = cmd.ExecuteReader();
-                //sqlcon.Close();
-
-                //msecs = Process.GetCurrentProcess().TotalProcessorTime.Subtract(ts1).TotalMilliseconds;
-                //MessageBox.Show(msecs.ToString(), "reader", MessageBoxButtons.OK, MessageBoxIcon.None);
-
-                //ts1 = Process.GetCurrentProcess().TotalProcessorTime;//测试cpu时间
-
-                //两个表连接，并加入到DataSet
-
-                //sqlcon.ConnectionTimeout = 0;
                 crform_sqlda = new SqlDataAdapter(sql_goods, sqlcon);
                 crform_sqlda.SelectCommand.CommandTimeout = 100000000;
                 try
@@ -1940,7 +1856,6 @@ else
                     groupBoxReport.Enabled = false;
                     groupBoxSelect.Enabled = true;
                     dt_goods.Clear();
-                    //crform_ds.Tables.Remove("MyDate");
                     return;
 
                 }
@@ -1952,21 +1867,16 @@ else
                     labelProgMon.Update();
                     this.Update();
 
-                    //crform_sqlda = new SqlDataAdapter(sql_starion, sqlcon);
-                    //crform_sqlda.Fill(crform_ds, "Station_Table");//得到所有站信息
+                    
 
-                    //msecs = Process.GetCurrentProcess().TotalProcessorTime.Subtract(ts1).TotalMilliseconds;
-                    //MessageBox.Show(msecs.ToString(), "fill", MessageBoxButtons.OK, MessageBoxIcon.None);
-
-                    //ts1 = Process.GetCurrentProcess().TotalProcessorTime;//测试cpu时间
+                    if (day_int < 10)
+                        str_cur_day = str_cur_day + "0" + day_int.ToString();
+                    else
+                        str_cur_day = str_cur_day + day_int.ToString();
 
                     int first_line = 0;//当天在Result表中第一行
-                    string str_cur_day = day_int.ToString();
-                    if (day_int < 10)
-                        str_cur_day = sql_startTime + "0" + str_cur_day;
-                    else
-                        str_cur_day = sql_startTime + str_cur_day;
-                    DataRow new_row = crform_ds.Tables["Result"].NewRow();
+                    DataTable tb_result = crform_ds.Tables["Result"];
+                    DataRow new_row = tb_result.NewRow();
                     //DataTable dt_goods = crform_ds.Tables["Goods_Table"];
                     foreach (DataRow row in dt_goods.Rows)
                     {
@@ -1977,8 +1887,7 @@ else
                             new_row = row;
                             crform_ds.Tables["Result"].Rows.Add(new_row.ItemArray);
                         }
-                    }
-                    DataTable tb_result = crform_ds.Tables["Result"];
+                    }         
                     DataRow total_row = tb_result.NewRow();
                     total_row["StaName"] = "合计";
 
@@ -1986,7 +1895,6 @@ else
                     for (int line_tb_result = first_line; line_tb_result <= first_line + 54; line_tb_result++)//当天的所有记录在Result表中的行数范围，不包括合计
                         total_box += Convert.ToInt32(tb_result.Rows[line_tb_result][1].ToString());
                     total_row["SumBox"] = total_box;
-
 
                     //DataTableSQL查询后得到DateSet中的第一个表Goods_Table，处理每天的箱数和重量
                     for (int col_num = 2; col_num <= 16; col_num++)
@@ -2006,8 +1914,6 @@ else
                     total_row["SumBoxTail"] = total_box;
                     total_row["DateID"] = crform_ds.Tables["Result"].Rows[crform_ds.Tables["Result"].Rows.Count - 1]["DateID"].ToString();
                     crform_ds.Tables["Result"].Rows.Add(total_row);
-                    //msecs = Process.GetCurrentProcess().TotalProcessorTime.Subtract(ts1).TotalMilliseconds;
-                    //MessageBox.Show(msecs.ToString(), "process", MessageBoxButtons.OK, MessageBoxIcon.None);
 
                 }
                 flag_day = true;
@@ -2019,35 +1925,29 @@ else
             if (flag_day == true)
             {
                 timerMon2.Stop();
-                //MessageBox.Show("请选择年月日", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
-                dataGridViewMon.DataSource = crform_ds.Tables["Result"];
 
+                dataGridViewMon.DataSource = crform_ds.Tables["Result"];
                 dataGridViewMon.Visible = false;
                 //报表对象，绑定报表文件
 
                 //string crPath = Application.StartupPath.Substring(0, Application.StartupPath.Substring(0,
                 //     Application.StartupPath.LastIndexOf("\\")).LastIndexOf("\\"));
                 string crPath = "CrystalReport2.rpt";
-                //crDocument.Refresh();
                 ReportDocument crDocument = new ReportDocument();
                 crDocument.Load(crPath);
-                //绑定数据集，注意，一个报表用一个数据集。
                 crDocument.SetDataSource(crform_ds);
 
                 //在Viewer中呈现
                 crystalReportViewerMon.ReportSource = crDocument;
-                // MessageBox.Show("请选择年", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+
                 dt_goods.Clear();
                 toolStripButtonMonExl.Enabled = true;
                 progressBarMon.Value = progressBarMon.Maximum;
                 progressBarMon.Update();
                 labelProgMon.Text = "已完成";
                 labelProgMon.Update();
-                //MessageBox.Show("请选择", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
                 this.Enabled = true;
                 flag_day = false;
-
-
             }
         }
 
@@ -3600,6 +3500,7 @@ drop table resYear;";
             System.Windows.Forms.TreeNode treeNode216 = new System.Windows.Forms.TreeNode("日垃圾清运完成情况");
             System.Windows.Forms.TreeNode treeNode217 = new System.Windows.Forms.TreeNode("每月清运垃圾明细表");
             System.Windows.Forms.TreeNode treeNode218 = new System.Windows.Forms.TreeNode("年度清运垃圾明细表");
+            //System.Windows.Forms.TreeNode treeNode219 = new System.Windows.Forms.TreeNode("每月每班垃圾清运车次表");
 
 
             System.Windows.Forms.TreeNode treeNode236 = new System.Windows.Forms.TreeNode("报表生成器", new System.Windows.Forms.TreeNode[] { treeNode216, treeNode217, treeNode218 });

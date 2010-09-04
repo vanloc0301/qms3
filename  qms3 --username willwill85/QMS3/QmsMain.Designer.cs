@@ -285,6 +285,7 @@
             this.groupBoxReport2 = new System.Windows.Forms.GroupBox();
             this.crystalReportViewerDay = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.groupBoxSelect2 = new System.Windows.Forms.GroupBox();
+            this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
             this.labelInput2 = new System.Windows.Forms.Label();
             this.labelProgDay = new System.Windows.Forms.Label();
             this.progressBarDay = new System.Windows.Forms.ProgressBar();
@@ -296,6 +297,7 @@
             this.labelMon2 = new System.Windows.Forms.Label();
             this.labelYear2 = new System.Windows.Forms.Label();
             this.comboBoxMon2 = new System.Windows.Forms.ComboBox();
+            this.comboBoxYear2 = new System.Windows.Forms.ComboBox();
             this.tabPage18 = new System.Windows.Forms.TabPage();
             this.groupBoxReport = new System.Windows.Forms.GroupBox();
             this.crystalReportViewerMon = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
@@ -409,8 +411,6 @@
             this.bgwWriteBCard = new System.ComponentModel.BackgroundWorker();
             this.bgwReadBCard = new System.ComponentModel.BackgroundWorker();
             this.bgwReadDCard = new System.ComponentModel.BackgroundWorker();
-            this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
-            this.comboBoxYear2 = new System.Windows.Forms.ComboBox();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.MainTab.SuspendLayout();
@@ -525,7 +525,7 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(44, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(41, 17);
             this.toolStripStatusLabel1.Text = "进度：";
             this.toolStripStatusLabel1.Visible = false;
             // 
@@ -3131,6 +3131,13 @@
             this.groupBoxSelect2.TabIndex = 4;
             this.groupBoxSelect2.TabStop = false;
             // 
+            // dateTimePicker6
+            // 
+            this.dateTimePicker6.Location = new System.Drawing.Point(462, 28);
+            this.dateTimePicker6.Name = "dateTimePicker6";
+            this.dateTimePicker6.Size = new System.Drawing.Size(169, 23);
+            this.dateTimePicker6.TabIndex = 15;
+            // 
             // labelInput2
             // 
             this.labelInput2.AutoSize = true;
@@ -3265,6 +3272,23 @@
             this.comboBoxMon2.TabIndex = 5;
             this.comboBoxMon2.Visible = false;
             this.comboBoxMon2.SelectedIndexChanged += new System.EventHandler(this.comboBoxMon2_SelectedIndexChanged);
+            // 
+            // comboBoxYear2
+            // 
+            this.comboBoxYear2.AutoCompleteCustomSource.AddRange(new string[] {
+            "dd"});
+            this.comboBoxYear2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxYear2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.comboBoxYear2.FormattingEnabled = true;
+            this.comboBoxYear2.Items.AddRange(new object[] {
+            "2010",
+            "2009"});
+            this.comboBoxYear2.Location = new System.Drawing.Point(670, 22);
+            this.comboBoxYear2.Name = "comboBoxYear2";
+            this.comboBoxYear2.Size = new System.Drawing.Size(109, 29);
+            this.comboBoxYear2.TabIndex = 4;
+            this.comboBoxYear2.Tag = "";
+            this.comboBoxYear2.Visible = false;
             // 
             // tabPage18
             // 
@@ -4425,30 +4449,6 @@
             // 
             this.bgwReadDCard.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwReadDCard_DoWork);
             this.bgwReadDCard.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwReadDCard_RunWorkerCompleted);
-            // 
-            // dateTimePicker6
-            // 
-            this.dateTimePicker6.Location = new System.Drawing.Point(462, 28);
-            this.dateTimePicker6.Name = "dateTimePicker6";
-            this.dateTimePicker6.Size = new System.Drawing.Size(169, 23);
-            this.dateTimePicker6.TabIndex = 15;
-            // 
-            // comboBoxYear2
-            // 
-            this.comboBoxYear2.AutoCompleteCustomSource.AddRange(new string[] {
-            "dd"});
-            this.comboBoxYear2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxYear2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.comboBoxYear2.FormattingEnabled = true;
-            this.comboBoxYear2.Items.AddRange(new object[] {
-            "2010",
-            "2009"});
-            this.comboBoxYear2.Location = new System.Drawing.Point(670, 22);
-            this.comboBoxYear2.Name = "comboBoxYear2";
-            this.comboBoxYear2.Size = new System.Drawing.Size(109, 29);
-            this.comboBoxYear2.TabIndex = 4;
-            this.comboBoxYear2.Tag = "";
-            this.comboBoxYear2.Visible = false;
             // 
             // QmsMain
             // 
