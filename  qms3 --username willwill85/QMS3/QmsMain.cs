@@ -436,57 +436,12 @@ namespace QMS3
                         crform_ds = new DataSet();
                         //comboBoxMon3.Enabled = false;
                         //comboBoxDay3.Enabled = false;
-                        dt_goods = crform_ds.Tables.Add("Goods_Table");
+                        //dt_goods = crform_ds.Tables.Add("Goods_Table");
                         //用来存储最终的结果
-                        result_tb = crform_ds.Tables.Add("Result");
-                        //toolStripButtonYearExl.Enabled = false;
-                        //groupBoxReport3.Enabled = false;
-                        //fName = "";
-
-                        #region  建立存储结果的datatable Result
-                        //向新建的存储最终的结果的DataTable加入列名
-                        DataColumn col = result_tb.Columns.Add("StaName", Type.GetType("System.String"));
-                        col.AllowDBNull = false;
-                        col.MaxLength = 20;
-                        col = result_tb.Columns.Add("SumBox", Type.GetType("System.Int32"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("Weight_2", Type.GetType("System.Double"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("Weight_3", Type.GetType("System.Double"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("Weight_4", Type.GetType("System.Double"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("Weight_5", Type.GetType("System.Double"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("Weight_6", Type.GetType("System.Double"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("Weight_7", Type.GetType("System.Double"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("Weight_8", Type.GetType("System.Decimal"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("Weight_9", Type.GetType("System.Double"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("Weight_10", Type.GetType("System.Double"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("Weight_11", Type.GetType("System.Double"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("Weight_12", Type.GetType("System.Double"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("Weight_13", Type.GetType("System.Double"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("Weight_14", Type.GetType("System.Double"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("Weight_15", Type.GetType("System.Double"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("SumWeight", Type.GetType("System.Double"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("SumBoxTail", Type.GetType("System.Int32"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("DateID", Type.GetType("System.String"));
-                        col.AllowDBNull = true;
-                        #endregion
-
-
+                        //result_tb = crform_ds.Tables.Add("Result");                                               
+                        toolStripButtonMonCheCiExl.Enabled = false;
+                        groupBoxReport4.Enabled = false;
+                        fName = "";
                         MainTab.SelectTab(19);
                     }
                     break;
@@ -2019,8 +1974,6 @@ else
                 System.Threading.Thread myThread = new System.Threading.Thread(new System.Threading.ThreadStart(GenExcel));
                 myThread.Start();
 
-
-
             }
             catch
             {
@@ -2029,9 +1982,7 @@ else
         }
         private void GenExcel()//导出EXCEL子线程
         {
-            //MessageBox.Show("11", "process", MessageBoxButtons.OK, MessageBoxIcon.None);
             flag_exl = true;
-
         }
         private void timerMon3_Tick(object sender, EventArgs e)
         {
@@ -2041,8 +1992,6 @@ else
                 ExportExcel(dataGridViewMon);
                 this.Enabled = true;
                 flag_exl = false;
-
-
             }
         }
         private void ExportExcel(DataGridView dgv)
@@ -2384,17 +2333,7 @@ else
         }
         private void DayComp()//生成每日完成情况报表子线程
         {
-            //if (comboBoxYear2.Text.Trim() == "" || comboBoxMon2.Text.Trim() == "" || comboBoxDay2.Text.Trim() == "")
-            //{
-            //    MessageBox.Show("请选择年月日", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
-            //}
-            //else
-            //{
-                //Form1 waitingform = new Form1();
-                //waitingform.ShowDialog(this);
-
-                //new System.Threading.Thread(new System.Threading.ThreadStart(StartDownload)).Start();
-                this.dateTimePicker6.Enabled = false;
+                this.dateTimePicker6.Enabled = false;//用了timepicker
                 this.Enabled = false;
                 progressBarDay.Visible = true;
                 progressBarDay.Value = 0;
@@ -2413,25 +2352,7 @@ else
                 query_day = this.dateTimePicker6.Value.ToString("yyyy-MM-dd");
                 query_day = query_day.Substring(2, 8);
 
-                //string yr_str = comboBoxYear2.Text.Trim();
-                //int yr_int = Convert.ToInt32(yr_str);
-                //string mon_str = comboBoxMon2.Text.Trim();
-                //int mon_int = Convert.ToInt32(mon_str);
-                //if (mon_int < 10)
-                //    mon_str = "0" + mon_str;
-                //string day_str = comboBoxDay2.Text.Trim();
-                //int day_int = Convert.ToInt32(day_str);
-                //if (day_int < 10)
-                //    day_str = "0" + day_str;
 
-                //string month_first_day = new DateTime(yr_int, mon_int, 1, 0, 0, 0).ToString().Substring(2, 8);////要查询的月的第一天，10-01-01，这里月份用1月，以后用 System.DateTime.Now.Month，下一行同样
-                //DateTime next_month_first_day = new DateTime(yr_int, mon_int + 1, 1, 0, 0, 0);
-                //next_month_first_day = next_month_first_day.AddDays(-1);//得到要查询月最后一天
-                //int second_pos = next_month_first_day.ToString().LastIndexOf("/");
-                //int cur_month_days = int.Parse(next_month_first_day.ToString().Substring(second_pos + 1, 2));//当前月的天数
-                //string cur_month_days_str = cur_month_days.ToString();
-
-                //string sql_startTime = yr_str.Substring(2, 2) + "-" + mon_str + "-";
                 string sql_goods = @"if not exists(select name from sysobjects where name='res' and type='u')
   create table res(staname  varchar(100),sumbox int,weight2 float,weight3 float,weight4 float,weight5 float,weight6 float,weight7 float,weight8 float,weight9 float,weight10 float,weight11 float,weight12 float,weight13 float,weight14 float,weight15 float,sumweight float,sumboxtail float,dateid varchar(100));
 else
@@ -3138,6 +3059,7 @@ else
         {
             comboBoxDay3.Items.Clear();
         }
+
         private void toolStripButton6_Click_1(object sender, EventArgs e)
         {
             crystalReportViewerYear.ReportSource = null;
@@ -3158,42 +3080,28 @@ else
         {
         
             this.Enabled = false;
+            groupBoxReport3.Enabled = true;
 
             progressBarYear.Visible = true;
             progressBarYear.Value = 0;
             progressBarYear.Update();
             labelProgYear.Text = "";
             labelProgYear.Update();
-            //MessageBox.Show("aa", "day", MessageBoxButtons.OK, MessageBoxIcon.None);
             crform_ds.Tables["Result"].Clear();
-            //MessageBox.Show("aa", "day", MessageBoxButtons.OK, MessageBoxIcon.None);
-            string yr_str = comboBoxYear3.Text; //"2010";// comboBoxYear3.Text.Trim();
-            //int yr_int = Convert.ToInt32(yr_str);
-            //string mon_str = comboBoxMon3.Text.Trim();
-            //int mon_int = Convert.ToInt32(mon_str);
-            //if (mon_int < 10)
-            //    mon_str = "0" + mon_str;
-            groupBoxReport3.Enabled = true;
-           
-    
+
+            string yr_str = comboBoxYear3.Text; //"2010";// comboBoxYear3.Text.Trim();           
             string sql_startTime = yr_str.Substring(2, 2) + "-";
-            //MessageBox.Show("aa", "day", MessageBoxButtons.OK, MessageBoxIcon.None);
+
             for (int cur_mon = 1; cur_mon <= 12; cur_mon++)//2替换cur_month_days。按站分组，每次生成新表的一行
             {
-                //MessageBox.Show(cur_mon.ToString(), "day", MessageBoxButtons.OK, MessageBoxIcon.None);
                 labelProgYear.Text = "完成  " + progressBarYear.Value.ToString() + "%";
                 labelProgYear.Update();
                 progressBarYear.Value = Convert.ToInt32(cur_mon * 8.15);
                 progressBarYear.Update();
-                //System.Threading.Thread.Sleep(1);
-                //this.Update();
-                //this.Refresh();
 
-                //int first_line = (cur_day - 1) * 56;//当天在Result表中第一行
                 string str_cur_mon = cur_mon.ToString();
                 if (cur_mon < 10)
                 {
-                    //str_cur_mon = sql_startTime + day_str;
                     str_cur_mon = "0" + str_cur_mon;
                 }
 
@@ -3276,72 +3184,21 @@ drop table resYear;";
 
                     return;
                 }
-
-                //DataRow new_row = crform_ds.Tables["Result"].NewRow();
-                
-                //foreach (DataRow row in dt_goods.Rows)
-                //{
-                //    if (row["DateID"].ToString() == str_cur_day)
-                //    {
-                //        //new_row["StaName"] = row["staname"].ToString();
-                //        //new_row["DateID"] = row["dateid"].ToString().Substring(0, 8);
-                //        new_row = row;
-                //        crform_ds.Tables["Result"].Rows.Add(new_row.ItemArray);
-                //    }
-                //}
-                //DataTable tb_result = crform_ds.Tables["Result"];
-                //DataRow total_row = tb_result.NewRow();
-                //total_row["StaName"] = "合计";
-
-                //int total_box = 0;
-                //for (int line_tb_result = first_line; line_tb_result <= first_line + 54; line_tb_result++)//当天的所有记录在Result表中的行数范围，不包括合计
-                //    total_box += Convert.ToInt32(tb_result.Rows[line_tb_result][1].ToString());
-                //total_row["SumBox"] = total_box;
-
-                ////DataTableSQL查询后得到DateSet中的第一个表Goods_Table，处理每天的箱数和重量
-                //for (int col_num = 2; col_num <= 16; col_num++)
-                //{
-                //    double total_col_weight = 0;
-                //    for (int line_tb_result = first_line; line_tb_result <= first_line + 54; line_tb_result++)//当天的所有记录在Result表中的行数范围，不包括合计
-                //    {
-                //        string weight_str = tb_result.Rows[line_tb_result][col_num].ToString();
-                //        if (weight_str != "")
-                //            total_col_weight += Convert.ToDouble(weight_str);
-
-                //    }
-                //    ///////////if (total_col_weight != 0)//0不显示
-                //    total_row[col_num] = total_col_weight;
-
-                //}
-                //total_row["SumBoxTail"] = total_box;
-                //total_row["DateID"] = crform_ds.Tables["Result"].Rows[crform_ds.Tables["Result"].Rows.Count - 1]["DateID"].ToString();
-                //DataRow mdRow = crform_ds.Tables["MyDate"].Rows[cur_day - 1];
-                //mdRow["TotalBox"] = total_box;
-                //mdRow["TotalWeight"] = total_row["SumWeight"];
-                //crform_ds.Tables["Result"].Rows.Add(total_row);
-
-                //crform_ds.Tables["YearOutput"].Clear();
-
-
             }//end for
             double yrWeight = 0;
             int yrBox = 0;
             DataTable aa = crform_ds.Tables["YearOutput"];
             foreach (DataRow row in aa.Rows)
             {
-                //MessageBox.Show(row["MonName"].ToString());
                 yrBox += Convert.ToInt32(row["SumMonBox"].ToString());
-                yrWeight+=Convert.ToDouble(row["SumMonWeight"].ToString());
-                //new_row["StaName"] = row["staname"].ToString();
-                //new_row["DateID"] = row["dateid"].ToString().Substring(0, 8);
+                yrWeight+=Convert.ToDouble(row["SumMonWeight"].ToString());          
             }
             DataRow new_row = crform_ds.Tables["YearOutput"].NewRow();
             new_row["MonName"] = "总计";
             new_row["SumMonBox"]=yrBox;
             new_row["SumMonWeight"]=yrWeight;
             crform_ds.Tables["YearOutput"].Rows.Add(new_row);
-
-            //flag_mon = true;
+      
         }
         private void backgroundWorkerYearOp_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
@@ -3370,6 +3227,7 @@ drop table resYear;";
             //MessageBox.Show("请选择", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
             this.Enabled = true;
         }
+
         private void toolStripButtonYearExl_Click(object sender, EventArgs e)//生成excel
         {
             if (dataGridViewMon.Rows.Count >= 1)
@@ -3412,8 +3270,6 @@ drop table resYear;";
             
             try
             {
-                       
-
                         progressBarYear.Value = 12;
                         progressBarYear.Update();
                         labelProgYear.Text = "完成 " + progressBarYear.Value.ToString() + "%";
@@ -3535,6 +3391,287 @@ drop table resYear;";
 
         #region 每月每班清运车次表
 
+        private void toolStripButtonMonCheCi_Click(object sender, EventArgs e)
+        {
+            crystalReportViewerMonCheCi.ReportSource = null;
+          
+            if(comboBoxYear4.Text.Trim() == "" || comboBoxMon4.Text.Trim() == "")
+            {
+                MessageBox.Show("请选择要查询的年月", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+                this.Enabled = true;
+            
+            }
+            else if (comboBox9.Text.Trim() == "")
+            {
+                MessageBox.Show("请选择要查询的班", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+                this.Enabled = true;
+            }
+            else
+            {             
+                if (crform_ds.Tables.Contains("MonCheCi"))//判断一下是否已经有了这个表
+                {
+                    crform_ds.Tables["MonCheCi"].Clear();
+                }
+                backgroundWorkerMonCheCi.RunWorkerAsync();
+            }
+        }
+        private void backgroundWorkerMonCheCi_DoWork(object sender, DoWorkEventArgs e)
+        {
+            this.Enabled = false;
+            groupBoxReport4.Enabled = true;
+
+            progressBarMonCheCi.Visible = true;
+            progressBarMonCheCi.Value = 0;
+            progressBarMonCheCi.Update();
+            labelProgMonCheCi.Text = "";
+            labelProgMonCheCi.Update();
+
+            string yr_str = comboBoxYear4.Text; //"2010";// comboBoxYear3.Text.Trim();
+            string mon_str = comboBoxMon4.Text;
+            string class_str = comboBox9.Text;
+            int classnum = 0;
+            if (class_str == "一班")
+                classnum = 1;
+            else if(class_str == "二班")
+                classnum = 2;
+            else if (class_str == "三班")
+                classnum = 3;
+            else
+            { }
+
+             //MessageBox.Show(cur_mon.ToString(), "day", MessageBoxButtons.OK, MessageBoxIcon.None);
+             labelProgMonCheCi.Text = "完成 50%";
+             labelProgMonCheCi.Update();
+             progressBarMonCheCi.Value = 50;
+             progressBarMonCheCi.Update();
+
+                //string str_cur_day = "";
+                //if (cur_day < 10)
+                //{
+                //    str_cur_day = yr_str.Substring(2, 2) + "-" + mon_str + "-0" + cur_day.ToString();
+                //}
+                //else
+                //{
+                //    str_cur_day = yr_str.Substring(2, 2) + "-" + mon_str + "-" + cur_day.ToString();
+                //}
+             #region SQL语句，长文慎入
+             string q_sql = @"if not exists(select name from sysobjects where name='tempTable' and type='u')
+  create table  tempTable(staname  varchar(100),datacolumn1 int,datacolumn2 int,datacolumn3 int,datacolumn4 int,datacolumn5 int,datacolumn6 int,datacolumn7 int,datacolumn8 int,datacolumn9 int,datacolumn10 int,datacolumn11 int,datacolumn12 int,datacolumn13 int,datacolumn14 int,datacolumn15 int,datacolumn16 int,datacolumn17 int,datacolumn18 int,datacolumn19 int,datacolumn20 int,datacolumn21 int,datacolumn22 int,datacolumn23 int,datacolumn24 int,datacolumn25 int,datacolumn26 int,datacolumn27 int,datacolumn28 int,datacolumn29 int,datacolumn30 int,datacolumn31 int,sumcheci int,sumreal int,diff int,dateid varchar(100));
+else
+  begin
+    drop table tempTable;
+    create table tempTable(staname  varchar(100),datacolumn1 int,datacolumn2 int,datacolumn3 int,datacolumn4 int,datacolumn5 int,datacolumn6 int,datacolumn7 int,datacolumn8 int,datacolumn9 int,datacolumn10 int,datacolumn11 int,datacolumn12 int,datacolumn13 int,datacolumn14 int,datacolumn15 int,datacolumn16 int,datacolumn17 int,datacolumn18 int,datacolumn19 int,datacolumn20 int,datacolumn21 int,datacolumn22 int,datacolumn23 int,datacolumn24 int,datacolumn25 int,datacolumn26 int,datacolumn27 int,datacolumn28 int,datacolumn29 int,datacolumn30 int,datacolumn31 int,sumcheci int,sumreal int,diff int,dateid varchar(100));
+  end
+
+declare @q_date varchar(16);
+set @q_date='" + yr_str.Substring(2, 2) + @"-'
+declare @mons int;/*月份*/ 
+set @mons=" + mon_str + @";
+if @mons<10
+    set @q_date=@q_date+'0'+cast(@mons as varchar)+'-';
+if @mons>=10
+    set @q_date=@q_date+cast(@mons as varchar)+'-';
+declare @q_date1 varchar(16);
+set @q_date1=@q_date+'01%'
+declare @q_date2 varchar(16);
+set @q_date2=@q_date+'02%'
+declare @q_date3 varchar(16);
+set @q_date3=@q_date+'03%'
+declare @q_date4 varchar(16);
+set @q_date4=@q_date+'04%'
+declare @q_date5 varchar(16);
+set @q_date5=@q_date+'05%'
+declare @q_date6 varchar(16);
+set @q_date6=@q_date+'06%'
+declare @q_date7 varchar(16);
+set @q_date7=@q_date+'07%'
+declare @q_date8 varchar(16);
+set @q_date8=@q_date+'08%'
+declare @q_date9 varchar(16);
+set @q_date9=@q_date+'09%'
+declare @q_date10 varchar(16);
+set @q_date10=@q_date+'10%'
+declare @q_date11 varchar(16);
+set @q_date11=@q_date+'11%'
+declare @q_date12 varchar(16);
+set @q_date12=@q_date+'12%'
+declare @q_date13 varchar(16);
+set @q_date13=@q_date+'13%'
+declare @q_date14 varchar(16);
+set @q_date14=@q_date+'14%'
+declare @q_date15 varchar(16);
+set @q_date15=@q_date+'15%'
+declare @q_date16 varchar(16);
+set @q_date16=@q_date+'16%'
+declare @q_date17 varchar(16);
+set @q_date17=@q_date+'17%'
+declare @q_date18 varchar(16);
+set @q_date18=@q_date+'18%'
+declare @q_date19 varchar(16);
+set @q_date19=@q_date+'19%'
+declare @q_date20 varchar(16);
+set @q_date20=@q_date+'20%'
+declare @q_date21 varchar(16);
+set @q_date21=@q_date+'21%'
+declare @q_date22 varchar(16);
+set @q_date22=@q_date+'22%'
+declare @q_date23 varchar(16);
+set @q_date23=@q_date+'23%'
+declare @q_date24 varchar(16);
+set @q_date24=@q_date+'24%'
+declare @q_date25 varchar(16);
+set @q_date25=@q_date+'25%'
+declare @q_date26 varchar(16);
+set @q_date26=@q_date+'26%'
+declare @q_date27 varchar(16);
+set @q_date27=@q_date+'27%'
+declare @q_date28 varchar(16);
+set @q_date28=@q_date+'28%'
+declare @q_date29 varchar(16);
+set @q_date29=@q_date+'29%'
+declare @q_date30 varchar(16);
+set @q_date30=@q_date+'30%'
+declare @q_date31 varchar(16);
+set @q_date31=@q_date+'31%'
+
+
+declare @daybox1 int;
+declare @daybox2 int;
+declare @daybox3 int;
+declare @daybox4 int;
+declare @daybox5 int;
+declare @daybox6 int;
+declare @daybox7 int;
+declare @daybox8 int;
+declare @daybox9 int;
+declare @daybox10 int;
+declare @daybox11 int;
+declare @daybox12 int;
+declare @daybox13 int;
+declare @daybox14 int;
+declare @daybox15 int;
+declare @daybox16 int;
+declare @daybox17 int;
+declare @daybox18 int;
+declare @daybox19 int;
+declare @daybox20 int;
+declare @daybox21 int;
+declare @daybox22 int;
+declare @daybox23 int;
+declare @daybox24 int;
+declare @daybox25 int;
+declare @daybox26 int;
+declare @daybox27 int;
+declare @daybox28 int;
+declare @daybox29 int;
+declare @daybox30 int;
+declare @daybox31 int;
+
+declare @class int;
+set @class=" + classnum.ToString() + @";
+declare @sumsta int;
+set @sumsta=(select count(*) from [rfidtest].[dbo.Station] WHERE Class=@class);
+print @sumsta
+declare @i int;
+set @i=1;
+declare @staid int;
+if @class=1
+    set @staid=30;
+if @class=2
+    set @staid=45;
+if @class=3
+    set @staid=68;
+
+while @i<=@sumsta
+begin
+set @staid=@staid+1;
+declare @name varchar(50);
+set @name=(select Name from [rfidtest].[dbo.Station] WHERE StationID=@staid);
+
+set @daybox1=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @q_date1 AND EndTime is not null AND StartStationID=@staid);
+set @daybox2=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @q_date2 AND EndTime is not null AND StartStationID=@staid);
+set @daybox3=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @q_date3 AND EndTime is not null AND StartStationID=@staid);
+set @daybox4=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @q_date4 AND EndTime is not null AND StartStationID=@staid);
+set @daybox5=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @q_date5 AND EndTime is not null AND StartStationID=@staid);
+set @daybox6=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @q_date6 AND EndTime is not null AND StartStationID=@staid);
+set @daybox7=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @q_date7 AND EndTime is not null AND StartStationID=@staid);
+set @daybox8=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @q_date8 AND EndTime is not null AND StartStationID=@staid);
+set @daybox9=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @q_date9 AND EndTime is not null AND StartStationID=@staid);
+set @daybox10=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @q_date10 AND EndTime is not null AND StartStationID=@staid);
+set @daybox11=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @q_date11 AND EndTime is not null AND StartStationID=@staid);
+set @daybox12=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @q_date12 AND EndTime is not null AND StartStationID=@staid);
+set @daybox13=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @q_date13 AND EndTime is not null AND StartStationID=@staid);
+set @daybox14=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @q_date14 AND EndTime is not null AND StartStationID=@staid);
+set @daybox15=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @q_date15 AND EndTime is not null AND StartStationID=@staid);
+set @daybox16=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @q_date16 AND EndTime is not null AND StartStationID=@staid);
+set @daybox17=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @q_date17 AND EndTime is not null AND StartStationID=@staid);
+set @daybox18=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @q_date18 AND EndTime is not null AND StartStationID=@staid);
+set @daybox19=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @q_date19 AND EndTime is not null AND StartStationID=@staid);
+set @daybox20=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @q_date20 AND EndTime is not null AND StartStationID=@staid);
+set @daybox21=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @q_date21 AND EndTime is not null AND StartStationID=@staid);
+set @daybox22=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @q_date22 AND EndTime is not null AND StartStationID=@staid);
+set @daybox23=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @q_date23 AND EndTime is not null AND StartStationID=@staid);
+set @daybox24=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @q_date24 AND EndTime is not null AND StartStationID=@staid);
+set @daybox25=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @q_date25 AND EndTime is not null AND StartStationID=@staid);
+set @daybox26=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @q_date26 AND EndTime is not null AND StartStationID=@staid);
+set @daybox27=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @q_date27 AND EndTime is not null AND StartStationID=@staid);
+set @daybox28=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @q_date28 AND EndTime is not null AND StartStationID=@staid);
+set @daybox29=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @q_date29 AND EndTime is not null AND StartStationID=@staid);
+set @daybox30=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @q_date30 AND EndTime is not null AND StartStationID=@staid);
+set @daybox31=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @q_date31 AND EndTime is not null AND StartStationID=@staid);
+
+declare @monbox int;
+set @monbox=@daybox1+@daybox2+@daybox3+@daybox4+@daybox5+@daybox6+@daybox7+@daybox8+@daybox9+@daybox10+@daybox11+@daybox12+@daybox13+@daybox14+@daybox19+@daybox15+@daybox16+@daybox17+@daybox18+@daybox20+@daybox21+@daybox22+@daybox23+@daybox24+@daybox25+@daybox26+@daybox27+@daybox28+@daybox29+@daybox30+@daybox31;
+   
+insert into tempTable(staname ,datacolumn1 ,datacolumn2 ,datacolumn3 ,datacolumn4 ,datacolumn5 ,datacolumn6 ,datacolumn7 ,datacolumn8 ,datacolumn9 ,datacolumn10 ,datacolumn11 ,datacolumn12 ,datacolumn13 ,datacolumn14 ,datacolumn15 ,datacolumn16 ,datacolumn17 ,datacolumn18 ,datacolumn19 ,datacolumn20 ,datacolumn21 ,datacolumn22 ,datacolumn23 ,datacolumn24 ,datacolumn25 ,datacolumn26 ,datacolumn27 ,datacolumn28 ,datacolumn29 ,datacolumn30 ,datacolumn31 ,sumcheci ,sumreal ,diff ,dateid) values(@name,@daybox1,@daybox2,@daybox3,@daybox4,@daybox5,@daybox6,@daybox7,@daybox8,@daybox9,@daybox10,@daybox11,@daybox12,@daybox13,@daybox14,@daybox19,@daybox15,@daybox16,@daybox17,@daybox18,@daybox20,@daybox21,@daybox22,@daybox23,@daybox24,@daybox25,@daybox26,@daybox27,@daybox28,@daybox29,@daybox30,@daybox31,@monbox,0,0,' ');
+
+set @i=@i+1;
+end
+
+select * from tempTable;
+drop table tempTable;";
+            #endregion
+
+             crform_sqlda = new SqlDataAdapter(q_sql, sqlcon);
+             crform_sqlda.SelectCommand.CommandTimeout = 100000000;
+             try
+             {
+                 crform_sqlda.Fill(crform_ds, "MonCheCi");//得到要查询的月的所有的运输信息，包括所有站。
+             }
+             catch (Exception x)
+             {
+                 MessageBox.Show("不能生成报表,请查找错误");
+                 this.Enabled = true;
+                 progressBarMonCheCi.Visible = false;
+                 labelProgMonCheCi.Text = "";
+                 labelProgMonCheCi.Update();
+                 groupBoxReport4.Enabled = false;
+                 groupBoxSelect4.Enabled = true;
+                 return;
+             }
+
+        }
+
+        private void backgroundWorkerMonCheCi_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            dataGridViewMon.DataSource = crform_ds.Tables["YearOutPut"];
+            dataGridViewMon.Visible = false;
+
+            string crPath = "CrystalReport5.rpt";
+            //crDocument.Refresh();
+            ReportDocument crDocument = new ReportDocument();
+            crDocument.Load(crPath);
+            crDocument.SetDataSource(crform_ds);
+
+            crystalReportViewerMonCheCi.ReportSource = crDocument; ;
+            toolStripButtonMonCheCiExl.Enabled = true;
+            progressBarMonCheCi.Value = progressBarMonCheCi.Maximum;
+            progressBarMonCheCi.Update();
+            labelProgMonCheCi.Text = "已完成";
+            labelProgMonCheCi.Update();
+            this.Enabled = true;
+        }
+        
         #endregion
         //*************************add by will*******************************************
         #region 权限treenode生成函数 权限为 1 2 3 4 5
@@ -6343,6 +6480,10 @@ drop table resYear;";
 
 
         #endregion
+
+ 
+
+
 
 
 
