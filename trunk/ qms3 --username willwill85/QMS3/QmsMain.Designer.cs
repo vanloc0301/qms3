@@ -439,6 +439,7 @@
             this.crystalReportViewerMonCheCi = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.label67 = new System.Windows.Forms.Label();
             this.comboBox9 = new System.Windows.Forms.ComboBox();
+            this.backgroundWorkerMonCheCi = new System.ComponentModel.BackgroundWorker();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.MainTab.SuspendLayout();
@@ -3168,7 +3169,7 @@
             // dateTimePicker6
             // 
             this.dateTimePicker6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dateTimePicker6.Location = new System.Drawing.Point(491, 28);
+            this.dateTimePicker6.Location = new System.Drawing.Point(491, 25);
             this.dateTimePicker6.MaxDate = new System.DateTime(2222, 12, 31, 0, 0, 0, 0);
             this.dateTimePicker6.MinDate = new System.DateTime(1949, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker6.Name = "dateTimePicker6";
@@ -3180,7 +3181,7 @@
             this.labelInput2.AutoSize = true;
             this.labelInput2.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.labelInput2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.labelInput2.Location = new System.Drawing.Point(348, 28);
+            this.labelInput2.Location = new System.Drawing.Point(348, 25);
             this.labelInput2.Name = "labelInput2";
             this.labelInput2.Size = new System.Drawing.Size(138, 21);
             this.labelInput2.TabIndex = 14;
@@ -3424,7 +3425,7 @@
             this.labelInput1.AutoSize = true;
             this.labelInput1.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.labelInput1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.labelInput1.Location = new System.Drawing.Point(322, 28);
+            this.labelInput1.Location = new System.Drawing.Point(322, 25);
             this.labelInput1.Name = "labelInput1";
             this.labelInput1.Size = new System.Drawing.Size(138, 21);
             this.labelInput1.TabIndex = 14;
@@ -3492,7 +3493,7 @@
             // labelDay1
             // 
             this.labelDay1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelDay1.Location = new System.Drawing.Point(735, 28);
+            this.labelDay1.Location = new System.Drawing.Point(735, 25);
             this.labelDay1.Name = "labelDay1";
             this.labelDay1.Size = new System.Drawing.Size(20, 21);
             this.labelDay1.TabIndex = 9;
@@ -3504,7 +3505,7 @@
             this.comboBoxDay1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDay1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.comboBoxDay1.FormattingEnabled = true;
-            this.comboBoxDay1.Location = new System.Drawing.Point(674, 24);
+            this.comboBoxDay1.Location = new System.Drawing.Point(674, 21);
             this.comboBoxDay1.Name = "comboBoxDay1";
             this.comboBoxDay1.Size = new System.Drawing.Size(55, 29);
             this.comboBoxDay1.TabIndex = 8;
@@ -3513,7 +3514,7 @@
             // labelMon1
             // 
             this.labelMon1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelMon1.Location = new System.Drawing.Point(654, 28);
+            this.labelMon1.Location = new System.Drawing.Point(654, 25);
             this.labelMon1.Name = "labelMon1";
             this.labelMon1.Size = new System.Drawing.Size(20, 21);
             this.labelMon1.TabIndex = 7;
@@ -3523,7 +3524,7 @@
             // labelYear1
             // 
             this.labelYear1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelYear1.Location = new System.Drawing.Point(578, 28);
+            this.labelYear1.Location = new System.Drawing.Point(578, 25);
             this.labelYear1.Name = "labelYear1";
             this.labelYear1.Size = new System.Drawing.Size(17, 21);
             this.labelYear1.TabIndex = 6;
@@ -3548,7 +3549,7 @@
             "10",
             "11",
             "12"});
-            this.comboBoxMon1.Location = new System.Drawing.Point(597, 24);
+            this.comboBoxMon1.Location = new System.Drawing.Point(597, 21);
             this.comboBoxMon1.Name = "comboBoxMon1";
             this.comboBoxMon1.Size = new System.Drawing.Size(55, 29);
             this.comboBoxMon1.TabIndex = 5;
@@ -3564,7 +3565,7 @@
             this.comboBoxYear1.Items.AddRange(new object[] {
             "2010",
             "2009"});
-            this.comboBoxYear1.Location = new System.Drawing.Point(465, 24);
+            this.comboBoxYear1.Location = new System.Drawing.Point(465, 21);
             this.comboBoxYear1.Name = "comboBoxYear1";
             this.comboBoxYear1.Size = new System.Drawing.Size(109, 29);
             this.comboBoxYear1.TabIndex = 4;
@@ -3636,7 +3637,7 @@
             this.labelInput3.AutoSize = true;
             this.labelInput3.Font = new System.Drawing.Font("微软雅黑", 12F);
             this.labelInput3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.labelInput3.Location = new System.Drawing.Point(373, 27);
+            this.labelInput3.Location = new System.Drawing.Point(373, 25);
             this.labelInput3.Name = "labelInput3";
             this.labelInput3.Size = new System.Drawing.Size(138, 21);
             this.labelInput3.TabIndex = 14;
@@ -3733,7 +3734,7 @@
             // labelYear3
             // 
             this.labelYear3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelYear3.Location = new System.Drawing.Point(633, 26);
+            this.labelYear3.Location = new System.Drawing.Point(633, 25);
             this.labelYear3.Name = "labelYear3";
             this.labelYear3.Size = new System.Drawing.Size(17, 21);
             this.labelYear3.TabIndex = 6;
@@ -3775,7 +3776,7 @@
             this.comboBoxYear3.Items.AddRange(new object[] {
             "2010",
             "2009"});
-            this.comboBoxYear3.Location = new System.Drawing.Point(514, 22);
+            this.comboBoxYear3.Location = new System.Drawing.Point(514, 21);
             this.comboBoxYear3.Name = "comboBoxYear3";
             this.comboBoxYear3.Size = new System.Drawing.Size(109, 29);
             this.comboBoxYear3.TabIndex = 4;
@@ -3864,6 +3865,7 @@
             this.toolStripButtonMonCheCi.Size = new System.Drawing.Size(142, 63);
             this.toolStripButtonMonCheCi.Text = "查看月清运车次表";
             this.toolStripButtonMonCheCi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButtonMonCheCi.Click += new System.EventHandler(this.toolStripButtonMonCheCi_Click);
             // 
             // toolStripButtonMonCheCiExl
             // 
@@ -4843,6 +4845,11 @@
             this.comboBox9.Size = new System.Drawing.Size(55, 29);
             this.comboBox9.TabIndex = 16;
             // 
+            // backgroundWorkerMonCheCi
+            // 
+            this.backgroundWorkerMonCheCi.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerMonCheCi_DoWork);
+            this.backgroundWorkerMonCheCi.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorkerMonCheCi_RunWorkerCompleted);
+            // 
             // QmsMain
             // 
             this.AcceptButton = this.button1;
@@ -5379,6 +5386,7 @@
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewerMonCheCi;
         private System.Windows.Forms.ComboBox comboBox9;
         private System.Windows.Forms.Label label67;
+        private System.ComponentModel.BackgroundWorker backgroundWorkerMonCheCi;
     }
 }
 

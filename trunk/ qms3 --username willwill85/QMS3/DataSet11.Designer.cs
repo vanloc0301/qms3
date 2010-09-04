@@ -43,6 +43,8 @@ namespace QMS3 {
         
         private Result_t0DataTable tableResult_t0;
         
+        private MonCheCiDataTable tableMonCheCi;
+        
         private global::System.Data.DataRelation relationStation_Table_Goods_Table;
         
         private global::System.Data.DataRelation relationMyDate_Result;
@@ -99,6 +101,9 @@ namespace QMS3 {
                 }
                 if ((ds.Tables["Result_t0"] != null)) {
                     base.Tables.Add(new Result_t0DataTable(ds.Tables["Result_t0"]));
+                }
+                if ((ds.Tables["MonCheCi"] != null)) {
+                    base.Tables.Add(new MonCheCiDataTable(ds.Tables["MonCheCi"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -200,6 +205,15 @@ namespace QMS3 {
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public MonCheCiDataTable MonCheCi {
+            get {
+                return this.tableMonCheCi;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -285,6 +299,9 @@ namespace QMS3 {
                 if ((ds.Tables["Result_t0"] != null)) {
                     base.Tables.Add(new Result_t0DataTable(ds.Tables["Result_t0"]));
                 }
+                if ((ds.Tables["MonCheCi"] != null)) {
+                    base.Tables.Add(new MonCheCiDataTable(ds.Tables["MonCheCi"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -369,6 +386,12 @@ namespace QMS3 {
                     this.tableResult_t0.InitVars();
                 }
             }
+            this.tableMonCheCi = ((MonCheCiDataTable)(base.Tables["MonCheCi"]));
+            if ((initTable == true)) {
+                if ((this.tableMonCheCi != null)) {
+                    this.tableMonCheCi.InitVars();
+                }
+            }
             this.relationStation_Table_Goods_Table = this.Relations["Station_Table_Goods_Table"];
             this.relationMyDate_Result = this.Relations["MyDate_Result"];
         }
@@ -398,6 +421,8 @@ namespace QMS3 {
             base.Tables.Add(this.tableTemp_Result);
             this.tableResult_t0 = new Result_t0DataTable();
             base.Tables.Add(this.tableResult_t0);
+            this.tableMonCheCi = new MonCheCiDataTable();
+            base.Tables.Add(this.tableMonCheCi);
             this.relationStation_Table_Goods_Table = new global::System.Data.DataRelation("Station_Table_Goods_Table", new global::System.Data.DataColumn[] {
                         this.tableStation_Table.IDColumn}, new global::System.Data.DataColumn[] {
                         this.tableGoods_Table.IDColumn}, false);
@@ -450,6 +475,11 @@ namespace QMS3 {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         private bool ShouldSerializeResult_t0() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        private bool ShouldSerializeMonCheCi() {
             return false;
         }
         
@@ -523,6 +553,8 @@ namespace QMS3 {
         public delegate void Temp_ResultRowChangeEventHandler(object sender, Temp_ResultRowChangeEvent e);
         
         public delegate void Result_t0RowChangeEventHandler(object sender, Result_t0RowChangeEvent e);
+        
+        public delegate void MonCheCiRowChangeEventHandler(object sender, MonCheCiRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -3224,6 +3256,706 @@ namespace QMS3 {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class MonCheCiDataTable : global::System.Data.TypedTableBase<MonCheCiRow> {
+            
+            private global::System.Data.DataColumn columnStaName;
+            
+            private global::System.Data.DataColumn columnDataColumn1;
+            
+            private global::System.Data.DataColumn columnDataColumn2;
+            
+            private global::System.Data.DataColumn columnDataColumn3;
+            
+            private global::System.Data.DataColumn columnDataColumn4;
+            
+            private global::System.Data.DataColumn columnDataColumn5;
+            
+            private global::System.Data.DataColumn columnDataColumn6;
+            
+            private global::System.Data.DataColumn columnDataColumn7;
+            
+            private global::System.Data.DataColumn columnDataColumn8;
+            
+            private global::System.Data.DataColumn columnDataColumn9;
+            
+            private global::System.Data.DataColumn columnDataColumn10;
+            
+            private global::System.Data.DataColumn columnDataColumn11;
+            
+            private global::System.Data.DataColumn columnDataColumn12;
+            
+            private global::System.Data.DataColumn columnDataColumn13;
+            
+            private global::System.Data.DataColumn columnDataColumn14;
+            
+            private global::System.Data.DataColumn columnDataColumn15;
+            
+            private global::System.Data.DataColumn columnDataColumn16;
+            
+            private global::System.Data.DataColumn columnDataColumn17;
+            
+            private global::System.Data.DataColumn columnDataColumn18;
+            
+            private global::System.Data.DataColumn columnDataColumn19;
+            
+            private global::System.Data.DataColumn columnDataColumn20;
+            
+            private global::System.Data.DataColumn columnDataColumn21;
+            
+            private global::System.Data.DataColumn columnDataColumn22;
+            
+            private global::System.Data.DataColumn columnDataColumn23;
+            
+            private global::System.Data.DataColumn columnDataColumn24;
+            
+            private global::System.Data.DataColumn columnDataColumn25;
+            
+            private global::System.Data.DataColumn columnDataColumn26;
+            
+            private global::System.Data.DataColumn columnDataColumn27;
+            
+            private global::System.Data.DataColumn columnDataColumn28;
+            
+            private global::System.Data.DataColumn columnDataColumn29;
+            
+            private global::System.Data.DataColumn columnDataColumn30;
+            
+            private global::System.Data.DataColumn columnDataColumn31;
+            
+            private global::System.Data.DataColumn columnSumCheCi;
+            
+            private global::System.Data.DataColumn columnSumReal;
+            
+            private global::System.Data.DataColumn columnDiff;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public MonCheCiDataTable() {
+                this.TableName = "MonCheCi";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal MonCheCiDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected MonCheCiDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn StaNameColumn {
+                get {
+                    return this.columnStaName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn1Column {
+                get {
+                    return this.columnDataColumn1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn2Column {
+                get {
+                    return this.columnDataColumn2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn3Column {
+                get {
+                    return this.columnDataColumn3;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn4Column {
+                get {
+                    return this.columnDataColumn4;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn5Column {
+                get {
+                    return this.columnDataColumn5;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn6Column {
+                get {
+                    return this.columnDataColumn6;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn7Column {
+                get {
+                    return this.columnDataColumn7;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn8Column {
+                get {
+                    return this.columnDataColumn8;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn9Column {
+                get {
+                    return this.columnDataColumn9;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn10Column {
+                get {
+                    return this.columnDataColumn10;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn11Column {
+                get {
+                    return this.columnDataColumn11;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn12Column {
+                get {
+                    return this.columnDataColumn12;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn13Column {
+                get {
+                    return this.columnDataColumn13;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn14Column {
+                get {
+                    return this.columnDataColumn14;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn15Column {
+                get {
+                    return this.columnDataColumn15;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn16Column {
+                get {
+                    return this.columnDataColumn16;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn17Column {
+                get {
+                    return this.columnDataColumn17;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn18Column {
+                get {
+                    return this.columnDataColumn18;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn19Column {
+                get {
+                    return this.columnDataColumn19;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn20Column {
+                get {
+                    return this.columnDataColumn20;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn21Column {
+                get {
+                    return this.columnDataColumn21;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn22Column {
+                get {
+                    return this.columnDataColumn22;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn23Column {
+                get {
+                    return this.columnDataColumn23;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn24Column {
+                get {
+                    return this.columnDataColumn24;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn25Column {
+                get {
+                    return this.columnDataColumn25;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn26Column {
+                get {
+                    return this.columnDataColumn26;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn27Column {
+                get {
+                    return this.columnDataColumn27;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn28Column {
+                get {
+                    return this.columnDataColumn28;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn29Column {
+                get {
+                    return this.columnDataColumn29;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn30Column {
+                get {
+                    return this.columnDataColumn30;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DataColumn31Column {
+                get {
+                    return this.columnDataColumn31;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn SumCheCiColumn {
+                get {
+                    return this.columnSumCheCi;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn SumRealColumn {
+                get {
+                    return this.columnSumReal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataColumn DiffColumn {
+                get {
+                    return this.columnDiff;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public MonCheCiRow this[int index] {
+                get {
+                    return ((MonCheCiRow)(this.Rows[index]));
+                }
+            }
+            
+            public event MonCheCiRowChangeEventHandler MonCheCiRowChanging;
+            
+            public event MonCheCiRowChangeEventHandler MonCheCiRowChanged;
+            
+            public event MonCheCiRowChangeEventHandler MonCheCiRowDeleting;
+            
+            public event MonCheCiRowChangeEventHandler MonCheCiRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void AddMonCheCiRow(MonCheCiRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public MonCheCiRow AddMonCheCiRow(
+                        string StaName, 
+                        string DataColumn1, 
+                        string DataColumn2, 
+                        string DataColumn3, 
+                        string DataColumn4, 
+                        string DataColumn5, 
+                        string DataColumn6, 
+                        string DataColumn7, 
+                        string DataColumn8, 
+                        string DataColumn9, 
+                        string DataColumn10, 
+                        string DataColumn11, 
+                        string DataColumn12, 
+                        string DataColumn13, 
+                        string DataColumn14, 
+                        string DataColumn15, 
+                        string DataColumn16, 
+                        string DataColumn17, 
+                        string DataColumn18, 
+                        string DataColumn19, 
+                        string DataColumn20, 
+                        string DataColumn21, 
+                        string DataColumn22, 
+                        string DataColumn23, 
+                        string DataColumn24, 
+                        string DataColumn25, 
+                        string DataColumn26, 
+                        string DataColumn27, 
+                        string DataColumn28, 
+                        string DataColumn29, 
+                        string DataColumn30, 
+                        string DataColumn31, 
+                        string SumCheCi, 
+                        string SumReal, 
+                        string Diff) {
+                MonCheCiRow rowMonCheCiRow = ((MonCheCiRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        StaName,
+                        DataColumn1,
+                        DataColumn2,
+                        DataColumn3,
+                        DataColumn4,
+                        DataColumn5,
+                        DataColumn6,
+                        DataColumn7,
+                        DataColumn8,
+                        DataColumn9,
+                        DataColumn10,
+                        DataColumn11,
+                        DataColumn12,
+                        DataColumn13,
+                        DataColumn14,
+                        DataColumn15,
+                        DataColumn16,
+                        DataColumn17,
+                        DataColumn18,
+                        DataColumn19,
+                        DataColumn20,
+                        DataColumn21,
+                        DataColumn22,
+                        DataColumn23,
+                        DataColumn24,
+                        DataColumn25,
+                        DataColumn26,
+                        DataColumn27,
+                        DataColumn28,
+                        DataColumn29,
+                        DataColumn30,
+                        DataColumn31,
+                        SumCheCi,
+                        SumReal,
+                        Diff};
+                rowMonCheCiRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowMonCheCiRow);
+                return rowMonCheCiRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public override global::System.Data.DataTable Clone() {
+                MonCheCiDataTable cln = ((MonCheCiDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new MonCheCiDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal void InitVars() {
+                this.columnStaName = base.Columns["StaName"];
+                this.columnDataColumn1 = base.Columns["DataColumn1"];
+                this.columnDataColumn2 = base.Columns["DataColumn2"];
+                this.columnDataColumn3 = base.Columns["DataColumn3"];
+                this.columnDataColumn4 = base.Columns["DataColumn4"];
+                this.columnDataColumn5 = base.Columns["DataColumn5"];
+                this.columnDataColumn6 = base.Columns["DataColumn6"];
+                this.columnDataColumn7 = base.Columns["DataColumn7"];
+                this.columnDataColumn8 = base.Columns["DataColumn8"];
+                this.columnDataColumn9 = base.Columns["DataColumn9"];
+                this.columnDataColumn10 = base.Columns["DataColumn10"];
+                this.columnDataColumn11 = base.Columns["DataColumn11"];
+                this.columnDataColumn12 = base.Columns["DataColumn12"];
+                this.columnDataColumn13 = base.Columns["DataColumn13"];
+                this.columnDataColumn14 = base.Columns["DataColumn14"];
+                this.columnDataColumn15 = base.Columns["DataColumn15"];
+                this.columnDataColumn16 = base.Columns["DataColumn16"];
+                this.columnDataColumn17 = base.Columns["DataColumn17"];
+                this.columnDataColumn18 = base.Columns["DataColumn18"];
+                this.columnDataColumn19 = base.Columns["DataColumn19"];
+                this.columnDataColumn20 = base.Columns["DataColumn20"];
+                this.columnDataColumn21 = base.Columns["DataColumn21"];
+                this.columnDataColumn22 = base.Columns["DataColumn22"];
+                this.columnDataColumn23 = base.Columns["DataColumn23"];
+                this.columnDataColumn24 = base.Columns["DataColumn24"];
+                this.columnDataColumn25 = base.Columns["DataColumn25"];
+                this.columnDataColumn26 = base.Columns["DataColumn26"];
+                this.columnDataColumn27 = base.Columns["DataColumn27"];
+                this.columnDataColumn28 = base.Columns["DataColumn28"];
+                this.columnDataColumn29 = base.Columns["DataColumn29"];
+                this.columnDataColumn30 = base.Columns["DataColumn30"];
+                this.columnDataColumn31 = base.Columns["DataColumn31"];
+                this.columnSumCheCi = base.Columns["SumCheCi"];
+                this.columnSumReal = base.Columns["SumReal"];
+                this.columnDiff = base.Columns["Diff"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            private void InitClass() {
+                this.columnStaName = new global::System.Data.DataColumn("StaName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStaName);
+                this.columnDataColumn1 = new global::System.Data.DataColumn("DataColumn1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn1);
+                this.columnDataColumn2 = new global::System.Data.DataColumn("DataColumn2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn2);
+                this.columnDataColumn3 = new global::System.Data.DataColumn("DataColumn3", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn3);
+                this.columnDataColumn4 = new global::System.Data.DataColumn("DataColumn4", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn4);
+                this.columnDataColumn5 = new global::System.Data.DataColumn("DataColumn5", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn5);
+                this.columnDataColumn6 = new global::System.Data.DataColumn("DataColumn6", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn6);
+                this.columnDataColumn7 = new global::System.Data.DataColumn("DataColumn7", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn7);
+                this.columnDataColumn8 = new global::System.Data.DataColumn("DataColumn8", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn8);
+                this.columnDataColumn9 = new global::System.Data.DataColumn("DataColumn9", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn9);
+                this.columnDataColumn10 = new global::System.Data.DataColumn("DataColumn10", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn10);
+                this.columnDataColumn11 = new global::System.Data.DataColumn("DataColumn11", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn11);
+                this.columnDataColumn12 = new global::System.Data.DataColumn("DataColumn12", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn12);
+                this.columnDataColumn13 = new global::System.Data.DataColumn("DataColumn13", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn13);
+                this.columnDataColumn14 = new global::System.Data.DataColumn("DataColumn14", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn14);
+                this.columnDataColumn15 = new global::System.Data.DataColumn("DataColumn15", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn15);
+                this.columnDataColumn16 = new global::System.Data.DataColumn("DataColumn16", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn16);
+                this.columnDataColumn17 = new global::System.Data.DataColumn("DataColumn17", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn17);
+                this.columnDataColumn18 = new global::System.Data.DataColumn("DataColumn18", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn18);
+                this.columnDataColumn19 = new global::System.Data.DataColumn("DataColumn19", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn19);
+                this.columnDataColumn20 = new global::System.Data.DataColumn("DataColumn20", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn20);
+                this.columnDataColumn21 = new global::System.Data.DataColumn("DataColumn21", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn21);
+                this.columnDataColumn22 = new global::System.Data.DataColumn("DataColumn22", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn22);
+                this.columnDataColumn23 = new global::System.Data.DataColumn("DataColumn23", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn23);
+                this.columnDataColumn24 = new global::System.Data.DataColumn("DataColumn24", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn24);
+                this.columnDataColumn25 = new global::System.Data.DataColumn("DataColumn25", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn25);
+                this.columnDataColumn26 = new global::System.Data.DataColumn("DataColumn26", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn26);
+                this.columnDataColumn27 = new global::System.Data.DataColumn("DataColumn27", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn27);
+                this.columnDataColumn28 = new global::System.Data.DataColumn("DataColumn28", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn28);
+                this.columnDataColumn29 = new global::System.Data.DataColumn("DataColumn29", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn29);
+                this.columnDataColumn30 = new global::System.Data.DataColumn("DataColumn30", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn30);
+                this.columnDataColumn31 = new global::System.Data.DataColumn("DataColumn31", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDataColumn31);
+                this.columnSumCheCi = new global::System.Data.DataColumn("SumCheCi", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSumCheCi);
+                this.columnSumReal = new global::System.Data.DataColumn("SumReal", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSumReal);
+                this.columnDiff = new global::System.Data.DataColumn("Diff", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDiff);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public MonCheCiRow NewMonCheCiRow() {
+                return ((MonCheCiRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new MonCheCiRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override global::System.Type GetRowType() {
+                return typeof(MonCheCiRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.MonCheCiRowChanged != null)) {
+                    this.MonCheCiRowChanged(this, new MonCheCiRowChangeEvent(((MonCheCiRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.MonCheCiRowChanging != null)) {
+                    this.MonCheCiRowChanging(this, new MonCheCiRowChangeEvent(((MonCheCiRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.MonCheCiRowDeleted != null)) {
+                    this.MonCheCiRowDeleted(this, new MonCheCiRowChangeEvent(((MonCheCiRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.MonCheCiRowDeleting != null)) {
+                    this.MonCheCiRowDeleting(this, new MonCheCiRowChangeEvent(((MonCheCiRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void RemoveMonCheCiRow(MonCheCiRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DataSet1 ds = new DataSet1();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "MonCheCiDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -4819,6 +5551,896 @@ namespace QMS3 {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public partial class MonCheCiRow : global::System.Data.DataRow {
+            
+            private MonCheCiDataTable tableMonCheCi;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            internal MonCheCiRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableMonCheCi = ((MonCheCiDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string StaName {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.StaNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“StaName”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.StaNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.DataColumn1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“DataColumn1”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.DataColumn1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn2 {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.DataColumn2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“DataColumn2”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.DataColumn2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn3 {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.DataColumn3Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“DataColumn3”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.DataColumn3Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn4 {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.DataColumn4Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“DataColumn4”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.DataColumn4Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn5 {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.DataColumn5Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“DataColumn5”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.DataColumn5Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn6 {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.DataColumn6Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“DataColumn6”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.DataColumn6Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn7 {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.DataColumn7Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“DataColumn7”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.DataColumn7Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn8 {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.DataColumn8Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“DataColumn8”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.DataColumn8Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn9 {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.DataColumn9Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“DataColumn9”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.DataColumn9Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn10 {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.DataColumn10Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“DataColumn10”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.DataColumn10Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn11 {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.DataColumn11Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“DataColumn11”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.DataColumn11Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn12 {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.DataColumn12Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“DataColumn12”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.DataColumn12Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn13 {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.DataColumn13Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“DataColumn13”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.DataColumn13Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn14 {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.DataColumn14Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“DataColumn14”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.DataColumn14Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn15 {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.DataColumn15Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“DataColumn15”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.DataColumn15Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn16 {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.DataColumn16Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“DataColumn16”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.DataColumn16Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn17 {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.DataColumn17Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“DataColumn17”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.DataColumn17Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn18 {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.DataColumn18Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“DataColumn18”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.DataColumn18Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn19 {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.DataColumn19Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“DataColumn19”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.DataColumn19Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn20 {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.DataColumn20Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“DataColumn20”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.DataColumn20Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn21 {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.DataColumn21Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“DataColumn21”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.DataColumn21Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn22 {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.DataColumn22Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“DataColumn22”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.DataColumn22Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn23 {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.DataColumn23Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“DataColumn23”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.DataColumn23Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn24 {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.DataColumn24Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“DataColumn24”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.DataColumn24Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn25 {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.DataColumn25Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“DataColumn25”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.DataColumn25Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn26 {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.DataColumn26Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“DataColumn26”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.DataColumn26Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn27 {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.DataColumn27Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“DataColumn27”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.DataColumn27Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn28 {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.DataColumn28Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“DataColumn28”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.DataColumn28Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn29 {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.DataColumn29Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“DataColumn29”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.DataColumn29Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn30 {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.DataColumn30Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“DataColumn30”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.DataColumn30Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string DataColumn31 {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.DataColumn31Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“DataColumn31”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.DataColumn31Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string SumCheCi {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.SumCheCiColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“SumCheCi”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.SumCheCiColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string SumReal {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.SumRealColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“SumReal”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.SumRealColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public string Diff {
+                get {
+                    try {
+                        return ((string)(this[this.tableMonCheCi.DiffColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“MonCheCi”中列“Diff”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableMonCheCi.DiffColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsStaNameNull() {
+                return this.IsNull(this.tableMonCheCi.StaNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetStaNameNull() {
+                this[this.tableMonCheCi.StaNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn1Null() {
+                return this.IsNull(this.tableMonCheCi.DataColumn1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn1Null() {
+                this[this.tableMonCheCi.DataColumn1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn2Null() {
+                return this.IsNull(this.tableMonCheCi.DataColumn2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn2Null() {
+                this[this.tableMonCheCi.DataColumn2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn3Null() {
+                return this.IsNull(this.tableMonCheCi.DataColumn3Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn3Null() {
+                this[this.tableMonCheCi.DataColumn3Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn4Null() {
+                return this.IsNull(this.tableMonCheCi.DataColumn4Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn4Null() {
+                this[this.tableMonCheCi.DataColumn4Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn5Null() {
+                return this.IsNull(this.tableMonCheCi.DataColumn5Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn5Null() {
+                this[this.tableMonCheCi.DataColumn5Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn6Null() {
+                return this.IsNull(this.tableMonCheCi.DataColumn6Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn6Null() {
+                this[this.tableMonCheCi.DataColumn6Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn7Null() {
+                return this.IsNull(this.tableMonCheCi.DataColumn7Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn7Null() {
+                this[this.tableMonCheCi.DataColumn7Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn8Null() {
+                return this.IsNull(this.tableMonCheCi.DataColumn8Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn8Null() {
+                this[this.tableMonCheCi.DataColumn8Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn9Null() {
+                return this.IsNull(this.tableMonCheCi.DataColumn9Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn9Null() {
+                this[this.tableMonCheCi.DataColumn9Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn10Null() {
+                return this.IsNull(this.tableMonCheCi.DataColumn10Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn10Null() {
+                this[this.tableMonCheCi.DataColumn10Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn11Null() {
+                return this.IsNull(this.tableMonCheCi.DataColumn11Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn11Null() {
+                this[this.tableMonCheCi.DataColumn11Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn12Null() {
+                return this.IsNull(this.tableMonCheCi.DataColumn12Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn12Null() {
+                this[this.tableMonCheCi.DataColumn12Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn13Null() {
+                return this.IsNull(this.tableMonCheCi.DataColumn13Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn13Null() {
+                this[this.tableMonCheCi.DataColumn13Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn14Null() {
+                return this.IsNull(this.tableMonCheCi.DataColumn14Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn14Null() {
+                this[this.tableMonCheCi.DataColumn14Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn15Null() {
+                return this.IsNull(this.tableMonCheCi.DataColumn15Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn15Null() {
+                this[this.tableMonCheCi.DataColumn15Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn16Null() {
+                return this.IsNull(this.tableMonCheCi.DataColumn16Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn16Null() {
+                this[this.tableMonCheCi.DataColumn16Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn17Null() {
+                return this.IsNull(this.tableMonCheCi.DataColumn17Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn17Null() {
+                this[this.tableMonCheCi.DataColumn17Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn18Null() {
+                return this.IsNull(this.tableMonCheCi.DataColumn18Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn18Null() {
+                this[this.tableMonCheCi.DataColumn18Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn19Null() {
+                return this.IsNull(this.tableMonCheCi.DataColumn19Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn19Null() {
+                this[this.tableMonCheCi.DataColumn19Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn20Null() {
+                return this.IsNull(this.tableMonCheCi.DataColumn20Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn20Null() {
+                this[this.tableMonCheCi.DataColumn20Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn21Null() {
+                return this.IsNull(this.tableMonCheCi.DataColumn21Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn21Null() {
+                this[this.tableMonCheCi.DataColumn21Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn22Null() {
+                return this.IsNull(this.tableMonCheCi.DataColumn22Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn22Null() {
+                this[this.tableMonCheCi.DataColumn22Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn23Null() {
+                return this.IsNull(this.tableMonCheCi.DataColumn23Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn23Null() {
+                this[this.tableMonCheCi.DataColumn23Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn24Null() {
+                return this.IsNull(this.tableMonCheCi.DataColumn24Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn24Null() {
+                this[this.tableMonCheCi.DataColumn24Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn25Null() {
+                return this.IsNull(this.tableMonCheCi.DataColumn25Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn25Null() {
+                this[this.tableMonCheCi.DataColumn25Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn26Null() {
+                return this.IsNull(this.tableMonCheCi.DataColumn26Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn26Null() {
+                this[this.tableMonCheCi.DataColumn26Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn27Null() {
+                return this.IsNull(this.tableMonCheCi.DataColumn27Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn27Null() {
+                this[this.tableMonCheCi.DataColumn27Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn28Null() {
+                return this.IsNull(this.tableMonCheCi.DataColumn28Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn28Null() {
+                this[this.tableMonCheCi.DataColumn28Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn29Null() {
+                return this.IsNull(this.tableMonCheCi.DataColumn29Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn29Null() {
+                this[this.tableMonCheCi.DataColumn29Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn30Null() {
+                return this.IsNull(this.tableMonCheCi.DataColumn30Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn30Null() {
+                this[this.tableMonCheCi.DataColumn30Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDataColumn31Null() {
+                return this.IsNull(this.tableMonCheCi.DataColumn31Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDataColumn31Null() {
+                this[this.tableMonCheCi.DataColumn31Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsSumCheCiNull() {
+                return this.IsNull(this.tableMonCheCi.SumCheCiColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetSumCheCiNull() {
+                this[this.tableMonCheCi.SumCheCiColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsSumRealNull() {
+                return this.IsNull(this.tableMonCheCi.SumRealColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetSumRealNull() {
+                this[this.tableMonCheCi.SumRealColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public bool IsDiffNull() {
+                return this.IsNull(this.tableMonCheCi.DiffColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public void SetDiffNull() {
+                this[this.tableMonCheCi.DiffColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
@@ -5084,6 +6706,37 @@ namespace QMS3 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             public Result_t0Row Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")]
+        public class MonCheCiRowChangeEvent : global::System.EventArgs {
+            
+            private MonCheCiRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public MonCheCiRowChangeEvent(MonCheCiRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            public MonCheCiRow Row {
                 get {
                     return this.eventRow;
                 }
