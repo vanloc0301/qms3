@@ -1433,7 +1433,7 @@ namespace QMS3
             if (mon_int < 10)
                 mon_str = "0" + mon_str;
             string day_str = "";
-            string str_cur_day = yr_str.Substring(2, 2) + "-" + mon_str + "-";//年月日
+            string str_cur_day = "";//年月日
 
 
             //查询时间
@@ -1481,7 +1481,7 @@ namespace QMS3
                     day_str = cur_day.ToString();
                     
                 }
-                str_cur_day += day_str;
+                str_cur_day = yr_str.Substring(2, 2) + "-" + mon_str + "-"  +day_str;
 
                 string sql_goods = @"if not exists(select name from sysobjects where name='res' and type='u')
   create table res(staname  varchar(100),sumbox int,weight2 float,weight3 float,weight4 float,weight5 float,weight6 float,weight7 float,weight8 float,weight9 float,weight10 float,weight11 float,weight12 float,weight13 float,weight14 float,weight15 float,sumweight float,sumboxtail float,dateid varchar(100));
@@ -1647,11 +1647,8 @@ drop table res;";
 
 
             }
-            //msecs = Process.GetCurrentProcess().TotalProcessorTime.Subtract(ts1).TotalMilliseconds;
-            //MessageBox.Show(msecs.ToString(), "process", MessageBoxButtons.OK, MessageBoxIcon.None);
 
            flag_mon = true;//查询完毕，准备给timer用来显示
-
 
         }
         private void timerMon1_Tick_1(object sender, EventArgs e)
@@ -1727,7 +1724,7 @@ drop table res;";
                 int day_int = Convert.ToInt32(day_str);
                 if (day_int < 10)
                     day_str = "0" + day_str;
-                string str_cur_day = yr_str.Substring(2, 2) + "-" + mon_str + "-";
+                string str_cur_day = yr_str.Substring(2, 2) + "-" + mon_str + "-" + day_str;
 
                 //查询时间
                 
@@ -1866,13 +1863,6 @@ else
                     labelProgMon.Text = "处理中...";
                     labelProgMon.Update();
                     this.Update();
-
-                    
-
-                    if (day_int < 10)
-                        str_cur_day = str_cur_day + "0" + day_int.ToString();
-                    else
-                        str_cur_day = str_cur_day + day_int.ToString();
 
                     int first_line = 0;//当天在Result表中第一行
                     DataTable tb_result = crform_ds.Tables["Result"];
