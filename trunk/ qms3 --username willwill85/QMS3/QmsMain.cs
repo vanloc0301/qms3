@@ -300,11 +300,11 @@ namespace QMS3
                     col.AllowDBNull = true;
                     #endregion
 
-
                     flag_everyday = false;
                     flag_everydayexl = false;
                     toolStripButtonDayCompExl.Enabled = false;
                     groupBoxReport2.Enabled = false;
+
                     MainTab.SelectTab(16);
                 }
                 break;
@@ -364,6 +364,7 @@ namespace QMS3
                         flag_exl = false;
                         toolStripButtonMonExl.Enabled = false;
                         groupBoxReport.Enabled = false;
+
                         MainTab.SelectTab(17);                    
                  }
                     
@@ -426,6 +427,67 @@ namespace QMS3
 
  
                         MainTab.SelectTab(18);
+                    }
+                    break;
+
+                case "TreeNode: 每月每班垃圾清运车次表":
+                    {//待修改
+                        sqlcon = boperate.getcon();
+                        crform_ds = new DataSet();
+                        //comboBoxMon3.Enabled = false;
+                        //comboBoxDay3.Enabled = false;
+                        dt_goods = crform_ds.Tables.Add("Goods_Table");
+                        //用来存储最终的结果
+                        result_tb = crform_ds.Tables.Add("Result");
+                        //toolStripButtonYearExl.Enabled = false;
+                        //groupBoxReport3.Enabled = false;
+                        //fName = "";
+
+                        #region  建立存储结果的datatable Result
+                        //向新建的存储最终的结果的DataTable加入列名
+                        DataColumn col = result_tb.Columns.Add("StaName", Type.GetType("System.String"));
+                        col.AllowDBNull = false;
+                        col.MaxLength = 20;
+                        col = result_tb.Columns.Add("SumBox", Type.GetType("System.Int32"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_2", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_3", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_4", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_5", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_6", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_7", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_8", Type.GetType("System.Decimal"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_9", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_10", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_11", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_12", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_13", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_14", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("Weight_15", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("SumWeight", Type.GetType("System.Double"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("SumBoxTail", Type.GetType("System.Int32"));
+                        col.AllowDBNull = true;
+                        col = result_tb.Columns.Add("DateID", Type.GetType("System.String"));
+                        col.AllowDBNull = true;
+                        #endregion
+
+
+                        MainTab.SelectTab(19);
                     }
                     break;
 
@@ -3471,6 +3533,9 @@ drop table resYear;";
         }
         #endregion
 
+        #region 每月每班清运车次表
+
+        #endregion
         //*************************add by will*******************************************
         #region 权限treenode生成函数 权限为 1 2 3 4 5
         public void treeviewload(int Userright)
@@ -3490,10 +3555,10 @@ drop table resYear;";
             System.Windows.Forms.TreeNode treeNode216 = new System.Windows.Forms.TreeNode("日垃圾清运完成情况");
             System.Windows.Forms.TreeNode treeNode217 = new System.Windows.Forms.TreeNode("每月清运垃圾明细表");
             System.Windows.Forms.TreeNode treeNode218 = new System.Windows.Forms.TreeNode("年度清运垃圾明细表");
-            //System.Windows.Forms.TreeNode treeNode219 = new System.Windows.Forms.TreeNode("每月每班垃圾清运车次表");
+            System.Windows.Forms.TreeNode treeNode219 = new System.Windows.Forms.TreeNode("每月每班垃圾清运车次表");
 
 
-            System.Windows.Forms.TreeNode treeNode236 = new System.Windows.Forms.TreeNode("报表生成器", new System.Windows.Forms.TreeNode[] { treeNode216, treeNode217, treeNode218 });
+            System.Windows.Forms.TreeNode treeNode236 = new System.Windows.Forms.TreeNode("报表生成器", new System.Windows.Forms.TreeNode[] { treeNode216, treeNode217, treeNode218, treeNode219 });
             //this.treeView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.treeView1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -3526,6 +3591,8 @@ drop table resYear;";
             treeNode217.Text = "每月清运垃圾明细表";
             treeNode218.Name = "节点14";
             treeNode218.Text = "年度清运垃圾明细表";
+            treeNode219.Name = "节点15";
+            treeNode219.Text = "每月每班垃圾清运车次表";
 
 
 

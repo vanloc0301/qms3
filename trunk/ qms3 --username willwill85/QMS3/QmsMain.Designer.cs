@@ -29,38 +29,38 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QmsMain));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("发司机卡");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("司机信息编辑");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("司机信息查询");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("司机卡管理", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2,
-            treeNode3});
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("发货箱卡");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("货箱信息编辑");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("货箱信息查询");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("货箱卡管理", new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode6,
-            treeNode7});
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("车辆状态信息查询");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("垃圾楼状态信息查询");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("转运中心状态信息查询");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("转运中心结算");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("西城区状态信息查询");
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("异常数据处理器");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("用户管理");
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("垃圾楼管理");
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("班长管理");
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("报表生成器");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("发司机卡");
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("司机信息编辑");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("司机信息查询");
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("司机卡管理", new System.Windows.Forms.TreeNode[] {
+            treeNode19,
+            treeNode20,
+            treeNode21});
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("发货箱卡");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("货箱信息编辑");
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("货箱信息查询");
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("货箱卡管理", new System.Windows.Forms.TreeNode[] {
+            treeNode23,
+            treeNode24,
+            treeNode25});
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("车辆状态信息查询");
+            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("垃圾楼状态信息查询");
+            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("转运中心状态信息查询");
+            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("转运中心结算");
+            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("西城区状态信息查询");
+            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("异常数据处理器");
+            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("用户管理");
+            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("垃圾楼管理");
+            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("班长管理");
+            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("报表生成器");
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
@@ -333,6 +333,18 @@
             this.labelYear3 = new System.Windows.Forms.Label();
             this.comboBoxMon3 = new System.Windows.Forms.ComboBox();
             this.comboBoxYear3 = new System.Windows.Forms.ComboBox();
+            this.tabPage20 = new System.Windows.Forms.TabPage();
+            this.groupBoxSelect4 = new System.Windows.Forms.GroupBox();
+            this.label66 = new System.Windows.Forms.Label();
+            this.labelProgMonCheCi = new System.Windows.Forms.Label();
+            this.progressBarMonCheCi = new System.Windows.Forms.ProgressBar();
+            this.toolStrip5 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonMonCheCi = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonMonCheCiExl = new System.Windows.Forms.ToolStripButton();
+            this.labelMon4 = new System.Windows.Forms.Label();
+            this.labelYear4 = new System.Windows.Forms.Label();
+            this.comboBoxMon4 = new System.Windows.Forms.ComboBox();
+            this.comboBoxYear4 = new System.Windows.Forms.ComboBox();
             this.dboGoodsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.db_rfidtestDataSet = new QMS3.db_rfidtestDataSet();
@@ -411,6 +423,22 @@
             this.bgwWriteBCard = new System.ComponentModel.BackgroundWorker();
             this.bgwReadBCard = new System.ComponentModel.BackgroundWorker();
             this.bgwReadDCard = new System.ComponentModel.BackgroundWorker();
+            this.label61 = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
+            this.progressBar4 = new System.Windows.Forms.ProgressBar();
+            this.toolStrip4 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton7 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton8 = new System.Windows.Forms.ToolStripButton();
+            this.label63 = new System.Windows.Forms.Label();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.label64 = new System.Windows.Forms.Label();
+            this.label65 = new System.Windows.Forms.Label();
+            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.groupBoxReport4 = new System.Windows.Forms.GroupBox();
+            this.crystalReportViewerMonCheCi = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.label67 = new System.Windows.Forms.Label();
+            this.comboBox9 = new System.Windows.Forms.ComboBox();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.MainTab.SuspendLayout();
@@ -499,6 +527,9 @@
             this.groupBoxReport3.SuspendLayout();
             this.groupBoxSelect3.SuspendLayout();
             this.toolStrip3.SuspendLayout();
+            this.tabPage20.SuspendLayout();
+            this.groupBoxSelect4.SuspendLayout();
+            this.toolStrip5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dboGoodsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.db_rfidtestDataSet)).BeginInit();
@@ -509,6 +540,8 @@
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).BeginInit();
             this.groupBox19.SuspendLayout();
+            this.toolStrip4.SuspendLayout();
+            this.groupBoxReport4.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -570,6 +603,7 @@
             this.MainTab.Controls.Add(this.tabPage17);
             this.MainTab.Controls.Add(this.tabPage18);
             this.MainTab.Controls.Add(this.tabPage19);
+            this.MainTab.Controls.Add(this.tabPage20);
             this.MainTab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainTab.ItemSize = new System.Drawing.Size(50, 30);
             this.MainTab.Location = new System.Drawing.Point(0, 0);
@@ -2003,8 +2037,8 @@
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -2014,8 +2048,8 @@
             this.dataGridView1.Location = new System.Drawing.Point(8, 55);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(820, 173);
             this.dataGridView1.TabIndex = 0;
@@ -2309,8 +2343,8 @@
             this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.AllowUserToResizeColumns = false;
             this.dataGridView2.AllowUserToResizeRows = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -2319,14 +2353,14 @@
             this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dataGridView2.RowTemplate.Height = 23;
             this.dataGridView2.Size = new System.Drawing.Size(820, 345);
@@ -2494,8 +2528,8 @@
             this.dataGridView4.Location = new System.Drawing.Point(10, 65);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.ReadOnly = true;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataGridView4.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridView4.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridView4.RowTemplate.Height = 23;
             this.dataGridView4.Size = new System.Drawing.Size(489, 400);
             this.dataGridView4.TabIndex = 0;
@@ -2731,8 +2765,8 @@
             this.dataGridView5.Location = new System.Drawing.Point(10, 65);
             this.dataGridView5.Name = "dataGridView5";
             this.dataGridView5.ReadOnly = true;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataGridView5.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridView5.RowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridView5.RowTemplate.Height = 23;
             this.dataGridView5.Size = new System.Drawing.Size(489, 400);
             this.dataGridView5.TabIndex = 0;
@@ -2930,8 +2964,8 @@
             this.dataGridView7.Location = new System.Drawing.Point(10, 65);
             this.dataGridView7.Name = "dataGridView7";
             this.dataGridView7.ReadOnly = true;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataGridView7.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridView7.RowsDefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridView7.RowTemplate.Height = 23;
             this.dataGridView7.Size = new System.Drawing.Size(489, 400);
             this.dataGridView7.TabIndex = 0;
@@ -3133,7 +3167,10 @@
             // 
             // dateTimePicker6
             // 
-            this.dateTimePicker6.Location = new System.Drawing.Point(462, 28);
+            this.dateTimePicker6.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.dateTimePicker6.Location = new System.Drawing.Point(491, 28);
+            this.dateTimePicker6.MaxDate = new System.DateTime(2222, 12, 31, 0, 0, 0, 0);
+            this.dateTimePicker6.MinDate = new System.DateTime(1949, 1, 1, 0, 0, 0, 0);
             this.dateTimePicker6.Name = "dateTimePicker6";
             this.dateTimePicker6.Size = new System.Drawing.Size(169, 23);
             this.dateTimePicker6.TabIndex = 15;
@@ -3142,11 +3179,12 @@
             // 
             this.labelInput2.AutoSize = true;
             this.labelInput2.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.labelInput2.Location = new System.Drawing.Point(295, 29);
+            this.labelInput2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.labelInput2.Location = new System.Drawing.Point(348, 28);
             this.labelInput2.Name = "labelInput2";
             this.labelInput2.Size = new System.Drawing.Size(138, 21);
             this.labelInput2.TabIndex = 14;
-            this.labelInput2.Text = "请输入查询日期：";
+            this.labelInput2.Text = "请选择查询日期：";
             // 
             // labelProgDay
             // 
@@ -3283,7 +3321,7 @@
             this.comboBoxYear2.Items.AddRange(new object[] {
             "2010",
             "2009"});
-            this.comboBoxYear2.Location = new System.Drawing.Point(670, 22);
+            this.comboBoxYear2.Location = new System.Drawing.Point(713, 21);
             this.comboBoxYear2.Name = "comboBoxYear2";
             this.comboBoxYear2.Size = new System.Drawing.Size(109, 29);
             this.comboBoxYear2.TabIndex = 4;
@@ -3385,11 +3423,12 @@
             // 
             this.labelInput1.AutoSize = true;
             this.labelInput1.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.labelInput1.Location = new System.Drawing.Point(321, 32);
+            this.labelInput1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.labelInput1.Location = new System.Drawing.Point(322, 28);
             this.labelInput1.Name = "labelInput1";
             this.labelInput1.Size = new System.Drawing.Size(138, 21);
             this.labelInput1.TabIndex = 14;
-            this.labelInput1.Text = "请输入查询日期：";
+            this.labelInput1.Text = "请选择查询日期：";
             // 
             // progressBarMon
             // 
@@ -3453,7 +3492,7 @@
             // labelDay1
             // 
             this.labelDay1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelDay1.Location = new System.Drawing.Point(735, 32);
+            this.labelDay1.Location = new System.Drawing.Point(735, 28);
             this.labelDay1.Name = "labelDay1";
             this.labelDay1.Size = new System.Drawing.Size(20, 21);
             this.labelDay1.TabIndex = 9;
@@ -3465,7 +3504,7 @@
             this.comboBoxDay1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDay1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.comboBoxDay1.FormattingEnabled = true;
-            this.comboBoxDay1.Location = new System.Drawing.Point(674, 28);
+            this.comboBoxDay1.Location = new System.Drawing.Point(674, 24);
             this.comboBoxDay1.Name = "comboBoxDay1";
             this.comboBoxDay1.Size = new System.Drawing.Size(55, 29);
             this.comboBoxDay1.TabIndex = 8;
@@ -3474,7 +3513,7 @@
             // labelMon1
             // 
             this.labelMon1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelMon1.Location = new System.Drawing.Point(654, 32);
+            this.labelMon1.Location = new System.Drawing.Point(654, 28);
             this.labelMon1.Name = "labelMon1";
             this.labelMon1.Size = new System.Drawing.Size(20, 21);
             this.labelMon1.TabIndex = 7;
@@ -3484,7 +3523,7 @@
             // labelYear1
             // 
             this.labelYear1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelYear1.Location = new System.Drawing.Point(578, 32);
+            this.labelYear1.Location = new System.Drawing.Point(578, 28);
             this.labelYear1.Name = "labelYear1";
             this.labelYear1.Size = new System.Drawing.Size(17, 21);
             this.labelYear1.TabIndex = 6;
@@ -3509,7 +3548,7 @@
             "10",
             "11",
             "12"});
-            this.comboBoxMon1.Location = new System.Drawing.Point(597, 28);
+            this.comboBoxMon1.Location = new System.Drawing.Point(597, 24);
             this.comboBoxMon1.Name = "comboBoxMon1";
             this.comboBoxMon1.Size = new System.Drawing.Size(55, 29);
             this.comboBoxMon1.TabIndex = 5;
@@ -3525,7 +3564,7 @@
             this.comboBoxYear1.Items.AddRange(new object[] {
             "2010",
             "2009"});
-            this.comboBoxYear1.Location = new System.Drawing.Point(465, 28);
+            this.comboBoxYear1.Location = new System.Drawing.Point(465, 24);
             this.comboBoxYear1.Name = "comboBoxYear1";
             this.comboBoxYear1.Size = new System.Drawing.Size(109, 29);
             this.comboBoxYear1.TabIndex = 4;
@@ -3596,11 +3635,12 @@
             // 
             this.labelInput3.AutoSize = true;
             this.labelInput3.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.labelInput3.Location = new System.Drawing.Point(296, 29);
+            this.labelInput3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.labelInput3.Location = new System.Drawing.Point(373, 27);
             this.labelInput3.Name = "labelInput3";
             this.labelInput3.Size = new System.Drawing.Size(138, 21);
             this.labelInput3.TabIndex = 14;
-            this.labelInput3.Text = "请输入查询日期：";
+            this.labelInput3.Text = "请输入查询年份：";
             // 
             // labelProgYear
             // 
@@ -3659,38 +3699,41 @@
             // labelDay3
             // 
             this.labelDay3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelDay3.Location = new System.Drawing.Point(710, 24);
+            this.labelDay3.Location = new System.Drawing.Point(779, 22);
             this.labelDay3.Name = "labelDay3";
             this.labelDay3.Size = new System.Drawing.Size(20, 21);
             this.labelDay3.TabIndex = 9;
             this.labelDay3.Text = "日";
             this.labelDay3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelDay3.Visible = false;
             // 
             // comboBoxDay3
             // 
             this.comboBoxDay3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDay3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.comboBoxDay3.FormattingEnabled = true;
-            this.comboBoxDay3.Location = new System.Drawing.Point(649, 21);
+            this.comboBoxDay3.Location = new System.Drawing.Point(754, 18);
             this.comboBoxDay3.Name = "comboBoxDay3";
             this.comboBoxDay3.Size = new System.Drawing.Size(55, 29);
             this.comboBoxDay3.TabIndex = 8;
+            this.comboBoxDay3.Visible = false;
             this.comboBoxDay3.DropDown += new System.EventHandler(this.comboBoxDay3_DropDown_1);
             // 
             // labelMon3
             // 
             this.labelMon3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelMon3.Location = new System.Drawing.Point(629, 24);
+            this.labelMon3.Location = new System.Drawing.Point(789, 29);
             this.labelMon3.Name = "labelMon3";
             this.labelMon3.Size = new System.Drawing.Size(20, 21);
             this.labelMon3.TabIndex = 7;
             this.labelMon3.Text = "月";
             this.labelMon3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelMon3.Visible = false;
             // 
             // labelYear3
             // 
             this.labelYear3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelYear3.Location = new System.Drawing.Point(553, 25);
+            this.labelYear3.Location = new System.Drawing.Point(633, 26);
             this.labelYear3.Name = "labelYear3";
             this.labelYear3.Size = new System.Drawing.Size(17, 21);
             this.labelYear3.TabIndex = 6;
@@ -3715,10 +3758,11 @@
             "10",
             "11",
             "12"});
-            this.comboBoxMon3.Location = new System.Drawing.Point(572, 21);
+            this.comboBoxMon3.Location = new System.Drawing.Point(754, 19);
             this.comboBoxMon3.Name = "comboBoxMon3";
             this.comboBoxMon3.Size = new System.Drawing.Size(55, 29);
             this.comboBoxMon3.TabIndex = 5;
+            this.comboBoxMon3.Visible = false;
             this.comboBoxMon3.SelectedIndexChanged += new System.EventHandler(this.comboBoxMon3_SelectedIndexChanged_1);
             // 
             // comboBoxYear3
@@ -3731,11 +3775,165 @@
             this.comboBoxYear3.Items.AddRange(new object[] {
             "2010",
             "2009"});
-            this.comboBoxYear3.Location = new System.Drawing.Point(440, 22);
+            this.comboBoxYear3.Location = new System.Drawing.Point(514, 22);
             this.comboBoxYear3.Name = "comboBoxYear3";
             this.comboBoxYear3.Size = new System.Drawing.Size(109, 29);
             this.comboBoxYear3.TabIndex = 4;
             this.comboBoxYear3.Tag = "";
+            // 
+            // tabPage20
+            // 
+            this.tabPage20.Controls.Add(this.groupBoxReport4);
+            this.tabPage20.Controls.Add(this.groupBoxSelect4);
+            this.tabPage20.Location = new System.Drawing.Point(4, 34);
+            this.tabPage20.Name = "tabPage20";
+            this.tabPage20.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage20.Size = new System.Drawing.Size(842, 481);
+            this.tabPage20.TabIndex = 19;
+            this.tabPage20.Text = "每月每班车次";
+            this.tabPage20.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxSelect4
+            // 
+            this.groupBoxSelect4.Controls.Add(this.comboBox9);
+            this.groupBoxSelect4.Controls.Add(this.label67);
+            this.groupBoxSelect4.Controls.Add(this.label66);
+            this.groupBoxSelect4.Controls.Add(this.labelProgMonCheCi);
+            this.groupBoxSelect4.Controls.Add(this.progressBarMonCheCi);
+            this.groupBoxSelect4.Controls.Add(this.toolStrip5);
+            this.groupBoxSelect4.Controls.Add(this.labelMon4);
+            this.groupBoxSelect4.Controls.Add(this.labelYear4);
+            this.groupBoxSelect4.Controls.Add(this.comboBoxMon4);
+            this.groupBoxSelect4.Controls.Add(this.comboBoxYear4);
+            this.groupBoxSelect4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBoxSelect4.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBoxSelect4.Location = new System.Drawing.Point(3, 3);
+            this.groupBoxSelect4.Name = "groupBoxSelect4";
+            this.groupBoxSelect4.Size = new System.Drawing.Size(836, 93);
+            this.groupBoxSelect4.TabIndex = 5;
+            this.groupBoxSelect4.TabStop = false;
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label66.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label66.Location = new System.Drawing.Point(299, 25);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(94, 21);
+            this.label66.TabIndex = 14;
+            this.label66.Text = "请选择月份:";
+            // 
+            // labelProgMonCheCi
+            // 
+            this.labelProgMonCheCi.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.labelProgMonCheCi.Location = new System.Drawing.Point(746, 64);
+            this.labelProgMonCheCi.Name = "labelProgMonCheCi";
+            this.labelProgMonCheCi.Size = new System.Drawing.Size(76, 17);
+            this.labelProgMonCheCi.TabIndex = 13;
+            // 
+            // progressBarMonCheCi
+            // 
+            this.progressBarMonCheCi.Location = new System.Drawing.Point(300, 60);
+            this.progressBarMonCheCi.Name = "progressBarMonCheCi";
+            this.progressBarMonCheCi.Size = new System.Drawing.Size(430, 25);
+            this.progressBarMonCheCi.TabIndex = 12;
+            // 
+            // toolStrip5
+            // 
+            this.toolStrip5.AutoSize = false;
+            this.toolStrip5.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.toolStrip5.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip5.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonMonCheCi,
+            this.toolStripButtonMonCheCiExl});
+            this.toolStrip5.Location = new System.Drawing.Point(8, 19);
+            this.toolStrip5.Name = "toolStrip5";
+            this.toolStrip5.ShowItemToolTips = false;
+            this.toolStrip5.Size = new System.Drawing.Size(285, 66);
+            this.toolStrip5.TabIndex = 10;
+            this.toolStrip5.Text = "toolStrip1";
+            // 
+            // toolStripButtonMonCheCi
+            // 
+            this.toolStripButtonMonCheCi.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.toolStripButtonMonCheCi.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonMonCheCi.Image")));
+            this.toolStripButtonMonCheCi.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonMonCheCi.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonMonCheCi.Name = "toolStripButtonMonCheCi";
+            this.toolStripButtonMonCheCi.Size = new System.Drawing.Size(142, 63);
+            this.toolStripButtonMonCheCi.Text = "查看月清运车次表";
+            this.toolStripButtonMonCheCi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toolStripButtonMonCheCiExl
+            // 
+            this.toolStripButtonMonCheCiExl.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.toolStripButtonMonCheCiExl.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonMonCheCiExl.Image")));
+            this.toolStripButtonMonCheCiExl.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButtonMonCheCiExl.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonMonCheCiExl.Name = "toolStripButtonMonCheCiExl";
+            this.toolStripButtonMonCheCiExl.Size = new System.Drawing.Size(93, 63);
+            this.toolStripButtonMonCheCiExl.Text = "导出EXCEL";
+            this.toolStripButtonMonCheCiExl.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // labelMon4
+            // 
+            this.labelMon4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelMon4.Location = new System.Drawing.Point(559, 25);
+            this.labelMon4.Name = "labelMon4";
+            this.labelMon4.Size = new System.Drawing.Size(20, 21);
+            this.labelMon4.TabIndex = 7;
+            this.labelMon4.Text = "月";
+            this.labelMon4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelYear4
+            // 
+            this.labelYear4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelYear4.Location = new System.Drawing.Point(478, 25);
+            this.labelYear4.Name = "labelYear4";
+            this.labelYear4.Size = new System.Drawing.Size(17, 21);
+            this.labelYear4.TabIndex = 6;
+            this.labelYear4.Text = "年";
+            this.labelYear4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // comboBoxMon4
+            // 
+            this.comboBoxMon4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxMon4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.comboBoxMon4.FormattingEnabled = true;
+            this.comboBoxMon4.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
+            this.comboBoxMon4.Location = new System.Drawing.Point(502, 21);
+            this.comboBoxMon4.Name = "comboBoxMon4";
+            this.comboBoxMon4.Size = new System.Drawing.Size(55, 29);
+            this.comboBoxMon4.TabIndex = 5;
+            // 
+            // comboBoxYear4
+            // 
+            this.comboBoxYear4.AutoCompleteCustomSource.AddRange(new string[] {
+            "dd"});
+            this.comboBoxYear4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxYear4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.comboBoxYear4.FormattingEnabled = true;
+            this.comboBoxYear4.Items.AddRange(new object[] {
+            "2010",
+            "2009"});
+            this.comboBoxYear4.Location = new System.Drawing.Point(394, 21);
+            this.comboBoxYear4.Name = "comboBoxYear4";
+            this.comboBoxYear4.Size = new System.Drawing.Size(81, 29);
+            this.comboBoxYear4.TabIndex = 4;
+            this.comboBoxYear4.Tag = "";
             // 
             // dboGoodsBindingSource
             // 
@@ -3798,56 +3996,56 @@
             this.treeView1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.treeView1.Location = new System.Drawing.Point(3, 22);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "节点1";
-            treeNode1.Text = "发司机卡";
-            treeNode2.Checked = true;
-            treeNode2.Name = "节点4";
-            treeNode2.Text = "司机信息编辑";
-            treeNode3.Name = "节点5";
-            treeNode3.Text = "司机信息查询";
-            treeNode4.Name = "节点0";
-            treeNode4.Text = "司机卡管理";
-            treeNode5.Name = "节点0";
-            treeNode5.Text = "发货箱卡";
-            treeNode6.Name = "节点1";
-            treeNode6.Text = "货箱信息编辑";
-            treeNode7.Name = "节点2";
-            treeNode7.Text = "货箱信息查询";
-            treeNode8.Name = "节点2";
-            treeNode8.Text = "货箱卡管理";
-            treeNode9.Name = "节点3";
-            treeNode9.Text = "车辆状态信息查询";
-            treeNode10.Name = "节点4";
-            treeNode10.Text = "垃圾楼状态信息查询";
-            treeNode11.Name = "节点5";
-            treeNode11.Text = "转运中心状态信息查询";
-            treeNode12.Name = "节点6";
-            treeNode12.Text = "转运中心结算";
-            treeNode13.Name = "节点7";
-            treeNode13.Text = "西城区状态信息查询";
-            treeNode14.Name = "节点8";
-            treeNode14.Text = "异常数据处理器";
-            treeNode15.Name = "节点9";
-            treeNode15.Text = "用户管理";
-            treeNode16.Name = "节点10";
-            treeNode16.Text = "垃圾楼管理";
-            treeNode17.Name = "节点11";
-            treeNode17.Text = "班长管理";
-            treeNode18.Name = "节点12";
-            treeNode18.Text = "报表生成器";
+            treeNode19.Name = "节点1";
+            treeNode19.Text = "发司机卡";
+            treeNode20.Checked = true;
+            treeNode20.Name = "节点4";
+            treeNode20.Text = "司机信息编辑";
+            treeNode21.Name = "节点5";
+            treeNode21.Text = "司机信息查询";
+            treeNode22.Name = "节点0";
+            treeNode22.Text = "司机卡管理";
+            treeNode23.Name = "节点0";
+            treeNode23.Text = "发货箱卡";
+            treeNode24.Name = "节点1";
+            treeNode24.Text = "货箱信息编辑";
+            treeNode25.Name = "节点2";
+            treeNode25.Text = "货箱信息查询";
+            treeNode26.Name = "节点2";
+            treeNode26.Text = "货箱卡管理";
+            treeNode27.Name = "节点3";
+            treeNode27.Text = "车辆状态信息查询";
+            treeNode28.Name = "节点4";
+            treeNode28.Text = "垃圾楼状态信息查询";
+            treeNode29.Name = "节点5";
+            treeNode29.Text = "转运中心状态信息查询";
+            treeNode30.Name = "节点6";
+            treeNode30.Text = "转运中心结算";
+            treeNode31.Name = "节点7";
+            treeNode31.Text = "西城区状态信息查询";
+            treeNode32.Name = "节点8";
+            treeNode32.Text = "异常数据处理器";
+            treeNode33.Name = "节点9";
+            treeNode33.Text = "用户管理";
+            treeNode34.Name = "节点10";
+            treeNode34.Text = "垃圾楼管理";
+            treeNode35.Name = "节点11";
+            treeNode35.Text = "班长管理";
+            treeNode36.Name = "节点12";
+            treeNode36.Text = "报表生成器";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode4,
-            treeNode8,
-            treeNode9,
-            treeNode10,
-            treeNode11,
-            treeNode12,
-            treeNode13,
-            treeNode14,
-            treeNode15,
-            treeNode16,
-            treeNode17,
-            treeNode18});
+            treeNode22,
+            treeNode26,
+            treeNode27,
+            treeNode28,
+            treeNode29,
+            treeNode30,
+            treeNode31,
+            treeNode32,
+            treeNode33,
+            treeNode34,
+            treeNode35,
+            treeNode36});
             this.treeView1.Size = new System.Drawing.Size(234, 299);
             this.treeView1.TabIndex = 1;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect_1);
@@ -4450,6 +4648,201 @@
             this.bgwReadDCard.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwReadDCard_DoWork);
             this.bgwReadDCard.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwReadDCard_RunWorkerCompleted);
             // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.label61.Location = new System.Drawing.Point(296, 29);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(138, 21);
+            this.label61.TabIndex = 14;
+            this.label61.Text = "请输入查询日期：";
+            // 
+            // label62
+            // 
+            this.label62.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label62.Location = new System.Drawing.Point(746, 64);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(76, 17);
+            this.label62.TabIndex = 13;
+            // 
+            // progressBar4
+            // 
+            this.progressBar4.Location = new System.Drawing.Point(300, 60);
+            this.progressBar4.Name = "progressBar4";
+            this.progressBar4.Size = new System.Drawing.Size(430, 25);
+            this.progressBar4.TabIndex = 12;
+            // 
+            // toolStrip4
+            // 
+            this.toolStrip4.AutoSize = false;
+            this.toolStrip4.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.toolStrip4.Dock = System.Windows.Forms.DockStyle.None;
+            this.toolStrip4.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton7,
+            this.toolStripButton8});
+            this.toolStrip4.Location = new System.Drawing.Point(8, 19);
+            this.toolStrip4.Name = "toolStrip4";
+            this.toolStrip4.ShowItemToolTips = false;
+            this.toolStrip4.Size = new System.Drawing.Size(285, 66);
+            this.toolStrip4.TabIndex = 10;
+            this.toolStrip4.Text = "toolStrip1";
+            // 
+            // toolStripButton7
+            // 
+            this.toolStripButton7.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.toolStripButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton7.Image")));
+            this.toolStripButton7.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton7.Name = "toolStripButton7";
+            this.toolStripButton7.Size = new System.Drawing.Size(142, 63);
+            this.toolStripButton7.Text = "查看年垃圾产量表";
+            this.toolStripButton7.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // toolStripButton8
+            // 
+            this.toolStripButton8.Font = new System.Drawing.Font("微软雅黑", 12F);
+            this.toolStripButton8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton8.Image")));
+            this.toolStripButton8.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripButton8.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton8.Name = "toolStripButton8";
+            this.toolStripButton8.Size = new System.Drawing.Size(93, 63);
+            this.toolStripButton8.Text = "导出EXCEL";
+            this.toolStripButton8.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            // 
+            // label63
+            // 
+            this.label63.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label63.Location = new System.Drawing.Point(710, 24);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(20, 21);
+            this.label63.TabIndex = 9;
+            this.label63.Text = "日";
+            this.label63.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // comboBox6
+            // 
+            this.comboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox6.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Location = new System.Drawing.Point(649, 21);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(55, 29);
+            this.comboBox6.TabIndex = 8;
+            // 
+            // label64
+            // 
+            this.label64.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label64.Location = new System.Drawing.Point(629, 24);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(20, 21);
+            this.label64.TabIndex = 7;
+            this.label64.Text = "月";
+            this.label64.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label65
+            // 
+            this.label65.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label65.Location = new System.Drawing.Point(553, 25);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(17, 21);
+            this.label65.TabIndex = 6;
+            this.label65.Text = "年";
+            this.label65.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // comboBox7
+            // 
+            this.comboBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox7.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.comboBox7.FormattingEnabled = true;
+            this.comboBox7.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12"});
+            this.comboBox7.Location = new System.Drawing.Point(572, 21);
+            this.comboBox7.Name = "comboBox7";
+            this.comboBox7.Size = new System.Drawing.Size(55, 29);
+            this.comboBox7.TabIndex = 5;
+            // 
+            // comboBox8
+            // 
+            this.comboBox8.AutoCompleteCustomSource.AddRange(new string[] {
+            "dd"});
+            this.comboBox8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox8.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.comboBox8.FormattingEnabled = true;
+            this.comboBox8.Items.AddRange(new object[] {
+            "2010",
+            "2009"});
+            this.comboBox8.Location = new System.Drawing.Point(440, 22);
+            this.comboBox8.Name = "comboBox8";
+            this.comboBox8.Size = new System.Drawing.Size(109, 29);
+            this.comboBox8.TabIndex = 4;
+            this.comboBox8.Tag = "";
+            // 
+            // groupBoxReport4
+            // 
+            this.groupBoxReport4.Controls.Add(this.crystalReportViewerMonCheCi);
+            this.groupBoxReport4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBoxReport4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupBoxReport4.Location = new System.Drawing.Point(3, 96);
+            this.groupBoxReport4.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBoxReport4.Name = "groupBoxReport4";
+            this.groupBoxReport4.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBoxReport4.Size = new System.Drawing.Size(836, 382);
+            this.groupBoxReport4.TabIndex = 6;
+            this.groupBoxReport4.TabStop = false;
+            this.groupBoxReport4.Text = "                                                                  月垃圾清运车次表       " +
+                "                                                                              ";
+            // 
+            // crystalReportViewerMonCheCi
+            // 
+            this.crystalReportViewerMonCheCi.ActiveViewIndex = -1;
+            this.crystalReportViewerMonCheCi.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crystalReportViewerMonCheCi.DisplayGroupTree = false;
+            this.crystalReportViewerMonCheCi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.crystalReportViewerMonCheCi.Location = new System.Drawing.Point(2, 24);
+            this.crystalReportViewerMonCheCi.Margin = new System.Windows.Forms.Padding(2);
+            this.crystalReportViewerMonCheCi.Name = "crystalReportViewerMonCheCi";
+            this.crystalReportViewerMonCheCi.SelectionFormula = "";
+            this.crystalReportViewerMonCheCi.Size = new System.Drawing.Size(832, 356);
+            this.crystalReportViewerMonCheCi.TabIndex = 0;
+            this.crystalReportViewerMonCheCi.ViewTimeSelectionFormula = "";
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label67.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label67.Location = new System.Drawing.Point(598, 25);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(78, 21);
+            this.label67.TabIndex = 15;
+            this.label67.Text = "请选择班:";
+            // 
+            // comboBox9
+            // 
+            this.comboBox9.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox9.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.comboBox9.FormattingEnabled = true;
+            this.comboBox9.Items.AddRange(new object[] {
+            "一班",
+            "二班",
+            "三班"});
+            this.comboBox9.Location = new System.Drawing.Point(675, 21);
+            this.comboBox9.Name = "comboBox9";
+            this.comboBox9.Size = new System.Drawing.Size(55, 29);
+            this.comboBox9.TabIndex = 16;
+            // 
             // QmsMain
             // 
             this.AcceptButton = this.button1;
@@ -4580,6 +4973,11 @@
             this.groupBoxSelect3.PerformLayout();
             this.toolStrip3.ResumeLayout(false);
             this.toolStrip3.PerformLayout();
+            this.tabPage20.ResumeLayout(false);
+            this.groupBoxSelect4.ResumeLayout(false);
+            this.groupBoxSelect4.PerformLayout();
+            this.toolStrip5.ResumeLayout(false);
+            this.toolStrip5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dboGoodsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.db_rfidtestDataSet)).EndInit();
@@ -4593,6 +4991,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).EndInit();
             this.groupBox19.ResumeLayout(false);
             this.groupBox19.PerformLayout();
+            this.toolStrip4.ResumeLayout(false);
+            this.toolStrip4.PerformLayout();
+            this.groupBoxReport4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4647,6 +5048,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TabPage tabPage18;
         private System.Windows.Forms.TabPage tabPage19;
+        private System.Windows.Forms.TabPage tabPage20;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button button3;
@@ -4950,6 +5352,33 @@
         private System.Windows.Forms.ComboBox comboBox5;
         private System.Windows.Forms.DateTimePicker dateTimePicker6;
         private System.Windows.Forms.ComboBox comboBoxYear2;
+        private System.Windows.Forms.GroupBox groupBoxSelect4;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.Label labelProgMonCheCi;
+        private System.Windows.Forms.ProgressBar progressBarMonCheCi;
+        private System.Windows.Forms.ToolStrip toolStrip5;
+        private System.Windows.Forms.ToolStripButton toolStripButtonMonCheCi;
+        private System.Windows.Forms.ToolStripButton toolStripButtonMonCheCiExl;
+        private System.Windows.Forms.Label labelMon4;
+        private System.Windows.Forms.Label labelYear4;
+        private System.Windows.Forms.ComboBox comboBoxMon4;
+        private System.Windows.Forms.ComboBox comboBoxYear4;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.ProgressBar progressBar4;
+        private System.Windows.Forms.ToolStrip toolStrip4;
+        private System.Windows.Forms.ToolStripButton toolStripButton7;
+        private System.Windows.Forms.ToolStripButton toolStripButton8;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.GroupBox groupBoxReport4;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewerMonCheCi;
+        private System.Windows.Forms.ComboBox comboBox9;
+        private System.Windows.Forms.Label label67;
     }
 }
 
