@@ -375,57 +375,13 @@ namespace QMS3
                         crform_ds = new DataSet();
                         comboBoxMon3.Enabled = false;
                         comboBoxDay3.Enabled = false;
-                        dt_goods = crform_ds.Tables.Add("Goods_Table");
+                        //dt_goods = crform_ds.Tables.Add("Goods_Table");
                         //用来存储最终的结果
-                        result_tb = crform_ds.Tables.Add("Result");
+                        //result_tb = crform_ds.Tables.Add("Result");
                         toolStripButtonYearExl.Enabled = false;
                         groupBoxReport3.Enabled = false;
                         fName = "";
 
-                        #region  建立存储结果的datatable Result
-                        //向新建的存储最终的结果的DataTable加入列名
-                        DataColumn col = result_tb.Columns.Add("StaName", Type.GetType("System.String"));
-                        col.AllowDBNull = false;
-                        col.MaxLength = 20;
-                        col = result_tb.Columns.Add("SumBox", Type.GetType("System.Int32"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("Weight_2", Type.GetType("System.Double"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("Weight_3", Type.GetType("System.Double"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("Weight_4", Type.GetType("System.Double"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("Weight_5", Type.GetType("System.Double"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("Weight_6", Type.GetType("System.Double"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("Weight_7", Type.GetType("System.Double"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("Weight_8", Type.GetType("System.Decimal"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("Weight_9", Type.GetType("System.Double"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("Weight_10", Type.GetType("System.Double"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("Weight_11", Type.GetType("System.Double"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("Weight_12", Type.GetType("System.Double"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("Weight_13", Type.GetType("System.Double"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("Weight_14", Type.GetType("System.Double"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("Weight_15", Type.GetType("System.Double"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("SumWeight", Type.GetType("System.Double"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("SumBoxTail", Type.GetType("System.Int32"));
-                        col.AllowDBNull = true;
-                        col = result_tb.Columns.Add("DateID", Type.GetType("System.String"));
-                        col.AllowDBNull = true;
-                        #endregion
-
- 
                         MainTab.SelectTab(18);
                     }
                     break;
@@ -433,12 +389,7 @@ namespace QMS3
                 case "TreeNode: 每月每班垃圾清运车次表":
                     {
                         sqlcon = boperate.getcon();
-                        crform_ds = new DataSet();
-                        //comboBoxMon3.Enabled = false;
-                        //comboBoxDay3.Enabled = false;
-                        //dt_goods = crform_ds.Tables.Add("Goods_Table");
-                        //用来存储最终的结果
-                        //result_tb = crform_ds.Tables.Add("Result");                                               
+                        crform_ds = new DataSet();                                              
                         toolStripButtonMonCheCiExl.Enabled = false;
                         groupBoxReport4.Enabled = false;
                         fName = "";
@@ -3069,6 +3020,10 @@ else
                 {
                     crform_ds.Tables["YearOutput"].Clear();
                 }
+                if (crform_ds.Tables.Contains("MonOutput"))//判断一下是否已经有了这个表
+                {
+                    crform_ds.Tables["MonOutput"].Clear();
+                }
                 backgroundWorkerYearOp.RunWorkerAsync();
             }
             else
@@ -3078,7 +3033,8 @@ else
         }
         private void backgroundWorkerYearOp_DoWork(object sender, DoWorkEventArgs e)//生成年表
         {
-        
+            labelProgYear.Text = "完成  5%";
+            labelProgYear.Update();
             this.Enabled = false;
             groupBoxReport3.Enabled = true;
 
@@ -3087,7 +3043,6 @@ else
             progressBarYear.Update();
             labelProgYear.Text = "";
             labelProgYear.Update();
-            crform_ds.Tables["Result"].Clear();
 
             string yr_str = comboBoxYear3.Text; //"2010";// comboBoxYear3.Text.Trim();           
             string sql_startTime = yr_str.Substring(2, 2) + "-";
@@ -3105,7 +3060,7 @@ else
                     str_cur_mon = "0" + str_cur_mon;
                 }
 
-                string sql_goods = @"if not exists(select name from sysobjects where name='resYear' and type='u')
+                string q_sql = @"if not exists(select name from sysobjects where name='resYear' and type='u')
   create table resYear(monname  varchar(100),summonbox int,summonweight float,datemonid varchar(30));
 else
   begin
@@ -3113,58 +3068,41 @@ else
   create table resYear(monname  varchar(100),summonbox int,summonweight float,datemonid varchar(30));
   end
 
-declare @monweight float;
-declare @monbox int;
-declare @yrweight float;
-declare @yrbox int;
-declare @datemon varchar(30);
-declare @i int;
-
 declare @q_date varchar(10);
 set @q_date='" + yr_str.Substring(2, 2) + @"-'
 
 declare @mons int;/*月份*/ 
-set @mons=1;
-declare @mon_str varchar(20);
-set @monweight=0;
-set @monbox=0;
-set @yrweight=0;
-set @yrbox=0;
-
 set @mons=" + cur_mon.ToString() + @"
 
-    set @monweight=0;
+declare @datemon varchar(30);
+set @datemon=cast(@mons as varchar)+'月';
+
+declare @mon_str varchar(20);
+if @mons<10
+    set @mon_str=@q_date+'0'+cast(@mons as varchar);
+if @mons>=10
+    set @mon_str=@q_date+cast(@mons as varchar);
+       
+declare @monweight float;
+declare @monbox int;
+set @monbox=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @mon_str+'%' AND EndTime is not null);
+if @monbox is null
     set @monbox=0;
-    set @datemon=cast(@mons as varchar)+'月';
-    if @mons<10
-        set @mon_str=@q_date+'0'+cast(@mons as varchar)+'-%';
-    if @mons>=10
-        set @mon_str=@q_date+cast(@mons as varchar)+'-%';
-          
-	declare @boxnum int;
-	set @boxnum=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @mon_str AND EndTime is not null);
-    declare @tweight float;
-	set @tweight=(select sum(Weight) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @mon_str AND EndTime is not null);
-    if @tweight is null
-         set @tweight=0;
-    if @boxnum is null
-         set @boxnum=0;
-    set @monbox=@monbox+@boxnum
-    set @monweight=@monweight+@tweight    
-    if @monbox<>0
-	    insert into resYear(monname,summonbox,summonweight,datemonid) values(@datemon,@monbox,@monweight,' ');
-    else
-        insert into resYear(monname,summonbox,summonweight,datemonid) values(@datemon,0,0,' ');
+set @monweight=(select sum(Weight) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @mon_str+'%' AND EndTime is not null);
+if @monweight is null
+    set @monweight=0;
+   
+if @monbox<>0
+	insert into resYear(monname,summonbox,summonweight,datemonid) values(@datemon,@monbox,@monweight,@mon_str);
+else
+    insert into resYear(monname,summonbox,summonweight,datemonid) values(@datemon,0,0,@mon_str);
 
 select * from resYear;
 drop table resYear;";
 
 
-
-                crform_sqlda = new SqlDataAdapter(sql_goods, sqlcon);
-
+                crform_sqlda = new SqlDataAdapter(q_sql, sqlcon);
                 crform_sqlda.SelectCommand.CommandTimeout = 100000000;
-
 
                 try
                 {
@@ -3172,28 +3110,121 @@ drop table resYear;";
                 }
                 catch (Exception x)
                 {
-                    MessageBox.Show("不能生成报表,请查找错误");
+                    MessageBox.Show("不能生成当年垃圾产量总计表，原因是"+cur_mon.ToString()+"月的数据有问题，请查找错误");
                     this.Enabled = true;
                     progressBarYear.Visible = false;
                     labelProgYear.Text = "";
                     labelProgYear.Update();
                     groupBoxReport3.Enabled = false;
                     groupBoxSelect3.Enabled = true;
-                    dt_goods.Clear();
-                    //crform_ds.Tables["YearOutput"].Clear();
+                    return;
+                }
 
+                string q2_sql = @"if not exists(select name from sysobjects where name='resMon' and type='u')
+  create table resMon(dayname  varchar(100),summonbox int,summonweight float,datemonid varchar(30));
+else
+  begin
+  drop table resMon;
+  create table resMon(dayname  varchar(100),summonbox int,summonweight float,datemonid varchar(30));
+  end
+
+declare @q_date varchar(10);
+set @q_date='" + yr_str.Substring(2, 2) + @"-';
+declare @mons int;/*月份*/ 
+set @mons=" + cur_mon.ToString() + @";
+declare @days int;
+set @days=1;
+
+declare @sumweight float;
+declare @sumbox int;
+set @sumweight=0;
+set @sumbox=0;
+
+while @days<=31
+begin
+
+declare @dateday varchar(16);
+set @dateday=cast(@days as varchar);
+
+declare @mon_str varchar(20);
+if @mons<10
+    set @mon_str=@q_date+'0'+cast(@mons as varchar);
+if @mons>=10
+    set @mon_str=@q_date+cast(@mons as varchar);
+
+declare @day_str varchar(20);
+if @days<10
+    set @day_str=@mon_str+'-0'+cast(@days as varchar);
+if @days>=10
+    set @day_str=@mon_str+'-'+cast(@days as varchar);
+       
+print @day_str
+
+declare @monweight float;
+declare @monbox int;
+set @monbox=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @day_str+'%' AND EndTime is not null);
+if @monbox is null
+    set @monbox=0;
+set @monweight=(select sum(Weight) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE @day_str+'%' AND EndTime is not null);
+if @monweight is null
+    set @monweight=0;
+  
+set @sumweight=@sumweight+@monweight;
+set @sumbox=@sumbox+@monbox;
+ 
+if @monbox<>0
+	insert into resMon(dayname,summonbox,summonweight,datemonid) values(@dateday,@monbox,@monweight,@mon_str);
+else
+    insert into resMon(dayname,summonbox,summonweight,datemonid) values(@dateday,0,0,@mon_str);
+
+set @days=@days+1;
+end
+
+if @sumbox<>0
+	insert into resMon(dayname,summonbox,summonweight,datemonid) values('总计',@sumbox,@sumweight,@mon_str);
+else
+    insert into resMon(dayname,summonbox,summonweight,datemonid) values('总计',0,0,@mon_str);
+
+select * from resMon;
+drop table resMon;";
+
+
+                crform_sqlda = new SqlDataAdapter(q2_sql, sqlcon);
+                crform_sqlda.SelectCommand.CommandTimeout = 100000000;
+
+                try
+                {
+                    crform_sqlda.Fill(crform_ds, "MonOutput");//得到要查询的月的所有的运输信息，包括所有站。
+                }
+                catch (Exception x)
+                {
+                    MessageBox.Show("不能生成这一年中"+cur_mon.ToString()+"月的垃圾产量明细表,请查找错误");
+                    MessageBox.Show(x.Message);
+                    this.Enabled = true;
+                    progressBarYear.Visible = false;
+                    labelProgYear.Text = "";
+                    labelProgYear.Update();
+                    groupBoxReport3.Enabled = false;
+                    groupBoxSelect3.Enabled = true;
                     return;
                 }
             }//end for
+        
+            /*********处理全年总计***********/
+            progressBarYear.Value = 99;
+            progressBarYear.Update();
+            labelProgYear.Text = "完成  " + progressBarYear.Value.ToString() + "%";
+            labelProgYear.Update();
+
             double yrWeight = 0;
             int yrBox = 0;
-            DataTable aa = crform_ds.Tables["YearOutput"];
-            foreach (DataRow row in aa.Rows)
+            DataTable t_YearOutPut = crform_ds.Tables["YearOutput"];
+            foreach (DataRow row in t_YearOutPut.Rows)
             {
                 yrBox += Convert.ToInt32(row["SumMonBox"].ToString());
                 yrWeight+=Convert.ToDouble(row["SumMonWeight"].ToString());          
             }
-            DataRow new_row = crform_ds.Tables["YearOutput"].NewRow();
+            DataRow new_row = t_YearOutPut.NewRow();
             new_row["MonName"] = "总计";
             new_row["SumMonBox"]=yrBox;
             new_row["SumMonWeight"]=yrWeight;
@@ -3205,26 +3236,20 @@ drop table resYear;";
             dataGridViewMon.DataSource = crform_ds.Tables["YearOutPut"];
             dataGridViewMon.Visible = false;
             //报表对象，绑定报表文件
-
             //string crPath = Application.StartupPath.Substring(0, Application.StartupPath.Substring(0,
             //     Application.StartupPath.LastIndexOf("\\")).LastIndexOf("\\"));
             string crPath = "CrystalReport4.rpt";
-            //crDocument.Refresh();
             ReportDocument crDocument = new ReportDocument();
             crDocument.Load(crPath);
-            //绑定数据集，注意，一个报表用一个数据集。
-            crDocument.SetDataSource(crform_ds);
+            crDocument.SetDataSource(crform_ds);//绑定数据集，注意，一个报表用一个数据集。
 
             //在Viewer中呈现
             crystalReportViewerYear.ReportSource = crDocument;
-            // MessageBox.Show("请选择年", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
-            dt_goods.Clear();
             toolStripButtonYearExl.Enabled = true;
             progressBarYear.Value = progressBarYear.Maximum;
             progressBarYear.Update();
             labelProgYear.Text = "已完成";
             labelProgYear.Update();
-            //MessageBox.Show("请选择", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
             this.Enabled = true;
         }
 
@@ -3841,6 +3866,7 @@ drop table tempTable;";
 
         }
         #endregion
+
         //*************************add by will*******************************************
         #region 权限treenode生成函数 权限为 1 2 3 4 5
         public void treeviewload(int Userright)
