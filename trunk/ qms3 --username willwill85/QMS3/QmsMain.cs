@@ -431,7 +431,7 @@ namespace QMS3
                     break;
 
                 case "TreeNode: 每月每班垃圾清运车次表":
-                    {//待修改
+                    {
                         sqlcon = boperate.getcon();
                         crform_ds = new DataSet();
                         //comboBoxMon3.Enabled = false;
@@ -2903,7 +2903,7 @@ else
                 flag_everydayexl = false;
             }
         }
-#endregion
+        #endregion
 
         #region 年表
         private void comboBoxDay3_DropDown_1(object sender, EventArgs e)
@@ -3364,20 +3364,16 @@ drop table resYear;";
                         MessageBox.Show("导出成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
                         //label5.Text = "完成";
                         toolStripButton6.Enabled = false;
-                        this.Enabled = true;
-
-
-                    
-                    
+                        this.Enabled = true;               
                 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message.ToString());
-                progressBarDay.Visible = false;
-                progressBarDay.Update();
-                labelProgDay.Text = "";
-                labelProgDay.Update();
+                progressBarYear.Visible = false;
+                progressBarYear.Update();
+                labelProgYear.Text = "";
+                labelProgYear.Update();
                 this.Enabled = true;
             }
             this.Enabled = true;
@@ -3445,15 +3441,6 @@ drop table resYear;";
              progressBarMonCheCi.Value = 70;
              progressBarMonCheCi.Update();
 
-                //string str_cur_day = "";
-                //if (cur_day < 10)
-                //{
-                //    str_cur_day = yr_str.Substring(2, 2) + "-" + mon_str + "-0" + cur_day.ToString();
-                //}
-                //else
-                //{
-                //    str_cur_day = yr_str.Substring(2, 2) + "-" + mon_str + "-" + cur_day.ToString();
-                //}
              #region SQL语句，长文慎入
              string q_sql = @"if not exists(select name from sysobjects where name='tempTable' and type='u')
   create table  tempTable(staname  varchar(100),datacolumn1 int,datacolumn2 int,datacolumn3 int,datacolumn4 int,datacolumn5 int,datacolumn6 int,datacolumn7 int,datacolumn8 int,datacolumn9 int,datacolumn10 int,datacolumn11 int,datacolumn12 int,datacolumn13 int,datacolumn14 int,datacolumn15 int,datacolumn16 int,datacolumn17 int,datacolumn18 int,datacolumn19 int,datacolumn20 int,datacolumn21 int,datacolumn22 int,datacolumn23 int,datacolumn24 int,datacolumn25 int,datacolumn26 int,datacolumn27 int,datacolumn28 int,datacolumn29 int,datacolumn30 int,datacolumn31 int,sumcheci int,sumreal int,diff int);
@@ -3668,10 +3655,9 @@ drop table tempTable;";
              new_row["SumCheCi"] = sum;
              crform_ds.Tables["MonCheCi"].Rows.Add(new_row);
         }
-
         private void backgroundWorkerMonCheCi_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            dataGridViewMon.DataSource = crform_ds.Tables["YearOutPut"];
+            dataGridViewMon.DataSource = crform_ds.Tables["MonCheCi"];
             dataGridViewMon.Visible = false;
 
             string crPath = "CrystalReport5.rpt";
@@ -3688,7 +3674,172 @@ drop table tempTable;";
             labelProgMonCheCi.Update();
             this.Enabled = true;
         }
-        
+
+        private void toolStripButtonMonCheCiExl_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewMon.Rows.Count >= 1)
+            {
+                this.Enabled = false;
+                progressBarMonCheCi.Visible = true;
+                progressBarMonCheCi.Value = 20;
+                progressBarMonCheCi.Update();
+                labelProgMonCheCi.Text = "开始导出";
+                labelProgMonCheCi.Update();
+                string yr_str = comboBoxYear4.Text;
+                string mon_str = comboBoxMon4.Text;
+                string class_str = comboBox9.Text;
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.InitialDirectory = "d:";
+                saveFileDialog.Filter = "EXCEL文件|*.xlsx";
+                saveFileDialog.FilterIndex = 2;
+                saveFileDialog.FileName = yr_str + "年" + mon_str + "月" + class_str + "垃圾清运车次表";
+                saveFileDialog.RestoreDirectory = true;
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    fName = saveFileDialog.FileName;
+                    this.Refresh();
+                    backgroundWorkerMonCheCiExl.RunWorkerAsync();
+                }
+                else
+                {
+                    progressBarMonCheCi.Visible = false;
+                    progressBarMonCheCi.Update();
+                    labelProgMonCheCi.Text = "";
+                    labelProgMonCheCi.Update();
+                    MessageBox.Show("未导出！", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    this.Enabled = true;
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("无数据可导！", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+            }
+
+        }
+        private void backgroundWorkerMonCheCiExl_DoWork(object sender, DoWorkEventArgs e)
+        {
+            try
+            {
+                
+                progressBarMonCheCi.Value = 60;
+                progressBarMonCheCi.Update();
+                labelProgMonCheCi.Text = "正在处理...";
+                labelProgMonCheCi.Update();
+
+                //建立Excel对象 
+                Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+                Microsoft.Office.Interop.Excel.Workbooks wbs = excel.Workbooks;//一个xls文档 new Microsoft.Office.Interop.Excel.Workbooks();
+                Microsoft.Office.Interop.Excel.Workbook wb = wbs.Add(true);// new Microsoft.Office.Interop.Excel.Workbook   
+                Microsoft.Office.Interop.Excel.Worksheet ws;//excel中的一个sheet
+                ws = (Microsoft.Office.Interop.Excel.Worksheet)wb.Worksheets["Sheet1"];
+
+                Microsoft.Office.Interop.Excel.Range merge_range = excel.get_Range(excel.Cells[1, 2], excel.Cells[1, 33]);
+                merge_range.Merge(Type.Missing);
+
+                excel.Cells[1, 1] = comboBox9.Text;
+                excel.Cells[1, 2] = comboBoxYear4.Text + "年" + comboBoxMon4.Text + "月份完成任务情况统计";
+                Microsoft.Office.Interop.Excel.Range bold_range = excel.get_Range(excel.Cells[1, 1], excel.Cells[1, 1]);
+                bold_range.Font.Size = 16;
+                bold_range.Font.Bold = true;
+                bold_range.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                bold_range.EntireColumn.AutoFit();     //自动调整列宽
+                bold_range.EntireRow.AutoFit();
+                bold_range = excel.get_Range(excel.Cells[1, 2], excel.Cells[1, 33]);
+                bold_range.Font.Size = 20;
+                bold_range.Font.Bold = true;
+                bold_range.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                bold_range.EntireColumn.AutoFit();     //自动调整列宽
+                bold_range.EntireRow.AutoFit();
+                excel.Cells[2, 1] = "站名";
+                excel.Cells[2, 2] = "1";
+                excel.Cells[2, 3] = "2";
+                excel.Cells[2, 4] = "3";
+                excel.Cells[2, 5] = "4";
+                excel.Cells[2, 6] = "5";
+                excel.Cells[2, 7] = "6";
+                excel.Cells[2, 8] = "7";
+                excel.Cells[2, 9] = "8";
+                excel.Cells[2, 10] = "9";
+                excel.Cells[2, 11] = "10";
+                excel.Cells[2, 12] = "11";
+                excel.Cells[2, 13] = "12";
+                excel.Cells[2, 14] = "13";
+                excel.Cells[2, 15] = "14";
+                excel.Cells[2, 16] = "15";
+                excel.Cells[2, 17] = "16";
+                excel.Cells[2, 18] = "17";
+                excel.Cells[2, 19] = "18";
+                excel.Cells[2, 20] = "19";
+                excel.Cells[2, 21] = "20";
+                excel.Cells[2, 22] = "21";
+                excel.Cells[2, 23] = "22";
+                excel.Cells[2, 24] = "23";
+                excel.Cells[2, 25] = "24";
+                excel.Cells[2, 26] = "25";
+                excel.Cells[2, 27] = "26";
+                excel.Cells[2, 28] = "27";
+                excel.Cells[2, 29] = "28";
+                excel.Cells[2, 30] = "29";
+                excel.Cells[2, 31] = "30";
+                excel.Cells[2, 32] = "31";
+                excel.Cells[2, 33] = "合计";
+                excel.Cells[2, 34] = "实际";
+                excel.Cells[2, 35] = "差额";              
+
+                //填充数据 
+                for (int x = 0; x < dataGridViewMon.RowCount; x++)
+                {
+                    for (int y = 0; y < dataGridViewMon.ColumnCount; y++)
+                    {
+                        if (dataGridViewMon[y, x].Value != null)
+                        {
+                            //MessageBox.Show(dataGridView1[y, x].Value.ToString());
+                            excel.Cells[x + 3, y + 1] = dataGridViewMon[y, x].Value;
+                        }
+                        else
+                            excel.Cells[x + 3, y + 1] = "";
+                    }
+                }
+
+
+                Microsoft.Office.Interop.Excel.Range all_range = excel.get_Range(excel.Cells[2, 1], excel.Cells[1 + dataGridViewMon.RowCount, 35]);//现有的                    
+                all_range.HorizontalAlignment = XlHAlign.xlHAlignCenter;
+                all_range.EntireColumn.AutoFit();     //自动调整列宽
+                all_range.EntireRow.AutoFit();
+                all_range.Borders.LineStyle = 1;
+                all_range.Font.Size = 12;
+
+                progressBarMonCheCi.Value =100;
+                progressBarMonCheCi.Update();
+                labelProgMonCheCi.Text = "正在处理...";
+                labelProgMonCheCi.Update();
+                
+                wb.Saved = true;
+                wb.SaveCopyAs(fName); //保存
+                excel.Quit(); //关闭进程
+                labelProgMonCheCi.Text = "已完成";
+                labelProgMonCheCi.Update();
+                MessageBox.Show("导出成功！", "提示", MessageBoxButtons.OK, MessageBoxIcon.None);
+                toolStripButtonMonCheCiExl.Enabled = false;
+                this.Enabled = true;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+                progressBarMonCheCi.Visible = false;
+                progressBarMonCheCi.Update();
+                labelProgMonCheCi.Text = "";
+                labelProgMonCheCi.Update();
+                this.Enabled = true;
+            }
+            this.Enabled = true;
+        }
+        private void backgroundWorkerMonCheCiExl_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+
+        }
         #endregion
         //*************************add by will*******************************************
         #region 权限treenode生成函数 权限为 1 2 3 4 5
@@ -6497,6 +6648,10 @@ drop table tempTable;";
 
 
         #endregion
+
+
+
+
 
  
 
