@@ -3649,23 +3649,24 @@ drop table tempTable;";
                  groupBoxSelect4.Enabled = true;
                  return;
              }
-             int sumCheCi = 0;
+
+             DataTable t_moncheci = crform_ds.Tables["MonCheCi"];
+             DataRow new_row = t_moncheci.NewRow();
+             new_row["StaName"] = "总 计";
+             int sum = 0;
              for (int k = 1; k <= 31; k++)
              {
-                 //DataTable aa = crform_ds.Tables["MonCheCi"];
-                 //foreach (DataRow row in aa.Rows)
-                 //{
-                 //    yrBox += Convert.ToInt32(row["SumMonBox"].ToString());
-                 //    yrWeight += Convert.ToDouble(row["SumMonWeight"].ToString());
-                 //}
-                 //DataRow new_row = crform_ds.Tables["MonCheCi"].NewRow();
-                 //new_row["MonName"] = "总计";
-                 //new_row["SumMonBox"] = yrBox;
-                 //new_row["SumMonWeight"] = yrWeight;
-                 //crform_ds.Tables["MonCheCi"].Rows.Add(new_row);
+                 int sumCheCi = 0;
+                 string colname = "DataColumn" + k.ToString();                 
+                 foreach (DataRow row in t_moncheci.Rows)
+                 {
+                     sumCheCi += Convert.ToInt32(row[colname].ToString());
+                 }
+                 sum += sumCheCi;
+                 new_row[colname] = sumCheCi;             
              }
-           
-
+             new_row["SumCheCi"] = sum;
+             crform_ds.Tables["MonCheCi"].Rows.Add(new_row);
         }
 
         private void backgroundWorkerMonCheCi_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
