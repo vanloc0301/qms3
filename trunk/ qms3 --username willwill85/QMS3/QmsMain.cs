@@ -3440,9 +3440,9 @@ drop table resYear;";
             { }
 
              //MessageBox.Show(cur_mon.ToString(), "day", MessageBoxButtons.OK, MessageBoxIcon.None);
-             labelProgMonCheCi.Text = "完成 50%";
+             labelProgMonCheCi.Text = "正在处理...";
              labelProgMonCheCi.Update();
-             progressBarMonCheCi.Value = 50;
+             progressBarMonCheCi.Value = 70;
              progressBarMonCheCi.Update();
 
                 //string str_cur_day = "";
@@ -3623,7 +3623,7 @@ set @daybox31=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE 
 declare @monbox int;
 set @monbox=@daybox1+@daybox2+@daybox3+@daybox4+@daybox5+@daybox6+@daybox7+@daybox8+@daybox9+@daybox10+@daybox11+@daybox12+@daybox13+@daybox14+@daybox19+@daybox15+@daybox16+@daybox17+@daybox18+@daybox20+@daybox21+@daybox22+@daybox23+@daybox24+@daybox25+@daybox26+@daybox27+@daybox28+@daybox29+@daybox30+@daybox31;
    
-insert into tempTable(staname ,datacolumn1 ,datacolumn2 ,datacolumn3 ,datacolumn4 ,datacolumn5 ,datacolumn6 ,datacolumn7 ,datacolumn8 ,datacolumn9 ,datacolumn10 ,datacolumn11 ,datacolumn12 ,datacolumn13 ,datacolumn14 ,datacolumn15 ,datacolumn16 ,datacolumn17 ,datacolumn18 ,datacolumn19 ,datacolumn20 ,datacolumn21 ,datacolumn22 ,datacolumn23 ,datacolumn24 ,datacolumn25 ,datacolumn26 ,datacolumn27 ,datacolumn28 ,datacolumn29 ,datacolumn30 ,datacolumn31 ,sumcheci ,sumreal ,diff) values(@name,@daybox1,@daybox2,@daybox3,@daybox4,@daybox5,@daybox6,@daybox7,@daybox8,@daybox9,@daybox10,@daybox11,@daybox12,@daybox13,@daybox14,@daybox19,@daybox15,@daybox16,@daybox17,@daybox18,@daybox20,@daybox21,@daybox22,@daybox23,@daybox24,@daybox25,@daybox26,@daybox27,@daybox28,@daybox29,@daybox30,@daybox31,@monbox,0,0);
+insert into tempTable(staname ,datacolumn1 ,datacolumn2 ,datacolumn3 ,datacolumn4 ,datacolumn5 ,datacolumn6 ,datacolumn7 ,datacolumn8 ,datacolumn9 ,datacolumn10 ,datacolumn11 ,datacolumn12 ,datacolumn13 ,datacolumn14 ,datacolumn15 ,datacolumn16 ,datacolumn17 ,datacolumn18 ,datacolumn19 ,datacolumn20 ,datacolumn21 ,datacolumn22 ,datacolumn23 ,datacolumn24 ,datacolumn25 ,datacolumn26 ,datacolumn27 ,datacolumn28 ,datacolumn29 ,datacolumn30 ,datacolumn31 ,sumcheci) values(@name,@daybox1,@daybox2,@daybox3,@daybox4,@daybox5,@daybox6,@daybox7,@daybox8,@daybox9,@daybox10,@daybox11,@daybox12,@daybox13,@daybox14,@daybox19,@daybox15,@daybox16,@daybox17,@daybox18,@daybox20,@daybox21,@daybox22,@daybox23,@daybox24,@daybox25,@daybox26,@daybox27,@daybox28,@daybox29,@daybox30,@daybox31,@monbox);
 
 set @i=@i+1;
 end
