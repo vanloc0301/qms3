@@ -3188,7 +3188,6 @@ else
 select * from resMon;
 drop table resMon;";
 
-
                 crform_sqlda = new SqlDataAdapter(q2_sql, sqlcon);
                 crform_sqlda.SelectCommand.CommandTimeout = 100000000;
 
