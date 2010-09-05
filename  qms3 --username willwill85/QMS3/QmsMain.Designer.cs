@@ -440,6 +440,7 @@
             this.label67 = new System.Windows.Forms.Label();
             this.comboBox9 = new System.Windows.Forms.ComboBox();
             this.backgroundWorkerMonCheCi = new System.ComponentModel.BackgroundWorker();
+            this.backgroundWorkerMonCheCiExl = new System.ComponentModel.BackgroundWorker();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.MainTab.SuspendLayout();
@@ -3877,6 +3878,7 @@
             this.toolStripButtonMonCheCiExl.Size = new System.Drawing.Size(93, 63);
             this.toolStripButtonMonCheCiExl.Text = "导出EXCEL";
             this.toolStripButtonMonCheCiExl.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolStripButtonMonCheCiExl.Click += new System.EventHandler(this.toolStripButtonMonCheCiExl_Click);
             // 
             // labelMon4
             // 
@@ -4850,6 +4852,11 @@
             this.backgroundWorkerMonCheCi.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerMonCheCi_DoWork);
             this.backgroundWorkerMonCheCi.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorkerMonCheCi_RunWorkerCompleted);
             // 
+            // backgroundWorkerMonCheCiExl
+            // 
+            this.backgroundWorkerMonCheCiExl.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerMonCheCiExl_DoWork);
+            this.backgroundWorkerMonCheCiExl.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorkerMonCheCiExl_RunWorkerCompleted);
+            // 
             // QmsMain
             // 
             this.AcceptButton = this.button1;
@@ -5387,6 +5394,7 @@
         private System.Windows.Forms.ComboBox comboBox9;
         private System.Windows.Forms.Label label67;
         private System.ComponentModel.BackgroundWorker backgroundWorkerMonCheCi;
+        private System.ComponentModel.BackgroundWorker backgroundWorkerMonCheCiExl;
     }
 }
 
