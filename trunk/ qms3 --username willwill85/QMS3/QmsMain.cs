@@ -3456,11 +3456,11 @@ drop table resYear;";
                 //}
              #region SQL语句，长文慎入
              string q_sql = @"if not exists(select name from sysobjects where name='tempTable' and type='u')
-  create table  tempTable(staname  varchar(100),datacolumn1 int,datacolumn2 int,datacolumn3 int,datacolumn4 int,datacolumn5 int,datacolumn6 int,datacolumn7 int,datacolumn8 int,datacolumn9 int,datacolumn10 int,datacolumn11 int,datacolumn12 int,datacolumn13 int,datacolumn14 int,datacolumn15 int,datacolumn16 int,datacolumn17 int,datacolumn18 int,datacolumn19 int,datacolumn20 int,datacolumn21 int,datacolumn22 int,datacolumn23 int,datacolumn24 int,datacolumn25 int,datacolumn26 int,datacolumn27 int,datacolumn28 int,datacolumn29 int,datacolumn30 int,datacolumn31 int,sumcheci int,sumreal int,diff int,dateid varchar(100));
+  create table  tempTable(staname  varchar(100),datacolumn1 int,datacolumn2 int,datacolumn3 int,datacolumn4 int,datacolumn5 int,datacolumn6 int,datacolumn7 int,datacolumn8 int,datacolumn9 int,datacolumn10 int,datacolumn11 int,datacolumn12 int,datacolumn13 int,datacolumn14 int,datacolumn15 int,datacolumn16 int,datacolumn17 int,datacolumn18 int,datacolumn19 int,datacolumn20 int,datacolumn21 int,datacolumn22 int,datacolumn23 int,datacolumn24 int,datacolumn25 int,datacolumn26 int,datacolumn27 int,datacolumn28 int,datacolumn29 int,datacolumn30 int,datacolumn31 int,sumcheci int,sumreal int,diff int);
 else
   begin
     drop table tempTable;
-    create table tempTable(staname  varchar(100),datacolumn1 int,datacolumn2 int,datacolumn3 int,datacolumn4 int,datacolumn5 int,datacolumn6 int,datacolumn7 int,datacolumn8 int,datacolumn9 int,datacolumn10 int,datacolumn11 int,datacolumn12 int,datacolumn13 int,datacolumn14 int,datacolumn15 int,datacolumn16 int,datacolumn17 int,datacolumn18 int,datacolumn19 int,datacolumn20 int,datacolumn21 int,datacolumn22 int,datacolumn23 int,datacolumn24 int,datacolumn25 int,datacolumn26 int,datacolumn27 int,datacolumn28 int,datacolumn29 int,datacolumn30 int,datacolumn31 int,sumcheci int,sumreal int,diff int,dateid varchar(100));
+    create table tempTable(staname  varchar(100),datacolumn1 int,datacolumn2 int,datacolumn3 int,datacolumn4 int,datacolumn5 int,datacolumn6 int,datacolumn7 int,datacolumn8 int,datacolumn9 int,datacolumn10 int,datacolumn11 int,datacolumn12 int,datacolumn13 int,datacolumn14 int,datacolumn15 int,datacolumn16 int,datacolumn17 int,datacolumn18 int,datacolumn19 int,datacolumn20 int,datacolumn21 int,datacolumn22 int,datacolumn23 int,datacolumn24 int,datacolumn25 int,datacolumn26 int,datacolumn27 int,datacolumn28 int,datacolumn29 int,datacolumn30 int,datacolumn31 int,sumcheci int,sumreal int,diff int);
   end
 
 declare @q_date varchar(16);
@@ -3623,7 +3623,7 @@ set @daybox31=(select count(*) from [rfidtest].[dbo.Goods] WHERE StartTime LIKE 
 declare @monbox int;
 set @monbox=@daybox1+@daybox2+@daybox3+@daybox4+@daybox5+@daybox6+@daybox7+@daybox8+@daybox9+@daybox10+@daybox11+@daybox12+@daybox13+@daybox14+@daybox19+@daybox15+@daybox16+@daybox17+@daybox18+@daybox20+@daybox21+@daybox22+@daybox23+@daybox24+@daybox25+@daybox26+@daybox27+@daybox28+@daybox29+@daybox30+@daybox31;
    
-insert into tempTable(staname ,datacolumn1 ,datacolumn2 ,datacolumn3 ,datacolumn4 ,datacolumn5 ,datacolumn6 ,datacolumn7 ,datacolumn8 ,datacolumn9 ,datacolumn10 ,datacolumn11 ,datacolumn12 ,datacolumn13 ,datacolumn14 ,datacolumn15 ,datacolumn16 ,datacolumn17 ,datacolumn18 ,datacolumn19 ,datacolumn20 ,datacolumn21 ,datacolumn22 ,datacolumn23 ,datacolumn24 ,datacolumn25 ,datacolumn26 ,datacolumn27 ,datacolumn28 ,datacolumn29 ,datacolumn30 ,datacolumn31 ,sumcheci ,sumreal ,diff ,dateid) values(@name,@daybox1,@daybox2,@daybox3,@daybox4,@daybox5,@daybox6,@daybox7,@daybox8,@daybox9,@daybox10,@daybox11,@daybox12,@daybox13,@daybox14,@daybox19,@daybox15,@daybox16,@daybox17,@daybox18,@daybox20,@daybox21,@daybox22,@daybox23,@daybox24,@daybox25,@daybox26,@daybox27,@daybox28,@daybox29,@daybox30,@daybox31,@monbox,0,0,' ');
+insert into tempTable(staname ,datacolumn1 ,datacolumn2 ,datacolumn3 ,datacolumn4 ,datacolumn5 ,datacolumn6 ,datacolumn7 ,datacolumn8 ,datacolumn9 ,datacolumn10 ,datacolumn11 ,datacolumn12 ,datacolumn13 ,datacolumn14 ,datacolumn15 ,datacolumn16 ,datacolumn17 ,datacolumn18 ,datacolumn19 ,datacolumn20 ,datacolumn21 ,datacolumn22 ,datacolumn23 ,datacolumn24 ,datacolumn25 ,datacolumn26 ,datacolumn27 ,datacolumn28 ,datacolumn29 ,datacolumn30 ,datacolumn31 ,sumcheci ,sumreal ,diff) values(@name,@daybox1,@daybox2,@daybox3,@daybox4,@daybox5,@daybox6,@daybox7,@daybox8,@daybox9,@daybox10,@daybox11,@daybox12,@daybox13,@daybox14,@daybox19,@daybox15,@daybox16,@daybox17,@daybox18,@daybox20,@daybox21,@daybox22,@daybox23,@daybox24,@daybox25,@daybox26,@daybox27,@daybox28,@daybox29,@daybox30,@daybox31,@monbox,0,0);
 
 set @i=@i+1;
 end
@@ -3649,6 +3649,22 @@ drop table tempTable;";
                  groupBoxSelect4.Enabled = true;
                  return;
              }
+             int sumCheCi = 0;
+             for (int k = 1; k <= 31; k++)
+             {
+                 //DataTable aa = crform_ds.Tables["MonCheCi"];
+                 //foreach (DataRow row in aa.Rows)
+                 //{
+                 //    yrBox += Convert.ToInt32(row["SumMonBox"].ToString());
+                 //    yrWeight += Convert.ToDouble(row["SumMonWeight"].ToString());
+                 //}
+                 //DataRow new_row = crform_ds.Tables["MonCheCi"].NewRow();
+                 //new_row["MonName"] = "总计";
+                 //new_row["SumMonBox"] = yrBox;
+                 //new_row["SumMonWeight"] = yrWeight;
+                 //crform_ds.Tables["MonCheCi"].Rows.Add(new_row);
+             }
+           
 
         }
 
