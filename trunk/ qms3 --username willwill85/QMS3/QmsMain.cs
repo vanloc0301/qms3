@@ -3297,13 +3297,15 @@ drop table resMon;";
                         progressBarYear.Update();
                         labelProgYear.Text = "完成 " + progressBarYear.Value.ToString() + "%";
                         labelProgYear.Update();
-                        
+                        string yr_str = comboBoxYear3.Text.Substring(2, 2);  
+
                         //建立Excel对象 
                         Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
                         Microsoft.Office.Interop.Excel.Workbooks wbs = excel.Workbooks;//一个xls文档 new Microsoft.Office.Interop.Excel.Workbooks();
                         Microsoft.Office.Interop.Excel.Workbook wb = wbs.Add(true);// new Microsoft.Office.Interop.Excel.Workbook   
                         Microsoft.Office.Interop.Excel.Worksheet ws;//excel中的一个sheet
                         ws = (Microsoft.Office.Interop.Excel.Worksheet)wb.Worksheets["Sheet1"];
+                        ws.Name = yr_str + "年总合计";
 
                         #region 年总计
                         Microsoft.Office.Interop.Excel.Range merge_range = excel.get_Range(excel.Cells[1, 1], excel.Cells[2, 11]);
@@ -3368,8 +3370,8 @@ drop table resMon;";
                         all_range.Font.Size = 12;
 
                         #endregion
-                        string yr_str = comboBoxYear3.Text.Substring(2, 2);
-                        ws.Name = yr_str + "年总合计";
+
+                                     
 
                         progressBarYear.Value = 20;
                         progressBarYear.Update();
@@ -3427,18 +3429,18 @@ drop table resMon;";
                             excel.Cells[4, 7] = "西清";
                             excel.Cells[4, 8] = "十队";
                             excel.Cells[4, 9] = "合计";
-
+                            
                             //填充数据 
                             for (int x = (cur_sheet - 1) * 32; x < (cur_sheet - 1) * 32+32; x++)
                             {
                                 for (int y = 0; y < dataGridViewMon.ColumnCount; y++)
                                 {
-                                    if (dataGridViewMon[y, x].Value != null)
+                                    if (dataGridViewMon[y, x].Value != null && y != 3 )
                                     {
-                                        excel.Cells[x + 5, y + 1] = dataGridViewMon[y, x].Value;
+                                        excel.Cells[x - (cur_sheet - 1) * 32 + 5, y + 1] = dataGridViewMon[y, x].Value;
                                     }
                                     else
-                                        excel.Cells[x + 5, y + 1] = "";
+                                        excel.Cells[x - (cur_sheet - 1) * 32 + 5, y + 1] = "";
                                 }
                             }
 
