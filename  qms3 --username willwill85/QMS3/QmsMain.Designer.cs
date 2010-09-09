@@ -4054,7 +4054,7 @@
             this.treeView1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.treeView1.Location = new System.Drawing.Point(3, 22);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "节点1";
+         /*   treeNode1.Name = "节点1";
             treeNode1.Text = "发司机卡";
             treeNode2.Checked = true;
             treeNode2.Name = "节点4";
@@ -4103,7 +4103,7 @@
             treeNode15,
             treeNode16,
             treeNode17,
-            treeNode18});
+            treeNode18});*/
             this.treeView1.Size = new System.Drawing.Size(234, 299);
             this.treeView1.TabIndex = 1;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect_1);
