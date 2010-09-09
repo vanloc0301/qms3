@@ -37,7 +37,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QmsMain));
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("发司机卡");
+       /*     System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("发司机卡");
             System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("司机信息编辑");
             System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("司机信息查询");
             System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("司机卡管理", new System.Windows.Forms.TreeNode[] {
@@ -60,7 +60,7 @@
             System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("用户管理");
             System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("垃圾楼管理");
             System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("班长管理");
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("报表生成器");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("报表生成器");*/
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();

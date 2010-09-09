@@ -119,3 +119,11 @@ D:\环卫\qms3\qms3 --username willwill85\QMS3\obj\Debug\ResolveAssemblyReferenc
 D:\环卫\qms3\qms3 --username willwill85\QMS3\obj\Debug\QMS3.QmsMain.resources
 D:\环卫\qms3\qms3 --username willwill85\QMS3\obj\Debug\QMS3.Properties.Resources.resources
 D:\环卫\qms3\qms3 --username willwill85\QMS3\obj\Debug\QMS3.csproj.GenerateResource.Cache
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\bin\Debug\QMS3.exe.config
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\obj\Debug\QMS3.csproj.ResolveComReference.cache
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\obj\Debug\QMS3.exe
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\obj\Debug\QMS3.pdb
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\obj\Debug\QMS3.QmsMain.resources
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\obj\Debug\QMS3.Properties.Resources.resources
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\obj\Debug\QMS3.csproj.GenerateResource.Cache
