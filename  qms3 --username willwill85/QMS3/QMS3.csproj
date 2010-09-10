@@ -84,6 +84,8 @@
   <ItemGroup>
     <Compile Include="Classes\BaseOperate.cs" />
     <Compile Include="Classes\CfCardPC.cs" />
+    <Compile Include="Classes\ChartData.cs" />
+    <Compile Include="Classes\visifire.cs" />
     <Compile Include="rpts\CrystalReport1.cs">
       <SubType>Component</SubType>
     </Compile>

@@ -62,20 +62,20 @@ namespace QMS3
             dateTimePicker4.Value = System.DateTime.Now;
             dateTimePicker5.Value = System.DateTime.Now;
             #region just for demo
-            try
-            {
-                pictureBox3.Load("http://chart.apis.google.com/chart?cht=p&chd=t:5,10,85&chs=500x300&chtt=%E6%AD%A3%E5%B8%B8%E5%92%8C%E8%B6%85%E6%97%B6%E6%AF%94%E4%BE%8B");
-                pictureBox4.Load("http://chart.apis.google.com/chart?cht=bvs&chs=836x250&chds=0,15&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|1:|0|5|10|15&chf=bg,s,EFEFEF&chtt=站点当月分布情况&chco=4d89f9&chts=0000FF,20&chg=5,20&chd=t:3,6,5,4,7,9,3,6,4,7,4,8,4,5,6,8,7,6,4,5,7,8,9,5,4,3,6,7,8,9");
-                pictureBox5.Load("http://chart.apis.google.com/chart?cht=bvs&chs=836x250&chds=0,15&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|1:|0|5|10|15&chf=bg,s,EFEFEF&chtt=站点去年当月分布情况&chco=00ff00&chts=0000FF,20&chg=5,20&chd=t:3,6,5,3,7,5,3,6,2,7,5,8,4,2,6,4,7,7,4,5,7,8,9,5,5,3,6,2,8,2");
-                pictureBox6.Load("http://chart.apis.google.com/chart?cht=bvs&chs=836x250&chds=0,15&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|1:|0|5|10|15&chf=bg,s,EFEFEF&chtt=站点上月分布情况&chco=ff0000&chts=0000FF,20&chg=5,20&chd=t:3,6,5,4,4,6,1,4,4,2,3,7,4,5,6,5,7,6,4,5,7,8,6,5,4,3,6,7,9,4");
-                pictureBox7.Load("http://chart.apis.google.com/chart?cht=bvs&chs=836x250&chds=0,10&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|1:|0|100|200|300 &chf=bg,s,EFEFEF&chtt=区本月分布情况&chco=4d89f9&chts=0000FF,20&chg=5,20&chd=t:3,6,5,3,7,5,3,6,2,7,5,8,4,2,6,4,7,7,4,5,7,8,9,5,5,3,6,2,8,2");
-                pictureBox8.Load("http://chart.apis.google.com/chart?cht=bvg&chs=436x250&chds=0,10&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|1:|0|100|200|300 &chf=bg,s,EFEFEF&chtt=区本年分布情况&chco=4d89f9,c6d9fd&chts=0000FF,20&chg=5,20&chd=t:6,7,9,4,7,9,6,8,6,5,8,7");
-                pictureBox9.Load("http://chart.apis.google.com/chart?cht=bvg&chs=736x250&chds=0,10&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|1:|0|100|200|300 &chf=bg,s,EFEFEF&chtt=区本年分布情况&chco=4d89f9,c6d9fd&chts=0000FF,20&chg=5,20&chd=t:6,7,9,4,7,9,6,8,6,5,8,7|4,6,4,3,6,8,9,0,7,6,5,4");
-            }
-            catch
-            {
+            //try
+            //{
+            //    pictureBox3.Load("http://chart.apis.google.com/chart?cht=p&chd=t:5,10,85&chs=500x300&chtt=%E6%AD%A3%E5%B8%B8%E5%92%8C%E8%B6%85%E6%97%B6%E6%AF%94%E4%BE%8B");
+            //    pictureBox4.Load("http://chart.apis.google.com/chart?cht=bvs&chs=836x250&chds=0,15&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|1:|0|5|10|15&chf=bg,s,EFEFEF&chtt=站点当月分布情况&chco=4d89f9&chts=0000FF,20&chg=5,20&chd=t:3,6,5,4,7,9,3,6,4,7,4,8,4,5,6,8,7,6,4,5,7,8,9,5,4,3,6,7,8,9");
+            //    pictureBox5.Load("http://chart.apis.google.com/chart?cht=bvs&chs=836x250&chds=0,15&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|1:|0|5|10|15&chf=bg,s,EFEFEF&chtt=站点去年当月分布情况&chco=00ff00&chts=0000FF,20&chg=5,20&chd=t:3,6,5,3,7,5,3,6,2,7,5,8,4,2,6,4,7,7,4,5,7,8,9,5,5,3,6,2,8,2");
+            //    pictureBox6.Load("http://chart.apis.google.com/chart?cht=bvs&chs=836x250&chds=0,15&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|1:|0|5|10|15&chf=bg,s,EFEFEF&chtt=站点上月分布情况&chco=ff0000&chts=0000FF,20&chg=5,20&chd=t:3,6,5,4,4,6,1,4,4,2,3,7,4,5,6,5,7,6,4,5,7,8,6,5,4,3,6,7,9,4");
+            //    pictureBox7.Load("http://chart.apis.google.com/chart?cht=bvs&chs=836x250&chds=0,10&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|29|30|1:|0|100|200|300 &chf=bg,s,EFEFEF&chtt=区本月分布情况&chco=4d89f9&chts=0000FF,20&chg=5,20&chd=t:3,6,5,3,7,5,3,6,2,7,5,8,4,2,6,4,7,7,4,5,7,8,9,5,5,3,6,2,8,2");
+            //    pictureBox8.Load("http://chart.apis.google.com/chart?cht=bvg&chs=436x250&chds=0,10&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|1:|0|100|200|300 &chf=bg,s,EFEFEF&chtt=区本年分布情况&chco=4d89f9,c6d9fd&chts=0000FF,20&chg=5,20&chd=t:6,7,9,4,7,9,6,8,6,5,8,7");
+            //    pictureBox9.Load("http://chart.apis.google.com/chart?cht=bvg&chs=736x250&chds=0,10&chxt=x,y&chxl=0:|1|2|3|4|5|6|7|8|9|10|11|12|1:|0|100|200|300 &chf=bg,s,EFEFEF&chtt=区本年分布情况&chco=4d89f9,c6d9fd&chts=0000FF,20&chg=5,20&chd=t:6,7,9,4,7,9,6,8,6,5,8,7|4,6,4,3,6,8,9,0,7,6,5,4");
+            //}
+            //catch
+            //{
  
-            }
+            //}
             #endregion
         }
 
@@ -160,7 +160,7 @@ namespace QMS3
                     }
                     catch
                     {
-                        MessageBox.Show("网络连接失败！请稍后重试");
+                        MessageBox.Show("网络连接失败！请稍后重试（错误1000）");
                         //showDayreport.CancelAsync();
                     }
                     dataGridView2.DataSource = ds.Tables[0];
@@ -183,7 +183,7 @@ namespace QMS3
                     }
                     catch
                     {
-                        MessageBox.Show("网络连接失败！请稍后重试");
+                        MessageBox.Show("网络连接失败！请稍后重试（错误1001）");
                         //showDayreport.CancelAsync();
                     }
                     dataGridView4.DataSource = ds.Tables[0];
@@ -206,7 +206,7 @@ namespace QMS3
                     }
                     catch
                     {
-                        MessageBox.Show("网络连接失败！请稍后重试");
+                        MessageBox.Show("网络连接失败！请稍后重试（错误1002）");
                         //showDayreport.CancelAsync();
                     }
                     dataGridView5.DataSource = ds.Tables[0];
@@ -220,7 +220,7 @@ namespace QMS3
                     }
                     catch
                     {
-                        MessageBox.Show("网络连接失败！请稍后重试");
+                        MessageBox.Show("网络连接失败！请稍后重试（错误1003）");
                         //showDayreport.CancelAsync();
                     }
 
@@ -241,7 +241,7 @@ namespace QMS3
                     }
                     catch
                     {
-                        MessageBox.Show("网络连接失败！请稍后重试");
+                        MessageBox.Show("网络连接失败！请稍后重试（错误1004）");
                         //showDayreport.CancelAsync();
                     }
 
@@ -1539,7 +1539,7 @@ drop table res;";
                 }
                 catch
                 {
-                    MessageBox.Show("不能生成报表！\n单日箱数超过15箱，请检查数据真实性！");
+                    MessageBox.Show("不能生成报表！\n单日箱数超过15箱，请检查数据真实性！（错误1005）");
                     this.Enabled = true;
                     progressBarMon.Visible = false;
                     labelProgMon.Text = "";
@@ -1796,7 +1796,7 @@ else
                 }
                 catch
                 {
-                    MessageBox.Show("不能生成报表！\n单日箱数超过15箱，请检查数据真实性！");
+                    MessageBox.Show("不能生成报表！\n单日箱数超过15箱，请检查数据真实性！（错误1006）");
                     this.Enabled = true;
                     progressBarMon.Visible = false;
                     labelProgMon.Text = "";
@@ -2377,7 +2377,7 @@ else
                 }
                 catch
                 {
-                    MessageBox.Show("不能生成报表！\n单日箱数超过15箱，请检查数据真实性！");
+                    MessageBox.Show("不能生成报表！\n单日箱数超过15箱，请检查数据真实性！（错误1007）");
                     this.Enabled = true;
                     progressBarDay.Visible = false;
                     labelProgDay.Text = "";
@@ -3108,7 +3108,7 @@ drop table resYear;";
                 }
                 catch (Exception x)
                 {
-                    MessageBox.Show("不能生成当年垃圾产量总计表，原因是"+cur_mon.ToString()+"月的数据有问题，请查找错误");
+                    MessageBox.Show("不能生成当年垃圾产量总计表，原因是"+cur_mon.ToString()+"月的数据有问题，请查找错误（错误1008）");
                     this.Enabled = true;
                     progressBarYear.Visible = false;
                     labelProgYear.Text = "";
@@ -3195,7 +3195,7 @@ drop table resMon;";
                 }
                 catch (Exception x)
                 {
-                    MessageBox.Show("不能生成这一年中"+cur_mon.ToString()+"月的垃圾产量明细表,请查找错误");
+                    MessageBox.Show("不能生成这一年中"+cur_mon.ToString()+"月的垃圾产量明细表,请查找错误（错误1009）");
                     MessageBox.Show(x.Message);
                     this.Enabled = true;
                     progressBarYear.Visible = false;
@@ -4257,7 +4257,7 @@ drop table tempTable;";
             }
             else
             {
-                MessageBox.Show("输入的用户名密码有误或网络超时");
+                MessageBox.Show("输入的用户名密码有误或网络超时（错误1010）");
                 UNtextBox.Text = "";
                 PSmaskedTextBox.Text = "";
             }
@@ -4399,7 +4399,7 @@ drop table tempTable;";
                 }
                 catch
                 {
-                    MessageBox.Show("数据库同步失败！");
+                    MessageBox.Show("数据库同步失败！（错误1012）");
                     listBox1.Items.Add(info + "   " + "数据库同步失败！");
                 }
                 try
@@ -4412,13 +4412,13 @@ drop table tempTable;";
                 }
                 catch
                 {
-                    MessageBox.Show("数据库同步失败！");
+                    MessageBox.Show("数据库同步失败！（错误1013）");
                     listBox1.Items.Add(info + "   " + "数据库同步失败！");
                 }
             }
             else
             {
-                MessageBox.Show("操作失败！");
+                MessageBox.Show("操作失败！（错误1014）");
                 listBox1.Items.Add(info);
                 return;
             }
@@ -4459,14 +4459,14 @@ drop table tempTable;";
                 }
                 catch
                 {
-                    MessageBox.Show("网络连接失败！请稍后重试");
+                    MessageBox.Show("网络连接失败！请稍后重试（错误1015）");
                     //showDayreport.CancelAsync();
                 }
                 dataGridView2.DataSource = ds.Tables[0];
             }
             catch
             {
-                MessageBox.Show("数据库操作超时！");
+                MessageBox.Show("数据库操作超时！（错误1016）");
             }
         }
 
@@ -4499,14 +4499,14 @@ drop table tempTable;";
                 }
                 catch
                 {
-                    MessageBox.Show("网络连接失败！请稍后重试");
+                    MessageBox.Show("网络连接失败！请稍后重试（错误1017）");
                     //showDayreport.CancelAsync();
                 }
                 dataGridView2.DataSource = ds.Tables[0];
             }
             catch
             {
-                MessageBox.Show("数据库操作超时，请稍后再试！");
+                MessageBox.Show("数据库操作超时，请稍后再试！（错误1018）");
             }
         }
 
@@ -4604,7 +4604,7 @@ drop table tempTable;";
             }
             catch
             {
-                MessageBox.Show("连接数据库失败！请确保网络可用！");
+                MessageBox.Show("连接数据库失败！请确保网络可用！（错误1019）");
                 return;
             }
             string systime = System.DateTime.Now.ToString("yy-MM-dd");//  //"10-06-11";
@@ -4619,7 +4619,7 @@ drop table tempTable;";
             }
             catch
             {
-                MessageBox.Show("网络连接失败！请稍后重试");
+                MessageBox.Show("网络连接失败！请稍后重试（错误1020）");
                 //showDayreport.CancelAsync();
             }
             dataGridView4.DataSource = ds.Tables[0];
@@ -4644,7 +4644,7 @@ drop table tempTable;";
             }
             catch
             {
-                MessageBox.Show("连接数据库失败！请确保网络可用！");
+                MessageBox.Show("连接数据库失败！请确保网络可用！（错误1021）");
                 return;
             }
             string systime = System.DateTime.Now.ToString("yy-MM-dd");//  //"10-06-11";
@@ -4659,7 +4659,7 @@ drop table tempTable;";
             }
             catch
             {
-                MessageBox.Show("网络连接失败！请稍后重试");
+                MessageBox.Show("网络连接失败！请稍后重试（错误1022）");
                 //showDayreport.CancelAsync();
             }
             dataGridView4.DataSource = ds.Tables[0];
@@ -4679,7 +4679,7 @@ drop table tempTable;";
             }
             catch
             {
-                MessageBox.Show("连接数据库失败！请确保网络可用！");
+                MessageBox.Show("连接数据库失败！请确保网络可用！（错误1023）");
             }
             MessageBox.Show("重置密码成功，重置后的密码为123456！");
         }
@@ -4698,7 +4698,7 @@ drop table tempTable;";
             }
             catch
             {
-                MessageBox.Show("连接数据库失败！请确保网络可用！");
+                MessageBox.Show("连接数据库失败！请确保网络可用！（错误1024）");
                 return;
             }
             string systime = System.DateTime.Now.ToString("yy-MM-dd");//  //"10-06-11";
@@ -4713,7 +4713,7 @@ drop table tempTable;";
             }
             catch
             {
-                MessageBox.Show("网络连接失败！请稍后重试");
+                MessageBox.Show("网络连接失败！请稍后重试（错误1025）");
                 //showDayreport.CancelAsync();
             }
             dataGridView4.DataSource = ds.Tables[0];
@@ -4746,7 +4746,7 @@ drop table tempTable;";
             }
             catch
             {
-                MessageBox.Show("网络连接失败！请稍后重试");
+                MessageBox.Show("网络连接失败！请稍后重试（错误1026）");
                 //showDayreport.CancelAsync();
             }
             ////DataSet中的SQL查询结果放入DataGridView中
@@ -4822,7 +4822,7 @@ drop table tempTable;";
             }
             catch
             {
-                MessageBox.Show("网络连接失败！请稍后重试");
+                MessageBox.Show("网络连接失败！请稍后重试（错误1027）");
                 //showDayImagereport.CancelAsync();
             }
             Dayreport += chd;
@@ -4877,7 +4877,7 @@ drop table tempTable;";
             }
             catch
             {
-                MessageBox.Show("网络连接失败！请稍后重试");
+                MessageBox.Show("网络连接失败！请稍后重试（错误1028）");
                 //showDayreport.CancelAsync();
             }
             //DataSet中的SQL查询结果放入DataGridView中
@@ -4938,7 +4938,7 @@ drop table tempTable;";
             }
             catch
             {
-                MessageBox.Show("网络连接失败！请稍后重试");
+                MessageBox.Show("网络连接失败！请稍后重试（错误1030）");
                 //showDayreport.CancelAsync();
             }
             try
@@ -4969,7 +4969,7 @@ drop table tempTable;";
             }
             catch
             {
-                MessageBox.Show("网络连接失败！请稍后重试");
+                MessageBox.Show("网络连接失败！请稍后重试（错误1029）");
                 //showDayreport.CancelAsync();
             }
             try
