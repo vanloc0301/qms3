@@ -11,3 +11,10 @@ namespace QMS3.db_rfidtestDataSetTableAdapters {
     public partial class dbo_UserTableAdapter {
     }
 }
+
+namespace db_rfidtestDataSetTableAdapters {
+    
+    
+    public partial class dbo_GoodsTableAdapter {
+    }
+}
