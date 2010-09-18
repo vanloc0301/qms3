@@ -4797,32 +4797,49 @@ drop table tempTable;";
                                "&chg=5,20";
             string chd = "&chd=t:";
             int pc = 0;
+
+            string sttime = dateTimePicker1.Value.ToString("yy-MM-dd");
+            string strSQL = "DECLARE	@return_value int EXEC	@return_value = [rfidtest].[GetStationDetailbyDay] @day = N'"+sttime+"'";
+            string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
             try
             {
-                for (int i = 5; i <= 20; i++)
+                debugtextbox.Text = strSQL;
+                ds = boperate.getds(strSQL, strTable);
+            }
+            catch
+            {
+                MessageBox.Show("网络连接失败！请稍后重试（错误1027-2）");
+                //showDayreport.CancelAsync();
+            }
+          //  counttt= ds.Tables[0].Rows[0].
+            try
+            {
+ 
+              for (int i = 0; i <= 15; i++)
                 {
-                    string p1, p2;
-                    if (i < 10)
-                        p1 = dateTimePicker1.Value.ToString("yy-MM-dd") + ",0" + i.ToString();
-                    else
-                        p1 = dateTimePicker1.Value.ToString("yy-MM-dd") + "," + i.ToString();
-                    if ((i + 1) < 10)
-                        p2 = dateTimePicker1.Value.ToString("yy-MM-dd") + ",0" + (i + 1).ToString();
-                    else
-                        p2 = dateTimePicker1.Value.ToString("yy-MM-dd") + "," + (i + 1).ToString();
+                    //string p1, p2;
+                    //if (i < 10)
+                    //    p1 = dateTimePicker1.Value.ToString("yy-MM-dd") + ",0" + i.ToString();
+                    //else
+                    //    p1 = dateTimePicker1.Value.ToString("yy-MM-dd") + "," + i.ToString();
+                    //if ((i + 1) < 10)
+                    //    p2 = dateTimePicker1.Value.ToString("yy-MM-dd") + ",0" + (i + 1).ToString();
+                    //else
+                    //    p2 = dateTimePicker1.Value.ToString("yy-MM-dd") + "," + (i + 1).ToString();
 
 
-                    chd += this.dbo_GoodsTableAdapter.NumBetweenTime(p1, p2) + ",";
-
+                   // chd += this.dbo_GoodsTableAdapter.NumBetweenTime(p1, p2) + ",";
+                    chd += ds.Tables[0].Rows[i]["sumbox"].ToString()+",";
 
                     pc += 6;
                     showDayImagereport.ReportProgress(pc);
 
                 }
+
             }
-            catch
+            catch(Exception xx)
             {
-                MessageBox.Show("网络连接失败！请稍后重试（错误1027）");
+                MessageBox.Show("网络连接失败！请稍后重试（错误1027）"+xx.ToString());
                 //showDayImagereport.CancelAsync();
             }
             Dayreport += chd;
@@ -6752,6 +6769,11 @@ drop table tempTable;";
 
 
         #endregion
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
 
 
 
