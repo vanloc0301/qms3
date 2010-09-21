@@ -12,7 +12,7 @@
     <AssemblyName>QMS3</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <ApplicationIcon>netvibes2-logo-square-webtreats.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\netvibes2-logo-square-webtreats.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -85,6 +85,7 @@
     <Compile Include="Classes\BaseOperate.cs" />
     <Compile Include="Classes\CfCardPC.cs" />
     <Compile Include="Classes\ChartData.cs" />
+    <Compile Include="Classes\Datetimecalc.cs" />
     <Compile Include="Classes\visifire.cs" />
     <Compile Include="rpts\CrystalReport1.cs">
       <SubType>Component</SubType>
@@ -218,7 +219,7 @@
     <None Include="Resources\logo21.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="netvibes2-logo-square-webtreats.ico" />
+    <Content Include="Resources\netvibes2-logo-square-webtreats.ico" />
     <None Include="Resources\logo3.jpg" />
   </ItemGroup>
   <ItemGroup>

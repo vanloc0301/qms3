@@ -7,17 +7,21 @@ namespace QMS3.Classes
 {
     class visifire
     {
-        public string type = "Column";//0条图 1饼图 2锥形图
+        public string type = "Column";
         public int width = 300;
         public int height = 300;
         public string doc;
         public string title;
+        public bool doublerow=false;
         public string xtitle;
         public bool view3d;
         private string View3d;
         public string ytitle;
         public double[] data;
+        public double[] data2;
         public string[] column;
+        public string s1;
+        public string s2;
         public int len;
         static string head = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">"
                             + "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">"
@@ -59,6 +63,12 @@ namespace QMS3.Classes
             this.len = lenD;
             genDoc();
         }
+        public void setData2(double[] dataD2)
+        {
+            this.data2 = dataD2;
+            this.doublerow = true;
+            genDoc();
+        }
         public void set3D(bool triD)
         {
             if (triD)
@@ -82,15 +92,26 @@ namespace QMS3.Classes
             xml += "<vc:Axis Title=\"" + this.ytitle + "\" />   ";
             xml += "</vc:Chart.AxesY>";
             xml += "<vc:Chart.Series>";
-            xml += "<vc:DataSeries LegendText=\"Series1\" RenderAs=\"" + this.type + "\" AxisYType=\"Primary\" >";
-            xml += "                <vc:DataSeries.DataPoints>";
-            for (int i = 0; i < this.len; i++)
-                xml += "<vc:DataPoint AxisXLabel=\"" + this.column[i] + "\" YValue=\"" + this.data[i] + "\" />";
+            xml += "<vc:DataSeries LegendText=\""+s1+"\" RenderAs=\"" + this.type + "\" AxisYType=\"Primary\" >";
+            xml += "<vc:DataSeries.DataPoints>";
+                for (int i = 0; i < this.len; i++)
+                    xml += "<vc:DataPoint AxisXLabel=\"" + this.column[i] + "\" YValue=\"" + this.data[i] + "\" />";
 
             xml += "</vc:DataSeries.DataPoints>"
-                        + "</vc:DataSeries>"
-                    + "</vc:Chart.Series>"
+                        + "</vc:DataSeries>";
+                        if(this.doublerow)
+                        {
+                            xml += "<vc:DataSeries LegendText=\""+s2+"\" RenderAs=\"" + this.type + "\" AxisYType=\"Primary\" >";
+                             xml += "<vc:DataSeries.DataPoints>";
+                                 for (int i = 0; i < this.len; i++)
+                                     xml += "<vc:DataPoint AxisXLabel=\"" + this.column[i] + "\" YValue=\"" + this.data2[i] + "\" />";
+
+                                 xml += "</vc:DataSeries.DataPoints>"
+                                  + "</vc:DataSeries>";
+                        }
+                  xml  += "</vc:Chart.Series>"
                 + "</vc:Chart>";
+
             return xml;
 
 

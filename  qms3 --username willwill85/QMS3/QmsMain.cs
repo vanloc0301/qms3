@@ -27,6 +27,8 @@ namespace QMS3
        // QMS3.BaseClass.OperateAndValidate opAndvalidate = new QMS.BaseClass.OperateAndValidate();
        // QMS3.CfCardPC.CfCardPC cardrelated = new QMS.CfCardPC.CfCardPC();
         /******************************/
+        QMS3.Classes.ChartData chartdata = new QMS3.Classes.ChartData();
+
         bool ifcon = false;
         DataSet ds;
         string Dayreport;
@@ -136,7 +138,7 @@ namespace QMS3
                     break;
                     #endregion
                 }
-                case "TreeNode: 西城区状态信息查询":    MainTab.SelectTab(11);
+                case "TreeNode: 西城区状态信息查询":    MainTab.SelectTab(22);
                 break;
                 case "TreeNode: 异常数据处理器":
                 {
@@ -194,6 +196,7 @@ namespace QMS3
                 }
                 case "TreeNode: 垃圾楼管理":
                 {
+                    #region 垃圾楼管理
                     string systime = System.DateTime.Now.ToString("yy-MM-dd");//  //"10-06-11";
                     // System.DateTime.Now.ToString("yy-MM-dd");
 
@@ -228,10 +231,11 @@ namespace QMS3
 
                     MainTab.SelectTab(14);
                     break;
+                    #endregion
                 }
                 case "TreeNode: 班长管理":
                 {
-
+                    #region 班长管理        
                     string strSQL = "SELECT ID AS '用户ID', Name AS '姓名', Class AS '班号' FROM [dbo.Class]";
                     string strTable = " [db_rfidtest].[rfidtest].[dbo.Class]";
 
@@ -248,9 +252,11 @@ namespace QMS3
                     dataGridView7.DataSource = ds.Tables[0];
                     MainTab.SelectTab(15);
                     break;
+                    #endregion
                 }
                 case "TreeNode: 日垃圾清运完成情况":
                 {
+                    #region 日垃圾完成情况
                     sqlcon = boperate.getcon();
                     crform_ds = new DataSet();
                     dt_goods = crform_ds.Tables.Add("Goods_Table");
@@ -306,11 +312,13 @@ namespace QMS3
                     groupBoxReport2.Enabled = false;
 
                     MainTab.SelectTab(16);
+                    #endregion
                 }
                 break;
                 case "TreeNode: 每月清运垃圾明细表":
                 {
-                        sqlcon = boperate.getcon();
+                    #region 每月垃圾明细
+                    sqlcon = boperate.getcon();
                         crform_ds = new DataSet();
                         dt_goods = crform_ds.Tables.Add("Goods_Table");
                         //用来存储最终的结果
@@ -365,13 +373,14 @@ namespace QMS3
                         toolStripButtonMonExl.Enabled = false;
                         groupBoxReport.Enabled = false;
 
-                        MainTab.SelectTab(17);                    
-                 }
-                    
-                    break;
+                        MainTab.SelectTab(17);
+                    #endregion
+                }
+                break;
                 case "TreeNode: 年度清运垃圾明细表":
-                    {
-                        sqlcon = boperate.getcon();
+                {
+                    #region 年明细
+                    sqlcon = boperate.getcon();
                         crform_ds = new DataSet();
                         comboBoxMon3.Enabled = false;
                         comboBoxDay3.Enabled = false;
@@ -383,21 +392,36 @@ namespace QMS3
                         fName = "";
 
                         MainTab.SelectTab(18);
-                    }
-                    break;
+                    #endregion
+                }
+                break;
 
                 case "TreeNode: 每月每班垃圾清运车次表":
                     {
+                    #region 月车次
                         sqlcon = boperate.getcon();
                         crform_ds = new DataSet();                                              
                         toolStripButtonMonCheCiExl.Enabled = false;
                         groupBoxReport4.Enabled = false;
                         fName = "";
                         MainTab.SelectTab(19);
+#endregion
                     }
+                break;
+                case "TreeNode: 转运中心日运输图表": MainTab.SelectTab(20);
+                break;
+                case "TreeNode: 转运中心当日运输信息":
+                {
+                    
+                    if (!showDayreport.IsBusy)
+                    {
+                        toolStripProgressBar1.Visible = true;
+                        showDayreport.RunWorkerAsync();
+                        processlabel1.Visible = true;
+                    }
+                    MainTab.SelectTab(21);
                     break;
-
-
+                }
             }
         }
         #endregion
@@ -3966,6 +3990,10 @@ drop table tempTable;";
             System.Windows.Forms.TreeNode treeNode218 = new System.Windows.Forms.TreeNode("年度清运垃圾明细表");
             System.Windows.Forms.TreeNode treeNode219 = new System.Windows.Forms.TreeNode("每月每班垃圾清运车次表");
 
+            System.Windows.Forms.TreeNode treeNode220 = new System.Windows.Forms.TreeNode("转运中心日运输图表");
+            System.Windows.Forms.TreeNode treeNode221 = new System.Windows.Forms.TreeNode("转运中心当日运输信息");
+            System.Windows.Forms.TreeNode treeNode222 = new System.Windows.Forms.TreeNode("转运中心运输信息查询");
+            System.Windows.Forms.TreeNode treeNode223 = new System.Windows.Forms.TreeNode("转运中心查询", new System.Windows.Forms.TreeNode[] { treeNode220, treeNode221, treeNode222 });
 
             System.Windows.Forms.TreeNode treeNode236 = new System.Windows.Forms.TreeNode("报表生成器", new System.Windows.Forms.TreeNode[] { treeNode216, treeNode217, treeNode218, treeNode219 });
             //this.treeView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -4003,8 +4031,14 @@ drop table tempTable;";
             treeNode219.Name = "节点15";
             treeNode219.Text = "每月每班垃圾清运车次表";
 
-
-
+            treeNode220.Name = "节点16";
+            treeNode220.Text = "转运中心日运输图表";
+            treeNode221.Name = "节点17";
+            treeNode221.Text = "转运中心当日运输信息";
+            treeNode222.Name = "节点18";
+            treeNode222.Text = "转运中心运输信息查询";
+            treeNode223.Name = "节点19";
+            treeNode223.Text = "转运中心查询";
 
             treeNode236.Name = "节点36";
             treeNode236.Text = "报表生成器";
@@ -4047,6 +4081,7 @@ drop table tempTable;";
                                                                             treeNode206,
                                                                             treeNode207,
                                                                             treeNode208,
+                                                                                    treeNode223,
                                                                             treeNode209,
                                                                             treeNode210,
                                                                             treeNode211,
@@ -4064,6 +4099,7 @@ drop table tempTable;";
                                                                           //  treeNode206,
                                                                           //  treeNode207,
                                                                             treeNode208,
+                                                                                    treeNode223,
                                                                           //  treeNode209,
                                                                          //   treeNode210,
                                                                          //   treeNode211,
@@ -4126,6 +4162,7 @@ drop table tempTable;";
                                                                             treeNode206,
                                                                             treeNode207,
                                                                             treeNode208,
+                                                                            treeNode223,
                                                                         //    treeNode209,
                                                                             treeNode210,
                                                                             treeNode211,
@@ -4169,6 +4206,7 @@ drop table tempTable;";
                                                                             treeNode206,
                                                                             treeNode207,
                                                                           treeNode208,
+                                                                                  treeNode223,
                                                                        //     treeNode209,
                                                                             treeNode210,
                                                                             treeNode211,
@@ -4213,6 +4251,7 @@ drop table tempTable;";
                                                                             treeNode206,
                                                                             treeNode207,
                                                                             treeNode208,
+                                                                            treeNode223,
                                                                             treeNode209,
                                                                             treeNode210,
                                                                             treeNode211,
@@ -4726,9 +4765,9 @@ drop table tempTable;";
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
 
-
-            string systime = dateTimePicker1.Value.ToString("yy-MM-dd");
-
+           // string systime = System.DateTime.Now.ToString("yy-MM-dd");
+          //  string systime = dateTimePicker1.Value.ToString("yy-MM-dd");
+            string systime = "10-06-21";
             showDayreport.ReportProgress(30);
             string strSQL = "SELECT DISTINCT  [db_rfidtest].[rfidtest].[dbo.Station].[Name] AS '起始站点' , " +
                 " [db_rfidtest].[rfidtest].[dbo.Goods].[BoxCardID] AS '货箱卡号' ,  " +
@@ -4758,8 +4797,10 @@ drop table tempTable;";
         {
             try
             {
-                dataGridView1.DataSource = ds.Tables[0];
-                progressBar2.Visible = false;
+                dataGridView_22.DataSource = ds.Tables[0];
+                //dataGridView1.DataSource = 
+                toolStripProgressBar1.Visible = false;
+                processlabel1.Visible = false;
             }
             catch
             {
@@ -4769,7 +4810,8 @@ drop table tempTable;";
 
         void backgroundWorker1_ProgressChanged(Object sender, ProgressChangedEventArgs e)
         {
-            progressBar2.Value = e.ProgressPercentage;
+
+            toolStripProgressBar1.Value = e.ProgressPercentage;
             debugtextbox.Text += e.ProgressPercentage.ToString() + ".";
 
         }
@@ -4777,12 +4819,12 @@ drop table tempTable;";
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             //showDayreport.RunWorkerAsync();
-            progressBar2.Visible = true;
-            progressBar1.Visible = true;
-            if (!showDayreport.IsBusy)
-                showDayreport.RunWorkerAsync();
-            if (!showDayImagereport.IsBusy)
-                showDayImagereport.RunWorkerAsync();
+            //progressBar2.Visible = true;
+            //progressBar1.Visible = true;
+            //if (!showDayreport.IsBusy)
+            //    showDayreport.RunWorkerAsync();
+            //if (!showDayImagereport.IsBusy)
+            //    showDayImagereport.RunWorkerAsync();
         }
 
         private void showDayImagereport_DoWork(object sender, DoWorkEventArgs e)
@@ -4883,7 +4925,7 @@ drop table tempTable;";
                 "[db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] AS '结束时间' ,  " +
                 "[db_rfidtest].[rfidtest].[dbo.Goods].[Weight] AS '重量(单位:吨)'" +
                 "FROM [dbo.Goods] " +
-                "WHERE (StartTime Like '" + sttime + "%') AND (StartStationID=" + stationid.ToString() + ")";
+                "WHERE (StartTime > '" + sttime+"') AND (StartStationID=" + stationid.ToString() + ")";
 
             string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
 
@@ -6773,6 +6815,169 @@ drop table tempTable;";
         private void pictureBox2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button_21_Click(object sender, EventArgs e)
+        {
+            QMS3.Classes.visifire vschart = new QMS3.Classes.visifire();
+            string str = System.AppDomain.CurrentDomain.BaseDirectory;
+            Uri url = new Uri(str + "chart/Demo.htm");
+            webBrowser_21.Url = url;
+
+            chartdata.updateData(5, dateTimePicker_21.Value, 0).ToString();
+            vschart.reSize(webBrowser_21.Size.Width, webBrowser_21.Size.Height);
+            vschart.settitle("当日转运中心报表", "时间", "运输量");
+            string[] column=new string[16];
+            double[] data=new double[16];
+            for (int i = 0; i <= 15; i++)
+            {
+                column[i] = (i + 8).ToString() + ":00";
+                data[i]=chartdata.stationdaybox[i];
+            }
+            
+            vschart.set3D(true);
+
+            Random rd = new Random();
+            vschart.setData(column, data, 16);
+            string type = comboBox_21.Text;
+            type = type.Replace("饼图","pie");
+            type = type.Replace("曲线图", "spline");
+            type = type.Replace("线图", "line");
+
+            type = type.Replace("条形图", "column");
+
+            vschart.setType(type);
+            webBrowser_21.Url = vschart.displayChart();
+        }
+
+        private void webBrowser_21_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            #region 年图表 
+            QMS3.Classes.visifire vschart = new QMS3.Classes.visifire();
+            string str = System.AppDomain.CurrentDomain.BaseDirectory;
+            Uri url = new Uri(str + "chart/Demo.htm");
+            webBrowser_23.Url = url;
+
+            chartdata.updateData(1, dateTimePicker_23.Value, 0);
+            if (comboBox_23_2.Text == "     去年同比    ")
+                chartdata.updateData(2, dateTimePicker_23.Value, 0);
+            vschart.reSize(webBrowser_23.Size.Width, webBrowser_23.Size.Height);
+            vschart.settitle(dateTimePicker_23.Value.ToString("yyyy") + "年报表", "时间", "运输量");
+            if (comboBox_23_2.Text == "     去年同比    ")
+                vschart.settitle(dateTimePicker_23.Value.ToString("yyyy") + "年同比报表", "时间", "运输量");
+            string[] column = new string[12];
+            double[] data = new double[12];
+            double[] data2 = new double[12];
+            for (int i = 0; i <= 11; i++)
+            {
+                column[i] = (i+1).ToString() + "月";
+                data[i] = chartdata.year[i];
+                if (comboBox_23_2.Text == "     去年同比    ")
+                    data2[i] = chartdata.lastyear[i];
+            }
+            vschart.s1 = dateTimePicker_23.Value.ToString("yyyy") + "年";
+            vschart.s2 = dateTimePicker_23.Value.AddMonths(-12).ToString("yyyy")+"年";
+            vschart.set3D(true);
+
+            vschart.setData(column, data, 12);
+            if (comboBox_23_2.Text == "     去年同比    ")
+                vschart.setData2(data2);
+            string type = comboBox_23_1.Text;
+            type = type.Replace("雷达图", "Radar");
+            type = type.Replace("曲线图", "spline");
+            type = type.Replace("直线图", "line");
+
+            type = type.Replace("条形图", "column");
+            
+
+            vschart.setType(type);
+            webBrowser_23.Url = vschart.displayChart();
+            #endregion
+        }
+
+        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+
+        }
+
+        private void label_23_3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox_23_2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_23_2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_23_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker7_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox_23_1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_23_2_Click(object sender, EventArgs e)
+        {
+            #region 月图表
+            QMS3.Classes.visifire vschart = new QMS3.Classes.visifire();
+            string str = System.AppDomain.CurrentDomain.BaseDirectory;
+            Uri url = new Uri(str + "chart/Demo.htm");
+            webBrowser_23_2.Url = url;
+
+            chartdata.updateData(3, dateTimePicker_23_2.Value, 0);
+            if (comboBox_23_2.Text == "     去年同比")
+                chartdata.updateData(2, dateTimePicker_23_2.Value, 0);
+            vschart.reSize(webBrowser_23.Size.Width, webBrowser_23_2.Size.Height);
+            vschart.settitle(dateTimePicker_23_2.Value.ToString("yyyy年MM月") + "报表", "时间", "运输量");
+            if (comboBox_23_4.Text == "     去年同比")
+                vschart.settitle(dateTimePicker_23.Value.ToString("yyyy") + "年同比报表", "时间", "运输量");
+            string[] column = new string[31];
+            double[] data = new double[31];
+            double[] data2 = new double[31];
+            for (int i = 0; i < QMS3.Classes.Datetimecalc.daysofmonth(dateTimePicker_23_2.Value); i++)
+            {
+                column[i] = (i + 1).ToString();
+                data[i] = chartdata.month[i];
+                if (comboBox_23_4.Text == "     去年同比")
+                    data2[i] = chartdata.lastmonth[i];
+            }
+            vschart.s1 = dateTimePicker_23.Value.ToString("yyyy") + "年";
+            vschart.s2 = dateTimePicker_23.Value.AddMonths(-1).ToString("yyyy") + "年";
+            vschart.set3D(true);
+
+            vschart.setData(column, data, QMS3.Classes.Datetimecalc.daysofmonth(dateTimePicker_23_2.Value));
+            if (comboBox_23_4.Text == "     去年同比")
+                vschart.setData2(data2);
+            string type = comboBox_23_3.Text;
+            type = type.Replace("雷达图", "Radar");
+            type = type.Replace("曲线图", "spline");
+            type = type.Replace("直线图", "line");
+
+            type = type.Replace("条形图", "column");
+
+
+            vschart.setType(type);
+            webBrowser_23_2.Url = vschart.displayChart();
+            #endregion
         }
 
 
