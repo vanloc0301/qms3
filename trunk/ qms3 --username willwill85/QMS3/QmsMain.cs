@@ -58,10 +58,13 @@ namespace QMS3
             Control.CheckForIllegalCrossThreadCalls = false;
             MainTab.ItemSize = new Size(1, 1);
             treeView1.Nodes.Clear();
+            pictureBox1.Controls.Add(label69);
+
+            pictureBox1.Controls.Add(label70); 
             dateTimePicker1.Value = System.DateTime.Now;
             dateTimePicker2.Value = System.DateTime.Now;
             dateTimePicker3.Value = System.DateTime.Now;
-            dateTimePicker4.Value = System.DateTime.Now;
+            dateTimePicker_8.Value = System.DateTime.Now;
             dateTimePicker5.Value = System.DateTime.Now;
             #region just for demo
             //try
@@ -4767,7 +4770,7 @@ drop table tempTable;";
 
            // string systime = System.DateTime.Now.ToString("yy-MM-dd");
           //  string systime = dateTimePicker1.Value.ToString("yy-MM-dd");
-            string systime = "10-06-21";
+           // string systime =d;
             showDayreport.ReportProgress(30);
             string strSQL = "SELECT DISTINCT  [db_rfidtest].[rfidtest].[dbo.Station].[Name] AS '起始站点' , " +
                 " [db_rfidtest].[rfidtest].[dbo.Goods].[BoxCardID] AS '货箱卡号' ,  " +
@@ -4776,7 +4779,7 @@ drop table tempTable;";
                 "[db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] AS '结束时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[Weight] AS '重量(单位:吨)'" +
                 " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] ON   " +
                 "[db_rfidtest].[rfidtest].[dbo.Goods].[StartStationID] = [db_rfidtest].[rfidtest].[dbo.Station].[StationID] " +
-                "WHERE  [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] > '" + systime + ",00:00' AND [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] < '" + systime + ",23:59'";
+                "WHERE  [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] > '" + dateTimePicker_22.Value.ToString("yy-MM-dd") + ",00:00' AND [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] < '" + dateTimePicker_22_2.Value.ToString("yy-MM-dd") + ",23:59'";
             string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
             showDayreport.ReportProgress(80);
             try
@@ -4912,20 +4915,20 @@ drop table tempTable;";
         private void button16_Click(object sender, EventArgs e)//车查询
         {
 
-            int stationid = comboBox5.SelectedIndex + 31;
+            int stationid = comboBox_8.SelectedIndex + 31;
             if (stationid < 0)
             {
                 MessageBox.Show("不存在该楼！");
                 return;
             }
 
-            string sttime = dateTimePicker4.Value.ToString("yy-MM-dd");
+            string sttime = dateTimePicker_8.Value.ToString("yy-MM-dd");
             string strSQL = "SELECT			[db_rfidtest].[rfidtest].[dbo.Goods].[TruckNo] AS '运输车号' , " +
                " [db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] AS '开始时间' ,  " +
                 "[db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] AS '结束时间' ,  " +
                 "[db_rfidtest].[rfidtest].[dbo.Goods].[Weight] AS '重量(单位:吨)'" +
                 "FROM [dbo.Goods] " +
-                "WHERE (StartTime > '" + sttime+"') AND (StartStationID=" + stationid.ToString() + ")";
+                "WHERE (StartTime > '" + sttime+"') AND (EndTime < '"+dateTimePicker_8_2.Value.AddDays(1).ToString("yy-MM-dd")+"')AND (StartStationID=" + stationid.ToString() + ")";
 
             string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
 
@@ -6978,6 +6981,58 @@ drop table tempTable;";
             vschart.setType(type);
             webBrowser_23_2.Url = vschart.displayChart();
             #endregion
+        }
+
+        private void dateTimePicker4_ValueChanged(object sender, EventArgs e)
+        {
+            if(dateTimePicker_8_2.Enabled==false)
+                dateTimePicker_8_2.Value = dateTimePicker_8.Value;
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            dateTimePicker_8_2.Enabled = checkBox_8.Checked;
+            if (!checkBox_8.Checked)
+                dateTimePicker_8_2.Value = dateTimePicker_8.Value;
+            dateTimePicker_8_2.Visible = checkBox_8.Checked;
+            label_8_3.Visible = checkBox_8.Checked;
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            dateTimePicker_22_2.Enabled = checkBox_22.Checked;
+            dateTimePicker_22_2.Visible = checkBox_22.Checked;
+            label_22_2.Visible = checkBox_22.Checked;
+            if (!checkBox_22.Checked)
+                dateTimePicker_22_2.Value = dateTimePicker_22.Value;
+        }
+
+        private void dateTimePicker8_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker_22_ValueChanged(object sender, EventArgs e)
+        {
+            if (dateTimePicker_22_2.Enabled == false)
+                dateTimePicker_22_2.Value = dateTimePicker_22.Value;
+           
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            if (!showDayreport.IsBusy)
+            {
+                toolStripProgressBar1.Visible = true;
+                showDayreport.RunWorkerAsync();
+                processlabel1.Visible = true;
+            }
+            MainTab.SelectTab(21);
+        }
+
+        private void dateTimePicker7_ValueChanged_1(object sender, EventArgs e)
+        {
+
         }
 
 
