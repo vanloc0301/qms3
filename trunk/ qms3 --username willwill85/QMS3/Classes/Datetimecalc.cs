@@ -15,7 +15,7 @@ namespace QMS3.Classes
             tday = tday * -1;
             date=date.AddDays(tday);
             int i;
-            for (i = 28; i <= 32; i++)
+            for (i = 28; i <= 30; i++)
             {
                 DateTime tempdate = date;  
                 if (tempdate.AddDays(i).Month > date.Month)
