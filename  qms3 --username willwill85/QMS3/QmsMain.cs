@@ -6870,9 +6870,9 @@ drop table tempTable;";
             if (comboBox_23_2.Text == "     去年同比    ")
                 chartdata.updateData(2, dateTimePicker_23.Value, 0);
             vschart.reSize(webBrowser_23.Size.Width, webBrowser_23.Size.Height);
-            vschart.settitle(dateTimePicker_23.Value.ToString("yyyy") + "年报表", "时间", "运输量");
+            vschart.settitle(dateTimePicker_23.Value.ToString("yyyy") + "年报表", "日期", "运输量(单位:箱)");
             if (comboBox_23_2.Text == "     去年同比    ")
-                vschart.settitle(dateTimePicker_23.Value.ToString("yyyy") + "年同比报表", "时间", "运输量");
+                vschart.settitle(dateTimePicker_23.Value.ToString("yyyy") + "年同比报表", "日期", "运输量(单位:箱)");
             string[] column = new string[12];
             double[] data = new double[12];
             double[] data2 = new double[12];
@@ -6947,28 +6947,41 @@ drop table tempTable;";
             webBrowser_23_2.Url = url;
 
             chartdata.updateData(3, dateTimePicker_23_2.Value, 0);
-            if (comboBox_23_2.Text == "     去年同比")
-                chartdata.updateData(2, dateTimePicker_23_2.Value, 0);
-            vschart.reSize(webBrowser_23.Size.Width, webBrowser_23_2.Size.Height);
-            vschart.settitle(dateTimePicker_23_2.Value.ToString("yyyy年MM月") + "报表", "时间", "运输量");
-            if (comboBox_23_4.Text == "     去年同比")
-                vschart.settitle(dateTimePicker_23.Value.ToString("yyyy") + "年同比报表", "时间", "运输量");
+
+            if (comboBox_23_2.Text == "     去年同比    ")
+                chartdata.updateData(6, dateTimePicker_23_2.Value, 0);
+            if (comboBox_23_4.Text == "     本年环比    ")
+                chartdata.updateData(4, dateTimePicker_23_2.Value, 0);
+            vschart.reSize(webBrowser_23_2.Size.Width, webBrowser_23_2.Size.Height);
+            vschart.settitle(dateTimePicker_23_2.Value.ToString("yyyy年MM月") + "报表", "日期", "运输量(单位:箱)");
+            if (comboBox_23_4.Text == "     去年同比    ")
+                vschart.settitle(dateTimePicker_23_2.Value.ToString("MM月") + "年同比报表", "日期", "运输量(单位:箱)");
+            if (comboBox_23_4.Text == "     本年环比    ")
+                vschart.settitle(dateTimePicker_23_2.Value.ToString("MM月") + "与上月环比报表", "日期", "运输量(单位:箱)");
             string[] column = new string[31];
             double[] data = new double[31];
             double[] data2 = new double[31];
-            for (int i = 0; i < QMS3.Classes.Datetimecalc.daysofmonth(dateTimePicker_23_2.Value); i++)
+            int daysofm = QMS3.Classes.Datetimecalc.daysofmonth(dateTimePicker_23_2.Value);
+            if (comboBox_23_4.Text == "     去年同比    ")
+                daysofm =System.Math.Max(QMS3.Classes.Datetimecalc.daysofmonth(dateTimePicker_23_2.Value),QMS3.Classes.Datetimecalc.daysofmonth(dateTimePicker_23_2.Value.AddMonths(-12)));
+            if (comboBox_23_4.Text == "     本年环比    ")
+                daysofm =System.Math.Max(QMS3.Classes.Datetimecalc.daysofmonth(dateTimePicker_23_2.Value),QMS3.Classes.Datetimecalc.daysofmonth(dateTimePicker_23_2.Value.AddMonths(-1)));
+            for (int i = 0; i < daysofm; i++)
             {
                 column[i] = (i + 1).ToString();
                 data[i] = chartdata.month[i];
-                if (comboBox_23_4.Text == "     去年同比")
+                if (comboBox_23_4.Text == "     去年同比    " || comboBox_23_4.Text == "     本年环比    ")
                     data2[i] = chartdata.lastmonth[i];
             }
-            vschart.s1 = dateTimePicker_23.Value.ToString("yyyy") + "年";
-            vschart.s2 = dateTimePicker_23.Value.AddMonths(-1).ToString("yyyy") + "年";
+            vschart.s1 = dateTimePicker_23_2.Value.ToString("yyyy年MM月");
+            if (comboBox_23_4.Text == "     去年同比    ")
+                vschart.s2 = dateTimePicker_23_2.Value.AddMonths(-12).ToString("yyyy年MM月");
+            if (comboBox_23_4.Text == "     本年环比    ")
+                vschart.s2 = dateTimePicker_23_2.Value.AddMonths(-1).ToString("yyyy年MM月");
             vschart.set3D(true);
 
-            vschart.setData(column, data, QMS3.Classes.Datetimecalc.daysofmonth(dateTimePicker_23_2.Value));
-            if (comboBox_23_4.Text == "     去年同比")
+            vschart.setData(column, data, daysofm);
+            if (comboBox_23_4.Text == "     去年同比    " || comboBox_23_4.Text == "     本年环比    ")
                 vschart.setData2(data2);
             string type = comboBox_23_3.Text;
             type = type.Replace("雷达图", "Radar");
@@ -7033,6 +7046,43 @@ drop table tempTable;";
         private void dateTimePicker7_ValueChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void button_24_Click(object sender, EventArgs e)
+        {
+            string sttime = dateTimePicker_24.Value.ToString("yy-MM-dd");
+            string strSQL = "SELECT DISTINCT  [db_rfidtest].[rfidtest].[dbo.Station].[Name] AS '起始站点' , " +
+               " [db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] AS '开始时间' ,  " +
+               " [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] AS '结束时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[Weight] AS '重量(单位:吨)'" +
+                " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] ON   " +
+               " [db_rfidtest].[rfidtest].[dbo.Goods].[StartStationID] = [db_rfidtest].[rfidtest].[dbo.Station].[StationID] WHERE (TruckNo = '" + " " + textBox22.Text + "') AND (StartTime LIKE '" + sttime + "%')";
+            string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
+
+            try
+            {
+                ds = boperate.getds(strSQL, strTable);
+            }
+            catch
+            {
+                MessageBox.Show("网络连接失败！请稍后重试（错误1030）");
+                //showDayreport.CancelAsync();
+            }
+            try
+            {
+                dataGridView_24.DataSource = ds.Tables[0];
+            }
+            catch
+            {
+            }
+        }
+
+        private void textBox_24_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox_24.Text.Length < 1)
+                textBox_24.Text = "京";
+
+            if (textBox_24.Text.Substring(0, 1) != "京")
+                textBox_24.Text = "京";
         }
 
 

@@ -207,14 +207,72 @@ namespace QMS3.Classes
                     }
                 case 4://上月
                     {
-                        if (this.PercentOfThread[Case - 1] < 100)
+                        DataSet ds;
+                        string sttime = dt.AddMonths(-1).ToString("yy-MM");
+                        string strSQL = "DECLARE	@return_value int EXEC	@return_value = [rfidtest].[GetCenterMonthCount] @Month = N'" + sttime + "',@numofday=" + QMS3.Classes.Datetimecalc.daysofmonth(dt).ToString() + ",@station = 0";
+                        string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
+                        // MessageBox.Show(strSQL);
+                        try
+                        {
+                            QMS3.BaseClass.BaseOperate boperate = new QMS3.BaseClass.BaseOperate();
+                            ds = boperate.getds(strSQL, strTable);
+                        }
+                        catch
+                        {
+                            MessageBox.Show("网络连接失败！请稍后重试（错误 10273）");
                             return 1;
-                        break;
+                        }
+                        try
+                        {
+
+                            for (int i = 0; i < QMS3.Classes.Datetimecalc.daysofmonth(dt); i++)
+                            {
+                                this.lastmonth[i] = int.Parse(ds.Tables[0].Rows[i]["sumbox"].ToString());
+                            }
+
+                        }
+                        catch (Exception xx)
+                        {
+                            MessageBox.Show("网络连接失败！请稍后重试（错误10271）" + xx.ToString());
+                            return 1;
+                        }
+
+                        return 0;
+                        break; ;
                     }
                 case 6://上12月
                     {
-                        if (this.PercentOfThread[Case - 1] < 100)
+                        DataSet ds;
+                        string sttime = dt.AddMonths(-12).ToString("yy-MM");
+                        string strSQL = "DECLARE	@return_value int EXEC	@return_value = [rfidtest].[GetCenterMonthCount] @Month = N'" + sttime + "',@numofday=" + QMS3.Classes.Datetimecalc.daysofmonth(dt).ToString() + ",@station = 0";
+                        string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
+                        // MessageBox.Show(strSQL);
+                        try
+                        {
+                            QMS3.BaseClass.BaseOperate boperate = new QMS3.BaseClass.BaseOperate();
+                            ds = boperate.getds(strSQL, strTable);
+                        }
+                        catch
+                        {
+                            MessageBox.Show("网络连接失败！请稍后重试（错误 10273）");
                             return 1;
+                        }
+                        try
+                        {
+
+                            for (int i = 0; i < QMS3.Classes.Datetimecalc.daysofmonth(dt); i++)
+                            {
+                                this.lastmonth[i] = int.Parse(ds.Tables[0].Rows[i]["sumbox"].ToString());
+                            }
+
+                        }
+                        catch (Exception xx)
+                        {
+                            MessageBox.Show("网络连接失败！请稍后重试（错误10271）" + xx.ToString());
+                            return 1;
+                        }
+
+                        return 0;
                         break;
                     }
                 case 5://站状态
