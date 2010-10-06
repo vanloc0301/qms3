@@ -144,9 +144,9 @@ namespace QMS3
                     break;
                     #endregion
                 }
-                case "TreeNode: 西城区状态信息查询":    MainTab.SelectTab(22);
+                case "TreeNode: 西城区运输信息图表":    MainTab.SelectTab(22);
                 break;
-                case "TreeNode: 异常数据处理器":
+                case "TreeNode: 重量异常":
                 {
                     #region 异常处理
                     string systime = System.DateTime.Now.ToString("yy-MM-dd");//  //"10-06-11";
@@ -416,7 +416,7 @@ namespace QMS3
                 break;
                 case "TreeNode: 转运中心日运输图表": MainTab.SelectTab(20);
                 break;
-                case "TreeNode: 转运中心当日运输信息":
+                case "TreeNode: 转运中心运输信息查询":
                 {
                     
                     if (!showDayreport.IsBusy)
@@ -5710,35 +5710,49 @@ drop table tempTable;";
         public void treeviewload(int Userright)
         {
 
-            System.Windows.Forms.TreeNode CarsInrun = new System.Windows.Forms.TreeNode("在运车辆查询");
-            System.Windows.Forms.TreeNode CarIR = new System.Windows.Forms.TreeNode("车辆信息查询");
-            System.Windows.Forms.TreeNode StationStatus = new System.Windows.Forms.TreeNode("垃圾楼状态信息查询");
+
+ 
            // System.Windows.Forms.TreeNode treeNode209 = new System.Windows.Forms.TreeNode("转运中心状态信息查询");//不要了
-            System.Windows.Forms.TreeNode CenterAcc = new System.Windows.Forms.TreeNode("转运中心结算");
-            System.Windows.Forms.TreeNode DistrictInfo = new System.Windows.Forms.TreeNode("西城区状态信息查询");
-            System.Windows.Forms.TreeNode ExceptionFather = new System.Windows.Forms.TreeNode("异常数据处理器");
+           
+            System.Windows.Forms.TreeNode DistrictInfo = new System.Windows.Forms.TreeNode("西城区运输信息图表");
+
             System.Windows.Forms.TreeNode UserMgr = new System.Windows.Forms.TreeNode("用户管理");
             System.Windows.Forms.TreeNode StartionMgr = new System.Windows.Forms.TreeNode("垃圾楼管理");
             System.Windows.Forms.TreeNode ClassMaster = new System.Windows.Forms.TreeNode("班长管理");
+
+
+
+            System.Windows.Forms.TreeNode CenterDayCHRT = new System.Windows.Forms.TreeNode("转运中心日运输图表");
+            System.Windows.Forms.TreeNode CenterDayInfo = new System.Windows.Forms.TreeNode("转运中心运输信息查询");
+            System.Windows.Forms.TreeNode CenterAcc = new System.Windows.Forms.TreeNode("转运中心结算");
+            System.Windows.Forms.TreeNode CenterFather = new System.Windows.Forms.TreeNode("转运中心查询管理", new System.Windows.Forms.TreeNode[] { CenterDayCHRT, CenterDayInfo ,CenterAcc});
+
+
 
             System.Windows.Forms.TreeNode DayRpt = new System.Windows.Forms.TreeNode("日垃圾清运完成情况");
             System.Windows.Forms.TreeNode MonthRpt = new System.Windows.Forms.TreeNode("每月清运垃圾明细表");
             System.Windows.Forms.TreeNode YearRpt = new System.Windows.Forms.TreeNode("年度清运垃圾明细表");
             System.Windows.Forms.TreeNode ClassRpt = new System.Windows.Forms.TreeNode("每月每班垃圾清运车次表");
-
-            System.Windows.Forms.TreeNode CenterDayCHRT = new System.Windows.Forms.TreeNode("转运中心日运输图表");
-            System.Windows.Forms.TreeNode CenterDayInfo = new System.Windows.Forms.TreeNode("转运中心当日运输信息");
-          
-            System.Windows.Forms.TreeNode CenterFather = new System.Windows.Forms.TreeNode("转运中心查询管理", new System.Windows.Forms.TreeNode[] { CenterDayCHRT, CenterDayInfo ,CenterAcc});
-
             System.Windows.Forms.TreeNode RPTFather = new System.Windows.Forms.TreeNode("报表生成器", new System.Windows.Forms.TreeNode[] { DayRpt, MonthRpt, YearRpt, ClassRpt });
 
-        
-            
+
+            System.Windows.Forms.TreeNode CarsInrun = new System.Windows.Forms.TreeNode("在运车辆查询");
+            System.Windows.Forms.TreeNode CarIR = new System.Windows.Forms.TreeNode("车辆信息查询");
             System.Windows.Forms.TreeNode CarsFarther = new System.Windows.Forms.TreeNode("车辆查询管理", new System.Windows.Forms.TreeNode[] { CarIR, CarsInrun });
-
-            System.Windows.Forms.TreeNode StationFather = new System.Windows.Forms.TreeNode("垃圾楼查询管理", new System.Windows.Forms.TreeNode[] { StationStatus });
-
+            
+            
+            
+            System.Windows.Forms.TreeNode StationStatus = new System.Windows.Forms.TreeNode("垃圾楼状态信息查询");
+            System.Windows.Forms.TreeNode StationChart = new System.Windows.Forms.TreeNode("垃圾楼运输图表");
+            System.Windows.Forms.TreeNode StationFather = new System.Windows.Forms.TreeNode("垃圾楼查询管理", new System.Windows.Forms.TreeNode[] { StationStatus,StationChart });
+            
+            
+            
+            System.Windows.Forms.TreeNode ExceptionWeight = new System.Windows.Forms.TreeNode("重量异常");
+            System.Windows.Forms.TreeNode ExceptionTime = new System.Windows.Forms.TreeNode("超时异常");
+            System.Windows.Forms.TreeNode ExceptionNet = new System.Windows.Forms.TreeNode("网络异常");
+            System.Windows.Forms.TreeNode ExceptionLack = new System.Windows.Forms.TreeNode("手动添加删除");
+            System.Windows.Forms.TreeNode ExceptionFather = new System.Windows.Forms.TreeNode("异常查询处理", new System.Windows.Forms.TreeNode[] { ExceptionWeight,ExceptionTime,ExceptionNet,ExceptionLack });
 
             //this.treeView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.treeView1.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -5769,7 +5783,7 @@ drop table tempTable;";
                                                                             treeNode202,
                                                                             treeNode206,
                                                                             CarsFarther,
-                                                                            StationStatus,
+                                                                            StationFather,
                                                                                     CenterFather,
                                                                            // treeNode209,//10.6
                                                                           //  CenterAcc,
@@ -5787,7 +5801,7 @@ drop table tempTable;";
                                                                           //  treeNode202,
                                                                           //  treeNode206,
                                                                           //  CarIR,
-                                                                            StationStatus,
+                                                                            StationFather,
                                                                                     CenterFather,
                                                                           //  treeNode209,
                                                                          //   CenterAcc,
@@ -5833,7 +5847,7 @@ drop table tempTable;";
                                                                             treeNode202,
                                                                             treeNode206,
                                                                             CarsFarther,
-                                                                            StationStatus,
+                                                                        StationFather,
                                                                             CenterFather,
                                                                         //    treeNode209,
                                                                         //    CenterAcc,//10.6
@@ -5860,7 +5874,7 @@ drop table tempTable;";
                                                                             treeNode202,
                                                                             treeNode206,
                                                                             CarsFarther,
-                                                                          StationStatus,
+                                                                          StationFather,
                                                                                   CenterFather,
                                                                        //     treeNode209,
                                                                        //     CenterAcc,//10.6   
@@ -5888,7 +5902,7 @@ drop table tempTable;";
                                                                             treeNode202,
                                                                             treeNode206,
                                                                             CarsFarther,
-                                                                            StationStatus,
+                                                                            StationFather,
                                                                             CenterFather,
                                                                           
                                                                          //   CenterAcc,
@@ -6988,7 +7002,7 @@ drop table tempTable;";
 
         private void textBox_24_TextChanged(object sender, EventArgs e)
         {
-            /*if (textBox_24.Text.Length < 1)
+           if (textBox_24.Text.Length < 1)
                 textBox_24.Text = "京";
 
             if (textBox_24.Text.Substring(0, 1) != "京")
@@ -6997,7 +7011,7 @@ drop table tempTable;";
             textBox_24.Text = textBox_24.Text.ToUpper();
             if (textBox_24.Text.Length > 7)
                 textBox_24.Text = textBox_24.Text.Substring(0, 7);
-            textBox_24.Select(textBox_24.Text.Length, textBox_24.Text.Length);*/
+            textBox_24.Select(textBox_24.Text.Length, textBox_24.Text.Length);
         }
 
         private void label48_Click(object sender, EventArgs e)
