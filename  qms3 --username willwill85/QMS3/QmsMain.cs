@@ -62,10 +62,11 @@ namespace QMS3
 
             pictureBox1.Controls.Add(label70); 
             dateTimePicker1.Value = System.DateTime.Now;
-            dateTimePicker2.Value = System.DateTime.Now;
+            dateTimePicker_81.Value = System.DateTime.Now;
+            dateTimePicker_82.Value = System.DateTime.Now;
             dateTimePicker3.Value = System.DateTime.Now;
             dateTimePicker_8.Value = System.DateTime.Now;
-            dateTimePicker5.Value = System.DateTime.Now;
+
             #region just for demo
             //try
             //{
@@ -6618,37 +6619,43 @@ drop table tempTable;";
         #endregion
 
         #region  车状态查询
-        private void button4_Click(object sender, EventArgs e)
-        {
-            string sttime = dateTimePicker2.Value.ToString("yy-MM-dd");
-            string strSQL = "SELECT DISTINCT  [db_rfidtest].[rfidtest].[dbo.Station].[Name] AS '起始站点' , " +
-               " [db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] AS '开始时间' ,  " +
-               " [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] AS '结束时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[Weight] AS '重量(单位:吨)'" +
-                " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] ON   " +
-               " [db_rfidtest].[rfidtest].[dbo.Goods].[StartStationID] = [db_rfidtest].[rfidtest].[dbo.Station].[StationID] WHERE (TruckNo = '" + " " + textBox22.Text + "') AND (StartTime LIKE '" + sttime + "%')";
-            string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
+        //private void button4_Click(object sender, EventArgs e)
+        //{
+        //    string sttime = dateTimePicker2.Value.ToString("yy-MM-dd");
+        //    string strSQL = "SELECT DISTINCT  [db_rfidtest].[rfidtest].[dbo.Station].[Name] AS '起始站点' , " +
+        //       " [db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] AS '开始时间' ,  " +
+        //       " [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] AS '结束时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[Weight] AS '重量(单位:吨)'" +
+        //        " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] ON   " +
+        //       " [db_rfidtest].[rfidtest].[dbo.Goods].[StartStationID] = [db_rfidtest].[rfidtest].[dbo.Station].[StationID] WHERE (TruckNo = '" + " " + textBox22.Text + "') AND (StartTime LIKE '" + sttime + "%')";
+        //    string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
 
-            try
-            {
-                ds = boperate.getds(strSQL, strTable);
-            }
-            catch
-            {
-                MessageBox.Show("网络连接失败！请稍后重试（错误1030）");
-                //showDayreport.CancelAsync();
-            }
-            try
-            {
-                dataGridView8.DataSource = ds.Tables[0];
-            }
-            catch
-            {
-            }
-        }
+        //    try
+        //    {
+        //        ds = boperate.getds(strSQL, strTable);
+        //    }
+        //    catch
+        //    {
+        //        MessageBox.Show("网络连接失败！请稍后重试（错误1030）");
+        //        //showDayreport.CancelAsync();
+        //    }
+        //    try
+        //    {
+        //        dataGridView8.DataSource = ds.Tables[0];
+        //    }
+        //    catch
+        //    {
+        //    }
+        //}
 
         private void button19_Click(object sender, EventArgs e)
         {
-            string sttime = dateTimePicker5.Value.ToString("yy-MM-dd");
+            if (dateTimePicker_82.Value < dateTimePicker_81.Value)
+            {
+                MessageBox.Show("结束时间小于起始时间！");
+                return;
+            }
+            string sttime = dateTimePicker_81.Value.ToString("yy-MM-dd");
+            string sttime2 = dateTimePicker_82.Value.AddDays(1).ToString("yy-MM-dd");
             string strSQL = "SELECT DISTINCT  [db_rfidtest].[rfidtest].[dbo.Station].[Name] AS '起始站点' , " +
                 "[db_rfidtest].[rfidtest].[dbo.Goods].[TruckNo] AS '车牌号' ,  " +
 
@@ -6656,7 +6663,7 @@ drop table tempTable;";
 
                 " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] ON  " +
                 "[db_rfidtest].[rfidtest].[dbo.Goods].[StartStationID] = [db_rfidtest].[rfidtest].[dbo.Station].[StationID] " +
-                "WHERE [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] is null AND [db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] LIKE '" + sttime + "%'";
+                "WHERE [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] is null AND [db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] > '" + sttime + "' AND [db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] <'"+sttime2+"'";
             string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
 
             try
@@ -6682,7 +6689,7 @@ drop table tempTable;";
             int numofrow = dataGridView9.RowCount;
             try
             {
-                if (dateTimePicker5.Value.ToString("yy-MM-dd") == System.DateTime.Now.ToString("yy-MM-dd"))
+                if (dateTimePicker_81.Value.ToString("yy-MM-dd") == System.DateTime.Now.ToString("yy-MM-dd"))
                     for (int i = 0; i < numofrow; i++)
                     {
 
@@ -6706,14 +6713,14 @@ drop table tempTable;";
             }
         }
 
-        private void textBox22_TextChanged(object sender, EventArgs e)
-        {
-            if (textBox22.Text.Length < 3)
-                textBox22.Text = "4-N";
+        //private void textBox22_TextChanged(object sender, EventArgs e)
+        //{
+        //    if (textBox22.Text.Length < 3)
+        //        textBox22.Text = "4-N";
 
-            if (textBox22.Text.Substring(0, 3) != "4-N")
-                textBox22.Text = "4-N";
-        }
+        //    if (textBox22.Text.Substring(0, 3) != "4-N")
+        //        textBox22.Text = "4-N";
+        //}
 
         #endregion
 
@@ -6991,6 +6998,16 @@ drop table tempTable;";
             if (textBox_24.Text.Length > 7)
                 textBox_24.Text = textBox_24.Text.Substring(0, 7);
             textBox_24.Select(textBox_24.Text.Length, textBox_24.Text.Length);*/
+        }
+
+        private void label48_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox23_TextChanged(object sender, EventArgs e)
+        {
+            
         }
 
 

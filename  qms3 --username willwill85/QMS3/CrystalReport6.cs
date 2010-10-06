@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace QMS3.rpts {
+namespace QMS3 {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -41,7 +41,7 @@ namespace QMS3.rpts {
         
         public override string FullResourceName {
             get {
-                return "QMS3.rpts.CrystalReport6.rpt";
+                return "QMS3.CrystalReport6.rpt";
             }
             set {
                 // Do nothing
