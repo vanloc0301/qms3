@@ -222,3 +222,8 @@ C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms3\QMS
 C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\zh-CN\CrystalDecisions.Shared.resources.dll
 C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\zh-CN\CrystalDecisions.ReportSource.resources.dll
 C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\Interop.Microsoft.Office.Core.dll
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\QMS3.exe.manifest
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\QMS3.application
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\obj\Debug\QMS3.TrustInfo.xml
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\obj\Debug\QMS3.exe.manifest
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\obj\Debug\QMS3.application
