@@ -18,13 +18,14 @@
     <NativePlatformName>Windows Mobile 6 Professional SDK</NativePlatformName>
     <FormFactorID>
     </FormFactorID>
+    <ApplicationIcon>kwrite.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
+    <Optimize>true</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;$(PlatformFamilyName)</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;PocketPC</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
@@ -37,7 +38,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;$(PlatformFamilyName)</DefineConstants>
+    <DefineConstants>PocketPC</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
     <ErrorReport>prompt</ErrorReport>
@@ -131,6 +132,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="kwrite.ico" />
     <Content Include="Resources\btReadDown.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />

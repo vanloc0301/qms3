@@ -31,6 +31,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.mainMenu1 = new System.Windows.Forms.MainMenu();
             this.tbStartSpotNum = new System.Windows.Forms.TextBox();
             this.lbStartSpotNum = new System.Windows.Forms.Label();
@@ -59,6 +60,7 @@
             this.bat = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.LBStatus = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.goodsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.db_rfidtestDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dboGoodsBindingSource)).BeginInit();
@@ -68,6 +70,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.driverBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boxBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DisplayMember = "其它";
+            this.comboBox1.Items.Add("其它");
+            this.comboBox1.Items.Add("厨余垃圾");
+            this.comboBox1.Items.Add("餐厨垃圾");
+            this.comboBox1.Items.Add("可回收垃圾");
+            this.comboBox1.Location = new System.Drawing.Point(97, 77);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(112, 22);
+            this.comboBox1.TabIndex = 15;
+            this.comboBox1.ValueMember = "其它";
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // tbStartSpotNum
             // 
@@ -81,7 +97,7 @@
             // 
             this.lbStartSpotNum.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
             this.lbStartSpotNum.ForeColor = System.Drawing.Color.White;
-            this.lbStartSpotNum.Location = new System.Drawing.Point(3, 24);
+            this.lbStartSpotNum.Location = new System.Drawing.Point(3, 23);
             this.lbStartSpotNum.Name = "lbStartSpotNum";
             this.lbStartSpotNum.Size = new System.Drawing.Size(88, 20);
             this.lbStartSpotNum.Text = "本站站号：";
@@ -90,14 +106,14 @@
             // 
             this.labCarNum.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
             this.labCarNum.ForeColor = System.Drawing.Color.White;
-            this.labCarNum.Location = new System.Drawing.Point(4, 58);
+            this.labCarNum.Location = new System.Drawing.Point(3, 50);
             this.labCarNum.Name = "labCarNum";
             this.labCarNum.Size = new System.Drawing.Size(100, 20);
-            this.labCarNum.Text = "车牌号：";
+            this.labCarNum.Text = "卡车牌号：";
             // 
             // tbCarNum
             // 
-            this.tbCarNum.Location = new System.Drawing.Point(97, 58);
+            this.tbCarNum.Location = new System.Drawing.Point(97, 50);
             this.tbCarNum.Name = "tbCarNum";
             this.tbCarNum.Size = new System.Drawing.Size(112, 21);
             this.tbCarNum.TabIndex = 5;
@@ -105,7 +121,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(137, 100);
+            this.button1.Location = new System.Drawing.Point(137, 113);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(72, 20);
             this.button1.TabIndex = 7;
@@ -204,7 +220,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(81, 100);
+            this.pictureBox1.Location = new System.Drawing.Point(81, 113);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(70, 89);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -212,7 +228,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(66, 85);
+            this.pictureBox2.Location = new System.Drawing.Point(66, 101);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(105, 108);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -227,7 +243,7 @@
             // 
             this.bat.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
             this.bat.ForeColor = System.Drawing.Color.White;
-            this.bat.Location = new System.Drawing.Point(3, 91);
+            this.bat.Location = new System.Drawing.Point(0, 113);
             this.bat.Name = "bat";
             this.bat.Size = new System.Drawing.Size(100, 20);
             this.bat.Text = "电量：";
@@ -249,6 +265,15 @@
             this.LBStatus.Text = "状态";
             this.LBStatus.Visible = false;
             // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(3, 78);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 20);
+            this.label1.Text = "箱的类型：";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -257,6 +282,8 @@
             this.BackColor = System.Drawing.Color.SlateBlue;
             this.ClientSize = new System.Drawing.Size(240, 320);
             this.ControlBox = false;
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.LBStatus);
             this.Controls.Add(this.pictureBox1);
@@ -319,6 +346,8 @@
         private System.Windows.Forms.Label bat;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label LBStatus;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.ComboBox comboBox1;
     }
 }
 

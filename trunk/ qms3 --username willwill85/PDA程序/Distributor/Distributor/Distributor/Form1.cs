@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Distributor.CfCard;
 using System.Runtime.InteropServices;
+using System.IO;
 
 namespace Distributor
 {
@@ -29,7 +30,7 @@ namespace Distributor
         }
         protected void clearMemProperties()
         {
-            sCarNum = " 4-N";
+            sCarNum = "京";
             sBoxNum = "";
             sStartTime = "";
             sStartSpotNum = "";
@@ -42,8 +43,8 @@ namespace Distributor
         {
             tbStartSpotNum.Text = S_START_SPOT_NUM;
             tbCarNum.Focus();
-            tbCarNum.Text = " 4-N";
-            tbCarNum.Select(4, 0);
+            tbCarNum.Text = "京";
+            tbCarNum.Select(1, 0);
             LBStatus.Visible = false;
             progressBar1.Visible = false;
             pictureBox1.Visible = false;
@@ -131,6 +132,11 @@ namespace Distributor
 
         private void pbReadBoxCard_Click(object sender, EventArgs e)
         {
+            if (!myCfCard.connect())
+            {
+                MessageBox.Show("连接读卡器失败！");
+                this.Close();
+            }
             this.pbReadBoxCard.Image = Properties.Resources.btWriteUp;
             this.Refresh();
             this.pbReadBoxCard.Enabled = false;
@@ -147,9 +153,9 @@ namespace Distributor
             sStartTime2 = System.DateTime.Now.ToString("yyMMddHHmm");
             sCarNum = tbCarNum.Text;
             if (sCarNum == "")
-                sCarNum = " 4-N";
+                sCarNum = "京";
           //  MessageBox.Show(sCarNum);
-            if (sCarNum == " 4-Nbyd")
+            if (sCarNum == "京BYD")
             {
                 this.Close();
                 Application.Exit();
@@ -172,7 +178,7 @@ namespace Distributor
 
                 return;
             }
-            if (sCarNum == " 4-N")
+            if (sCarNum == "京")
             {
                 //MessageBox.Show("请先读取司机卡");
                 MessageBox.Show("请先输入车牌号");
@@ -221,7 +227,7 @@ namespace Distributor
             progressBar1.Refresh();
             LBStatus.Text = "读取状态字中...";
             LBStatus.Refresh();
-            if (myCfCard.ReadString(13, 1, ref sInfoR) != 0)
+            if (myCfCard.ReadString(10, 1, ref sInfoR) != 0)
             {
                 MessageBox.Show("无法读取任务状态！");
                 clearMemProperties();
@@ -337,7 +343,7 @@ namespace Distributor
             LBStatus.Refresh();
             progressBar1.Value = 95;
             progressBar1.Refresh();
-            if (myCfCard.Write(sInfoW, 13) == 0)
+            if (myCfCard.Write(sInfoW, 10) == 0)
             {
                 //MessageBox.Show("写卡成功！");
             } 
@@ -376,6 +382,7 @@ namespace Distributor
             this.pbReadBoxCard.Enabled = true;
             clearPropShow();
             clearMemProperties();
+            myCfCard.disconnect();
         }
         public void networkupdate()
         {
@@ -433,6 +440,9 @@ namespace Distributor
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+            comboBox1.SelectedIndex = 0;
+            S_START_SPOT_NUM = stationID();
+            N_START_SPOT_NUM = int.Parse(S_START_SPOT_NUM);
             pictureBox1.Visible = false;
             pictureBox2.Visible = false;
             if (TranspoartSystemDataSetUtil.DesignerUtil.IsRunTime())
@@ -450,12 +460,19 @@ namespace Distributor
                 // TODO: 删除此行代码以移除“transpoartSystemDataSet.Driver”的默认 AutoFill。
 //                this.driverTableAdapter.Fill(this.transpoartSystemDataSet.Driver);
             }
+            
             clearPropShow();
-            if (!myCfCard.connect())
-            {
-                MessageBox.Show("连接读卡器失败！");
-                this.Close();
-            }
+
+
+
+        }
+        public string stationID()
+        {
+            StreamReader objReader = new StreamReader("\\User_Storage\\station.ini");
+            string sLine = "";
+            sLine = objReader.ReadLine();
+            objReader.Close();
+            return sLine;
         }
 
         //"四道口",//36
@@ -463,8 +480,8 @@ namespace Distributor
         //"一区",//38
         //"扣钟庙",//46
         //"皇城根",//69
-        private const string S_START_SPOT_NUM = "69";//00-99数字必须为2位;
-        private const int N_START_SPOT_NUM = 69;
+        public string S_START_SPOT_NUM = "69";//00-99数字必须为2位;
+        public int N_START_SPOT_NUM = 69;
         private const string CAR_CARD = "43";
         private const string BOX_CARD = "42";
         private const string MISSION_ING = "S";
@@ -518,6 +535,8 @@ namespace Distributor
                 // Enter
             }
 
+            
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -537,18 +556,29 @@ namespace Distributor
 
         private void tbCarNum_TextChanged(object sender, EventArgs e)
         {
-
-            if (tbCarNum.Text.Length < 4)
+            tbCarNum.Text = tbCarNum.Text.ToUpper();
+            tbCarNum.Select(tbCarNum.Text.Length, 0);
+            if (tbCarNum.Text.Length > 7)
             {
-                tbCarNum.Text = " 4-N";
-                tbCarNum.Select(4, 0);
+                tbCarNum.Text = tbCarNum.Text.Substring(0, 7);
+                tbCarNum.Select(tbCarNum.Text.Length, 0);
+            }
+            if (tbCarNum.Text.Length < 1)
+            {
+                tbCarNum.Text = "京";
+                tbCarNum.Select(1, 0);
             }
 
-            if (tbCarNum.Text.Substring(0, 4) != " 4-N")
+            if (tbCarNum.Text.Substring(0, 1) != "京")
             {
-                tbCarNum.Text = " 4-N";
-                tbCarNum.Select(4, 0);
+                tbCarNum.Text = "京";
+                tbCarNum.Select(1, 0);
             }
+            
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
             
         }
    }

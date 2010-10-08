@@ -456,6 +456,14 @@ namespace Distributor.CfCard
             }
             return x;
         }
+        public void disconnect()
+        {
+            char comnum;
+            comnum = Convert.ToChar(0x9);
+            //  Thread.Sleep(100);
+           RmuCloseAndDisconnect( hReader,  flagCrc);
+
+        }
         //read套壳 编码
         public int ReadString(int ptr, int cnt, ref string x)
         {

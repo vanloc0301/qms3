@@ -1,16 +1,17 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Resources;
 
 // 有关程序集的常规信息通过下列属性集
 // 控制。更改这些属性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("Distributor")]
+[assembly: AssemblyTitle("发货程序")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("pku")]
-[assembly: AssemblyProduct("Distributor")]
-[assembly: AssemblyCopyright("Copyright © pku 2009")]
+[assembly: AssemblyCompany("Beyond Ltd")]
+[assembly: AssemblyProduct("发货程序")]
+[assembly: AssemblyCopyright("Copyright © Beyond 2010")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -29,8 +30,9 @@ using System.Runtime.InteropServices;
 //      内部版本号
 //      修订号
 //
-[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.1.0.0")]
 
 // 以下属性会取消显示 FxCop 警告“CA2232 : Microsoft.Usage : 向程序集添加 STAThreadAttribute 属性”，
 // 因为设备应用程序不支持 STA 线程。
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2232:MarkWindowsFormsEntryPointsWithStaThread")]
+[assembly: NeutralResourcesLanguageAttribute("zh-CHS")]
