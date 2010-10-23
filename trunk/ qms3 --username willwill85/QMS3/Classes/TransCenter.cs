@@ -24,11 +24,13 @@ namespace QMS3
 
         public static string sEndTime = "";
         public static string TruckNo = "";
+        public static int type = 0;
         public static int startstationid = 0;
         static char[] hexDigits = { 
             '0','1','2','3','4','5','6','7',
             '8','9','A','B','C','D','E','F'};
         #region 站名
+        public static string[] rbtype = { "其它垃圾", "厨余垃圾", "餐厨垃圾", "可回收垃圾" };
         public static string[] StationName = { //55个
                                        "六部口",
                                         "新华社",
@@ -165,6 +167,14 @@ namespace QMS3
             //}
 
             //读取车牌号
+            string sType="";
+            if (ReadString(0, 1, ref sType) != 0)
+            {
+                MessageBox.Show("读取车牌号错误！");
+                info = "读取车牌号错误！";
+                return false;
+            }
+            type = int.Parse(sType);
             string sCarNum = "";
             if (ReadString(1, 8, ref sCarNum) != 0)
             {
@@ -172,7 +182,7 @@ namespace QMS3
                 info = "读取车牌号错误！";
                 return false;
             }
-            sCarNum = sCarNum.Remove(6);
+            sCarNum = sCarNum.Remove(7);
             TruckNo = sCarNum;
             //string sStartTime = "";
             if (ReadStringHex(6, 5, ref sStartTime) != 0)
@@ -197,7 +207,7 @@ namespace QMS3
                 info = "读取始发站号错误！";
                 //return false;
             }
-            startstationid = int.Parse(sStartSpotNum);
+           
             //   MessageBox.Show(sStartSpotNum);
             /* if (sStartSpotNum.Length <= 2)
             {
@@ -213,23 +223,24 @@ namespace QMS3
             try
             {
                 nStartSpotNum = int.Parse(sStartSpotNum);
+                startstationid = int.Parse(sStartSpotNum);
             }
             catch
             {
                 MessageBox.Show("卡中的始发站号有误！");
-                info = "卡中的始发站号有误！";
+                info = "卡中的始发站号有误！"+sStartSpotNum;
                 return false;
             }
             sEndTime = System.DateTime.Now.ToString("yy-MM-dd,HH:mm");
             string sEndTime2 = System.DateTime.Now.ToString("yyMMddHHmm");
             sEndTime2 = sEndTime2.Substring(0, 10);
-            if (PutDataIntoCardHex(3, 10, 4, sEndTime2) != 0)
+          /*  if (PutDataIntoCardHex(3, 10, 4, sEndTime2) != 0)
             {
                 MessageBox.Show("写卡失败！");
                 info = "写卡失败！";
                 return false;
-            }
-            if (PutDataIntoCard(3, 13, 1, MISSION_FINISH) != 0)
+            }*/
+            if (PutDataIntoCard(3, 10, 1, MISSION_FINISH) != 0)
             {
                 MessageBox.Show("写卡失败！");
                 info = "写卡失败！";
@@ -240,7 +251,7 @@ namespace QMS3
             st = sStartTime;
             ss = nStartSpotNum;
 
-            info = "车号：" + sCarNum + ";      " + "发车时间：" + sStartTime + ";      " + "到达时间：" + sEndTime + ";      " + "重量：" + weight + ";      " + "始发站：" + StationName[nStartSpotNum - 31] + ".";
+            info = "车号：" + sCarNum + ";      " + "发车时间：" + sStartTime + ";      " + "到达时间：" + sEndTime + ";      " + "重量：" + weight + ";      " + "始发站：" + StationName[nStartSpotNum - 31] + ";      " + "垃圾类型：" +rbtype[type]+ ".";
 
 
             //listBox1.Items.Add("始发站：" + StationName[nStartSpotNum - 30] + ";      " + "发车时间：" + sStartTime + ";      " + "车号：" + sCarNum + ".");
