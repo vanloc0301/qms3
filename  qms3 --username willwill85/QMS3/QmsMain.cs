@@ -6056,7 +6056,7 @@ drop table tempTable;";
             {
                 debugtextbox.Text += "\n读到卡数" + Ccount.ToString() + "\n";
                 if (Ccount == 1)
-                    listBox1.Items.Add("操作卡号：" + TransCenter.ToHexString(TransCenter.TagBuffer).Substring(2, 6));
+                    listBox1.Items.Add("操作卡号：" + TransCenter.ToHexString(TransCenter.TagBuffer).Substring(2,24));
                 else
                 {
                     MessageBox.Show("区域内检查到" + Ccount.ToString() + "张卡片！\n请确保1张卡片在扫描区域中再操作！");
@@ -6078,12 +6078,12 @@ drop table tempTable;";
                 //MessageBox.Show("OK");
                 try
                 {
-                    count = int.Parse(this.dbo_GoodsTableAdapter.ScalarQueryNumofGoods(Starttime, " " + TransCenter.TruckNo).ToString());
+                    count = int.Parse(this.dbo_GoodsTableAdapter.ScalarQueryNumofGoods(Starttime,TransCenter.TruckNo).ToString());
                     debugtextbox.Text += "========== " + count.ToString() + "==========";
                     if (count < 1)
                     {
                         MessageBox.Show("远程垃圾站" + TransCenter.StationName[TransCenter.startstationid - 31] + "网络可能出错,本条记录会添加到数据库中,但请检查垃圾站的网络是否正常！");
-                        this.dbo_GoodsTableAdapter.InsertQuerya(TransCenter.ToHexString(TransCenter.TagBuffer).Substring(2, 6), " " + TransCenter.TruckNo, Starttime, TransCenter.sEndTime, -1, double.Parse(textBox1.Text), TransCenter.startstationid);
+                        this.dbo_GoodsTableAdapter.InsertQuerya(TransCenter.ToHexString(TransCenter.TagBuffer).Substring(2, 6), TransCenter.TruckNo, Starttime, TransCenter.sEndTime, -1, double.Parse(textBox1.Text), TransCenter.startstationid);
                         listBox1.Items.Add(info);
                     }
 
@@ -6097,7 +6097,7 @@ drop table tempTable;";
                 {
                     if (count == 1)
                     {
-                        this.dbo_GoodsTableAdapter.UpdateGoodsByTime(1, double.Parse(textBox1.Text), TransCenter.sEndTime, Starttime, " " + TransCenter.TruckNo);
+                        this.dbo_GoodsTableAdapter.UpdateGoodsByTime(1, double.Parse(textBox1.Text), TransCenter.sEndTime, Starttime,  TransCenter.TruckNo);
                         listBox1.Items.Add(info);
                     }
                 }
@@ -6105,11 +6105,12 @@ drop table tempTable;";
                 {
                     MessageBox.Show("数据库同步失败！（错误1013）");
                     listBox1.Items.Add(info + "   " + "数据库同步失败！");
+                    return;
                 }
             }
             else
             {
-                MessageBox.Show("操作失败！（错误1014）");
+                MessageBox.Show("操作失败！");
                 listBox1.Items.Add(info);
                 return;
             }
