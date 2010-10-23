@@ -100,7 +100,7 @@ VALUES (@BoxCardID,@TruckNo,@StartTime,@StartStationID)</CommandText>
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="db_rfidtestConnectionString" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQuerynew" Modifier="Public" Name="InsertQuerynew" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="InsertQuerynew">
+              <DbSource ConnectionRef="db_rfidtestConnectionString" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertQuerynew" Modifier="Public" Name="InsertQuerynew" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="InsertQuerynew">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [rfidtest].[dbo.Goods] ([ID], [BoxCardID], [TruckNo], [StartTime], [EndTime], [State], [Weight], [StartStationID], [EndStationID]) VALUES (@ID, @BoxCardID, @TruckNo, @StartTime, @EndTime, @State, @Weight, @StartStationID, @EndStationID);
@@ -119,7 +119,7 @@ SELECT ID, BoxCardID, TruckNo, StartTime, EndTime, State, Weight, StartStationID
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="db_rfidtestConnectionString" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ScalarQueryByBoxIdTryInsert" Modifier="Public" Name="ScalarQueryByBoxIdTryInsert" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="ScalarQueryByBoxIdTryInsert">
+              <DbSource ConnectionRef="db_rfidtestConnectionString" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ScalarQueryByBoxIdTryInsert" Modifier="Public" Name="ScalarQueryByBoxIdTryInsert" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="ScalarQueryByBoxIdTryInsert">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT COUNT(*) AS Count
@@ -270,6 +270,45 @@ WHERE (DriverCardID = @PARAM1) AND (TruckNo = @PARAM2)</CommandText>
         <xs:element name="dbo.Goods" msprop:Generator_UserTableName="dbo.Goods" msprop:Generator_RowDeletedName="_dbo_GoodsRowDeleted" msprop:Generator_RowChangedName="_dbo_GoodsRowChanged" msprop:Generator_RowClassName="_dbo_GoodsRow" msprop:Generator_RowChangingName="_dbo_GoodsRowChanging" msprop:Generator_RowEvArgName="_dbo_GoodsRowChangeEvent" msprop:Generator_RowEvHandlerName="_dbo_GoodsRowChangeEventHandler" msprop:Generator_TableClassName="_dbo_GoodsDataTable" msprop:Generator_TableVarName="_tabledbo_Goods" msprop:Generator_RowDeletingName="_dbo_GoodsRowDeleting" msprop:Generator_TablePropName="_dbo_Goods">
           <xs:complexType>
             <xs:sequence>
+              <xs:element name="ID" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" type="xs:int" />
+              <xs:element name="BoxCardID" msprop:Generator_UserColumnName="BoxCardID" msprop:Generator_ColumnVarNameInTable="columnBoxCardID" msprop:Generator_ColumnPropNameInRow="BoxCardID" msprop:Generator_ColumnPropNameInTable="BoxCardIDColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TruckNo" msprop:Generator_UserColumnName="TruckNo" msprop:Generator_ColumnVarNameInTable="columnTruckNo" msprop:Generator_ColumnPropNameInRow="TruckNo" msprop:Generator_ColumnPropNameInTable="TruckNoColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="StartTime" msprop:Generator_UserColumnName="StartTime" msprop:Generator_ColumnVarNameInTable="columnStartTime" msprop:Generator_ColumnPropNameInRow="StartTime" msprop:Generator_ColumnPropNameInTable="StartTimeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EndTime" msprop:Generator_UserColumnName="EndTime" msprop:Generator_ColumnVarNameInTable="columnEndTime" msprop:Generator_ColumnPropNameInRow="EndTime" msprop:Generator_ColumnPropNameInTable="EndTimeColumn">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="16" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="State" msprop:Generator_UserColumnName="State" msprop:Generator_ColumnVarNameInTable="columnState" msprop:Generator_ColumnPropNameInRow="State" msprop:Generator_ColumnPropNameInTable="StateColumn" type="xs:int" />
+              <xs:element name="Weight" msprop:Generator_UserColumnName="Weight" msprop:Generator_ColumnVarNameInTable="columnWeight" msprop:Generator_ColumnPropNameInRow="Weight" msprop:Generator_ColumnPropNameInTable="WeightColumn" type="xs:double" />
+              <xs:element name="StartStationID" msprop:Generator_UserColumnName="StartStationID" msprop:Generator_ColumnVarNameInTable="columnStartStationID" msprop:Generator_ColumnPropNameInRow="StartStationID" msprop:Generator_ColumnPropNameInTable="StartStationIDColumn" type="xs:int" />
+              <xs:element name="EndStationID" msprop:Generator_UserColumnName="EndStationID" msprop:Generator_ColumnVarNameInTable="columnEndStationID" msprop:Generator_ColumnPropNameInRow="EndStationID" msprop:Generator_ColumnPropNameInTable="EndStationIDColumn" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dbo.Box" msprop:Generator_UserTableName="dbo.Box" msprop:Generator_RowDeletedName="_dbo_BoxRowDeleted" msprop:Generator_RowChangedName="_dbo_BoxRowChanged" msprop:Generator_RowClassName="_dbo_BoxRow" msprop:Generator_RowChangingName="_dbo_BoxRowChanging" msprop:Generator_RowEvArgName="_dbo_BoxRowChangeEvent" msprop:Generator_RowEvHandlerName="_dbo_BoxRowChangeEventHandler" msprop:Generator_TableClassName="_dbo_BoxDataTable" msprop:Generator_TableVarName="_tabledbo_Box" msprop:Generator_RowDeletingName="_dbo_BoxRowDeleting" msprop:Generator_TablePropName="_dbo_Box">
+          <xs:complexType>
+            <xs:sequence>
               <xs:element name="ID" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInTable="IDColumn" type="xs:int" />
               <xs:element name="BoxCardID" msprop:Generator_UserColumnName="BoxCardID" msprop:Generator_ColumnPropNameInRow="BoxCardID" msprop:Generator_ColumnVarNameInTable="columnBoxCardID" msprop:Generator_ColumnPropNameInTable="BoxCardIDColumn">
                 <xs:simpleType>
@@ -278,61 +317,22 @@ WHERE (DriverCardID = @PARAM1) AND (TruckNo = @PARAM2)</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="TruckNo" msprop:Generator_UserColumnName="TruckNo" msprop:Generator_ColumnPropNameInRow="TruckNo" msprop:Generator_ColumnVarNameInTable="columnTruckNo" msprop:Generator_ColumnPropNameInTable="TruckNoColumn">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="16" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="StartTime" msprop:Generator_UserColumnName="StartTime" msprop:Generator_ColumnPropNameInRow="StartTime" msprop:Generator_ColumnVarNameInTable="columnStartTime" msprop:Generator_ColumnPropNameInTable="StartTimeColumn">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="16" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="EndTime" msprop:Generator_UserColumnName="EndTime" msprop:Generator_ColumnPropNameInRow="EndTime" msprop:Generator_ColumnVarNameInTable="columnEndTime" msprop:Generator_ColumnPropNameInTable="EndTimeColumn">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="16" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="State" msprop:Generator_UserColumnName="State" msprop:Generator_ColumnPropNameInRow="State" msprop:Generator_ColumnVarNameInTable="columnState" msprop:Generator_ColumnPropNameInTable="StateColumn" type="xs:int" />
-              <xs:element name="Weight" msprop:Generator_UserColumnName="Weight" msprop:Generator_ColumnPropNameInRow="Weight" msprop:Generator_ColumnVarNameInTable="columnWeight" msprop:Generator_ColumnPropNameInTable="WeightColumn" type="xs:double" />
-              <xs:element name="StartStationID" msprop:Generator_UserColumnName="StartStationID" msprop:Generator_ColumnPropNameInRow="StartStationID" msprop:Generator_ColumnVarNameInTable="columnStartStationID" msprop:Generator_ColumnPropNameInTable="StartStationIDColumn" type="xs:int" />
-              <xs:element name="EndStationID" msprop:Generator_UserColumnName="EndStationID" msprop:Generator_ColumnPropNameInRow="EndStationID" msprop:Generator_ColumnVarNameInTable="columnEndStationID" msprop:Generator_ColumnPropNameInTable="EndStationIDColumn" type="xs:int" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="dbo.Box" msprop:Generator_UserTableName="dbo.Box" msprop:Generator_RowDeletedName="_dbo_BoxRowDeleted" msprop:Generator_RowChangedName="_dbo_BoxRowChanged" msprop:Generator_RowClassName="_dbo_BoxRow" msprop:Generator_RowChangingName="_dbo_BoxRowChanging" msprop:Generator_RowEvArgName="_dbo_BoxRowChangeEvent" msprop:Generator_RowEvHandlerName="_dbo_BoxRowChangeEventHandler" msprop:Generator_TableClassName="_dbo_BoxDataTable" msprop:Generator_TableVarName="_tabledbo_Box" msprop:Generator_RowDeletingName="_dbo_BoxRowDeleting" msprop:Generator_TablePropName="_dbo_Box">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="ID" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" type="xs:int" />
-              <xs:element name="BoxCardID" msprop:Generator_UserColumnName="BoxCardID" msprop:Generator_ColumnVarNameInTable="columnBoxCardID" msprop:Generator_ColumnPropNameInRow="BoxCardID" msprop:Generator_ColumnPropNameInTable="BoxCardIDColumn">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="16" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="BoxCardState" msprop:Generator_UserColumnName="BoxCardState" msprop:Generator_ColumnVarNameInTable="columnBoxCardState" msprop:Generator_ColumnPropNameInRow="BoxCardState" msprop:Generator_ColumnPropNameInTable="BoxCardStateColumn" type="xs:int" />
+              <xs:element name="BoxCardState" msprop:Generator_UserColumnName="BoxCardState" msprop:Generator_ColumnPropNameInRow="BoxCardState" msprop:Generator_ColumnVarNameInTable="columnBoxCardState" msprop:Generator_ColumnPropNameInTable="BoxCardStateColumn" type="xs:int" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
         <xs:element name="dbo.Driver" msprop:Generator_UserTableName="dbo.Driver" msprop:Generator_RowDeletedName="_dbo_DriverRowDeleted" msprop:Generator_RowChangedName="_dbo_DriverRowChanged" msprop:Generator_RowClassName="_dbo_DriverRow" msprop:Generator_RowChangingName="_dbo_DriverRowChanging" msprop:Generator_RowEvArgName="_dbo_DriverRowChangeEvent" msprop:Generator_RowEvHandlerName="_dbo_DriverRowChangeEventHandler" msprop:Generator_TableClassName="_dbo_DriverDataTable" msprop:Generator_TableVarName="_tabledbo_Driver" msprop:Generator_RowDeletingName="_dbo_DriverRowDeleting" msprop:Generator_TablePropName="_dbo_Driver">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" type="xs:int" />
-              <xs:element name="DriverCardID" msprop:Generator_UserColumnName="DriverCardID" msprop:Generator_ColumnVarNameInTable="columnDriverCardID" msprop:Generator_ColumnPropNameInRow="DriverCardID" msprop:Generator_ColumnPropNameInTable="DriverCardIDColumn">
+              <xs:element name="ID" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInTable="IDColumn" type="xs:int" />
+              <xs:element name="DriverCardID" msprop:Generator_UserColumnName="DriverCardID" msprop:Generator_ColumnPropNameInRow="DriverCardID" msprop:Generator_ColumnVarNameInTable="columnDriverCardID" msprop:Generator_ColumnPropNameInTable="DriverCardIDColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="16" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="TruckNo" msprop:Generator_UserColumnName="TruckNo" msprop:Generator_ColumnVarNameInTable="columnTruckNo" msprop:Generator_ColumnPropNameInRow="TruckNo" msprop:Generator_ColumnPropNameInTable="TruckNoColumn">
+              <xs:element name="TruckNo" msprop:Generator_UserColumnName="TruckNo" msprop:Generator_ColumnPropNameInRow="TruckNo" msprop:Generator_ColumnVarNameInTable="columnTruckNo" msprop:Generator_ColumnPropNameInTable="TruckNoColumn">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="16" />
