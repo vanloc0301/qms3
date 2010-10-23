@@ -104,7 +104,7 @@ namespace Distributor.CfCard
         //返回id一部分
         public string carid()
         {
-            return DIS_UII.ToString().Substring(4, 6);
+            return DIS_UII.ToString().Substring(4,DIS_UII.Length-4);
 
         }
 

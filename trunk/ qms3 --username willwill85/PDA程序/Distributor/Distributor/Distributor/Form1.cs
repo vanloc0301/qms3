@@ -37,6 +37,7 @@ namespace Distributor
             cMissionState = "E";
             sCarCardNum = "";
             sBoxCardNum = "";
+            myCfCard.disconnect();
         }
 
         protected void clearPropShow()
@@ -197,17 +198,20 @@ namespace Distributor
                 return;
             }
             else
-                sBoxCardNum = myCfCard.carid();
-/* //暂时不用初始化卡片 所以注释
-            myCfCard.ReadString(0, 1, ref sInfoR);
-            if (sInfoR != myCfCard.HexToStr(BOX_CARD))
             {
-                MessageBox.Show("此卡不是货箱卡！");
+                sBoxCardNum = myCfCard.carid();
+       
+            }
+            myCfCard.ReadString(0, 2, ref sInfoR);
+            
+            if (sInfoR =="B")
+            {
+                MessageBox.Show("此卡是司机！");
                 clearMemProperties();
                 clearPropShow();
                 return;
             }
-*/
+
             /*if(myCfCard.Auth(3, 1) != 0)
             {
                 clearMemProperties();
@@ -223,6 +227,12 @@ namespace Distributor
             }*/
 
             sInfoR = "";
+           /* 其它
+            厨余垃圾
+            餐厨垃圾
+            可回收垃圾*/
+
+
             progressBar1.Value = 15;
             progressBar1.Refresh();
             LBStatus.Text = "读取状态字中...";
@@ -245,6 +255,54 @@ namespace Distributor
             pictureBox1.Visible = true; ;
             pictureBox1.Refresh();
             //写入运输车号
+            LBStatus.Text = "写入垃圾类型...";
+            LBStatus.Refresh();
+            progressBar1.Value = 21;
+            progressBar1.Refresh();
+            switch (comboBox1.Text)
+            {
+                case "其它":
+                    {
+                        sInfoR = "0";
+                        break;
+                    }
+                case "厨余垃圾":
+                    {
+                        sInfoR = "1";
+                        break;
+                    }
+                case "餐厨垃圾":
+                    {
+                        sInfoR = "2";
+                        break;
+                    }
+
+                case "可回收垃圾":
+                    {
+                        sInfoR = "3";
+                        break;
+                    }
+                default:
+                    sInfoR = "0";
+                    break;
+            }
+            if (myCfCard.Write(sInfoR, 0) != 0)
+            {
+                MessageBox.Show("写卡失败！");
+                try
+                {
+                    //this.goodsTableAdapter.DeleteQueryByIdTime(sBoxCardNum);
+                    //if(network)
+                    //   this.dbo_GoodsTableAdapter1.DeleteQueryByIdTime(sBoxCardNum);
+                }
+                catch (System.Exception e2)
+                {
+                    MessageBox.Show("清除缓存数据失败！");
+                }
+                clearMemProperties();
+                clearPropShow();
+                return;
+            }
             LBStatus.Text = "写入车牌号中...";
             LBStatus.Refresh();
             progressBar1.Value = 25;
