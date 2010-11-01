@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.IO;
 
 using System.Runtime.InteropServices;
 using System.Diagnostics;
@@ -6049,6 +6050,25 @@ drop table tempTable;";
             //    return;
             // WritetoCard(textBox1.Text);
             // WritetoDatabase(textBox1.Text);
+
+         //   using (StreamWriter writer = new StreamWriter(stream))
+         //   {
+          //      writer.Write(textBoxEdit.Text);
+          //  }
+            //写入log
+            string fileName = "./log/" + System.DateTime.Now.ToString("yyyyMMdd") + ".log";
+            Stream stream;
+            try
+            {
+                stream = new FileStream(fileName, FileMode.Append);
+
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show("打开日志文件失败！");
+                return;
+            }
+
             string ID = "";
             int Ccount = 0;
             //sEndTime = System.DateTime.Now.ToString("yy-MM-dd,HH:mm");
@@ -6056,7 +6076,13 @@ drop table tempTable;";
             {
                 debugtextbox.Text += "\n读到卡数" + Ccount.ToString() + "\n";
                 if (Ccount == 1)
-                    listBox1.Items.Add("操作卡号：" + TransCenter.ToHexString(TransCenter.TagBuffer).Substring(2,24));
+                {
+                    listBox1.Items.Add("操作卡号：" + TransCenter.ToHexString(TransCenter.TagBuffer).Substring(2, 24));
+                    using (StreamWriter writer = new StreamWriter(stream))
+                    {
+                        writer.Write("操作卡号：" + TransCenter.ToHexString(TransCenter.TagBuffer).Substring(2, 24)+"\n");
+                    }
+                }
                 else
                 {
                     MessageBox.Show("区域内检查到" + Ccount.ToString() + "张卡片！\n请确保1张卡片在扫描区域中再操作！");
@@ -6085,6 +6111,10 @@ drop table tempTable;";
                         MessageBox.Show("远程垃圾站" + TransCenter.StationName[TransCenter.startstationid - 31] + "网络可能出错,本条记录会添加到数据库中,但请检查垃圾站的网络是否正常！");
                         this.dbo_GoodsTableAdapter.InsertQuerya(TransCenter.ToHexString(TransCenter.TagBuffer).Substring(2, 6), TransCenter.TruckNo, Starttime, TransCenter.sEndTime, -1, double.Parse(textBox1.Text), TransCenter.startstationid);
                         listBox1.Items.Add(info);
+                        using (StreamWriter writer = new StreamWriter(stream))
+                        {
+                            writer.Write(info+ "\n");
+                        }
                     }
 
                 }
@@ -6092,6 +6122,10 @@ drop table tempTable;";
                 {
                     MessageBox.Show("数据库同步失败！（错误1012）");
                     listBox1.Items.Add(info + "   " + "数据库同步失败！");
+                    using (StreamWriter writer = new StreamWriter(stream))
+                    {
+                        writer.Write(info + "   " + "数据库同步失败！（错误1012）" + "\n");
+                    }
                 }
                 try
                 {
@@ -6099,12 +6133,20 @@ drop table tempTable;";
                     {
                         this.dbo_GoodsTableAdapter.UpdateGoodsByTime(1, double.Parse(textBox1.Text), TransCenter.sEndTime, Starttime,  TransCenter.TruckNo);
                         listBox1.Items.Add(info);
+                        using (StreamWriter writer = new StreamWriter(stream))
+                        {
+                            writer.Write(info + "\n");
+                        }
                     }
                 }
                 catch
                 {
                     MessageBox.Show("数据库同步失败！（错误1013）");
                     listBox1.Items.Add(info + "   " + "数据库同步失败！");
+                    using (StreamWriter writer = new StreamWriter(stream))
+                    {
+                        writer.Write(info + "   " + "数据库同步失败！（错误1013）" + "\n");
+                    }
                     return;
                 }
             }
@@ -6112,6 +6154,10 @@ drop table tempTable;";
             {
                 MessageBox.Show("操作失败！");
                 listBox1.Items.Add(info);
+                using (StreamWriter writer = new StreamWriter(stream))
+                {
+                    writer.Write("操作失败 "+info + "\n");
+                }
                 return;
             }
             MessageBox.Show("操作成功！");
