@@ -139,7 +139,7 @@ namespace QMS3
         public static bool readinfo(ref string info, string weight, ref string st, ref int ss)
         {
             string sInfoR = "";
-            if (ReadString(13, 1, ref sInfoR) != 0)
+            if (ReadString(10, 1, ref sInfoR) != 0)
             {
                 MessageBox.Show("无法读取任务状态！");
                 info = "无法读取任务状态！";
