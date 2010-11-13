@@ -84,6 +84,7 @@ namespace QMS3
  
             //}
             #endregion
+            treeviewload(6);
         }
 
         //***********************所有功能TAB请修改下面的tree view操作*********************
@@ -6025,9 +6026,174 @@ drop table tempTable;";
         #endregion
 
         #region 结算
+        public bool readinfo(ref string info, string weight, ref string st, ref int ss)
+        {
+            string sInfoR = "";
+            label87.Text = "读状态中...";
+            label87.Refresh();
+            progressBar5.Value = 20;
+            progressBar5.Refresh();
+            if (TransCenter.ReadString(10, 1, ref sInfoR) != 0)
+            {
+                MessageBox.Show("无法读取任务状态！");
+                info = "无法读取任务状态！";
+                return false;
+            }
+
+            try
+            {
+                sInfoR = sInfoR.Remove(1);
+            }
+            catch
+            {
+                sInfoR = "A";
+            }
+            if (sInfoR == TransCenter.MISSION_FINISH)
+            {
+                MessageBox.Show("任务已完成！不能重复操作！");
+                info = "任务已完成！不能重复操作！";
+                return false;
+            }
+            //else if (sInfoR != MISSION_ING)
+            //{
+            //    MessageBox.Show("任务状态字出错！");
+            //    info = "任务状态字出错！";
+            //}
+
+            //读取类型
+            label87.Text = "读类型中...";
+            label87.Refresh();
+            progressBar5.Value = 30;
+            progressBar5.Refresh();
+            string sType = "";
+            if (TransCenter.ReadString(0, 1, ref sType) != 0)
+            {
+                MessageBox.Show("读取车牌号错误！");
+                info = "读取车牌号错误！";
+                return false;
+            }
+            try
+            {
+                TransCenter.type = int.Parse(sType);
+
+            }
+            catch
+            {
+                MessageBox.Show("读类型时,字符串转换出错!");
+                TransCenter.type = -1;
+            }
+            string sCarNum = "";
+            progressBar5.Value = 40;
+            progressBar5.Refresh();
+            label87.Text = "读车牌号...";
+            label87.Refresh();
+            //读取车牌号
+            if (TransCenter.ReadString(1, 8, ref sCarNum) != 0)
+            {
+                MessageBox.Show("读取车牌号错误！");
+                info = "读取车牌号错误！";
+                return false;
+            }
+            sCarNum = sCarNum.Remove(7);
+            TransCenter.TruckNo = sCarNum;
+            //string sStartTime = "";
+            progressBar5.Value = 70;
+            progressBar5.Refresh();
+            label87.Text = "读出发时间...";
+            label87.Refresh();
+            if (TransCenter.ReadStringHex(6, 5, ref TransCenter.sStartTime) != 0)
+            {
+                MessageBox.Show("读取发货时间错误！");
+                info = "读取发货时间错误！";
+                return false;
+            }
+            //sStartTime = myCfCard.HexToStr(sStartTime);
+
+            TransCenter.sStartTime = TransCenter.decodetime(TransCenter.sStartTime);
+            //MessageBox.Show(sStartTime);
+            //if (sEndTime.CompareTo(sStartTime) < 0)
+            //{
+            //    MessageBox.Show("错误！出发时间晚于到达时间！");
+            //    return false;
+            //}
+            label87.Text = "读始发站...";
+            label87.Refresh();
+            progressBar5.Value = 80;
+            progressBar5.Refresh();
+            string sStartSpotNum = "";
+            if (TransCenter.ReadString(9, 1, ref sStartSpotNum) != 0)
+            {
+                MessageBox.Show("读取始发站号错误！");
+                info = "读取始发站号错误！";
+                //return false;
+            }
+
+            //   MessageBox.Show(sStartSpotNum);
+            /* if (sStartSpotNum.Length <= 2)
+            {
+                MessageBox.Show("读取始发站号错误！您的货箱可能尚未经过发货！");
+                return false;
+            }
+               if (sStartSpotNum.Substring(0, 2) != S_START_SPOT_PREFIX)
+                {
+                    MessageBox.Show("无效的始发站号！");
+                    return false;
+                }*/
+            int nStartSpotNum = 0;
+            try
+            {
+                nStartSpotNum = int.Parse(sStartSpotNum);
+                TransCenter.startstationid = int.Parse(sStartSpotNum);
+            }
+            catch
+            {
+                MessageBox.Show("卡中的始发站号有误！");
+                info = "卡中的始发站号有误！" + sStartSpotNum;
+                return false;
+            }
+            TransCenter.sEndTime = System.DateTime.Now.ToString("yy-MM-dd,HH:mm");
+            string sEndTime2 = System.DateTime.Now.ToString("yyMMddHHmm");
+            sEndTime2 = sEndTime2.Substring(0, 10);
+            /*  if (PutDataIntoCardHex(3, 10, 4, sEndTime2) != 0)
+              {
+                  MessageBox.Show("写卡失败！");
+                  info = "写卡失败！";
+                  return false;
+              }*/
+            progressBar5.Value = 90;
+            progressBar5.Refresh();
+            label87.Text = "写状态字...";
+            label87.Refresh();
+            if (TransCenter.PutDataIntoCard(3, 10, 1, TransCenter.MISSION_FINISH) != 0)
+            {
+                MessageBox.Show("写卡失败！");
+                info = "写卡失败！";
+                return false;
+            }
+            progressBar5.Value = 100;
+            progressBar5.Refresh();
+            //this.GoodsTableAdaper.UpdateQueryByTime(2, double.Parse(textBox1.Text), sStartTime, nStartSpotNum);
+            st = TransCenter.sStartTime;
+            ss = nStartSpotNum;
+
+            info = "车号：" + sCarNum + ";      " + "发车时间：" + TransCenter.sStartTime + ";      " + "到达时间：" + TransCenter.sEndTime + ";      " + "重量：" + weight + ";      " + "始发站：" + TransCenter.StationName[nStartSpotNum - 31] + ";      " + "垃圾类型：" + TransCenter.rbtype[TransCenter.type] + ".";
+
+
+            //listBox1.Items.Add("始发站：" + StationName[nStartSpotNum - 30] + ";      " + "发车时间：" + sStartTime + ";      " + "车号：" + sCarNum + ".");
+            //MessageBox.Show(sInfoR);
+            //MessageBox.Show(sCarNum);
+            //MessageBox.Show(sStartTime);
+            //MessageBox.Show(sStartSpotNum);
+            return true;
+
+        }
         private void button3_Click(object sender, EventArgs e)
         {
             double x;
+            progressBar5.Visible = true;
+            progressBar5.Value = 0;
+            progressBar5.Refresh();
+
             try
             {
                 x = Convert.ToDouble(textBox1.Text.Trim());
@@ -6046,6 +6212,7 @@ drop table tempTable;";
                 textBox1.Text = "";
                 return;
             }
+
             //  if (!CheckState())
             //    return;
             // WritetoCard(textBox1.Text);
@@ -6056,48 +6223,69 @@ drop table tempTable;";
           //      writer.Write(textBoxEdit.Text);
           //  }
             //写入log
-            string fileName = "./log/" + System.DateTime.Now.ToString("yyyyMMdd") + ".log";
-            Stream stream;
-            try
-            {
-                stream = new FileStream(fileName, FileMode.Append);
-
-            }
-            catch (IOException ex)
-            {
-                MessageBox.Show("打开日志文件失败！");
-                return;
-            }
-
+            
+            //using(StreamWriter writer = new StreamWriter(stream))
             string ID = "";
             int Ccount = 0;
             //sEndTime = System.DateTime.Now.ToString("yy-MM-dd,HH:mm");
+            label87.Text = "寻卡中...";
+            progressBar5.Value = 10;
+            progressBar5.Refresh();
+            label87.Refresh();
+            
             if (TransCenter.Request(ref ID, ref Ccount) == 0)
             {
                 debugtextbox.Text += "\n读到卡数" + Ccount.ToString() + "\n";
                 if (Ccount == 1)
                 {
                     listBox1.Items.Add("操作卡号：" + TransCenter.ToHexString(TransCenter.TagBuffer).Substring(2, 24));
+                    string fileName = "./log/" + System.DateTime.Now.ToString("yyyyMMdd") + ".log";
+                    Stream stream;
+                    try
+                    {
+                        stream = new FileStream(fileName, FileMode.Append);
+
+                    }
+                    catch (IOException ex)
+                    {
+                        MessageBox.Show("打开日志文件失败！");
+                        label87.Text = "";
+                        progressBar5.Visible = false;
+                        progressBar5.Value = 0;
+                        progressBar5.Refresh();
+                        return;
+                    }
                     using (StreamWriter writer = new StreamWriter(stream))
                     {
                         writer.Write("操作卡号：" + TransCenter.ToHexString(TransCenter.TagBuffer).Substring(2, 24)+"\n");
+                        writer.Close();
+                        writer.Dispose();
                     }
+                    
                 }
                 else
                 {
                     MessageBox.Show("区域内检查到" + Ccount.ToString() + "张卡片！\n请确保1张卡片在扫描区域中再操作！");
+                    label87.Text = "";
+                    progressBar5.Visible = false;
+                    progressBar5.Value = 0;
+                    progressBar5.Refresh();
                     return;
                 }
             }
             else
             {
                 MessageBox.Show("没有读到卡片！");
+                label87.Text = "";
+                progressBar5.Visible = false;
+                progressBar5.Value = 0;
+                progressBar5.Refresh();
                 return;
             }
             string info = "";
             string Starttime = "";
             int StartStation = 0;
-            if (TransCenter.readinfo(ref info, textBox1.Text, ref Starttime, ref StartStation))
+            if (readinfo(ref info, textBox1.Text, ref Starttime, ref StartStation))
             {
                 //this.myadapter.UpdateCommand = new SqlCommand(" UPDATE [dbo.Goods] SET [State] = @State, [Weight] = @Weight WHERE (BoxCardID = @BoxCardID) AND (TruckNo = @TruckNo) AND (StartTime = @StartTime) AND (StartStationID = @StartStationID)");
                 int count = 0;
@@ -6111,9 +6299,27 @@ drop table tempTable;";
                         MessageBox.Show("远程垃圾站" + TransCenter.StationName[TransCenter.startstationid - 31] + "网络可能出错,本条记录会添加到数据库中,但请检查垃圾站的网络是否正常！");
                         this.dbo_GoodsTableAdapter.InsertQuerya(TransCenter.ToHexString(TransCenter.TagBuffer).Substring(2, 6), TransCenter.TruckNo, Starttime, TransCenter.sEndTime, -1, double.Parse(textBox1.Text), TransCenter.startstationid);
                         listBox1.Items.Add(info);
+                        string fileName = "./log/" + System.DateTime.Now.ToString("yyyyMMdd") + ".log";
+                        Stream stream;
+                        try
+                        {
+                            stream = new FileStream(fileName, FileMode.Append);
+
+                        }
+                        catch (IOException ex)
+                        {
+                            MessageBox.Show("打开日志文件失败！");
+                            label87.Text = "";
+                            progressBar5.Visible = false;
+                            progressBar5.Value = 0;
+                            progressBar5.Refresh();
+                            return;
+                        }
                         using (StreamWriter writer = new StreamWriter(stream))
                         {
                             writer.Write(info+ "\n");
+                            writer.Close();
+                            writer.Dispose();
                         }
                     }
 
@@ -6122,9 +6328,28 @@ drop table tempTable;";
                 {
                     MessageBox.Show("数据库同步失败！（错误1012）");
                     listBox1.Items.Add(info + "   " + "数据库同步失败！");
+                    string fileName = "./log/" + System.DateTime.Now.ToString("yyyyMMdd") + ".log";
+                  
+                    Stream stream;
+                    try
+                    {
+                        stream = new FileStream(fileName, FileMode.Append);
+
+                    }
+                    catch (IOException ex)
+                    {
+                        MessageBox.Show("打开日志文件失败！");
+                        label87.Text = "";
+                        progressBar5.Visible = false;
+                        progressBar5.Value = 0;
+                        progressBar5.Refresh();
+                        return;
+                    }
                     using (StreamWriter writer = new StreamWriter(stream))
                     {
                         writer.Write(info + "   " + "数据库同步失败！（错误1012）" + "\n");
+                        writer.Close();
+                        writer.Dispose();
                     }
                 }
                 try
@@ -6133,9 +6358,27 @@ drop table tempTable;";
                     {
                         this.dbo_GoodsTableAdapter.UpdateGoodsByTime(1, double.Parse(textBox1.Text), TransCenter.sEndTime, Starttime,  TransCenter.TruckNo);
                         listBox1.Items.Add(info);
+                        string fileName = "./log/" + System.DateTime.Now.ToString("yyyyMMdd") + ".log";
+                        Stream stream;
+                        try
+                        {
+                            stream = new FileStream(fileName, FileMode.Append);
+
+                        }
+                        catch (IOException ex)
+                        {
+                            MessageBox.Show("打开日志文件失败！");
+                            label87.Text = "";
+                            progressBar5.Visible = false;
+                            progressBar5.Value = 0;
+                            progressBar5.Refresh();
+                            return;
+                        }
                         using (StreamWriter writer = new StreamWriter(stream))
                         {
                             writer.Write(info + "\n");
+                            writer.Close();
+                            writer.Dispose();
                         }
                     }
                 }
@@ -6143,10 +6386,32 @@ drop table tempTable;";
                 {
                     MessageBox.Show("数据库同步失败！（错误1013）");
                     listBox1.Items.Add(info + "   " + "数据库同步失败！");
+                    string fileName = "./log/" + System.DateTime.Now.ToString("yyyyMMdd") + ".log";
+                    Stream stream;
+                    try
+                    {
+                        stream = new FileStream(fileName, FileMode.Append);
+
+                    }
+                    catch (IOException ex)
+                    {
+                        MessageBox.Show("打开日志文件失败！");
+                        label87.Text = "";
+                        progressBar5.Visible = false;
+                        progressBar5.Value = 0;
+                        progressBar5.Refresh();
+                        return;
+                    }
                     using (StreamWriter writer = new StreamWriter(stream))
                     {
                         writer.Write(info + "   " + "数据库同步失败！（错误1013）" + "\n");
+                        writer.Close();
+                        writer.Dispose();
                     }
+                    label87.Text = "";
+                    progressBar5.Visible = false;
+                    progressBar5.Value = 0;
+                    progressBar5.Refresh();
                     return;
                 }
             }
@@ -6154,15 +6419,40 @@ drop table tempTable;";
             {
                 MessageBox.Show("操作失败！");
                 listBox1.Items.Add(info);
+                string fileName = "./log/" + System.DateTime.Now.ToString("yyyyMMdd") + ".log";
+                Stream stream;
+                try
+                {
+                    stream = new FileStream(fileName, FileMode.Append);
+
+                }
+                catch (IOException ex)
+                {
+                    MessageBox.Show("打开日志文件失败！");
+                    label87.Text = "";
+                    progressBar5.Visible = false;
+                    progressBar5.Value = 0;
+                    progressBar5.Refresh();
+                    return;
+                }
                 using (StreamWriter writer = new StreamWriter(stream))
                 {
                     writer.Write("操作失败 "+info + "\n");
+                    writer.Close();
+                    writer.Dispose();
                 }
+                label87.Text = "";
+                progressBar5.Visible = false;
+                progressBar5.Value = 0;
+                progressBar5.Refresh();
                 return;
             }
             MessageBox.Show("操作成功！");
             textBox1.Text = "";
-
+            label87.Text = "";
+            progressBar5.Visible = false;
+            progressBar5.Value = 0;
+            progressBar5.Refresh();
         }
         #endregion
 
@@ -7069,6 +7359,16 @@ drop table tempTable;";
         private void textBox23_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox17_Enter(object sender, EventArgs e)
+        {
+
         }
 
 
