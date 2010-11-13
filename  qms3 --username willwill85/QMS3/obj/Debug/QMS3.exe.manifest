@@ -112,7 +112,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>oqWFz2cXhcIbmKkObWHD24dFnPM=</dsig:DigestValue>
+        <dsig:DigestValue>CCPHAR/jBSRZZjZFGlqXoV1ut4c=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -153,14 +153,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="QMS3.exe" size="1703424">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="QMS3.exe" size="1707520">
       <assemblyIdentity name="QMS3" version="3.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>mc67Qwev24MJ7+ynugclxlql/28=</dsig:DigestValue>
+        <dsig:DigestValue>uVLxDxZi4kgHMflNT3n+EebDGv8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

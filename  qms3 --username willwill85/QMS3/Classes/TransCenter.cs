@@ -17,8 +17,8 @@ namespace QMS3
         static string sKey;     //密钥
         //用于锁定数据卡的标签
         public static byte[] TagBuffer = new byte[16];
-        private const string MISSION_ING = "S";
-        private const string MISSION_FINISH = "E";
+        public const string MISSION_ING = "S";
+        public const string MISSION_FINISH = "E";
         public static string Cardid = "";
         public static string sStartTime = "";
 
@@ -166,7 +166,7 @@ namespace QMS3
             //    info = "任务状态字出错！";
             //}
 
-            //读取车牌号
+            //读取类型
             string sType="";
             if (ReadString(0, 1, ref sType) != 0)
             {
@@ -174,8 +174,19 @@ namespace QMS3
                 info = "读取车牌号错误！";
                 return false;
             }
-            type = int.Parse(sType);
-            string sCarNum = "";
+            try
+            {
+                type = int.Parse(sType);
+
+            }
+            catch 
+            {
+                MessageBox.Show("读类型时,字符串转换出错!");
+                type = -1;
+            }
+                string sCarNum = "";
+
+                //读取车牌号
             if (ReadString(1, 8, ref sCarNum) != 0)
             {
                 MessageBox.Show("读取车牌号错误！");
@@ -289,26 +300,27 @@ namespace QMS3
             byte[] IDBuffer = new byte[7680];
             byte[] mask = new byte[96];
             byte[] AccessPassWord = new byte[4];
+            //设置天线
+            for (int i = 0; i < 4; i++)
+            {
+                status = Net_SetAntenna(m_hScanner, m_antenna_sel);
+                if (status == OK)
+                    break;
+                m_antenna_sel = m_antenna_sel * 2;
+
+                Sleep(20);
+            }
+            if (status != OK)
+            {
+                //MessageBox.Show("读卡器天线出现问题，请重试！\n若仍然有问题，请联系生产厂家！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -1;
+            }
+            //MessageBox.Show("天线成功！");
 
             for (int n = 0; n < 250; n++)
             {
-                //设置天线
-                for (int i = 0; i < 4; i++)
-                {
-                    status = Net_SetAntenna(m_hScanner, m_antenna_sel);
-                    if (status == OK)
-                        break;
-                    m_antenna_sel = m_antenna_sel * 2;
 
-                    Sleep(50);
-                }
-                if (status != OK)
-                {
-                    //MessageBox.Show("读卡器天线出现问题，请重试！\n若仍然有问题，请联系生产厂家！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return -1;
-                }
-                //MessageBox.Show("天线成功！");
-
+               
                 //读取G2卡ID
                 Array.Clear(TagBuffer, 0, TagBuffer.Length);
 
@@ -316,14 +328,14 @@ namespace QMS3
 
                 if (status != OK)
                 {
-                    Sleep(50);
+                    Sleep(20);
                     continue;
                 }
                 // 如果ID Buffer中的ID比设定的长度(目前是6)大，则说明读取错误？放弃本次读取，再读一次
                 if (IDBuffer[ID_len] > 6)
                 {
                     nCounter = 0;
-                    Sleep(50);
+                    Sleep(2);
                     continue;
                 }//
 
@@ -375,25 +387,26 @@ namespace QMS3
             byte[] IDBuffer = new byte[7680];
             byte[] mask = new byte[96];
             byte[] AccessPassWord = new byte[4];
+            //设置天线
+            for (int i = 0; i < 4; i++)
+            {
+                status = Net_SetAntenna(m_hScanner, m_antenna_sel);
+                if (status == OK)
+                    break;
+                m_antenna_sel = m_antenna_sel * 2;
 
+                Sleep(20);
+            }
+            if (status != OK)
+            {
+                //MessageBox.Show("读卡器天线出现问题，请重试！\n若仍然有问题，请联系生产厂家！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -1;
+            }
+            //MessageBox.Show("天线成功！");
             for (int n = 0; n < 50; n++)
             {
-                //设置天线
-                for (int i = 0; i < 4; i++)
-                {
-                    status = Net_SetAntenna(m_hScanner, m_antenna_sel);
-                    if (status == OK)
-                        break;
-                    m_antenna_sel = m_antenna_sel * 2;
 
-                    Sleep(20);
-                }
-                if (status != OK)
-                {
-                    //MessageBox.Show("读卡器天线出现问题，请重试！\n若仍然有问题，请联系生产厂家！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return -1;
-                }
-                //MessageBox.Show("天线成功！");
+
 
                 //读取G2卡ID
                 Array.Clear(TagBuffer, 0, TagBuffer.Length);
@@ -525,28 +538,30 @@ namespace QMS3
             for (int i = 0; i < 4; i++)
             {
                 AccessPassword[i] = Convert.ToByte(str_temp[i * 2] + str_temp[i * 2 + 1]);
+                AccessPassword[i] = 0;
             }
-
+            //MessageBox.Show(AccessPassword[1].ToString());
             EPC_BYTE = Convert.ToByte("6");            //目前认为ID是6位
             byte ptr = Convert.ToByte(n_ptr);          //准备读的首地址是n_ptr
             byte len = Convert.ToByte(n_len);          //准备读的长度是n_len
-
+            //设置天线
+            for (int i = 0; i < 4; i++)
+            {
+                status = Net_SetAntenna(m_hScanner, m_antenna_sel);
+                if (status == OK)
+                    break;
+                m_antenna_sel = m_antenna_sel * 2;
+                Sleep(5);
+            }
+            if (status != OK)
+            {
+                MessageBox.Show("读卡器天线出现问题，请重试！\n若仍然有问题，请联系生产厂家！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -1;
+            }
             for (int n = 0; n < 150; n++)
             {
-                //设置天线
-                for (int i = 0; i < 4; i++)
-                {
-                    status = Net_SetAntenna(m_hScanner, m_antenna_sel);
-                    if (status == OK)
-                        break;
-                    m_antenna_sel = m_antenna_sel * 2;
-                    Sleep(20);
-                }
-                if (status != OK)
-                {
-                    MessageBox.Show("读卡器天线出现问题，请重试！\n若仍然有问题，请联系生产厂家！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return -1;
-                }
+
+
                 //MessageBox.Show("天线成功！");
 
                 //写入卡片指定区域
@@ -562,7 +577,7 @@ namespace QMS3
 
                     str = PutString;
 
-                    Sleep(40);
+                    Sleep(5);
                     status = Net_EPC1G2_WriteWordBlock(m_hScanner, EPC_BYTE, IDTemp, 3, ptr, len, mask, AccessPassword);
                 }
                 else if (block == 1)
@@ -574,7 +589,7 @@ namespace QMS3
                 if (status == OK)
                     break;
 
-                Sleep(20);
+                Sleep(5);
             }
             if (status != OK)
             {
@@ -644,23 +659,23 @@ namespace QMS3
             EPC_BYTE = Convert.ToByte("6");            //目前认为ID是6位
             byte ptr = Convert.ToByte(n_ptr);          //准备读的首地址是n_ptr
             byte len = Convert.ToByte(n_len);          //准备读的长度是n_len
-
+            //设置天线
+            for (int i = 0; i < 4; i++)
+            {
+                status = Net_SetAntenna(m_hScanner, m_antenna_sel);
+                if (status == OK)
+                    break;
+                m_antenna_sel = m_antenna_sel * 2;
+                Sleep(5);
+            }
+            if (status != OK)
+            {
+                MessageBox.Show("读卡器天线出现问题，请重试！\n若仍然有问题，请联系生产厂家！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -1;
+            }
             for (int n = 0; n < 150; n++)
             {
-                //设置天线
-                for (int i = 0; i < 4; i++)
-                {
-                    status = Net_SetAntenna(m_hScanner, m_antenna_sel);
-                    if (status == OK)
-                        break;
-                    m_antenna_sel = m_antenna_sel * 2;
-                    Sleep(20);
-                }
-                if (status != OK)
-                {
-                    MessageBox.Show("读卡器天线出现问题，请重试！\n若仍然有问题，请联系生产厂家！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return -1;
-                }
+
                 //MessageBox.Show("天线成功！");
 
                 //写入卡片指定区域
@@ -676,7 +691,7 @@ namespace QMS3
 
                     str = PutString;
 
-                    Sleep(50);
+                    Sleep(15);
                     status = Net_EPC1G2_WriteWordBlock(m_hScanner, EPC_BYTE, IDTemp, 3, ptr, len, mask, AccessPassword);
                 }
                 else if (block == 1)
@@ -688,7 +703,7 @@ namespace QMS3
                 if (status == OK)
                     break;
 
-                Sleep(20);
+                Sleep(15);
             }
             if (status != OK)
             {
@@ -940,23 +955,24 @@ namespace QMS3
             EPC_BYTE = Convert.ToByte("6");    //目前认为ID是6位
             // ptr = Convert.ToByte("1");          //准备读的首地址是0
             //  len = Convert.ToByte("5");          //准备读的长度是5
+            //设置天线
+            for (int i = 0; i < 4; i++)
+            {
+                status = Net_SetAntenna(m_hScanner, m_antenna_sel);
+                if (status == OK)
+                    break;
+                m_antenna_sel = m_antenna_sel * 2;
+                Sleep(5);
+            }
+            if (status != OK)
+            {
+                MessageBox.Show("读卡器天线出现问题，请重试！\n若仍然有问题，请联系生产厂家！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -1;
+            }
 
             for (int n = 0; n < 50; n++)
             {
-                //设置天线
-                for (int i = 0; i < 4; i++)
-                {
-                    status = Net_SetAntenna(m_hScanner, m_antenna_sel);
-                    if (status == OK)
-                        break;
-                    m_antenna_sel = m_antenna_sel * 2;
-                    Sleep(20);
-                }
-                if (status != OK)
-                {
-                    MessageBox.Show("读卡器天线出现问题，请重试！\n若仍然有问题，请联系生产厂家！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return -1;
-                }
+
                 //MessageBox.Show("天线成功！");
 
                 //读取司机车牌号码，即读取卡片指定区域
@@ -973,7 +989,7 @@ namespace QMS3
                 if (status == OK)
                     break;
 
-                Sleep(20);
+                Sleep(5);
             }
 
             Pc_str_TruckNo = System.Text.Encoding.Default.GetString(DB, 0, len * 2);     //准备读的长度是5
@@ -1011,23 +1027,24 @@ namespace QMS3
             EPC_BYTE = Convert.ToByte("6");    //目前认为ID是6位
             // ptr = Convert.ToByte("1");          //准备读的首地址是0
             //  len = Convert.ToByte("5");          //准备读的长度是5
+            //设置天线
+            for (int i = 0; i < 4; i++)
+            {
+                status = Net_SetAntenna(m_hScanner, m_antenna_sel);
+                if (status == OK)
+                    break;
+                m_antenna_sel = m_antenna_sel * 2;
+                Sleep(5);
+            }
+            if (status != OK)
+            {
+                MessageBox.Show("读卡器天线出现问题，请重试！\n若仍然有问题，请联系生产厂家！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -1;
+            }
 
             for (int n = 0; n < 50; n++)
             {
-                //设置天线
-                for (int i = 0; i < 4; i++)
-                {
-                    status = Net_SetAntenna(m_hScanner, m_antenna_sel);
-                    if (status == OK)
-                        break;
-                    m_antenna_sel = m_antenna_sel * 2;
-                    Sleep(20);
-                }
-                if (status != OK)
-                {
-                    MessageBox.Show("读卡器天线出现问题，请重试！\n若仍然有问题，请联系生产厂家！", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return -1;
-                }
+
                 //MessageBox.Show("天线成功！");
 
                 //读取司机车牌号码，即读取卡片指定区域
@@ -1044,7 +1061,7 @@ namespace QMS3
                 if (status == OK)
                     break;
 
-                Sleep(20);
+                Sleep(5);
             }
 
             Pc_str_TruckNo = ToHexString(DB);     //准备读的长度是5
@@ -1202,8 +1219,8 @@ namespace QMS3
         public static extern int Net_ConnectScanner(ref int hSocket, char[] nTargetAddress, uint nTargetPort, char[] nHostAddress, uint nHostPort);
         [DllImport("NETUHF.dll")]
         //断开连接
-        public static extern int Net_DisconnectScanner(int hSocket);
-
+     //   public static extern int Net_DisconnectScanner(int hSocket); 去掉句柄
+        public static extern int Net_DisconnectScanner();
         //==============================设备控制命令==============================
         //设置波特率
         [DllImport("NETUHF.dll")]
