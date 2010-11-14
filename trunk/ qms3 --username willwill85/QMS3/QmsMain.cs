@@ -6170,6 +6170,8 @@ drop table tempTable;";
                 info = "写卡失败！";
                 return false;
             }
+            label87.Text = "完成刷卡";
+            label87.Refresh();
             progressBar5.Value = 100;
             progressBar5.Refresh();
             //this.GoodsTableAdaper.UpdateQueryByTime(2, double.Parse(textBox1.Text), sStartTime, nStartSpotNum);
@@ -6397,6 +6399,7 @@ drop table tempTable;";
                     {
                         MessageBox.Show("打开日志文件失败！");
                         label87.Text = "";
+
                         progressBar5.Visible = false;
                         progressBar5.Value = 0;
                         progressBar5.Refresh();
@@ -6450,6 +6453,7 @@ drop table tempTable;";
             MessageBox.Show("操作成功！");
             textBox1.Text = "";
             label87.Text = "";
+            label87.Refresh();
             progressBar5.Visible = false;
             progressBar5.Value = 0;
             progressBar5.Refresh();
