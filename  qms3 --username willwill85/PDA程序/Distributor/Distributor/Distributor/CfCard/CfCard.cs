@@ -505,7 +505,15 @@ namespace Distributor.CfCard
                 string str = Convert.ToInt32(source.Substring(i, 2), 16).ToString();
                 oribyte[i / 2] = Convert.ToByte(source.Substring(i, 2), 16);
             }
-            return System.Text.Encoding.Default.GetString(oribyte, 0, source.Length / 2);
+            try
+            {
+                return System.Text.Encoding.Default.GetString(oribyte, 0, source.Length / 2);
+            }
+            catch
+            {
+                //MessageBox.Show(source + "=" + );
+                return "err";
+            }
         }
         //对时间字符串解码
         public string decodetime(string ortime)
