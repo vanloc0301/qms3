@@ -101,7 +101,7 @@ namespace Collector
 
             sInfoR = "";
 
-            if (myCfCard.ReadString(13,1, ref sInfoR) != 0)
+            if (myCfCard.ReadString(10,1, ref sInfoR) != 0)
             {
                 MessageBox.Show("无法读取任务状态！");
                 return false;
@@ -139,10 +139,10 @@ namespace Collector
             
             sStartTime = myCfCard.decodetime(sStartTime);
             //MessageBox.Show(sStartTime);
-            if (sEndTime.CompareTo(sStartTime) < 0)
+         //   if (sEndTime.CompareTo(sStartTime) < 0)
             {
-                MessageBox.Show("错误！出发时间晚于到达时间！");
-                return false;
+           //     MessageBox.Show("错误！出发时间晚于到达时间！");
+             //   return false;
             }
             if (myCfCard.ReadString(9,2, ref sStartSpotNum) != 0)
             {
@@ -204,12 +204,12 @@ namespace Collector
 
             //写入结束时间信息
 
-            if (myCfCard.Write2(sEndTime2,10) != 0)
-            {
-                MessageBox.Show("写卡失败！");
-                clearPropShow();
-                return;
-            }
+      //      if (myCfCard.Write2(sEndTime2,10) != 0)
+        //    {
+          //      MessageBox.Show("写卡失败！");
+            //    clearPropShow();
+              //  return;
+            //}
 
            // //标记任务未完成标志.
            // if (myCfCard.Write(sStartSpotNum, 9) == 0)
@@ -223,7 +223,7 @@ namespace Collector
            // }
             sInfoW = MISSION_FINISH;
 //            cMissionState = MISSION_FINISH;
-            if (myCfCard.Write(sInfoW,13) == 0)
+            if (myCfCard.Write(sInfoW,10) == 0)
             {
                // MessageBox.Show("写卡成功！");
                 pictureBox1.Visible = false;
@@ -324,7 +324,7 @@ namespace Collector
         private const string MISSION_FINISH = "E";
         private const string MISSION_ING_CH = "未完成";
         private const string S_START_SPOT_PREFIX = "S#";
-        private const bool network = true;
+        private const bool network = false;
         private Distributor.CfCard.CfCard myCfCard;
         private string sBoxCardId;
         private string sCarNum;

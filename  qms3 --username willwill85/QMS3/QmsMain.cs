@@ -84,7 +84,7 @@ namespace QMS3
  
             //}
             #endregion
-            treeviewload(6);
+           // treeviewload(6);
         }
 
         //***********************所有功能TAB请修改下面的tree view操作*********************
@@ -173,7 +173,11 @@ namespace QMS3
                         MessageBox.Show("网络连接失败！请稍后重试（错误1000）");
                         //showDayreport.CancelAsync();
                     }
-                    dataGridView2.DataSource = ds.Tables[0];
+                    try
+                    {
+                        dataGridView2.DataSource = ds.Tables[0];
+                    }
+                    catch { }
                     MainTab.SelectTab(12);
                     break;
                     #endregion
@@ -196,8 +200,12 @@ namespace QMS3
                         MessageBox.Show("网络连接失败！请稍后重试（错误1001）");
                         //showDayreport.CancelAsync();
                     }
-                    dataGridView4.DataSource = ds.Tables[0];
-
+                    try
+                    {
+                        dataGridView4.DataSource = ds.Tables[0];
+                    }
+                    catch
+                    { }
                     MainTab.SelectTab(13);
                     break;
                     #endregion
@@ -220,8 +228,12 @@ namespace QMS3
                         MessageBox.Show("网络连接失败！请稍后重试（错误1002）");
                         //showDayreport.CancelAsync();
                     }
-                    dataGridView5.DataSource = ds.Tables[0];
-
+                    try
+                    {
+                        dataGridView5.DataSource = ds.Tables[0];
+                    }
+                    catch
+                    { }
                     strSQL = "SELECT  Name AS '姓名', Class AS '对应班号' FROM [dbo.Class]";
                     strTable = " [db_rfidtest].[rfidtest].[dbo.Class]";
 
@@ -234,9 +246,11 @@ namespace QMS3
                         MessageBox.Show("网络连接失败！请稍后重试（错误1003）");
                         //showDayreport.CancelAsync();
                     }
-
-                    dataGridView6.DataSource = ds.Tables[0];
-
+                    try
+                    {
+                        dataGridView6.DataSource = ds.Tables[0];
+                    }
+                    catch { }
                     MainTab.SelectTab(14);
                     break;
                     #endregion
@@ -256,8 +270,11 @@ namespace QMS3
                         MessageBox.Show("网络连接失败！请稍后重试（错误1004）");
                         //showDayreport.CancelAsync();
                     }
-
-                    dataGridView7.DataSource = ds.Tables[0];
+                    try
+                    {
+                        dataGridView7.DataSource = ds.Tables[0];
+                    }
+                    catch { }
                     MainTab.SelectTab(15);
                     break;
                     #endregion
@@ -418,6 +435,10 @@ namespace QMS3
                 break;
                 case "TreeNode: 转运中心日运输图表": MainTab.SelectTab(20);
                 break;
+
+                case "TreeNode: 垃圾楼出站": MainTab.SelectTab(27);
+                break;
+
                 case "TreeNode: 转运中心运输信息查询":
                 {
                     
@@ -5741,12 +5762,12 @@ drop table tempTable;";
             System.Windows.Forms.TreeNode CarsInrun = new System.Windows.Forms.TreeNode("在运车辆查询");
             System.Windows.Forms.TreeNode CarIR = new System.Windows.Forms.TreeNode("车辆信息查询");
             System.Windows.Forms.TreeNode CarsFarther = new System.Windows.Forms.TreeNode("车辆查询管理", new System.Windows.Forms.TreeNode[] { CarIR, CarsInrun });
-            
-            
-            
+
+
+            System.Windows.Forms.TreeNode StationSend = new System.Windows.Forms.TreeNode("垃圾楼出站");
             System.Windows.Forms.TreeNode StationStatus = new System.Windows.Forms.TreeNode("垃圾楼状态信息查询");
             System.Windows.Forms.TreeNode StationChart = new System.Windows.Forms.TreeNode("垃圾楼运输图表");
-            System.Windows.Forms.TreeNode StationFather = new System.Windows.Forms.TreeNode("垃圾楼查询管理", new System.Windows.Forms.TreeNode[] { StationStatus,StationChart });
+            System.Windows.Forms.TreeNode StationFather = new System.Windows.Forms.TreeNode("垃圾楼查询管理", new System.Windows.Forms.TreeNode[] { StationSend, StationStatus,StationChart });
             
             
             
@@ -6177,10 +6198,13 @@ drop table tempTable;";
             //this.GoodsTableAdaper.UpdateQueryByTime(2, double.Parse(textBox1.Text), sStartTime, nStartSpotNum);
             st = TransCenter.sStartTime;
             ss = nStartSpotNum;
+            try
+            {
+                info = "车号：" + sCarNum + ";      " + "发车时间：" + TransCenter.sStartTime + ";      " + "到达时间：" + TransCenter.sEndTime + ";      " + "重量：" + weight + ";      " + "始发站：" + TransCenter.StationName[nStartSpotNum - 31] + ";      " + "垃圾类型：" + TransCenter.rbtype[TransCenter.type] + ".";
 
-            info = "车号：" + sCarNum + ";      " + "发车时间：" + TransCenter.sStartTime + ";      " + "到达时间：" + TransCenter.sEndTime + ";      " + "重量：" + weight + ";      " + "始发站：" + TransCenter.StationName[nStartSpotNum - 31] + ";      " + "垃圾类型：" + TransCenter.rbtype[TransCenter.type] + ".";
-
-
+            }
+            catch
+            { info = "车号：" + sCarNum + ";      " + "发车时间：" + TransCenter.sStartTime + ";      " + "到达时间：" + TransCenter.sEndTime + ";      " + "重量：" + weight + ";      " + "始发站：" + "错误" + ";      " + "垃圾类型：" + "错误" + "."; }
             //listBox1.Items.Add("始发站：" + StationName[nStartSpotNum - 30] + ";      " + "发车时间：" + sStartTime + ";      " + "车号：" + sCarNum + ".");
             //MessageBox.Show(sInfoR);
             //MessageBox.Show(sCarNum);
@@ -6466,12 +6490,12 @@ drop table tempTable;";
         {
             try
             {
-                this.dbo_GoodsTableAdapter.UpdateGoodsByEndTime(2, double.Parse(textBox13.Text), textBox14.Text, textBox16.Text,textBox15.Text);
-                textBox17.Text = "";
-                textBox16.Text = "";
-                textBox15.Text = "";
-                textBox14.Text = "";
-                textBox13.Text = "";
+                this.dbo_GoodsTableAdapter.UpdateGoodsByEndTime(2, double.Parse(WeightTxt.Text), EndTimeTxt.Text, CarNumTxt.Text,StartTimeTxt.Text);
+                StartStationTxt.Text = "";
+                CarNumTxt.Text = "";
+                StartTimeTxt.Text = "";
+                EndTimeTxt.Text = "";
+                WeightTxt.Text = "";
                 string systime = System.DateTime.Now.ToString("yy-MM-dd"); //"10-06-11";
                 // System.DateTime.Now.ToString("yy-MM-dd");
 
@@ -6494,7 +6518,11 @@ drop table tempTable;";
                     MessageBox.Show("网络连接失败！请稍后重试（错误1015）");
                     //showDayreport.CancelAsync();
                 }
-                dataGridView2.DataSource = ds.Tables[0];
+                try
+                {
+                    dataGridView2.DataSource = ds.Tables[0];
+                }
+                catch { }
             }
             catch
             {
@@ -6506,7 +6534,7 @@ drop table tempTable;";
         {
             try
             {
-                this.dbo_GoodsTableAdapter.DeleteByEndTime(textBox14.Text, textBox16.Text);
+                this.dbo_GoodsTableAdapter.DeleteByEndTime(EndTimeTxt.Text, CarNumTxt.Text);
                 textBox2.Text = "";
                 textBox3.Text = "";
                 textBox4.Text = "";
@@ -6534,7 +6562,11 @@ drop table tempTable;";
                     MessageBox.Show("网络连接失败！请稍后重试（错误1017）");
                     //showDayreport.CancelAsync();
                 }
-                dataGridView2.DataSource = ds.Tables[0];
+                try
+                {
+                    dataGridView2.DataSource = ds.Tables[0];
+                }
+                catch { }
             }
             catch
             {
@@ -6546,11 +6578,11 @@ drop table tempTable;";
         {
             try
             {
-                textBox17.Text = dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString();
-                textBox16.Text = dataGridView2.Rows[e.RowIndex].Cells[2].Value.ToString();
-                textBox15.Text = dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString();
-                textBox14.Text = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString();
-                textBox13.Text = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString();
+                StartStationTxt.Text = dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString();
+                CarNumTxt.Text = dataGridView2.Rows[e.RowIndex].Cells[2].Value.ToString();
+                StartTimeTxt.Text = dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString();
+                EndTimeTxt.Text = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString();
+                WeightTxt.Text = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString();
             }
             catch
             { }
@@ -6560,11 +6592,11 @@ drop table tempTable;";
         {
             try
             {
-                textBox17.Text = dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString();
-                textBox16.Text = dataGridView2.Rows[e.RowIndex].Cells[2].Value.ToString();
-                textBox15.Text = dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString();
-                textBox14.Text = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString();
-                textBox13.Text = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString();
+                StartStationTxt.Text = dataGridView2.Rows[e.RowIndex].Cells[0].Value.ToString();
+                CarNumTxt.Text = dataGridView2.Rows[e.RowIndex].Cells[2].Value.ToString();
+                StartTimeTxt.Text = dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString();
+                EndTimeTxt.Text = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString();
+                WeightTxt.Text = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString();
             }
             catch
             { }
@@ -6654,7 +6686,11 @@ drop table tempTable;";
                 MessageBox.Show("网络连接失败！请稍后重试（错误1020）");
                 //showDayreport.CancelAsync();
             }
-            dataGridView4.DataSource = ds.Tables[0];
+            try
+            {
+                dataGridView4.DataSource = ds.Tables[0];
+            }
+            catch { }
 
         }
 
@@ -6694,7 +6730,11 @@ drop table tempTable;";
                 MessageBox.Show("网络连接失败！请稍后重试（错误1022）");
                 //showDayreport.CancelAsync();
             }
-            dataGridView4.DataSource = ds.Tables[0];
+            try
+            {
+                dataGridView4.DataSource = ds.Tables[0];
+            }
+            catch { }
 
         }
 
@@ -6748,7 +6788,11 @@ drop table tempTable;";
                 MessageBox.Show("网络连接失败！请稍后重试（错误1025）");
                 //showDayreport.CancelAsync();
             }
-            dataGridView4.DataSource = ds.Tables[0];
+            try
+            {
+                dataGridView4.DataSource = ds.Tables[0];
+            }
+            catch { }
         }
         #endregion
 
@@ -6864,8 +6908,11 @@ drop table tempTable;";
 
 
                    // chd += this.dbo_GoodsTableAdapter.NumBetweenTime(p1, p2) + ",";
-                    chd += ds.Tables[0].Rows[i]["sumbox"].ToString()+",";
-
+                    try
+                    {
+                        chd += ds.Tables[0].Rows[i]["sumbox"].ToString() + ",";
+                    }
+                    catch { }
                     pc += 6;
                     showDayImagereport.ReportProgress(pc);
 
@@ -6918,7 +6965,7 @@ drop table tempTable;";
                 "[db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] AS '结束时间' ,  " +
                 "[db_rfidtest].[rfidtest].[dbo.Goods].[Weight] AS '重量(单位:吨)'" +
                 "FROM [dbo.Goods] " +
-                "WHERE (StartTime > '" + sttime+"') AND (EndTime < '"+dateTimePicker_8_2.Value.AddDays(1).ToString("yy-MM-dd")+"')AND (StartStationID=" + stationid.ToString() + ")";
+                "WHERE (StartTime > '" + sttime+"') AND (StartTime < '"+dateTimePicker_8_2.Value.AddDays(1).ToString("yy-MM-dd")+"')AND (StartStationID=" + stationid.ToString() + ")";
 
             string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
 
@@ -6933,7 +6980,11 @@ drop table tempTable;";
                 //showDayreport.CancelAsync();
             }
             //DataSet中的SQL查询结果放入DataGridView中
-            dataGridView11.DataSource = ds.Tables[0];
+            try
+            {
+                dataGridView11.DataSource = ds.Tables[0];
+            }
+            catch { }
             int rowsnum = dataGridView11.Rows.Count;
             string chart = "http://chart.apis.google.com/chart?cht=lxy&chs=800x30&chxt=x,y&chxl=0:|5:00|6:00|7:00|8:00|9:00|10:00|11:00|12:00|13:00|14:00|15:00|16:00|17:00|18:00|19:00|20:00|1:|时刻表";
             string point = "&chm=";
@@ -7375,11 +7426,255 @@ drop table tempTable;";
 
         }
 
+        private void t1label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string strSQL = "SELECT DISTINCT  [db_rfidtest].[rfidtest].[dbo.Station].[Name] AS '起始站点' , " +
+               " [db_rfidtest].[rfidtest].[dbo.Goods].[BoxCardID] AS '货箱卡号' ,  " +
+               "[db_rfidtest].[rfidtest].[dbo.Goods].[TruckNo] AS '货车牌号' ,  " +
+               "[db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] AS '开始时间' ,  " +
+               "[db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] AS '结束时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[Weight] AS '重量(单位:吨)'" +
+               " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] ON   " +
+               "[db_rfidtest].[rfidtest].[dbo.Goods].[StartStationID] = [db_rfidtest].[rfidtest].[dbo.Station].[StationID] " +
+               "WHERE  [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] > '" + dateTimePicker2.Value.ToString("yy-MM-dd") + ",00:00' AND [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] < '" + dateTimePicker2.Value.ToString("yy-MM-dd") + ",23:59'";
+            string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
+            try
+            {
+                ds = boperate.getds(strSQL, strTable);
+            }
+            catch
+            {
+                MessageBox.Show("网络连接失败！请稍后重试（错误1088）");
+                //showDayreport.CancelAsync();
+            }
+            dataGridView2.DataSource = ds.Tables[0];
+
+        }
+        #region 软键盘
+        private void button26_Click(object sender, EventArgs e)
+        {
+            Process.Start(@"osk.exe");
+        }
+
+        private void groupBox25_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button27_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "1";
+        }
+
+        private void button34_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "2";
+        }
+
+        private void button42_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "3";
+        }
+
+        private void button38_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "4";
+        }
+
+        private void button58_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "5";
+        }
+
+        private void button54_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "6";
+        }
+
+        private void button50_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "7";
+        }
+
+        private void button46_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "8";
+        }
+
+        private void button66_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "9";
+        }
+
+        private void button62_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "0";
+        }
+
+
+        #endregion
+
+        private void button28_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "Q";
+        }
+
+        private void button33_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "W";
+        }
+
+        private void button41_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "E";
+        }
+
+        private void button37_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "R";
+        }
+
+        private void button61_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "T";
+        }
+
+        private void button57_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "Y";
+        }
+
+        private void button53_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "U";
+        }
+
+        private void button49_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "I";
+        }
+
+        private void button45_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "O";
+        }
+
+        private void button65_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "P";
+        }
+
+        private void button29_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "A";
+        }
+
+        private void button32_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "S";
+        }
+
+        private void button40_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "D";
+        }
+
+        private void button36_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "F";
+        }
+
+        private void button56_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "G";
+        }
+
+        private void button52_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "H";
+        }
+
+        private void button48_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "J";
+        }
+
+        private void button44_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "K";
+        }
+
+        private void button64_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "L";
+        }
+
+        private void button30_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "Z";
+        }
+
+        private void button31_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "X";
+        }
+
+        private void button39_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "C";
+        }
+
+        private void button35_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "V";
+        }
+
+        private void button55_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "B";
+        }
+
+        private void button51_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "N";
+        }
+
+        private void button47_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text += "M";
+        }
+
+        private void button43_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text = CarNum_28.Text.Substring(0, CarNum_28.Text.Length - 1);
+        }
+
+        private void button59_Click(object sender, EventArgs e)
+        {
+            CarNum_28.Text = "京";
+        }
+
+        private void CarNum_28_TextChanged(object sender, EventArgs e)
+        {
+            if (CarNum_28.Text.Length < 1)
+                CarNum_28.Text = "京";
+
+            if (CarNum_28.Text.Substring(0, 1) != "京")
+                CarNum_28.Text = "京";
+
+            CarNum_28.Text = CarNum_28.Text.ToUpper();
+            if (CarNum_28.Text.Length > 7)
+                CarNum_28.Text = CarNum_28.Text.Substring(0, 7);
+            CarNum_28.Select(CarNum_28.Text.Length, CarNum_28.Text.Length);
+        }
 
 
 
 
- 
 
 
 
@@ -7387,7 +7682,6 @@ drop table tempTable;";
 
 
 
-        
 
 
 
