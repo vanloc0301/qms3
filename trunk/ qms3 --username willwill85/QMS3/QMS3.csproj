@@ -111,6 +111,7 @@
     <Compile Include="Classes\BaseOperate.cs" />
     <Compile Include="Classes\CfCardPC.cs" />
     <Compile Include="Classes\ChartData.cs" />
+    <Compile Include="Classes\NewTransCenter.cs" />
     <Compile Include="Classes\Datetimecalc.cs" />
     <Compile Include="Classes\visifire.cs" />
     <Compile Include="DataSet1.cs">

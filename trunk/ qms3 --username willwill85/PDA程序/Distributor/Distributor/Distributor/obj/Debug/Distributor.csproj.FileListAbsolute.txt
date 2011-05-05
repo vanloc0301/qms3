@@ -1,4 +1,4 @@
-﻿G:\garbage\Distributor\Distributor\bin\Debug\Distributor.exe
+G:\garbage\Distributor\Distributor\bin\Debug\Distributor.exe
 G:\garbage\Distributor\Distributor\bin\Debug\Distributor.pdb
 G:\garbage\Distributor\Distributor\obj\Debug\ResolveAssemblyReference.cache
 G:\garbage\Distributor\Distributor\obj\Debug\Distributor.Form1.resources
@@ -43,3 +43,17 @@ C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\PDA
 C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\PDA程序\Distributor\Distributor\Distributor\obj\Debug\Distributor.csproj.GenerateResource.Cache
 C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\PDA程序\Distributor\Distributor\Distributor\obj\Debug\Distributor.exe
 C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\PDA程序\Distributor\Distributor\Distributor\obj\Debug\Distributor.pdb
+C:\Users\will\Desktop\qms3\PDA程序\Distributor\Distributor\Distributor\bin\Debug\Distributor.exe
+C:\Users\will\Desktop\qms3\PDA程序\Distributor\Distributor\Distributor\bin\Debug\Distributor.pdb
+C:\Users\will\Desktop\qms3\PDA程序\Distributor\Distributor\Distributor\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\will\Desktop\qms3\PDA程序\Distributor\Distributor\Distributor\obj\Debug\Distributor.Form1.resources
+C:\Users\will\Desktop\qms3\PDA程序\Distributor\Distributor\Distributor\obj\Debug\Distributor.Properties.Resources.resources
+C:\Users\will\Desktop\qms3\PDA程序\Distributor\Distributor\Distributor\obj\Debug\Distributor.csproj.GenerateResource.Cache
+C:\Users\will\Desktop\qms3\PDA程序\Distributor\Distributor\Distributor\obj\Debug\Distributor.exe
+C:\Users\will\Desktop\qms3\PDA程序\Distributor\Distributor\Distributor\obj\Debug\Distributor.pdb
+C:\Users\will\Desktop\qms3\PDA程序\Distributor\Distributor\Distributor\bin\Debug\mscorlib.dll
+C:\Users\will\Desktop\qms3\PDA程序\Distributor\Distributor\Distributor\bin\Debug\System.Data.SqlClient.dll
+C:\Users\will\Desktop\qms3\PDA程序\Distributor\Distributor\Distributor\bin\Debug\System.Windows.Forms.DataGrid.dll
+C:\Users\will\Desktop\qms3\PDA程序\Distributor\Distributor\Distributor\bin\Debug\System.Xml.dll
+C:\Users\will\Desktop\qms3\PDA程序\Distributor\Distributor\Distributor\bin\Debug\SEUIC.Phone.dll
+C:\Users\will\Desktop\qms3\PDA程序\Distributor\Distributor\Distributor\bin\Debug\Microsoft.WindowsCE.Forms.dll

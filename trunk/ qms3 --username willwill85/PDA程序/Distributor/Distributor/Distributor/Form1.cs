@@ -9,11 +9,18 @@ using System.Windows.Forms;
 using Distributor.CfCard;
 using System.Runtime.InteropServices;
 using System.IO;
+using SEUIC.Phone;
+using SEUIC.Phone.Module;
+using SEUIC.Phone.RAS;
+using System.Threading;
+
 
 namespace Distributor
 {
+
     public partial class Form1 : Form
     {
+        
         private SYSTEM_POWER_STATUS_EX2 status = new SYSTEM_POWER_STATUS_EX2();
         private SYSTEM_POWER_STATUS_EX status2 = new SYSTEM_POWER_STATUS_EX();
         [DllImport("coredll")]
@@ -28,6 +35,39 @@ namespace Distributor
             myCfCard = new Distributor.CfCard.CfCard();
             clearMemProperties();
         }
+
+        public void dialup()
+        {
+            SEUIC.Phone.Initialize.UnInit();
+            Thread.Sleep(100);
+            SEUIC.Phone.Initialize.Init();
+            ras = Ras.GetInstance();
+            ras.RasDialMode = SEUIC.Phone.RAS.RasDialMode.Sync;//同步拨号,SEUIC.Phone.RAS.RasDialMode.Async 为异步拨号
+            ras.DialUp("card", "card", "#777");
+        }
+   
+
+        public Thread ringthd;// = new Thread(ring);
+      
+        public static void ring()
+        {
+            while (true)
+            {
+                PlaySound("\\User_Storage\\ring.wav", IntPtr.Zero, 0x0002);
+                System.Threading.Thread.Sleep(1000);
+            }
+        }
+        
+        public bool checknet()
+        {
+            Ras myras = Ras.GetInstance();
+            RASConnState netstate = RASConnState.RASCS_Disconnected;
+            netstate = myras.GetStatus();
+            if (netstate == RASConnState.RASCS_Connected)
+                return true;
+            return false;
+        }
+
         protected void clearMemProperties()
         {
             sCarNum = "京";
@@ -38,6 +78,7 @@ namespace Distributor
             sCarCardNum = "";
             sBoxCardNum = "";
             myCfCard.disconnect();
+           // SEUIC.Phone.Initialize.UnInit();//必须要调用。
         }
 
         protected void clearPropShow()
@@ -53,14 +94,19 @@ namespace Distributor
             pbReadBoxCard.Enabled = true;
             pictureBox1.Visible = false;
         }
-
+        //读司机卡
         private void pbReadCarCard_Click(object sender, EventArgs e)
         {
+            if (!myCfCard.connect())
+            {
+                MessageBox.Show("连接读卡器失败！");
+                this.Close();
+            }
+
             this.pbReadCarCard.Image = Properties.Resources.btReadUp;
             this.Refresh();
-            clearMemProperties();
-            clearPropShow();
-            
+
+
             string sInfoR = "";
 
             if (myCfCard.request(ref sCarCardNum) != 0)
@@ -83,56 +129,37 @@ namespace Distributor
             }
           //  MessageBox.Show(myCfCard.StrToHex(sInfoR));
             
-            if (sInfoR != myCfCard.HexToStr(CAR_CARD))
+            if (sInfoR != "B")
             {
-                MessageBox.Show("此卡不是司机卡！");
+                //MessageBox.Show("此卡不是司机卡！");
+                PlaySound("\\User_Storage\\sound\\driver.wav", IntPtr.Zero, 0x0002);
                 clearMemProperties();
                 clearPropShow();
                 return;
             }
 
             //读取车牌号
-            if (myCfCard.ReadString(1,9, ref sCarNum) != 0)
+            string Truckno = "";
+            if (myCfCard.ReadString(1,9, ref Truckno) != 0)
             {
-                MessageBox.Show("读取车牌号错误！");
+               // MessageBox.Show("读取车牌号错误！");
+                PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
                 clearMemProperties();
                 clearPropShow();
                 return;
             }
+            clearMemProperties();
+            clearPropShow();
+            sCarNum = Truckno;
             tbCarNum.Text = sCarNum;
-            int tmp = -1;
-            if (network)
-            {
-                try
-                {
-                //    MessageBox.Show(sCarNum);
-                  //  MessageBox.Show(sCarCardNum);
-                    //if ((tmp = (int)this.driverTableAdapter.ScalarQueryByCarIdNo(sCarCardNum, sCarNum)) != 1)
-                    if ((tmp = (int)this.dbo_DriverTableAdapter1.ScalarQueryByCardIdNo(sCarCardNum, sCarNum)) != 1)
-                    {
-                        MessageBox.Show("您的信息有误！");
-                        clearMemProperties();
-                        clearPropShow();
-                        return;
-                    }
-                }
-                catch (System.Exception e0)
-                {
-                    if (MessageBox.Show("数据库连接失败！终止本次操作？" + e0.Message, "提示",
-                        MessageBoxButtons.OKCancel, MessageBoxIcon.Question,
-                        MessageBoxDefaultButton.Button1) == DialogResult.OK)
-                    {
-                        clearMemProperties();
-                        clearPropShow();
-                        return;
-                    }
-                }
-            }
+
+            
             
         }
-
+        //读箱卡
         private void pbReadBoxCard_Click(object sender, EventArgs e)
         {
+
             if (!myCfCard.connect())
             {
                 MessageBox.Show("连接读卡器失败！");
@@ -158,14 +185,21 @@ namespace Distributor
           //  MessageBox.Show(sCarNum);
             if (sCarNum == "京BYD")
             {
-                this.Close();
+                myCfCard.disconnect();
+                clearMemProperties();
+                clearPropShow();
+                mytask.Abort();
+                
+                //this.Close();
                 Application.Exit();
+                return;
             }
             int Percent;
             Percent = GetSystemPowerStatusEx(status2,/*System.Runtime.InteropServices.Marshal.SizeOf(status),*/ 1);
             if (status2.BatteryLifePercent < 40)
             {
-                MessageBox.Show("电池电量不足 不能读卡！");
+               // MessageBox.Show("电池电量不足 不能读卡！");
+                PlaySound("\\User_Storage\\sound\\nobat.wav", IntPtr.Zero, 0x0002);
                 clearMemProperties();
                 clearPropShow();
 
@@ -173,7 +207,8 @@ namespace Distributor
             }
             if (sCarNum.ToString().Length != 7)
             {
-                MessageBox.Show("车牌号输入有误");
+               // MessageBox.Show("车牌号输入有误");
+                PlaySound("\\User_Storage\\sound\\dfirst.wav", IntPtr.Zero, 0x0002);
                 clearMemProperties();
                 clearPropShow();
 
@@ -182,7 +217,8 @@ namespace Distributor
             if (sCarNum == "京")
             {
                 //MessageBox.Show("请先读取司机卡");
-                MessageBox.Show("请先输入车牌号");
+               // MessageBox.Show("请先输入车牌号");
+                PlaySound("\\User_Storage\\sound\\dfirst.wav", IntPtr.Zero, 0x0002);
                 clearMemProperties();
                 clearPropShow();
                 return;
@@ -193,6 +229,7 @@ namespace Distributor
             LBStatus.Refresh();
             if (myCfCard.request(ref sBoxCardNum) != 0)
             {
+                PlaySound("\\User_Storage\\sound\\nocard.wav", IntPtr.Zero, 0x0002);
                 clearMemProperties();
                 clearPropShow();
                 return;
@@ -202,11 +239,11 @@ namespace Distributor
                 sBoxCardNum = myCfCard.carid();
        
             }
-            myCfCard.ReadString(0, 2, ref sInfoR);
+            myCfCard.ReadString(0, 1, ref sInfoR);
             
             if (sInfoR =="B")
             {
-                MessageBox.Show("此卡是司机！");
+                PlaySound("\\User_Storage\\sound\\box.wav", IntPtr.Zero, 0x0002); ;
                 clearMemProperties();
                 clearPropShow();
                 return;
@@ -239,7 +276,8 @@ namespace Distributor
             LBStatus.Refresh();
             if (myCfCard.ReadString(10, 1, ref sInfoR) != 0)
             {
-                MessageBox.Show("无法读取任务状态！");
+               // MessageBox.Show("无法读取任务状态！");
+                PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
                 clearMemProperties();
                 clearPropShow();
                return;
@@ -247,7 +285,8 @@ namespace Distributor
          //   MessageBox.Show(sInfoR);
             if (sInfoR == "S")
             {
-                MessageBox.Show("任务未完成，不能写入");
+               // MessageBox.Show("任务未完成，不能写入");
+                PlaySound("\\User_Storage\\sound\\done.wav", IntPtr.Zero, 0x0002);
                 clearMemProperties();
                 clearPropShow();
               return;
@@ -288,17 +327,8 @@ namespace Distributor
             }
             if (myCfCard.Write(sInfoR, 0) != 0)
             {
-                MessageBox.Show("写卡失败！");
-                try
-                {
-                    //this.goodsTableAdapter.DeleteQueryByIdTime(sBoxCardNum);
-                    //if(network)
-                    //   this.dbo_GoodsTableAdapter1.DeleteQueryByIdTime(sBoxCardNum);
-                }
-                catch (System.Exception e2)
-                {
-                    MessageBox.Show("清除缓存数据失败！");
-                }
+               // MessageBox.Show("写卡失败！");
+                PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
                 clearMemProperties();
                 clearPropShow();
                 return;
@@ -309,17 +339,7 @@ namespace Distributor
             progressBar1.Refresh();
             if (myCfCard.Write(sCarNum, 1) != 0)
             {
-                MessageBox.Show("写卡失败！");
-                try
-                {
-                    //this.goodsTableAdapter.DeleteQueryByIdTime(sBoxCardNum);
-                    //if(network)
-                     //   this.dbo_GoodsTableAdapter1.DeleteQueryByIdTime(sBoxCardNum);
-                }
-                catch (System.Exception e2)
-                {
-                    MessageBox.Show("清除缓存数据失败！");
-                }
+                PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
                 clearMemProperties();
                 clearPropShow();
                 return;
@@ -332,17 +352,8 @@ namespace Distributor
             progressBar1.Refresh();
             if (myCfCard.Write2(sStartTime2,6) != 0)
             {
-                MessageBox.Show("写卡失败！");
-                try
-                {
-                  //  this.goodsTableAdapter.DeleteQueryByIdTime(sBoxCardNum);
-                   // if(network)
-                     //   this.dbo_GoodsTableAdapter1.DeleteQueryByIdTime(sBoxCardNum);
-                }
-                catch (System.Exception e4)
-                {
-                    MessageBox.Show("清除缓存数据失败！");
-                }
+                PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
+
                 clearMemProperties();
                 clearPropShow();
                 return;
@@ -378,17 +389,8 @@ namespace Distributor
             sStartSpotNum = S_START_SPOT_NUM;
             if (myCfCard.Write(S_START_SPOT_NUM,9) != 0)
             {
-                MessageBox.Show("出发地点写入失败！");
-                try
-                {
-                    //this.goodsTableAdapter.DeleteQueryByIdTime(sBoxCardNum);
-                    //if(net------------==------work)
-                      //  this.dbo_GoodsTableAdapter1.DeleteQueryByIdTime(sBoxCardNum);
-                }
-                catch (System.Exception e5)
-                {
-                    MessageBox.Show("清除缓存数据失败！");
-                }
+              //  MessageBox.Show("出发地点写入失败！");
+                PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
                 clearMemProperties();
                 clearPropShow();
                 return;
@@ -404,17 +406,21 @@ namespace Distributor
             if (myCfCard.Write(sInfoW, 10) == 0)
             {
                 //MessageBox.Show("写卡成功！");
+
+               // !@!#!#!#!#
+                PlaySound("\\User_Storage\\sound\\suc.wav", IntPtr.Zero, 0x0002);
+                Updater.insertTask(sBoxCardNum, sCarNum, sStartTime, N_START_SPOT_NUM,0);
             } 
             else
             {
-                MessageBox.Show("写卡失败！");
+                PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
                 try
                 {
                     //this.goodsTableAdapter.DeleteQueryByIdTime(sBoxCardNum);
                   //  if(network)
                     //    this.dbo_GoodsTableAdapter1.DeleteQueryByIdTime(sBoxCardNum);
                 }
-                catch (System.Exception e7)
+                catch (System.Exception )
                 {
                     MessageBox.Show("清除缓存数据失败！");
                 }
@@ -435,95 +441,40 @@ namespace Distributor
             this.pictureBox1.Visible = false;
             this.pictureBox2.Visible = true;
             pictureBox2.Refresh();
-            networkupdate();
+           // networkupdate();
             pictureBox2.Visible = false;
             this.pbReadBoxCard.Enabled = true;
             clearPropShow();
             clearMemProperties();
             myCfCard.disconnect();
         }
-        public void networkupdate()
-        {
-            if (network)
-            {
-                try
-                {
-                    //      if ((((int)(this.boxTableAdapter.ScalarQueryByIdState(sBoxCardNum))) != 1) ||
-                    //         (((int)(this.goodsTableAdapter.ScalarQueryByBoxIdTryInsert(sBoxCardNum))) != 0))
 
-                    //由于没有添加车牌号和箱子号 没法设置本信息
-                    //  if ((((int)(this.dbo_BoxTableAdapter1.ScalarQueryByIdState(sBoxCardNum))) != 1) ||
-                    //      (((int)(this.dbo_GoodsTableAdapter1.ScalarQueryByBoxIdTryInsert(sBoxCardNum))) != 0))
-                    //{
-                    //    MessageBox.Show("您的信息有误");
-                    //    clearMemProperties();
-                    //    clearPropShow();
-                    //    return;
-                    //}
-                    //else
-                    {
-                        try
-                        {
-                            //this.goodsTableAdapter.InsertQueryDistributor(sBoxCardNum, sCarNum, sStartTime, N_START_SPOT_NUM);
-                            // MessageBox.Show(sBoxCardNum.ToString() + "+" + sCarNum.ToString() + "+" + sStartTime.ToString() + "+" + N_START_SPOT_NUM.ToString());
-                            this.dbo_GoodsTableAdapter1.InsertQueryDistributoer(sBoxCardNum, sCarNum, sStartTime, N_START_SPOT_NUM);
-
-                        }
-                        catch (System.Exception e1)
-                        {
-                            //if (MessageBox.Show("信息插入失败！终止本次操作？" + e1.Message, "提示",
-                            //    MessageBoxButtons.OKCancel, MessageBoxIcon.Question,
-                            //    MessageBoxDefaultButton.Button1) == DialogResult.OK)
-                            {
-                                MessageBox.Show("写卡成功但数据库连接失败,可出站！");
-                                clearMemProperties();
-                                clearPropShow();
-                                return;
-                            }
-                        }
-                    }
-                }
-                catch (System.Exception e2)
-                {
-                    if (MessageBox.Show("数据库连接失败！终止本次操作？" + e2.Message, "提示",
-                        MessageBoxButtons.OKCancel, MessageBoxIcon.Question,
-                        MessageBoxDefaultButton.Button1) == DialogResult.OK)
-                    {
-                        clearMemProperties();
-                        clearPropShow();
-                        return;
-                    }
-                }
-            }
-        }
         private void Form1_Load(object sender, EventArgs e)
         {
+            panel1.Visible = false;
             comboBox1.SelectedIndex = 0;
             S_START_SPOT_NUM = stationID();
             N_START_SPOT_NUM = int.Parse(S_START_SPOT_NUM);
+
+            call.OnActiveEvent += new Call.NotifyEvent(OnCallAnwserEvent);
+            call.OnIncomingEvent += new Call.NotifyEvent(OnCallInEvent);
+            call.OnHangupEvent += new Call.NotifyEvent(OnCallHangupEvent);
+            call.OnDialingEvent += new Call.NotifyEvent(OnCallDialingEvent);
+            ras.OnConnectedEvent += new Ras.NotifyEvent(OnConnectedEvent);
+            ras.OnDisconnectedEvent += new Ras.NotifyEvent(OnDisconnectedEvent);
+
+            if (checknet())
+                NetPIC.BackColor = Color.Green;
+            else
+                NetPIC.BackColor = Color.Red;
+
             pictureBox1.Visible = false;
             pictureBox2.Visible = false;
-            if (TranspoartSystemDataSetUtil.DesignerUtil.IsRunTime())
-            {
-                // TODO: 删除此行代码以移除“transpoartSystemDataSet.Goods”的默认 AutoFill。
- //               this.goodsTableAdapter.Fill(this.transpoartSystemDataSet.Goods);
-            }
-            if (TranspoartSystemDataSetUtil.DesignerUtil.IsRunTime())
-            {
-                // TODO: 删除此行代码以移除“transpoartSystemDataSet.Box”的默认 AutoFill。
-//                this.boxTableAdapter.Fill(this.transpoartSystemDataSet.Box);
-            }
-            if (TranspoartSystemDataSetUtil.DesignerUtil.IsRunTime())
-            {
-                // TODO: 删除此行代码以移除“transpoartSystemDataSet.Driver”的默认 AutoFill。
-//                this.driverTableAdapter.Fill(this.transpoartSystemDataSet.Driver);
-            }
-            
+            SEUIC.Phone.Initialize.Init();
+            backgroundwork();
             clearPropShow();
-
-
-
         }
+        //获得始发站号
         public string stationID()
         {
             StreamReader objReader = new StreamReader("\\User_Storage\\station.ini");
@@ -532,12 +483,18 @@ namespace Distributor
             objReader.Close();
             return sLine;
         }
+        //获得电话号码
+        public string phonenum()
+        {
+            StreamReader objReader = new StreamReader("\\User_Storage\\phone.ini");
+            string sLine = "";
+            sLine = objReader.ReadLine();
+            objReader.Close();
+            return sLine;
+        }
 
-        //"四道口",//36
-        //"儿童医院",//37
-        //"一区",//38
-        //"扣钟庙",//46
-        //"皇城根",//69
+
+        #region 全局变量
         public string S_START_SPOT_NUM = "69";//00-99数字必须为2位;
         public int N_START_SPOT_NUM = 69;
         private const string CAR_CARD = "43";
@@ -554,6 +511,68 @@ namespace Distributor
         private string cMissionState;
         private string sCarCardNum;
         private string sBoxCardNum;
+        //拨号
+        #endregion
+
+        private string entryname = "Dail-up";
+        Ras ras = Ras.GetInstance();
+        bool bConnected = false;
+        public delegate void connectinvoke();
+
+        private bool bdoconnect = false;
+
+        private Call call = Call.GetInstance();
+
+        int iSMSIndexDelete = 0;
+
+        int SND_FILENAME = 0x0002;
+        [DllImport("Coredll.dll")]
+        private extern static bool PlaySound(string strFile, IntPtr hMod, int flag);
+
+
+        
+        private void OnDisconnectedEvent()
+        {
+            NetPIC.BackColor = Color.Red;
+        }
+        private void OnConnectedEvent()
+        {
+            NetPIC.BackColor = Color.Green;
+        }
+
+        //来电时收到该事件
+        private void OnCallInEvent()
+        {
+            label4.Text = "指挥中心来电,请接听";
+            
+            //.Visible = true;
+            panel1.Visible = true;
+            ringthd = new Thread(ring);
+            ringthd.Start();
+
+        }
+
+        //挂断时收到该事件
+        private void OnCallHangupEvent()
+        {
+            if (label4.Text == "指挥中心来电,请接听")
+                ringthd.Abort();
+            //ShowMessage("Phone hangup");
+            label4.Text = "呼叫指挥中心";
+            panel1.Visible = false;
+
+
+        }
+        //应答时收到该事件
+        private void OnCallAnwserEvent()
+        {
+            //ShowMessage("Phone accept");
+        }
+        //拨打电话收到该事件
+        private void OnCallDialingEvent()
+        {
+            //ShowMessage("Is dialing");
+        }
            
         private void button1_Click(object sender, EventArgs e)
         {
@@ -607,9 +626,16 @@ namespace Distributor
             //    status2.BatteryLifeTime.ToString()+"=" + Percent2.ToString() + "+" +
             //    status.BackupBatteryLifePercent.ToString() + "+" + status.BackupBatteryLifeTime.ToString());
             if (status2.BatteryLifePercent < 50)
-                bat.Text = "电量不足！请尽快充电或更换电池！";
+            {
+                bat.Text = "电量不足！请尽快充电！";
+                bat.ForeColor = Color.Red;
+            }
             else
+            {
                 bat.Text = "电量：" + status2.BatteryLifePercent.ToString() + "%";
+                bat.ForeColor = Color.Green;
+            }
+            
         }
 
         private void tbCarNum_TextChanged(object sender, EventArgs e)
@@ -638,6 +664,95 @@ namespace Distributor
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+        }
+
+        Thread mytask;
+
+        public void backgroundwork()
+        {
+            mytask = new Thread(NettaskTH);
+            mytask.Start();
+        }
+
+        public void NettaskTH() 
+        {
+            NetInvoke updatetask = new NetInvoke(Net_status);
+           // TaskInvoke statusreport = new StatusInvoke(updateUIprocess);
+            while (true)
+            {
+               
+
+                if (Updater.isBusy())
+                {
+                    this.BeginInvoke(updatetask, new Object[] {false });
+                    {
+                        if (!checknet())
+                        {
+                            dialup();
+                            //System.Threading.Thread.Sleep(10000);
+                        }
+                        Updater.doWork();
+                    }
+       
+                }
+                else
+                    this.BeginInvoke(updatetask, new Object[] { true });
+                System.Threading.Thread.Sleep(10000);
+
+            }
+        }
+
+        public delegate void NetInvoke(bool netstatus);
+        public delegate void TaskInvoke(bool taskstatus);
+
+        public void Net_status(bool netstatus)
+        {
+            if (netstatus)
+                taskPIC.BackColor = Color.Green;
+            else
+                taskPIC.BackColor = Color.Red;
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            pictureBox5.Image = Properties.Resources.phoneupDonw;
+            this.Refresh();
+            pictureBox5.Refresh();
+            if (label4.Text == "呼叫指挥中心")
+            {
+                string strphnum = phonenum();
+                label4.Text = "呼叫中请等待";
+                SEUIC.Phone.Call.MakeCall(strphnum);
+             //   MessageBox.Show(strphnum);
+                OnCallDialingEvent();
+            }
+            if (label4.Text == "指挥中心来电,请接听")
+            {
+                SEUIC.Phone.Call.Answer();
+                ringthd.Abort();
+                this.OnCallAnwserEvent();
+            }
+            pictureBox5.Image=Properties.Resources.phoneupUp;
+            this.Refresh();
+            pictureBox5.Refresh();
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            pictureBox6.Image = Properties.Resources.phonedownDown;
+            this.Refresh();
+            pictureBox5.Refresh();
+            SEUIC.Phone.Call.HangUp();
+            this.OnCallHangupEvent();
+            pictureBox6.Image = Properties.Resources.phonedownUp;
+            this.Refresh();
+            pictureBox5.Refresh();
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            panel1.Visible = !panel1.Visible;
+            label4.Text = "呼叫指挥中心";
         }
    }
     public struct SYSTEM_POWER_STATUS_EX2
