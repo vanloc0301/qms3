@@ -30,3 +30,11 @@ C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\PDA
 C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\PDA程序\Collector\Collector\Collector\obj\Debug\Collector.csproj.GenerateResource.Cache
 C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\PDA程序\Collector\Collector\Collector\obj\Debug\Collector.exe
 C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\PDA程序\Collector\Collector\Collector\obj\Debug\Collector.pdb
+C:\Users\will\Desktop\qms3\PDA程序\Collector\Collector\Collector\bin\Debug\Collector.exe
+C:\Users\will\Desktop\qms3\PDA程序\Collector\Collector\Collector\bin\Debug\Collector.pdb
+C:\Users\will\Desktop\qms3\PDA程序\Collector\Collector\Collector\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\will\Desktop\qms3\PDA程序\Collector\Collector\Collector\obj\Debug\Collector.Form1.resources
+C:\Users\will\Desktop\qms3\PDA程序\Collector\Collector\Collector\obj\Debug\Collector.Properties.Resources.resources
+C:\Users\will\Desktop\qms3\PDA程序\Collector\Collector\Collector\obj\Debug\Collector.csproj.GenerateResource.Cache
+C:\Users\will\Desktop\qms3\PDA程序\Collector\Collector\Collector\obj\Debug\Collector.exe
+C:\Users\will\Desktop\qms3\PDA程序\Collector\Collector\Collector\obj\Debug\Collector.pdb

@@ -178,12 +178,12 @@ namespace Distributor.CfCard
         //连接卡
         public int request(ref string sCardNum)
         {
-            int count = 10;
+            int count = 20;
             if (RmuInventory(hReader, flagAnti, AntiQ, flagCrc) == 1)
             {
                 if (GetReceivedUII() == 1)
                 {
-                    MessageBox.Show("没有检测到卡片！请重试！");
+                    //MessageBox.Show("没有检测到卡片！请重试！");
                     return 1;
                 }
                 while (RmuStopGet(hReader, flagCrc) == 0 && count > 0)
@@ -195,13 +195,13 @@ namespace Distributor.CfCard
             }
             else
             {
-                MessageBox.Show("没有检测到卡片！");
+               // MessageBox.Show("没有检测到卡片！");
                 return 1;
 
             }
             if (count == 0)
             {
-                MessageBox.Show("没有检测到卡片！");
+              //  MessageBox.Show("没有检测到卡片！");
                 return 1;
             }
             return 0;
@@ -348,7 +348,7 @@ namespace Distributor.CfCard
                 }
                 if (suc)
                 {
-                    MessageBox.Show("写入失败请重试！");
+                   // MessageBox.Show("写入失败请重试！");
                     return 1;
                 }
                 i += 8;
@@ -382,7 +382,7 @@ namespace Distributor.CfCard
                 }
                 if (suc)
                 {
-                    MessageBox.Show("写入失败请重试！");
+                  //  MessageBox.Show("写入失败请重试！");
                     return 1;
                 }
                 i += 8;
@@ -452,7 +452,7 @@ namespace Distributor.CfCard
             }
             if (sign)
             {
-                MessageBox.Show("读出数据失败！");
+             //   MessageBox.Show("读出数据失败！");
             }
             return x;
         }

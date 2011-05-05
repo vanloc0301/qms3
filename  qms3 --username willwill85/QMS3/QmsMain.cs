@@ -67,6 +67,7 @@ namespace QMS3
             dateTimePicker_82.Value = System.DateTime.Now;
             dateTimePicker3.Value = System.DateTime.Now;
             dateTimePicker_8.Value = System.DateTime.Now;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.QMS3_Close);
 
             #region just for demo
             //try
@@ -85,6 +86,10 @@ namespace QMS3
             //}
             #endregion
            // treeviewload(6);
+        }
+        private void QMS3_Close(object sender, EventArgs e)
+        {
+            mytask.Abort();
         }
 
         //***********************所有功能TAB请修改下面的tree view操作*********************
@@ -132,17 +137,7 @@ namespace QMS3
                 {
                     #region 转运中心结算
                     MainTab.SelectTab(10);
-                    if (!ifcon)
-                    {
-                        if (TransCenter.connect())
-                        {
-                            ifcon = true;
-                        }
-                        else
-                        {
-                            MainTab.SelectTab(0);
-                        }
-                    }
+
                     break;
                     #endregion
                 }
@@ -6215,6 +6210,13 @@ drop table tempTable;";
         }
         private void button3_Click(object sender, EventArgs e)
         {
+            if (!ifcon)
+            {
+                if (TransCenter.connect())
+                {
+                    ifcon = true;
+                }
+            }
             double x;
             progressBar5.Visible = true;
             progressBar5.Value = 0;
@@ -6274,8 +6276,8 @@ drop table tempTable;";
                     }
                     catch (IOException ex)
                     {
-                        MessageBox.Show("打开日志文件失败！");
-                        label87.Text = "";
+                        label87.Text ="打开日志文件失败！";
+                        
                         progressBar5.Visible = false;
                         progressBar5.Value = 0;
                         progressBar5.Refresh();
@@ -6291,8 +6293,8 @@ drop table tempTable;";
                 }
                 else
                 {
-                    MessageBox.Show("区域内检查到" + Ccount.ToString() + "张卡片！\n请确保1张卡片在扫描区域中再操作！");
-                    label87.Text = "";
+                    label87.Text ="区域内检查到" + Ccount.ToString() + "张卡片！\n请确保1张卡片在扫描区域中再操作！";
+                    
                     progressBar5.Visible = false;
                     progressBar5.Value = 0;
                     progressBar5.Refresh();
@@ -6301,7 +6303,7 @@ drop table tempTable;";
             }
             else
             {
-                MessageBox.Show("没有读到卡片！");
+                label87.Text ="没有读到卡片！";
                 label87.Text = "";
                 progressBar5.Visible = false;
                 progressBar5.Value = 0;
@@ -6332,10 +6334,10 @@ drop table tempTable;";
                             stream = new FileStream(fileName, FileMode.Append);
 
                         }
-                        catch (IOException ex)
+                        catch (IOException )
                         {
-                            MessageBox.Show("打开日志文件失败！");
-                            label87.Text = "";
+                            label87.Text ="打开日志文件失败！";
+                            
                             progressBar5.Visible = false;
                             progressBar5.Value = 0;
                             progressBar5.Refresh();
@@ -6352,7 +6354,7 @@ drop table tempTable;";
                 }
                 catch
                 {
-                    MessageBox.Show("数据库同步失败！（错误1012）");
+                    label87.Text ="数据库同步失败！（错误1012）";
                     listBox1.Items.Add(info + "   " + "数据库同步失败！");
                     string fileName = "./log/" + System.DateTime.Now.ToString("yyyyMMdd") + ".log";
                   
@@ -6364,8 +6366,8 @@ drop table tempTable;";
                     }
                     catch (IOException ex)
                     {
-                        MessageBox.Show("打开日志文件失败！");
-                        label87.Text = "";
+                        label87.Text ="打开日志文件失败！";
+                        
                         progressBar5.Visible = false;
                         progressBar5.Value = 0;
                         progressBar5.Refresh();
@@ -6393,8 +6395,8 @@ drop table tempTable;";
                         }
                         catch (IOException ex)
                         {
-                            MessageBox.Show("打开日志文件失败！");
-                            label87.Text = "";
+                            label87.Text ="打开日志文件失败！";
+                            
                             progressBar5.Visible = false;
                             progressBar5.Value = 0;
                             progressBar5.Refresh();
@@ -6410,7 +6412,7 @@ drop table tempTable;";
                 }
                 catch
                 {
-                    MessageBox.Show("数据库同步失败！（错误1013）");
+                    label87.Text ="数据库同步失败！（错误1013）";
                     listBox1.Items.Add(info + "   " + "数据库同步失败！");
                     string fileName = "./log/" + System.DateTime.Now.ToString("yyyyMMdd") + ".log";
                     Stream stream;
@@ -6421,8 +6423,8 @@ drop table tempTable;";
                     }
                     catch (IOException ex)
                     {
-                        MessageBox.Show("打开日志文件失败！");
-                        label87.Text = "";
+                        label87.Text ="打开日志文件失败！";
+                        //label87.Text = "";
 
                         progressBar5.Visible = false;
                         progressBar5.Value = 0;
@@ -6435,7 +6437,7 @@ drop table tempTable;";
                         writer.Close();
                         writer.Dispose();
                     }
-                    label87.Text = "";
+                   // label87.Text = "";
                     progressBar5.Visible = false;
                     progressBar5.Value = 0;
                     progressBar5.Refresh();
@@ -6444,7 +6446,7 @@ drop table tempTable;";
             }
             else
             {
-                MessageBox.Show("操作失败！");
+                label87.Text ="操作失败！";
                 listBox1.Items.Add(info);
                 string fileName = "./log/" + System.DateTime.Now.ToString("yyyyMMdd") + ".log";
                 Stream stream;
@@ -6474,9 +6476,9 @@ drop table tempTable;";
                 progressBar5.Refresh();
                 return;
             }
-            MessageBox.Show("操作成功！");
+            label87.Text ="操作成功！";
             textBox1.Text = "";
-            label87.Text = "";
+            //label87.Text = "";
             label87.Refresh();
             progressBar5.Visible = false;
             progressBar5.Value = 0;
@@ -7672,6 +7674,157 @@ drop table tempTable;";
             CarNum_28.Select(CarNum_28.Text.Length, CarNum_28.Text.Length);
         }
 
+#region 垃圾转运中心自动服务
+
+        Thread mytask;
+        private void checkBox1_CheckedChanged_1(object sender, EventArgs e)
+        {
+               
+            if (taskstart.Checked)
+            {
+                mytask = new Thread(UHFtaskTH);
+                mytask.Start();
+            }
+            else
+            {
+                mytask.Abort();
+            }
+        
+        }
+        public void netupdate(ref Task A_card)
+        {
+            int count = 0;
+            //MessageBox.Show("OK");
+            try
+            {
+                string sqlout;
+                sqlout = (this.dbo_GoodsTableAdapter.ScalarQueryNumofGoods(A_card.StartTime, A_card.CarNum).ToString());
+                count = int.Parse(sqlout);
+                if (count < 1)
+                {
+                    A_card.log=("垃圾站:" + TransCenter.StationName[A_card.StartSpot - 31] + " 网络出错！");
+                    this.dbo_GoodsTableAdapter.InsertQuerya(A_card.BOXID, A_card.CarNum, A_card.StartTime, A_card.EndTime, -1, 0, A_card.StartSpot);
+       
+                }
+
+            }
+            catch
+            {
+                A_card.log = "数据库同步失败！（错误1012）";
+            }
+            try
+            {
+                if (count == 1)
+                {
+                    this.dbo_GoodsTableAdapter.UpdateGoodsByTime(1, 0, A_card.EndTime, A_card.StartTime,A_card.CarNum);
+                   
+                    
+                }
+            }
+            catch
+            {
+                A_card.log = "数据库同步失败！（错误1013）";
+               
+            }
+        }
+        public delegate void LogInvoke(Task task);
+        public delegate void StatusInvoke(int percent, string label);
+        public void UHFtaskTH()
+        {
+            if (!UHF.connect())
+                return;
+
+
+            while (true)
+            {
+                Task A_card = new Task();
+                LogInvoke updatelog = new LogInvoke(updateUIlog);
+                StatusInvoke statusreport = new StatusInvoke(updateUIprocess);
+
+                System.Threading.Thread.Sleep(1);
+
+                this.Invoke(statusreport, new object[] { 0, "寻卡" });
+
+                UHF.requestID(ref A_card);
+
+                if (!A_card.status)
+                    continue;
+
+                this.Invoke(statusreport, new object[] { 30, "读卡ID" });
+
+                UHF.requestData(ref A_card);
+
+                this.Invoke(statusreport, new object[] { 80, "读取数据" });
+                if (A_card.status)
+                {
+                    netupdate(ref A_card);
+
+                    this.Invoke(statusreport, new object[] { 90, "同步数据库" });
+                }
+
+                this.Invoke(updatelog, new Object[] { A_card });
+
+                this.Invoke(statusreport, new object[] { 100, "任务结束" });
+
+            }
+        }
+        public void updateUIlog(Task A_card)//更新UI 书写log
+        {
+            string temp =
+                A_card.log + " \t"
+                + A_card.BOXID + " \t"
+                + A_card.CarNum + " \t"
+                + A_card.StartTime + " \t"
+                + A_card.EndTime + " \t"
+                + A_card.StartSpot + " ";
+
+            if (listBox1.Items.IndexOf(temp) == -1 || listBox1.Items.Count == 0)
+                if (A_card.log != "读取数据失败")
+                {
+                    //listBox1.Items.Add(temp);
+                    listBox1.Items.Insert(0, temp);
+                    string fileName = "./log/" + System.DateTime.Now.ToString("yyyyMMdd") + ".log";
+                    Stream stream;
+                    try
+                    {
+                        stream = new FileStream(fileName, FileMode.Append);
+
+                    }
+                    catch (IOException ex)
+                    {
+                        label87.Text = "打开日志文件失败！";
+
+                        progressBar5.Visible = false;
+                        progressBar5.Value = 0;
+                        progressBar5.Refresh();
+                        return;
+                    }
+                    using (StreamWriter writer = new StreamWriter(stream))
+                    {
+                        writer.Write(temp + "\n");
+                        writer.Close();
+                        writer.Dispose();
+                    }
+                }
+        }
+
+
+
+        public void updateUIprocess(int percent, string label)
+        {
+            label88.Text = "目前状态:"+label;
+            progressBar5.Value = percent;
+        }
+
+
+
+
+#endregion
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+        }
 
 
 

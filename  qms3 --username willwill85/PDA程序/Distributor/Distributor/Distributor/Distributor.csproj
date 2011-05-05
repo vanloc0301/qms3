@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{BD1AC808-F355-42A4-8380-5AB26BCCBD97}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -18,7 +18,7 @@
     <NativePlatformName>Windows Mobile 6 Professional SDK</NativePlatformName>
     <FormFactorID>
     </FormFactorID>
-    <ApplicationIcon>kwrite.ico</ApplicationIcon>
+    <ApplicationIcon>UniButtonDemo.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,19 +48,35 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="mscorlib" />
+    <Reference Include="Microsoft.WindowsCE.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="mscorlib">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SEUIC.Phone, Version=1.0.0.5, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>CfCard\SEUIC.Phone.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.SqlClient, Version=3.0.3600.0, Culture=neutral, PublicKeyToken=3be235df1c8d2ad3, processorArchitecture=MSIL">
-      <Private>False</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Windows.Forms.DataGrid" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Forms.DataGrid">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CfCard\CfCard.cs" />
+    <Compile Include="CfCard\func.cs" />
+    <Compile Include="CfCard\netTask.cs" />
+    <Compile Include="CfCard\DB.cs" />
     <Compile Include="db_rfidtestDataSet.cs">
       <DependentUpon>db_rfidtestDataSet.xsd</DependentUpon>
     </Compile>
@@ -134,6 +150,11 @@
   <ItemGroup>
     <Content Include="kwrite.ico" />
     <Content Include="Resources\btReadDown.gif" />
+    <Content Include="UniButtonDemo.ico" />
+    <None Include="Resources\phonedownDown.png" />
+    <None Include="Resources\phonedownUp.png" />
+    <None Include="Resources\phoneupDonw.png" />
+    <None Include="Resources\phoneupUp.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
   <ProjectExtensions>

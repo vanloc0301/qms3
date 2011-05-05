@@ -303,7 +303,7 @@ namespace QMS3
             //设置天线
             for (int i = 0; i < 4; i++)
             {
-                status = Net_SetAntenna(m_hScanner, m_antenna_sel);
+                status = Net_SetAntenna(m_hScanner, 1);;
                 if (status == OK)
                     break;
                 m_antenna_sel = m_antenna_sel * 2;
@@ -390,7 +390,7 @@ namespace QMS3
             //设置天线
             for (int i = 0; i < 4; i++)
             {
-                status = Net_SetAntenna(m_hScanner, m_antenna_sel);
+                status = Net_SetAntenna(m_hScanner, 1);;
                 if (status == OK)
                     break;
                 m_antenna_sel = m_antenna_sel * 2;
@@ -547,7 +547,7 @@ namespace QMS3
             //设置天线
             for (int i = 0; i < 4; i++)
             {
-                status = Net_SetAntenna(m_hScanner, m_antenna_sel);
+                status = Net_SetAntenna(m_hScanner, 1);;
                 if (status == OK)
                     break;
                 m_antenna_sel = m_antenna_sel * 2;
@@ -662,7 +662,7 @@ namespace QMS3
             //设置天线
             for (int i = 0; i < 4; i++)
             {
-                status = Net_SetAntenna(m_hScanner, m_antenna_sel);
+                status = Net_SetAntenna(m_hScanner, 1);;
                 if (status == OK)
                     break;
                 m_antenna_sel = m_antenna_sel * 2;
@@ -862,7 +862,7 @@ namespace QMS3
                 //设置天线
                 for (int i = 0; i < 4; i++)
                 {
-                    status = Net_SetAntenna(m_hScanner, m_antenna_sel);
+                    status = Net_SetAntenna(m_hScanner, 1);;
                     if (status == OK)
                         break;
                     m_antenna_sel = m_antenna_sel * 2;
@@ -958,7 +958,7 @@ namespace QMS3
             //设置天线
             for (int i = 0; i < 4; i++)
             {
-                status = Net_SetAntenna(m_hScanner, m_antenna_sel);
+                status = Net_SetAntenna(m_hScanner, 1);;
                 if (status == OK)
                     break;
                 m_antenna_sel = m_antenna_sel * 2;
@@ -1030,7 +1030,7 @@ namespace QMS3
             //设置天线
             for (int i = 0; i < 4; i++)
             {
-                status = Net_SetAntenna(m_hScanner, m_antenna_sel);
+                status = Net_SetAntenna(m_hScanner, 1);;
                 if (status == OK)
                     break;
                 m_antenna_sel = m_antenna_sel * 2;

@@ -541,7 +541,7 @@ namespace QMS3.CfCardPC
             }
 
 
-            int m_antenna_sel = 1;
+            int m_antenna_sel = 0x01;
             int status = -1;
 
 
@@ -554,10 +554,10 @@ namespace QMS3.CfCardPC
             ;
             byte[] AccessPassWord = new byte[4];
 
-            for (int n = 0; n < 50; n++)
+            for (int n = 0; n < 100; n++)
             {
                 //设置天线
-                for (int i = 0; i < 4; i++)
+                for (int i = 0; i < 2; i++)
                 {
                     status = SetAntenna(m_hScanner, m_antenna_sel, RS485Address);
                     if (status == OK)
@@ -788,10 +788,10 @@ namespace QMS3.CfCardPC
             ptr = Convert.ToByte("0");          //准备读的首地址是0
             len = Convert.ToByte("1");          //准备读的长度是1
 
-            for (int n = 0; n < 50; n++)
+            for (int n = 0; n < 100; n++)
             {
                 //设置天线
-                for (int i = 0; i < 4; i++)
+                for (int i = 0; i < 2; i++)
                 {
                     status = SetAntenna(m_hScanner, m_antenna_sel, RS485Address);
                     if (status == OK)
