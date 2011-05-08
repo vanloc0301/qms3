@@ -89,7 +89,11 @@ namespace QMS3
         }
         private void QMS3_Close(object sender, EventArgs e)
         {
-            mytask.Abort();
+            try
+            {
+                mytask.Abort();
+            }
+            catch { }
         }
 
         //***********************所有功能TAB请修改下面的tree view操作*********************
