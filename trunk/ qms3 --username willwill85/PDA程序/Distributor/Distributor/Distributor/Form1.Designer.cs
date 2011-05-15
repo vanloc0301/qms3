@@ -66,6 +66,9 @@
             this.NetPIC = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -317,6 +320,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.SlateBlue;
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.pictureBox6);
             this.panel1.Controls.Add(this.pictureBox5);
@@ -324,20 +330,52 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(220, 268);
             // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.SlateBlue;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular);
+            this.textBox1.ForeColor = System.Drawing.Color.White;
+            this.textBox1.Location = new System.Drawing.Point(46, 94);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(122, 26);
+            this.textBox1.TabIndex = 5;
+            this.textBox1.LostFocus += new System.EventHandler(this.textbox1_focus);
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(46, 96);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(123, 24);
+            this.label6.Text = "呼叫指挥中心";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(46, 72);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(123, 24);
+            this.label5.Text = "呼叫指挥中心";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(17, 43);
+            this.label4.Location = new System.Drawing.Point(25, 20);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(123, 33);
-            this.label4.Text = "呼叫指挥中心";
+            this.label4.Size = new System.Drawing.Size(158, 53);
+            this.label4.Text = "请用方向剪头选择呼叫目标";
             // 
             // pictureBox6
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(131, 115);
+            this.pictureBox6.Location = new System.Drawing.Point(129, 176);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(75, 75);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -347,7 +385,7 @@
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.SlateBlue;
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(25, 115);
+            this.pictureBox5.Location = new System.Drawing.Point(25, 176);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(75, 75);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -453,6 +491,9 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

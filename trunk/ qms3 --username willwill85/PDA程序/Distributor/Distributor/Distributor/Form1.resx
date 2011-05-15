@@ -344,9 +344,6 @@
   <metadata name="db_rfidtestDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>631, 54</value>
   </metadata>
-  <metadata name="db_rfidtestDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>631, 54</value>
-  </metadata>
   <metadata name="dboGoodsBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>399, 91</value>
   </metadata>
@@ -386,8 +383,8 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAK8AAAClCAIAAAClazpEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAOuwAA
-        DrsBx/jUNgAAPL1JREFUeF7tnQdcVFf6983WbMrmn6qJCoK0oQxDB0uiiTHdGDdVY9QYEzX22CvSkSK9
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAOswAA
+        DrMB43LcUwAAPL1JREFUeF7tnQdcVFf6983WbMrmn6qJCoK0oQxDB0uiiTHdGDdVY9QYEzX22CvSkSK9
         F+m9VwERBEFQBFTsJYk1iSZujCbGMu/vuWe4XoYBASmXfZnPs9lxuOXcc77naafch+Z9UvfQQ4PYRy4f
         9NBD8kGDmv+t+LnF/w01frhW58bfnn7uyj8effjxx//xz7/9/R8PPfzPh/7610EP/WXQX/7S7smqLjjw
         WxdqAC11+86g27cH3b0z6A7k9t0bN+7cvPbrn1evqp29pnb6r4/c/csPZ2/yLdvWLZRbHDTMn9pC8Asv
@@ -652,8 +649,8 @@
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAK8AAAClCAIAAAClazpEAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAOuwAA
-        DrsBx/jUNgAAOwVJREFUeF7tnXd4E9e67r3POfecc597zl9377vPTnbo2JZVLMmSbFNTCCk7IZWQkBAg
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAOswAA
+        DrMB43LcUwAAOwVJREFUeF7tnXd4E9e67r3POfecc597zl9377vPTnbo2JZVLMmSbFNTCCk7IZWQkBAg
         hFACpvdebEzHGNyrXOXebTAGG4yNe8G9d5uWkEZ2dkJ03zUjyWO5aDRyAbbzfE8eIa81s2Z9v3m/b5UZ
         /WHNJ0V/+IMZh//urP7jg3//P//53//97//xb//r3//wn//xh3/9V7M//IvZv/yLGafjcWjCP3UVtdrs
         t8dmv/1m9vtjs8ew335/9OjxLz98/78r7/2l8uc//se//dsjs2/v/Wqcc0EDbO1i8n/6w9C27ED5rKyO
@@ -914,8 +911,8 @@
   <data name="pictureBox6.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAHkAAAB8CAYAAABNNx/6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAOvgAA
-        Dr4B6kKxwAAADQxJREFUeF7tnU2IHEUUxzfnHD3lFBBEJEK8LKI5BAmCX0HEkLjJaiQQIkZZJWxYhBXU
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAOtAAA
+        DrQBsTZ6LAAADQxJREFUeF7tnU2IHEUUxzfnHD3lFBBEJEK8LKI5BAmCX0HEkLjJaiQQIkZZJWxYhBXU
         k6IgKkJQ/EBkCcktgpuIRoM4WU38ABfxoBfBkwdPEUQt618z1dPdUx/vVVX39MyUMMRku2d73q/+r169
         96pmy+MHr4q5/N90WwCQ82u6bTA3PYCvVAbr8UMpwVXfe9Js1gDkb2fcM3RvQCSB/M5db4i/b7pZiBtv
         FOL114X4aVOcf/uHAvZLJ7+fcfApvQr/vaIgi127+mAZr/O7lwvga3tfE+Lee4U4fFiIpSUhXnxRiDNn
@@ -977,8 +974,8 @@
   <data name="pictureBox5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAHQAAAB1CAYAAACfxsWCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAOvgAA
-        Dr4B6kKxwAAAE5lJREFUeF7tnQl0FEUax4McsqLuivJ097m6roviihwSRJBjOVQQEeQSAYNyRMK9ICo8
+        YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAlwSFlzAAAOtQAA
+        DrUBY3GYyAAAE5lJREFUeF7tnQl0FEUax4McsqLuivJ097m6roviihwSRJBjOVQQEeQSAYNyRMK9ICo8
         vFAggqgs9w0iKAgsKMeKgqKsCOQi4YpAltNAOOUKV1L7/TtTSU9P9UxVH8mE6X6v3+So7umpX31Hfd9X
         NSV6dUxkUVIHmpUwbZlVZUnU/5qMlLpTmevKRl1fomzUDSVvirq5ZPmocvT6h6g7okqubB91LvFeqXtc
         O42C96vy5wRQO2fb+KGsRkKUK2fD5FtYjxlv2Xo+O5+t8K9NsP1Zo6w+tJsgnR4gLSa9KNVRTnym6E1l

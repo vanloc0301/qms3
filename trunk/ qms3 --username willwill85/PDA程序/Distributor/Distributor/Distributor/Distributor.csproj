@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CfCard\CfCard.cs" />
+    <Compile Include="CfCard\Phonelist.cs" />
     <Compile Include="CfCard\func.cs" />
     <Compile Include="CfCard\netTask.cs" />
     <Compile Include="CfCard\DB.cs" />

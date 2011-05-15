@@ -511,6 +511,7 @@ namespace Distributor
         private string cMissionState;
         private string sCarCardNum;
         private string sBoxCardNum;
+        private phone currentphone;
         //拨号
         #endregion
 
@@ -588,24 +589,89 @@ namespace Distributor
         {
             this.pbReadBoxCard.Image = Properties.Resources.btWriteDown;
         }
-
+        
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if ((e.KeyCode == System.Windows.Forms.Keys.Up))
             {
-                // Up
+                if (panel1.Visible == true)
+                {
+                    currentphone = phonelist.lastphone();
+                    label5.Text = currentphone.name;
+                    if (!currentphone.privatephone)
+                    {
+                        label6.Text = currentphone.phonenum;
+                        label6.Visible = true;
+                        textBox1.Visible = false;
+                    }
+                    else
+                    {
+                        textBox1.Visible = true;
+                        textBox1.Focus();
+                        label6.Visible = false;
+                    }
+                }
+                    
             }
             if ((e.KeyCode == System.Windows.Forms.Keys.Down))
             {
-                // Down
+                if (panel1.Visible == true)
+                {
+                    currentphone = phonelist.nextphone();
+                    label5.Text = currentphone.name;
+                    if (!currentphone.privatephone)
+                    {
+                        label6.Text = currentphone.phonenum;
+                        label6.Visible = true;
+                        textBox1.Visible = false;
+                    }
+                    else
+                    {
+                        textBox1.Visible = true;
+                        textBox1.Focus();
+                        label6.Visible = false;
+                    }
+                }
             }
             if ((e.KeyCode == System.Windows.Forms.Keys.Left))
             {
-                // Left
+                if (panel1.Visible == true)
+                {
+                    currentphone = phonelist.lastphone();
+                    label5.Text = currentphone.name;
+                    if (!currentphone.privatephone)
+                    {
+                        label6.Text = currentphone.phonenum;
+                        label6.Visible = true;
+                        textBox1.Visible = false;
+                    }
+                    else
+                    {
+                        textBox1.Visible = true;
+                        textBox1.Focus();
+                        label6.Visible = false;
+                    }
+                }
             }
             if ((e.KeyCode == System.Windows.Forms.Keys.Right))
             {
-                // Right
+                if (panel1.Visible == true)
+                {
+                    currentphone = phonelist.nextphone();
+                    label5.Text = currentphone.name;
+                    if (!currentphone.privatephone)
+                    {
+                        label6.Text = currentphone.phonenum;
+                        label6.Visible = true;
+                        textBox1.Visible = false;
+                    }
+                    else
+                    {
+                        textBox1.Visible = true;
+                        textBox1.Focus();
+                        label6.Visible = false;
+                    }
+                }
             }
             if ((e.KeyCode == System.Windows.Forms.Keys.Enter))
             {
@@ -615,7 +681,11 @@ namespace Distributor
             
 
         }
-
+        private void textbox1_focus(object sender, EventArgs e)
+        {
+            if(panel1.Visible)
+                textBox1.Focus();
+        }
         private void timer1_Tick(object sender, EventArgs e)
         {
             int Percent;
@@ -718,9 +788,13 @@ namespace Distributor
             pictureBox5.Image = Properties.Resources.phoneupDonw;
             this.Refresh();
             pictureBox5.Refresh();
-            if (label4.Text == "呼叫指挥中心")
+            if (label4.Text == "请用方向剪头选择呼叫目标")
             {
-                string strphnum = phonenum();
+                string strphnum;
+                if (currentphone.privatephone)
+                    strphnum = textBox1.Text;
+                else
+                    strphnum = label6.Text;
                 label4.Text = "呼叫中请等待";
                 SEUIC.Phone.Call.MakeCall(strphnum);
              //   MessageBox.Show(strphnum);
@@ -747,12 +821,35 @@ namespace Distributor
             pictureBox6.Image = Properties.Resources.phonedownUp;
             this.Refresh();
             pictureBox5.Refresh();
+            label5.Visible = false;
+            label6.Visible = false;
+            textBox1.Visible = false;
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
             panel1.Visible = !panel1.Visible;
-            label4.Text = "呼叫指挥中心";
+            label4.Text = "请用方向剪头选择呼叫目标";
+            phonelist.getxml();
+            currentphone = phonelist.nextphone();
+            currentphone = phonelist.lastphone();
+            textBox1.Text = "";
+            textBox1.Visible = true;
+            label6.Visible = true;
+            label5.Visible = true;
+            label5.Text = currentphone.name;
+            if (!currentphone.privatephone)
+            {
+                label6.Text = currentphone.phonenum;
+                label6.Visible = true;
+                textBox1.Visible = false;
+            }
+            else
+            {
+                textBox1.Visible = true;
+                textBox1.Focus();
+                label6.Visible = false;
+            }
         }
    }
     public struct SYSTEM_POWER_STATUS_EX2
