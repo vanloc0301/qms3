@@ -369,7 +369,7 @@
             this.label4.Location = new System.Drawing.Point(25, 20);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(158, 53);
-            this.label4.Text = "请用方向剪头选择呼叫目标";
+            this.label4.Text = "请用方向箭头选择呼叫目标";
             // 
             // pictureBox6
             // 
