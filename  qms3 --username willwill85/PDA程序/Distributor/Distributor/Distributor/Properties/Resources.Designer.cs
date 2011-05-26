@@ -85,6 +85,20 @@ namespace Distributor.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap failed {
+            get {
+                object obj = ResourceManager.GetObject("failed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap info {
+            get {
+                object obj = ResourceManager.GetObject("info", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap phonedownDown {
             get {
                 object obj = ResourceManager.GetObject("phonedownDown", resourceCulture);
@@ -109,6 +123,13 @@ namespace Distributor.Properties {
         internal static System.Drawing.Bitmap phoneupUp {
             get {
                 object obj = ResourceManager.GetObject("phoneupUp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap suc {
+            get {
+                object obj = ResourceManager.GetObject("suc", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

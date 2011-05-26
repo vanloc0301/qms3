@@ -35,7 +35,7 @@ namespace Distributor
             myCfCard = new Distributor.CfCard.CfCard();
             clearMemProperties();
         }
-
+        Form2 f2;
         public void dialup()
         {
             SEUIC.Phone.Initialize.UnInit();
@@ -132,7 +132,9 @@ namespace Distributor
             if (sInfoR != "B")
             {
                 //MessageBox.Show("此卡不是司机卡！");
-                PlaySound("\\User_Storage\\sound\\driver.wav", IntPtr.Zero, 0x0002);
+                f2.setmsg("此卡不是司机卡", 3, "\\User_Storage\\sound\\driver.wav");
+              //  PlaySound("\\User_Storage\\sound\\driver.wav", IntPtr.Zero, 0x0002);
+                
                 clearMemProperties();
                 clearPropShow();
                 return;
@@ -143,7 +145,9 @@ namespace Distributor
             if (myCfCard.ReadString(1,9, ref Truckno) != 0)
             {
                // MessageBox.Show("读取车牌号错误！");
-                PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
+                f2.setmsg("读卡失败,请重试", 2, "\\User_Storage\\sound\\failed.wav");
+              //  PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
+                
                 clearMemProperties();
                 clearPropShow();
                 return;
@@ -199,7 +203,9 @@ namespace Distributor
             if (status2.BatteryLifePercent < 40)
             {
                // MessageBox.Show("电池电量不足 不能读卡！");
-                PlaySound("\\User_Storage\\sound\\nobat.wav", IntPtr.Zero, 0x0002);
+                f2.setmsg("电量不足，请充电", 3, "\\User_Storage\\sound\\nobat.wav");
+             //   PlaySound("\\User_Storage\\sound\\nobat.wav", IntPtr.Zero, 0x0002);
+                
                 clearMemProperties();
                 clearPropShow();
 
@@ -208,7 +214,9 @@ namespace Distributor
             if (sCarNum.ToString().Length != 7)
             {
                // MessageBox.Show("车牌号输入有误");
-                PlaySound("\\User_Storage\\sound\\dfirst.wav", IntPtr.Zero, 0x0002);
+                f2.setmsg("请先读司机卡", 3, "\\User_Storage\\sound\\dfirst.wav");
+              //  PlaySound("\\User_Storage\\sound\\dfirst.wav", IntPtr.Zero, 0x0002);
+                
                 clearMemProperties();
                 clearPropShow();
 
@@ -218,7 +226,9 @@ namespace Distributor
             {
                 //MessageBox.Show("请先读取司机卡");
                // MessageBox.Show("请先输入车牌号");
-                PlaySound("\\User_Storage\\sound\\dfirst.wav", IntPtr.Zero, 0x0002);
+                f2.setmsg("请先读司机卡", 3, "\\User_Storage\\sound\\dfirst.wav");
+              //  PlaySound("\\User_Storage\\sound\\dfirst.wav", IntPtr.Zero, 0x0002);
+                
                 clearMemProperties();
                 clearPropShow();
                 return;
@@ -229,7 +239,9 @@ namespace Distributor
             LBStatus.Refresh();
             if (myCfCard.request(ref sBoxCardNum) != 0)
             {
-                PlaySound("\\User_Storage\\sound\\nocard.wav", IntPtr.Zero, 0x0002);
+                f2.setmsg("没有检测到卡片", 3, "\\User_Storage\\sound\\nocard.wav");
+               // PlaySound("\\User_Storage\\sound\\nocard.wav", IntPtr.Zero, 0x0002);
+               
                 clearMemProperties();
                 clearPropShow();
                 return;
@@ -243,7 +255,9 @@ namespace Distributor
             
             if (sInfoR =="B")
             {
-                PlaySound("\\User_Storage\\sound\\box.wav", IntPtr.Zero, 0x0002); ;
+                f2.setmsg("不是货箱卡", 3, "\\User_Storage\\sound\\box.wav");
+             //   PlaySound("\\User_Storage\\sound\\box.wav", IntPtr.Zero, 0x0002); ;
+               
                 clearMemProperties();
                 clearPropShow();
                 return;
@@ -277,7 +291,9 @@ namespace Distributor
             if (myCfCard.ReadString(10, 1, ref sInfoR) != 0)
             {
                // MessageBox.Show("无法读取任务状态！");
-                PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
+                f2.setmsg("写卡失败,请重试", 2, "\\User_Storage\\sound\\failed.wav");
+              //  PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
+                
                 clearMemProperties();
                 clearPropShow();
                return;
@@ -286,7 +302,9 @@ namespace Distributor
             if (sInfoR == "S")
             {
                // MessageBox.Show("任务未完成，不能写入");
-                PlaySound("\\User_Storage\\sound\\done.wav", IntPtr.Zero, 0x0002);
+                f2.setmsg("任务未完成，不能写入", 3, "\\User_Storage\\sound\\done.wav");
+             //   PlaySound("\\User_Storage\\sound\\done.wav", IntPtr.Zero, 0x0002);
+                
                 clearMemProperties();
                 clearPropShow();
               return;
@@ -328,7 +346,9 @@ namespace Distributor
             if (myCfCard.Write(sInfoR, 0) != 0)
             {
                // MessageBox.Show("写卡失败！");
-                PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
+                f2.setmsg("写卡失败,请重试", 2, "\\User_Storage\\sound\\failed.wav");
+               // PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
+                
                 clearMemProperties();
                 clearPropShow();
                 return;
@@ -339,7 +359,9 @@ namespace Distributor
             progressBar1.Refresh();
             if (myCfCard.Write(sCarNum, 1) != 0)
             {
-                PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
+                f2.setmsg("写卡失败,请重试", 2, "\\User_Storage\\sound\\failed.wav");
+               // PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
+                
                 clearMemProperties();
                 clearPropShow();
                 return;
@@ -352,8 +374,9 @@ namespace Distributor
             progressBar1.Refresh();
             if (myCfCard.Write2(sStartTime2,6) != 0)
             {
-                PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
-
+                f2.setmsg("写卡失败,请重试", 2, "\\User_Storage\\sound\\failed.wav");
+              //  PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
+                
                 clearMemProperties();
                 clearPropShow();
                 return;
@@ -390,7 +413,8 @@ namespace Distributor
             if (myCfCard.Write(S_START_SPOT_NUM,9) != 0)
             {
               //  MessageBox.Show("出发地点写入失败！");
-                PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
+              //  PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
+                f2.setmsg("写卡失败,请重试", 2, "\\User_Storage\\sound\\failed.wav");
                 clearMemProperties();
                 clearPropShow();
                 return;
@@ -408,12 +432,14 @@ namespace Distributor
                 //MessageBox.Show("写卡成功！");
 
                // !@!#!#!#!#
-                PlaySound("\\User_Storage\\sound\\suc.wav", IntPtr.Zero, 0x0002);
+            //    PlaySound("\\User_Storage\\sound\\suc.wav", IntPtr.Zero, 0x0002);
+                f2.setmsg("写卡成功", 1, "\\User_Storage\\sound\\suc.wav");
                 Updater.insertTask(sBoxCardNum, sCarNum, sStartTime, N_START_SPOT_NUM,0);
             } 
             else
             {
-                PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
+          //      PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
+                f2.setmsg("写卡失败,请重试", 2, "\\User_Storage\\sound\\failed.wav");
                 try
                 {
                     //this.goodsTableAdapter.DeleteQueryByIdTime(sBoxCardNum);
@@ -455,7 +481,9 @@ namespace Distributor
             comboBox1.SelectedIndex = 0;
             S_START_SPOT_NUM = stationID();
             N_START_SPOT_NUM = int.Parse(S_START_SPOT_NUM);
-
+            f2 = new Form2();
+            f2.Show();
+            f2.Visible = false;
             call.OnActiveEvent += new Call.NotifyEvent(OnCallAnwserEvent);
             call.OnIncomingEvent += new Call.NotifyEvent(OnCallInEvent);
             call.OnHangupEvent += new Call.NotifyEvent(OnCallHangupEvent);
@@ -788,7 +816,7 @@ namespace Distributor
             pictureBox5.Image = Properties.Resources.phoneupDonw;
             this.Refresh();
             pictureBox5.Refresh();
-            if (label4.Text == "请用方向剪头选择呼叫目标")
+            if (label4.Text == "请用方向箭头选择呼叫目标")
             {
                 string strphnum;
                 if (currentphone.privatephone)
@@ -829,7 +857,7 @@ namespace Distributor
         private void pictureBox7_Click(object sender, EventArgs e)
         {
             panel1.Visible = !panel1.Visible;
-            label4.Text = "请用方向剪头选择呼叫目标";
+            label4.Text = "请用方向箭头选择呼叫目标";
             phonelist.getxml();
             currentphone = phonelist.nextphone();
             currentphone = phonelist.lastphone();

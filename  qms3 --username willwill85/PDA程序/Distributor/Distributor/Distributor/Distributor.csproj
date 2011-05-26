@@ -92,10 +92,20 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -151,6 +161,13 @@
   <ItemGroup>
     <Content Include="kwrite.ico" />
     <Content Include="Resources\btReadDown.gif" />
+    <None Include="Resources\Image1.bmp" />
+    <None Include="Resources\failed.png" />
+    <None Include="Resources\suc.png" />
+    <None Include="Resources\info.png" />
+    <None Include="Resources\failed.jpg" />
+    <None Include="Resources\info.jpg" />
+    <None Include="Resources\suc.jpg" />
     <Content Include="UniButtonDemo.ico" />
     <None Include="Resources\phonedownDown.png" />
     <None Include="Resources\phonedownUp.png" />
