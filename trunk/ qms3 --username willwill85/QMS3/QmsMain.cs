@@ -7751,6 +7751,9 @@ drop table tempTable;";
 
                 UHF.requestID(ref A_card);
 
+                if (A_card.BOXID.Substring(0, 3) != "300")
+                    continue;
+
                 if (!A_card.status)
                     continue;
 
