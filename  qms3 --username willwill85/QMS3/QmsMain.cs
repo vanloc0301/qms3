@@ -181,6 +181,40 @@ namespace QMS3
                     break;
                     #endregion
                 }
+                case "TreeNode: 网络异常":
+                {
+                    #region 异常处理
+                    string systime = System.DateTime.Now.ToString("yy-MM-dd");//  //"10-06-11";
+                    // System.DateTime.Now.ToString("yy-MM-dd");
+
+                    string strSQL = "SELECT DISTINCT  [db_rfidtest].[rfidtest].[dbo.Station].[Name] AS '起始站点' , " +
+                        " [db_rfidtest].[rfidtest].[dbo.Goods].[BoxCardID] AS '货箱卡号' ,  " +
+                        "[db_rfidtest].[rfidtest].[dbo.Goods].[TruckNo] AS '货车牌号' ,  " +
+                        "[db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] AS '开始时间' ,  " +
+                        "[db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] AS '结束时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[Weight] AS '重量(单位:吨)'" +
+                        " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] ON   " +
+                        "[db_rfidtest].[rfidtest].[dbo.Goods].[StartStationID] = [db_rfidtest].[rfidtest].[dbo.Station].[StationID] " +
+                        "WHERE  [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] > '" + systime + ",00:00' AND [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] < '" + systime + ",23:59' AND  [db_rfidtest].[rfidtest].[dbo.Goods].[State] <0";
+                    string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
+
+                    try
+                    {
+                        ds = boperate.getds(strSQL, strTable);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("网络连接失败！请稍后重试（错误1000）");
+                        //showDayreport.CancelAsync();
+                    }
+                    try
+                    {
+                        dataGridView12.DataSource = ds.Tables[0];
+                    }
+                    catch { }
+                    MainTab.SelectTab(25);
+                    break;
+                    #endregion
+                }
                 case "TreeNode: 用户管理":
                 {
                     #region 用户管理
@@ -215,7 +249,7 @@ namespace QMS3
                     string systime = System.DateTime.Now.ToString("yy-MM-dd");//  //"10-06-11";
                     // System.DateTime.Now.ToString("yy-MM-dd");
 
-                    string strSQL = "SELECT StationID AS '站号', Name AS '站名', Class AS '所属班号' FROM [dbo.Station]";
+                    string strSQL = "SELECT ID AS 'ID' ,StationID AS '站号', Name AS '站名', Class AS '所属班号' FROM [dbo.Station]";
                     string strTable = " [db_rfidtest].[rfidtest].[dbo.Station]";
 
                     try
@@ -5763,18 +5797,18 @@ drop table tempTable;";
             System.Windows.Forms.TreeNode CarsFarther = new System.Windows.Forms.TreeNode("车辆查询管理", new System.Windows.Forms.TreeNode[] { CarIR, CarsInrun });
 
 
-            System.Windows.Forms.TreeNode StationSend = new System.Windows.Forms.TreeNode("垃圾楼出站");
+         //   System.Windows.Forms.TreeNode StationSend = new System.Windows.Forms.TreeNode("垃圾楼出站");
             System.Windows.Forms.TreeNode StationStatus = new System.Windows.Forms.TreeNode("垃圾楼状态信息查询");
-            System.Windows.Forms.TreeNode StationChart = new System.Windows.Forms.TreeNode("垃圾楼运输图表");
-            System.Windows.Forms.TreeNode StationFather = new System.Windows.Forms.TreeNode("垃圾楼查询管理", new System.Windows.Forms.TreeNode[] { StationSend, StationStatus,StationChart });
+         //   System.Windows.Forms.TreeNode StationChart = new System.Windows.Forms.TreeNode("垃圾楼运输图表");
+            System.Windows.Forms.TreeNode StationFather = new System.Windows.Forms.TreeNode("垃圾楼查询管理", new System.Windows.Forms.TreeNode[] {StationStatus});//{ StationSend, StationStatus,StationChart });
             
             
             
             System.Windows.Forms.TreeNode ExceptionWeight = new System.Windows.Forms.TreeNode("重量异常");
-            System.Windows.Forms.TreeNode ExceptionTime = new System.Windows.Forms.TreeNode("超时异常");
+          //  System.Windows.Forms.TreeNode ExceptionTime = new System.Windows.Forms.TreeNode("超时异常");
             System.Windows.Forms.TreeNode ExceptionNet = new System.Windows.Forms.TreeNode("网络异常");
-            System.Windows.Forms.TreeNode ExceptionLack = new System.Windows.Forms.TreeNode("手动添加删除");
-            System.Windows.Forms.TreeNode ExceptionFather = new System.Windows.Forms.TreeNode("异常查询处理", new System.Windows.Forms.TreeNode[] { ExceptionWeight,ExceptionTime,ExceptionNet,ExceptionLack });
+        //    System.Windows.Forms.TreeNode ExceptionLack = new System.Windows.Forms.TreeNode("手动添加删除");
+            System.Windows.Forms.TreeNode ExceptionFather = new System.Windows.Forms.TreeNode("异常查询处理", new System.Windows.Forms.TreeNode[] { ExceptionWeight,ExceptionNet});
 
             //this.treeView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.treeView1.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -5798,12 +5832,12 @@ drop table tempTable;";
                         System.Windows.Forms.TreeNode treeNode202 = new System.Windows.Forms.TreeNode("司机卡管理", new System.Windows.Forms.TreeNode[] { treeNode201 });
 
                         System.Windows.Forms.TreeNode treeNode203 = new System.Windows.Forms.TreeNode("发货箱卡");
-                        System.Windows.Forms.TreeNode treeNode204 = new System.Windows.Forms.TreeNode("货箱信息编辑");
-                        System.Windows.Forms.TreeNode treeNode205 = new System.Windows.Forms.TreeNode("货箱信息查询");
-                        System.Windows.Forms.TreeNode treeNode206 = new System.Windows.Forms.TreeNode("货箱卡管理", new System.Windows.Forms.TreeNode[] { treeNode205 });
+                    //    System.Windows.Forms.TreeNode treeNode204 = new System.Windows.Forms.TreeNode("货箱信息编辑");
+                    //    System.Windows.Forms.TreeNode treeNode205 = new System.Windows.Forms.TreeNode("货箱信息查询");
+                    //    System.Windows.Forms.TreeNode treeNode206 = new System.Windows.Forms.TreeNode("货箱卡管理", new System.Windows.Forms.TreeNode[] { treeNode205 });
                         this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
                                                                             treeNode202,
-                                                                            treeNode206,
+                                                                         //   treeNode206,
                                                                             CarsFarther,
                                                                             StationFather,
                                                                                     CenterFather,
@@ -5862,12 +5896,12 @@ drop table tempTable;";
                         System.Windows.Forms.TreeNode treeNode202 = new System.Windows.Forms.TreeNode("司机卡管理", new System.Windows.Forms.TreeNode[] { treeNode201 });
 
                         System.Windows.Forms.TreeNode treeNode203 = new System.Windows.Forms.TreeNode("发货箱卡");
-                        System.Windows.Forms.TreeNode treeNode204 = new System.Windows.Forms.TreeNode("货箱信息编辑");
-                        System.Windows.Forms.TreeNode treeNode205 = new System.Windows.Forms.TreeNode("货箱信息查询");
-                        System.Windows.Forms.TreeNode treeNode206 = new System.Windows.Forms.TreeNode("货箱卡管理", new System.Windows.Forms.TreeNode[] { treeNode205 });
+                 //       System.Windows.Forms.TreeNode treeNode204 = new System.Windows.Forms.TreeNode("货箱信息编辑");
+                 //       System.Windows.Forms.TreeNode treeNode205 = new System.Windows.Forms.TreeNode("货箱信息查询");
+                 //       System.Windows.Forms.TreeNode treeNode206 = new System.Windows.Forms.TreeNode("货箱卡管理", new System.Windows.Forms.TreeNode[] { treeNode205 });
                         this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
                                                                             treeNode202,
-                                                                            treeNode206,
+                                                                       //     treeNode206,
                                                                             CarsFarther,
                                                                         StationFather,
                                                                             CenterFather,
@@ -5891,7 +5925,7 @@ drop table tempTable;";
                         System.Windows.Forms.TreeNode treeNode203 = new System.Windows.Forms.TreeNode("发货箱卡");
                         System.Windows.Forms.TreeNode treeNode204 = new System.Windows.Forms.TreeNode("货箱信息编辑");
                         System.Windows.Forms.TreeNode treeNode205 = new System.Windows.Forms.TreeNode("货箱信息查询");
-                        System.Windows.Forms.TreeNode treeNode206 = new System.Windows.Forms.TreeNode("货箱卡管理", new System.Windows.Forms.TreeNode[] { treeNode203, treeNode204, treeNode205 });
+                        System.Windows.Forms.TreeNode treeNode206 = new System.Windows.Forms.TreeNode("货箱卡管理", new System.Windows.Forms.TreeNode[] { treeNode203 });//, treeNode204, treeNode205 });
                         this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
                                                                             treeNode202,
                                                                             treeNode206,
@@ -5917,9 +5951,9 @@ drop table tempTable;";
                         System.Windows.Forms.TreeNode treeNode202 = new System.Windows.Forms.TreeNode("司机卡管理", new System.Windows.Forms.TreeNode[] { treeNode199, treeNode200, treeNode201 });
 
                         System.Windows.Forms.TreeNode treeNode203 = new System.Windows.Forms.TreeNode("发货箱卡");
-                        System.Windows.Forms.TreeNode treeNode204 = new System.Windows.Forms.TreeNode("货箱信息编辑");
-                        System.Windows.Forms.TreeNode treeNode205 = new System.Windows.Forms.TreeNode("货箱信息查询");
-                        System.Windows.Forms.TreeNode treeNode206 = new System.Windows.Forms.TreeNode("货箱卡管理", new System.Windows.Forms.TreeNode[] { treeNode203, treeNode204, treeNode205 });
+                    //    System.Windows.Forms.TreeNode treeNode204 = new System.Windows.Forms.TreeNode("货箱信息编辑");
+                   //     System.Windows.Forms.TreeNode treeNode205 = new System.Windows.Forms.TreeNode("货箱信息查询");
+                        System.Windows.Forms.TreeNode treeNode206 = new System.Windows.Forms.TreeNode("货箱卡管理", new System.Windows.Forms.TreeNode[] { treeNode203});//, treeNode204, treeNode205 });
                         this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
                                                                             treeNode202,
                                                                             treeNode206,
@@ -7153,7 +7187,7 @@ drop table tempTable;";
             double[] data=new double[16];
             for (int i = 0; i <= 15; i++)
             {
-                column[i] = (i + 8).ToString() + ":00";
+                column[i] = (i + 5).ToString() + ":00";
                 data[i]=chartdata.stationdaybox[i];
             }
             
@@ -7831,6 +7865,328 @@ drop table tempTable;";
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
            
+        }
+
+        private void groupBox15_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button25_Click(object sender, EventArgs e)
+        {
+            string strSQL = "SELECT DISTINCT  [db_rfidtest].[rfidtest].[dbo.Station].[Name] AS '起始站点' , " +
+           " [db_rfidtest].[rfidtest].[dbo.Goods].[BoxCardID] AS '货箱卡号' ,  " +
+           "[db_rfidtest].[rfidtest].[dbo.Goods].[TruckNo] AS '货车牌号' ,  " +
+           "[db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] AS '开始时间' ,  " +
+           "[db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] AS '结束时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[Weight] AS '重量(单位:吨)'" +
+           " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] ON   " +
+           "[db_rfidtest].[rfidtest].[dbo.Goods].[StartStationID] = [db_rfidtest].[rfidtest].[dbo.Station].[StationID] " +
+           "WHERE  [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] > '" + dateTimePicker7.Value.ToString("yy-MM-dd") + ",00:00' AND [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] < '" + dateTimePicker7.Value.ToString("yy-MM-dd") + ",23:59'";
+            string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
+            try
+            {
+                ds = boperate.getds(strSQL, strTable);
+            }
+            catch
+            {
+                MessageBox.Show("网络连接失败！请稍后重试（错误1088）");
+                //showDayreport.CancelAsync();
+            }
+            dataGridView13.DataSource = ds.Tables[0];
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.dbo_StationTableAdapter.InsertStation(int.Parse(textBox19.Text), textBox18.Text, int.Parse(comboBox4.Text));
+            }
+            catch 
+            {
+            }
+            string strSQL = "SELECT ID AS 'ID' ,StationID AS '站号', Name AS '站名', Class AS '所属班号' FROM [dbo.Station]";
+            string strTable = " [db_rfidtest].[rfidtest].[dbo.Station]";
+
+            try
+            {
+                ds = boperate.getds(strSQL, strTable);
+            }
+            catch
+            {
+                MessageBox.Show("网络连接失败！请稍后重试（错误1002）");
+                //showDayreport.CancelAsync();
+            }
+            try
+            {
+                dataGridView5.DataSource = ds.Tables[0];
+            }
+            catch
+            { }
+            strSQL = "SELECT  Name AS '姓名', Class AS '对应班号' FROM [dbo.Class]";
+            strTable = " [db_rfidtest].[rfidtest].[dbo.Class]";
+
+            try
+            {
+                ds = boperate.getds(strSQL, strTable);
+            }
+            catch
+            {
+                MessageBox.Show("网络连接失败！请稍后重试（错误1003）");
+                //showDayreport.CancelAsync();
+            }
+            try
+            {
+                dataGridView6.DataSource = ds.Tables[0];
+            }
+            catch { }
+        }
+
+        private void textBox19_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.dbo_StationTableAdapter.UpdateStation(int.Parse(textBox19.Text), textBox18.Text, int.Parse(comboBox4.Text), int.Parse(label76.Text));
+            }
+            catch
+            {
+ 
+            }
+            string strSQL = "SELECT ID AS 'ID' ,StationID AS '站号', Name AS '站名', Class AS '所属班号' FROM [dbo.Station]";
+            string strTable = " [db_rfidtest].[rfidtest].[dbo.Station]";
+
+            try
+            {
+                ds = boperate.getds(strSQL, strTable);
+            }
+            catch
+            {
+                MessageBox.Show("网络连接失败！请稍后重试（错误1002）");
+                //showDayreport.CancelAsync();
+            }
+            try
+            {
+                dataGridView5.DataSource = ds.Tables[0];
+            }
+            catch
+            { }
+            strSQL = "SELECT  Name AS '姓名', Class AS '对应班号' FROM [dbo.Class]";
+            strTable = " [db_rfidtest].[rfidtest].[dbo.Class]";
+
+            try
+            {
+                ds = boperate.getds(strSQL, strTable);
+            }
+            catch
+            {
+                MessageBox.Show("网络连接失败！请稍后重试（错误1003）");
+                //showDayreport.CancelAsync();
+            }
+            try
+            {
+                dataGridView6.DataSource = ds.Tables[0];
+            }
+            catch { }
+        }
+
+        private void dataGridView5_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+   
+
+        }
+
+        private void dataGridView5_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            try
+            {
+                label76.Text = dataGridView5.Rows[e.RowIndex].Cells[0].Value.ToString();
+                textBox19.Text = dataGridView5.Rows[e.RowIndex].Cells[1].Value.ToString();
+                textBox18.Text = dataGridView5.Rows[e.RowIndex].Cells[2].Value.ToString();
+                comboBox4.Text = dataGridView5.Rows[e.RowIndex].Cells[3].Value.ToString();
+            }
+            catch { }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.dbo_StationTableAdapter.DeleteStation(int.Parse(label76.Text));
+            }
+            catch
+            {
+
+            }
+            string strSQL = "SELECT ID AS 'ID' ,StationID AS '站号', Name AS '站名', Class AS '所属班号' FROM [dbo.Station]";
+            string strTable = " [db_rfidtest].[rfidtest].[dbo.Station]";
+
+            try
+            {
+                ds = boperate.getds(strSQL, strTable);
+            }
+            catch
+            {
+                MessageBox.Show("网络连接失败！请稍后重试（错误1002）");
+                //showDayreport.CancelAsync();
+            }
+            try
+            {
+                dataGridView5.DataSource = ds.Tables[0];
+            }
+            catch
+            { }
+            strSQL = "SELECT  Name AS '姓名', Class AS '对应班号' FROM [dbo.Class]";
+            strTable = " [db_rfidtest].[rfidtest].[dbo.Class]";
+
+            try
+            {
+                ds = boperate.getds(strSQL, strTable);
+            }
+            catch
+            {
+                MessageBox.Show("网络连接失败！请稍后重试（错误1003）");
+                //showDayreport.CancelAsync();
+            }
+            try
+            {
+                dataGridView6.DataSource = ds.Tables[0];
+            }
+            catch { }
+        }
+
+        private void dataGridView7_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                label44.Text = dataGridView7.Rows[e.RowIndex].Cells[0].Value.ToString();
+                textBox21.Text = dataGridView7.Rows[e.RowIndex].Cells[1].Value.ToString();
+                textBox20.Text = dataGridView7.Rows[e.RowIndex].Cells[2].Value.ToString();
+            }
+            catch { }
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.dbo_ClassTableAdapter1.InsertClass(textBox21.Text, int.Parse(textBox20.Text));
+            }
+            catch
+            {
+ 
+            }
+            string strSQL = "SELECT ID AS '用户ID', Name AS '姓名', Class AS '班号' FROM [dbo.Class]";
+            string strTable = " [db_rfidtest].[rfidtest].[dbo.Class]";
+
+            try
+            {
+                ds = boperate.getds(strSQL, strTable);
+            }
+            catch
+            {
+                MessageBox.Show("网络连接失败！请稍后重试（错误1004）");
+                //showDayreport.CancelAsync();
+            }
+            try
+            {
+                dataGridView7.DataSource = ds.Tables[0];
+            }
+            catch { }
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.dbo_ClassTableAdapter1.UpdateClass(textBox21.Text, int.Parse(textBox20.Text), int.Parse(label44.Text));
+            }
+            catch
+            {
+
+            }
+            string strSQL = "SELECT ID AS '用户ID', Name AS '姓名', Class AS '班号' FROM [dbo.Class]";
+            string strTable = " [db_rfidtest].[rfidtest].[dbo.Class]";
+
+            try
+            {
+                ds = boperate.getds(strSQL, strTable);
+            }
+            catch
+            {
+                MessageBox.Show("网络连接失败！请稍后重试（错误1004）");
+                //showDayreport.CancelAsync();
+            }
+            try
+            {
+                dataGridView7.DataSource = ds.Tables[0];
+            }
+            catch { }
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.dbo_ClassTableAdapter1.DeleteClass(int.Parse(label44.Text));
+            }
+            catch
+            {
+
+            }
+            string strSQL = "SELECT ID AS '用户ID', Name AS '姓名', Class AS '班号' FROM [dbo.Class]";
+            string strTable = " [db_rfidtest].[rfidtest].[dbo.Class]";
+
+            try
+            {
+                ds = boperate.getds(strSQL, strTable);
+            }
+            catch
+            {
+                MessageBox.Show("网络连接失败！请稍后重试（错误1004）");
+                //showDayreport.CancelAsync();
+            }
+            try
+            {
+                dataGridView7.DataSource = ds.Tables[0];
+            }
+            catch { }
+        }
+
+        private void button22_Click(object sender, EventArgs e)
+        {
+
+            string systime = dateTimePicker5.Value.ToString("yy-MM-dd");//  //"10-06-11";
+            // System.DateTime.Now.ToString("yy-MM-dd");
+
+            string strSQL = "SELECT DISTINCT  [db_rfidtest].[rfidtest].[dbo.Station].[Name] AS '起始站点' , " +
+                " [db_rfidtest].[rfidtest].[dbo.Goods].[BoxCardID] AS '货箱卡号' ,  " +
+                "[db_rfidtest].[rfidtest].[dbo.Goods].[TruckNo] AS '货车牌号' ,  " +
+                "[db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] AS '开始时间' ,  " +
+                "[db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] AS '结束时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[Weight] AS '重量(单位:吨)'" +
+                " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] ON   " +
+                "[db_rfidtest].[rfidtest].[dbo.Goods].[StartStationID] = [db_rfidtest].[rfidtest].[dbo.Station].[StationID] " +
+                "WHERE  [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] > '" + systime + ",00:00' AND [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] < '" + systime + ",23:59' AND  [db_rfidtest].[rfidtest].[dbo.Goods].[State] <0";
+            string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
+
+            try
+            {
+                ds = boperate.getds(strSQL, strTable);
+            }
+            catch
+            {
+                MessageBox.Show("网络连接失败！请稍后重试（错误1000）");
+                //showDayreport.CancelAsync();
+            }
+            try
+            {
+                dataGridView12.DataSource = ds.Tables[0];
+            }
+            catch { }
         }
 
 
