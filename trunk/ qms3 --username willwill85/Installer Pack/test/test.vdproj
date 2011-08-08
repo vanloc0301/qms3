@@ -15,350 +15,386 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_0397A24179034DF2A90EBFD960A8507F"
+        "MsmKey" = "8:_0EFEF34D394C4148BCC8C081FD790CE7"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_10EA74ED938F43E7958DEBD37BBB45CA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_16A1DBAA85BC268D849AC1BDAF990A5B"
-        "OwnerKey" = "8:_AE5FB254959BC119A9588514BBB4EF86"
+        "OwnerKey" = "8:_D520065F470B4D31A900291A64D1828A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_16A1DBAA85BC268D849AC1BDAF990A5B"
-        "OwnerKey" = "8:_3FD794B43A4A4437872C398C55E5047A"
+        "OwnerKey" = "8:_964AF22376C8BAA03D21858B142C471C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_1DEFAE95E41246BDBA942C3091369807"
+        "MsmKey" = "8:_2370CDC2355B4EACAB1CF45F52D57A12"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_3051D626B0F24DF0A8C1649D8DB69620"
+        "MsmKey" = "8:_307018BF853C4E82B61EE8A4D23FDE8A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_3537C9E9621F4085BFE2EC1A1775FCA4"
+        "MsmKey" = "8:_38DE5EF0D007471AB9A8F0A45CC20127"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_3ADB37953FF2471CA4175F6C3C0F9E3F"
+        "MsmKey" = "8:_45E547FF249C41D4B3E5E5026330CEEB"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_3FD794B43A4A4437872C398C55E5047A"
+        "MsmKey" = "8:_482D86B9F0D0412E96AD0110C0A8CC80"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_4010F171B22B4963A28E823F7338EBCE"
+        "MsmKey" = "8:_55BD4866EB9C4711AF95FC7B11661A86"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_4662CA06F7D1BFDC6DA9039A2D95BA8E"
-        "OwnerKey" = "8:_5FDBC60174EA5A788CD6CEDF1B635CD5"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_4662CA06F7D1BFDC6DA9039A2D95BA8E"
-        "OwnerKey" = "8:_B2701BE7C8FF4300952AFF55A99E2AA1"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_4C7C6C13E3A34E7D810560EBA034C393"
+        "MsmKey" = "8:_5F3F392988ED4564A47E2805D6FC2A95"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_54AD9BFD77FC49FFAC5F6CFB74E5961C"
+        "MsmKey" = "8:_6D9FCCEE8C94459A89C2AD9B0AE1851C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_567A3C4AB72C42DC9DEC19D3729BB5DB"
+        "MsmKey" = "8:_764C8C091C57FEB3698F5B31D6E02C1E"
+        "OwnerKey" = "8:_D1297862D9F662D409D944470FB181E4"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_764C8C091C57FEB3698F5B31D6E02C1E"
+        "OwnerKey" = "8:_D6DC14B8E22276D79B22EF31A7DFD371"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_764C8C091C57FEB3698F5B31D6E02C1E"
+        "OwnerKey" = "8:_38DE5EF0D007471AB9A8F0A45CC20127"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_764C8C091C57FEB3698F5B31D6E02C1E"
+        "OwnerKey" = "8:_D61E3EEF37504C1CAE9BD0742A2E3F56"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7DA03BD16B134C81A307AEFC57B937BA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_5FDBC60174EA5A788CD6CEDF1B635CD5"
-        "OwnerKey" = "8:_3051D626B0F24DF0A8C1649D8DB69620"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_68A3635A92F147DDA75761E6CF61043C"
+        "MsmKey" = "8:_807055CECCCA40C0AA0A76448937B781"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_6B4BD5BBFC79416D90C27BDB40F0FB21"
+        "MsmKey" = "8:_810A81EBF64D425999E97FB52D4815CB"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_6F19AA2F5B024B8490AD00DD9029CED3"
+        "MsmKey" = "8:_830F75C499D74460BBC36BA30CB6CB20"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_712E8FA8EA814F5ABBA73C68677747E3"
+        "MsmKey" = "8:_8C3F272965A54224BF7AFC78043FFD04"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_770AA70FAF1B4050B0D375612AB6FA14"
+        "MsmKey" = "8:_8D7E6D832A104EC0B508D948E0BB5C3C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_86BF8A5BCC1246359F1412FCD12B20DE"
+        "MsmKey" = "8:_8DE5826155DD4A2F92EB2C295D872820"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_890EDF56429A4639AC23FC8E0328FA94"
+        "MsmKey" = "8:_905EFB32DB714F9587D7509F9E5D338B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_8C5E7C07CE3349A1A1BFAB7D6C31FD07"
+        "MsmKey" = "8:_90BCEC018E024588B263E03FE74BF585"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_9212E912EE0B47D895DD21563E163FC5"
+        "MsmKey" = "8:_92382893B3AA4F1FAEB6D36752B9C003"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_93F6E1F2E32F49D9A171E2A9753AC1EE"
+        "MsmKey" = "8:_964AF22376C8BAA03D21858B142C471C"
+        "OwnerKey" = "8:_0EFEF34D394C4148BCC8C081FD790CE7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_9665985B7E684DB69B56518A922A2B50"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_93F79FE713644DE0A8BFEDC42EA5A789"
+        "MsmKey" = "8:_9D3C0FFBD3DB4B0D8D5563099726D243"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_9B356AEFFA7041C5B053EB019B09839A"
+        "MsmKey" = "8:_A1076E22EB4B4F57B1F2FD1393A5B59D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_A10102AC95414021A9CDD9CB2757D453"
+        "MsmKey" = "8:_A762692E64D742DFA2429BC10A0561F2"
+        "OwnerKey" = "8:_307018BF853C4E82B61EE8A4D23FDE8A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A93BC27EF69D4592BE68E6C5B0F41BA6"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_A542A1FBD964452BBA36C8EF8568D021"
+        "MsmKey" = "8:_AA72AE8C7BE44DFF82A5010071A04F21"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_AE5FB254959BC119A9588514BBB4EF86"
-        "OwnerKey" = "8:_3051D626B0F24DF0A8C1649D8DB69620"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B2701BE7C8FF4300952AFF55A99E2AA1"
+        "MsmKey" = "8:_BA42FDB6D4664A0380EA9B7C612EF16F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_BEC460097E5D4C7CA1F6B58F90BAB12B"
+        "MsmKey" = "8:_BF96A93E1856424AB62DC3D645E370F6"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_C8BAC4D085C5C7774A3B4ABAAA6AF53A"
-        "OwnerKey" = "8:_4662CA06F7D1BFDC6DA9039A2D95BA8E"
+        "MsmKey" = "8:_D1297862D9F662D409D944470FB181E4"
+        "OwnerKey" = "8:_D61E3EEF37504C1CAE9BD0742A2E3F56"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_C8BAC4D085C5C7774A3B4ABAAA6AF53A"
-        "OwnerKey" = "8:_EA84EC08CF7249E5B9BF30E17471864C"
+        "MsmKey" = "8:_D1297862D9F662D409D944470FB181E4"
+        "OwnerKey" = "8:_D6DC14B8E22276D79B22EF31A7DFD371"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_C8BAC4D085C5C7774A3B4ABAAA6AF53A"
-        "OwnerKey" = "8:_B2701BE7C8FF4300952AFF55A99E2AA1"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C8BAC4D085C5C7774A3B4ABAAA6AF53A"
-        "OwnerKey" = "8:_5FDBC60174EA5A788CD6CEDF1B635CD5"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_D06776A419CA4CD399E6843B68C048C1"
+        "MsmKey" = "8:_D1CECB4377EA4B73B129C1EC22B7CEEE"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_D09152D25AEC445DB9CECDD53F86CE71"
+        "MsmKey" = "8:_D22BBB672BBD4111ACB08E113751E33B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_E8C46D962426440A841010D839E74AF8"
+        "MsmKey" = "8:_D520065F470B4D31A900291A64D1828A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_EA84EC08CF7249E5B9BF30E17471864C"
+        "MsmKey" = "8:_D61E3EEF37504C1CAE9BD0742A2E3F56"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_EDEAA5F76B2945A59E36BCE709CA0834"
+        "MsmKey" = "8:_D6DC14B8E22276D79B22EF31A7DFD371"
+        "OwnerKey" = "8:_0EFEF34D394C4148BCC8C081FD790CE7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_E18969E34DE64F9F9D5FB2E900B101E3"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_F2151FA28C9E4B449B3C7617823AACCF"
+        "MsmKey" = "8:_EB186C8C1C2F4E169A10E2AF4E29E889"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_ECA6493A027340D69ED11B8FC5C357F4"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F02A290522854BE484BEAF36E99749E8"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FB02E9B6C3E04FDFA700B3E60B542187"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FEB0709A4B1C4BEF813CFFE369937E28"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3051D626B0F24DF0A8C1649D8DB69620"
+        "OwnerKey" = "8:_A1076E22EB4B4F57B1F2FD1393A5B59D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F2151FA28C9E4B449B3C7617823AACCF"
+        "OwnerKey" = "8:_90BCEC018E024588B263E03FE74BF585"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_EA84EC08CF7249E5B9BF30E17471864C"
+        "OwnerKey" = "8:_0EFEF34D394C4148BCC8C081FD790CE7"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B2701BE7C8FF4300952AFF55A99E2AA1"
+        "OwnerKey" = "8:_D6DC14B8E22276D79B22EF31A7DFD371"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A542A1FBD964452BBA36C8EF8568D021"
+        "OwnerKey" = "8:_964AF22376C8BAA03D21858B142C471C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A10102AC95414021A9CDD9CB2757D453"
+        "OwnerKey" = "8:_9D3C0FFBD3DB4B0D8D5563099726D243"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_93F79FE713644DE0A8BFEDC42EA5A789"
+        "OwnerKey" = "8:_38DE5EF0D007471AB9A8F0A45CC20127"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_93F6E1F2E32F49D9A171E2A9753AC1EE"
+        "OwnerKey" = "8:_D61E3EEF37504C1CAE9BD0742A2E3F56"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_712E8FA8EA814F5ABBA73C68677747E3"
+        "OwnerKey" = "8:_D1297862D9F662D409D944470FB181E4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_6B4BD5BBFC79416D90C27BDB40F0FB21"
+        "OwnerKey" = "8:_764C8C091C57FEB3698F5B31D6E02C1E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_567A3C4AB72C42DC9DEC19D3729BB5DB"
+        "OwnerKey" = "8:_D520065F470B4D31A900291A64D1828A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3FD794B43A4A4437872C398C55E5047A"
+        "OwnerKey" = "8:_307018BF853C4E82B61EE8A4D23FDE8A"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_5FDBC60174EA5A788CD6CEDF1B635CD5"
+        "OwnerKey" = "8:_ECA6493A027340D69ED11B8FC5C357F4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_4662CA06F7D1BFDC6DA9039A2D95BA8E"
+        "OwnerKey" = "8:_F02A290522854BE484BEAF36E99749E8"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C8BAC4D085C5C7774A3B4ABAAA6AF53A"
+        "OwnerKey" = "8:_55BD4866EB9C4711AF95FC7B11661A86"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_AE5FB254959BC119A9588514BBB4EF86"
+        "OwnerKey" = "8:_FB02E9B6C3E04FDFA700B3E60B542187"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -428,6 +464,19 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Net.Framework.3.5"
+                    {
+                    "Name" = "8:.NET Framework 3.5"
+                    "ProductCode" = "8:Microsoft.Net.Framework.3.5"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
+                    {
+                    "Name" = "8:Windows Installer 3.1"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
+                    }
+                }
             }
         }
     }
@@ -458,12 +507,43 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0397A24179034DF2A90EBFD960A8507F"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_0EFEF34D394C4148BCC8C081FD790CE7"
             {
-            "SourcePath" = "8:..\\..\\qms3\\QMS3\\bin\\Debug\\NETUHF.dll"
-            "TargetName" = "8:NETUHF.dll"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:QMS3, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_0EFEF34D394C4148BCC8C081FD790CE7"
+                    {
+                    "Name" = "8:QMS3.exe"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\QMS3.exe"
+            "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_10EA74ED938F43E7958DEBD37BBB45CA"
+            {
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\Chart\\Visifire.js"
+            "TargetName" = "8:Visifire.js"
+            "Tag" = "8:"
+            "Folder" = "8:_ED79789C03A1468BA5922A526952E431"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -498,80 +578,9 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1DEFAE95E41246BDBA942C3091369807"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2370CDC2355B4EACAB1CF45F52D57A12"
             {
-            "SourcePath" = "8:..\\..\\qms3\\QMS3\\bin\\Debug\\CrystalReport2.rpt"
-            "TargetName" = "8:CrystalReport2.rpt"
-            "Tag" = "8:"
-            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3051D626B0F24DF0A8C1649D8DB69620"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:QMS3, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_3051D626B0F24DF0A8C1649D8DB69620"
-                    {
-                    "Name" = "8:QMS3.exe"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\..\\qms3\\QMS3\\bin\\Debug\\QMS3.exe"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3537C9E9621F4085BFE2EC1A1775FCA4"
-            {
-            "SourcePath" = "8:..\\..\\qms3\\QMS3\\bin\\Debug\\Chart\\Demo.htm"
-            "TargetName" = "8:Demo.htm"
-            "Tag" = "8:"
-            "Folder" = "8:_BD24E1F6AB7B4D038F59037839535C96"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3ADB37953FF2471CA4175F6C3C0F9E3F"
-            {
-            "SourcePath" = "8:..\\..\\qms3\\QMS3\\bin\\Debug\\CrystalDecisions.ReportSource.xml"
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\CrystalDecisions.ReportSource.xml"
             "TargetName" = "8:CrystalDecisions.ReportSource.xml"
             "Tag" = "8:"
             "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
@@ -589,20 +598,20 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3FD794B43A4A4437872C398C55E5047A"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_307018BF853C4E82B61EE8A4D23FDE8A"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Interop.Microsoft.Office.Core, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Interop.LCC11, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_3FD794B43A4A4437872C398C55E5047A"
+                    "_307018BF853C4E82B61EE8A4D23FDE8A"
                     {
-                    "Name" = "8:Interop.Microsoft.Office.Core.dll"
+                    "Name" = "8:Interop.LCC11.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:..\\..\\qms3\\QMS3\\bin\\Debug\\Interop.Microsoft.Office.Core.dll"
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\Interop.LCC11.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
@@ -620,61 +629,21 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4010F171B22B4963A28E823F7338EBCE"
-            {
-            "SourcePath" = "8:..\\..\\qms3\\QMS3\\bin\\Debug\\CrystalReport6.rpt"
-            "TargetName" = "8:CrystalReport6.rpt"
-            "Tag" = "8:"
-            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_4662CA06F7D1BFDC6DA9039A2D95BA8E"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_38DE5EF0D007471AB9A8F0A45CC20127"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:Microsoft.Vbe.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"
                 "ScatterAssemblies"
                 {
-                    "_4662CA06F7D1BFDC6DA9039A2D95BA8E"
+                    "_38DE5EF0D007471AB9A8F0A45CC20127"
                     {
-                    "Name" = "8:Microsoft.Vbe.Interop.DLL"
+                    "Name" = "8:Microsoft.Vbe.Interop.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:Microsoft.Vbe.Interop.DLL"
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\Microsoft.Vbe.Interop.dll"
             "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4C7C6C13E3A34E7D810560EBA034C393"
-            {
-            "SourcePath" = "8:..\\..\\qms3\\QMS3\\bin\\Debug\\CrystalReport4.rpt"
-            "TargetName" = "8:CrystalReport4.rpt"
             "Tag" = "8:"
             "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
             "Condition" = "8:"
@@ -691,9 +660,102 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_54AD9BFD77FC49FFAC5F6CFB74E5961C"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_45E547FF249C41D4B3E5E5026330CEEB"
             {
-            "SourcePath" = "8:..\\..\\qms3\\QMS3\\bin\\Debug\\CrystalReport1.rpt"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:CrystalDecisions.Shared.resources, Version=10.5.3700.0, Culture=zh-chs, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_45E547FF249C41D4B3E5E5026330CEEB"
+                    {
+                    "Name" = "8:CrystalDecisions.Shared.resources.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\zh-CN\\CrystalDecisions.Shared.resources.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_7550E317165A4425B5D92821AAAE719A"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_482D86B9F0D0412E96AD0110C0A8CC80"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:CrystalDecisions.ReportSource.resources, Version=10.5.3700.0, Culture=zh-chs, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_482D86B9F0D0412E96AD0110C0A8CC80"
+                    {
+                    "Name" = "8:CrystalDecisions.ReportSource.resources.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\zh-CN\\CrystalDecisions.ReportSource.resources.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_7550E317165A4425B5D92821AAAE719A"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_55BD4866EB9C4711AF95FC7B11661A86"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:CrystalDecisions.ReportSource, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_55BD4866EB9C4711AF95FC7B11661A86"
+                    {
+                    "Name" = "8:CrystalDecisions.ReportSource.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\CrystalDecisions.ReportSource.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5F3F392988ED4564A47E2805D6FC2A95"
+            {
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\CrystalReport1.rpt"
             "TargetName" = "8:CrystalReport1.rpt"
             "Tag" = "8:"
             "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
@@ -711,23 +773,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_567A3C4AB72C42DC9DEC19D3729BB5DB"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6D9FCCEE8C94459A89C2AD9B0AE1851C"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:CrystalDecisions.CrystalReports.Engine, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_567A3C4AB72C42DC9DEC19D3729BB5DB"
-                    {
-                    "Name" = "8:CrystalDecisions.CrystalReports.Engine.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\..\\qms3\\QMS3\\bin\\Debug\\CrystalDecisions.CrystalReports.Engine.dll"
-            "TargetName" = "8:"
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\Chart\\Demo.htm"
+            "TargetName" = "8:Demo.htm"
             "Tag" = "8:"
-            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
+            "Folder" = "8:_ED79789C03A1468BA5922A526952E431"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -742,517 +793,14 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5FDBC60174EA5A788CD6CEDF1B635CD5"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"
-                "ScatterAssemblies"
-                {
-                    "_5FDBC60174EA5A788CD6CEDF1B635CD5"
-                    {
-                    "Name" = "8:Microsoft.Office.Interop.Excel.DLL"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Microsoft.Office.Interop.Excel.DLL"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_68A3635A92F147DDA75761E6CF61043C"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:CrystalDecisions.Shared.resources, Version=10.5.3700.0, Culture=zh-chs, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_68A3635A92F147DDA75761E6CF61043C"
-                    {
-                    "Name" = "8:CrystalDecisions.Shared.resources.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\..\\qms3\\QMS3\\bin\\Debug\\zh-CN\\CrystalDecisions.Shared.resources.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_62C12C96593E4942ACBFCD45A9CCC8FD"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6B4BD5BBFC79416D90C27BDB40F0FB21"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:CrystalDecisions.Shared, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_6B4BD5BBFC79416D90C27BDB40F0FB21"
-                    {
-                    "Name" = "8:CrystalDecisions.Shared.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\..\\qms3\\QMS3\\bin\\Debug\\CrystalDecisions.Shared.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6F19AA2F5B024B8490AD00DD9029CED3"
-            {
-            "SourcePath" = "8:..\\..\\qms3\\QMS3\\bin\\Debug\\CrystalReport3.rpt"
-            "TargetName" = "8:CrystalReport3.rpt"
-            "Tag" = "8:"
-            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_712E8FA8EA814F5ABBA73C68677747E3"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:CrystalDecisions.Enterprise.Framework, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304"
-                "ScatterAssemblies"
-                {
-                    "_712E8FA8EA814F5ABBA73C68677747E3"
-                    {
-                    "Name" = "8:CrystalDecisions.Enterprise.Framework.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\..\\qms3\\QMS3\\bin\\Debug\\CrystalDecisions.Enterprise.Framework.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_770AA70FAF1B4050B0D375612AB6FA14"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:CrystalDecisions.Windows.Forms.resources, Version=10.5.3700.0, Culture=zh-chs, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_770AA70FAF1B4050B0D375612AB6FA14"
-                    {
-                    "Name" = "8:CrystalDecisions.Windows.Forms.resources.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\..\\qms3\\QMS3\\bin\\Debug\\zh-CN\\CrystalDecisions.Windows.Forms.resources.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_62C12C96593E4942ACBFCD45A9CCC8FD"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_86BF8A5BCC1246359F1412FCD12B20DE"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:CrystalDecisions.CrystalReports.Engine.resources, Version=10.5.3700.0, Culture=zh-chs, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_86BF8A5BCC1246359F1412FCD12B20DE"
-                    {
-                    "Name" = "8:CrystalDecisions.CrystalReports.Engine.resources.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\..\\qms3\\QMS3\\bin\\Debug\\zh-CN\\CrystalDecisions.CrystalReports.Engine.resources.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_62C12C96593E4942ACBFCD45A9CCC8FD"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_890EDF56429A4639AC23FC8E0328FA94"
-            {
-            "SourcePath" = "8:..\\..\\qms3\\QMS3\\Resources\\netvibes2-logo-square-webtreats.ico"
-            "TargetName" = "8:qms3.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8C5E7C07CE3349A1A1BFAB7D6C31FD07"
-            {
-            "SourcePath" = "8:..\\..\\qms3\\QMS3\\bin\\Debug\\CrystalDecisions.Shared.xml"
-            "TargetName" = "8:CrystalDecisions.Shared.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9212E912EE0B47D895DD21563E163FC5"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:CrystalDecisions.ReportSource.resources, Version=10.5.3700.0, Culture=zh-chs, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_9212E912EE0B47D895DD21563E163FC5"
-                    {
-                    "Name" = "8:CrystalDecisions.ReportSource.resources.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\..\\qms3\\QMS3\\bin\\Debug\\zh-CN\\CrystalDecisions.ReportSource.resources.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_62C12C96593E4942ACBFCD45A9CCC8FD"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_93F6E1F2E32F49D9A171E2A9753AC1EE"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_764C8C091C57FEB3698F5B31D6E02C1E"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:office, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"
                 "ScatterAssemblies"
                 {
-                    "_93F6E1F2E32F49D9A171E2A9753AC1EE"
-                    {
-                    "Name" = "8:office.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\..\\qms3\\QMS3\\bin\\Debug\\office.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_93F79FE713644DE0A8BFEDC42EA5A789"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:CrystalDecisions.ReportSource, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_93F79FE713644DE0A8BFEDC42EA5A789"
-                    {
-                    "Name" = "8:CrystalDecisions.ReportSource.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\..\\qms3\\QMS3\\bin\\Debug\\CrystalDecisions.ReportSource.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9B356AEFFA7041C5B053EB019B09839A"
-            {
-            "SourcePath" = "8:..\\..\\qms3\\QMS3\\bin\\Debug\\Chart\\Visifire.js"
-            "TargetName" = "8:Visifire.js"
-            "Tag" = "8:"
-            "Folder" = "8:_BD24E1F6AB7B4D038F59037839535C96"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A10102AC95414021A9CDD9CB2757D453"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Interop.LCC11, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_A10102AC95414021A9CDD9CB2757D453"
-                    {
-                    "Name" = "8:Interop.LCC11.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\..\\qms3\\QMS3\\bin\\Debug\\Interop.LCC11.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A542A1FBD964452BBA36C8EF8568D021"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:CrystalDecisions.Enterprise.InfoStore, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304"
-                "ScatterAssemblies"
-                {
-                    "_A542A1FBD964452BBA36C8EF8568D021"
-                    {
-                    "Name" = "8:CrystalDecisions.Enterprise.InfoStore.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\..\\qms3\\QMS3\\bin\\Debug\\CrystalDecisions.Enterprise.InfoStore.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_AE5FB254959BC119A9588514BBB4EF86"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Interop.Microsoft.Office.Core, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_AE5FB254959BC119A9588514BBB4EF86"
-                    {
-                    "Name" = "8:Interop.Microsoft.Office.Core.DLL"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Interop.Microsoft.Office.Core.DLL"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B2701BE7C8FF4300952AFF55A99E2AA1"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"
-                "ScatterAssemblies"
-                {
-                    "_B2701BE7C8FF4300952AFF55A99E2AA1"
-                    {
-                    "Name" = "8:Microsoft.Office.Interop.Excel.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\..\\qms3\\QMS3\\bin\\Debug\\Microsoft.Office.Interop.Excel.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BEC460097E5D4C7CA1F6B58F90BAB12B"
-            {
-            "SourcePath" = "8:..\\..\\qms3\\QMS3\\bin\\Debug\\CrystalReport5.rpt"
-            "TargetName" = "8:CrystalReport5.rpt"
-            "Tag" = "8:"
-            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C8BAC4D085C5C7774A3B4ABAAA6AF53A"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:office, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"
-                "ScatterAssemblies"
-                {
-                    "_C8BAC4D085C5C7774A3B4ABAAA6AF53A"
+                    "_764C8C091C57FEB3698F5B31D6E02C1E"
                     {
                     "Name" = "8:office.DLL"
                     "Attributes" = "3:512"
@@ -1276,81 +824,41 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D06776A419CA4CD399E6843B68C048C1"
-            {
-            "SourcePath" = "8:..\\..\\qms3\\QMS3\\bin\\Debug\\CrystalDecisions.Windows.Forms.xml"
-            "TargetName" = "8:CrystalDecisions.Windows.Forms.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D09152D25AEC445DB9CECDD53F86CE71"
-            {
-            "SourcePath" = "8:..\\..\\qms3\\QMS3\\bin\\Debug\\CrystalDecisions.CrystalReports.Engine.xml"
-            "TargetName" = "8:CrystalDecisions.CrystalReports.Engine.xml"
-            "Tag" = "8:"
-            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E8C46D962426440A841010D839E74AF8"
-            {
-            "SourcePath" = "8:..\\..\\qms3\\QMS3\\bin\\Debug\\Chart\\SL.Visifire.Charts.xap"
-            "TargetName" = "8:SL.Visifire.Charts.xap"
-            "Tag" = "8:"
-            "Folder" = "8:_BD24E1F6AB7B4D038F59037839535C96"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_EA84EC08CF7249E5B9BF30E17471864C"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_7DA03BD16B134C81A307AEFC57B937BA"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Microsoft.Vbe.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"
+            "AssemblyAsmDisplayName" = "8:CrystalDecisions.Windows.Forms.resources, Version=10.5.3700.0, Culture=zh-chs, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_EA84EC08CF7249E5B9BF30E17471864C"
+                    "_7DA03BD16B134C81A307AEFC57B937BA"
                     {
-                    "Name" = "8:Microsoft.Vbe.Interop.dll"
+                    "Name" = "8:CrystalDecisions.Windows.Forms.resources.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:..\\..\\qms3\\QMS3\\bin\\Debug\\Microsoft.Vbe.Interop.dll"
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\zh-CN\\CrystalDecisions.Windows.Forms.resources.dll"
             "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_7550E317165A4425B5D92821AAAE719A"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_807055CECCCA40C0AA0A76448937B781"
+            {
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\CrystalReport2.rpt"
+            "TargetName" = "8:CrystalReport2.rpt"
             "Tag" = "8:"
             "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
             "Condition" = "8:"
@@ -1367,9 +875,69 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EDEAA5F76B2945A59E36BCE709CA0834"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_810A81EBF64D425999E97FB52D4815CB"
             {
-            "SourcePath" = "8:..\\..\\qms3\\QMS3\\bin\\Debug\\ip.ini"
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\CrystalReport4.rpt"
+            "TargetName" = "8:CrystalReport4.rpt"
+            "Tag" = "8:"
+            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_830F75C499D74460BBC36BA30CB6CB20"
+            {
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\CrystalDecisions.Shared.xml"
+            "TargetName" = "8:CrystalDecisions.Shared.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8C3F272965A54224BF7AFC78043FFD04"
+            {
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\QMS3.application"
+            "TargetName" = "8:QMS3.application"
+            "Tag" = "8:"
+            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8D7E6D832A104EC0B508D948E0BB5C3C"
+            {
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\ip.ini"
             "TargetName" = "8:ip.ini"
             "Tag" = "8:"
             "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
@@ -1387,23 +955,624 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F2151FA28C9E4B449B3C7617823AACCF"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8DE5826155DD4A2F92EB2C295D872820"
+            {
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\CrystalDecisions.Windows.Forms.xml"
+            "TargetName" = "8:CrystalDecisions.Windows.Forms.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_905EFB32DB714F9587D7509F9E5D338B"
+            {
+            "SourcePath" = "8:..\\..\\QMS3\\Resources\\netvibes2-logo-square-webtreats.ico"
+            "TargetName" = "8:netvibes2-logo-square-webtreats.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_90BCEC018E024588B263E03FE74BF585"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:CrystalDecisions.CrystalReports.Engine, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_90BCEC018E024588B263E03FE74BF585"
+                    {
+                    "Name" = "8:CrystalDecisions.CrystalReports.Engine.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\CrystalDecisions.CrystalReports.Engine.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_92382893B3AA4F1FAEB6D36752B9C003"
+            {
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\Reader2600DLL.dll"
+            "TargetName" = "8:Reader2600DLL.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_964AF22376C8BAA03D21858B142C471C"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Interop.Microsoft.Office.Core, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_964AF22376C8BAA03D21858B142C471C"
+                    {
+                    "Name" = "8:Interop.Microsoft.Office.Core.DLL"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Interop.Microsoft.Office.Core.DLL"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9665985B7E684DB69B56518A922A2B50"
+            {
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\NETUHFback.dll"
+            "TargetName" = "8:NETUHFback.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9D3C0FFBD3DB4B0D8D5563099726D243"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:office, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"
+                "ScatterAssemblies"
+                {
+                    "_9D3C0FFBD3DB4B0D8D5563099726D243"
+                    {
+                    "Name" = "8:office.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\office.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A1076E22EB4B4F57B1F2FD1393A5B59D"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:CrystalDecisions.Enterprise.Framework, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304"
+                "ScatterAssemblies"
+                {
+                    "_A1076E22EB4B4F57B1F2FD1393A5B59D"
+                    {
+                    "Name" = "8:CrystalDecisions.Enterprise.Framework.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\CrystalDecisions.Enterprise.Framework.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A762692E64D742DFA2429BC10A0561F2"
+            {
+            "SourcePath" = "8:STSLIST.DLL"
+            "TargetName" = "8:STSLIST.DLL"
+            "Tag" = "8:"
+            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A93BC27EF69D4592BE68E6C5B0F41BA6"
+            {
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\CrystalDecisions.CrystalReports.Engine.xml"
+            "TargetName" = "8:CrystalDecisions.CrystalReports.Engine.xml"
+            "Tag" = "8:"
+            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_AA72AE8C7BE44DFF82A5010071A04F21"
+            {
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\Chart\\.htm"
+            "TargetName" = "8:.htm"
+            "Tag" = "8:"
+            "Folder" = "8:_ED79789C03A1468BA5922A526952E431"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BA42FDB6D4664A0380EA9B7C612EF16F"
+            {
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\Chart\\当日转运中心报表.htm"
+            "TargetName" = "8:当日转运中心报表.htm"
+            "Tag" = "8:"
+            "Folder" = "8:_ED79789C03A1468BA5922A526952E431"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BF96A93E1856424AB62DC3D645E370F6"
+            {
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\CrystalReport3.rpt"
+            "TargetName" = "8:CrystalReport3.rpt"
+            "Tag" = "8:"
+            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D1297862D9F662D409D944470FB181E4"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Microsoft.Vbe.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"
+                "ScatterAssemblies"
+                {
+                    "_D1297862D9F662D409D944470FB181E4"
+                    {
+                    "Name" = "8:Microsoft.Vbe.Interop.DLL"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Microsoft.Vbe.Interop.DLL"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D1CECB4377EA4B73B129C1EC22B7CEEE"
+            {
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\CrystalReport6.rpt"
+            "TargetName" = "8:CrystalReport6.rpt"
+            "Tag" = "8:"
+            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D22BBB672BBD4111ACB08E113751E33B"
+            {
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\CrystalReport5.rpt"
+            "TargetName" = "8:CrystalReport5.rpt"
+            "Tag" = "8:"
+            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D520065F470B4D31A900291A64D1828A"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Interop.Microsoft.Office.Core, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_D520065F470B4D31A900291A64D1828A"
+                    {
+                    "Name" = "8:Interop.Microsoft.Office.Core.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\Interop.Microsoft.Office.Core.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D61E3EEF37504C1CAE9BD0742A2E3F56"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"
+                "ScatterAssemblies"
+                {
+                    "_D61E3EEF37504C1CAE9BD0742A2E3F56"
+                    {
+                    "Name" = "8:Microsoft.Office.Interop.Excel.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\Microsoft.Office.Interop.Excel.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_D6DC14B8E22276D79B22EF31A7DFD371"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"
+                "ScatterAssemblies"
+                {
+                    "_D6DC14B8E22276D79B22EF31A7DFD371"
+                    {
+                    "Name" = "8:Microsoft.Office.Interop.Excel.DLL"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Microsoft.Office.Interop.Excel.DLL"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E18969E34DE64F9F9D5FB2E900B101E3"
+            {
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\NETUHF.dll"
+            "TargetName" = "8:NETUHF.dll"
+            "Tag" = "8:"
+            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EB186C8C1C2F4E169A10E2AF4E29E889"
+            {
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\Chart\\SL.Visifire.Charts.xap"
+            "TargetName" = "8:SL.Visifire.Charts.xap"
+            "Tag" = "8:"
+            "Folder" = "8:_ED79789C03A1468BA5922A526952E431"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_ECA6493A027340D69ED11B8FC5C357F4"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:CrystalDecisions.Windows.Forms, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_F2151FA28C9E4B449B3C7617823AACCF"
+                    "_ECA6493A027340D69ED11B8FC5C357F4"
                     {
                     "Name" = "8:CrystalDecisions.Windows.Forms.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:..\\..\\qms3\\QMS3\\bin\\Debug\\CrystalDecisions.Windows.Forms.dll"
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\CrystalDecisions.Windows.Forms.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F02A290522854BE484BEAF36E99749E8"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:CrystalDecisions.Shared, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_F02A290522854BE484BEAF36E99749E8"
+                    {
+                    "Name" = "8:CrystalDecisions.Shared.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\CrystalDecisions.Shared.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FB02E9B6C3E04FDFA700B3E60B542187"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:CrystalDecisions.Enterprise.InfoStore, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304"
+                "ScatterAssemblies"
+                {
+                    "_FB02E9B6C3E04FDFA700B3E60B542187"
+                    {
+                    "Name" = "8:CrystalDecisions.Enterprise.InfoStore.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\CrystalDecisions.Enterprise.InfoStore.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FEB0709A4B1C4BEF813CFFE369937E28"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:CrystalDecisions.CrystalReports.Engine.resources, Version=10.5.3700.0, Culture=zh-chs, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_FEB0709A4B1C4BEF813CFFE369937E28"
+                    {
+                    "Name" = "8:CrystalDecisions.CrystalReports.Engine.resources.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\..\\QMS3\\bin\\Debug\\zh-CN\\CrystalDecisions.CrystalReports.Engine.resources.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_7550E317165A4425B5D92821AAAE719A"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1456,24 +1625,35 @@
             "Property" = "8:TARGETDIR"
                 "Folders"
                 {
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_62C12C96593E4942ACBFCD45A9CCC8FD"
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_20E9516A5025409EAE00E5CFAD9FE19D"
+                    {
+                    "Name" = "8:log"
+                    "AlwaysCreate" = "11:FALSE"
+                    "Condition" = "8:"
+                    "Transitive" = "11:FALSE"
+                    "Property" = "8:_539D1BA6F0424EB38780E55184FD6042"
+                        "Folders"
+                        {
+                        }
+                    }
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_7550E317165A4425B5D92821AAAE719A"
                     {
                     "Name" = "8:zh-CN"
                     "AlwaysCreate" = "11:FALSE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
-                    "Property" = "8:_1A1E666B2D4A4A2C85EA0CCD688473B6"
+                    "Property" = "8:_FC9CB06825914475AF56DE40D985F76C"
                         "Folders"
                         {
                         }
                     }
-                    "{9EF0B969-E518-4E46-987F-47570745A589}:_BD24E1F6AB7B4D038F59037839535C96"
+                    "{9EF0B969-E518-4E46-987F-47570745A589}:_ED79789C03A1468BA5922A526952E431"
                     {
-                    "Name" = "8:CHART"
+                    "Name" = "8:Chart"
                     "AlwaysCreate" = "11:FALSE"
                     "Condition" = "8:"
                     "Transitive" = "11:FALSE"
-                    "Property" = "8:_8E96CCEB52D04066A51475E9E6A14E75"
+                    "Property" = "8:_1D7E0D5767CC4FE5B339704CA8270794"
                         "Folders"
                         {
                         }
@@ -1627,7 +1807,7 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_5140A765156847E7B18F31621D419500"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_C442758678664B4E991A8CA495F6A0C9"
             {
             "Name" = "8:西城区清洁站信息传输系统"
             "Arguments" = "8:"
@@ -1635,24 +1815,24 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_3051D626B0F24DF0A8C1649D8DB69620"
-            "Folder" = "8:_C73C976488EB4EEC9C0B5485AC75FED0"
-            "WorkingFolder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
-            "Icon" = "8:_890EDF56429A4639AC23FC8E0328FA94"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_EAD7774EB5604907BA808C05E5B47B49"
-            {
-            "Name" = "8:西城区清洁站信息传输系统"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_3051D626B0F24DF0A8C1649D8DB69620"
+            "Target" = "8:_0EFEF34D394C4148BCC8C081FD790CE7"
             "Folder" = "8:_2DFE791BA6974760BB2FF535D2A2B4E2"
             "WorkingFolder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
-            "Icon" = "8:_890EDF56429A4639AC23FC8E0328FA94"
+            "Icon" = "8:_905EFB32DB714F9587D7509F9E5D338B"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_D512CC5602394EAF81535F6E49EA520F"
+            {
+            "Name" = "8:西城区清洁站信息传输系统"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_0EFEF34D394C4148BCC8C081FD790CE7"
+            "Folder" = "8:_C73C976488EB4EEC9C0B5485AC75FED0"
+            "WorkingFolder" = "8:_C70C0AE6B5594041A194CD1C406BB8F6"
+            "Icon" = "8:_905EFB32DB714F9587D7509F9E5D338B"
             "Feature" = "8:"
             }
         }
