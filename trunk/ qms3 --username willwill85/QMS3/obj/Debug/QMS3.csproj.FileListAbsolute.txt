@@ -368,3 +368,8 @@ C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\obj\Debug\
 C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\obj\Debug\QMS3.TrustInfo.xml
 C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\obj\Debug\QMS3.exe.manifest
 C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\obj\Debug\QMS3.application
+F:\qms3 --username willwill85\QMS3\bin\Debug\QMS3.exe.config
+F:\qms3 --username willwill85\QMS3\obj\Debug\Interop.Microsoft.Office.Core.dll
+F:\qms3 --username willwill85\QMS3\obj\Debug\QMS3.csproj.ResolveComReference.cache
+F:\qms3 --username willwill85\QMS3\obj\Debug\QMS3.exe
+F:\qms3 --username willwill85\QMS3\obj\Debug\QMS3.pdb
