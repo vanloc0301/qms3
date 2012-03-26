@@ -1,0 +1,8 @@
+G:\garbage\Inspector\Inspector\bin\Release\Inspector.exe
+G:\garbage\Inspector\Inspector\bin\Release\Inspector.pdb
+G:\garbage\Inspector\Inspector\obj\Release\ResolveAssemblyReference.cache
+G:\garbage\Inspector\Inspector\obj\Release\Inspector.Form1.resources
+G:\garbage\Inspector\Inspector\obj\Release\Inspector.Properties.Resources.resources
+G:\garbage\Inspector\Inspector\obj\Release\Inspector.csproj.GenerateResource.Cache
+G:\garbage\Inspector\Inspector\obj\Release\Inspector.exe
+G:\garbage\Inspector\Inspector\obj\Release\Inspector.pdb

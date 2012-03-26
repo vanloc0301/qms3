@@ -1,0 +1,8 @@
+C:\Users\will\Desktop\RMU_UHF\RMU_UHF\RMU_UHF\bin\Release\RMU_UHF.exe
+C:\Users\will\Desktop\RMU_UHF\RMU_UHF\RMU_UHF\bin\Release\RMU_UHF.pdb
+C:\Users\will\Desktop\RMU_UHF\RMU_UHF\RMU_UHF\obj\Release\ResolveAssemblyReference.cache
+C:\Users\will\Desktop\RMU_UHF\RMU_UHF\RMU_UHF\obj\Release\RMU_UHF.Form1.resources
+C:\Users\will\Desktop\RMU_UHF\RMU_UHF\RMU_UHF\obj\Release\RMU_UHF.Properties.Resources.resources
+C:\Users\will\Desktop\RMU_UHF\RMU_UHF\RMU_UHF\obj\Release\RMU_UHF.csproj.GenerateResource.Cache
+C:\Users\will\Desktop\RMU_UHF\RMU_UHF\RMU_UHF\obj\Release\RMU_UHF.exe
+C:\Users\will\Desktop\RMU_UHF\RMU_UHF\RMU_UHF\obj\Release\RMU_UHF.pdb
