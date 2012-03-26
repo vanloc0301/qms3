@@ -1,0 +1,375 @@
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS3\QMS3\bin\Debug\QMS3.exe.config
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS3\QMS3\bin\Debug\QMS3.exe
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS3\QMS3\bin\Debug\QMS3.pdb
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS3\QMS3\bin\Debug\Microsoft.Office.Interop.Excel.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS3\QMS3\bin\Debug\office.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS3\QMS3\bin\Debug\Microsoft.Vbe.Interop.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS3\QMS3\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS3\QMS3\obj\Debug\QMS3.csproj.ResolveComReference.cache
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS3\QMS3\obj\Debug\QMS3.QmsMain.resources
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS3\QMS3\obj\Debug\QMS3.Properties.Resources.resources
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS3\QMS3\obj\Debug\QMS3.csproj.GenerateResource.Cache
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS3\QMS3\obj\Debug\QMS3.exe
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\QMS3\QMS3\obj\Debug\QMS3.pdb
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms31\QMS3\bin\Debug\QMS3.exe.config
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms31\QMS3\obj\Debug\QMS3.csproj.ResolveComReference.cache
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms31\QMS3\obj\Debug\QMS3.exe
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms31\QMS3\obj\Debug\QMS3.pdb
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms31\QMS3\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms31\QMS3\obj\Debug\QMS3.QmsMain.resources
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms31\QMS3\obj\Debug\QMS3.Properties.Resources.resources
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms31\QMS3\obj\Debug\QMS3.csproj.GenerateResource.Cache
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms31\QMS3\bin\Debug\QMS3.exe
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms31\QMS3\bin\Debug\QMS3.pdb
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms31\QMS3\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms31\QMS3\bin\Debug\CrystalDecisions.Enterprise.Framework.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms31\QMS3\bin\Debug\CrystalDecisions.Enterprise.InfoStore.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms31\QMS3\bin\Debug\CrystalDecisions.ReportSource.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms31\QMS3\bin\Debug\CrystalDecisions.Shared.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms31\QMS3\bin\Debug\CrystalDecisions.Windows.Forms.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms31\QMS3\bin\Debug\Microsoft.Office.Interop.Excel.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms31\QMS3\bin\Debug\office.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms31\QMS3\bin\Debug\Microsoft.Vbe.Interop.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms31\QMS3\bin\Debug\CrystalDecisions.CrystalReports.Engine.xml
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms31\QMS3\bin\Debug\CrystalDecisions.Windows.Forms.xml
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms31\QMS3\bin\Debug\CrystalDecisions.Shared.xml
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms31\QMS3\bin\Debug\CrystalDecisions.ReportSource.xml
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms31\QMS3\bin\Debug\zh-CN\CrystalDecisions.CrystalReports.Engine.resources.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms31\QMS3\bin\Debug\zh-CN\CrystalDecisions.Windows.Forms.resources.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms31\QMS3\bin\Debug\zh-CN\CrystalDecisions.Shared.resources.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms31\QMS3\bin\Debug\zh-CN\CrystalDecisions.ReportSource.resources.dll
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\QMS3.exe.config
+D:\新建文件夹\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.csproj.ResolveComReference.cache
+D:\新建文件夹\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.exe
+D:\新建文件夹\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.pdb
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\QMS3.exe
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\QMS3.pdb
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Enterprise.Framework.dll
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Enterprise.InfoStore.dll
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.ReportSource.dll
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Shared.dll
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Windows.Forms.dll
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\Microsoft.Office.Interop.Excel.dll
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\office.dll
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\Microsoft.Vbe.Interop.dll
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.CrystalReports.Engine.xml
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Windows.Forms.xml
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Shared.xml
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.ReportSource.xml
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\zh-CN\CrystalDecisions.CrystalReports.Engine.resources.dll
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\zh-CN\CrystalDecisions.Windows.Forms.resources.dll
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\zh-CN\CrystalDecisions.Shared.resources.dll
+D:\新建文件夹\ qms3 --username willwill85\QMS3\bin\Debug\zh-CN\CrystalDecisions.ReportSource.resources.dll
+D:\新建文件夹\ qms3 --username willwill85\QMS3\obj\Debug\ResolveAssemblyReference.cache
+D:\新建文件夹\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.QmsMain.resources
+D:\新建文件夹\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.Properties.Resources.resources
+D:\新建文件夹\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.csproj.GenerateResource.Cache
+G:\环卫\qms3\ qms3 --username willwill85\QMS3\bin\Debug\QMS3.exe.config
+G:\环卫\qms3\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.csproj.ResolveComReference.cache
+G:\环卫\qms3\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.exe
+G:\环卫\qms3\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.pdb
+G:\环卫\qms3\ qms3 --username willwill85\QMS3\bin\Debug\QMS3.exe
+G:\环卫\qms3\ qms3 --username willwill85\QMS3\bin\Debug\QMS3.pdb
+G:\环卫\qms3\ qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+G:\环卫\qms3\ qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Enterprise.Framework.dll
+G:\环卫\qms3\ qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Enterprise.InfoStore.dll
+G:\环卫\qms3\ qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.ReportSource.dll
+G:\环卫\qms3\ qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Shared.dll
+G:\环卫\qms3\ qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Windows.Forms.dll
+G:\环卫\qms3\ qms3 --username willwill85\QMS3\bin\Debug\Microsoft.Office.Interop.Excel.dll
+G:\环卫\qms3\ qms3 --username willwill85\QMS3\bin\Debug\office.dll
+G:\环卫\qms3\ qms3 --username willwill85\QMS3\bin\Debug\Microsoft.Vbe.Interop.dll
+G:\环卫\qms3\ qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.CrystalReports.Engine.xml
+G:\环卫\qms3\ qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Windows.Forms.xml
+G:\环卫\qms3\ qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Shared.xml
+G:\环卫\qms3\ qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.ReportSource.xml
+G:\环卫\qms3\ qms3 --username willwill85\QMS3\bin\Debug\zh-CN\CrystalDecisions.CrystalReports.Engine.resources.dll
+G:\环卫\qms3\ qms3 --username willwill85\QMS3\bin\Debug\zh-CN\CrystalDecisions.Windows.Forms.resources.dll
+G:\环卫\qms3\ qms3 --username willwill85\QMS3\bin\Debug\zh-CN\CrystalDecisions.Shared.resources.dll
+G:\环卫\qms3\ qms3 --username willwill85\QMS3\bin\Debug\zh-CN\CrystalDecisions.ReportSource.resources.dll
+G:\环卫\qms3\ qms3 --username willwill85\QMS3\obj\Debug\ResolveAssemblyReference.cache
+G:\环卫\qms3\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.QmsMain.resources
+G:\环卫\qms3\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.Properties.Resources.resources
+G:\环卫\qms3\ qms3 --username willwill85\QMS3\obj\Debug\QMS3.csproj.GenerateResource.Cache
+D:\环卫\qms3\qms3 --username willwill85\QMS3\bin\Debug\QMS3.exe.config
+D:\环卫\qms3\qms3 --username willwill85\QMS3\obj\Debug\QMS3.csproj.ResolveComReference.cache
+D:\环卫\qms3\qms3 --username willwill85\QMS3\obj\Debug\QMS3.exe
+D:\环卫\qms3\qms3 --username willwill85\QMS3\obj\Debug\QMS3.pdb
+D:\环卫\qms3\qms3 --username willwill85\QMS3\bin\Debug\QMS3.exe
+D:\环卫\qms3\qms3 --username willwill85\QMS3\bin\Debug\QMS3.pdb
+D:\环卫\qms3\qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+D:\环卫\qms3\qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Enterprise.Framework.dll
+D:\环卫\qms3\qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Enterprise.InfoStore.dll
+D:\环卫\qms3\qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.ReportSource.dll
+D:\环卫\qms3\qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Shared.dll
+D:\环卫\qms3\qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Windows.Forms.dll
+D:\环卫\qms3\qms3 --username willwill85\QMS3\bin\Debug\Microsoft.Office.Interop.Excel.dll
+D:\环卫\qms3\qms3 --username willwill85\QMS3\bin\Debug\office.dll
+D:\环卫\qms3\qms3 --username willwill85\QMS3\bin\Debug\Microsoft.Vbe.Interop.dll
+D:\环卫\qms3\qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.CrystalReports.Engine.xml
+D:\环卫\qms3\qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Windows.Forms.xml
+D:\环卫\qms3\qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Shared.xml
+D:\环卫\qms3\qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.ReportSource.xml
+D:\环卫\qms3\qms3 --username willwill85\QMS3\bin\Debug\zh-CN\CrystalDecisions.CrystalReports.Engine.resources.dll
+D:\环卫\qms3\qms3 --username willwill85\QMS3\bin\Debug\zh-CN\CrystalDecisions.Windows.Forms.resources.dll
+D:\环卫\qms3\qms3 --username willwill85\QMS3\bin\Debug\zh-CN\CrystalDecisions.Shared.resources.dll
+D:\环卫\qms3\qms3 --username willwill85\QMS3\bin\Debug\zh-CN\CrystalDecisions.ReportSource.resources.dll
+D:\环卫\qms3\qms3 --username willwill85\QMS3\obj\Debug\ResolveAssemblyReference.cache
+D:\环卫\qms3\qms3 --username willwill85\QMS3\obj\Debug\QMS3.QmsMain.resources
+D:\环卫\qms3\qms3 --username willwill85\QMS3\obj\Debug\QMS3.Properties.Resources.resources
+D:\环卫\qms3\qms3 --username willwill85\QMS3\obj\Debug\QMS3.csproj.GenerateResource.Cache
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\bin\Debug\QMS3.exe.config
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\obj\Debug\QMS3.csproj.ResolveComReference.cache
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\obj\Debug\QMS3.exe
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\obj\Debug\QMS3.pdb
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\obj\Debug\QMS3.QmsMain.resources
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\obj\Debug\QMS3.Properties.Resources.resources
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\obj\Debug\QMS3.csproj.GenerateResource.Cache
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\obj\Debug\Interop.Microsoft.Office.Core.dll
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\bin\Debug\QMS3.exe
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\bin\Debug\QMS3.pdb
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Enterprise.Framework.dll
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Enterprise.InfoStore.dll
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.ReportSource.dll
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Shared.dll
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Windows.Forms.dll
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\bin\Debug\Microsoft.Office.Interop.Excel.dll
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\bin\Debug\office.dll
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\bin\Debug\Microsoft.Vbe.Interop.dll
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.CrystalReports.Engine.xml
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Windows.Forms.xml
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Shared.xml
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.ReportSource.xml
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\bin\Debug\zh-CN\CrystalDecisions.CrystalReports.Engine.resources.dll
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\bin\Debug\zh-CN\CrystalDecisions.Windows.Forms.resources.dll
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\bin\Debug\zh-CN\CrystalDecisions.Shared.resources.dll
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\bin\Debug\zh-CN\CrystalDecisions.ReportSource.resources.dll
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3 --username willwill85\QMS3\bin\Debug\Interop.Microsoft.Office.Core.dll
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\QMS3.exe.config
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\obj\Debug\Interop.Microsoft.Office.Core.dll
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\obj\Debug\QMS3.csproj.ResolveComReference.cache
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\obj\Debug\QMS3.exe
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\obj\Debug\QMS3.pdb
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\QMS3.exe
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\QMS3.pdb
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\CrystalDecisions.Enterprise.Framework.dll
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\CrystalDecisions.Enterprise.InfoStore.dll
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\CrystalDecisions.ReportSource.dll
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\CrystalDecisions.Shared.dll
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\CrystalDecisions.Windows.Forms.dll
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\Microsoft.Office.Interop.Excel.dll
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\office.dll
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\Microsoft.Vbe.Interop.dll
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\CrystalDecisions.CrystalReports.Engine.xml
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\CrystalDecisions.Windows.Forms.xml
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\CrystalDecisions.Shared.xml
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\CrystalDecisions.ReportSource.xml
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\zh-CN\CrystalDecisions.CrystalReports.Engine.resources.dll
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\zh-CN\CrystalDecisions.Windows.Forms.resources.dll
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\zh-CN\CrystalDecisions.Shared.resources.dll
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\zh-CN\CrystalDecisions.ReportSource.resources.dll
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\Interop.Microsoft.Office.Core.dll
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\obj\Debug\QMS3.QmsMain.resources
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\obj\Debug\QMS3.Properties.Resources.resources
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\obj\Debug\QMS3.csproj.GenerateResource.Cache
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\QMS3.exe.config
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\obj\Debug\Interop.Microsoft.Office.Core.dll
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\obj\Debug\QMS3.csproj.ResolveComReference.cache
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\obj\Debug\QMS3.exe
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\obj\Debug\QMS3.pdb
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\obj\Debug\QMS3.QmsMain.resources
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\obj\Debug\QMS3.Properties.Resources.resources
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\obj\Debug\QMS3.csproj.GenerateResource.Cache
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\QMS3.exe
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\QMS3.pdb
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\CrystalDecisions.Enterprise.Framework.dll
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\CrystalDecisions.Enterprise.InfoStore.dll
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\CrystalDecisions.ReportSource.dll
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\CrystalDecisions.Shared.dll
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\CrystalDecisions.Windows.Forms.dll
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\Microsoft.Office.Interop.Excel.dll
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\office.dll
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\Microsoft.Vbe.Interop.dll
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\CrystalDecisions.CrystalReports.Engine.xml
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\CrystalDecisions.Windows.Forms.xml
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\CrystalDecisions.Shared.xml
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\CrystalDecisions.ReportSource.xml
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\zh-CN\CrystalDecisions.CrystalReports.Engine.resources.dll
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\zh-CN\CrystalDecisions.Windows.Forms.resources.dll
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\zh-CN\CrystalDecisions.Shared.resources.dll
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\zh-CN\CrystalDecisions.ReportSource.resources.dll
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\Interop.Microsoft.Office.Core.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms3\QMS3\obj\Debug\Interop.Microsoft.Office.Core.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\CrystalDecisions.Enterprise.Framework.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\CrystalDecisions.Enterprise.InfoStore.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\CrystalDecisions.ReportSource.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\CrystalDecisions.Shared.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\CrystalDecisions.Windows.Forms.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\CrystalDecisions.CrystalReports.Engine.xml
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\CrystalDecisions.Windows.Forms.xml
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\CrystalDecisions.Shared.xml
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\CrystalDecisions.ReportSource.xml
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\zh-CN\CrystalDecisions.CrystalReports.Engine.resources.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\zh-CN\CrystalDecisions.Windows.Forms.resources.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\zh-CN\CrystalDecisions.Shared.resources.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\zh-CN\CrystalDecisions.ReportSource.resources.dll
+C:\Documents and Settings\will\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\Interop.Microsoft.Office.Core.dll
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\QMS3.exe.manifest
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\QMS3.application
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\obj\Debug\QMS3.TrustInfo.xml
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\obj\Debug\QMS3.exe.manifest
+C:\Users\will\Documents\Visual Studio 2008\Projects\qms3\QMS3\obj\Debug\QMS3.application
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\bin\Debug\QMS3.exe.config
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\bin\Debug\QMS3.exe.manifest
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\bin\Debug\QMS3.application
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\bin\Debug\QMS3.exe
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\bin\Debug\QMS3.pdb
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\bin\Debug\CrystalDecisions.Enterprise.Framework.dll
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\bin\Debug\CrystalDecisions.Enterprise.InfoStore.dll
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\bin\Debug\CrystalDecisions.ReportSource.dll
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\bin\Debug\CrystalDecisions.Shared.dll
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\bin\Debug\CrystalDecisions.Windows.Forms.dll
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\bin\Debug\Microsoft.Office.Interop.Excel.dll
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\bin\Debug\office.dll
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\bin\Debug\Microsoft.Vbe.Interop.dll
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\bin\Debug\CrystalDecisions.CrystalReports.Engine.xml
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\bin\Debug\CrystalDecisions.Windows.Forms.xml
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\bin\Debug\CrystalDecisions.Shared.xml
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\bin\Debug\CrystalDecisions.ReportSource.xml
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\bin\Debug\zh-CN\CrystalDecisions.CrystalReports.Engine.resources.dll
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\bin\Debug\zh-CN\CrystalDecisions.Windows.Forms.resources.dll
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\bin\Debug\zh-CN\CrystalDecisions.Shared.resources.dll
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\bin\Debug\zh-CN\CrystalDecisions.ReportSource.resources.dll
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\bin\Debug\Interop.Microsoft.Office.Core.dll
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\obj\Debug\Interop.Microsoft.Office.Core.dll
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\obj\Debug\QMS3.csproj.ResolveComReference.cache
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\obj\Debug\QMS3.QmsMain.resources
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\obj\Debug\QMS3.Properties.Resources.resources
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\obj\Debug\QMS3.csproj.GenerateResource.Cache
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\obj\Debug\QMS3.TrustInfo.xml
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\obj\Debug\QMS3.exe.manifest
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\obj\Debug\QMS3.application
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\obj\Debug\QMS3.exe
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms32\QMS3\obj\Debug\QMS3.pdb
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\QMS3.exe.manifest
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\bin\Debug\QMS3.application
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\obj\Debug\QMS3.TrustInfo.xml
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\obj\Debug\QMS3.exe.manifest
+C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\qms3\QMS3\obj\Debug\QMS3.application
+C:\Users\will\Desktop\qms3\QMS3\bin\Debug\QMS3.exe.config
+C:\Users\will\Desktop\qms3\QMS3\obj\Debug\Interop.Microsoft.Office.Core.dll
+C:\Users\will\Desktop\qms3\QMS3\obj\Debug\QMS3.csproj.ResolveComReference.cache
+C:\Users\will\Desktop\qms3\QMS3\obj\Debug\QMS3.exe
+C:\Users\will\Desktop\qms3\QMS3\obj\Debug\QMS3.pdb
+C:\Users\will\Desktop\qms3\QMS3\bin\Debug\QMS3.exe.manifest
+C:\Users\will\Desktop\qms3\QMS3\bin\Debug\QMS3.application
+C:\Users\will\Desktop\qms3\QMS3\bin\Debug\QMS3.exe
+C:\Users\will\Desktop\qms3\QMS3\bin\Debug\QMS3.pdb
+C:\Users\will\Desktop\qms3\QMS3\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\will\Desktop\qms3\QMS3\bin\Debug\CrystalDecisions.Enterprise.Framework.dll
+C:\Users\will\Desktop\qms3\QMS3\bin\Debug\CrystalDecisions.Enterprise.InfoStore.dll
+C:\Users\will\Desktop\qms3\QMS3\bin\Debug\CrystalDecisions.ReportSource.dll
+C:\Users\will\Desktop\qms3\QMS3\bin\Debug\CrystalDecisions.Shared.dll
+C:\Users\will\Desktop\qms3\QMS3\bin\Debug\CrystalDecisions.Windows.Forms.dll
+C:\Users\will\Desktop\qms3\QMS3\bin\Debug\Microsoft.Office.Interop.Excel.dll
+C:\Users\will\Desktop\qms3\QMS3\bin\Debug\office.dll
+C:\Users\will\Desktop\qms3\QMS3\bin\Debug\Microsoft.Vbe.Interop.dll
+C:\Users\will\Desktop\qms3\QMS3\bin\Debug\CrystalDecisions.CrystalReports.Engine.xml
+C:\Users\will\Desktop\qms3\QMS3\bin\Debug\CrystalDecisions.Windows.Forms.xml
+C:\Users\will\Desktop\qms3\QMS3\bin\Debug\CrystalDecisions.Shared.xml
+C:\Users\will\Desktop\qms3\QMS3\bin\Debug\CrystalDecisions.ReportSource.xml
+C:\Users\will\Desktop\qms3\QMS3\bin\Debug\zh-CN\CrystalDecisions.CrystalReports.Engine.resources.dll
+C:\Users\will\Desktop\qms3\QMS3\bin\Debug\zh-CN\CrystalDecisions.Windows.Forms.resources.dll
+C:\Users\will\Desktop\qms3\QMS3\bin\Debug\zh-CN\CrystalDecisions.Shared.resources.dll
+C:\Users\will\Desktop\qms3\QMS3\bin\Debug\zh-CN\CrystalDecisions.ReportSource.resources.dll
+C:\Users\will\Desktop\qms3\QMS3\bin\Debug\Interop.Microsoft.Office.Core.dll
+C:\Users\will\Desktop\qms3\QMS3\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\will\Desktop\qms3\QMS3\obj\Debug\QMS3.QmsMain.resources
+C:\Users\will\Desktop\qms3\QMS3\obj\Debug\QMS3.Properties.Resources.resources
+C:\Users\will\Desktop\qms3\QMS3\obj\Debug\QMS3.csproj.GenerateResource.Cache
+C:\Users\will\Desktop\qms3\QMS3\obj\Debug\QMS3.TrustInfo.xml
+C:\Users\will\Desktop\qms3\QMS3\obj\Debug\QMS3.exe.manifest
+C:\Users\will\Desktop\qms3\QMS3\obj\Debug\QMS3.application
+C:\Documents and Settings\will\桌面\qms3\QMS3\bin\Debug\QMS3.exe.config
+C:\Documents and Settings\will\桌面\qms3\QMS3\obj\Debug\Interop.Microsoft.Office.Core.dll
+C:\Documents and Settings\will\桌面\qms3\QMS3\obj\Debug\QMS3.csproj.ResolveComReference.cache
+C:\Documents and Settings\will\桌面\qms3\QMS3\obj\Debug\QMS3.exe
+C:\Documents and Settings\will\桌面\qms3\QMS3\obj\Debug\QMS3.pdb
+C:\Documents and Settings\will\桌面\qms3\QMS3\bin\Debug\QMS3.exe.manifest
+C:\Documents and Settings\will\桌面\qms3\QMS3\bin\Debug\QMS3.application
+C:\Documents and Settings\will\桌面\qms3\QMS3\bin\Debug\QMS3.exe
+C:\Documents and Settings\will\桌面\qms3\QMS3\bin\Debug\QMS3.pdb
+C:\Documents and Settings\will\桌面\qms3\QMS3\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+C:\Documents and Settings\will\桌面\qms3\QMS3\bin\Debug\CrystalDecisions.Enterprise.Framework.dll
+C:\Documents and Settings\will\桌面\qms3\QMS3\bin\Debug\CrystalDecisions.Enterprise.InfoStore.dll
+C:\Documents and Settings\will\桌面\qms3\QMS3\bin\Debug\CrystalDecisions.ReportSource.dll
+C:\Documents and Settings\will\桌面\qms3\QMS3\bin\Debug\CrystalDecisions.Shared.dll
+C:\Documents and Settings\will\桌面\qms3\QMS3\bin\Debug\CrystalDecisions.Windows.Forms.dll
+C:\Documents and Settings\will\桌面\qms3\QMS3\bin\Debug\Microsoft.Office.Interop.Excel.dll
+C:\Documents and Settings\will\桌面\qms3\QMS3\bin\Debug\office.dll
+C:\Documents and Settings\will\桌面\qms3\QMS3\bin\Debug\Microsoft.Vbe.Interop.dll
+C:\Documents and Settings\will\桌面\qms3\QMS3\bin\Debug\CrystalDecisions.CrystalReports.Engine.xml
+C:\Documents and Settings\will\桌面\qms3\QMS3\bin\Debug\CrystalDecisions.Windows.Forms.xml
+C:\Documents and Settings\will\桌面\qms3\QMS3\bin\Debug\CrystalDecisions.Shared.xml
+C:\Documents and Settings\will\桌面\qms3\QMS3\bin\Debug\CrystalDecisions.ReportSource.xml
+C:\Documents and Settings\will\桌面\qms3\QMS3\bin\Debug\zh-CN\CrystalDecisions.CrystalReports.Engine.resources.dll
+C:\Documents and Settings\will\桌面\qms3\QMS3\bin\Debug\zh-CN\CrystalDecisions.Windows.Forms.resources.dll
+C:\Documents and Settings\will\桌面\qms3\QMS3\bin\Debug\zh-CN\CrystalDecisions.Shared.resources.dll
+C:\Documents and Settings\will\桌面\qms3\QMS3\bin\Debug\zh-CN\CrystalDecisions.ReportSource.resources.dll
+C:\Documents and Settings\will\桌面\qms3\QMS3\bin\Debug\Interop.Microsoft.Office.Core.dll
+C:\Documents and Settings\will\桌面\qms3\QMS3\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\will\桌面\qms3\QMS3\obj\Debug\QMS3.QmsMain.resources
+C:\Documents and Settings\will\桌面\qms3\QMS3\obj\Debug\QMS3.Properties.Resources.resources
+C:\Documents and Settings\will\桌面\qms3\QMS3\obj\Debug\QMS3.csproj.GenerateResource.Cache
+C:\Documents and Settings\will\桌面\qms3\QMS3\obj\Debug\QMS3.TrustInfo.xml
+C:\Documents and Settings\will\桌面\qms3\QMS3\obj\Debug\QMS3.exe.manifest
+C:\Documents and Settings\will\桌面\qms3\QMS3\obj\Debug\QMS3.application
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\bin\Debug\QMS3.exe.config
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\obj\Debug\Interop.Microsoft.Office.Core.dll
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\obj\Debug\QMS3.csproj.ResolveComReference.cache
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\obj\Debug\QMS3.exe
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\obj\Debug\QMS3.pdb
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\bin\Debug\QMS3.exe.manifest
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\bin\Debug\QMS3.application
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\bin\Debug\QMS3.exe
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\bin\Debug\QMS3.pdb
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Enterprise.Framework.dll
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Enterprise.InfoStore.dll
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.ReportSource.dll
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Shared.dll
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Windows.Forms.dll
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\bin\Debug\Microsoft.Office.Interop.Excel.dll
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\bin\Debug\office.dll
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\bin\Debug\Microsoft.Vbe.Interop.dll
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.CrystalReports.Engine.xml
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Windows.Forms.xml
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.Shared.xml
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\bin\Debug\CrystalDecisions.ReportSource.xml
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\bin\Debug\zh-CN\CrystalDecisions.CrystalReports.Engine.resources.dll
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\bin\Debug\zh-CN\CrystalDecisions.Windows.Forms.resources.dll
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\bin\Debug\zh-CN\CrystalDecisions.Shared.resources.dll
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\bin\Debug\zh-CN\CrystalDecisions.ReportSource.resources.dll
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\bin\Debug\Interop.Microsoft.Office.Core.dll
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\obj\Debug\QMS3.QmsMain.resources
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\obj\Debug\QMS3.Properties.Resources.resources
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\obj\Debug\QMS3.csproj.GenerateResource.Cache
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\obj\Debug\QMS3.TrustInfo.xml
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\obj\Debug\QMS3.exe.manifest
+C:\Documents and Settings\will\桌面\qms3 --username willwill85\QMS3\obj\Debug\QMS3.application
+F:\qms3 --username willwill85\QMS3\bin\Debug\QMS3.exe.config
+F:\qms3 --username willwill85\QMS3\obj\Debug\Interop.Microsoft.Office.Core.dll
+F:\qms3 --username willwill85\QMS3\obj\Debug\QMS3.csproj.ResolveComReference.cache
+F:\qms3 --username willwill85\QMS3\obj\Debug\QMS3.exe
+F:\qms3 --username willwill85\QMS3\obj\Debug\QMS3.pdb

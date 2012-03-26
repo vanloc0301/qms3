@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Configs>
+	<Config> 
+    		<StartH>09</StartH>
+		<StartM>00</StartM>
+    		<EndH>19</EndH>
+    		<EndM>30</EndM>
+		<Shell>true</Shell>
+ 	</Config>  
+</Configs>
+  

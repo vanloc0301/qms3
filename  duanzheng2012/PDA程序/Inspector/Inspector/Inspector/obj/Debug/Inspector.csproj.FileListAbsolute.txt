@@ -1,0 +1,16 @@
+G:\garbage\Inspector\Inspector\bin\Debug\Inspector.exe
+G:\garbage\Inspector\Inspector\bin\Debug\Inspector.pdb
+G:\garbage\Inspector\Inspector\obj\Debug\ResolveAssemblyReference.cache
+G:\garbage\Inspector\Inspector\obj\Debug\Inspector.Form1.resources
+G:\garbage\Inspector\Inspector\obj\Debug\Inspector.Properties.Resources.resources
+G:\garbage\Inspector\Inspector\obj\Debug\Inspector.csproj.GenerateResource.Cache
+G:\garbage\Inspector\Inspector\obj\Debug\Inspector.exe
+G:\garbage\Inspector\Inspector\obj\Debug\Inspector.pdb
+C:\Documents and Settings\will\桌面\new 环卫\Inspector\Inspector\Inspector\bin\Debug\Inspector.exe
+C:\Documents and Settings\will\桌面\new 环卫\Inspector\Inspector\Inspector\bin\Debug\Inspector.pdb
+C:\Documents and Settings\will\桌面\new 环卫\Inspector\Inspector\Inspector\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\will\桌面\new 环卫\Inspector\Inspector\Inspector\obj\Debug\Inspector.Form1.resources
+C:\Documents and Settings\will\桌面\new 环卫\Inspector\Inspector\Inspector\obj\Debug\Inspector.Properties.Resources.resources
+C:\Documents and Settings\will\桌面\new 环卫\Inspector\Inspector\Inspector\obj\Debug\Inspector.csproj.GenerateResource.Cache
+C:\Documents and Settings\will\桌面\new 环卫\Inspector\Inspector\Inspector\obj\Debug\Inspector.exe
+C:\Documents and Settings\will\桌面\new 环卫\Inspector\Inspector\Inspector\obj\Debug\Inspector.pdb
