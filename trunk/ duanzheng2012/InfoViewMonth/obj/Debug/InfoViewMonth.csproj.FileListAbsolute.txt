@@ -1,0 +1,10 @@
+F:\duanzheng2012\InfoViewMonth\bin\Debug\InfoViewMonth.exe
+F:\duanzheng2012\InfoViewMonth\bin\Debug\InfoViewMonth.pdb
+F:\duanzheng2012\InfoViewMonth\bin\Debug\InfoViewCommon.dll
+F:\duanzheng2012\InfoViewMonth\bin\Debug\InfoViewCommon.pdb
+F:\duanzheng2012\InfoViewMonth\obj\Debug\ResolveAssemblyReference.cache
+F:\duanzheng2012\InfoViewMonth\obj\Debug\InfoViewMonth.InfoViewMonthMain.resources
+F:\duanzheng2012\InfoViewMonth\obj\Debug\InfoViewMonth.Properties.Resources.resources
+F:\duanzheng2012\InfoViewMonth\obj\Debug\InfoViewMonth.csproj.GenerateResource.Cache
+F:\duanzheng2012\InfoViewMonth\obj\Debug\InfoViewMonth.exe
+F:\duanzheng2012\InfoViewMonth\obj\Debug\InfoViewMonth.pdb
