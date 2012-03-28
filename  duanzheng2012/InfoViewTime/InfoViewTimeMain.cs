@@ -26,8 +26,8 @@ namespace InfoViewTime
             Uri url = new Uri(str + "chart/Demo.htm");
             webBrowser.Url = url;
 
-            chartdata.updateData(5, DateTime.Now, 0).ToString();
-            vschart.reSize(webBrowser.Size.Width, webBrowser.Size.Height);
+            chartdata.updateData(5,DateTime.Now, 0).ToString();
+            vschart.reSize(webBrowser.Width, webBrowser.Height);
             vschart.settitle("当日转运中心报表", "时间", "运输量");
             string[] column = new string[16];
             double[] data = new double[16];
@@ -49,6 +49,16 @@ namespace InfoViewTime
 
         private void InfoViewTimeMain_Resize(object sender, EventArgs e)
         {
+        }
+
+        private void timerRefresh_Tick(object sender, EventArgs e)
+        {
+            this.Form1_Load(null,null);
+        }
+
+        private void webBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
         }
     }
 }
