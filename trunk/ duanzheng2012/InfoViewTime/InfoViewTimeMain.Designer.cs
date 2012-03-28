@@ -28,23 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.webBrowser = new System.Windows.Forms.WebBrowser();
+            this.timerRefresh = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // webBrowser
             // 
             this.webBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser.IsWebBrowserContextMenuEnabled = false;
             this.webBrowser.Location = new System.Drawing.Point(0, 0);
             this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser.Name = "webBrowser";
-            this.webBrowser.Size = new System.Drawing.Size(292, 273);
+            this.webBrowser.ScrollBarsEnabled = false;
+            this.webBrowser.Size = new System.Drawing.Size(374, 308);
             this.webBrowser.TabIndex = 0;
+            this.webBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser_DocumentCompleted);
+            // 
+            // timerRefresh
+            // 
+            this.timerRefresh.Enabled = true;
+            this.timerRefresh.Interval = 600000;
+            this.timerRefresh.Tick += new System.EventHandler(this.timerRefresh_Tick);
             // 
             // InfoViewTimeMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(292, 273);
+            this.ClientSize = new System.Drawing.Size(374, 308);
             this.Controls.Add(this.webBrowser);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InfoViewTimeMain";
@@ -61,6 +72,7 @@
         #endregion
 
         private System.Windows.Forms.WebBrowser webBrowser;
+        private System.Windows.Forms.Timer timerRefresh;
     }
 }
 
