@@ -1,0 +1,14 @@
+F:\duanzheng2012\InfoView\obj\Debug\ResolveAssemblyReference.cache
+F:\duanzheng2012\InfoView\obj\Debug\InfoView.Properties.Resources.resources
+F:\duanzheng2012\InfoView\obj\Debug\InfoView.csproj.GenerateResource.Cache
+F:\duanzheng2012\InfoView\obj\Debug\InfoView.csproj.ResolveComReference.cache
+F:\duanzheng2012\InfoView\bin\Debug\InfoView.exe
+F:\duanzheng2012\InfoView\bin\Debug\InfoView.pdb
+F:\duanzheng2012\InfoView\bin\Debug\Microsoft.Office.Interop.Excel.dll
+F:\duanzheng2012\InfoView\bin\Debug\Microsoft.Vbe.Interop.dll
+F:\duanzheng2012\InfoView\bin\Debug\office.dll
+F:\duanzheng2012\InfoView\obj\Debug\InfoView.InfoViewMonthMain.resources
+F:\duanzheng2012\InfoView\obj\Debug\InfoView.InfoViewTimeMain.resources
+F:\duanzheng2012\InfoView\obj\Debug\InfoView.InfoViewYearMain.resources
+F:\duanzheng2012\InfoView\obj\Debug\InfoView.exe
+F:\duanzheng2012\InfoView\obj\Debug\InfoView.pdb
