@@ -1,0 +1,10 @@
+F:\duanzheng2012\InfoViewTime\bin\Debug\InfoViewTime.exe
+F:\duanzheng2012\InfoViewTime\bin\Debug\InfoViewTime.pdb
+F:\duanzheng2012\InfoViewTime\bin\Debug\InfoViewCommon.dll
+F:\duanzheng2012\InfoViewTime\bin\Debug\InfoViewCommon.pdb
+F:\duanzheng2012\InfoViewTime\obj\Debug\ResolveAssemblyReference.cache
+F:\duanzheng2012\InfoViewTime\obj\Debug\InfoViewTime.InfoViewTimeMain.resources
+F:\duanzheng2012\InfoViewTime\obj\Debug\InfoViewTime.Properties.Resources.resources
+F:\duanzheng2012\InfoViewTime\obj\Debug\InfoViewTime.csproj.GenerateResource.Cache
+F:\duanzheng2012\InfoViewTime\obj\Debug\InfoViewTime.exe
+F:\duanzheng2012\InfoViewTime\obj\Debug\InfoViewTime.pdb

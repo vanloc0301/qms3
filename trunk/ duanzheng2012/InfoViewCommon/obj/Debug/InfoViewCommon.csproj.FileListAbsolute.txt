@@ -1,0 +1,9 @@
+F:\duanzheng2012\InfoViewCommon\obj\Debug\ResolveAssemblyReference.cache
+F:\duanzheng2012\InfoViewCommon\obj\Debug\InfoViewCommon.csproj.ResolveComReference.cache
+F:\duanzheng2012\InfoViewCommon\bin\Debug\InfoViewCommon.dll
+F:\duanzheng2012\InfoViewCommon\bin\Debug\InfoViewCommon.pdb
+F:\duanzheng2012\InfoViewCommon\bin\Debug\Microsoft.Office.Interop.Excel.dll
+F:\duanzheng2012\InfoViewCommon\bin\Debug\Microsoft.Vbe.Interop.dll
+F:\duanzheng2012\InfoViewCommon\bin\Debug\office.dll
+F:\duanzheng2012\InfoViewCommon\obj\Debug\InfoViewCommon.dll
+F:\duanzheng2012\InfoViewCommon\obj\Debug\InfoViewCommon.pdb
