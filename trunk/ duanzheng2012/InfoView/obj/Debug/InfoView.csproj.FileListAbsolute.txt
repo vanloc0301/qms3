@@ -12,3 +12,10 @@ F:\duanzheng2012\InfoView\obj\Debug\InfoView.InfoViewTimeMain.resources
 F:\duanzheng2012\InfoView\obj\Debug\InfoView.InfoViewYearMain.resources
 F:\duanzheng2012\InfoView\obj\Debug\InfoView.exe
 F:\duanzheng2012\InfoView\obj\Debug\InfoView.pdb
+F:\duanzheng2012\InfoView\bin\Debug\InfoView.exe.config
+F:\duanzheng2012\InfoView\obj\Debug\InfoView.InfoViewCarMain.resources
+F:\duanzheng2012\InfoView\obj\Debug\InfoView.TestForm.resources
+F:\duanzheng2012\InfoView\obj\Debug\InfoView.InfoViewSumMain.resources
+F:\duanzheng2012\InfoView\obj\Debug\InfoView.InfoViewStateMain.resources
+F:\duanzheng2012\InfoView\bin\Debug\DOATransparentLabel.dll
+F:\duanzheng2012\InfoView\bin\Debug\DOATransparentLabel.pdb

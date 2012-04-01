@@ -32,12 +32,25 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Enterprise.Framework, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Enterprise.InfoStore, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="CrystalDecisions.Shared, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="DOATransparentLabel, Version=1.0.2783.32981, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Documents and Settings\Administrator.WWW-DC23A6DEE50\桌面\DOATransparentLabel\DOATransparentLabel\bin\Debug\DOATransparentLabel.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -55,11 +68,34 @@
     <Compile Include="Classes\ChartData.cs" />
     <Compile Include="Classes\Datetimecalc.cs" />
     <Compile Include="Classes\visifire.cs" />
+    <Compile Include="db_rfidtestDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_rfidtestDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="InfoViewCarMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoViewCarMain.Designer.cs">
+      <DependentUpon>InfoViewCarMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="InfoViewMonthMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="InfoViewMonthMain.Designer.cs">
       <DependentUpon>InfoViewMonthMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfoViewStateMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoViewStateMain.Designer.cs">
+      <DependentUpon>InfoViewStateMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InfoViewSumMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoViewSumMain.Designer.cs">
+      <DependentUpon>InfoViewSumMain.cs</DependentUpon>
     </Compile>
     <Compile Include="InfoViewTimeMain.cs">
       <SubType>Form</SubType>
@@ -75,8 +111,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="InfoViewCarMain.resx">
+      <DependentUpon>InfoViewCarMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InfoViewMonthMain.resx">
       <DependentUpon>InfoViewMonthMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoViewStateMain.resx">
+      <DependentUpon>InfoViewStateMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InfoViewSumMain.resx">
+      <DependentUpon>InfoViewSumMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InfoViewTimeMain.resx">
       <DependentUpon>InfoViewTimeMain.cs</DependentUpon>
@@ -89,10 +134,25 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="TestForm.resx">
+      <DependentUpon>TestForm.cs</DependentUpon>
+    </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="app.config" />
+    <None Include="db_rfidtestDataSet.xsc">
+      <DependentUpon>db_rfidtestDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="db_rfidtestDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_rfidtestDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_rfidtestDataSet.xss">
+      <DependentUpon>db_rfidtestDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -101,6 +161,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="TestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestForm.Designer.cs">
+      <DependentUpon>TestForm.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

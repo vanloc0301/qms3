@@ -14,8 +14,10 @@ namespace InfoView
         static void Main()
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new InfoViewTimeMain());
+
+            Application.SetCompatibleTextRenderingDefault(true);
+            Application.Run(new InfoViewSumMain());
+
         }
     }
 }
