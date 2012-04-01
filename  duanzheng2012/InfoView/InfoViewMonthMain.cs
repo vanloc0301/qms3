@@ -69,6 +69,11 @@ namespace InfoView
                 loadData();
         }
 
+        private void webBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
+        }
+
 
     }
 }
