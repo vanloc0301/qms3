@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using InfoView.Classes;
 
 namespace InfoView
 {
@@ -14,6 +15,11 @@ namespace InfoView
         public InfoViewStateMain()
         {
             InitializeComponent();
+        }
+
+        private void InfoViewStateMain_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -48,10 +48,10 @@ namespace InfoView
             lblStation.Text = "" + station+"个";
             lblCar.Text = "" + car + "辆";
             lblSize.Text = "" + size +"平方公里";
-            lblPeople.Text = "" + people + "个";
-            lblSum.Text = "" + sum + "吨";
-            lblArgSize.Text = "" + argSize.ToString("f2") + "吨";
-            lblArgPeople.Text = "" + argPeople.ToString("f2") + "吨";
+            lblPeople.Text = "" + people + "人";
+            lblSum.Text = "" + sum + "吨垃圾";
+            lblArgSize.Text = "" + argSize.ToString("f2") + "吨垃圾";
+            lblArgPeople.Text = "" + argPeople.ToString("f2") + "吨垃圾";
         }
 
     }
