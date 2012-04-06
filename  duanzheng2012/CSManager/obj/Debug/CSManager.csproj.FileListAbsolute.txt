@@ -1,0 +1,8 @@
+F:\duanzheng2012\CSManager\bin\Debug\CSManager.exe
+F:\duanzheng2012\CSManager\bin\Debug\CSManager.pdb
+F:\duanzheng2012\CSManager\obj\Debug\ResolveAssemblyReference.cache
+F:\duanzheng2012\CSManager\obj\Debug\CSManager.CsmMain.resources
+F:\duanzheng2012\CSManager\obj\Debug\CSManager.Properties.Resources.resources
+F:\duanzheng2012\CSManager\obj\Debug\CSManager.csproj.GenerateResource.Cache
+F:\duanzheng2012\CSManager\obj\Debug\CSManager.exe
+F:\duanzheng2012\CSManager\obj\Debug\CSManager.pdb
