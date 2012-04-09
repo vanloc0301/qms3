@@ -1,0 +1,12 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	x:Class="StationManager.PrintWindow"
+	x:Name="Window"
+	Title="PrintWindow"
+	Width="640" Height="480" Closed="Window_Closed" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <ImageBrush ImageSource="bg.png" />
+    </Window.Background>
+	<Grid x:Name="LayoutRoot"/>
+</Window>

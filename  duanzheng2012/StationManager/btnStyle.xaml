@@ -1,0 +1,431 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d">
+	<Style x:Key="btnMap_Style" TargetType="{x:Type Button}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="0.199*"/>
+							<ColumnDefinition Width="0.801*"/>
+						</Grid.ColumnDefinitions>
+						<Rectangle RenderTransformOrigin="0.725,0.414" RadiusX="10" RadiusY="10" Grid.ColumnSpan="2">
+							<Rectangle.Fill>
+								<ImageBrush ImageSource="btnMap_Icon.png" Opacity="0.75"/>
+							</Rectangle.Fill>
+							
+							<Rectangle.Stroke>
+								<SolidColorBrush/>
+							</Rectangle.Stroke>
+							
+						</Rectangle>
+						<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True"/>
+						<Rectangle Stroke="White" RadiusX="10" RadiusY="10" Margin="-31,-10,-31,-41.5" Grid.ColumnSpan="2">
+							<Rectangle.Fill>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="#00C7D2E1" Offset="1"/>
+									<GradientStop Color="#0092BAF0" Offset="0.104"/>
+									<GradientStop Offset="0.622"/>
+								</LinearGradientBrush>
+							</Rectangle.Fill>
+						</Rectangle>
+						<Label Margin="18.958,0,68,-41" VerticalAlignment="Bottom" Height="41" Content="卫星影像" FontSize="26.667" Foreground="White" Grid.Column="1" Grid.ColumnSpan="1" d:LayoutOverrides="HorizontalAlignment, GridBox"/>
+						<Rectangle x:Name="glassCube" Stroke="Transparent" RenderTransformOrigin="0.725,0.414" RadiusX="10" RadiusY="10" Margin="-31,-10,-31,-41.5" Opacity="0" HorizontalAlignment="Stretch" Width="Auto" Grid.Column="0" Grid.ColumnSpan="2">
+							<Rectangle.Fill>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="#4CC7D2E1" Offset="1"/>
+									<GradientStop Color="#4C92BAF0" Offset="0.1"/>
+									<GradientStop Color="#4C3879D4" Offset="0.622"/>
+								</LinearGradientBrush>
+							</Rectangle.Fill>
+							
+						</Rectangle>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsFocused" Value="True"/>
+						<Trigger Property="IsDefaulted" Value="True"/>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter Property="Opacity" TargetName="glassCube" Value="1"/>
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter Property="Fill" TargetName="glassCube">
+								<Setter.Value>
+									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+										<GradientStop Color="#7F4C8CE4" Offset="1"/>
+										<GradientStop Color="#7F92BAF0" Offset="0.1"/>
+										<GradientStop Color="#7F3879D4" Offset="0.622"/>
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="False"/>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="btnRpt_Style" TargetType="{x:Type Button}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="0.199*"/>
+							<ColumnDefinition Width="0.801*"/>
+						</Grid.ColumnDefinitions>
+						<Rectangle RenderTransformOrigin="0.725,0.414" RadiusX="10" RadiusY="10" Grid.ColumnSpan="2">
+							<Rectangle.Fill>
+								<ImageBrush ImageSource="btnRpt_Icon.png" Opacity="0.75"/>
+							</Rectangle.Fill>
+							
+							<Rectangle.Stroke>
+								<SolidColorBrush/>
+							</Rectangle.Stroke>
+							
+						</Rectangle>
+						<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True"/>
+						<Rectangle Stroke="White" RadiusX="10" RadiusY="10" Margin="-31,-10,-31,-41.5" Grid.ColumnSpan="2">
+							<Rectangle.Fill>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="#00C7D2E1" Offset="1"/>
+									<GradientStop Color="#0092BAF0" Offset="0.104"/>
+									<GradientStop Offset="0.622"/>
+								</LinearGradientBrush>
+							</Rectangle.Fill>
+						</Rectangle>
+						<Label Margin="18.958,0,68,-41" VerticalAlignment="Bottom" Height="41" Content="本站报表" FontSize="26.667" Foreground="White" Grid.Column="1" Grid.ColumnSpan="1" d:LayoutOverrides="HorizontalAlignment, GridBox"/>
+						<Rectangle x:Name="glassCube" Stroke="Transparent" RenderTransformOrigin="0.725,0.414" RadiusX="10" RadiusY="10" Margin="-31,-10.5,-31,-41" Opacity="0" HorizontalAlignment="Stretch" Width="Auto" Grid.Column="0" Grid.ColumnSpan="2">
+							<Rectangle.Fill>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="#4CC7D2E1" Offset="1"/>
+									<GradientStop Color="#4C92BAF0" Offset="0.1"/>
+									<GradientStop Color="#4C3879D4" Offset="0.622"/>
+								</LinearGradientBrush>
+							</Rectangle.Fill>
+							
+						</Rectangle>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsFocused" Value="True"/>
+						<Trigger Property="IsDefaulted" Value="True"/>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter Property="Opacity" TargetName="glassCube" Value="1"/>
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter Property="Fill" TargetName="glassCube">
+								<Setter.Value>
+									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+										<GradientStop Color="#7F4C8CE4" Offset="1"/>
+										<GradientStop Color="#7F92BAF0" Offset="0.1"/>
+										<GradientStop Color="#7F3879D4" Offset="0.622"/>
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="False"/>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="btnClk_Style" TargetType="{x:Type Button}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="0.199*"/>
+							<ColumnDefinition Width="0.801*"/>
+						</Grid.ColumnDefinitions>
+						<Rectangle RenderTransformOrigin="0.725,0.414" RadiusX="10" RadiusY="10" Grid.ColumnSpan="2">
+							<Rectangle.Fill>
+								<ImageBrush ImageSource="btnClk_Icon.png" Opacity="0.75"/>
+							</Rectangle.Fill>
+							
+							<Rectangle.Stroke>
+								<SolidColorBrush/>
+							</Rectangle.Stroke>
+							
+						</Rectangle>
+						<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True"/>
+						<Rectangle Stroke="White" RadiusX="10" RadiusY="10" Margin="-31,-10,-31,-41.5" Grid.ColumnSpan="2">
+							<Rectangle.Fill>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="#00C7D2E1" Offset="1"/>
+									<GradientStop Color="#0092BAF0" Offset="0.104"/>
+									<GradientStop Offset="0.622"/>
+								</LinearGradientBrush>
+							</Rectangle.Fill>
+						</Rectangle>
+						<Label Margin="18.958,0,68,-41" VerticalAlignment="Bottom" Height="41" Content="事实情况" FontSize="26.667" Foreground="White" Grid.Column="1" Grid.ColumnSpan="1" d:LayoutOverrides="HorizontalAlignment, GridBox"/>
+						<Rectangle x:Name="glassCube" Stroke="Transparent" RenderTransformOrigin="0.725,0.414" RadiusX="10" RadiusY="10" Margin="-31,-10.5,-31,-41" Opacity="0" HorizontalAlignment="Stretch" Width="Auto" Grid.Column="0" Grid.ColumnSpan="2">
+							<Rectangle.Fill>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="#4CC7D2E1" Offset="1"/>
+									<GradientStop Color="#4C92BAF0" Offset="0.1"/>
+									<GradientStop Color="#4C3879D4" Offset="0.622"/>
+								</LinearGradientBrush>
+							</Rectangle.Fill>
+							
+						</Rectangle>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsFocused" Value="True"/>
+						<Trigger Property="IsDefaulted" Value="True"/>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter Property="Opacity" TargetName="glassCube" Value="1"/>
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter Property="Fill" TargetName="glassCube">
+								<Setter.Value>
+									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+										<GradientStop Color="#7F4C8CE4" Offset="1"/>
+										<GradientStop Color="#7F92BAF0" Offset="0.1"/>
+										<GradientStop Color="#7F3879D4" Offset="0.622"/>
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="False"/>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="btnPrt_Icon" TargetType="{x:Type Button}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="0.199*"/>
+							<ColumnDefinition Width="0.801*"/>
+						</Grid.ColumnDefinitions>
+						<Rectangle RenderTransformOrigin="0.725,0.414" RadiusX="10" RadiusY="10" Grid.ColumnSpan="2">
+							<Rectangle.Fill>
+								<ImageBrush ImageSource="btnPrt_Icon.png" Opacity="0.75"/>
+							</Rectangle.Fill>
+							
+							<Rectangle.Stroke>
+								<SolidColorBrush/>
+							</Rectangle.Stroke>
+							
+						</Rectangle>
+						<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True"/>
+						<Rectangle Stroke="White" RadiusX="10" RadiusY="10" Margin="-31,-10,-31,-41.5" Grid.ColumnSpan="2">
+							<Rectangle.Fill>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="#00C7D2E1" Offset="1"/>
+									<GradientStop Color="#0092BAF0" Offset="0.104"/>
+									<GradientStop Offset="0.622"/>
+								</LinearGradientBrush>
+							</Rectangle.Fill>
+						</Rectangle>
+						<Label Margin="18.958,0,68,-41" VerticalAlignment="Bottom" Height="41" Content="打印信息" FontSize="26.667" Foreground="White" Grid.Column="1" Grid.ColumnSpan="1" d:LayoutOverrides="HorizontalAlignment, GridBox"/>
+						<Rectangle x:Name="glassCube" Stroke="Transparent" RenderTransformOrigin="0.725,0.414" RadiusX="10" RadiusY="10" Margin="-31,-10.5,-31,-41" Opacity="0" HorizontalAlignment="Stretch" Width="Auto" Grid.Column="0" Grid.ColumnSpan="2">
+							<Rectangle.Fill>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="#4CC7D2E1" Offset="1"/>
+									<GradientStop Color="#4C92BAF0" Offset="0.1"/>
+									<GradientStop Color="#4C3879D4" Offset="0.622"/>
+								</LinearGradientBrush>
+							</Rectangle.Fill>
+							
+						</Rectangle>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsFocused" Value="True"/>
+						<Trigger Property="IsDefaulted" Value="True"/>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter Property="Opacity" TargetName="glassCube" Value="1"/>
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter Property="Fill" TargetName="glassCube">
+								<Setter.Value>
+									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+										<GradientStop Color="#7F4C8CE4" Offset="1"/>
+										<GradientStop Color="#7F92BAF0" Offset="0.1"/>
+										<GradientStop Color="#7F3879D4" Offset="0.622"/>
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="False"/>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="btnExt_Style" TargetType="{x:Type Button}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="0.199*"/>
+							<ColumnDefinition Width="0.801*"/>
+						</Grid.ColumnDefinitions>
+						<Rectangle RenderTransformOrigin="0.725,0.414" RadiusX="10" RadiusY="10" Grid.ColumnSpan="2">
+							<Rectangle.Fill>
+								<ImageBrush ImageSource="btnExt.png" Opacity="0.75"/>
+							</Rectangle.Fill>
+							
+							<Rectangle.Stroke>
+								<SolidColorBrush/>
+							</Rectangle.Stroke>
+							
+						</Rectangle>
+						<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True"/>
+						<Rectangle Stroke="White" RadiusX="10" RadiusY="10" Margin="-31,-10,-31,-41.5" Grid.ColumnSpan="2">
+							<Rectangle.Fill>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="#00C7D2E1" Offset="1"/>
+									<GradientStop Color="#0092BAF0" Offset="0.104"/>
+									<GradientStop Offset="0.622"/>
+								</LinearGradientBrush>
+							</Rectangle.Fill>
+						</Rectangle>
+						<Label Margin="18.958,0,68,-41" VerticalAlignment="Bottom" Height="41" Content="登出系统" FontSize="26.667" Foreground="White" Grid.Column="1" Grid.ColumnSpan="1" d:LayoutOverrides="HorizontalAlignment, GridBox"/>
+						<Rectangle x:Name="glassCube" Stroke="Transparent" RenderTransformOrigin="0.725,0.414" RadiusX="10" RadiusY="10" Margin="-31,-10.5,-31,-41" Opacity="0" HorizontalAlignment="Stretch" Width="Auto" Grid.Column="0" Grid.ColumnSpan="2">
+							<Rectangle.Fill>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="#4CC7D2E1" Offset="1"/>
+									<GradientStop Color="#4C92BAF0" Offset="0.1"/>
+									<GradientStop Color="#4C3879D4" Offset="0.622"/>
+								</LinearGradientBrush>
+							</Rectangle.Fill>
+							
+						</Rectangle>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsFocused" Value="True"/>
+						<Trigger Property="IsDefaulted" Value="True"/>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter Property="Opacity" TargetName="glassCube" Value="1"/>
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter Property="Fill" TargetName="glassCube">
+								<Setter.Value>
+									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+										<GradientStop Color="#7F4C8CE4" Offset="1"/>
+										<GradientStop Color="#7F92BAF0" Offset="0.1"/>
+										<GradientStop Color="#7F3879D4" Offset="0.622"/>
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="False"/>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="btnSrh_Icon" TargetType="{x:Type Button}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="0.199*"/>
+							<ColumnDefinition Width="0.801*"/>
+						</Grid.ColumnDefinitions>
+						<Rectangle RenderTransformOrigin="0.725,0.414" RadiusX="10" RadiusY="10" Grid.ColumnSpan="2">
+							<Rectangle.Fill>
+								<ImageBrush ImageSource="btnSrh_Icon.png" Opacity="0.75"/>
+							</Rectangle.Fill>
+							
+							<Rectangle.Stroke>
+								<SolidColorBrush/>
+							</Rectangle.Stroke>
+							
+						</Rectangle>
+						<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True"/>
+						<Rectangle Stroke="White" RadiusX="10" RadiusY="10" Margin="-31,-10,-31,-41.5" Grid.ColumnSpan="2">
+							<Rectangle.Fill>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="#00C7D2E1" Offset="1"/>
+									<GradientStop Color="#0092BAF0" Offset="0.104"/>
+									<GradientStop Offset="0.622"/>
+								</LinearGradientBrush>
+							</Rectangle.Fill>
+						</Rectangle>
+						<Label Margin="12,0,15.958,-41" VerticalAlignment="Bottom" Height="41" Content="消息与通知" FontSize="26.667" Foreground="White" Grid.Column="1" Grid.ColumnSpan="1" d:LayoutOverrides="HorizontalAlignment, GridBox"/>
+						<Rectangle x:Name="glassCube" Stroke="Transparent" RenderTransformOrigin="0.725,0.414" RadiusX="10" RadiusY="10" Margin="-31,-10.5,-31,-41" Opacity="0" Grid.ColumnSpan="2">
+							<Rectangle.Fill>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="#4CC7D2E1" Offset="1"/>
+									<GradientStop Color="#4C92BAF0" Offset="0.1"/>
+									<GradientStop Color="#4C3879D4" Offset="0.622"/>
+								</LinearGradientBrush>
+							</Rectangle.Fill>
+							
+						</Rectangle>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsFocused" Value="True"/>
+						<Trigger Property="IsDefaulted" Value="True"/>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter Property="Opacity" TargetName="glassCube" Value="1"/>
+						</Trigger>
+						<Trigger Property="IsPressed" Value="True">
+							<Setter Property="Fill" TargetName="glassCube">
+								<Setter.Value>
+									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+										<GradientStop Color="#7F4C8CE4" Offset="1"/>
+										<GradientStop Color="#7F92BAF0" Offset="0.1"/>
+										<GradientStop Color="#7F3879D4" Offset="0.622"/>
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="False"/>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="btnSearch" TargetType="{x:Type Button}">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type Button}">
+					<Grid>
+						<Ellipse Stroke="#33FFFFFF" OpacityMask="Black" RenderTransformOrigin="0.346,0.441">
+							<Ellipse.Fill>
+								<SolidColorBrush/>
+							</Ellipse.Fill>
+						</Ellipse>
+						<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" RecognizesAccessKey="True"/>
+						<Ellipse Stroke="#33FFFFFF" OpacityMask="Black" RenderTransformOrigin="0.346,0.441" Opacity="0" Name="glassCube">
+							<Ellipse.Fill>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="#33000000" Offset="0"/>
+									<GradientStop Color="#33FFFFFF" Offset="1"/>
+								</LinearGradientBrush>
+							</Ellipse.Fill>
+						</Ellipse>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsFocused" Value="True"/>
+						<Trigger Property="IsDefaulted" Value="True"/>
+						<Trigger Property="IsMouseOver" Value="True">
+							<Setter Property="Opacity" TargetName="glassCube" Value="1"/>
+						</Trigger>
+						<Trigger Property="Fill" Value="{x:Null}" SourceName="glassCube">
+							<Setter Property="Fill" TargetName="glassCube">
+								<Setter.Value>
+									<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+										<GradientStop Color="#7F000000" Offset="0"/>
+										<GradientStop Color="#7FFFFFFF" Offset="1"/>
+									</LinearGradientBrush>
+								</Setter.Value>
+							</Setter>
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="False"/>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<!-- 应该在此定义资源字典条目。-->
+</ResourceDictionary>
