@@ -4,11 +4,14 @@
 	x:Class="StationManager.RptWindow"
 	x:Name="Window"
 	Title="RptWindow"
-	Width="640" Height="480" Closed="Window_Closed" WindowStartupLocation="CenterScreen" WindowStyle="None">
+	Width="900" Height="600" Closed="Window_Closed" WindowStartupLocation="CenterScreen" WindowStyle="None">
     
     <Window.Background>
         <ImageBrush ImageSource="bg.png" />
     </Window.Background>
 
-	<Grid x:Name="LayoutRoot"/>
+	<Grid x:Name="LayoutRoot">
+		<Label HorizontalAlignment="Left" Margin="8,8,0,0" VerticalAlignment="Top" Width="364" Height="45" Content="六道口垃圾站--本站报表" Foreground="White" FontSize="32"/>
+		<Rectangle Stroke="White" Margin="38,91,38,39" RadiusX="10" RadiusY="10"/>
+	</Grid>
 </Window>

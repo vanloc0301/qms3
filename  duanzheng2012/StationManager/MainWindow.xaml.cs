@@ -102,7 +102,7 @@ namespace StationManager
         private void btnExt_Click(object sender, RoutedEventArgs e)
         {
             this.lblUser.Content = "用户名：";
-            this.lblRight.Content = "密  码：";
+            this.lblRight.Content = "权  限：";
 
             setDialog();
             LoginWindow loginWindow = new LoginWindow();

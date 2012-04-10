@@ -4,9 +4,29 @@
 	x:Class="StationManager.PrintWindow"
 	x:Name="Window"
 	Title="PrintWindow"
-	Width="640" Height="480" Closed="Window_Closed" WindowStyle="None" WindowStartupLocation="CenterScreen">
+	Width="900" Height="600" Closed="Window_Closed" WindowStyle="None" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
     <Window.Background>
         <ImageBrush ImageSource="bg.png" />
     </Window.Background>
-	<Grid x:Name="LayoutRoot"/>
+	<Grid x:Name="LayoutRoot">
+		<Label HorizontalAlignment="Left" Margin="8,8,0,0" VerticalAlignment="Top" Width="433" Height="49" Content="六道口垃圾站--打印" Foreground="White" FontSize="32"/>
+		<Rectangle Stroke="White" Margin="45,82,46,58" RadiusX="10" RadiusY="10"/>
+		<Label Margin="398,96,399,0" VerticalAlignment="Top" Height="34" Content="刷卡信息" FontSize="18.667" Foreground="White"/>
+		<ListView Margin="75,146,126,88" Background="#7F575A3F" BorderBrush="{x:Null}" Foreground="White" Name="lvData" FontSize="16">
+			<ListView.View>
+				<GridView>
+					<GridViewColumn DisplayMemberBinding="{Binding Path=no}">
+						<GridViewColumnHeader  Content="序号" Width="100"/>
+					</GridViewColumn>
+					<GridViewColumn Header="刷卡时间" Width="120" DisplayMemberBinding="{Binding Path=PushTime}"/>
+					<GridViewColumn Header="刷卡车辆" Width="120" DisplayMemberBinding="{Binding Path=TruckNo}"/>
+					<GridViewColumn Header="垃圾楼名" Width="120" DisplayMemberBinding="{Binding Path=StationName}"/>
+					<GridViewColumn Header="垃圾类型" Width="120" DisplayMemberBinding="{Binding Path=Type1}"/>
+				</GridView>
+			</ListView.View>
+		</ListView>
+        <Button Height="53" HorizontalAlignment="Right" Margin="0,159,58,0" Name="btnUp" VerticalAlignment="Top" Width="53" Click="btnUp_Click">Button</Button>
+        <Button HorizontalAlignment="Right" Margin="0,249,58,290" x:Name="btnDown" Width="53"  Content="Button" Click="btnDowm_Click"/>
+        <Button Height="53" HorizontalAlignment="Right" Margin="0,0,58,196" x:Name="btnPrint" VerticalAlignment="Bottom" Width="53" Click="btnUp_Click" Content="Button"/>
+    </Grid>
 </Window>

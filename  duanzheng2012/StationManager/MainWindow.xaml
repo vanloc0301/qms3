@@ -4,7 +4,7 @@
 	x:Class="StationManager.MainWindow"
 	x:Name="Window"
 	Title="MainWindow"
-	Width="1280" Height="1024"  WindowStyle="None" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+	Width="1280" Height="1024"  WindowStyle="None" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" WindowState="Maximized">
 	<Window.BorderBrush>
 		<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
 			<GradientStop Color="#00000000" Offset="0"/>
@@ -22,12 +22,12 @@
 		<Label VerticalAlignment="Top" Content="欢迎使用六部口清洁楼管理系统" Height="86.277" Margin="8,8,286.37,0" FontSize="56" Foreground="White"/>
 		<Label HorizontalAlignment="Right" Margin="0,42.683,241,0" VerticalAlignment="Top" Width="154.5" Height="34.337" Content="用户名：" FontSize="21.333" RenderTransformOrigin="0.552,0.121" Foreground="White" Name="lblUser"/>
 		<Label HorizontalAlignment="Right" Margin="0,42.683,41.5,0" VerticalAlignment="Top" Width="154.5" Height="34.337" Content="权限：" FontSize="21.333" Foreground="White" RenderTransformOrigin="0.552,0.121" Name="lblRight"/>
-		<Button x:Name="btnMap" Margin="112,220,0,0" Style="{DynamicResource btnMap_Style}" Content="" HorizontalAlignment="Left" Width="266" FontSize="48" Foreground="#FF2D7159" RenderTransformOrigin="1.72,0.521" VerticalAlignment="Top" Height="226.5" Click="btnMap_Click" />
-		<Button x:Name="btnRpt" Margin="504,220,502,0" Style="{DynamicResource btnRpt_Style}" Content="" FontSize="48" Foreground="#FF2D7159" RenderTransformOrigin="1.72,0.521" VerticalAlignment="Top" Height="226.5" Click="btnRpt_Click" />
+		<Button x:Name="btnMap" Margin="112,220,0,0" Style="{DynamicResource btnMap_Style}" Content="" HorizontalAlignment="Left" FontSize="48" Foreground="#FF2D7159" RenderTransformOrigin="1.72,0.521" VerticalAlignment="Top" Height="226.5" Click="btnMap_Click" Width="266" />
+		<Button x:Name="btnRpt" Margin="504,220,502,0" Style="{DynamicResource btnRpt_Style}" Content="" FontSize="48" Foreground="#FF2D7159" RenderTransformOrigin="1.72,0.521" VerticalAlignment="Top" Height="226.5" Click="btnRpt_Click" Width="266" />
 		<Button x:Name="btnClk" Margin="0,220,112,0" Style="{DynamicResource btnClk_Style}" Content="" FontSize="48" Foreground="#FF2D7159" RenderTransformOrigin="1.72,0.521" HorizontalAlignment="Right" Width="266" VerticalAlignment="Top" Height="226.5" Click="btnClk_Click" />
-		<Button x:Name="btnPrt" Margin="504,0,502,199.5" Style="{DynamicResource btnPrt_Icon}" Content="" FontSize="48" Foreground="#FF2D7159" RenderTransformOrigin="1.72,0.521" VerticalAlignment="Bottom" Height="226.5" Click="btnPrt_Click" />
+		<Button x:Name="btnPrt" Margin="504,0,502,199.5" Style="{DynamicResource btnPrt_Icon}" Content="" FontSize="48" Foreground="#FF2D7159" RenderTransformOrigin="1.72,0.521" VerticalAlignment="Bottom" Height="226.5" Click="btnPrt_Click" Width="266" />
 		<Button x:Name="btnExt" Margin="0,0,112,199.5" Style="{DynamicResource btnExt_Style}" Content="" FontSize="48" Foreground="#FF2D7159" RenderTransformOrigin="1.72,0.521" HorizontalAlignment="Right" Width="266" VerticalAlignment="Bottom" Height="226.5" Click="btnExt_Click" />
 		<Button Margin="112,0,0,199.5" Style="{DynamicResource btnSrh_Icon}" Content="" HorizontalAlignment="Left" Width="266" FontSize="48" Foreground="#FF2D7159" RenderTransformOrigin="1.72,0.521" VerticalAlignment="Bottom" Height="226.5" Click="Button_Click" />
-		<Rectangle Fill="#7F363233" Stroke="#00000000" Visibility="Hidden" Name="dialogBg" />
+		<Rectangle Fill="#BF363233" Stroke="#00000000" Visibility="Hidden" Name="dialogBg" />
 	</Grid>
 </Window>
