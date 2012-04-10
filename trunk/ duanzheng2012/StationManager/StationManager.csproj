@@ -3,7 +3,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ExpressionBlendVersion>3.0.1938.0</ExpressionBlendVersion>
-    <ProjectGuid>{93bbdc99-a420-40ff-80b2-9a4ad3323045}</ProjectGuid>
+    <ProjectGuid>{93BBDC99-A420-40FF-80B2-9A4AD3323045}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <DefaultClrNameSpace>StationManager</DefaultClrNameSpace>
@@ -60,6 +60,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classes\BaseOperate.cs" />
+    <Compile Include="Classes\MD5.cs" />
     <Compile Include="ClkWidnow.xaml.cs">
       <DependentUpon>ClkWidnow.xaml</DependentUpon>
     </Compile>
@@ -123,6 +125,7 @@
     <Resource Include="bg.png" />
     <Resource Include="btnClk_Icon.png" />
     <Resource Include="btnExt.png" />
+    <Resource Include="btnLast_Icon.png" />
     <Resource Include="btnMap_Icon.png" />
     <Resource Include="btnPrt_Icon.png" />
     <Resource Include="btnRpt_Icon.png" />
