@@ -67,7 +67,24 @@ namespace StationManager.BaseClass
             return myds;
         }
         #endregion
-
+        #region  创建DataSet对象（用于报表）
+        public DataSet getdsrpt(string MStrSQLStr, string MStrTable)
+        {
+            SqlConnection sqlcon = this.getcon();
+            SqlDataAdapter sqlda = new SqlDataAdapter(MStrSQLStr, sqlcon);
+            sqlda.SelectCommand.CommandTimeout = 100000000;
+            DataSet myds = new DataSet();
+            try
+            {
+                sqlda.Fill(myds, MStrTable);
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            return myds;
+        }
+        #endregion
         #region  创建SqlDataReader对象
         /// <summary>
         /// 创建一个SqlDataReader对象
