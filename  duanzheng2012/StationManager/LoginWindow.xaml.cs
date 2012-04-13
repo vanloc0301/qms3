@@ -39,6 +39,12 @@ namespace StationManager
 
             ds = operate.getds(sql, "[db_rfidtest].[rfidtest].[dbo.User]");
 
+            if (ds.Tables.Count <= 0)
+            {
+                MessageBox.Show("无法加载数据，请检测网络状况！");
+                return;
+            }
+
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
                 this.cbUser.Items.Add(ds.Tables[0].Rows[i]["UserName"]);
@@ -79,6 +85,13 @@ namespace StationManager
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             this.txtPwd.Password = "";
+        }
+
+        private void ButtonNum_Click(object sender, RoutedEventArgs e)
+        {
+            string num = ((Button)sender).Name.Substring(3,1);
+
+            this.txtPwd.Password += num;
         }
 
     }

@@ -12,6 +12,9 @@ using System.Windows.Shapes;
 using StationManager.BaseClass;
 using System.Data;
 using System.ComponentModel;
+using StationManager.Classes;
+using System.Drawing;
+using System.Drawing.Printing;
 
 namespace StationManager
 {
@@ -26,6 +29,7 @@ namespace StationManager
         BaseOperate operate = new BaseOperate();
 
         DataTable dataTable;
+        Bitmap printImage;
 		public PrintWindow()
 		{
 			this.InitializeComponent();
@@ -40,6 +44,8 @@ namespace StationManager
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            this.lblTitle.Content = BaseData.stationName + "垃圾站--打印";
+            
             DataSet dsStart;
             DataSet dsEnd;
             //出发时刷卡信息
@@ -50,7 +56,8 @@ namespace StationManager
                 "from [db_rfidtest].[rfidtest].[dbo.Goods] "+
                 "inner join [db_rfidtest].[rfidtest].[dbo.Station] "+
                 "on [db_rfidtest].[rfidtest].[dbo.Goods].[StartStationID] = [db_rfidtest].[rfidtest].[dbo.Station].[StationID] "+
-                "WHERE ([db_rfidtest].[rfidtest].[dbo.Goods].[StartStationID] = 31) order by [db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] desc";
+                "WHERE ([db_rfidtest].[rfidtest].[dbo.Goods].[StartTime]>'" + DateTime.Now.ToString("yy-MM-dd") + "' and [db_rfidtest].[rfidtest].[dbo.Goods].[StartStationID] = " +
+                BaseData.stationID+") order by [db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] desc";
 
             dsStart = operate.getds(sqlStart, "[db_rfidtest].[rfidtest].[dbo.Goods].[StartTime]");
             
@@ -62,8 +69,14 @@ namespace StationManager
                 "from [db_rfidtest].[rfidtest].[dbo.Goods] " +
                 "inner join [db_rfidtest].[rfidtest].[dbo.Station] " +
                 "on [db_rfidtest].[rfidtest].[dbo.Goods].[EndStationID] = [db_rfidtest].[rfidtest].[dbo.Station].[StationID] " +
-                "WHERE ([db_rfidtest].[rfidtest].[dbo.Goods].[EndStationID] = 31)";
-            dsEnd = operate.getds(sqlEnd, "[db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] order by [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] desc");
+                "WHERE ([db_rfidtest].[rfidtest].[dbo.Goods].[EndTime]>'" + DateTime.Now.ToString("yy-MM-dd") + "' and[db_rfidtest].[rfidtest].[dbo.Goods].[EndStationID] = " +
+                BaseData.stationID + ") order by [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] desc";
+            dsEnd = operate.getds(sqlEnd, "[db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] ");
+
+            if (dsStart.Tables.Count <= 0 || dsEnd.Tables.Count <= 0)
+            {
+                MessageBox.Show("无法加载数据，请检测网络状况！");
+            }
             //排序并加载到一张表中
             dataTable = new DataTable();
                 
@@ -135,6 +148,60 @@ namespace StationManager
             if (lvData.SelectedIndex >= lvData.Items.Count)
                 return;
             lvData.SelectedIndex++;
+        }
+
+        private void btnPrint_Click(object sender, RoutedEventArgs e)
+        {
+            if(dataTable == null || dataTable.Rows.Count<=0)
+            {
+                MessageBox.Show("信息有误，无法打印！");
+                return;
+            }
+
+            if (lvData.SelectedIndex < 0)
+            {
+                MessageBox.Show("请选择要打印的项!");
+                return;
+            }
+            //创建二维码
+            Bitmap b = new Bitmap(200,390);
+            Graphics g = Graphics.FromImage(b);
+            DotNetBarcode bc = new DotNetBarcode();
+            bc.Type = DotNetBarcode.Types.QRCode;
+            string code = BaseData.stationID.ToString() + " ";
+            code += dataTable.Rows[lvData.SelectedIndex]["TruckNo"].ToString().Trim().Substring(1) + " ";
+            code += DateTime.Parse(dataTable.Rows[lvData.SelectedIndex]["PushTime"].ToString()).ToString("yyyy-MM-dd,HH:mm:ss") + " ";
+            code += dataTable.Rows[lvData.SelectedIndex]["Type1"].ToString().Trim();
+
+            string pstr = "起始站:" + BaseData.stationName + "\n";
+            pstr += "车牌号:" + dataTable.Rows[lvData.SelectedIndex]["TruckNo"].ToString().Trim()+"\n";
+            pstr += "出发时间:" + DateTime.Parse(dataTable.Rows[lvData.SelectedIndex]["PushTime"].ToString()).ToString("yyyy-MM-dd,HH:mm:ss")+"\n";
+            pstr += "垃圾类型:" + dataTable.Rows[lvData.SelectedIndex]["Type1"].ToString().Trim();
+            g.DrawString(pstr, new Font("微软雅黑", 10), new SolidBrush(System.Drawing.Color.Black),0,0);
+
+            bc.WriteBar(code,0,190,200,390,g);
+
+            printImage = b;
+            //打印信息
+
+            System.Windows.Forms.PrintDialog pDialog = new System.Windows.Forms.PrintDialog();
+            pDialog.Document = new PrintDocument();
+
+            pDialog.Document.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(document_PrintPage);
+            pDialog.ShowDialog();
+            pDialog.Document.Print();
+        }
+
+        private void document_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            if (printImage == null)
+                return;
+            e.Graphics.DrawImage(printImage, 0, 0);
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
 	}
 }
