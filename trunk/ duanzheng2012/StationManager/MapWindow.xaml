@@ -8,5 +8,7 @@
     <Window.Background>
         <ImageBrush ImageSource="bg.png" />
     </Window.Background>
-	<Grid x:Name="LayoutRoot"/>
+	<Grid x:Name="LayoutRoot">
+		<Button HorizontalAlignment="Right" VerticalAlignment="Top" Width="64" Height="38" Content="退出" Style="{DynamicResource btnClose_Style}" x:Name="btnClose" Foreground="White" FontSize="16" Margin="0,1,1,0"/>
+	</Grid>
 </Window>

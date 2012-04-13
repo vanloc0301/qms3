@@ -1,17 +1,65 @@
 ﻿<Window
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:wfi ="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
+    xmlns:wf ="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:Custom="http://schemas.microsoft.com/wpf/2008/toolkit"
+	mc:Ignorable="d" xmlns:chartingToolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
 	x:Class="StationManager.RptWindow"
 	x:Name="Window"
 	Title="RptWindow"
-	Width="900" Height="600" Closed="Window_Closed" WindowStartupLocation="CenterScreen" WindowStyle="None">
+	Width="1000" Height="700" Closed="Window_Closed" WindowStartupLocation="CenterScreen" WindowStyle="None" Loaded="Window_Loaded">
     
     <Window.Background>
         <ImageBrush ImageSource="bg.png" />
     </Window.Background>
 
 	<Grid x:Name="LayoutRoot">
-		<Label HorizontalAlignment="Left" Margin="8,8,0,0" VerticalAlignment="Top" Width="364" Height="45" Content="六道口垃圾站--本站报表" Foreground="White" FontSize="32"/>
-		<Rectangle Stroke="White" Margin="38,91,38,39" RadiusX="10" RadiusY="10"/>
-	</Grid>
+		<Label HorizontalAlignment="Left" Margin="8,8,0,0" VerticalAlignment="Top" Width="364" Height="64" Content="六道口垃圾站--本站报表" Foreground="White" FontSize="32" x:Name="lblTitle"/>
+		<Rectangle Stroke="White" Margin="38,91,38,0" RadiusX="10" RadiusY="10" VerticalAlignment="Top" Height="60.75"/>
+		<Rectangle Stroke="White" Margin="38,176.5,38,27" RadiusX="10" RadiusY="10"/>
+		<Label HorizontalAlignment="Left" Margin="60.5,101.5,0,0" VerticalAlignment="Top" Content="选择报表类型：" FontSize="21.333" Foreground="White"/>
+		<ComboBox HorizontalAlignment="Left" Margin="223.833,101.5,0,0" VerticalAlignment="Top" Width="131.667" Height="35.75" SelectedIndex="0" FontSize="22" SelectionChanged="ComboBox_SelectionChanged" x:Name="cbRptType">
+            <ComboBoxItem Content="年报表"/>
+            <ComboBoxItem Content="月报表"/>
+            <ComboBoxItem Content="日报表"/>
+        </ComboBox>
+        <Label Margin="440,101.5,292.666,0" VerticalAlignment="Top" Content="选择日期：" FontSize="21.333" Foreground="White" d:LayoutOverrides="Width"/>
+        <wfi:WindowsFormsHost Margin="0,101.5,259.666,0" Background="Cyan" Height="35.75" VerticalAlignment="Top" HorizontalAlignment="Right" Width="164.334">
+
+            <wf:DateTimePicker Margin="0,101,234,0" Height="35" Width="100" x:Name="dpDate" />
+        </wfi:WindowsFormsHost>
+        <Button HorizontalAlignment="Left" Margin="835.5,96.515,0,0" VerticalAlignment="Top" Width="99" Content="生成" Style="{DynamicResource btnSearch}" Height="46.25" Foreground="White" FontSize="21.333" Click="Button_Click" />
+		<ListView Margin="60.5,206,57.5,62" FontSize="18.667" x:Name="lvYearRpt">
+			<ListView.View>
+				<GridView>
+					<GridViewColumn Header="月份" Width="150" DisplayMemberBinding="{Binding monname}"/>
+					<GridViewColumn Header="运输箱数" Width="150" DisplayMemberBinding="{Binding summonbox}"/>
+					<GridViewColumn Header="实际重量" Width="150" DisplayMemberBinding="{Binding summonweight}"/>
+					<GridViewColumn Header="平均重量" Width="150" DisplayMemberBinding="{Binding avgmonweight}"/>
+				</GridView>
+			</ListView.View>
+		</ListView>
+        <ListView FontSize="18.667" Margin="60.5,206,57.5,62" x:Name="lvMonRpt" Visibility="Hidden">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding dayname}" Width="150" Header="日期"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding summonbox}" Width="150" Header="运输箱数"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding summonweight}" Width="150" Header="实际重量"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding avgmonweight}" Width="150" Header="平均重量"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView Margin="60.5,206,57.5,62" FontSize="18.667" x:Name="lvDayRpy" Visibility="Hidden">
+        	<ListView.View>
+        		<GridView>
+        			<GridViewColumn Header="出发车辆" Width="150" DisplayMemberBinding="{Binding TruckNo}"/>
+        			<GridViewColumn Header="出发时间" Width="150" DisplayMemberBinding="{Binding StartTime}"/>
+        			<GridViewColumn Header="出发站" Width="150" DisplayMemberBinding="{Binding StartStation}"/>
+					<GridViewColumn Header="箱重" Width="150" DisplayMemberBinding="{Binding Weight}"/>
+        		</GridView>
+        	</ListView.View>
+        </ListView>
+        <Button HorizontalAlignment="Right" VerticalAlignment="Top" Width="64" Height="38" Content="退出" Click="btnClose_Click" Style="{DynamicResource btnClose_Style}" x:Name="btnClose" Foreground="White" FontSize="16" Margin="0,1,1,0"/>
+    </Grid>
 </Window>

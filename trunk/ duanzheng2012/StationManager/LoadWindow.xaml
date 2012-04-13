@@ -1,0 +1,13 @@
+﻿<Window
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Class="StationManager.LoadWindow"
+    Title="BaseWindow" Height="50" Width="100" WindowStyle="None" WindowStartupLocation="CenterScreen" Background="#4C000000" Loaded="Window_Loaded" mc:Ignorable="d">
+    <Grid>
+    	<Label Content="网络异常！" Foreground="Red" FontSize="18.667" d:LayoutOverrides="HorizontalAlignment" Margin="0,4">
+    		<Label.Background>
+    			<SolidColorBrush/>
+    		</Label.Background>
+    	</Label>
+    </Grid>
+</Window>
