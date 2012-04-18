@@ -1,0 +1,8 @@
+F:\duanzheng2012\DTQMS3New\obj\Debug\ResolveAssemblyReference.cache
+F:\duanzheng2012\DTQMS3New\obj\Debug\DTQMS3New.MainWindow.resources
+F:\duanzheng2012\DTQMS3New\obj\Debug\DTQMS3New.Properties.Resources.resources
+F:\duanzheng2012\DTQMS3New\obj\Debug\DTQMS3New.csproj.GenerateResource.Cache
+F:\duanzheng2012\DTQMS3New\bin\Debug\DTQMS3New.exe
+F:\duanzheng2012\DTQMS3New\bin\Debug\DTQMS3New.pdb
+F:\duanzheng2012\DTQMS3New\obj\Debug\DTQMS3New.exe
+F:\duanzheng2012\DTQMS3New\obj\Debug\DTQMS3New.pdb
