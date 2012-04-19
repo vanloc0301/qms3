@@ -104,6 +104,8 @@ namespace QMS3
             treeView1.SelectedNode.Nodes.ToString();
             switch (treeView1.SelectedNode.ToString())
             {
+                case "TreeNode: 发送消息":              MainTab.SelectTab(28);
+                 break;
                 case "TreeNode: 发司机卡":              MainTab.SelectTab(1); ResetDCardSent_All();
                 break;
                 case "TreeNode: 司机信息编辑":          MainTab.SelectTab(2);
@@ -5802,8 +5804,11 @@ drop table tempTable;";
          //   System.Windows.Forms.TreeNode StationChart = new System.Windows.Forms.TreeNode("垃圾楼运输图表");
             System.Windows.Forms.TreeNode StationFather = new System.Windows.Forms.TreeNode("垃圾楼查询管理", new System.Windows.Forms.TreeNode[] {StationStatus});//{ StationSend, StationStatus,StationChart });
             
+            //添加发送消息节点
+            System.Windows.Forms.TreeNode MsgSend = new System.Windows.Forms.TreeNode("发送消息");
+            System.Windows.Forms.TreeNode MsgMgr = new System.Windows.Forms.TreeNode("消息管理",new System.Windows.Forms.TreeNode[] {MsgSend});
             
-            
+
             System.Windows.Forms.TreeNode ExceptionWeight = new System.Windows.Forms.TreeNode("重量异常");
           //  System.Windows.Forms.TreeNode ExceptionTime = new System.Windows.Forms.TreeNode("超时异常");
             System.Windows.Forms.TreeNode ExceptionNet = new System.Windows.Forms.TreeNode("网络异常");
@@ -5965,6 +5970,7 @@ drop table tempTable;";
                                                                             DistrictInfo,
                                                                             ExceptionFather,
                                                                             UserMgr,
+                                                                            MsgMgr,
                                                                             StartionMgr,
                                                                             ClassMaster,
                                                                             RPTFather});
@@ -5984,6 +5990,7 @@ drop table tempTable;";
             {
                 right = this.dbo_UserTableAdapter.ValidateUser(UNtextBox.Text, MD5.MDString(PSmaskedTextBox.Text)).ToString();
                 conneted = true;
+                GetStationAndClass();
             }
             catch
             {
@@ -6001,6 +6008,7 @@ drop table tempTable;";
                 button2.Enabled = true;
                 UNtextBox.Enabled = false;
                 PSmaskedTextBox.Enabled = false;
+                InitMsgSendUI();
             }
             else
             {
@@ -8189,21 +8197,273 @@ drop table tempTable;";
             catch { }
         }
 
+        #region 消息发送模块
+
+        #region 属性定义
+        //垃圾站
+        private DataTable stations;
+        //班信息
+        private DataTable classes;
+        //已选择项
+        private List<int> sendStationIDs = new List<int>();
+        #endregion
+
+        #region 子窗口向主窗口传数据调用的方法 SetClassData
+        
+        public void SetClassData(DataTable table)
+        {
+            
+        }
+
+       	#endregion
+
+        #region 查询班信息和垃圾站信息 GetStationAndClass
+
+        private void GetStationAndClass()
+        {
+            string sql_station = "SELECT * FROM [dbo.Station]";
+            string sql_class = "SELECT * FROM [dbo.Class]";
+
+            //查询垃圾站信息
+            DataSet ds = boperate.getds(sql_station,"[dbo.Station]");
+            if (ds.Tables.Count <= 0)
+                return;
+            stations = ds.Tables[0];
+
+            //查询班信息
+            ds = boperate.getds(sql_class,"[dbo.Class]");
+            if (ds.Tables.Count <= 0)
+                return;
+            classes = ds.Tables[0];
+
+            //设置cmClass选项
+            foreach (DataRow item in classes.Rows)
+            {
+                ToolStripMenuItem menuItem = new ToolStripMenuItem();
+                menuItem.Tag = item["Class"];
+                menuItem.Text = item["Name"].ToString();
+                menuItem.Click += menuItem_Click;
+                cmClass.Items.Add(menuItem);
+            }
+        }
+
+        #endregion
+
+        #region 选择class菜单点击事件
+
+        private void menuItem_Click(object sender,EventArgs e)
+        {
+            AddByClass(int.Parse(((ToolStripMenuItem)sender).Tag.ToString()));
+        }
+
+        #endregion
+
+        #region 初始化发送消息页面 InitMsgSendUI
+
+        private void InitMsgSendUI()
+        {
+            if (stations == null || stations.Rows.Count <= 0)
+            {
+                MessageBox.Show("加载垃圾站信息失败！");
+                return;
+            }
+            foreach (DataRow item in stations.Rows)
+            {
+                this.lbAllStation.Items.Add(item["Name"]);
+            }
+        }
+
+        #endregion
+
+        #region 整班导入 btnAddCls_Click
+        
+        
+        private void btnAddCls_Click(object sender, EventArgs e)
+        {
+            
+            //显示菜单
+            Point p = new Point();
+            //计算group相对于屏幕坐标
+            Point groupPoint = new Point();
+            groupPoint.X = this.Location.X + this.CenterPanel.Location.X+groupBox24.Location.X;
+            groupPoint.Y = this.Location.Y + this.CenterPanel.Location.Y + SystemInformation.CaptionHeight + groupBox24.Location.Y;
+            //计算出菜单相对于屏幕的坐标
+            p.X = groupPoint.X + this.btnAddCls.Location.X + this.btnAddCls.Width;
+            p.Y = groupPoint.Y + this.btnAddCls.Location.Y;
+            this.cmClass.Show(p);
+        }
+
+        #endregion
+
+        #region 添加发送站 lblAddMsg_Click
+
+
+        private void lblAddMsg_Click(object sender, EventArgs e)
+        {
+            if (lbAllStation.SelectedItems == null || lbAllStation.SelectedItems.Count <= 0)
+            {
+                MessageBox.Show("请选择要添加的项！");
+                return;
+            }
+
+            //添加ID到已选项集合
+            foreach (object item in this.lbAllStation.SelectedItems)
+            {
+                DataRow row = GetRowByValue(stations, "Name", item);
+                sendStationIDs.Add(int.Parse(row["StationID"].ToString()));
+            }
+
+            object[] selected_objs = new object[lbAllStation.SelectedItems.Count];
+            lbAllStation.SelectedItems.CopyTo(selected_objs,0);
+
+
+            foreach (var item in selected_objs)
+            {
+                this.lbRecvStation.Items.Add(item);
+                this.lbAllStation.Items.Remove(item);
+            }
+        }
+        #endregion
+
+        #region 根据Value获取Row GetRowByValue
+
+        private DataRow GetRowByValue(DataTable table, string key, object value)
+        {
+            foreach (DataRow item in table.Rows)
+            {
+                if (item[key] == value)
+                    return item;
+            }
+
+            return null;
+        }
+
+        #endregion
+
+        #region 删除接受站 btn_Click
+        
+        
+        private void btn_Click(object sender, EventArgs e)
+        {
+            if (lbRecvStation.SelectedItems == null || lbRecvStation.SelectedItems.Count <= 0)
+            {
+                MessageBox.Show("请选择要添加的项！");
+                return;
+            }
+
+            //添加ID到已选项集合
+            foreach (object item in this.lbRecvStation.SelectedItems)
+            {
+                DataRow row = GetRowByValue(stations, "Name", item);
+                sendStationIDs.Remove(int.Parse(row["StationID"].ToString()));
+            }
+
+            object[] selected_objs = new object[lbRecvStation.SelectedItems.Count];
+            lbRecvStation.SelectedItems.CopyTo(selected_objs, 0);
+
+
+            foreach (var item in selected_objs)
+            {
+                this.lbAllStation.Items.Add(item);
+                this.lbRecvStation.Items.Remove(item);
+            }
+        }
+
+        #endregion
+        #region 清空接受站 btnAddCls_Click
+        private void btnClearMsg_Click(object sender, EventArgs e)
+        {
+            object[] all_objs = new object[this.lbRecvStation.Items.Count];
+            this.lbRecvStation.Items.CopyTo(all_objs, 0);
+
+            this.lbAllStation.Items.AddRange(all_objs);
+            this.lbRecvStation.Items.Clear();
+            this.sendStationIDs.Clear();
+        }
+        #endregion
+
+        #region 按班添加 AddByClass
+
+        public void AddByClass(int classID)
+        { 
+            //循环stations,获取该班下所有清洁站
+            foreach (DataRow item in stations.Rows)
+            {
+                if (int.Parse(item["Class"].ToString()) != classID)
+                {
+                    continue;
+                }
+
+                //判断是否有已包含该站
+                int index = this.sendStationIDs.FindIndex((int t) =>{
+                    if (t == int.Parse(item["StationID"].ToString()))
+                        return true;
+                    return false;
+                });
+
+                if (index != -1)
+                    continue;
+                //添加数据
+                this.lbAllStation.Items.Remove(item["Name"]);
+                this.lbRecvStation.Items.Add(item["Name"]);
+                this.sendStationIDs.Add(int.Parse(item["StationID"].ToString()));
+            }
+        }
+
+        #endregion
 
 
 
+        #region 发送消息 btnSendMsg_Click
 
+        private void btnSendMsg_Click(object sender, EventArgs e)
+        {
+            if (lbRecvStation.Items.Count <= 0)
+            {
+                MessageBox.Show("请选择要接受的对象！");
+                return;
+            }
+            string sql = "";
+            foreach (object item in lbRecvStation.Items)
+            {
+                string subsql = "INSERT INTO [Message] VALUES(";
+                subsql += "'"+DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")+"',";
+                subsql += "'"+this.txtMsgContent.Text.Replace("'", "/dy")+"',";
+                if (rbLv0.Checked)
+                    subsql += "1,";
+                if (rbLv1.Checked)
+                    subsql += "2,";
+                if (rbLv2.Checked)
+                    subsql += "3,";
+                subsql += "'" + this.UNtextBox .Text+ "',";
+                subsql += GetRowByValue(stations,"Name",item)["StationID"].ToString()+",";
+                subsql += "0)";
+                sql += subsql + "\n";
+            }
 
+            groupBox21.Enabled = false;
+            groupBox24.Enabled = false;
 
+            BackgroundWorker backSendMsg = new BackgroundWorker();
+            backSendMsg.DoWork += DoCommand;
+            backSendMsg.RunWorkerAsync(sql);
+            backSendMsg.RunWorkerCompleted += DoCommandComplete;
+        }
 
+        private void DoCommandComplete(object sender, EventArgs e)
+        { 
+            groupBox21.Enabled = true;
+            groupBox24.Enabled = true;
+            MessageBox.Show("发送完毕！");
+        }
 
+        private void DoCommand(object sender, DoWorkEventArgs e)
+        {
+            boperate.getcom(e.Argument.ToString());
+        }
+        #endregion
 
-
-
-
-
-
-
+        #endregion
 
     }
 }
