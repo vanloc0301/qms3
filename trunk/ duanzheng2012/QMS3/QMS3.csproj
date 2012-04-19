@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{C0DB580F-2E53-4897-8797-01A4E463A095}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -62,6 +62,7 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
+    <Reference Include="CrystalDecisions.Data.AdoDotNetInterop, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Enterprise.Framework, Version=10.5.3700.0, Culture=neutral, PublicKeyToken=692fbea5521e1304">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
@@ -125,6 +126,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="db_rfidtestDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_rfidtestDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="rpts\CrystalReport1.cs">
       <SubType>Component</SubType>
@@ -262,6 +268,17 @@
     </None>
     <None Include="db_rfidtestDataSet.xss">
       <DependentUpon>db_rfidtestDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="db_rfidtestDataSet1.xsc">
+      <DependentUpon>db_rfidtestDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="db_rfidtestDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_rfidtestDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_rfidtestDataSet1.xss">
+      <DependentUpon>db_rfidtestDataSet1.xsd</DependentUpon>
     </None>
     <None Include="Properties\app.manifest" />
     <None Include="QMS3_TemporaryKey.pfx" />

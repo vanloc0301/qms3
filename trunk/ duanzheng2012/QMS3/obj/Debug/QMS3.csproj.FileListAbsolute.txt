@@ -373,3 +373,37 @@ F:\qms3 --username willwill85\QMS3\obj\Debug\Interop.Microsoft.Office.Core.dll
 F:\qms3 --username willwill85\QMS3\obj\Debug\QMS3.csproj.ResolveComReference.cache
 F:\qms3 --username willwill85\QMS3\obj\Debug\QMS3.exe
 F:\qms3 --username willwill85\QMS3\obj\Debug\QMS3.pdb
+F:\duanzheng2012\QMS3\bin\Debug\QMS3.exe.config
+F:\duanzheng2012\QMS3\obj\Debug\Interop.Microsoft.Office.Core.dll
+F:\duanzheng2012\QMS3\obj\Debug\QMS3.csproj.ResolveComReference.cache
+F:\duanzheng2012\QMS3\obj\Debug\QMS3.exe
+F:\duanzheng2012\QMS3\obj\Debug\QMS3.pdb
+F:\duanzheng2012\QMS3\bin\Debug\QMS3.exe.manifest
+F:\duanzheng2012\QMS3\bin\Debug\QMS3.application
+F:\duanzheng2012\QMS3\bin\Debug\QMS3.exe
+F:\duanzheng2012\QMS3\bin\Debug\QMS3.pdb
+F:\duanzheng2012\QMS3\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+F:\duanzheng2012\QMS3\bin\Debug\CrystalDecisions.Enterprise.Framework.dll
+F:\duanzheng2012\QMS3\bin\Debug\CrystalDecisions.Enterprise.InfoStore.dll
+F:\duanzheng2012\QMS3\bin\Debug\CrystalDecisions.ReportSource.dll
+F:\duanzheng2012\QMS3\bin\Debug\CrystalDecisions.Shared.dll
+F:\duanzheng2012\QMS3\bin\Debug\CrystalDecisions.Windows.Forms.dll
+F:\duanzheng2012\QMS3\bin\Debug\Microsoft.Office.Interop.Excel.dll
+F:\duanzheng2012\QMS3\bin\Debug\office.dll
+F:\duanzheng2012\QMS3\bin\Debug\Microsoft.Vbe.Interop.dll
+F:\duanzheng2012\QMS3\bin\Debug\CrystalDecisions.CrystalReports.Engine.xml
+F:\duanzheng2012\QMS3\bin\Debug\CrystalDecisions.Windows.Forms.xml
+F:\duanzheng2012\QMS3\bin\Debug\CrystalDecisions.Shared.xml
+F:\duanzheng2012\QMS3\bin\Debug\CrystalDecisions.ReportSource.xml
+F:\duanzheng2012\QMS3\bin\Debug\zh-CN\CrystalDecisions.CrystalReports.Engine.resources.dll
+F:\duanzheng2012\QMS3\bin\Debug\zh-CN\CrystalDecisions.Windows.Forms.resources.dll
+F:\duanzheng2012\QMS3\bin\Debug\zh-CN\CrystalDecisions.Shared.resources.dll
+F:\duanzheng2012\QMS3\bin\Debug\zh-CN\CrystalDecisions.ReportSource.resources.dll
+F:\duanzheng2012\QMS3\bin\Debug\Interop.Microsoft.Office.Core.dll
+F:\duanzheng2012\QMS3\obj\Debug\ResolveAssemblyReference.cache
+F:\duanzheng2012\QMS3\obj\Debug\QMS3.QmsMain.resources
+F:\duanzheng2012\QMS3\obj\Debug\QMS3.Properties.Resources.resources
+F:\duanzheng2012\QMS3\obj\Debug\QMS3.csproj.GenerateResource.Cache
+F:\duanzheng2012\QMS3\obj\Debug\QMS3.TrustInfo.xml
+F:\duanzheng2012\QMS3\obj\Debug\QMS3.exe.manifest
+F:\duanzheng2012\QMS3\obj\Debug\QMS3.application
