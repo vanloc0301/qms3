@@ -321,6 +321,7 @@
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InfoViewStateMain";
+            this.ShowInTaskbar = false;
             this.Text = "InfoViewStateMain";
             this.Load += new System.EventHandler(this.InfoViewStateMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

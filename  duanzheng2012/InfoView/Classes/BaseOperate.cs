@@ -62,8 +62,11 @@ namespace InfoView.Classes
             }
             catch
             {
-                MessageBox.Show("数据库连接超时,请稍后再试。");
+                sqlcon.Close();
+                //MessageBox.Show("数据库连接超时,请稍后再试。");
+                ErrorWindow.ShowWindow();
             }
+            sqlcon.Close();
             return myds;
         }
         #endregion

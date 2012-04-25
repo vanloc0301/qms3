@@ -19,7 +19,7 @@ namespace InfoView
 
         private void InfoViewStateMain_Load(object sender, EventArgs e)
         {
-
+            this.Location = Screen.AllScreens[1].WorkingArea.Location;
         }
     }
 }

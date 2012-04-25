@@ -83,19 +83,19 @@ namespace InfoView.Classes
             string xml = "";
             xml += "<vc:Chart xmlns:vc=\"clr-namespace:Visifire.Charts;assembly=SLVisifire.Charts\" Width=\"" + (this.width - 15).ToString() + "\" Height=\"" + (this.height - 15).ToString() + "\" BorderThickness=\"0\" Theme=\"Theme1\" " + this.View3d + " ToolBarEnabled=\"True\">";
             xml += "<vc:Chart.Titles>";
-            xml += "<vc:Title Text=\"" + this.title + "\" />";
+            xml += "<vc:Title Text=\"" + this.title + "\" FontSize=\" 45\"/>";
             xml += "</vc:Chart.Titles>";
             xml += "<vc:Chart.AxesX>";
-            xml += "<vc:Axis Title=\"" + this.xtitle + "\"/>";
+            xml += "<vc:Axis Title=\"" + this.xtitle + " \" FontSize=\" 35\" />";
             xml += "</vc:Chart.AxesX>";
             xml += "<vc:Chart.AxesY>";
-            xml += "<vc:Axis Title=\"" + this.ytitle + "\" />   ";
+            xml += "<vc:Axis Title=\"" + this.ytitle + "\" FontSize=\" 35\" />   ";
             xml += "</vc:Chart.AxesY>";
             xml += "<vc:Chart.Series>";
             xml += "<vc:DataSeries LegendText=\""+s1+"\" RenderAs=\"" + this.type + "\" AxisYType=\"Primary\" >";
             xml += "<vc:DataSeries.DataPoints>";
                 for (int i = 0; i < this.len; i++)
-                    xml += "<vc:DataPoint AxisXLabel=\"" + this.column[i] + "\" YValue=\"" + this.data[i] + "\" />";
+                    xml += "<vc:DataPoint AxisXLabel=\"" + this.column[i] + "\" YValue=\"" + this.data[i] + "\" LabelFontSize=\" 30\" />";
 
             xml += "</vc:DataSeries.DataPoints>"
                         + "</vc:DataSeries>";

@@ -39,6 +39,7 @@
             this.webBrowser.Location = new System.Drawing.Point(0, 0);
             this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser.Name = "webBrowser";
+            this.webBrowser.ScrollBarsEnabled = false;
             this.webBrowser.Size = new System.Drawing.Size(1920, 1080);
             this.webBrowser.TabIndex = 0;
             this.webBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser_DocumentCompleted);
@@ -46,7 +47,7 @@
             // timerRefresh
             // 
             this.timerRefresh.Enabled = true;
-            this.timerRefresh.Interval = 1000;
+            this.timerRefresh.Interval = 120000;
             this.timerRefresh.Tick += new System.EventHandler(this.timerRefresh_Tick);
             // 
             // InfoViewMonthMain
@@ -57,8 +58,8 @@
             this.Controls.Add(this.webBrowser);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InfoViewMonthMain";
+            this.ShowInTaskbar = false;
             this.Text = "InfoViewMonthMain";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.InfoViewMonthMain_Load);
             this.ResumeLayout(false);
 

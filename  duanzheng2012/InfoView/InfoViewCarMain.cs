@@ -53,20 +53,23 @@ namespace InfoView
 
             loadData();
             loadStationCar();
-            
+
+            this.Location = Screen.AllScreens[1].WorkingArea.Location;
            
         }
 
         #region 加载当前站车辆信息
         private void loadStationCar()
         {
+            if (stations == null || stations.Tables.Count <= 0)
+                return;
             String sql = @"SELECT * FROM [db_rfidtest].[rfidtest].[dbo.goods] WHERE StartStationID = "
                                 +stations.Tables[0].Rows[curStation]["StationID"].ToString() +
                                 " AND (StartTime > '" + DateTime.Now.ToString("yy-MM-dd")+"')";
 
             BaseOperate op = new BaseOperate();
             cars = op.getds(sql, "[db_rfidtest].[rfidtest].[dbo.goods]");
-            this.Invalidate(new Rectangle(panel2.Location, panel2.Size));
+            panel2.Invalidate();
             label1.Text = stations.Tables[0].Rows[curStation]["Name"].ToString();
             curStation++;
             if (curStation >= stations.Tables[0].Rows.Count)
@@ -102,9 +105,14 @@ namespace InfoView
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+                //MessageBox.Show(e.Message);
                 return;
             }
+
+            if (ds1.Tables.Count <= 0 || ds1.Tables[0].Rows.Count<=0)
+                return;
+            if (ds2.Tables.Count <= 0 || ds2.Tables[0].Rows.Count <= 0)
+                return;
 
             //判断上次查询到的数据是否和本次一样
             if (id1 != int.Parse(ds1.Tables[0].Rows[0]["ID"].ToString()))
@@ -156,11 +164,11 @@ namespace InfoView
             Graphics g = panel2.CreateGraphics();
             Pen p = new Pen(Color.Black,5);
             Brush b = new SolidBrush(Color.Red);
-            g.DrawLine(p, 10, 10, (eTime-sTime)*width*60+10+5, 10);
+            g.DrawLine(p, 10, 10, (eTime-sTime)*width*90+10+5, 10);
             for (int i = sTime; i <= eTime; i++)
             {
-                g.DrawString(i.ToString("d2")+":"+"00",font,b,(i-sTime)*width*60,20);
-                g.DrawLine(p, (i - sTime) * width*60 + 12, 10, (i - sTime) * width*60+12, 5);
+                g.DrawString(i.ToString("d2")+":"+"00",font,b,(i-sTime)*width*90,20);
+                g.DrawLine(p, (i - sTime) * width*90 + 12, 10, (i - sTime) * width*90+12, 5);
             }
 
             if (cars == null)
@@ -228,6 +236,21 @@ namespace InfoView
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+            InfoViewCarMain_Paint(sender,e);
         }
 
     }

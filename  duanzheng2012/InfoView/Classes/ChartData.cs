@@ -107,10 +107,11 @@ namespace InfoView.Classes
                             {
                                 InfoView.Classes.BaseOperate boperate = new InfoView.Classes.BaseOperate();
                                 ds = boperate.getds(strSQL, strTable);
+                                Thread.Sleep(1000);
                             }
                             catch
                             {
-                                MessageBox.Show("网络连接失败！请稍后重试（错误 10273）");
+                                //MessageBox.Show("网络连接失败！请稍后重试（错误 10273）");
                                 return 1;
                             }
                             try
@@ -124,7 +125,7 @@ namespace InfoView.Classes
                             }
                             catch (Exception xx)
                             {
-                                MessageBox.Show("网络连接失败！请稍后重试（错误1027）" + xx.ToString());
+                                //MessageBox.Show("网络连接失败！请稍后重试（错误1027）" + xx.ToString());
                                 return 1;
                             }
 
@@ -148,7 +149,7 @@ namespace InfoView.Classes
                             }
                             catch
                             {
-                                MessageBox.Show("网络连接失败！请稍后重试（错误 10273）");
+                                //MessageBox.Show("网络连接失败！请稍后重试（错误 10273）");
                                 return 1;
                             }
                             try
@@ -162,7 +163,7 @@ namespace InfoView.Classes
                             }
                             catch (Exception xx)
                             {
-                                MessageBox.Show("网络连接失败！请稍后重试（错误1027）" + xx.ToString());
+                                //MessageBox.Show("网络连接失败！请稍后重试（错误1027）" + xx.ToString());
                                 return 1;
                             }
 
@@ -174,6 +175,7 @@ namespace InfoView.Classes
                     {
                         DataSet ds;
                         string sttime = dt.ToString("yy-MM");
+
                         string strSQL = "DECLARE	@return_value int EXEC	@return_value = [rfidtest].[GetCenterMonthCount] @Month = N'" + sttime + "',@numofday="+InfoView.Classes.Datetimecalc.daysofmonth(dt).ToString()+",@station = 0";
                         string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
                         // MessageBox.Show(strSQL);
@@ -184,7 +186,7 @@ namespace InfoView.Classes
                         }
                         catch
                         {
-                            MessageBox.Show("网络连接失败！请稍后重试（错误 10273）");
+                            //MessageBox.Show("网络连接失败！请稍后重试（错误 10273）");
                             return 1;
                         }
                         try
@@ -198,7 +200,7 @@ namespace InfoView.Classes
                         }
                         catch (Exception xx)
                         {
-                            MessageBox.Show("网络连接失败！请稍后重试（错误10271）" + xx.ToString());
+                            //MessageBox.Show("网络连接失败！请稍后重试（错误10271）" + xx.ToString());
                             return 1;
                         }
 
@@ -219,7 +221,7 @@ namespace InfoView.Classes
                         }
                         catch
                         {
-                            MessageBox.Show("网络连接失败！请稍后重试（错误 10273）");
+                            //MessageBox.Show("网络连接失败！请稍后重试（错误 10273）");
                             return 1;
                         }
                         try
@@ -254,7 +256,7 @@ namespace InfoView.Classes
                         }
                         catch
                         {
-                            MessageBox.Show("网络连接失败！请稍后重试（错误 10273）");
+                            //MessageBox.Show("网络连接失败！请稍后重试（错误 10273）");
                             return 1;
                         }
                         try
@@ -268,7 +270,7 @@ namespace InfoView.Classes
                         }
                         catch (Exception xx)
                         {
-                            MessageBox.Show("网络连接失败！请稍后重试（错误10271）" + xx.ToString());
+                            //MessageBox.Show("网络连接失败！请稍后重试（错误10271）" + xx.ToString());
                             return 1;
                         }
 
@@ -291,7 +293,7 @@ namespace InfoView.Classes
                             }
                             catch
                             {
-                                MessageBox.Show("网络连接失败！请稍后重试（错误 10273）");
+                                //MessageBox.Show("网络连接失败！请稍后重试（错误 10273）");
                                 return 1;
                             }
                             try
@@ -305,7 +307,7 @@ namespace InfoView.Classes
                             }
                             catch (Exception xx)
                             {
-                                MessageBox.Show("网络连接失败！请稍后重试（错误1027）" + xx.ToString());
+                                //MessageBox.Show("网络连接失败！请稍后重试（错误1027）" + xx.ToString());
                                 return 1;
                             }
 

@@ -348,7 +348,9 @@
             this.Controls.Add(this.lblStation);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "InfoViewSumMain";
+            this.ShowInTaskbar = false;
             this.Text = "InfoViewSumMain";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.InfoViewSumMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
