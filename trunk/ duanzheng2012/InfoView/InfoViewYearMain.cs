@@ -28,13 +28,18 @@ namespace InfoView
 
         private void loadData()
         {
+            Point p = Screen.AllScreens[1].WorkingArea.Location;
+            p.Y += Screen.AllScreens[1].WorkingArea.Height/2;
+            this.Location = p;
+            this.Height = Screen.AllScreens[1].WorkingArea.Height / 2;
+
             visifire vschart = new visifire();
             string str = System.AppDomain.CurrentDomain.BaseDirectory;
             Uri url = new Uri(str + "chart/Demo.htm");
             webBrowser.Url = url;
 
             chartdata.updateData(1,DateTime.Now, 0);
-            chartdata.updateData(2,new DateTime(2011,10,10), 0);
+            chartdata.updateData(2,DateTime.Now, 0);
             vschart.reSize(webBrowser.Size.Width, webBrowser.Size.Height);
             vschart.settitle(DateTime.Now.ToString("yyyy") + "年报表", "日期", "运输量(单位:箱)");
             vschart.settitle(DateTime.Now.ToString("yyyy") + "年同比报表", "日期", "运输量(单位:箱)");
@@ -59,6 +64,8 @@ namespace InfoView
             vschart.setType(type);
             webBrowser.Url = vschart.displayChart();
             curYear = DateTime.Now.Year;
+
+            
         }
 
         private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)

@@ -21,6 +21,10 @@ namespace InfoView
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+            Point p = Screen.AllScreens[1].WorkingArea.Location;
+            this.Location = p;
+
             InfoView.Classes.visifire vschart = new InfoView.Classes.visifire();
             string str = System.AppDomain.CurrentDomain.BaseDirectory;
             Uri url = new Uri(str + "chart/Demo.htm");
@@ -45,6 +49,7 @@ namespace InfoView
 
             vschart.setType(type);
             webBrowser.Url = vschart.displayChart();
+
         }
 
         private void InfoViewTimeMain_Resize(object sender, EventArgs e)

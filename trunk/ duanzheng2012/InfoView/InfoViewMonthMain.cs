@@ -29,6 +29,7 @@ namespace InfoView
 
         private void loadData()
         {
+
             visifire vschart = new visifire();
             string str = System.AppDomain.CurrentDomain.BaseDirectory;
             Uri url = new Uri(str + "chart/Demo.htm");
@@ -60,6 +61,7 @@ namespace InfoView
 
             //记录当前年月，用于判断是否更新
             curMonth = DateTime.Now.Month;
+            this.Location = Screen.AllScreens[1].WorkingArea.Location;
         }
 
         private void timerRefresh_Tick(object sender, EventArgs e)

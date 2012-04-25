@@ -40,9 +40,13 @@ namespace InfoView
 
             String sql = @"SELECT COUNT(*) FROM [db_rfidtest].[rfidtest].[dbo.Driver]";
             DataSet ds = op.getds(sql, "[db_rfidtest].[rfidtest].[dbo.Driver]");
+            if (ds.Tables.Count <= 0 || ds.Tables[0].Rows.Count <= 0)
+                return;
             car = int.Parse(ds.Tables[0].Rows[0][0].ToString());
             sql = @"SELECT COUNT(*) FROM [db_rfidtest].[rfidtest].[dbo.Station]";
             ds = op.getds(sql, "[db_rfidtest].[rfidtest].[dbo.Station]");
+            if (ds.Tables.Count <= 0)
+                return;
             station = int.Parse(ds.Tables[0].Rows[0][0].ToString());
 
             lblStation.Text = "" + station+"个";
@@ -52,6 +56,8 @@ namespace InfoView
             lblSum.Text = "" + sum + "吨垃圾";
             lblArgSize.Text = "" + argSize.ToString("f2") + "吨垃圾";
             lblArgPeople.Text = "" + argPeople.ToString("f2") + "吨垃圾";
+
+            this.Location = Screen.AllScreens[0].WorkingArea.Location;
         }
 
     }

@@ -48,7 +48,7 @@
             // timerRefresh
             // 
             this.timerRefresh.Enabled = true;
-            this.timerRefresh.Interval = 600000;
+            this.timerRefresh.Interval = 180000;
             this.timerRefresh.Tick += new System.EventHandler(this.timerRefresh_Tick);
             // 
             // InfoViewTimeMain
@@ -61,8 +61,8 @@
             this.Name = "InfoViewTimeMain";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "Form1";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Resize += new System.EventHandler(this.InfoViewTimeMain_Resize);
             this.ResumeLayout(false);
