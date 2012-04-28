@@ -42,7 +42,7 @@ namespace StationManager
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            this.lblTitle.Content = BaseData.stationName + "垃圾站--本站报表";
+            this.lblTitle.Content = BaseData.stationName + "清洁站--本站报表";
 
             dpDate.CalendarFont = new Font("微软雅黑", 13);
             dpDate.Font = new Font("微软雅黑",15);
@@ -78,7 +78,6 @@ namespace StationManager
 
             if (ds.Tables.Count <= 0)
             {
-                MessageBox.Show("无法加载数据，请检测网络状况！");
                 return;
             }
 
@@ -146,7 +145,6 @@ namespace StationManager
 
             if (ds.Tables.Count < 0)
             {
-                MessageBox.Show("无法加载数据，请检测网络状况！");
                 return;
             }
 
@@ -241,7 +239,6 @@ namespace StationManager
 
             if (ds.Tables.Count <=0 )
             {
-                MessageBox.Show("无法加载数据，请检测网络状况！");
                 return;
             }
 

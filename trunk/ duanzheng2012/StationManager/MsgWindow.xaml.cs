@@ -69,12 +69,13 @@ namespace StationManager
             lvData.SelectedIndex++;
         }
 
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             backWork.DoWork += updateData;
             backWork.RunWorkerCompleted += new RunWorkerCompletedEventHandler(backWorkComplete);
 
-            this.lblTitle.Content = BaseData.stationName + "垃圾站--消息与通知";
+            this.lblTitle.Content = BaseData.stationName + "清洁站--消息与通知";
 
             //读取数据
             string sql = "SELECT * FROM [db_rfidtest].[rfidtest].[Message] WHERE [db_rfidtest].[rfidtest].[Message].[RevStation] = " + BaseData.stationID;
@@ -83,7 +84,6 @@ namespace StationManager
             if (ds.Tables.Count == 0)
             {
                 msgwin = new LoadWindow();
-                MessageBox.Show("无法加载数据，请检测网络状况！");
                 return;
             }
 
@@ -98,7 +98,7 @@ namespace StationManager
 
 
                 //格式化时间
-                item["SendTimeS"] = DateTime.Parse(item["SendTime"].ToString()).ToString("yy-MM-dd HH:mm");
+                item["SendTimeS"] = DateTime.Parse(item["SendTime"].ToString()).ToString("HH:mm");
 
                 //格式化读取状态
                 if (bool.Parse(item["MsgState"].ToString()))
@@ -141,15 +141,22 @@ namespace StationManager
 
             operate.getcom(sql);
 
+           
+
             LoadWindow.closeWindow();
 
         }
 
         private void btnIsRead_Click(object sender, RoutedEventArgs e)
         {
+
+            if (this.lvData.SelectedItem == null)
+            {
+                return;
+            }
+
             if (bool.Parse(ds.Tables[0].Rows[this.lvData.SelectedIndex]["MsgState"].ToString()))
             {
-                MessageBox.Show("该信息已经为已读状态，无法更改！");
                 return;
             }
 
@@ -159,9 +166,13 @@ namespace StationManager
         }
 
 
-        private void backWorkComplete(object send, EventArgs e)
+        private void backWorkComplete(object send, RunWorkerCompletedEventArgs e)
         {
             LoadWindow.closeWindow();
+            ds.Tables[0].Rows[this.lvData.SelectedIndex]["MsgState"] = true;
+            ds.Tables[0].Rows[this.lvData.SelectedIndex]["MsgStateS"] = "已读";
+            ICollectionView view = CollectionViewSource.GetDefaultView(ds.Tables[0]);
+            this.lvData.ItemsSource = view;
         }
 
         private void lvData_SelectionChanged(object sender, SelectionChangedEventArgs e)

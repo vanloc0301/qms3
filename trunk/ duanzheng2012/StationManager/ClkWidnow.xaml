@@ -15,12 +15,12 @@
 		<local:WpfTimeLine x:Name="timeLine" Margin="8,0,8,18" VerticalAlignment="Bottom" Height="50" EndTime="20" StartTime="5" />
         <Rectangle Stroke="White" RadiusX="10" RadiusY="10" Margin="40,91,39,118"/>
         <Label HorizontalAlignment="Left" Margin="216,131,0,0" VerticalAlignment="Top" Content="刷卡车辆：" Foreground="White" FontSize="24"/>
-        <Label HorizontalAlignment="Left" Margin="216,230,0,0" VerticalAlignment="Top" Content="刷卡时间：" FontSize="24" Foreground="White" Height="38.97" Width="130" />
-        <Label HorizontalAlignment="Left" Margin="216,0,0,235" Content="垃圾站名：" FontSize="24" Foreground="White" VerticalAlignment="Bottom" Height="38.97" Width="130" />
+        <Label HorizontalAlignment="Left" Margin="216,227,0,0" VerticalAlignment="Top" Content="刷卡时间：" FontSize="24" Foreground="White" Height="38.97" Width="130" />
+        <Label HorizontalAlignment="Left" Margin="216,0,0,239" Content="垃圾站名：" FontSize="24" Foreground="White" VerticalAlignment="Bottom" Height="38.97" Width="130" />
         <Label HorizontalAlignment="Left" Margin="216,0,0,150" VerticalAlignment="Bottom" Content="垃圾类型：" FontSize="24" Foreground="White"/>
         <Label Margin="379,131,194,0" VerticalAlignment="Top" Content="Loading..." FontSize="24" Foreground="White" Name="lblTruckNo" />
-        <Label Margin="379,230,194,0" VerticalAlignment="Top" Content="Loading..." FontSize="24" Foreground="White" Height="38.97" Name="lblPushTime" />
-        <Label Margin="379,0,194,235" Content="Loading..." FontSize="24" Foreground="White" VerticalAlignment="Bottom" RenderTransformOrigin="1.6,0.384" Height="38.97" Name="lblStationName" />
+        <Label Margin="379,227,194,0" VerticalAlignment="Top" Content="Loading..." FontSize="24" Foreground="White" Height="38.97" Name="lblPushTime" />
+        <Label Margin="379,0,194,239" Content="Loading..." FontSize="24" Foreground="White" VerticalAlignment="Bottom" RenderTransformOrigin="1.6,0.384" Height="38.97" Name="lblStationName" />
         <Label Margin="379,0,194,150" VerticalAlignment="Bottom" Content="Loading..." FontSize="24" Foreground="White" Name="lblType" />
         <Button HorizontalAlignment="Right" Margin="0,36,143,0" VerticalAlignment="Top" Width="76" Height="38" Content="打印" Style="{DynamicResource btnSearch}" Name="btnPrint" Foreground="White" FontSize="16" Click="btnPrint_Click"/>
         <Button HorizontalAlignment="Right" VerticalAlignment="Top" Width="64" Height="38" Content="退出" Style="{DynamicResource btnClose_Style}" x:Name="btnClose" Foreground="White" FontSize="16" Margin="0,1,1,0" Click="btnClose_Click"/>

@@ -41,7 +41,6 @@ namespace StationManager
 
             if (ds.Tables.Count <= 0)
             {
-                MessageBox.Show("无法加载数据，请检测网络状况！");
                 return;
             }
 

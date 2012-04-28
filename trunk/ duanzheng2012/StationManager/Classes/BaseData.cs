@@ -9,5 +9,6 @@ namespace StationManager.Classes
     {
         static public int stationID = 31;
         static public string stationName = "六部口";
+        static public string stationAddress = "";
     }
 }

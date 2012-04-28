@@ -30,33 +30,33 @@
             <wf:DateTimePicker Margin="0,101,234,0" Height="35" Width="100" x:Name="dpDate" />
         </wfi:WindowsFormsHost>
         <Button HorizontalAlignment="Left" Margin="835.5,96.515,0,0" VerticalAlignment="Top" Width="99" Content="生成" Style="{DynamicResource btnSearch}" Height="46.25" Foreground="White" FontSize="21.333" Click="Button_Click" />
-		<ListView Margin="60.5,206,57.5,62" FontSize="18.667" x:Name="lvYearRpt">
+		<ListView Margin="60.5,206,57.5,62" FontSize="21.333" x:Name="lvYearRpt" Width="874" Height="424">
 			<ListView.View>
 				<GridView>
-					<GridViewColumn Header="月份" Width="150" DisplayMemberBinding="{Binding monname}"/>
-					<GridViewColumn Header="运输箱数" Width="150" DisplayMemberBinding="{Binding summonbox}"/>
-					<GridViewColumn Header="实际重量" Width="150" DisplayMemberBinding="{Binding summonweight}"/>
-					<GridViewColumn Header="平均重量" Width="150" DisplayMemberBinding="{Binding avgmonweight}"/>
+					<GridViewColumn Header="月份" Width="210" DisplayMemberBinding="{Binding monname}"/>
+					<GridViewColumn Header="运输箱数" Width="220" DisplayMemberBinding="{Binding summonbox}"/>
+					<GridViewColumn Header="实际重量" Width="220" DisplayMemberBinding="{Binding summonweight}"/>
+					<GridViewColumn Header="平均重量" Width="220" DisplayMemberBinding="{Binding avgmonweight}"/>
 				</GridView>
 			</ListView.View>
 		</ListView>
-        <ListView FontSize="18.667" Margin="60.5,206,57.5,62" x:Name="lvMonRpt" Visibility="Hidden">
+        <ListView FontSize="21.333" Margin="60.5,206,57.5,62" x:Name="lvMonRpt" Visibility="Hidden" Width="874" Height="424">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding dayname}" Width="150" Header="日期"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding summonbox}" Width="150" Header="运输箱数"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding summonweight}" Width="150" Header="实际重量"/>
-                    <GridViewColumn DisplayMemberBinding="{Binding avgmonweight}" Width="150" Header="平均重量"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding dayname}" Width="210" Header="日期"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding summonbox}" Width="220" Header="运输箱数"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding summonweight}" Width="220" Header="实际重量"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding avgmonweight}" Width="220" Header="平均重量"/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <ListView Margin="60.5,206,57.5,62" FontSize="18.667" x:Name="lvDayRpy" Visibility="Hidden">
+        <ListView Margin="60.5,206,57.5,62" FontSize="21.333" x:Name="lvDayRpy" Visibility="Hidden" Width="874" Height="424">
         	<ListView.View>
         		<GridView>
-        			<GridViewColumn Header="出发车辆" Width="150" DisplayMemberBinding="{Binding TruckNo}"/>
-        			<GridViewColumn Header="出发时间" Width="150" DisplayMemberBinding="{Binding StartTime}"/>
-        			<GridViewColumn Header="出发站" Width="150" DisplayMemberBinding="{Binding StartStation}"/>
-					<GridViewColumn Header="箱重" Width="150" DisplayMemberBinding="{Binding Weight}"/>
+        			<GridViewColumn Header="出发车辆" Width="210" DisplayMemberBinding="{Binding TruckNo}"/>
+        			<GridViewColumn Header="出发时间" Width="220" DisplayMemberBinding="{Binding StartTime}"/>
+        			<GridViewColumn Header="出发站" Width="220" DisplayMemberBinding="{Binding StartStation}"/>
+					<GridViewColumn Header="箱重" Width="220" DisplayMemberBinding="{Binding Weight}"/>
         		</GridView>
         	</ListView.View>
         </ListView>

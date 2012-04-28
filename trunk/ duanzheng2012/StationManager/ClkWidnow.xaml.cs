@@ -50,7 +50,7 @@ namespace StationManager
 
             backWork.DoWork += loadData;
             backWork.RunWorkerCompleted += loadDataComplete;
-            this.lblTitle.Content = BaseData.stationName + "垃圾站--实时情况";
+            this.lblTitle.Content = BaseData.stationName + "清洁站--实时情况";
 
 
             backWork.RunWorkerAsync();
@@ -100,7 +100,11 @@ namespace StationManager
             dsEnd = operate.getds(sqlEnd, "[db_rfidtest].[rfidtest].[dbo.Goods] ");
             //排序并加载到一张表中
             dataTable = new DataTable();
-
+            //循环添加并排序
+            if (dsEnd.Tables.Count <= 0 || dsStart.Tables.Count <= 0)
+            {
+                return;
+            }
             //创建表结构
             dataTable.Columns.Add("no", Type.GetType("System.String"));
             dataTable.Columns.Add("PushTime", Type.GetType("System.String"));
@@ -113,11 +117,7 @@ namespace StationManager
             int no = 1;
             int ist = 0;
             int iet = 0;
-            //循环添加并排序
-            if (dsEnd.Tables.Count <= 0 || dsStart.Tables.Count <= 0)
-            {
-                return;
-            }
+            
             while (true)
             {
                 DataRow temp;
@@ -147,8 +147,14 @@ namespace StationManager
         {
             timeLine.LoadData(dataTable, "PushTime");
 
-            if(dataTable.Rows.Count <= 0)
-                return ;
+            if (dataTable.Rows.Count <= 0)
+            {
+                this.lblTruckNo.Content = "无";
+                this.lblType.Content = "无";
+                this.lblPushTime.Content = "无";
+                this.lblStationName.Content = "无";
+                return;
+            }
 
             //改变显示信息
             this.lblTruckNo.Content = dataTable.Rows[0]["TruckNo"].ToString();
@@ -165,7 +171,7 @@ namespace StationManager
                 return;
             }
             //创建二维码
-            Bitmap b = new Bitmap(200, 390);
+            Bitmap b = new Bitmap(200, 325);
             Graphics g = Graphics.FromImage(b);
             DotNetBarcode bc = new DotNetBarcode();
             bc.Type = DotNetBarcode.Types.QRCode;
@@ -174,13 +180,22 @@ namespace StationManager
             code += DateTime.Parse(dataTable.Rows[0]["PushTime"].ToString()).ToString("yyyy-MM-dd,HH:mm:ss") + " ";
             code += dataTable.Rows[0]["Type1"].ToString().Trim();
 
-            string pstr = "起始站:" + BaseData.stationName + "\n";
+            string pstr = "" + BaseData.stationName + "清洁站管理系统\n";
             pstr += "车牌号:" + dataTable.Rows[0]["TruckNo"].ToString().Trim() + "\n";
-            pstr += "出发时间:" + DateTime.Parse(dataTable.Rows[0]["PushTime"].ToString()).ToString("yyyy-MM-dd,HH:mm:ss") + "\n";
-            pstr += "垃圾类型:" + dataTable.Rows[0]["Type1"].ToString().Trim();
-            g.DrawString(pstr, new Font("微软雅黑", 10), new SolidBrush(System.Drawing.Color.Black), 0, 0);
+            pstr += "出发时间:" + DateTime.Parse(dataTable.Rows[0]["PushTime"].ToString()).ToString("yy-MM-dd,HH:mm:ss") + "\n";
+            pstr += "垃圾类型:" + dataTable.Rows[0]["Type1"].ToString().Trim()+"\n";
+            pstr += "二维码:\n";
+            System.Drawing.Pen p = new System.Drawing.Pen(new SolidBrush(System.Drawing.Color.Black));
+            p.DashStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            p.DashPattern = new float[] {3,5 };
+            g.DrawLine(p, 0, 0, 200, 0);
+            g.DrawString(pstr, new Font("宋体", 11), new SolidBrush(System.Drawing.Color.Black), 0, 20);
 
-            bc.WriteBar(code, 0, 190, 200, 390, g);
+            bc.WriteBar(code, 0, 120, 200, 320, g);
+
+            g.DrawLine(p, 0, 320, 200, 320);
+
+            b.Save("test.jpg");
 
             printImage = b;
             //打印信息
@@ -189,7 +204,6 @@ namespace StationManager
             pDialog.Document = new PrintDocument();
 
             pDialog.Document.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(document_PrintPage);
-            pDialog.ShowDialog();
             pDialog.Document.Print();
         }
 

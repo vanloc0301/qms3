@@ -15,12 +15,12 @@
 		<Label x:Name="lblTitle" Margin="8,8,242,0" VerticalAlignment="Top" Height="60" Content="六部口垃圾站--消息与通知" Foreground="White" FontSize="32"/>
 		<Rectangle Stroke="White" RadiusX="10" RadiusY="10" Margin="39.5,95,39.5,27.5"/>
 		<Label Margin="377.5,105.5,372.833,0" VerticalAlignment="Top" Content="所有通知" FontSize="26.667" Foreground="White" Height="51.5"/>
-		<ListView Margin="75,161,126,119" Background="#7F575A3F" BorderBrush="{x:Null}" Foreground="White" Name="lvData" FontSize="16" SelectionChanged="lvData_SelectionChanged">
+		<ListView Margin="75,161,126,119" Background="#7F575A3F" BorderBrush="{x:Null}" Foreground="White" Name="lvData" FontSize="21.333" SelectionChanged="lvData_SelectionChanged" Width="691" Height="312">
 			<ListView.View>
 				<GridView>
 					<GridViewColumn Header="信息来源" Width="120" DisplayMemberBinding="{Binding SendPeople}" />
 					<GridViewColumn Header="发送时间" Width="120" DisplayMemberBinding="{Binding SendTimeS}"/>
-					<GridViewColumn Header="信息内容" Width="200" DisplayMemberBinding="{Binding MsgContent}"/>
+					<GridViewColumn Header="信息内容" Width="205" DisplayMemberBinding="{Binding MsgContent}"/>
 					<GridViewColumn Header="重要级别" Width="120" DisplayMemberBinding="{Binding MsgLevelS}"/>
 					<GridViewColumn Header="状态" Width="120" DisplayMemberBinding="{Binding MsgStateS}"/>
 				</GridView>
