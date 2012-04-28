@@ -5,6 +5,8 @@ using System.Text;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 namespace StationManager.BaseClass
 {
     class BaseOperate
@@ -14,6 +16,10 @@ namespace StationManager.BaseClass
         /// 建立数据库连接.
         /// </summary>
         /// <returns>返回SqlConnection对象</returns>
+        /// 
+
+        public static Label label = null;
+        delegate void Func(Label l, int c);
         public SqlConnection getcon()
         {
             //SQL Server服务器登录方式：Windows登录方式，本地登录
@@ -56,15 +62,34 @@ namespace StationManager.BaseClass
             SqlConnection sqlcon = this.getcon();
             SqlDataAdapter sqlda = new SqlDataAdapter(MStrSQLStr, sqlcon);
             DataSet myds = new DataSet();
+            Func f = errorFunc;
             try
             {
                 sqlda.Fill(myds, MStrTable);
+                label.Dispatcher.Invoke(f, new object[] { label, 0 });
             }
             catch(Exception e)
             {
-                MessageBox.Show(e.Message);
+                if (label != null)
+                {
+                    
+                    label.Dispatcher.Invoke(f,new object[]{label,1});
+                }
             }
             return myds;
+        }
+
+        public void errorFunc(Label l,int c)
+        {
+            if (c == 0)
+            {
+                l.Foreground = new SolidColorBrush(Colors.White);
+                if (l.Content == "网络异常，请联系管理员！")
+                    l.Content = "";
+                return;
+            }
+            l.Foreground = new SolidColorBrush(Colors.Red);
+            l.Content = "网络异常，请联系管理员！";
         }
         #endregion
         #region  创建DataSet对象（用于报表）

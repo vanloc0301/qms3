@@ -44,7 +44,7 @@ namespace StationManager
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            this.lblTitle.Content = BaseData.stationName + "垃圾站--打印";
+            this.lblTitle.Content = BaseData.stationName + "清洁站--打印";
             
             DataSet dsStart;
             DataSet dsEnd;
@@ -75,7 +75,7 @@ namespace StationManager
 
             if (dsStart.Tables.Count <= 0 || dsEnd.Tables.Count <= 0)
             {
-                MessageBox.Show("无法加载数据，请检测网络状况！");
+                return;
             }
             //排序并加载到一张表中
             dataTable = new DataTable();
@@ -108,7 +108,7 @@ namespace StationManager
                 temp["no"] = "" + no;
                 DataRow row = dataTable.NewRow();
                 row["no"] = temp["no"];
-                row["PushTime"] = temp["PushTime"];
+                row["PushTime"] = DateTime.Parse(temp["PushTime"].ToString()).ToString("HH时mm分");
                 row["TruckNo"] = temp["TruckNo"];
                 row["StationName"] = temp["StationName"];
                 row["Type1"] = temp["Type1"];
@@ -164,22 +164,31 @@ namespace StationManager
                 return;
             }
             //创建二维码
-            Bitmap b = new Bitmap(200,390);
+            Bitmap b = new Bitmap(200, 325);
             Graphics g = Graphics.FromImage(b);
             DotNetBarcode bc = new DotNetBarcode();
             bc.Type = DotNetBarcode.Types.QRCode;
             string code = BaseData.stationID.ToString() + " ";
-            code += dataTable.Rows[lvData.SelectedIndex]["TruckNo"].ToString().Trim().Substring(1) + " ";
-            code += DateTime.Parse(dataTable.Rows[lvData.SelectedIndex]["PushTime"].ToString()).ToString("yyyy-MM-dd,HH:mm:ss") + " ";
-            code += dataTable.Rows[lvData.SelectedIndex]["Type1"].ToString().Trim();
+            code += dataTable.Rows[0]["TruckNo"].ToString().Trim().Substring(1) + " ";
+            code += DateTime.Parse(dataTable.Rows[0]["PushTime"].ToString()).ToString("yyyy-MM-dd,HH:mm:ss") + " ";
+            code += dataTable.Rows[0]["Type1"].ToString().Trim();
 
-            string pstr = "起始站:" + BaseData.stationName + "\n";
-            pstr += "车牌号:" + dataTable.Rows[lvData.SelectedIndex]["TruckNo"].ToString().Trim()+"\n";
-            pstr += "出发时间:" + DateTime.Parse(dataTable.Rows[lvData.SelectedIndex]["PushTime"].ToString()).ToString("yyyy-MM-dd,HH:mm:ss")+"\n";
-            pstr += "垃圾类型:" + dataTable.Rows[lvData.SelectedIndex]["Type1"].ToString().Trim();
-            g.DrawString(pstr, new Font("微软雅黑", 10), new SolidBrush(System.Drawing.Color.Black),0,0);
+            string pstr = "" + BaseData.stationName + "清洁站管理系统\n";
+            pstr += "车牌号:" + dataTable.Rows[0]["TruckNo"].ToString().Trim() + "\n";
+            pstr += "出发时间:" + DateTime.Parse(dataTable.Rows[0]["PushTime"].ToString()).ToString("yy-MM-dd,HH:mm:ss") + "\n";
+            pstr += "垃圾类型:" + dataTable.Rows[0]["Type1"].ToString().Trim() + "\n";
+            pstr += "二维码:\n";
+            System.Drawing.Pen p = new System.Drawing.Pen(new SolidBrush(System.Drawing.Color.Black));
+            p.DashStyle = System.Drawing.Drawing2D.DashStyle.Custom;
+            p.DashPattern = new float[] { 3, 5 };
+            g.DrawLine(p, 0, 0, 200, 0);
+            g.DrawString(pstr, new Font("宋体", 11), new SolidBrush(System.Drawing.Color.Black), 0, 20);
 
-            bc.WriteBar(code,0,190,200,390,g);
+            bc.WriteBar(code, 0, 120, 200, 320, g);
+
+            g.DrawLine(p, 0, 320, 200, 320);
+
+            b.Save("test.jpg");
 
             printImage = b;
             //打印信息
@@ -188,7 +197,6 @@ namespace StationManager
             pDialog.Document = new PrintDocument();
 
             pDialog.Document.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(document_PrintPage);
-            pDialog.ShowDialog();
             pDialog.Document.Print();
         }
 

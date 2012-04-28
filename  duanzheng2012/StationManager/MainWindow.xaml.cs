@@ -17,6 +17,7 @@ using StationManager.BaseClass;
 using System.Data;
 using System.ComponentModel;
 using System.Windows.Threading;
+using System.Diagnostics;
 
 namespace StationManager
 {
@@ -43,29 +44,32 @@ namespace StationManager
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            BaseOperate.label = this.lblMessage;
             //读取站信息
             XmlDocument xdoc = new XmlDocument();
             string stationID = "";
             try
             {
                 xdoc.Load("station.cfg");
-                stationID = xdoc.SelectSingleNode("station").FirstChild.Value;
+                XmlNodeList xNode = xdoc.SelectSingleNode("station").ChildNodes;
+                stationID = xNode[0].InnerText;
+                BaseData.stationAddress = xNode[1].InnerText;
             }
-            catch
+            catch(Exception ex)
             {
                 MessageBox.Show("配置文件出错，程序将退出！");
                 this.Close();
                 return;
             }
 
-            //从数据库中读取垃圾站信息
+            //从数据库中读取清洁站信息
 
             string sql = "Select * from [dbo.Station] WHERE StationID = " + stationID;
             DataSet ds =  operate.getds(sql, "[dbo.Station]");
 
             if (ds.Tables.Count <= 0 || ds.Tables[0].Rows.Count <= 0)
             {
-                MessageBox.Show("读取垃圾站信息失败！");
+                MessageBox.Show("读取清洁站信息失败！");
                 this.Close();
                 return;
             }
@@ -73,10 +77,10 @@ namespace StationManager
             BaseData.stationID = int.Parse(stationID);
             BaseData.stationName = ds.Tables[0].Rows[0]["Name"].ToString();
 
-            
+            Process.Start("垃圾楼.exe");
 
             setDialog();
-            this.lblTitle.Content = "欢迎使用" + BaseData.stationName + "垃圾站管理系统";
+            this.lblTitle.Content = "欢迎使用" + BaseData.stationName + "清洁站管理系统";
             LoginWindow loginWindow = new LoginWindow();
             loginWindow.loginSys = new LoginWindow.LoginSysFunc(loginSys);
             loginWindow.ShowDialog();
@@ -106,17 +110,17 @@ namespace StationManager
 
             if (newMsg == null)
                 return;
-            this.lblMessage.Content += "    最新消息发送人：" + newMsg["SendPeople"].ToString().Trim() + "发送时间：" + newMsg["SendTime"].ToString().Trim();
+            this.lblMessage.Content += "    最新消息发送人：" + newMsg["SendPeople"].ToString().Trim() + " 发送时间：" + newMsg["SendTime"].ToString().Trim();
         }
 
         public void loadData(object sender,EventArgs e)
         {
-            string sql = "SELECT TOP 1 * FROM [dbo.Goods] WHERE StartStationID = " + BaseData.stationID + " ORDER BY StartTime";
+            string sql = "SELECT TOP 1 * FROM [dbo.Goods] WHERE StartStationID = " + BaseData.stationID + " ORDER BY StartTime desc";
             DataSet ds = operate.getds(sql, "[dbo.Goods]");
             if (ds.Tables.Count <= 0 || ds.Tables[0].Rows.Count <= 0)
                 return;
             newGoods = ds.Tables[0].Rows[0];
-            sql = "SELECT TOP 1 * FROM [Message] WHERE RevStation = "+BaseData.stationID + " AND MsgState = 0 ORDER BY SendTime";
+            sql = "SELECT TOP 1 * FROM [Message] WHERE RevStation = "+BaseData.stationID + " ORDER BY SendTime desc";
             ds = operate.getds(sql, "Message]");
             if (ds.Tables.Count <= 0 || ds.Tables[0].Rows.Count <= 0)
                 return;

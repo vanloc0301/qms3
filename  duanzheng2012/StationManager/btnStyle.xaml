@@ -158,7 +158,7 @@
 								</LinearGradientBrush>
 							</Rectangle.Fill>
 						</Rectangle>
-						<Label Margin="8,0,29.958,-41" VerticalAlignment="Bottom" Height="41" Content="事实情况" FontSize="18.667" Foreground="White" Grid.Column="1" Grid.ColumnSpan="1" d:LayoutOverrides="HorizontalAlignment, GridBox"/>
+						<Label Margin="8,0,29.958,-41" VerticalAlignment="Bottom" Height="41" Content="实时情况" FontSize="18.667" Foreground="White" Grid.Column="1" Grid.ColumnSpan="1" d:LayoutOverrides="HorizontalAlignment, GridBox"/>
 						<Rectangle x:Name="glassCube" Stroke="Transparent" RenderTransformOrigin="0.725,0.414" RadiusX="10" RadiusY="10" Margin="-31,-10.5,-31,-41" Opacity="0" HorizontalAlignment="Stretch" Width="Auto" Grid.Column="0" Grid.ColumnSpan="2">
 							<Rectangle.Fill>
 								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
