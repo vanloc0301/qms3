@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
+using System.Windows.Forms;
 
 namespace DTQMS3New.Classes
 {
     public class CommonData
     {
-        public static int stationID = 0;                    //本站ID
+        public static int stationID = 1;                    //本站ID
         public static string stationName = "大屯";          //本站名称
         public static int sumTime = 0;                      //车次计数
         public static double sumWeight = 0;                 //运输总吨量
         public static int curUpdateIndex = -1;              //当前正在更新的数据下标
         public static List<Task> data = new List<Task>();   //所有刷卡数据集合
         public static DataTable stations;
+        public static Label errorLabel;
 
         public static void resetData()
         {

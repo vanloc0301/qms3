@@ -14,6 +14,8 @@ namespace DTQMS3New.Classes
         /// 建立数据库连接.
         /// </summary>
         /// <returns>返回SqlConnection对象</returns>
+        /// 
+
         public SqlConnection getcon()
         {
             //SQL Server服务器登录方式：Windows登录方式，本地登录
@@ -56,13 +58,17 @@ namespace DTQMS3New.Classes
             SqlConnection sqlcon = this.getcon();
             SqlDataAdapter sqlda = new SqlDataAdapter(MStrSQLStr, sqlcon);
             DataSet myds = new DataSet();
+            Control.CheckForIllegalCrossThreadCalls = false;
+
             try
             {
                 sqlda.Fill(myds, MStrTable);
+                CommonData.errorLabel.Text = "";
+                
             }
-            catch
+            catch(Exception e)
             {
-                MessageBox.Show("数据库连接超时,请稍后再试。");
+                CommonData.errorLabel.Text = "网络异常！";
             }
             return myds;
         }

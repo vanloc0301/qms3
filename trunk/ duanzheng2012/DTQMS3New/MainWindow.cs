@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using DTQMS3New.Classes;
 using System.Threading;
+using System.Diagnostics;
 
 namespace DTQMS3New
 {
@@ -22,6 +23,8 @@ namespace DTQMS3New
 
         //更新界面数据委托
         delegate void updateUI(Task card);
+
+
         updateUI fUpui;
 
         public MainWindow()
@@ -31,6 +34,8 @@ namespace DTQMS3New
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
+            Process.Start("转运中心.exe");
+            CommonData.errorLabel = lblError;
             //查询垃圾楼信息
             string sql = "SELECT * FROM [dbo.Station]";
             BaseOperate op = new BaseOperate();
@@ -50,51 +55,22 @@ namespace DTQMS3New
 
             //设置UI代理
             fUpui = updateUIFunc;
+
+            this.lblStation.Text = CommonData.stationName;
+
+           
         }
 
         private void updateUIFunc(Task card)
         {
             //更新Label
-            CommonData.sumTime++;
-            this.lblSum.Text = CommonData.sumTime.ToString();
             this.lblType.Text = card.Type.ToString();
             this.lblTruck.Text = card.CarNum;
             this.lblStartTime.Text = card.StartTime;
             this.lblStartStation.Text = CommonData.stations.GetValueByKey("StationID",card.StartSpot,"Name").ToString();
             this.lblEndTime.Text = card.EndTime;
-
-            //更新时间分布图
-            visifire vschart = new visifire();
-            string str = System.AppDomain.CurrentDomain.BaseDirectory;
-            Uri url = new Uri(str + "chart/Demo.htm");
-            webBrowser.Url = url;
-
-
-            vschart.reSize(webBrowser.Width, webBrowser.Height);
-            vschart.settitle("当日转运中心报表", "时间", "运输量");
-            string[] column = new string[16];
-            double[] data = new double[16];
-            for (int i = 0; i <= 15; i++)
-            {
-                column[i] = (i + 5).ToString() + ":00";
-            }
-
-            foreach (var item in CommonData.data)
-            {
-                data[int.Parse(DateTime.Parse(item.EndTime).ToString("HH"))-5] ++;
-            }
-
-            vschart.set3D(true);
-
-            Random rd = new Random();
-            vschart.setData(column, data, 16);
-            string type = "pie";
-
-            vschart.setType(type);
-            webBrowser.Url = vschart.displayChart();
-
-            //更新最新数据
-            this.dgvMsg.DataSource = CommonData.toDataTable();
+            Thread thread = new Thread(bgwUpdateUI_DoWork);
+            thread.Start();
         }
 
         #region 读卡线程
@@ -120,18 +96,17 @@ namespace DTQMS3New
 
                 if (!card.status)
                     continue;
-
                 UHF.requestData(ref card);
-
                 if (card.status)
-                { 
+                {
                     //设置到站时间
                     card.EndTime = DateTime.Now.ToString("yy-MM-dd,HH:mm");
                     //添加到更新队列
                     CommonData.data.Add(card);
                     //更新UI界面
-                    this.Invoke(fUpui,new Object[]{card});
+                    this.Invoke(fUpui, new Object[] { card });
                 }
+                UHF.PutDataIntoCard(3, 10, 1, UHF.MISSION_ING, card);
             }
         }
 
@@ -160,9 +135,11 @@ namespace DTQMS3New
                 Task card = CommonData.data[CommonData.curUpdateIndex];
 
                 //更新数据
-                string sql = "UPDATE [dbo.Goods]\r\nSET [EndTime]='"+card.EndTime+"'\r" +
-                "\nWHERE (StartTime = @StartTime)  AND (TruckNo=@TruckNo)";
+                string sql = "UPDATE [dbo.Goods]\r\nSET [EndTime]='"+card.EndTime+"',EndStationID="+CommonData.stationID+"\r" +
+                "\nWHERE (StartTime = '"+card.StartTime+"')  AND (TruckNo='"+card.CarNum+"')";
 
+                BaseOperate op = new BaseOperate();
+                op.getcom(sql);
             }
         }
 
@@ -188,6 +165,53 @@ namespace DTQMS3New
 
         private void panelTtile_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        private void bgwUpdateUI_DoWork()
+        {
+            Control.CheckForIllegalCrossThreadCalls = false;
+            string sql = "SELECT * FROM [dbo.Goods] WHERE EndStationID="+CommonData.stationID+" AND EndTime >= '"+DateTime.Now.ToString("yy-MM-dd,00:00")+"'";
+            double sumWeight = 0;
+            BaseOperate op = new BaseOperate();
+            DataSet ds = op.getds(sql, "[dbo.Goods]");
+            if (ds.Tables.Count <= 0)
+                return;
+            ds.Tables[0].Columns.Add("StartStationName");
+            foreach (DataRow row in ds.Tables[0].Rows)
+            {
+                row["StartStationName"] = CommonData.stations.GetValueByKey("StationID", row["StartStationID"], "Name");
+                sumWeight += int.Parse(row["Weight"].ToString());
+            }
+
+            this.dgvMsg.DataSource = ds.Tables[0];
+            this.lblSum.Text = ds.Tables[0].Rows.Count + "次";
+            this.lblSumWeight.Text = sumWeight + "吨";
+
+            ChartData chartdata = new ChartData();
+            visifire vschart = new visifire();
+
+            string str = System.AppDomain.CurrentDomain.BaseDirectory;
+            Uri url = new Uri(str + "chart/Demo.htm");
+            webBrowser.Url = url;
+
+            chartdata.updateData(5, DateTime.Now, 0).ToString();
+            vschart.reSize(webBrowser.Width, webBrowser.Height);
+            vschart.settitle("当日转运中心报表", "时间", "运输量");
+            string[] column = new string[16];
+            double[] data = new double[16];
+            for (int i = 0; i <= 15; i++)
+            {
+                column[i] = (i + 5).ToString() + ":00";
+                data[i] = chartdata.stationdaybox[i];
+            }
+
+            vschart.set3D(true);
+            vschart.setData(column, data, 16);
+            string type = "pie";
+
+            vschart.setType(type);
+            webBrowser.Url = vschart.displayChart();
 
         }
     }
