@@ -11,7 +11,7 @@ namespace System.Data
         {
             foreach (DataRow row in table.Rows)
             {
-                if (row[key] == value)
+                if (row[key].ToString() == value.ToString())
                     return row[valueKey];
             }
             return null;

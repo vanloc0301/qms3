@@ -277,7 +277,8 @@ namespace DTQMS3New.Classes
                         {
                             DataSet ds;
                             string sttime = dt.ToString("yy-MM-dd");
-                            string strSQL = "DECLARE	@return_value int EXEC	@return_value = [rfidtest].[GetStationDetailbyDay] @day = N'" + sttime + "'";
+                            string strSQL = "DECLARE	@return_value int EXEC	@return_value = [rfidtest].[GetDetailbyDaydt] @day = N'" + sttime + "',@stationID=" + CommonData.stationID;
+;
                             string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
                            // MessageBox.Show(strSQL);
                             try
@@ -287,7 +288,6 @@ namespace DTQMS3New.Classes
                             }
                             catch
                             {
-                                MessageBox.Show("网络连接失败！请稍后重试（错误 10273）");
                                 return 1;
                             }
                             try
@@ -301,7 +301,6 @@ namespace DTQMS3New.Classes
                             }
                             catch (Exception xx)
                             {
-                                MessageBox.Show("网络连接失败！请稍后重试（错误1027）" + xx.ToString());
                                 return 1;
                             }
 

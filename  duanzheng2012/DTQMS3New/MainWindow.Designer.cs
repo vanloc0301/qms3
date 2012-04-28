@@ -54,6 +54,8 @@
             this.EndTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TruckNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bgwUpdateUI = new System.ComponentModel.BackgroundWorker();
+            this.lblError = new System.Windows.Forms.Label();
             this.panelTtile.SuspendLayout();
             this.groupCard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMsg)).BeginInit();
@@ -62,6 +64,7 @@
             // panelTtile
             // 
             this.panelTtile.BackColor = System.Drawing.Color.Transparent;
+            this.panelTtile.Controls.Add(this.lblError);
             this.panelTtile.Controls.Add(this.lblSumWeight);
             this.panelTtile.Controls.Add(this.label3);
             this.panelTtile.Controls.Add(this.lblSum);
@@ -70,7 +73,7 @@
             this.panelTtile.Controls.Add(this.label1);
             this.panelTtile.Location = new System.Drawing.Point(0, 0);
             this.panelTtile.Name = "panelTtile";
-            this.panelTtile.Size = new System.Drawing.Size(878, 65);
+            this.panelTtile.Size = new System.Drawing.Size(1024, 65);
             this.panelTtile.TabIndex = 0;
             this.panelTtile.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTtile_Paint);
             // 
@@ -79,18 +82,18 @@
             this.lblSumWeight.AutoSize = true;
             this.lblSumWeight.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblSumWeight.ForeColor = System.Drawing.Color.Orange;
-            this.lblSumWeight.Location = new System.Drawing.Point(754, 20);
+            this.lblSumWeight.Location = new System.Drawing.Point(682, 20);
             this.lblSumWeight.Name = "lblSumWeight";
-            this.lblSumWeight.Size = new System.Drawing.Size(69, 28);
+            this.lblSumWeight.Size = new System.Drawing.Size(45, 28);
             this.lblSumWeight.TabIndex = 5;
-            this.lblSumWeight.Text = "128吨";
+            this.lblSumWeight.Text = "0吨";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label3.ForeColor = System.Drawing.Color.Orange;
-            this.label3.Location = new System.Drawing.Point(570, 20);
+            this.label3.Location = new System.Drawing.Point(498, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(180, 28);
             this.label3.TabIndex = 4;
@@ -101,18 +104,18 @@
             this.lblSum.AutoSize = true;
             this.lblSum.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblSum.ForeColor = System.Drawing.Color.Orange;
-            this.lblSum.Location = new System.Drawing.Point(453, 20);
+            this.lblSum.Location = new System.Drawing.Point(408, 20);
             this.lblSum.Name = "lblSum";
-            this.lblSum.Size = new System.Drawing.Size(57, 28);
+            this.lblSum.Size = new System.Drawing.Size(45, 28);
             this.lblSum.TabIndex = 3;
-            this.lblSum.Text = "56次";
+            this.lblSum.Text = "0次";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label2.ForeColor = System.Drawing.Color.Orange;
-            this.label2.Location = new System.Drawing.Point(269, 20);
+            this.label2.Location = new System.Drawing.Point(224, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(180, 28);
             this.label2.TabIndex = 2;
@@ -125,9 +128,9 @@
             this.lblStation.ForeColor = System.Drawing.Color.Orange;
             this.lblStation.Location = new System.Drawing.Point(144, 20);
             this.lblStation.Name = "lblStation";
-            this.lblStation.Size = new System.Drawing.Size(54, 28);
+            this.lblStation.Size = new System.Drawing.Size(33, 28);
             this.lblStation.TabIndex = 1;
-            this.lblStation.Text = "大屯";
+            this.lblStation.Text = "无";
             // 
             // label1
             // 
@@ -156,7 +159,7 @@
             this.groupCard.ForeColor = System.Drawing.Color.White;
             this.groupCard.Location = new System.Drawing.Point(0, 67);
             this.groupCard.Name = "groupCard";
-            this.groupCard.Size = new System.Drawing.Size(878, 344);
+            this.groupCard.Size = new System.Drawing.Size(1024, 344);
             this.groupCard.TabIndex = 1;
             this.groupCard.TabStop = false;
             this.groupCard.Text = "刷卡信息";
@@ -167,11 +170,11 @@
             this.lblType.AutoSize = true;
             this.lblType.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblType.ForeColor = System.Drawing.Color.White;
-            this.lblType.Location = new System.Drawing.Point(712, 266);
+            this.lblType.Location = new System.Drawing.Point(762, 266);
             this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(34, 38);
+            this.lblType.Size = new System.Drawing.Size(46, 38);
             this.lblType.TabIndex = 9;
-            this.lblType.Text = "1";
+            this.lblType.Text = "无";
             // 
             // lblTruck
             // 
@@ -180,20 +183,20 @@
             this.lblTruck.ForeColor = System.Drawing.Color.White;
             this.lblTruck.Location = new System.Drawing.Point(188, 266);
             this.lblTruck.Name = "lblTruck";
-            this.lblTruck.Size = new System.Drawing.Size(168, 38);
+            this.lblTruck.Size = new System.Drawing.Size(46, 38);
             this.lblTruck.TabIndex = 8;
-            this.lblTruck.Text = "京A123456";
+            this.lblTruck.Text = "无";
             // 
             // lblEndTime
             // 
             this.lblEndTime.AutoSize = true;
             this.lblEndTime.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblEndTime.ForeColor = System.Drawing.Color.White;
-            this.lblEndTime.Location = new System.Drawing.Point(712, 54);
+            this.lblEndTime.Location = new System.Drawing.Point(762, 54);
             this.lblEndTime.Name = "lblEndTime";
-            this.lblEndTime.Size = new System.Drawing.Size(92, 38);
+            this.lblEndTime.Size = new System.Drawing.Size(46, 38);
             this.lblEndTime.TabIndex = 7;
-            this.lblEndTime.Text = "12:00";
+            this.lblEndTime.Text = "无";
             // 
             // lblStartTime
             // 
@@ -202,27 +205,27 @@
             this.lblStartTime.ForeColor = System.Drawing.Color.White;
             this.lblStartTime.Location = new System.Drawing.Point(217, 54);
             this.lblStartTime.Name = "lblStartTime";
-            this.lblStartTime.Size = new System.Drawing.Size(92, 38);
+            this.lblStartTime.Size = new System.Drawing.Size(46, 38);
             this.lblStartTime.TabIndex = 6;
-            this.lblStartTime.Text = "08:00";
+            this.lblStartTime.Text = "无";
             // 
             // lblStartStation
             // 
             this.lblStartStation.AutoSize = true;
             this.lblStartStation.Font = new System.Drawing.Font("微软雅黑", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lblStartStation.ForeColor = System.Drawing.Color.GreenYellow;
-            this.lblStartStation.Location = new System.Drawing.Point(289, 109);
+            this.lblStartStation.Location = new System.Drawing.Point(323, 108);
             this.lblStartStation.Name = "lblStartStation";
-            this.lblStartStation.Size = new System.Drawing.Size(340, 124);
+            this.lblStartStation.Size = new System.Drawing.Size(148, 124);
             this.lblStartStation.TabIndex = 5;
-            this.lblStartStation.Text = "六部口";
+            this.lblStartStation.Text = "无";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(171, 162);
+            this.label8.Location = new System.Drawing.Point(176, 162);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(133, 38);
             this.label8.TabIndex = 4;
@@ -233,7 +236,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(548, 266);
+            this.label7.Location = new System.Drawing.Point(598, 266);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(162, 38);
             this.label7.TabIndex = 3;
@@ -255,7 +258,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(548, 54);
+            this.label5.Location = new System.Drawing.Point(598, 54);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(162, 38);
             this.label5.TabIndex = 1;
@@ -274,11 +277,11 @@
             // 
             // webBrowser
             // 
-            this.webBrowser.Location = new System.Drawing.Point(6, 417);
+            this.webBrowser.Location = new System.Drawing.Point(3, 417);
             this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser.Name = "webBrowser";
             this.webBrowser.ScrollBarsEnabled = false;
-            this.webBrowser.Size = new System.Drawing.Size(320, 245);
+            this.webBrowser.Size = new System.Drawing.Size(466, 366);
             this.webBrowser.TabIndex = 2;
             // 
             // dgvMsg
@@ -290,10 +293,10 @@
             this.EndTime,
             this.TruckNo,
             this.Type});
-            this.dgvMsg.Location = new System.Drawing.Point(332, 417);
+            this.dgvMsg.Location = new System.Drawing.Point(487, 417);
             this.dgvMsg.Name = "dgvMsg";
             this.dgvMsg.RowTemplate.Height = 23;
-            this.dgvMsg.Size = new System.Drawing.Size(546, 250);
+            this.dgvMsg.Size = new System.Drawing.Size(534, 366);
             this.dgvMsg.TabIndex = 3;
             // 
             // StartStation
@@ -326,12 +329,23 @@
             this.Type.HeaderText = "垃圾类型";
             this.Type.Name = "Type";
             // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(769, 20);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(0, 28);
+            this.lblError.TabIndex = 6;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(878, 668);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1024, 786);
             this.Controls.Add(this.dgvMsg);
             this.Controls.Add(this.webBrowser);
             this.Controls.Add(this.groupCard);
@@ -377,5 +391,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EndTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn TruckNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
+        private System.ComponentModel.BackgroundWorker bgwUpdateUI;
+        private System.Windows.Forms.Label lblError;
     }
 }
