@@ -77,8 +77,6 @@ namespace StationManager
             BaseData.stationID = int.Parse(stationID);
             BaseData.stationName = ds.Tables[0].Rows[0]["Name"].ToString();
 
-            Process.Start("垃圾楼.exe");
-
             setDialog();
             this.lblTitle.Content = "欢迎使用" + BaseData.stationName + "清洁站管理系统";
             LoginWindow loginWindow = new LoginWindow();
@@ -93,6 +91,7 @@ namespace StationManager
             timer.Tick += timer_Tick;
             timer.Interval = new TimeSpan(0,1,0);
             timer.Start();
+            Process.Start("垃圾楼.exe");
 
         }
 
