@@ -9,11 +9,14 @@ using System.Windows.Forms;
 using DTQMS3New.Classes;
 using System.Threading;
 using System.Diagnostics;
+using System.Xml;
 
 namespace DTQMS3New
 {
     public partial class MainWindow : Form
     {
+        //文件被打开标识
+        object bRead = new object();
 
         //读卡线程
         private Thread readCardThread;
@@ -35,14 +38,16 @@ namespace DTQMS3New
         private void MainWindow_Load(object sender, EventArgs e)
         {
             Process.Start("转运中心.exe");
+            
             CommonData.errorLabel = lblError;
+            
             //查询垃圾楼信息
             string sql = "SELECT * FROM [dbo.Station]";
             BaseOperate op = new BaseOperate();
             DataSet ds = op.getds(sql,"[dbo.Station]");
             if (ds.Tables.Count != 0)
                 CommonData.stations = ds.Tables[0];
-
+            bgwUpdateUI_DoWork();
             //创建读卡线程
             readCardThread = new Thread(this.readCard);
 
@@ -69,8 +74,7 @@ namespace DTQMS3New
             this.lblStartTime.Text = card.StartTime;
             this.lblStartStation.Text = CommonData.stations.GetValueByKey("StationID",card.StartSpot,"Name").ToString();
             this.lblEndTime.Text = card.EndTime;
-            Thread thread = new Thread(bgwUpdateUI_DoWork);
-            thread.Start();
+            bgwUpdateUI_DoWork();
         }
 
         #region 读卡线程
@@ -101,8 +105,10 @@ namespace DTQMS3New
                 {
                     //设置到站时间
                     card.EndTime = DateTime.Now.ToString("yy-MM-dd,HH:mm");
-                    //添加到更新队列
+                    //将信息保存到data.xml中
                     CommonData.data.Add(card);
+                    
+
                     //更新UI界面
                     this.Invoke(fUpui, new Object[] { card });
                 }
@@ -118,28 +124,54 @@ namespace DTQMS3New
         {
             while (true)
             {
-                while (true)
-                {
-                    //如果数据已经全部更新，则等待10秒
-                    if (CommonData.data.Count <= CommonData.curUpdateIndex + 1)
-                        Thread.Sleep(10000);
-                    //否则退出循环
-                    else
-                        break;
+                      XmlDocument xdoc = new XmlDocument();
+                      if (CommonData.data.Count > CommonData.curUpdateIndex)
+                      {
+                          xdoc.Load("data.xml");
+                          //添加数据
+                          for (; CommonData.curUpdateIndex < CommonData.data.Count; CommonData.curUpdateIndex++)
+                          {
+                              Task item = CommonData.data[CommonData.curUpdateIndex];
+                              XmlElement newNode = xdoc.CreateElement("Data");
+                              newNode.SetAttribute("TruckNo", item.CarNum);
+                              newNode.SetAttribute("StartTime", item.StartTime);
+                              newNode.SetAttribute("EndTime", item.EndTime);
+                              newNode.SetAttribute("StartStationID", item.StartSpot.ToString());
+                              xdoc.SelectSingleNode("Datas").AppendChild(newNode);
+                          }
+                          xdoc.Save("data.xml");
+                      }
+                        xdoc.Load("data.xml");
+                        if (xdoc.SelectSingleNode("Datas").ChildNodes.Count <= 0)
+                            continue;
+                        
+                        Task card = new Task();
+                        XmlNode xRoot = xdoc.SelectSingleNode("Datas").ChildNodes[0];
+                        card.StartSpot = int.Parse(xRoot.Attributes["StartStationID"].Value);
+                        card.StartTime = xRoot.Attributes["StartTime"].Value;
+                        card.EndTime = xRoot.Attributes["EndTime"].Value;
+                        card.CarNum = xRoot.Attributes["TruckNo"].Value;
 
-                }
+                        //更新数据
+                        string sql = "UPDATE [dbo.Goods]\r\nSET [EndTime]='" + card.EndTime + "',EndStationID=" + CommonData.stationID + "\r" +
+                        "\nWHERE (StartTime = '" + card.StartTime + "')  AND (TruckNo='" + card.CarNum + "')";
 
-                //更新当前行数计数器
-                CommonData.curUpdateIndex++;
-                //获取要更新的数据
-                Task card = CommonData.data[CommonData.curUpdateIndex];
+                        BaseOperate op = new BaseOperate();
+                        if (op.getcom(sql))
+                        {
+                            this.lblError.Text = "";
+                            //删除节点 
+                            if (xdoc.SelectSingleNode("Datas") != null && xdoc.SelectSingleNode("Datas").ChildNodes.Count > 0)
+                            {
+                                xdoc.SelectSingleNode("Datas").RemoveChild(xRoot);
+                                xdoc.Save("data.xml");
+                            }
+                        }
+                        else
+                        {
+                            this.lblError.Text = "网络异常！";
+                        }
 
-                //更新数据
-                string sql = "UPDATE [dbo.Goods]\r\nSET [EndTime]='"+card.EndTime+"',EndStationID="+CommonData.stationID+"\r" +
-                "\nWHERE (StartTime = '"+card.StartTime+"')  AND (TruckNo='"+card.CarNum+"')";
-
-                BaseOperate op = new BaseOperate();
-                op.getcom(sql);
             }
         }
 
@@ -147,13 +179,6 @@ namespace DTQMS3New
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (CommonData.curUpdateIndex < CommonData.data.Count - 1)
-            {
-                MessageBox.Show("还有没更新完毕的数据，无法关闭");
-                e.Cancel = true;
-                return;
-            }
-
             readCardThread.Abort();
             updateDBThread.Abort();
         }

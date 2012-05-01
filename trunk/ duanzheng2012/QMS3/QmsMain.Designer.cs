@@ -7001,6 +7001,7 @@
             // 
             // btnAddCls
             // 
+            this.btnAddCls.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddCls.Location = new System.Drawing.Point(712, 28);
             this.btnAddCls.Name = "btnAddCls";
             this.btnAddCls.Size = new System.Drawing.Size(115, 35);
@@ -7021,21 +7022,21 @@
             // 
             // btn
             // 
+            this.btn.Image = ((System.Drawing.Image)(resources.GetObject("btn.Image")));
             this.btn.Location = new System.Drawing.Point(364, 145);
             this.btn.Name = "btn";
-            this.btn.Size = new System.Drawing.Size(75, 35);
+            this.btn.Size = new System.Drawing.Size(54, 35);
             this.btn.TabIndex = 4;
-            this.btn.Text = "删除";
             this.btn.UseVisualStyleBackColor = true;
             this.btn.Click += new System.EventHandler(this.btn_Click);
             // 
             // lblAddMsg
             // 
-            this.lblAddMsg.Location = new System.Drawing.Point(364, 94);
+            this.lblAddMsg.Image = ((System.Drawing.Image)(resources.GetObject("lblAddMsg.Image")));
+            this.lblAddMsg.Location = new System.Drawing.Point(364, 91);
             this.lblAddMsg.Name = "lblAddMsg";
-            this.lblAddMsg.Size = new System.Drawing.Size(75, 35);
+            this.lblAddMsg.Size = new System.Drawing.Size(54, 35);
             this.lblAddMsg.TabIndex = 4;
-            this.lblAddMsg.Text = "添加";
             this.lblAddMsg.UseVisualStyleBackColor = true;
             this.lblAddMsg.Click += new System.EventHandler(this.lblAddMsg_Click);
             // 

@@ -74,3 +74,9 @@ F:\InfoView\obj\Debug\InfoView.MainWindow.resources
 F:\InfoView\obj\Debug\InfoView.Properties.Resources.resources
 F:\InfoView\obj\Debug\InfoView.TestForm.resources
 F:\InfoView\obj\Debug\InfoView.csproj.GenerateResource.Cache
+F:\duanzheng2012\InfoView\bin\Debug\Microsoft.Office.Interop.SmartTag.dll
+F:\duanzheng2012\InfoView\bin\Debug\Interop.Microsoft.Office.Interop.Excel.dll
+F:\duanzheng2012\InfoView\bin\Debug\Interop.Microsoft.Office.Core.dll
+F:\duanzheng2012\InfoView\obj\Debug\Interop.Microsoft.Office.Interop.Excel.dll
+F:\duanzheng2012\InfoView\obj\Debug\Interop.Microsoft.Office.Core.dll
+F:\duanzheng2012\InfoView\obj\Debug\InfoView.ErrorWindow.resources

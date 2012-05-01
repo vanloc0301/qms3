@@ -6,3 +6,11 @@ C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\3g定时
 C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\3g定时器\3g定时器\bin\Debug\3g定时器.pdb
 C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\3g定时器\3g定时器\obj\Debug\3g定时器.exe
 C:\Documents and Settings\ithu\My Documents\Visual Studio 2008\Projects\3g定时器\3g定时器\obj\Debug\3g定时器.pdb
+F:\duanzheng2012\3g定时器\3g定时器\obj\Debug\3g定时器.exe
+F:\duanzheng2012\3g定时器\3g定时器\obj\Debug\3g定时器.pdb
+F:\duanzheng2012\3g定时器\3g定时器\bin\Debug\3g定时器.exe
+F:\duanzheng2012\3g定时器\3g定时器\bin\Debug\3g定时器.pdb
+F:\duanzheng2012\3g定时器\3g定时器\obj\Debug\ResolveAssemblyReference.cache
+F:\duanzheng2012\3g定时器\3g定时器\obj\Debug\_3g定时器.Form1.resources
+F:\duanzheng2012\3g定时器\3g定时器\obj\Debug\_3g定时器.Properties.Resources.resources
+F:\duanzheng2012\3g定时器\3g定时器\obj\Debug\3g定时器.csproj.GenerateResource.Cache

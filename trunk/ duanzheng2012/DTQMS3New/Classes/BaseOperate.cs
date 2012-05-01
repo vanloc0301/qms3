@@ -34,15 +34,25 @@ namespace DTQMS3New.Classes
         /// 执行SqlCommand
         /// </summary>
         /// <param name="M_str_sqlstr">SQL语句</param>
-        public void getcom(string MStrSQLStr)
+        public bool getcom(string MStrSQLStr)
         {
-            SqlConnection sqlcon = this.getcon();
-            sqlcon.Open();
-            SqlCommand sqlcom = new SqlCommand(MStrSQLStr, sqlcon);
-            sqlcom.ExecuteNonQuery();
-            sqlcom.Dispose();
-            sqlcon.Close();
-            sqlcon.Dispose();
+            try
+            {
+                SqlConnection sqlcon = this.getcon();
+                sqlcon.Open();
+                SqlCommand sqlcom = new SqlCommand(MStrSQLStr, sqlcon);
+                int r = sqlcom.ExecuteNonQuery();
+                sqlcom.Dispose();
+                sqlcon.Close();
+                sqlcon.Dispose();
+                if (r > 0)
+                    return true;
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
         }
         #endregion
 
