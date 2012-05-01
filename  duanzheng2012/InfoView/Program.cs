@@ -16,7 +16,7 @@ namespace InfoView
             Application.EnableVisualStyles();
 
             Application.SetCompatibleTextRenderingDefault(true);
-            Application.Run(new MainWindow());
+            Application.Run(new InfoViewStateMain());
 
         }
     }

@@ -1,7 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMS3", "QMS3\QMS3.csproj", "{C0DB580F-2E53-4897-8797-01A4E463A095}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfoView", "InfoView\InfoView.csproj", "{0A31892C-344E-4E41-8B89-005FB1E86E09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormItem", "..\FormItem\FormItem\FormItem.csproj", "{CF068BA1-E40C-40C5-9689-1707BECDFB7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSManager", "CSManager\CSManager.csproj", "{D788FE1C-90B6-41C3-83D8-DE0938368ED8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StationManager", "StationManager\StationManager.csproj", "{93BBDC99-A420-40FF-80B2-9A4AD3323045}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTQMS3New", "DTQMS3New\DTQMS3New.csproj", "{0920C88E-ED4E-425F-8956-FFB5111BD773}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DriverManager", "DriverManager\DriverManager.csproj", "{2D33DF3D-1FD4-4D66-B9BE-AD59E7585F09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QMS3", "大屯\QMS3\QMS3.csproj", "{C0DB580F-2E53-4897-8797-01A4E463A095}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,6 +21,30 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A31892C-344E-4E41-8B89-005FB1E86E09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A31892C-344E-4E41-8B89-005FB1E86E09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A31892C-344E-4E41-8B89-005FB1E86E09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A31892C-344E-4E41-8B89-005FB1E86E09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF068BA1-E40C-40C5-9689-1707BECDFB7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF068BA1-E40C-40C5-9689-1707BECDFB7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF068BA1-E40C-40C5-9689-1707BECDFB7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF068BA1-E40C-40C5-9689-1707BECDFB7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D788FE1C-90B6-41C3-83D8-DE0938368ED8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D788FE1C-90B6-41C3-83D8-DE0938368ED8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D788FE1C-90B6-41C3-83D8-DE0938368ED8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D788FE1C-90B6-41C3-83D8-DE0938368ED8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93BBDC99-A420-40FF-80B2-9A4AD3323045}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93BBDC99-A420-40FF-80B2-9A4AD3323045}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93BBDC99-A420-40FF-80B2-9A4AD3323045}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93BBDC99-A420-40FF-80B2-9A4AD3323045}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0920C88E-ED4E-425F-8956-FFB5111BD773}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0920C88E-ED4E-425F-8956-FFB5111BD773}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0920C88E-ED4E-425F-8956-FFB5111BD773}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0920C88E-ED4E-425F-8956-FFB5111BD773}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D33DF3D-1FD4-4D66-B9BE-AD59E7585F09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D33DF3D-1FD4-4D66-B9BE-AD59E7585F09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D33DF3D-1FD4-4D66-B9BE-AD59E7585F09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D33DF3D-1FD4-4D66-B9BE-AD59E7585F09}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C0DB580F-2E53-4897-8797-01A4E463A095}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C0DB580F-2E53-4897-8797-01A4E463A095}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0DB580F-2E53-4897-8797-01A4E463A095}.Release|Any CPU.ActiveCfg = Release|Any CPU
