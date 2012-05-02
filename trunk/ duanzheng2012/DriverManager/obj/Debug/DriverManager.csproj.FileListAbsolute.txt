@@ -1,0 +1,9 @@
+F:\duanzheng2012\DriverManager\bin\Debug\DriverManager.exe
+F:\duanzheng2012\DriverManager\bin\Debug\DriverManager.pdb
+F:\duanzheng2012\DriverManager\obj\Debug\ResolveAssemblyReference.cache
+F:\duanzheng2012\DriverManager\obj\Debug\DriverManager.MainWindow.resources
+F:\duanzheng2012\DriverManager\obj\Debug\DriverManager.Properties.Resources.resources
+F:\duanzheng2012\DriverManager\obj\Debug\DriverManager.csproj.GenerateResource.Cache
+F:\duanzheng2012\DriverManager\obj\Debug\DriverManager.exe
+F:\duanzheng2012\DriverManager\obj\Debug\DriverManager.pdb
+F:\duanzheng2012\DriverManager\obj\Debug\DriverManager.DriverAddForm.resources
