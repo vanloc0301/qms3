@@ -28,11 +28,14 @@ namespace InfoView
 
         private void loadData()
         {
-            Point p = Screen.AllScreens[1].WorkingArea.Location;
-            p.Y += Screen.AllScreens[1].WorkingArea.Height/2;
-            this.Location = p;
-            this.Height = Screen.AllScreens[1].WorkingArea.Height / 2;
+            try
+            {
+                Point p = Screen.AllScreens[4].WorkingArea.Location;
+                this.Location = p;
 
+            }
+            catch
+            { }
             visifire vschart = new visifire();
             string str = System.AppDomain.CurrentDomain.BaseDirectory;
             Uri url = new Uri(str + "chart/Demo.htm");

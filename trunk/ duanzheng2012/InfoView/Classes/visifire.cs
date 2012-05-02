@@ -30,7 +30,7 @@ namespace InfoView.Classes
                             + "<title>This is my first Visifire Chart</title>\n"
                             + "<script type=\"text/javascript\" src=\"Visifire.js\"></script>\n"
                             + "</head>\n"
-                            + "<body>\n"
+                            + "<body bgColor=\"LightBlue\">\n"
                             + "<div id=\"VisifireChart0\" >"
                             + "<script type=\"text/javascript\" >";
         static string end = "vChart.setDataXml(chartXml);"
@@ -82,6 +82,9 @@ namespace InfoView.Classes
                 return "";
             string xml = "";
             xml += "<vc:Chart xmlns:vc=\"clr-namespace:Visifire.Charts;assembly=SLVisifire.Charts\" Width=\"" + (this.width - 15).ToString() + "\" Height=\"" + (this.height - 15).ToString() + "\" BorderThickness=\"0\" Theme=\"Theme1\" " + this.View3d + " ToolBarEnabled=\"True\">";
+            xml += "<vc:Chart.Background>";
+            xml += "<SolidColorBrush Color=\"LightBlue\"/>";
+            xml += "</vc:Chart.Background>";
             xml += "<vc:Chart.Titles>";
             xml += "<vc:Title Text=\"" + this.title + "\" FontSize=\" 45\"/>";
             xml += "</vc:Chart.Titles>";

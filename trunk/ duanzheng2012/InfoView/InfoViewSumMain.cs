@@ -57,7 +57,7 @@ namespace InfoView
             lblArgSize.Text = "" + argSize.ToString("f2") + "吨垃圾";
             lblArgPeople.Text = "" + argPeople.ToString("f2") + "吨垃圾";
 
-            this.Location = Screen.AllScreens[0].WorkingArea.Location;
+            this.Location = Screen.AllScreens[2].WorkingArea.Location;
         }
 
     }

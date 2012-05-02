@@ -283,6 +283,7 @@ namespace InfoView.Classes
                         {
                             DataSet ds;
                             string sttime = dt.ToString("yy-MM-dd");
+                            sttime = "11-07-19";
                             string strSQL = "DECLARE	@return_value int EXEC	@return_value = [rfidtest].[GetStationDetailbyDay] @day = N'" + sttime + "'";
                             string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
                            // MessageBox.Show(strSQL);
