@@ -21,15 +21,20 @@ namespace InfoView
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            try
+            {
+                Point p = Screen.AllScreens[0].WorkingArea.Location;
+                p.Y += 540;
+                this.Location = p;
+            }
+            catch { }
 
-            Point p = Screen.AllScreens[1].WorkingArea.Location;
-            this.Location = p;
 
             InfoView.Classes.visifire vschart = new InfoView.Classes.visifire();
             string str = System.AppDomain.CurrentDomain.BaseDirectory;
             Uri url = new Uri(str + "chart/Demo.htm");
             webBrowser.Url = url;
-
+            //chartdata.updateData(5, DateTime, 0).ToString();
             chartdata.updateData(5,DateTime.Now, 0).ToString();
             vschart.reSize(webBrowser.Width, webBrowser.Height);
             vschart.settitle("当日转运中心报表", "时间", "运输量");

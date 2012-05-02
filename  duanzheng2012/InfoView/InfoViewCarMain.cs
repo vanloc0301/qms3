@@ -53,8 +53,12 @@ namespace InfoView
 
             loadData();
             loadStationCar();
-
-            this.Location = Screen.AllScreens[1].WorkingArea.Location;
+            try
+            {
+                this.Location = Screen.AllScreens[0].WorkingArea.Location;
+            }
+            catch
+            { }
            
         }
 
@@ -172,6 +176,8 @@ namespace InfoView
             }
 
             if (cars == null)
+                return;
+            if (cars.Tables.Count <= 0)
                 return;
             for (int i = 0; i < cars.Tables[0].Rows.Count; i++)
             {

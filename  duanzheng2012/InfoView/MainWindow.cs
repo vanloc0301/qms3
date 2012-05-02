@@ -8,13 +8,14 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading;
 using System.Diagnostics;
+using InfoView.Classes;
 
 namespace InfoView
 {
     public partial class MainWindow : Form
     {
 
-        Thread[] threads = new Thread[6];
+        Thread[] threads = new Thread[7];
         public MainWindow()
         {
             InitializeComponent();
@@ -43,12 +44,18 @@ namespace InfoView
             threads[5] = new Thread(() => { Application.Run(new InfoViewYearMain()); });
             threads[5].ApartmentState = ApartmentState.STA;
 
+            //新添加的数据表
+            threads[6] = new Thread(() => { Application.Run(new InfoViewDayData()); });
+            threads[6].ApartmentState = ApartmentState.STA;
+
+            BaseOperate.n = notifyIcon1;
+
             
         }
         private void ShowWindow()
         {
 
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < threads.Length; i++)
             {
                 threads[i].Start();
                 Thread.Sleep(3000);

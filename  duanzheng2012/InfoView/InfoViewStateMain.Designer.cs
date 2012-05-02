@@ -78,7 +78,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("微软雅黑", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.ForeColor = System.Drawing.Color.MintCream;
             this.label1.Location = new System.Drawing.Point(236, 208);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(424, 75);
@@ -102,7 +102,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("微软雅黑", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(1390, 208);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(256, 75);
@@ -114,7 +114,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("微软雅黑", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label7.ForeColor = System.Drawing.Color.Green;
+            this.label7.ForeColor = System.Drawing.Color.GreenYellow;
             this.label7.Location = new System.Drawing.Point(666, 218);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(131, 62);
@@ -126,7 +126,7 @@
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.Transparent;
             this.label8.Font = new System.Drawing.Font("微软雅黑", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label8.ForeColor = System.Drawing.Color.Green;
+            this.label8.ForeColor = System.Drawing.Color.GreenYellow;
             this.label8.Location = new System.Drawing.Point(1165, 218);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(131, 62);
@@ -150,7 +150,7 @@
             this.label15.AutoSize = true;
             this.label15.BackColor = System.Drawing.Color.Transparent;
             this.label15.Font = new System.Drawing.Font("微软雅黑", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.ForeColor = System.Drawing.Color.MintCream;
             this.label15.Location = new System.Drawing.Point(903, 208);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(256, 75);
@@ -184,6 +184,7 @@
             this.label18.AutoSize = true;
             this.label18.BackColor = System.Drawing.Color.Transparent;
             this.label18.Font = new System.Drawing.Font("隶书", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label18.ForeColor = System.Drawing.Color.MintCream;
             this.label18.Location = new System.Drawing.Point(555, 39);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(810, 97);
@@ -228,7 +229,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("微软雅黑", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.ForeColor = System.Drawing.Color.MintCream;
             this.label4.Location = new System.Drawing.Point(903, 386);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(256, 75);
@@ -252,7 +253,7 @@
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("微软雅黑", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.ForeColor = System.Drawing.Color.Green;
+            this.label6.ForeColor = System.Drawing.Color.GreenYellow;
             this.label6.Location = new System.Drawing.Point(1165, 396);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(131, 62);
@@ -264,7 +265,7 @@
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.Transparent;
             this.label10.Font = new System.Drawing.Font("微软雅黑", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label10.ForeColor = System.Drawing.Color.Black;
+            this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(1390, 386);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(256, 75);
@@ -276,7 +277,7 @@
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.Transparent;
             this.label11.Font = new System.Drawing.Font("微软雅黑", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label11.ForeColor = System.Drawing.Color.Green;
+            this.label11.ForeColor = System.Drawing.Color.GreenYellow;
             this.label11.Location = new System.Drawing.Point(666, 396);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(131, 62);
@@ -288,7 +289,7 @@
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.Transparent;
             this.label12.Font = new System.Drawing.Font("微软雅黑", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.ForeColor = System.Drawing.Color.MintCream;
             this.label12.Location = new System.Drawing.Point(236, 386);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(424, 75);
@@ -300,7 +301,7 @@
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.Transparent;
             this.label13.Font = new System.Drawing.Font("微软雅黑", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.ForeColor = System.Drawing.Color.MintCream;
             this.label13.Location = new System.Drawing.Point(903, 564);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(256, 75);
@@ -324,7 +325,7 @@
             this.label16.AutoSize = true;
             this.label16.BackColor = System.Drawing.Color.Transparent;
             this.label16.Font = new System.Drawing.Font("微软雅黑", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label16.ForeColor = System.Drawing.Color.Green;
+            this.label16.ForeColor = System.Drawing.Color.GreenYellow;
             this.label16.Location = new System.Drawing.Point(1165, 574);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(103, 62);
@@ -336,7 +337,7 @@
             this.label17.AutoSize = true;
             this.label17.BackColor = System.Drawing.Color.Transparent;
             this.label17.Font = new System.Drawing.Font("微软雅黑", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label17.ForeColor = System.Drawing.Color.Black;
+            this.label17.ForeColor = System.Drawing.Color.White;
             this.label17.Location = new System.Drawing.Point(1390, 564);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(256, 75);
@@ -348,7 +349,7 @@
             this.label19.AutoSize = true;
             this.label19.BackColor = System.Drawing.Color.Transparent;
             this.label19.Font = new System.Drawing.Font("微软雅黑", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label19.ForeColor = System.Drawing.Color.Green;
+            this.label19.ForeColor = System.Drawing.Color.GreenYellow;
             this.label19.Location = new System.Drawing.Point(722, 574);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(103, 62);
@@ -360,7 +361,7 @@
             this.label20.AutoSize = true;
             this.label20.BackColor = System.Drawing.Color.Transparent;
             this.label20.Font = new System.Drawing.Font("微软雅黑", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label20.ForeColor = System.Drawing.Color.Black;
+            this.label20.ForeColor = System.Drawing.Color.MintCream;
             this.label20.Location = new System.Drawing.Point(236, 564);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(480, 75);
@@ -372,7 +373,7 @@
             this.label33.AutoSize = true;
             this.label33.BackColor = System.Drawing.Color.Transparent;
             this.label33.Font = new System.Drawing.Font("微软雅黑", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label33.ForeColor = System.Drawing.Color.Black;
+            this.label33.ForeColor = System.Drawing.Color.MintCream;
             this.label33.Location = new System.Drawing.Point(903, 742);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(256, 75);
@@ -396,7 +397,7 @@
             this.label35.AutoSize = true;
             this.label35.BackColor = System.Drawing.Color.Transparent;
             this.label35.Font = new System.Drawing.Font("微软雅黑", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label35.ForeColor = System.Drawing.Color.Green;
+            this.label35.ForeColor = System.Drawing.Color.GreenYellow;
             this.label35.Location = new System.Drawing.Point(1165, 749);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(103, 62);
@@ -408,7 +409,7 @@
             this.label36.AutoSize = true;
             this.label36.BackColor = System.Drawing.Color.Transparent;
             this.label36.Font = new System.Drawing.Font("微软雅黑", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label36.ForeColor = System.Drawing.Color.Black;
+            this.label36.ForeColor = System.Drawing.Color.White;
             this.label36.Location = new System.Drawing.Point(1390, 736);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(256, 75);
@@ -420,7 +421,7 @@
             this.label37.AutoSize = true;
             this.label37.BackColor = System.Drawing.Color.Transparent;
             this.label37.Font = new System.Drawing.Font("微软雅黑", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label37.ForeColor = System.Drawing.Color.Green;
+            this.label37.ForeColor = System.Drawing.Color.GreenYellow;
             this.label37.Location = new System.Drawing.Point(722, 755);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(103, 62);
@@ -432,7 +433,7 @@
             this.label38.AutoSize = true;
             this.label38.BackColor = System.Drawing.Color.Transparent;
             this.label38.Font = new System.Drawing.Font("微软雅黑", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label38.ForeColor = System.Drawing.Color.Black;
+            this.label38.ForeColor = System.Drawing.Color.MintCream;
             this.label38.Location = new System.Drawing.Point(236, 742);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(480, 75);
@@ -444,7 +445,7 @@
             this.label21.AutoSize = true;
             this.label21.BackColor = System.Drawing.Color.Transparent;
             this.label21.Font = new System.Drawing.Font("微软雅黑", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label21.ForeColor = System.Drawing.Color.Black;
+            this.label21.ForeColor = System.Drawing.Color.MintCream;
             this.label21.Location = new System.Drawing.Point(903, 922);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(256, 75);
@@ -468,7 +469,7 @@
             this.label23.AutoSize = true;
             this.label23.BackColor = System.Drawing.Color.Transparent;
             this.label23.Font = new System.Drawing.Font("微软雅黑", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label23.ForeColor = System.Drawing.Color.Green;
+            this.label23.ForeColor = System.Drawing.Color.GreenYellow;
             this.label23.Location = new System.Drawing.Point(1165, 932);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(131, 62);
@@ -480,7 +481,7 @@
             this.label24.AutoSize = true;
             this.label24.BackColor = System.Drawing.Color.Transparent;
             this.label24.Font = new System.Drawing.Font("微软雅黑", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label24.ForeColor = System.Drawing.Color.Black;
+            this.label24.ForeColor = System.Drawing.Color.White;
             this.label24.Location = new System.Drawing.Point(1390, 922);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(256, 75);
@@ -492,7 +493,7 @@
             this.label25.AutoSize = true;
             this.label25.BackColor = System.Drawing.Color.Transparent;
             this.label25.Font = new System.Drawing.Font("微软雅黑", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label25.ForeColor = System.Drawing.Color.Green;
+            this.label25.ForeColor = System.Drawing.Color.GreenYellow;
             this.label25.Location = new System.Drawing.Point(666, 932);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(131, 62);
@@ -504,7 +505,7 @@
             this.label26.AutoSize = true;
             this.label26.BackColor = System.Drawing.Color.Transparent;
             this.label26.Font = new System.Drawing.Font("微软雅黑", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label26.ForeColor = System.Drawing.Color.Black;
+            this.label26.ForeColor = System.Drawing.Color.MintCream;
             this.label26.Location = new System.Drawing.Point(236, 922);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(424, 75);
@@ -518,7 +519,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1920, 1080);
+            this.ClientSize = new System.Drawing.Size(1412, 1062);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label23);

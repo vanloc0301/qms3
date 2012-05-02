@@ -9,6 +9,8 @@ namespace InfoView.Classes
 {
     public class BaseOperate
     {
+        static public NotifyIcon n;
+
         #region  建立数据库连接 getcon()
         /// <summary>
         /// 建立数据库连接.
@@ -64,7 +66,8 @@ namespace InfoView.Classes
             {
                 sqlcon.Close();
                 //MessageBox.Show("数据库连接超时,请稍后再试。");
-                ErrorWindow.ShowWindow();
+                if (n != null)
+                    n.ShowBalloonTip(2000,"提示","网络连接异常！",ToolTipIcon.Error);
             }
             sqlcon.Close();
             return myds;

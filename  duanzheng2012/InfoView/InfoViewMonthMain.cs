@@ -61,7 +61,11 @@ namespace InfoView
 
             //记录当前年月，用于判断是否更新
             curMonth = DateTime.Now.Month;
-            this.Location = Screen.AllScreens[1].WorkingArea.Location;
+            try
+            {
+                this.Location = Screen.AllScreens[3].WorkingArea.Location;
+            }
+            catch { }
         }
 
         private void timerRefresh_Tick(object sender, EventArgs e)
