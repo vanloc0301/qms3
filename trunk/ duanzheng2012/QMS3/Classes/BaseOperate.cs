@@ -60,8 +60,9 @@ namespace QMS3.BaseClass
             {
                 sqlda.Fill(myds, MStrTable);
             }
-            catch
+            catch(Exception e)
             {
+                MessageBox.Show(e.Message);
                 MessageBox.Show("数据库连接超时,请稍后再试。");
             }
             return myds;
