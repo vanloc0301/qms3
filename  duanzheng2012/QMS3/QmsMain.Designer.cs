@@ -49,6 +49,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.processlabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
@@ -604,9 +605,41 @@
             this.rbLv0 = new System.Windows.Forms.RadioButton();
             this.label78 = new System.Windows.Forms.Label();
             this.label77 = new System.Windows.Forms.Label();
+            this.tabPage32 = new System.Windows.Forms.TabPage();
+            this.groupEditMsg = new System.Windows.Forms.GroupBox();
+            this.btnSaveMsg = new System.Windows.Forms.Button();
+            this.txtMsgContent1 = new System.Windows.Forms.TextBox();
+            this.label97 = new System.Windows.Forms.Label();
+            this.cbRevStation = new System.Windows.Forms.ComboBox();
+            this.label96 = new System.Windows.Forms.Label();
+            this.rbLv2c = new System.Windows.Forms.RadioButton();
+            this.rbLv1c = new System.Windows.Forms.RadioButton();
+            this.rbLv0c = new System.Windows.Forms.RadioButton();
+            this.label95 = new System.Windows.Forms.Label();
+            this.dgvMsgList = new System.Windows.Forms.DataGridView();
+            this.MsgLevel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SendPeople = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RevStation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MsgContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SendTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MsgState = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupSearchWhere = new System.Windows.Forms.GroupBox();
+            this.btnSearchMsg = new System.Windows.Forms.Button();
+            this.txtMsgWhere = new System.Windows.Forms.TextBox();
+            this.label100 = new System.Windows.Forms.Label();
+            this.dtpEndTime = new System.Windows.Forms.DateTimePicker();
+            this.label99 = new System.Windows.Forms.Label();
+            this.dtpStartTime = new System.Windows.Forms.DateTimePicker();
+            this.label98 = new System.Windows.Forms.Label();
+            this.dboStationBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.db_rfidtestDataSet2 = new QMS3.db_rfidtestDataSet2();
             this.CenterPanel = new System.Windows.Forms.Panel();
             this.cmClass = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmsDelete = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dboGoodsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -742,7 +775,14 @@
             this.tabPage31.SuspendLayout();
             this.groupBox24.SuspendLayout();
             this.groupBox21.SuspendLayout();
+            this.tabPage32.SuspendLayout();
+            this.groupEditMsg.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMsgList)).BeginInit();
+            this.groupSearchWhere.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dboStationBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_rfidtestDataSet2)).BeginInit();
             this.CenterPanel.SuspendLayout();
+            this.cmsDelete.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -1674,6 +1714,7 @@
             this.MainTab.Controls.Add(this.tabPage27);
             this.MainTab.Controls.Add(this.tabPage28);
             this.MainTab.Controls.Add(this.tabPage31);
+            this.MainTab.Controls.Add(this.tabPage32);
             this.MainTab.ItemSize = new System.Drawing.Size(50, 30);
             this.MainTab.Location = new System.Drawing.Point(0, 0);
             this.MainTab.Name = "MainTab";
@@ -7067,7 +7108,7 @@
             this.label94.Name = "label94";
             this.label94.Size = new System.Drawing.Size(74, 21);
             this.label94.TabIndex = 2;
-            this.label94.Text = "接受站：";
+            this.label94.Text = "接收站：";
             // 
             // label79
             // 
@@ -7133,7 +7174,7 @@
             this.rbLv0.Size = new System.Drawing.Size(60, 25);
             this.rbLv0.TabIndex = 1;
             this.rbLv0.TabStop = true;
-            this.rbLv0.Text = "一半";
+            this.rbLv0.Text = "一般";
             this.rbLv0.UseVisualStyleBackColor = true;
             // 
             // label78
@@ -7154,6 +7195,295 @@
             this.label77.TabIndex = 0;
             this.label77.Text = "消息等级：";
             // 
+            // tabPage32
+            // 
+            this.tabPage32.Controls.Add(this.groupEditMsg);
+            this.tabPage32.Controls.Add(this.dgvMsgList);
+            this.tabPage32.Controls.Add(this.groupSearchWhere);
+            this.tabPage32.Location = new System.Drawing.Point(4, 34);
+            this.tabPage32.Name = "tabPage32";
+            this.tabPage32.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage32.Size = new System.Drawing.Size(944, 534);
+            this.tabPage32.TabIndex = 29;
+            this.tabPage32.Text = "消息管理";
+            this.tabPage32.UseVisualStyleBackColor = true;
+            // 
+            // groupEditMsg
+            // 
+            this.groupEditMsg.Controls.Add(this.btnSaveMsg);
+            this.groupEditMsg.Controls.Add(this.txtMsgContent1);
+            this.groupEditMsg.Controls.Add(this.label97);
+            this.groupEditMsg.Controls.Add(this.cbRevStation);
+            this.groupEditMsg.Controls.Add(this.label96);
+            this.groupEditMsg.Controls.Add(this.rbLv2c);
+            this.groupEditMsg.Controls.Add(this.rbLv1c);
+            this.groupEditMsg.Controls.Add(this.rbLv0c);
+            this.groupEditMsg.Controls.Add(this.label95);
+            this.groupEditMsg.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupEditMsg.Location = new System.Drawing.Point(7, 393);
+            this.groupEditMsg.Name = "groupEditMsg";
+            this.groupEditMsg.Size = new System.Drawing.Size(931, 132);
+            this.groupEditMsg.TabIndex = 1;
+            this.groupEditMsg.TabStop = false;
+            this.groupEditMsg.Text = "编辑消息";
+            // 
+            // btnSaveMsg
+            // 
+            this.btnSaveMsg.Enabled = false;
+            this.btnSaveMsg.Location = new System.Drawing.Point(826, 30);
+            this.btnSaveMsg.Name = "btnSaveMsg";
+            this.btnSaveMsg.Size = new System.Drawing.Size(76, 76);
+            this.btnSaveMsg.TabIndex = 11;
+            this.btnSaveMsg.Text = "保存";
+            this.btnSaveMsg.UseVisualStyleBackColor = true;
+            this.btnSaveMsg.Click += new System.EventHandler(this.btnSaveMsg_Click);
+            // 
+            // txtMsgContent1
+            // 
+            this.txtMsgContent1.Location = new System.Drawing.Point(92, 58);
+            this.txtMsgContent1.Multiline = true;
+            this.txtMsgContent1.Name = "txtMsgContent1";
+            this.txtMsgContent1.Size = new System.Drawing.Size(681, 64);
+            this.txtMsgContent1.TabIndex = 10;
+            // 
+            // label97
+            // 
+            this.label97.AutoSize = true;
+            this.label97.Location = new System.Drawing.Point(6, 58);
+            this.label97.Name = "label97";
+            this.label97.Size = new System.Drawing.Size(79, 20);
+            this.label97.TabIndex = 9;
+            this.label97.Text = "消息内容：";
+            // 
+            // cbRevStation
+            // 
+            this.cbRevStation.FormattingEnabled = true;
+            this.cbRevStation.Location = new System.Drawing.Point(587, 19);
+            this.cbRevStation.Name = "cbRevStation";
+            this.cbRevStation.Size = new System.Drawing.Size(186, 28);
+            this.cbRevStation.TabIndex = 8;
+            // 
+            // label96
+            // 
+            this.label96.AutoSize = true;
+            this.label96.Location = new System.Drawing.Point(516, 24);
+            this.label96.Name = "label96";
+            this.label96.Size = new System.Drawing.Size(65, 20);
+            this.label96.TabIndex = 7;
+            this.label96.Text = "接收站：";
+            // 
+            // rbLv2c
+            // 
+            this.rbLv2c.AutoSize = true;
+            this.rbLv2c.Location = new System.Drawing.Point(374, 22);
+            this.rbLv2c.Name = "rbLv2c";
+            this.rbLv2c.Size = new System.Drawing.Size(55, 24);
+            this.rbLv2c.TabIndex = 5;
+            this.rbLv2c.TabStop = true;
+            this.rbLv2c.Text = "紧急";
+            this.rbLv2c.UseVisualStyleBackColor = true;
+            // 
+            // rbLv1c
+            // 
+            this.rbLv1c.AutoSize = true;
+            this.rbLv1c.Location = new System.Drawing.Point(233, 22);
+            this.rbLv1c.Name = "rbLv1c";
+            this.rbLv1c.Size = new System.Drawing.Size(55, 24);
+            this.rbLv1c.TabIndex = 6;
+            this.rbLv1c.TabStop = true;
+            this.rbLv1c.Text = "重要";
+            this.rbLv1c.UseVisualStyleBackColor = true;
+            // 
+            // rbLv0c
+            // 
+            this.rbLv0c.AutoSize = true;
+            this.rbLv0c.Checked = true;
+            this.rbLv0c.Location = new System.Drawing.Point(92, 22);
+            this.rbLv0c.Name = "rbLv0c";
+            this.rbLv0c.Size = new System.Drawing.Size(55, 24);
+            this.rbLv0c.TabIndex = 4;
+            this.rbLv0c.TabStop = true;
+            this.rbLv0c.Text = "一般";
+            this.rbLv0c.UseVisualStyleBackColor = true;
+            // 
+            // label95
+            // 
+            this.label95.AutoSize = true;
+            this.label95.Location = new System.Drawing.Point(6, 22);
+            this.label95.Name = "label95";
+            this.label95.Size = new System.Drawing.Size(79, 20);
+            this.label95.TabIndex = 3;
+            this.label95.Text = "消息等级：";
+            // 
+            // dgvMsgList
+            // 
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMsgList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            this.dgvMsgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMsgList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MsgLevel,
+            this.ID,
+            this.SendPeople,
+            this.RevStation,
+            this.MsgContent,
+            this.SendTime,
+            this.MsgState});
+            this.dgvMsgList.Location = new System.Drawing.Point(7, 76);
+            this.dgvMsgList.Name = "dgvMsgList";
+            this.dgvMsgList.RowTemplate.Height = 23;
+            this.dgvMsgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMsgList.Size = new System.Drawing.Size(931, 305);
+            this.dgvMsgList.TabIndex = 1;
+            this.dgvMsgList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvMsgList_CellMouseClick);
+            this.dgvMsgList.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvMsgList_CellFormatting);
+            // 
+            // MsgLevel
+            // 
+            this.MsgLevel.DataPropertyName = "MsgLevel";
+            this.MsgLevel.HeaderText = "消息级别";
+            this.MsgLevel.Name = "MsgLevel";
+            this.MsgLevel.ReadOnly = true;
+            this.MsgLevel.Width = 130;
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            // 
+            // SendPeople
+            // 
+            this.SendPeople.DataPropertyName = "SendPeople";
+            this.SendPeople.HeaderText = "发送人";
+            this.SendPeople.Name = "SendPeople";
+            this.SendPeople.ReadOnly = true;
+            this.SendPeople.Width = 130;
+            // 
+            // RevStation
+            // 
+            this.RevStation.DataPropertyName = "RevStation";
+            this.RevStation.HeaderText = "接收站";
+            this.RevStation.Name = "RevStation";
+            this.RevStation.ReadOnly = true;
+            this.RevStation.Width = 130;
+            // 
+            // MsgContent
+            // 
+            this.MsgContent.DataPropertyName = "MsgContent";
+            this.MsgContent.HeaderText = "消息内容";
+            this.MsgContent.Name = "MsgContent";
+            this.MsgContent.ReadOnly = true;
+            this.MsgContent.Width = 200;
+            // 
+            // SendTime
+            // 
+            this.SendTime.DataPropertyName = "SendTime";
+            this.SendTime.HeaderText = "发送时间";
+            this.SendTime.Name = "SendTime";
+            this.SendTime.ReadOnly = true;
+            this.SendTime.Width = 130;
+            // 
+            // MsgState
+            // 
+            this.MsgState.DataPropertyName = "MsgState";
+            this.MsgState.HeaderText = "状态";
+            this.MsgState.Name = "MsgState";
+            this.MsgState.ReadOnly = true;
+            this.MsgState.Width = 130;
+            // 
+            // groupSearchWhere
+            // 
+            this.groupSearchWhere.Controls.Add(this.btnSearchMsg);
+            this.groupSearchWhere.Controls.Add(this.txtMsgWhere);
+            this.groupSearchWhere.Controls.Add(this.label100);
+            this.groupSearchWhere.Controls.Add(this.dtpEndTime);
+            this.groupSearchWhere.Controls.Add(this.label99);
+            this.groupSearchWhere.Controls.Add(this.dtpStartTime);
+            this.groupSearchWhere.Controls.Add(this.label98);
+            this.groupSearchWhere.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.groupSearchWhere.Location = new System.Drawing.Point(7, 7);
+            this.groupSearchWhere.Name = "groupSearchWhere";
+            this.groupSearchWhere.Size = new System.Drawing.Size(931, 54);
+            this.groupSearchWhere.TabIndex = 0;
+            this.groupSearchWhere.TabStop = false;
+            this.groupSearchWhere.Text = "筛选条件";
+            // 
+            // btnSearchMsg
+            // 
+            this.btnSearchMsg.Location = new System.Drawing.Point(795, 14);
+            this.btnSearchMsg.Name = "btnSearchMsg";
+            this.btnSearchMsg.Size = new System.Drawing.Size(75, 30);
+            this.btnSearchMsg.TabIndex = 10;
+            this.btnSearchMsg.Text = "搜索";
+            this.btnSearchMsg.UseVisualStyleBackColor = true;
+            this.btnSearchMsg.Click += new System.EventHandler(this.btnSearchMsg_Click);
+            // 
+            // txtMsgWhere
+            // 
+            this.txtMsgWhere.Location = new System.Drawing.Point(587, 16);
+            this.txtMsgWhere.Name = "txtMsgWhere";
+            this.txtMsgWhere.Size = new System.Drawing.Size(181, 26);
+            this.txtMsgWhere.TabIndex = 9;
+            // 
+            // label100
+            // 
+            this.label100.AutoSize = true;
+            this.label100.Location = new System.Drawing.Point(516, 19);
+            this.label100.Name = "label100";
+            this.label100.Size = new System.Drawing.Size(65, 20);
+            this.label100.TabIndex = 8;
+            this.label100.Text = "关键字：";
+            // 
+            // dtpEndTime
+            // 
+            this.dtpEndTime.Location = new System.Drawing.Point(305, 16);
+            this.dtpEndTime.Name = "dtpEndTime";
+            this.dtpEndTime.Size = new System.Drawing.Size(182, 26);
+            this.dtpEndTime.TabIndex = 7;
+            // 
+            // label99
+            // 
+            this.label99.AutoSize = true;
+            this.label99.Location = new System.Drawing.Point(276, 19);
+            this.label99.Name = "label99";
+            this.label99.Size = new System.Drawing.Size(23, 20);
+            this.label99.TabIndex = 6;
+            this.label99.Text = "到";
+            // 
+            // dtpStartTime
+            // 
+            this.dtpStartTime.Location = new System.Drawing.Point(88, 16);
+            this.dtpStartTime.Name = "dtpStartTime";
+            this.dtpStartTime.Size = new System.Drawing.Size(182, 26);
+            this.dtpStartTime.TabIndex = 5;
+            // 
+            // label98
+            // 
+            this.label98.AutoSize = true;
+            this.label98.Location = new System.Drawing.Point(6, 22);
+            this.label98.Name = "label98";
+            this.label98.Size = new System.Drawing.Size(79, 20);
+            this.label98.TabIndex = 4;
+            this.label98.Text = "时间筛选：";
+            // 
+            // dboStationBindingSource
+            // 
+            this.dboStationBindingSource.DataMember = "dbo.Station";
+            this.dboStationBindingSource.DataSource = this.db_rfidtestDataSet;
+            // 
+            // db_rfidtestDataSet2
+            // 
+            this.db_rfidtestDataSet2.DataSetName = "db_rfidtestDataSet2";
+            this.db_rfidtestDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // CenterPanel
             // 
             this.CenterPanel.Controls.Add(this.MainTab);
@@ -7172,6 +7502,20 @@
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // cmsDelete
+            // 
+            this.cmsDelete.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.删除ToolStripMenuItem});
+            this.cmsDelete.Name = "cmsDelete";
+            this.cmsDelete.Size = new System.Drawing.Size(99, 26);
+            // 
+            // 删除ToolStripMenuItem
+            // 
+            this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+            this.删除ToolStripMenuItem.Text = "删除";
+            this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
             // 
             // QmsMain
             // 
@@ -7375,7 +7719,16 @@
             this.groupBox24.PerformLayout();
             this.groupBox21.ResumeLayout(false);
             this.groupBox21.PerformLayout();
+            this.tabPage32.ResumeLayout(false);
+            this.groupEditMsg.ResumeLayout(false);
+            this.groupEditMsg.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMsgList)).EndInit();
+            this.groupSearchWhere.ResumeLayout(false);
+            this.groupSearchWhere.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dboStationBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.db_rfidtestDataSet2)).EndInit();
             this.CenterPanel.ResumeLayout(false);
+            this.cmsDelete.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -7941,6 +8294,38 @@
         private System.Windows.Forms.Button btn;
         private System.Windows.Forms.ContextMenuStrip cmClass;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.TabPage tabPage32;
+        private System.Windows.Forms.DataGridView dgvMsgList;
+        private System.Windows.Forms.GroupBox groupSearchWhere;
+        private System.Windows.Forms.GroupBox groupEditMsg;
+        private System.Windows.Forms.RadioButton rbLv2c;
+        private System.Windows.Forms.RadioButton rbLv1c;
+        private System.Windows.Forms.RadioButton rbLv0c;
+        private System.Windows.Forms.Label label95;
+        private System.Windows.Forms.Label label96;
+        private System.Windows.Forms.ComboBox cbRevStation;
+        private System.Windows.Forms.Button btnSaveMsg;
+        private System.Windows.Forms.TextBox txtMsgContent1;
+        private System.Windows.Forms.Label label97;
+        private db_rfidtestDataSet2 db_rfidtestDataSet2;
+        private System.Windows.Forms.Button btnSearchMsg;
+        private System.Windows.Forms.TextBox txtMsgWhere;
+        private System.Windows.Forms.Label label100;
+        private System.Windows.Forms.DateTimePicker dtpEndTime;
+        private System.Windows.Forms.Label label99;
+        private System.Windows.Forms.DateTimePicker dtpStartTime;
+        private System.Windows.Forms.Label label98;
+        private System.Windows.Forms.ContextMenuStrip cmsDelete;
+        private System.Windows.Forms.ToolStripMenuItem 删除ToolStripMenuItem;
+        private System.Windows.Forms.BindingSource dboStationBindingSource;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MsgLevel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SendPeople;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RevStation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MsgContent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SendTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MsgState;
     }
 }
 

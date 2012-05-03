@@ -18,6 +18,7 @@ using CrystalDecisions.Shared;
 using Microsoft.Office.Interop;
 using Microsoft.Office.Core;
 using System.Threading;
+using QMS3.BaseClass;
 
 namespace QMS3
 {
@@ -104,6 +105,8 @@ namespace QMS3
             treeView1.SelectedNode.Nodes.ToString();
             switch (treeView1.SelectedNode.ToString())
             {
+                case "TreeNode: 编辑消息":              MainTab.SelectTab(29);
+                    break;
                 case "TreeNode: 发送消息":              MainTab.SelectTab(28);
                  break;
                 case "TreeNode: 发司机卡":              MainTab.SelectTab(1); ResetDCardSent_All();
@@ -5806,7 +5809,8 @@ drop table tempTable;";
             
             //添加发送消息节点
             System.Windows.Forms.TreeNode MsgSend = new System.Windows.Forms.TreeNode("发送消息");
-            System.Windows.Forms.TreeNode MsgMgr = new System.Windows.Forms.TreeNode("消息管理",new System.Windows.Forms.TreeNode[] {MsgSend});
+            System.Windows.Forms.TreeNode MsgEdit = new System.Windows.Forms.TreeNode("编辑消息");
+            System.Windows.Forms.TreeNode MsgMgr = new System.Windows.Forms.TreeNode("消息管理",new System.Windows.Forms.TreeNode[] {MsgSend,MsgEdit});
             
 
             System.Windows.Forms.TreeNode ExceptionWeight = new System.Windows.Forms.TreeNode("重量异常");
@@ -8267,9 +8271,11 @@ drop table tempTable;";
                 MessageBox.Show("加载垃圾站信息失败！");
                 return;
             }
+            this.cbRevStation.Items.Add("无");
             foreach (DataRow item in stations.Rows)
             {
                 this.lbAllStation.Items.Add(item["Name"]);
+                this.cbRevStation.Items.Add(item["Name"]);
             }
         }
 
@@ -8463,7 +8469,133 @@ drop table tempTable;";
         }
         #endregion
 
+        
         #endregion
+        #region 查询消息模块
+
+
+        private void btnSearchMsg_Click(object sender, EventArgs e)
+        {
+            string sql = "SELECT m.ID,m.SendTime,m.MsgContent,m.MsgLevel,m.SendPeople,s.Name as RevStation,m.MsgState" +
+                            " FROM [Message] m INNER JOIN [dbo.Station] s ON m.RevStation = s.StationID WHERE ";
+
+            sql += "m.SendTime>='" + dtpStartTime.Value.ToString("yyyy-MM-dd") + "' and " +
+                            "m.SendTime<'" + dtpEndTime.Value.AddDays(1).ToString("yyyy-MM-dd") + "' ";
+
+            if (txtMsgWhere.Text.Length > 0)
+                sql += "and m.MsgContent LIKE '%" + txtMsgWhere.Text + "%'";
+
+            BaseOperate operate = new BaseOperate();
+            DataSet ds = operate.getds(sql, "[Message]");
+            if (ds == null || ds.Tables.Count <= 0)
+                return;
+            this.dgvMsgList.DataSource = ds.Tables[0];
+        }
+
+
+        private void dgvMsgList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex == dgvMsgList.Rows.Count - 1 && e.RowIndex < 0)
+            {
+                cbRevStation.SelectedIndex = -1;
+                btnSaveMsg.Enabled = false;
+                rbLv0c.Checked = true;
+                return;
+            }
+
+            if (e.Button == MouseButtons.Right)
+            {
+                if (e.RowIndex >= 0)
+                {
+                    dgvMsgList.ClearSelection();
+                    dgvMsgList.Rows[e.RowIndex].Selected = true;
+                    cmsDelete.Show(MousePosition.X, MousePosition.Y);
+                }
+            }
+
+
+            if (dgvMsgList.SelectedRows == null || dgvMsgList.SelectedRows.Count <= 0)
+            {
+                cbRevStation.SelectedIndex = -1;
+                btnSaveMsg.Enabled = false;
+                rbLv0c.Checked = true;
+                return;
+            }
+            btnSaveMsg.Enabled = true;
+            cbRevStation.SelectedItem = dgvMsgList.Rows[e.RowIndex].Cells["RevStation"].Value;
+            txtMsgContent1.Tag = dgvMsgList.Rows[e.RowIndex].Cells["ID"].Value;
+            txtMsgContent1.Text = dgvMsgList.Rows[e.RowIndex].Cells["MsgContent"].Value.ToString();
+
+            if(dgvMsgList.Rows[e.RowIndex].Cells["MsgLevel"].Value.ToString() == "1")
+                rbLv0c.Checked = true;
+            if (dgvMsgList.Rows[e.RowIndex].Cells["MsgLevel"].Value.ToString() == "2")
+                rbLv1c.Checked = true;
+            if (dgvMsgList.Rows[e.RowIndex].Cells["MsgLevel"].Value.ToString() == "3")
+                rbLv2c.Checked = true;
+        }
+
+
+        private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string sql = "DELETE FROM [Message] WHERE [Message].[ID]=" + dgvMsgList.SelectedRows[0].Cells["ID"].Value.ToString();
+            BaseOperate operate = new BaseOperate();
+            operate.getcom(sql);
+
+            btnSearchMsg_Click(null, null);
+        }
+
+        private void dgvMsgList_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.Value == null)
+                return;
+            if (dgvMsgList.Columns[e.ColumnIndex].Name == "MsgLevel")
+            {
+                if (e.Value.ToString() == "1")
+                    e.Value = "一般";
+                if (e.Value.ToString() == "2")
+                    e.Value = "重要";
+                if (e.Value.ToString() == "3")
+                    e.Value = "紧急";
+            }
+            if (dgvMsgList.Columns[e.ColumnIndex].Name == "MsgState")
+            {
+                if (e.Value.ToString() == "False")
+                    e.Value = "未读";
+                if (e.Value.ToString() == "True")
+                    e.Value = "已读";
+            }
+        }
+
+        private void btnSaveMsg_Click(object sender, EventArgs e)
+        {
+            string stationID = GetRowByValue(stations,"Name",cbRevStation.SelectedItem)["StationID"].ToString();
+            int lv = 0;
+            if (rbLv0c.Checked)
+                lv = 1;
+            if (rbLv1c.Checked)
+                lv = 2;
+            if (rbLv2c.Checked)
+                lv = 3;
+            string sql = "UPDATE [Message] SET SendTime='"+DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")+"',MsgContent='"+
+                                txtMsgContent1.Text+"',MsgLevel="+
+                                lv+",SendPeople='"+
+                                UNtextBox .Text+ "',RevStation="+
+                                stationID+",MsgState=0 WHERE ID="+txtMsgContent1.Tag.ToString();
+
+            BaseOperate operate = new BaseOperate();
+            operate.getcom(sql);
+            btnSearchMsg_Click(null,null);
+        }
+        
+        #endregion
+
+        
+
+        
+
+        
+
+        
 
     }
 }

@@ -132,6 +132,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>db_rfidtestDataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="db_rfidtestDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>db_rfidtestDataSet2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="rpts\CrystalReport1.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -279,6 +284,17 @@
     </None>
     <None Include="db_rfidtestDataSet1.xss">
       <DependentUpon>db_rfidtestDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="db_rfidtestDataSet2.xsc">
+      <DependentUpon>db_rfidtestDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="db_rfidtestDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>db_rfidtestDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="db_rfidtestDataSet2.xss">
+      <DependentUpon>db_rfidtestDataSet2.xsd</DependentUpon>
     </None>
     <None Include="Properties\app.manifest" />
     <None Include="QMS3_TemporaryKey.pfx" />
