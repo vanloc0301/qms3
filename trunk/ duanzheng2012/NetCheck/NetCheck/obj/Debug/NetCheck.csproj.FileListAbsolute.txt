@@ -1,0 +1,10 @@
+c:\users\will\documents\visual studio 2010\Projects\NetCheck\NetCheck\obj\Debug\ResolveAssemblyReference.cache
+c:\users\will\documents\visual studio 2010\Projects\NetCheck\NetCheck\bin\Debug\NetCheck.dll
+c:\users\will\documents\visual studio 2010\Projects\NetCheck\NetCheck\bin\Debug\NetCheck.pdb
+c:\users\will\documents\visual studio 2010\Projects\NetCheck\NetCheck\obj\Debug\NetCheck.dll
+c:\users\will\documents\visual studio 2010\Projects\NetCheck\NetCheck\obj\Debug\NetCheck.pdb
+F:\duanzheng2012\NetCheck\NetCheck\bin\Debug\NetCheck.dll
+F:\duanzheng2012\NetCheck\NetCheck\bin\Debug\NetCheck.pdb
+F:\duanzheng2012\NetCheck\NetCheck\obj\Debug\ResolveAssemblyReference.cache
+F:\duanzheng2012\NetCheck\NetCheck\obj\Debug\NetCheck.dll
+F:\duanzheng2012\NetCheck\NetCheck\obj\Debug\NetCheck.pdb
