@@ -20,7 +20,7 @@
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition/>
 		</Grid.ColumnDefinitions>
-		<Label VerticalAlignment="Top" Content="欢迎使用六部口清洁楼管理系统" Height="96.277" Margin="8,8,273.37,0" FontSize="48" Foreground="White" x:Name="lblTitle" />
+		<Label VerticalAlignment="Top" Content="    六部口清洁站清运监管信息系统" Height="96.277" Margin="8,8,273.37,0" FontSize="48" Foreground="White" x:Name="lblTitle" />
 		<Label HorizontalAlignment="Right" Margin="0,34.68,65,0" VerticalAlignment="Top" Width="189.625" Height="34.337" Content="用户名：" FontSize="21.333" RenderTransformOrigin="0.552,0.121" Foreground="White" x:Name="lblUser"/>
 		<Label HorizontalAlignment="Right" Margin="0,42.683,41.5,0" VerticalAlignment="Top" Width="154.5" Height="34.337" Content="权限：" FontSize="21.333" Foreground="White" RenderTransformOrigin="0.552,0.121" x:Name="lblRight" Visibility="Hidden"/>
 		<Button x:Name="btnMap" Margin="100,164,0,0" Style="{DynamicResource btnMap_Style}" Content="" HorizontalAlignment="Left" FontSize="48" Foreground="#FF2D7159" RenderTransformOrigin="1.72,0.521" VerticalAlignment="Top" Click="btnMap_Click" Height="156.937" d:LayoutOverrides="VerticalAlignment" Width="169.625" />

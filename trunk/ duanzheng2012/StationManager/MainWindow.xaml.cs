@@ -78,7 +78,7 @@ namespace StationManager
             BaseData.stationName = ds.Tables[0].Rows[0]["Name"].ToString();
 
             setDialog();
-            this.lblTitle.Content = "欢迎使用" + BaseData.stationName + "清洁站管理系统";
+            this.lblTitle.Content = BaseData.stationName + "清洁站清运监管信息系统";
             LoginWindow loginWindow = new LoginWindow();
             loginWindow.loginSys = new LoginWindow.LoginSysFunc(loginSys);
             loginWindow.ShowDialog();
