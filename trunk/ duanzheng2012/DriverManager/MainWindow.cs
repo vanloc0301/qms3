@@ -51,8 +51,7 @@ namespace DriverManager
             {
                 try
                 {
-                    int intStatus = cardPC.Request(ref cardID);
-                    status = cardPC.GetCardID(0, ref cardID);
+                    status = cardPC.Request(ref cardID);
                 }
                 catch
                 {

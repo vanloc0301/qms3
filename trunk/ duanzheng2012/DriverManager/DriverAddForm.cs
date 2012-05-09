@@ -35,6 +35,7 @@ namespace DriverManager
        
         private void bgwLoadData_DoWork(object sender, DoWorkEventArgs e)
         {
+            Control.CheckForIllegalCrossThreadCalls = false;
             if (cardPC == null)
                 return;
             cardID = "";
@@ -47,7 +48,7 @@ namespace DriverManager
                 return;
             }
 
-            string sql = "EXEC ReadDriverCard'" + cardID + "'";
+            string sql = "SELECT * FROM [dbo.Driver] WHERE DriverCardID = '"+cardID+"'";
 
             DataSet ds = operate.getds(sql,"[dbo.Driver]");
 
@@ -81,15 +82,19 @@ namespace DriverManager
             }
             else
             {
-                label1.Text = "编辑卡信息";
-                txtCardID.Text = ds.Tables[0].Rows[0]["DriverCardID"].ToString();
-                txtName.Text = ds.Tables[0].Rows[0]["DriverName"].ToString();
-                txtAge.Text = ds.Tables[0].Rows[0]["DriverAge"].ToString();
-                txtTruckNo.Text = ds.Tables[0].Rows[0]["TruckNo"].ToString();
-                if (ds.Tables[0].Rows[0]["DriverGender"].ToString().Trim() == "女")
-                    rbWoMan.Checked = true;
-                else
-                    rbMan.Checked = true;
+                try
+                {
+                    label1.Text = "编辑卡信息";
+                    txtCardID.Text = ds.Tables[0].Rows[0]["DriverCardID"].ToString();
+                    txtName.Text = ds.Tables[0].Rows[0]["DriverName"].ToString();
+                    txtAge.Text = ds.Tables[0].Rows[0]["DriverAge"].ToString();
+                    txtTruckNo.Text = ds.Tables[0].Rows[0]["TruckNo"].ToString();
+                    if (ds.Tables[0].Rows[0]["DriverGender"].ToString().Trim() == "女")
+                        rbWoMan.Checked = true;
+                    else
+                        rbMan.Checked = true;
+                }
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
             }
         }
 
@@ -127,7 +132,12 @@ namespace DriverManager
                 return;
             }
 
-
+            //写卡类型
+            status = cardPC.WriteCardClass("0");
+            if (status != 0)
+            {
+                MessageBox.Show("写卡类型失败！","提示");
+            }
 
             //写车牌号
             status = cardPC.WriteTruckNo(txtTruckNo.Text);
