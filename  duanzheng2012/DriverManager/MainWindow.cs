@@ -17,6 +17,7 @@ namespace DriverManager
         BaseOperate op = new BaseOperate();
         DataTable drivers;
         Thread tReadCard;
+        public CfCardPC cardPC;
 
         public MainWindow()
         {
@@ -26,17 +27,58 @@ namespace DriverManager
         private void MainWindow_Load(object sender, EventArgs e)
         {
             this.cbType.SelectedIndex = 0;
+            cardPC = new CfCardPC();
+            if (!cardPC.Connect())
+            {
+                MessageBox.Show("读卡失败！", "提示");
+                return;
+            }
+            bgwReadCard.RunWorkerAsync();
 
-
+            
+            
         }
 
         #region 读卡线程
 
-        private void readCard()
+        private void bgwReadCard_DoWork(object sender, DoWorkEventArgs e)
         {
-            CfCardPC cfCardPC = new CfCardPC();
+            e.Result = null;
+            
+            int status = -1;
+            string cardID = "";
+            while(true)
+            {
+                try
+                {
+                    int intStatus = cardPC.Request(ref cardID);
+                    status = cardPC.GetCardID(0, ref cardID);
+                }
+                catch
+                {
+                    continue;
+                }
+                //读卡成功
+                if (status == 0)
+                {
+                     e.Result = cardPC;
+                     return; 
+                }
+               
+            }
+        }
+
+        private void bgwReadCard_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Result == null)
+                return;
+            DriverAddForm newForm = new DriverAddForm();
+            newForm.cardPC = e.Result as CfCardPC;
+            newForm.ShowDialog();
+            bgwReadCard.RunWorkerAsync();
             
         }
+
 
         #endregion
 
@@ -50,7 +92,6 @@ namespace DriverManager
                 sql += "WHERE [TruckNo] like '%" + txtWhere.Text + "%'";
 
             bgwSearch.RunWorkerAsync(sql);
-            new DriverAddForm().ShowDialog();
             
         }
 
@@ -112,5 +153,14 @@ namespace DriverManager
             else
                 this.rbWoMan.Checked = true;
         }
+
+        private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            cardPC.Disconnect();
+        }
+
+
+
+       
     }
 }
