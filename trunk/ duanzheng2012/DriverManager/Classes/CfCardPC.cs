@@ -14,7 +14,7 @@ using System.Runtime.InteropServices;
 
 namespace DriverManager.Classes
 {
-    class CfCardPC
+    public class CfCardPC
     {
         #region 预定义函数
 
@@ -444,7 +444,7 @@ namespace DriverManager.Classes
                 {
                     for (int i = 0; i < 5; i++)
                     {
-                        status = ConnectScanner(ref m_hScanner, "COM" + nComPort.ToString(), nBaudRate, 0);
+                        status = ConnectScanner(ref m_hScanner, "COM" + "3", nBaudRate, 0);
                         if (status == OK)
                         {
                             break;
@@ -634,7 +634,7 @@ namespace DriverManager.Classes
                         MessageBox.Show("出问题啦！读卡器天线连接失败！", "出问题啦！", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                     case 2:
-                        MessageBox.Show("未检测到有效的数据卡！请扫描卡片！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //MessageBox.Show("未检测到有效的数据卡！请扫描卡片！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         break;
                     case 3:
                         MessageBox.Show("出问题啦！检测到非法的数据卡！", "出问题啦！", MessageBoxButtons.OK, MessageBoxIcon.Error);

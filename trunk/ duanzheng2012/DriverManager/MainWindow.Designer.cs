@@ -31,6 +31,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupGrid = new System.Windows.Forms.GroupBox();
             this.dgvDrivers = new System.Windows.Forms.DataGridView();
+            this.colCardID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAge = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTruckNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ciolID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnDel = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtWhere = new System.Windows.Forms.TextBox();
@@ -51,12 +57,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.bgwSearch = new System.ComponentModel.BackgroundWorker();
             this.bgwSave = new System.ComponentModel.BackgroundWorker();
-            this.colCardID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colGender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAge = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTruckNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ciolID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bgwReadCard = new System.ComponentModel.BackgroundWorker();
             this.groupGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDrivers)).BeginInit();
             this.groupDriver.SuspendLayout();
@@ -105,6 +106,54 @@
             this.dgvDrivers.TabIndex = 6;
             this.dgvDrivers.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvDrivers_CellFormatting);
             this.dgvDrivers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDrivers_CellClick);
+            // 
+            // colCardID
+            // 
+            this.colCardID.DataPropertyName = "DriverCardID";
+            this.colCardID.HeaderText = "司机卡编号";
+            this.colCardID.Name = "colCardID";
+            this.colCardID.ReadOnly = true;
+            this.colCardID.Width = 200;
+            // 
+            // colName
+            // 
+            this.colName.DataPropertyName = "DriverName";
+            this.colName.HeaderText = "司机名称";
+            this.colName.Name = "colName";
+            this.colName.ReadOnly = true;
+            this.colName.Width = 110;
+            // 
+            // colGender
+            // 
+            this.colGender.DataPropertyName = "DriverGender";
+            this.colGender.HeaderText = "司机性别";
+            this.colGender.Name = "colGender";
+            this.colGender.ReadOnly = true;
+            this.colGender.Width = 110;
+            // 
+            // colAge
+            // 
+            this.colAge.DataPropertyName = "DriverAge";
+            this.colAge.HeaderText = "司机年龄";
+            this.colAge.Name = "colAge";
+            this.colAge.ReadOnly = true;
+            this.colAge.Width = 110;
+            // 
+            // colTruckNo
+            // 
+            this.colTruckNo.DataPropertyName = "TruckNo";
+            this.colTruckNo.HeaderText = "车牌号";
+            this.colTruckNo.Name = "colTruckNo";
+            this.colTruckNo.ReadOnly = true;
+            this.colTruckNo.Width = 110;
+            // 
+            // ciolID
+            // 
+            this.ciolID.DataPropertyName = "ID";
+            this.ciolID.HeaderText = "ID";
+            this.ciolID.Name = "ciolID";
+            this.ciolID.ReadOnly = true;
+            this.ciolID.Visible = false;
             // 
             // btnDel
             // 
@@ -301,53 +350,10 @@
             this.bgwSearch.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwSearch_DoWork);
             this.bgwSearch.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwSearch_RunWorkerCompleted);
             // 
-            // colCardID
+            // bgwReadCard
             // 
-            this.colCardID.DataPropertyName = "DriverCardID";
-            this.colCardID.HeaderText = "司机卡编号";
-            this.colCardID.Name = "colCardID";
-            this.colCardID.ReadOnly = true;
-            this.colCardID.Width = 200;
-            // 
-            // colName
-            // 
-            this.colName.DataPropertyName = "DriverName";
-            this.colName.HeaderText = "司机名称";
-            this.colName.Name = "colName";
-            this.colName.ReadOnly = true;
-            this.colName.Width = 110;
-            // 
-            // colGender
-            // 
-            this.colGender.DataPropertyName = "DriverGender";
-            this.colGender.HeaderText = "司机性别";
-            this.colGender.Name = "colGender";
-            this.colGender.ReadOnly = true;
-            this.colGender.Width = 110;
-            // 
-            // colAge
-            // 
-            this.colAge.DataPropertyName = "DriverAge";
-            this.colAge.HeaderText = "司机年龄";
-            this.colAge.Name = "colAge";
-            this.colAge.ReadOnly = true;
-            this.colAge.Width = 110;
-            // 
-            // colTruckNo
-            // 
-            this.colTruckNo.DataPropertyName = "TruckNo";
-            this.colTruckNo.HeaderText = "车牌号";
-            this.colTruckNo.Name = "colTruckNo";
-            this.colTruckNo.ReadOnly = true;
-            this.colTruckNo.Width = 110;
-            // 
-            // ciolID
-            // 
-            this.ciolID.DataPropertyName = "ID";
-            this.ciolID.HeaderText = "ID";
-            this.ciolID.Name = "ciolID";
-            this.ciolID.ReadOnly = true;
-            this.ciolID.Visible = false;
+            this.bgwReadCard.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwReadCard_DoWork);
+            this.bgwReadCard.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwReadCard_RunWorkerCompleted);
             // 
             // MainWindow
             // 
@@ -360,6 +366,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "司机卡管理程序";
             this.Load += new System.EventHandler(this.MainWindow_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);
             this.groupGrid.ResumeLayout(false);
             this.groupGrid.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDrivers)).EndInit();
@@ -399,6 +406,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colAge;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTruckNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ciolID;
+        private System.ComponentModel.BackgroundWorker bgwReadCard;
 
     }
 }

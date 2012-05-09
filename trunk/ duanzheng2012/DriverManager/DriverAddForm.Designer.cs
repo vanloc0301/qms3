@@ -42,6 +42,8 @@
             this.rbMan = new System.Windows.Forms.RadioButton();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancle = new System.Windows.Forms.Button();
+            this.bgwLoadData = new System.ComponentModel.BackgroundWorker();
+            this.bgwUpdateData = new System.ComponentModel.BackgroundWorker();
             this.SuspendLayout();
             // 
             // label1
@@ -50,9 +52,9 @@
             this.label1.Font = new System.Drawing.Font("微软雅黑", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 27);
+            this.label1.Size = new System.Drawing.Size(136, 27);
             this.label1.TabIndex = 0;
-            this.label1.Text = "司机卡信息";
+            this.label1.Text = "加载信息中....";
             // 
             // label2
             // 
@@ -145,13 +147,13 @@
             this.rbWoMan.Name = "rbWoMan";
             this.rbWoMan.Size = new System.Drawing.Size(41, 24);
             this.rbWoMan.TabIndex = 7;
-            this.rbWoMan.TabStop = true;
             this.rbWoMan.Text = "女";
             this.rbWoMan.UseVisualStyleBackColor = true;
             // 
             // rbMan
             // 
             this.rbMan.AutoSize = true;
+            this.rbMan.Checked = true;
             this.rbMan.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.rbMan.Location = new System.Drawing.Point(116, 138);
             this.rbMan.Name = "rbMan";
@@ -170,6 +172,7 @@
             this.btnOK.TabIndex = 8;
             this.btnOK.Text = "确定";
             this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // btnCancle
             // 
@@ -181,6 +184,16 @@
             this.btnCancle.Text = "取消";
             this.btnCancle.UseVisualStyleBackColor = true;
             this.btnCancle.Click += new System.EventHandler(this.btnCancle_Click);
+            // 
+            // bgwLoadData
+            // 
+            this.bgwLoadData.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwLoadData_DoWork);
+            this.bgwLoadData.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwLoadData_RunWorkerCompleted);
+            // 
+            // bgwUpdateData
+            // 
+            this.bgwUpdateData.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgwUpdateData_DoWork);
+            this.bgwUpdateData.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgwUpdateData_RunWorkerCompleted);
             // 
             // DriverAddForm
             // 
@@ -205,6 +218,7 @@
             this.Name = "DriverAddForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "DriverAddForm";
+            this.Load += new System.EventHandler(this.DriverAddForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,5 +240,7 @@
         private System.Windows.Forms.RadioButton rbMan;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancle;
+        private System.ComponentModel.BackgroundWorker bgwLoadData;
+        private System.ComponentModel.BackgroundWorker bgwUpdateData;
     }
 }
