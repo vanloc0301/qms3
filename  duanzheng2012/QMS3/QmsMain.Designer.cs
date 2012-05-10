@@ -30,26 +30,26 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QmsMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle121 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle122 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle123 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle124 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle125 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle126 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle127 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle128 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle129 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle130 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle131 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle132 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle133 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle134 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle135 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle136 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle137 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle138 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle139 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle140 = new System.Windows.Forms.DataGridViewCellStyle();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.processlabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
@@ -851,6 +851,7 @@
             // 
             // MenugroupBox
             // 
+            this.MenugroupBox.BackColor = System.Drawing.SystemColors.Control;
             this.MenugroupBox.Controls.Add(this.treeView1);
             this.MenugroupBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MenugroupBox.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -877,6 +878,7 @@
             // 
             // LogingroupBox
             // 
+            this.LogingroupBox.BackColor = System.Drawing.SystemColors.Control;
             this.LogingroupBox.Controls.Add(this.Softkey);
             this.LogingroupBox.Controls.Add(this.label5);
             this.LogingroupBox.Controls.Add(this.linkLabel1);
@@ -1618,11 +1620,11 @@
             this.label69.AutoSize = true;
             this.label69.BackColor = System.Drawing.Color.Transparent;
             this.label69.Font = new System.Drawing.Font("微软雅黑", 42F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label69.Location = new System.Drawing.Point(481, 20);
+            this.label69.Location = new System.Drawing.Point(522, 12);
             this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(704, 75);
+            this.label69.Size = new System.Drawing.Size(648, 75);
             this.label69.TabIndex = 6;
-            this.label69.Text = "西城区清洁站信息传输系统";
+            this.label69.Text = "清洁站清运监管信息系统";
             // 
             // pictureBox1
             // 
@@ -1684,6 +1686,9 @@
             // 
             // MainTab
             // 
+            this.MainTab.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.MainTab.Appearance = System.Windows.Forms.TabAppearance.Buttons;
             this.MainTab.Controls.Add(this.tabPage1);
             this.MainTab.Controls.Add(this.tabPage2);
@@ -1716,7 +1721,7 @@
             this.MainTab.Controls.Add(this.tabPage31);
             this.MainTab.Controls.Add(this.tabPage32);
             this.MainTab.ItemSize = new System.Drawing.Size(50, 30);
-            this.MainTab.Location = new System.Drawing.Point(0, 0);
+            this.MainTab.Location = new System.Drawing.Point(0, -2);
             this.MainTab.Name = "MainTab";
             this.MainTab.SelectedIndex = 0;
             this.MainTab.Size = new System.Drawing.Size(952, 572);
@@ -1724,6 +1729,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.t1label1);
             this.tabPage1.Location = new System.Drawing.Point(4, 34);
@@ -1732,7 +1738,6 @@
             this.tabPage1.Size = new System.Drawing.Size(944, 534);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "欢迎页";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -1777,20 +1782,20 @@
             this.gBoxOperate.Controls.Add(this.btnSendDCard);
             this.gBoxOperate.Dock = System.Windows.Forms.DockStyle.Right;
             this.gBoxOperate.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.gBoxOperate.Location = new System.Drawing.Point(674, 3);
+            this.gBoxOperate.Location = new System.Drawing.Point(710, 3);
             this.gBoxOperate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gBoxOperate.Name = "gBoxOperate";
             this.gBoxOperate.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gBoxOperate.Size = new System.Drawing.Size(267, 528);
+            this.gBoxOperate.Size = new System.Drawing.Size(231, 528);
             this.gBoxOperate.TabIndex = 7;
             this.gBoxOperate.TabStop = false;
             this.gBoxOperate.Text = "操作";
             // 
             // btnResetDCard
             // 
-            this.btnResetDCard.Location = new System.Drawing.Point(157, 186);
+            this.btnResetDCard.Location = new System.Drawing.Point(62, 238);
             this.btnResetDCard.Name = "btnResetDCard";
-            this.btnResetDCard.Size = new System.Drawing.Size(82, 28);
+            this.btnResetDCard.Size = new System.Drawing.Size(107, 53);
             this.btnResetDCard.TabIndex = 5;
             this.btnResetDCard.Text = "重置卡片";
             this.btnResetDCard.UseVisualStyleBackColor = true;
@@ -1798,9 +1803,9 @@
             // 
             // btnCheckDriver
             // 
-            this.btnCheckDriver.Location = new System.Drawing.Point(36, 216);
+            this.btnCheckDriver.Location = new System.Drawing.Point(62, 418);
             this.btnCheckDriver.Name = "btnCheckDriver";
-            this.btnCheckDriver.Size = new System.Drawing.Size(82, 28);
+            this.btnCheckDriver.Size = new System.Drawing.Size(107, 53);
             this.btnCheckDriver.TabIndex = 4;
             this.btnCheckDriver.Text = "司机概况";
             this.btnCheckDriver.UseVisualStyleBackColor = true;
@@ -1808,9 +1813,9 @@
             // 
             // btnReadDCard
             // 
-            this.btnReadDCard.Location = new System.Drawing.Point(36, 143);
+            this.btnReadDCard.Location = new System.Drawing.Point(62, 58);
             this.btnReadDCard.Name = "btnReadDCard";
-            this.btnReadDCard.Size = new System.Drawing.Size(82, 28);
+            this.btnReadDCard.Size = new System.Drawing.Size(107, 53);
             this.btnReadDCard.TabIndex = 2;
             this.btnReadDCard.Text = "读卡";
             this.btnReadDCard.UseVisualStyleBackColor = true;
@@ -1818,9 +1823,9 @@
             // 
             // btnResetDCardAll
             // 
-            this.btnResetDCardAll.Location = new System.Drawing.Point(157, 254);
+            this.btnResetDCardAll.Location = new System.Drawing.Point(62, 328);
             this.btnResetDCardAll.Name = "btnResetDCardAll";
-            this.btnResetDCardAll.Size = new System.Drawing.Size(82, 28);
+            this.btnResetDCardAll.Size = new System.Drawing.Size(107, 53);
             this.btnResetDCardAll.TabIndex = 1;
             this.btnResetDCardAll.Text = "重置所有";
             this.btnResetDCardAll.UseVisualStyleBackColor = true;
@@ -1828,9 +1833,9 @@
             // 
             // btnSendDCard
             // 
-            this.btnSendDCard.Location = new System.Drawing.Point(36, 289);
+            this.btnSendDCard.Location = new System.Drawing.Point(62, 148);
             this.btnSendDCard.Name = "btnSendDCard";
-            this.btnSendDCard.Size = new System.Drawing.Size(82, 28);
+            this.btnSendDCard.Size = new System.Drawing.Size(107, 53);
             this.btnSendDCard.TabIndex = 0;
             this.btnSendDCard.Text = "发卡";
             this.btnSendDCard.UseVisualStyleBackColor = true;
@@ -1865,27 +1870,36 @@
             // 
             // txtDriverGender
             // 
+            this.txtDriverGender.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDriverGender.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtDriverGender.Location = new System.Drawing.Point(194, 193);
+            this.txtDriverGender.Location = new System.Drawing.Point(204, 430);
             this.txtDriverGender.Name = "txtDriverGender";
             this.txtDriverGender.ReadOnly = true;
-            this.txtDriverGender.Size = new System.Drawing.Size(75, 29);
+            this.txtDriverGender.Size = new System.Drawing.Size(342, 29);
             this.txtDriverGender.TabIndex = 26;
             // 
             // txtDriverNo
             // 
+            this.txtDriverNo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDriverNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtDriverNo.Location = new System.Drawing.Point(194, 106);
+            this.txtDriverNo.Location = new System.Drawing.Point(204, 370);
             this.txtDriverNo.Name = "txtDriverNo";
             this.txtDriverNo.ReadOnly = true;
-            this.txtDriverNo.Size = new System.Drawing.Size(282, 29);
+            this.txtDriverNo.Size = new System.Drawing.Size(342, 29);
             this.txtDriverNo.TabIndex = 24;
             // 
             // lblDriverNo
             // 
+            this.lblDriverNo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDriverNo.AutoSize = true;
             this.lblDriverNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblDriverNo.Location = new System.Drawing.Point(114, 109);
+            this.lblDriverNo.Location = new System.Drawing.Point(108, 373);
             this.lblDriverNo.Name = "lblDriverNo";
             this.lblDriverNo.Size = new System.Drawing.Size(74, 21);
             this.lblDriverNo.TabIndex = 23;
@@ -1893,18 +1907,24 @@
             // 
             // txtDriverStation
             // 
+            this.txtDriverStation.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDriverStation.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtDriverStation.Location = new System.Drawing.Point(194, 235);
+            this.txtDriverStation.Location = new System.Drawing.Point(204, 310);
             this.txtDriverStation.Name = "txtDriverStation";
             this.txtDriverStation.ReadOnly = true;
-            this.txtDriverStation.Size = new System.Drawing.Size(282, 29);
+            this.txtDriverStation.Size = new System.Drawing.Size(342, 29);
             this.txtDriverStation.TabIndex = 21;
             // 
             // lblDriverStation
             // 
+            this.lblDriverStation.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDriverStation.AutoSize = true;
             this.lblDriverStation.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblDriverStation.Location = new System.Drawing.Point(114, 238);
+            this.lblDriverStation.Location = new System.Drawing.Point(108, 313);
             this.lblDriverStation.Name = "lblDriverStation";
             this.lblDriverStation.Size = new System.Drawing.Size(74, 21);
             this.lblDriverStation.TabIndex = 20;
@@ -1912,9 +1932,12 @@
             // 
             // lblDriverAge
             // 
+            this.lblDriverAge.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDriverAge.AutoSize = true;
             this.lblDriverAge.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblDriverAge.Location = new System.Drawing.Point(321, 196);
+            this.lblDriverAge.Location = new System.Drawing.Point(108, 253);
             this.lblDriverAge.Name = "lblDriverAge";
             this.lblDriverAge.Size = new System.Drawing.Size(74, 21);
             this.lblDriverAge.TabIndex = 19;
@@ -1922,18 +1945,24 @@
             // 
             // txtDriverAge
             // 
+            this.txtDriverAge.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDriverAge.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtDriverAge.Location = new System.Drawing.Point(401, 193);
+            this.txtDriverAge.Location = new System.Drawing.Point(204, 250);
             this.txtDriverAge.Name = "txtDriverAge";
             this.txtDriverAge.ReadOnly = true;
-            this.txtDriverAge.Size = new System.Drawing.Size(75, 29);
+            this.txtDriverAge.Size = new System.Drawing.Size(342, 29);
             this.txtDriverAge.TabIndex = 18;
             // 
             // lblDriverGender
             // 
+            this.lblDriverGender.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDriverGender.AutoSize = true;
             this.lblDriverGender.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblDriverGender.Location = new System.Drawing.Point(114, 196);
+            this.lblDriverGender.Location = new System.Drawing.Point(108, 433);
             this.lblDriverGender.Name = "lblDriverGender";
             this.lblDriverGender.Size = new System.Drawing.Size(74, 21);
             this.lblDriverGender.TabIndex = 17;
@@ -1941,34 +1970,46 @@
             // 
             // txtDriverName
             // 
+            this.txtDriverName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDriverName.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtDriverName.Location = new System.Drawing.Point(194, 149);
+            this.txtDriverName.Location = new System.Drawing.Point(204, 190);
             this.txtDriverName.Name = "txtDriverName";
-            this.txtDriverName.Size = new System.Drawing.Size(282, 29);
+            this.txtDriverName.Size = new System.Drawing.Size(342, 29);
             this.txtDriverName.TabIndex = 15;
             // 
             // txtTruckNo
             // 
+            this.txtTruckNo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTruckNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtTruckNo.Location = new System.Drawing.Point(194, 277);
+            this.txtTruckNo.Location = new System.Drawing.Point(204, 130);
             this.txtTruckNo.Name = "txtTruckNo";
-            this.txtTruckNo.Size = new System.Drawing.Size(282, 29);
+            this.txtTruckNo.Size = new System.Drawing.Size(342, 29);
             this.txtTruckNo.TabIndex = 14;
             // 
             // txtDCNo
             // 
+            this.txtDCNo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDCNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtDCNo.Location = new System.Drawing.Point(194, 325);
+            this.txtDCNo.Location = new System.Drawing.Point(204, 70);
             this.txtDCNo.Name = "txtDCNo";
             this.txtDCNo.ReadOnly = true;
-            this.txtDCNo.Size = new System.Drawing.Size(282, 29);
+            this.txtDCNo.Size = new System.Drawing.Size(342, 29);
             this.txtDCNo.TabIndex = 10;
             // 
             // lblTruckNo
             // 
+            this.lblTruckNo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTruckNo.AutoSize = true;
             this.lblTruckNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblTruckNo.Location = new System.Drawing.Point(114, 280);
+            this.lblTruckNo.Location = new System.Drawing.Point(108, 133);
             this.lblTruckNo.Name = "lblTruckNo";
             this.lblTruckNo.Size = new System.Drawing.Size(74, 21);
             this.lblTruckNo.TabIndex = 9;
@@ -1976,9 +2017,12 @@
             // 
             // lblDCNo
             // 
+            this.lblDCNo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDCNo.AutoSize = true;
             this.lblDCNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblDCNo.Location = new System.Drawing.Point(114, 328);
+            this.lblDCNo.Location = new System.Drawing.Point(108, 73);
             this.lblDCNo.Name = "lblDCNo";
             this.lblDCNo.Size = new System.Drawing.Size(74, 21);
             this.lblDCNo.TabIndex = 2;
@@ -1986,9 +2030,12 @@
             // 
             // lblDriverName
             // 
+            this.lblDriverName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDriverName.AutoSize = true;
             this.lblDriverName.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblDriverName.Location = new System.Drawing.Point(114, 152);
+            this.lblDriverName.Location = new System.Drawing.Point(108, 193);
             this.lblDriverName.Name = "lblDriverName";
             this.lblDriverName.Size = new System.Drawing.Size(74, 21);
             this.lblDriverName.TabIndex = 0;
@@ -2013,20 +2060,20 @@
             this.groupBox4.Controls.Add(this.btnReset_R);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox4.Location = new System.Drawing.Point(674, 3);
+            this.groupBox4.Location = new System.Drawing.Point(710, 3);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox4.Size = new System.Drawing.Size(267, 528);
+            this.groupBox4.Size = new System.Drawing.Size(231, 528);
             this.groupBox4.TabIndex = 10;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "操作";
             // 
             // btnDriverRevised
             // 
-            this.btnDriverRevised.Location = new System.Drawing.Point(101, 211);
+            this.btnDriverRevised.Location = new System.Drawing.Point(62, 168);
             this.btnDriverRevised.Name = "btnDriverRevised";
-            this.btnDriverRevised.Size = new System.Drawing.Size(82, 28);
+            this.btnDriverRevised.Size = new System.Drawing.Size(107, 53);
             this.btnDriverRevised.TabIndex = 5;
             this.btnDriverRevised.Text = "修改";
             this.btnDriverRevised.UseVisualStyleBackColor = true;
@@ -2034,9 +2081,9 @@
             // 
             // btnQueryDriver_R
             // 
-            this.btnQueryDriver_R.Location = new System.Drawing.Point(101, 138);
+            this.btnQueryDriver_R.Location = new System.Drawing.Point(62, 58);
             this.btnQueryDriver_R.Name = "btnQueryDriver_R";
-            this.btnQueryDriver_R.Size = new System.Drawing.Size(82, 28);
+            this.btnQueryDriver_R.Size = new System.Drawing.Size(107, 53);
             this.btnQueryDriver_R.TabIndex = 4;
             this.btnQueryDriver_R.Text = "查询";
             this.btnQueryDriver_R.UseVisualStyleBackColor = true;
@@ -2044,9 +2091,9 @@
             // 
             // btnReset_R
             // 
-            this.btnReset_R.Location = new System.Drawing.Point(101, 295);
+            this.btnReset_R.Location = new System.Drawing.Point(62, 278);
             this.btnReset_R.Name = "btnReset_R";
-            this.btnReset_R.Size = new System.Drawing.Size(82, 28);
+            this.btnReset_R.Size = new System.Drawing.Size(107, 53);
             this.btnReset_R.TabIndex = 1;
             this.btnReset_R.Text = "重置";
             this.btnReset_R.UseVisualStyleBackColor = true;
@@ -2054,6 +2101,9 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.radTruckNo_R);
             this.groupBox5.Controls.Add(this.radDriverName_R);
             this.groupBox5.Controls.Add(this.txtDriverGender_R);
@@ -2070,7 +2120,6 @@
             this.groupBox5.Controls.Add(this.label23);
             this.groupBox5.Controls.Add(this.label24);
             this.groupBox5.Controls.Add(this.label25);
-            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox5.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.groupBox5.Location = new System.Drawing.Point(3, 3);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -2083,8 +2132,11 @@
             // 
             // radTruckNo_R
             // 
+            this.radTruckNo_R.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.radTruckNo_R.AutoSize = true;
-            this.radTruckNo_R.Location = new System.Drawing.Point(277, 77);
+            this.radTruckNo_R.Location = new System.Drawing.Point(381, 41);
             this.radTruckNo_R.Name = "radTruckNo_R";
             this.radTruckNo_R.Size = new System.Drawing.Size(156, 25);
             this.radTruckNo_R.TabIndex = 28;
@@ -2095,8 +2147,11 @@
             // 
             // radDriverName_R
             // 
+            this.radDriverName_R.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.radDriverName_R.AutoSize = true;
-            this.radDriverName_R.Location = new System.Drawing.Point(102, 77);
+            this.radDriverName_R.Location = new System.Drawing.Point(111, 43);
             this.radDriverName_R.Name = "radDriverName_R";
             this.radDriverName_R.Size = new System.Drawing.Size(156, 25);
             this.radDriverName_R.TabIndex = 27;
@@ -2107,27 +2162,36 @@
             // 
             // txtDriverGender_R
             // 
+            this.txtDriverGender_R.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDriverGender_R.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtDriverGender_R.Location = new System.Drawing.Point(176, 222);
+            this.txtDriverGender_R.Location = new System.Drawing.Point(195, 223);
             this.txtDriverGender_R.Name = "txtDriverGender_R";
             this.txtDriverGender_R.ReadOnly = true;
-            this.txtDriverGender_R.Size = new System.Drawing.Size(75, 29);
+            this.txtDriverGender_R.Size = new System.Drawing.Size(342, 29);
             this.txtDriverGender_R.TabIndex = 26;
             // 
             // txtDriverNumber_R
             // 
+            this.txtDriverNumber_R.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDriverNumber_R.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtDriverNumber_R.Location = new System.Drawing.Point(176, 135);
+            this.txtDriverNumber_R.Location = new System.Drawing.Point(195, 113);
             this.txtDriverNumber_R.Name = "txtDriverNumber_R";
             this.txtDriverNumber_R.ReadOnly = true;
-            this.txtDriverNumber_R.Size = new System.Drawing.Size(282, 29);
+            this.txtDriverNumber_R.Size = new System.Drawing.Size(342, 29);
             this.txtDriverNumber_R.TabIndex = 24;
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.Location = new System.Drawing.Point(96, 138);
+            this.label2.Location = new System.Drawing.Point(107, 116);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 21);
             this.label2.TabIndex = 23;
@@ -2135,18 +2199,24 @@
             // 
             // textBox9
             // 
+            this.textBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox9.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox9.Location = new System.Drawing.Point(176, 264);
+            this.textBox9.Location = new System.Drawing.Point(195, 333);
             this.textBox9.Name = "textBox9";
             this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(282, 29);
+            this.textBox9.Size = new System.Drawing.Size(342, 29);
             this.textBox9.TabIndex = 21;
             // 
             // label20
             // 
+            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label20.Location = new System.Drawing.Point(96, 267);
+            this.label20.Location = new System.Drawing.Point(107, 336);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(74, 21);
             this.label20.TabIndex = 20;
@@ -2154,9 +2224,12 @@
             // 
             // label21
             // 
+            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label21.Location = new System.Drawing.Point(303, 225);
+            this.label21.Location = new System.Drawing.Point(107, 281);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(74, 21);
             this.label21.TabIndex = 19;
@@ -2164,18 +2237,24 @@
             // 
             // txtDriverAge_R
             // 
+            this.txtDriverAge_R.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDriverAge_R.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtDriverAge_R.Location = new System.Drawing.Point(383, 222);
+            this.txtDriverAge_R.Location = new System.Drawing.Point(195, 278);
             this.txtDriverAge_R.Name = "txtDriverAge_R";
             this.txtDriverAge_R.ReadOnly = true;
-            this.txtDriverAge_R.Size = new System.Drawing.Size(75, 29);
+            this.txtDriverAge_R.Size = new System.Drawing.Size(342, 29);
             this.txtDriverAge_R.TabIndex = 18;
             // 
             // label22
             // 
+            this.label22.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label22.Location = new System.Drawing.Point(96, 225);
+            this.label22.Location = new System.Drawing.Point(107, 226);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(74, 21);
             this.label22.TabIndex = 17;
@@ -2183,36 +2262,48 @@
             // 
             // txtDriverName_R
             // 
+            this.txtDriverName_R.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDriverName_R.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtDriverName_R.Location = new System.Drawing.Point(176, 178);
+            this.txtDriverName_R.Location = new System.Drawing.Point(195, 168);
             this.txtDriverName_R.Name = "txtDriverName_R";
             this.txtDriverName_R.ReadOnly = true;
-            this.txtDriverName_R.Size = new System.Drawing.Size(282, 29);
+            this.txtDriverName_R.Size = new System.Drawing.Size(342, 29);
             this.txtDriverName_R.TabIndex = 15;
             // 
             // txtTruckNo_R
             // 
+            this.txtTruckNo_R.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTruckNo_R.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtTruckNo_R.Location = new System.Drawing.Point(176, 306);
+            this.txtTruckNo_R.Location = new System.Drawing.Point(195, 388);
             this.txtTruckNo_R.Name = "txtTruckNo_R";
             this.txtTruckNo_R.ReadOnly = true;
-            this.txtTruckNo_R.Size = new System.Drawing.Size(282, 29);
+            this.txtTruckNo_R.Size = new System.Drawing.Size(342, 29);
             this.txtTruckNo_R.TabIndex = 14;
             // 
             // txtDCardNo_R
             // 
+            this.txtDCardNo_R.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDCardNo_R.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtDCardNo_R.Location = new System.Drawing.Point(176, 354);
+            this.txtDCardNo_R.Location = new System.Drawing.Point(195, 443);
             this.txtDCardNo_R.Name = "txtDCardNo_R";
             this.txtDCardNo_R.ReadOnly = true;
-            this.txtDCardNo_R.Size = new System.Drawing.Size(282, 29);
+            this.txtDCardNo_R.Size = new System.Drawing.Size(342, 29);
             this.txtDCardNo_R.TabIndex = 10;
             // 
             // label23
             // 
+            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label23.Location = new System.Drawing.Point(96, 309);
+            this.label23.Location = new System.Drawing.Point(107, 391);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(74, 21);
             this.label23.TabIndex = 9;
@@ -2220,9 +2311,12 @@
             // 
             // label24
             // 
+            this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label24.Location = new System.Drawing.Point(96, 357);
+            this.label24.Location = new System.Drawing.Point(107, 446);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(74, 21);
             this.label24.TabIndex = 2;
@@ -2230,9 +2324,12 @@
             // 
             // label25
             // 
+            this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label25.Location = new System.Drawing.Point(96, 181);
+            this.label25.Location = new System.Drawing.Point(107, 171);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(74, 21);
             this.label25.TabIndex = 0;
@@ -2256,20 +2353,20 @@
             this.groupBox29.Controls.Add(this.btnReset_Q);
             this.groupBox29.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox29.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox29.Location = new System.Drawing.Point(674, 3);
+            this.groupBox29.Location = new System.Drawing.Point(710, 3);
             this.groupBox29.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox29.Name = "groupBox29";
             this.groupBox29.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox29.Size = new System.Drawing.Size(267, 528);
+            this.groupBox29.Size = new System.Drawing.Size(231, 528);
             this.groupBox29.TabIndex = 8;
             this.groupBox29.TabStop = false;
             this.groupBox29.Text = "操作";
             // 
             // btnQueryDriver_Q
             // 
-            this.btnQueryDriver_Q.Location = new System.Drawing.Point(37, 181);
+            this.btnQueryDriver_Q.Location = new System.Drawing.Point(62, 58);
             this.btnQueryDriver_Q.Name = "btnQueryDriver_Q";
-            this.btnQueryDriver_Q.Size = new System.Drawing.Size(82, 28);
+            this.btnQueryDriver_Q.Size = new System.Drawing.Size(107, 53);
             this.btnQueryDriver_Q.TabIndex = 4;
             this.btnQueryDriver_Q.Text = "查询";
             this.btnQueryDriver_Q.UseVisualStyleBackColor = true;
@@ -2277,9 +2374,9 @@
             // 
             // btnReset_Q
             // 
-            this.btnReset_Q.Location = new System.Drawing.Point(157, 181);
+            this.btnReset_Q.Location = new System.Drawing.Point(62, 204);
             this.btnReset_Q.Name = "btnReset_Q";
-            this.btnReset_Q.Size = new System.Drawing.Size(82, 28);
+            this.btnReset_Q.Size = new System.Drawing.Size(107, 53);
             this.btnReset_Q.TabIndex = 1;
             this.btnReset_Q.Text = "重置";
             this.btnReset_Q.UseVisualStyleBackColor = true;
@@ -2316,8 +2413,11 @@
             // 
             // radTruckNo
             // 
+            this.radTruckNo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.radTruckNo.AutoSize = true;
-            this.radTruckNo.Location = new System.Drawing.Point(277, 49);
+            this.radTruckNo.Location = new System.Drawing.Point(376, 49);
             this.radTruckNo.Name = "radTruckNo";
             this.radTruckNo.Size = new System.Drawing.Size(156, 25);
             this.radTruckNo.TabIndex = 28;
@@ -2328,8 +2428,11 @@
             // 
             // radDriverName
             // 
+            this.radDriverName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.radDriverName.AutoSize = true;
-            this.radDriverName.Location = new System.Drawing.Point(102, 49);
+            this.radDriverName.Location = new System.Drawing.Point(101, 49);
             this.radDriverName.Name = "radDriverName";
             this.radDriverName.Size = new System.Drawing.Size(156, 25);
             this.radDriverName.TabIndex = 27;
@@ -2340,27 +2443,36 @@
             // 
             // txtDriverGender_Q
             // 
+            this.txtDriverGender_Q.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDriverGender_Q.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtDriverGender_Q.Location = new System.Drawing.Point(172, 202);
+            this.txtDriverGender_Q.Location = new System.Drawing.Point(190, 219);
             this.txtDriverGender_Q.Name = "txtDriverGender_Q";
             this.txtDriverGender_Q.ReadOnly = true;
-            this.txtDriverGender_Q.Size = new System.Drawing.Size(75, 29);
+            this.txtDriverGender_Q.Size = new System.Drawing.Size(342, 29);
             this.txtDriverGender_Q.TabIndex = 26;
             // 
             // txtDriverNumber_Q
             // 
+            this.txtDriverNumber_Q.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDriverNumber_Q.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtDriverNumber_Q.Location = new System.Drawing.Point(172, 115);
+            this.txtDriverNumber_Q.Location = new System.Drawing.Point(190, 115);
             this.txtDriverNumber_Q.Name = "txtDriverNumber_Q";
             this.txtDriverNumber_Q.ReadOnly = true;
-            this.txtDriverNumber_Q.Size = new System.Drawing.Size(282, 29);
+            this.txtDriverNumber_Q.Size = new System.Drawing.Size(342, 29);
             this.txtDriverNumber_Q.TabIndex = 24;
             // 
             // label26
             // 
+            this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label26.Location = new System.Drawing.Point(92, 118);
+            this.label26.Location = new System.Drawing.Point(97, 118);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(74, 21);
             this.label26.TabIndex = 23;
@@ -2368,18 +2480,24 @@
             // 
             // textBox7
             // 
+            this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox7.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox7.Location = new System.Drawing.Point(172, 244);
+            this.textBox7.Location = new System.Drawing.Point(190, 323);
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(282, 29);
+            this.textBox7.Size = new System.Drawing.Size(342, 29);
             this.textBox7.TabIndex = 21;
             // 
             // label53
             // 
+            this.label53.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.label53.AutoSize = true;
             this.label53.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label53.Location = new System.Drawing.Point(92, 247);
+            this.label53.Location = new System.Drawing.Point(97, 326);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(74, 21);
             this.label53.TabIndex = 20;
@@ -2387,9 +2505,12 @@
             // 
             // label54
             // 
+            this.label54.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.label54.AutoSize = true;
             this.label54.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label54.Location = new System.Drawing.Point(299, 205);
+            this.label54.Location = new System.Drawing.Point(97, 274);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(74, 21);
             this.label54.TabIndex = 19;
@@ -2397,18 +2518,24 @@
             // 
             // txtDriverAge_Q
             // 
+            this.txtDriverAge_Q.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDriverAge_Q.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtDriverAge_Q.Location = new System.Drawing.Point(379, 202);
+            this.txtDriverAge_Q.Location = new System.Drawing.Point(190, 271);
             this.txtDriverAge_Q.Name = "txtDriverAge_Q";
             this.txtDriverAge_Q.ReadOnly = true;
-            this.txtDriverAge_Q.Size = new System.Drawing.Size(75, 29);
+            this.txtDriverAge_Q.Size = new System.Drawing.Size(342, 29);
             this.txtDriverAge_Q.TabIndex = 18;
             // 
             // label55
             // 
+            this.label55.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.label55.AutoSize = true;
             this.label55.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label55.Location = new System.Drawing.Point(92, 205);
+            this.label55.Location = new System.Drawing.Point(97, 222);
             this.label55.Name = "label55";
             this.label55.Size = new System.Drawing.Size(74, 21);
             this.label55.TabIndex = 17;
@@ -2416,36 +2543,48 @@
             // 
             // txtDriverName_Q
             // 
+            this.txtDriverName_Q.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDriverName_Q.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtDriverName_Q.Location = new System.Drawing.Point(172, 158);
+            this.txtDriverName_Q.Location = new System.Drawing.Point(190, 167);
             this.txtDriverName_Q.Name = "txtDriverName_Q";
             this.txtDriverName_Q.ReadOnly = true;
-            this.txtDriverName_Q.Size = new System.Drawing.Size(282, 29);
+            this.txtDriverName_Q.Size = new System.Drawing.Size(342, 29);
             this.txtDriverName_Q.TabIndex = 15;
             // 
             // txtTruckNo_Q
             // 
+            this.txtTruckNo_Q.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTruckNo_Q.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtTruckNo_Q.Location = new System.Drawing.Point(172, 286);
+            this.txtTruckNo_Q.Location = new System.Drawing.Point(190, 375);
             this.txtTruckNo_Q.Name = "txtTruckNo_Q";
             this.txtTruckNo_Q.ReadOnly = true;
-            this.txtTruckNo_Q.Size = new System.Drawing.Size(282, 29);
+            this.txtTruckNo_Q.Size = new System.Drawing.Size(342, 29);
             this.txtTruckNo_Q.TabIndex = 14;
             // 
             // txtDCardNo_Q
             // 
+            this.txtDCardNo_Q.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDCardNo_Q.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtDCardNo_Q.Location = new System.Drawing.Point(172, 334);
+            this.txtDCardNo_Q.Location = new System.Drawing.Point(190, 427);
             this.txtDCardNo_Q.Name = "txtDCardNo_Q";
             this.txtDCardNo_Q.ReadOnly = true;
-            this.txtDCardNo_Q.Size = new System.Drawing.Size(282, 29);
+            this.txtDCardNo_Q.Size = new System.Drawing.Size(342, 29);
             this.txtDCardNo_Q.TabIndex = 10;
             // 
             // label56
             // 
+            this.label56.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.label56.AutoSize = true;
             this.label56.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label56.Location = new System.Drawing.Point(92, 289);
+            this.label56.Location = new System.Drawing.Point(97, 378);
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(74, 21);
             this.label56.TabIndex = 9;
@@ -2453,9 +2592,12 @@
             // 
             // label57
             // 
+            this.label57.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.label57.AutoSize = true;
             this.label57.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label57.Location = new System.Drawing.Point(92, 337);
+            this.label57.Location = new System.Drawing.Point(97, 430);
             this.label57.Name = "label57";
             this.label57.Size = new System.Drawing.Size(74, 21);
             this.label57.TabIndex = 2;
@@ -2463,9 +2605,12 @@
             // 
             // label58
             // 
+            this.label58.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.label58.AutoSize = true;
             this.label58.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label58.Location = new System.Drawing.Point(92, 161);
+            this.label58.Location = new System.Drawing.Point(97, 170);
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(74, 21);
             this.label58.TabIndex = 0;
@@ -2490,20 +2635,20 @@
             this.gBoxBOperate.Controls.Add(this.btnSendBCard);
             this.gBoxBOperate.Dock = System.Windows.Forms.DockStyle.Right;
             this.gBoxBOperate.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.gBoxBOperate.Location = new System.Drawing.Point(765, 3);
+            this.gBoxBOperate.Location = new System.Drawing.Point(710, 3);
             this.gBoxBOperate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gBoxBOperate.Name = "gBoxBOperate";
             this.gBoxBOperate.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gBoxBOperate.Size = new System.Drawing.Size(176, 528);
+            this.gBoxBOperate.Size = new System.Drawing.Size(231, 528);
             this.gBoxBOperate.TabIndex = 9;
             this.gBoxBOperate.TabStop = false;
             this.gBoxBOperate.Text = "操作";
             // 
             // btnReadBCard
             // 
-            this.btnReadBCard.Location = new System.Drawing.Point(62, 132);
+            this.btnReadBCard.Location = new System.Drawing.Point(62, 58);
             this.btnReadBCard.Name = "btnReadBCard";
-            this.btnReadBCard.Size = new System.Drawing.Size(82, 28);
+            this.btnReadBCard.Size = new System.Drawing.Size(107, 53);
             this.btnReadBCard.TabIndex = 2;
             this.btnReadBCard.Text = "读卡";
             this.btnReadBCard.UseVisualStyleBackColor = true;
@@ -2511,9 +2656,9 @@
             // 
             // btnResetBCardAll
             // 
-            this.btnResetBCardAll.Location = new System.Drawing.Point(62, 306);
+            this.btnResetBCardAll.Location = new System.Drawing.Point(62, 276);
             this.btnResetBCardAll.Name = "btnResetBCardAll";
-            this.btnResetBCardAll.Size = new System.Drawing.Size(82, 28);
+            this.btnResetBCardAll.Size = new System.Drawing.Size(107, 53);
             this.btnResetBCardAll.TabIndex = 1;
             this.btnResetBCardAll.Text = "重置";
             this.btnResetBCardAll.UseVisualStyleBackColor = true;
@@ -2521,9 +2666,9 @@
             // 
             // btnSendBCard
             // 
-            this.btnSendBCard.Location = new System.Drawing.Point(62, 219);
+            this.btnSendBCard.Location = new System.Drawing.Point(62, 167);
             this.btnSendBCard.Name = "btnSendBCard";
-            this.btnSendBCard.Size = new System.Drawing.Size(82, 28);
+            this.btnSendBCard.Size = new System.Drawing.Size(107, 53);
             this.btnSendBCard.TabIndex = 0;
             this.btnSendBCard.Text = "发卡";
             this.btnSendBCard.UseVisualStyleBackColor = true;
@@ -2548,39 +2693,51 @@
             // 
             // txtBCStatus
             // 
-            this.txtBCStatus.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtBCStatus.Location = new System.Drawing.Point(217, 169);
+            this.txtBCStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBCStatus.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtBCStatus.Location = new System.Drawing.Point(226, 143);
             this.txtBCStatus.Name = "txtBCStatus";
             this.txtBCStatus.ReadOnly = true;
-            this.txtBCStatus.Size = new System.Drawing.Size(282, 29);
+            this.txtBCStatus.Size = new System.Drawing.Size(391, 46);
             this.txtBCStatus.TabIndex = 21;
             // 
             // label59
             // 
+            this.label59.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.label59.AutoSize = true;
-            this.label59.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label59.Location = new System.Drawing.Point(137, 172);
+            this.label59.Font = new System.Drawing.Font("微软雅黑", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label59.Location = new System.Drawing.Point(48, 143);
             this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(74, 21);
+            this.label59.Size = new System.Drawing.Size(160, 46);
             this.label59.TabIndex = 17;
             this.label59.Text = "卡片状态";
             // 
             // txtBCNo
             // 
-            this.txtBCNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtBCNo.Location = new System.Drawing.Point(217, 274);
+            this.txtBCNo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBCNo.Font = new System.Drawing.Font("微软雅黑", 21.75F);
+            this.txtBCNo.Location = new System.Drawing.Point(226, 340);
             this.txtBCNo.Name = "txtBCNo";
             this.txtBCNo.ReadOnly = true;
-            this.txtBCNo.Size = new System.Drawing.Size(282, 29);
+            this.txtBCNo.Size = new System.Drawing.Size(391, 46);
             this.txtBCNo.TabIndex = 10;
             // 
             // lblBCNo
             // 
+            this.lblBCNo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.lblBCNo.AutoSize = true;
-            this.lblBCNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblBCNo.Location = new System.Drawing.Point(137, 277);
+            this.lblBCNo.Font = new System.Drawing.Font("微软雅黑", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblBCNo.Location = new System.Drawing.Point(48, 340);
             this.lblBCNo.Name = "lblBCNo";
-            this.lblBCNo.Size = new System.Drawing.Size(74, 21);
+            this.lblBCNo.Size = new System.Drawing.Size(160, 46);
             this.lblBCNo.TabIndex = 2;
             this.lblBCNo.Text = "卡片编号";
             // 
@@ -2617,9 +2774,11 @@
             // 
             // groupBox16
             // 
+            this.groupBox16.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox16.Controls.Add(this.dataGridView9);
             this.groupBox16.Controls.Add(this.panel6);
-            this.groupBox16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox16.Location = new System.Drawing.Point(3, 3);
             this.groupBox16.Name = "groupBox16";
             this.groupBox16.Padding = new System.Windows.Forms.Padding(10);
@@ -2632,17 +2791,19 @@
             // 
             this.dataGridView9.AllowUserToAddRows = false;
             this.dataGridView9.AllowUserToDeleteRows = false;
+            this.dataGridView9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView9.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView9.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView9.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView9.Location = new System.Drawing.Point(10, 142);
             this.dataGridView9.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
             this.dataGridView9.Name = "dataGridView9";
             this.dataGridView9.ReadOnly = true;
             this.dataGridView9.RowHeadersVisible = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataGridView9.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle121.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridView9.RowsDefaultCellStyle = dataGridViewCellStyle121;
             this.dataGridView9.RowTemplate.Height = 23;
             this.dataGridView9.Size = new System.Drawing.Size(918, 376);
             this.dataGridView9.TabIndex = 0;
@@ -2659,10 +2820,12 @@
             // 
             // groupBox14
             // 
+            this.groupBox14.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox14.Controls.Add(this.label48);
             this.groupBox14.Controls.Add(this.button14);
             this.groupBox14.Controls.Add(this.textBox23);
-            this.groupBox14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox14.Location = new System.Drawing.Point(452, 0);
             this.groupBox14.Name = "groupBox14";
             this.groupBox14.Size = new System.Drawing.Size(466, 118);
@@ -2684,9 +2847,9 @@
             // button14
             // 
             this.button14.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button14.Location = new System.Drawing.Point(256, 25);
+            this.button14.Location = new System.Drawing.Point(250, 28);
             this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(90, 31);
+            this.button14.Size = new System.Drawing.Size(90, 55);
             this.button14.TabIndex = 7;
             this.button14.Text = "标出超时";
             this.button14.UseVisualStyleBackColor = true;
@@ -2705,12 +2868,14 @@
             // 
             // groupBox13
             // 
+            this.groupBox13.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox13.Controls.Add(this.label43);
             this.groupBox13.Controls.Add(this.label60);
             this.groupBox13.Controls.Add(this.button19);
             this.groupBox13.Controls.Add(this.dateTimePicker_81);
             this.groupBox13.Controls.Add(this.dateTimePicker_82);
-            this.groupBox13.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox13.Location = new System.Drawing.Point(0, 0);
             this.groupBox13.Margin = new System.Windows.Forms.Padding(10, 3, 10, 3);
             this.groupBox13.Name = "groupBox13";
@@ -2744,9 +2909,9 @@
             // button19
             // 
             this.button19.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button19.Location = new System.Drawing.Point(349, 28);
+            this.button19.Location = new System.Drawing.Point(337, 28);
             this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(75, 28);
+            this.button19.Size = new System.Drawing.Size(90, 55);
             this.button19.TabIndex = 2;
             this.button19.Text = "查询";
             this.button19.UseVisualStyleBackColor = true;
@@ -2813,8 +2978,8 @@
             this.dataGridView11.Name = "dataGridView11";
             this.dataGridView11.ReadOnly = true;
             this.dataGridView11.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataGridView11.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle122.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridView11.RowsDefaultCellStyle = dataGridViewCellStyle122;
             this.dataGridView11.RowTemplate.Height = 23;
             this.dataGridView11.Size = new System.Drawing.Size(922, 366);
             this.dataGridView11.TabIndex = 4;
@@ -2998,9 +3163,9 @@
             // 
             this.button_8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button_8.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_8.Location = new System.Drawing.Point(814, 30);
+            this.button_8.Location = new System.Drawing.Point(776, 31);
             this.button_8.Name = "button_8";
-            this.button_8.Size = new System.Drawing.Size(79, 31);
+            this.button_8.Size = new System.Drawing.Size(90, 55);
             this.button_8.TabIndex = 4;
             this.button_8.Text = "查询";
             this.button_8.UseVisualStyleBackColor = true;
@@ -3075,15 +3240,15 @@
             // progressBar2
             // 
             this.progressBar2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar2.Location = new System.Drawing.Point(707, 279);
+            this.progressBar2.Location = new System.Drawing.Point(707, 270);
             this.progressBar2.Name = "progressBar2";
             this.progressBar2.Size = new System.Drawing.Size(231, 10);
             this.progressBar2.TabIndex = 3;
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle123.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle123;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -3094,8 +3259,8 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle124.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle124;
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(922, 226);
             this.dataGridView1.TabIndex = 0;
@@ -3495,8 +3660,8 @@
             this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.AllowUserToResizeColumns = false;
             this.dataGridView2.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle125.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            this.dataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle125;
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -3505,14 +3670,14 @@
             this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle126.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle126.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle126.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle126.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle126.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle126.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle126.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle126;
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dataGridView2.RowTemplate.Height = 23;
@@ -3725,8 +3890,8 @@
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.ReadOnly = true;
             this.dataGridView4.RowHeadersVisible = false;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataGridView4.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle127.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridView4.RowsDefaultCellStyle = dataGridViewCellStyle127;
             this.dataGridView4.RowTemplate.Height = 23;
             this.dataGridView4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView4.Size = new System.Drawing.Size(591, 453);
@@ -3965,8 +4130,8 @@
             this.dataGridView5.Name = "dataGridView5";
             this.dataGridView5.ReadOnly = true;
             this.dataGridView5.RowHeadersVisible = false;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataGridView5.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle128.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridView5.RowsDefaultCellStyle = dataGridViewCellStyle128;
             this.dataGridView5.RowTemplate.Height = 23;
             this.dataGridView5.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView5.Size = new System.Drawing.Size(591, 453);
@@ -4195,8 +4360,8 @@
             this.dataGridView7.Name = "dataGridView7";
             this.dataGridView7.ReadOnly = true;
             this.dataGridView7.RowHeadersVisible = false;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataGridView7.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle129.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridView7.RowsDefaultCellStyle = dataGridViewCellStyle129;
             this.dataGridView7.RowTemplate.Height = 23;
             this.dataGridView7.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView7.Size = new System.Drawing.Size(591, 453);
@@ -5357,8 +5522,8 @@
             // 
             // dataGridView_22
             // 
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataGridView_22.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle130.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridView_22.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle130;
             this.dataGridView_22.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_22.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView_22.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -5370,8 +5535,8 @@
             this.dataGridView_22.Name = "dataGridView_22";
             this.dataGridView_22.ReadOnly = true;
             this.dataGridView_22.RowHeadersVisible = false;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataGridView_22.RowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle131.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridView_22.RowsDefaultCellStyle = dataGridViewCellStyle131;
             this.dataGridView_22.RowTemplate.Height = 23;
             this.dataGridView_22.Size = new System.Drawing.Size(938, 456);
             this.dataGridView_22.TabIndex = 1;
@@ -5428,9 +5593,9 @@
             // 
             this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button5.Font = new System.Drawing.Font("微软雅黑", 12F);
-            this.button5.Location = new System.Drawing.Point(812, 24);
+            this.button5.Location = new System.Drawing.Point(810, 17);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(79, 31);
+            this.button5.Size = new System.Drawing.Size(79, 43);
             this.button5.TabIndex = 12;
             this.button5.Text = "查询";
             this.button5.UseVisualStyleBackColor = true;
@@ -5484,7 +5649,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.panel12);
             this.splitContainer1.Panel2.Controls.Add(this.panel11);
             this.splitContainer1.Size = new System.Drawing.Size(938, 528);
-            this.splitContainer1.SplitterDistance = 257;
+            this.splitContainer1.SplitterDistance = 256;
             this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 0;
             this.splitContainer1.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer1_SplitterMoved);
@@ -5495,7 +5660,7 @@
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(174, 0);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(762, 255);
+            this.panel10.Size = new System.Drawing.Size(762, 254);
             this.panel10.TabIndex = 1;
             // 
             // webBrowser_23
@@ -5506,7 +5671,7 @@
             this.webBrowser_23.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser_23.Name = "webBrowser_23";
             this.webBrowser_23.ScrollBarsEnabled = false;
-            this.webBrowser_23.Size = new System.Drawing.Size(762, 255);
+            this.webBrowser_23.Size = new System.Drawing.Size(762, 254);
             this.webBrowser_23.TabIndex = 1;
             // 
             // panel9
@@ -5521,7 +5686,7 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(174, 255);
+            this.panel9.Size = new System.Drawing.Size(174, 254);
             this.panel9.TabIndex = 0;
             // 
             // dateTimePicker_23
@@ -5616,7 +5781,7 @@
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel12.Location = new System.Drawing.Point(174, 0);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(762, 266);
+            this.panel12.Size = new System.Drawing.Size(762, 267);
             this.panel12.TabIndex = 2;
             // 
             // webBrowser_23_2
@@ -5627,7 +5792,7 @@
             this.webBrowser_23_2.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser_23_2.Name = "webBrowser_23_2";
             this.webBrowser_23_2.ScrollBarsEnabled = false;
-            this.webBrowser_23_2.Size = new System.Drawing.Size(762, 266);
+            this.webBrowser_23_2.Size = new System.Drawing.Size(762, 267);
             this.webBrowser_23_2.TabIndex = 2;
             // 
             // panel11
@@ -5642,7 +5807,7 @@
             this.panel11.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel11.Location = new System.Drawing.Point(0, 0);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(174, 266);
+            this.panel11.Size = new System.Drawing.Size(174, 267);
             this.panel11.TabIndex = 1;
             // 
             // dateTimePicker_23_2
@@ -5739,8 +5904,8 @@
             // 
             // dataGridView_24
             // 
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataGridView_24.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle132.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridView_24.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle132;
             this.dataGridView_24.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView_24.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView_24.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -5752,8 +5917,8 @@
             this.dataGridView_24.Name = "dataGridView_24";
             this.dataGridView_24.ReadOnly = true;
             this.dataGridView_24.RowHeadersVisible = false;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dataGridView_24.RowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle133.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.dataGridView_24.RowsDefaultCellStyle = dataGridViewCellStyle133;
             this.dataGridView_24.RowTemplate.Height = 23;
             this.dataGridView_24.Size = new System.Drawing.Size(938, 435);
             this.dataGridView_24.TabIndex = 6;
@@ -5834,9 +5999,9 @@
             // button_24
             // 
             this.button_24.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button_24.Location = new System.Drawing.Point(759, 31);
+            this.button_24.Location = new System.Drawing.Point(759, 20);
             this.button_24.Name = "button_24";
-            this.button_24.Size = new System.Drawing.Size(75, 31);
+            this.button_24.Size = new System.Drawing.Size(80, 48);
             this.button_24.TabIndex = 4;
             this.button_24.Text = "查询";
             this.button_24.UseVisualStyleBackColor = true;
@@ -5861,8 +6026,8 @@
             this.dataGridView8.AllowUserToDeleteRows = false;
             this.dataGridView8.AllowUserToResizeColumns = false;
             this.dataGridView8.AllowUserToResizeRows = false;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            this.dataGridView8.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle134.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            this.dataGridView8.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle134;
             this.dataGridView8.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView8.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView8.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -5871,14 +6036,14 @@
             this.dataGridView8.MultiSelect = false;
             this.dataGridView8.Name = "dataGridView8";
             this.dataGridView8.ReadOnly = true;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView8.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle135.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle135.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle135.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle135.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle135.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle135.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle135.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView8.RowHeadersDefaultCellStyle = dataGridViewCellStyle135;
             this.dataGridView8.RowHeadersVisible = false;
             this.dataGridView8.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dataGridView8.RowTemplate.Height = 23;
@@ -6068,8 +6233,8 @@
             this.dataGridView12.AllowUserToDeleteRows = false;
             this.dataGridView12.AllowUserToResizeColumns = false;
             this.dataGridView12.AllowUserToResizeRows = false;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            this.dataGridView12.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle136.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            this.dataGridView12.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle136;
             this.dataGridView12.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView12.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView12.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -6078,14 +6243,14 @@
             this.dataGridView12.MultiSelect = false;
             this.dataGridView12.Name = "dataGridView12";
             this.dataGridView12.ReadOnly = true;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView12.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle137.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle137.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle137.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle137.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle137.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle137.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle137.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView12.RowHeadersDefaultCellStyle = dataGridViewCellStyle137;
             this.dataGridView12.RowHeadersVisible = false;
             this.dataGridView12.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dataGridView12.RowTemplate.Height = 23;
@@ -6153,8 +6318,8 @@
             this.dataGridView13.AllowUserToDeleteRows = false;
             this.dataGridView13.AllowUserToResizeColumns = false;
             this.dataGridView13.AllowUserToResizeRows = false;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
-            this.dataGridView13.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle138.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft;
+            this.dataGridView13.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle138;
             this.dataGridView13.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView13.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView13.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -6163,14 +6328,14 @@
             this.dataGridView13.MultiSelect = false;
             this.dataGridView13.Name = "dataGridView13";
             this.dataGridView13.ReadOnly = true;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView13.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle139.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle139.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle139.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle139.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle139.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle139.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle139.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView13.RowHeadersDefaultCellStyle = dataGridViewCellStyle139;
             this.dataGridView13.RowHeadersVisible = false;
             this.dataGridView13.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dataGridView13.RowTemplate.Height = 23;
@@ -7013,6 +7178,9 @@
             // 
             // groupBox24
             // 
+            this.groupBox24.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox24.Controls.Add(this.btnSendMsg);
             this.groupBox24.Controls.Add(this.btnAddCls);
             this.groupBox24.Controls.Add(this.btnClearMsg);
@@ -7032,9 +7200,9 @@
             // 
             // btnSendMsg
             // 
-            this.btnSendMsg.Location = new System.Drawing.Point(712, 172);
+            this.btnSendMsg.Location = new System.Drawing.Point(712, 182);
             this.btnSendMsg.Name = "btnSendMsg";
-            this.btnSendMsg.Size = new System.Drawing.Size(115, 35);
+            this.btnSendMsg.Size = new System.Drawing.Size(115, 47);
             this.btnSendMsg.TabIndex = 4;
             this.btnSendMsg.Text = "发送";
             this.btnSendMsg.UseVisualStyleBackColor = true;
@@ -7045,17 +7213,17 @@
             this.btnAddCls.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAddCls.Location = new System.Drawing.Point(712, 28);
             this.btnAddCls.Name = "btnAddCls";
-            this.btnAddCls.Size = new System.Drawing.Size(115, 35);
+            this.btnAddCls.Size = new System.Drawing.Size(115, 47);
             this.btnAddCls.TabIndex = 4;
-            this.btnAddCls.Text = "整班导入";
+            this.btnAddCls.Text = "整班发送";
             this.btnAddCls.UseVisualStyleBackColor = true;
             this.btnAddCls.Click += new System.EventHandler(this.btnAddCls_Click);
             // 
             // btnClearMsg
             // 
-            this.btnClearMsg.Location = new System.Drawing.Point(712, 100);
+            this.btnClearMsg.Location = new System.Drawing.Point(712, 105);
             this.btnClearMsg.Name = "btnClearMsg";
-            this.btnClearMsg.Size = new System.Drawing.Size(115, 35);
+            this.btnClearMsg.Size = new System.Drawing.Size(115, 47);
             this.btnClearMsg.TabIndex = 4;
             this.btnClearMsg.Text = "清空";
             this.btnClearMsg.UseVisualStyleBackColor = true;
@@ -7121,6 +7289,9 @@
             // 
             // groupBox21
             // 
+            this.groupBox21.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox21.Controls.Add(this.txtMsgContent);
             this.groupBox21.Controls.Add(this.rbLv2);
             this.groupBox21.Controls.Add(this.rbLv1);
@@ -7137,6 +7308,8 @@
             // 
             // txtMsgContent
             // 
+            this.txtMsgContent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMsgContent.Location = new System.Drawing.Point(132, 89);
             this.txtMsgContent.Multiline = true;
             this.txtMsgContent.Name = "txtMsgContent";
@@ -7210,6 +7383,8 @@
             // 
             // groupEditMsg
             // 
+            this.groupEditMsg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.groupEditMsg.Controls.Add(this.btnSaveMsg);
             this.groupEditMsg.Controls.Add(this.txtMsgContent1);
             this.groupEditMsg.Controls.Add(this.label97);
@@ -7229,6 +7404,7 @@
             // 
             // btnSaveMsg
             // 
+            this.btnSaveMsg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSaveMsg.Enabled = false;
             this.btnSaveMsg.Location = new System.Drawing.Point(826, 30);
             this.btnSaveMsg.Name = "btnSaveMsg";
@@ -7240,6 +7416,8 @@
             // 
             // txtMsgContent1
             // 
+            this.txtMsgContent1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMsgContent1.Location = new System.Drawing.Point(92, 58);
             this.txtMsgContent1.Multiline = true;
             this.txtMsgContent1.Name = "txtMsgContent1";
@@ -7257,6 +7435,8 @@
             // 
             // cbRevStation
             // 
+            this.cbRevStation.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.cbRevStation.FormattingEnabled = true;
             this.cbRevStation.Location = new System.Drawing.Point(587, 19);
             this.cbRevStation.Name = "cbRevStation";
@@ -7317,14 +7497,17 @@
             // 
             // dgvMsgList
             // 
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMsgList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            this.dgvMsgList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle140.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle140.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle140.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle140.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle140.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle140.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle140.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMsgList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle140;
             this.dgvMsgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMsgList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MsgLevel,
@@ -7401,6 +7584,9 @@
             // 
             // groupSearchWhere
             // 
+            this.groupSearchWhere.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.groupSearchWhere.Controls.Add(this.btnSearchMsg);
             this.groupSearchWhere.Controls.Add(this.txtMsgWhere);
             this.groupSearchWhere.Controls.Add(this.label100);
@@ -7418,6 +7604,7 @@
             // 
             // btnSearchMsg
             // 
+            this.btnSearchMsg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSearchMsg.Location = new System.Drawing.Point(795, 14);
             this.btnSearchMsg.Name = "btnSearchMsg";
             this.btnSearchMsg.Size = new System.Drawing.Size(75, 30);
@@ -7428,6 +7615,8 @@
             // 
             // txtMsgWhere
             // 
+            this.txtMsgWhere.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMsgWhere.Location = new System.Drawing.Point(587, 16);
             this.txtMsgWhere.Name = "txtMsgWhere";
             this.txtMsgWhere.Size = new System.Drawing.Size(181, 26);
@@ -7522,13 +7711,15 @@
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1192, 734);
             this.Controls.Add(this.debugtextbox);
             this.Controls.Add(this.label70);
-            this.Controls.Add(this.label69);
             this.Controls.Add(this.maskpanel);
             this.Controls.Add(this.CenterPanel);
             this.Controls.Add(this.Leftpanel);
+            this.Controls.Add(this.label69);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.pictureBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -7842,7 +8033,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label t1label1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.GroupBox gBoxOperate;
         private System.Windows.Forms.Button btnResetDCard;
         private System.Windows.Forms.Button btnCheckDriver;
         private System.Windows.Forms.Button btnReadDCard;
@@ -8326,6 +8516,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MsgContent;
         private System.Windows.Forms.DataGridViewTextBoxColumn SendTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn MsgState;
+        private System.Windows.Forms.GroupBox gBoxOperate;
     }
 }
 
