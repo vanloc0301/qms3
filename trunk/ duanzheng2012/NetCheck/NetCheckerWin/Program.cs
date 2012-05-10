@@ -15,11 +15,26 @@ namespace NetCheckerWin
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            if (Properties.Settings.Default.Station)
-                Application.Run(new Station());
-            else
-                Application.Run(new Trans());
+
             
+              Boolean createdNew; //返回是否赋予了使用线程的互斥体初始所属权
+            System.Threading.Mutex instance = new System.Threading.Mutex(true, "MutexName", out createdNew); //同步基元变量
+            if (createdNew) //赋予了线程初始所属权，也就是首次使用互斥体
+            {
+                if (Properties.Settings.Default.Station)
+                    Application.Run(new Station());
+                else
+                    Application.Run(new Trans()); ; //这句是系统自动写的
+                instance.ReleaseMutex();
+            }
+            else
+            {
+                //MessageBox.Show("已经启动了一个程序，请先退出！","系统提示",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                Application.Exit();
+            }
+
+
+
         //    Application.Run(new Form1());
         }
     }
