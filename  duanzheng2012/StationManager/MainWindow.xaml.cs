@@ -44,6 +44,9 @@ namespace StationManager
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+
+            Process.Start("垃圾楼.exe");
+
             BaseOperate.label = this.lblMessage;
             //读取站信息
             XmlDocument xdoc = new XmlDocument();
@@ -78,7 +81,7 @@ namespace StationManager
             BaseData.stationName = ds.Tables[0].Rows[0]["Name"].ToString();
 
             setDialog();
-            this.lblTitle.Content = BaseData.stationName + "清洁站清运监管信息系统";
+            this.lblTitle.Content = BaseData.stationName.Replace(" ","") + "清洁站清运监管信息系统";
             LoginWindow loginWindow = new LoginWindow();
             loginWindow.loginSys = new LoginWindow.LoginSysFunc(loginSys);
             loginWindow.ShowDialog();
@@ -91,7 +94,7 @@ namespace StationManager
             timer.Tick += timer_Tick;
             timer.Interval = new TimeSpan(0,1,0);
             timer.Start();
-            Process.Start("垃圾楼.exe");
+            
 
         }
 
@@ -105,11 +108,11 @@ namespace StationManager
         {
             if (newGoods == null)
                 return;
-            this.lblMessage.Content = "最新刷卡车辆：" + newGoods["TruckNo"].ToString().Trim() + " 刷卡时间：" + newGoods["StartTime"].ToString().Trim();
+            this.lblMessage.Content = "最新刷卡车辆:" + newGoods["TruckNo"].ToString().Trim() + " 刷卡时间:" + newGoods["StartTime"].ToString().Trim();
 
             if (newMsg == null)
                 return;
-            this.lblMessage.Content += "    最新消息发送人：" + newMsg["SendPeople"].ToString().Trim() + " 发送时间：" + newMsg["SendTime"].ToString().Trim();
+            this.lblMessage.Content += "    最新消息发送人:" + newMsg["SendPeople"].ToString().Trim() + " 发送时间:" + newMsg["SendTime"].ToString().Trim();
         }
 
         public void loadData(object sender,EventArgs e)
@@ -188,8 +191,8 @@ namespace StationManager
 
         private void btnExt_Click(object sender, RoutedEventArgs e)
         {
-            this.lblUser.Content = "用户名：";
-            this.lblRight.Content = "权  限：";
+            this.lblUser.Content = "用户名:";
+            this.lblRight.Content = "权  限:";
 
             setDialog();
             LoginWindow loginWindow = new LoginWindow();

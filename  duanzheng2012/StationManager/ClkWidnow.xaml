@@ -14,10 +14,10 @@
 		<Label Margin="8,8,0,0" VerticalAlignment="Top" Height="66" Content="六道口垃圾站--实时情况" FontSize="32" Foreground="White" HorizontalAlignment="Left" Width="407" Name="lblTitle"/>
 		<local:WpfTimeLine x:Name="timeLine" Margin="8,0,8,18" VerticalAlignment="Bottom" Height="50" EndTime="20" StartTime="5" />
         <Rectangle Stroke="White" RadiusX="10" RadiusY="10" Margin="40,91,39,118"/>
-        <Label HorizontalAlignment="Left" Margin="216,131,0,0" VerticalAlignment="Top" Content="刷卡车辆：" Foreground="White" FontSize="24"/>
-        <Label HorizontalAlignment="Left" Margin="216,227,0,0" VerticalAlignment="Top" Content="刷卡时间：" FontSize="24" Foreground="White" Height="38.97" Width="130" />
-        <Label HorizontalAlignment="Left" Margin="216,0,0,239" Content="垃圾站名：" FontSize="24" Foreground="White" VerticalAlignment="Bottom" Height="38.97" Width="130" />
-        <Label HorizontalAlignment="Left" Margin="216,0,0,150" VerticalAlignment="Bottom" Content="垃圾类型：" FontSize="24" Foreground="White"/>
+        <Label HorizontalAlignment="Left" Margin="216,131,0,0" VerticalAlignment="Top" Content="刷卡车辆:" Foreground="White" FontSize="24"/>
+        <Label HorizontalAlignment="Left" Margin="216,227,0,0" VerticalAlignment="Top" Content="刷卡时间:" FontSize="24" Foreground="White" Height="38.97" Width="130" />
+        <Label HorizontalAlignment="Left" Margin="216,0,0,239" Content="垃圾站名:" FontSize="24" Foreground="White" VerticalAlignment="Bottom" Height="38.97" Width="130" />
+        <Label HorizontalAlignment="Left" Margin="216,0,0,150" VerticalAlignment="Bottom" Content="垃圾类型:" FontSize="24" Foreground="White"/>
         <Label Margin="379,131,194,0" VerticalAlignment="Top" Content="Loading..." FontSize="24" Foreground="White" Name="lblTruckNo" />
         <Label Margin="379,227,194,0" VerticalAlignment="Top" Content="Loading..." FontSize="24" Foreground="White" Height="38.97" Name="lblPushTime" />
         <Label Margin="379,0,194,239" Content="Loading..." FontSize="24" Foreground="White" VerticalAlignment="Bottom" RenderTransformOrigin="1.6,0.384" Height="38.97" Name="lblStationName" />

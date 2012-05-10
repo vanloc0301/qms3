@@ -75,7 +75,7 @@ namespace StationManager
             backWork.DoWork += updateData;
             backWork.RunWorkerCompleted += new RunWorkerCompletedEventHandler(backWorkComplete);
 
-            this.lblTitle.Content = BaseData.stationName + "清洁站--消息与通知";
+            this.lblTitle.Content = BaseData.stationName.Replace(" ","") + "清洁站--消息与通知";
 
             //读取数据
             string sql = "SELECT * FROM [db_rfidtest].[rfidtest].[Message] WHERE [db_rfidtest].[rfidtest].[Message].[RevStation] = " + BaseData.stationID;
@@ -180,7 +180,7 @@ namespace StationManager
             if (lvData.SelectedIndex < 0)
                 return;
 
-            this.lblContent.Content = "消息内容："+ds.Tables[0].Rows[lvData.SelectedIndex]["MsgContent"];
+            this.lblContent.Content = "消息内容:"+ds.Tables[0].Rows[lvData.SelectedIndex]["MsgContent"];
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
