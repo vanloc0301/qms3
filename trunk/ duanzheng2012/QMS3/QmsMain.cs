@@ -4586,6 +4586,9 @@ drop table tempTable;";
                             {
                                 txtDCNo.Text = sqlread["DriverCardID"].ToString();
                                 txtTruckNo.Text = sqlread["TruckNo"].ToString();
+                                txtDriverAge.Text = sqlread["DriverAge"].ToString();
+                                txtDriverName.Text = sqlread["DriverName"].ToString();
+                                txtDriverGender.Text = sqlread["DriverGender"].ToString();
                                 txtTruckNo.ReadOnly = false;
                             }
                             catch

@@ -444,7 +444,7 @@ namespace QMS3.CfCardPC
                 {
                     for (int i = 0; i < 5; i++)
                     {
-                        status = ConnectScanner(ref m_hScanner, "COM" + nComPort.ToString(), nBaudRate, 0);
+                        status = ConnectScanner(ref m_hScanner, "COM" + "3", nBaudRate, 0);
                         if (status == OK)
                         {
                             break;
@@ -983,7 +983,7 @@ namespace QMS3.CfCardPC
 
             byte[] AccessPassword = new byte[4];
 
-            string str_temp = "00000000";           // 读取密码
+            string str_temp = "00000000";           //  
             for (int i = 0; i < 4; i++)
             {
                 AccessPassword[i] = Convert.ToByte(str_temp[i * 2] + str_temp[i * 2 + 1]);
@@ -1264,7 +1264,7 @@ namespace QMS3.CfCardPC
         #region Member Variables
 
         string sKey;     //密钥
-        int nComPort;    //串口
+        int nComPort = 3;    //串口
         bool bConnectedDevice;/*是否连接上设备*/
 
         int m_hScanner;
