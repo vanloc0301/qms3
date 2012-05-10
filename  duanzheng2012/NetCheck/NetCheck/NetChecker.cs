@@ -53,7 +53,7 @@ namespace NetCheck
 
                 Ping pingSender = new Ping();
 
-                PingReply reply = pingSender.Send(ip);
+                PingReply reply = pingSender.Send("www.baidu.com");
                 if (reply.Status == IPStatus.Success)
                 {
                    // Internet = true;

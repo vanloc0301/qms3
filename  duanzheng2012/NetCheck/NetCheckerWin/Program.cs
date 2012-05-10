@@ -15,10 +15,12 @@ namespace NetCheckerWin
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            if(Properties.Settings.Default.Station)
-            Application.Run(new Form1());
+            if (Properties.Settings.Default.Station)
+                Application.Run(new Station());
             else
-            Application.Run(new Form2());
+                Application.Run(new Trans());
+            
+        //    Application.Run(new Form1());
         }
     }
 }
