@@ -24,3 +24,16 @@ F:\duanzheng2012\NetCheck\NetCheckerWin\obj\x86\Debug\GenerateResource.read.1.tl
 F:\duanzheng2012\NetCheck\NetCheckerWin\obj\x86\Debug\GenerateResource.write.1.tlog
 F:\duanzheng2012\NetCheck\NetCheckerWin\obj\x86\Debug\NetCheckerWin.exe
 F:\duanzheng2012\NetCheck\NetCheckerWin\obj\x86\Debug\NetCheckerWin.pdb
+E:\NetCheck\NetCheckerWin\bin\Debug\NetCheckerWin.exe.config
+E:\NetCheck\NetCheckerWin\obj\x86\Debug\NetCheckerWin.exe
+E:\NetCheck\NetCheckerWin\obj\x86\Debug\NetCheckerWin.pdb
+E:\NetCheck\NetCheckerWin\bin\Debug\NetCheckerWin.exe
+E:\NetCheck\NetCheckerWin\bin\Debug\NetCheckerWin.pdb
+E:\NetCheck\NetCheckerWin\bin\Debug\NetCheck.dll
+E:\NetCheck\NetCheckerWin\bin\Debug\NetCheck.pdb
+E:\NetCheck\NetCheckerWin\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\NetCheck\NetCheckerWin\obj\x86\Debug\NetCheckerWin.Properties.Resources.resources
+E:\NetCheck\NetCheckerWin\obj\x86\Debug\GenerateResource.read.1.tlog
+E:\NetCheck\NetCheckerWin\obj\x86\Debug\GenerateResource.write.1.tlog
+E:\NetCheck\NetCheckerWin\obj\x86\Debug\NetCheckerWin.Station.resources
+E:\NetCheck\NetCheckerWin\obj\x86\Debug\NetCheckerWin.Trans.resources

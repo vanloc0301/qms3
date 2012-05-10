@@ -1,6 +1,6 @@
 ﻿namespace NetCheckerWin
 {
-    partial class Form2
+    partial class Trans
     {
         /// <summary>
         /// Required designer variable.

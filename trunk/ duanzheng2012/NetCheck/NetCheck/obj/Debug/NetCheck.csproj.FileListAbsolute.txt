@@ -8,3 +8,8 @@ F:\duanzheng2012\NetCheck\NetCheck\bin\Debug\NetCheck.pdb
 F:\duanzheng2012\NetCheck\NetCheck\obj\Debug\ResolveAssemblyReference.cache
 F:\duanzheng2012\NetCheck\NetCheck\obj\Debug\NetCheck.dll
 F:\duanzheng2012\NetCheck\NetCheck\obj\Debug\NetCheck.pdb
+E:\NetCheck\NetCheck\bin\Debug\NetCheck.dll
+E:\NetCheck\NetCheck\bin\Debug\NetCheck.pdb
+E:\NetCheck\NetCheck\obj\Debug\ResolveAssemblyReference.cache
+E:\NetCheck\NetCheck\obj\Debug\NetCheck.dll
+E:\NetCheck\NetCheck\obj\Debug\NetCheck.pdb

@@ -1,6 +1,6 @@
 ﻿namespace NetCheckerWin
 {
-    partial class Form1
+    partial class Station
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -50,7 +50,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 14);
             this.label1.TabIndex = 0;
-            this.label1.Text = "服务器";
+            this.label1.Text = "互联网";
             this.label1.DragEnter += new System.Windows.Forms.DragEventHandler(this.pictureBox3_DragEnter);
             this.label1.DragLeave += new System.EventHandler(this.pictureBox3_DragLeave);
             this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox3_MouseDown);
