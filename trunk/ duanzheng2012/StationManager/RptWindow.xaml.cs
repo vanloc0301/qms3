@@ -42,7 +42,7 @@ namespace StationManager
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            this.lblTitle.Content = BaseData.stationName + "清洁站--本站报表";
+            this.lblTitle.Content = BaseData.stationName.Replace(" ", "") + "清洁站--本站报表";
 
             dpDate.CalendarFont = new Font("微软雅黑", 13);
             dpDate.Font = new Font("微软雅黑",15);

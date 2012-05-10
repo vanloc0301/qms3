@@ -13,9 +13,9 @@
 		<Canvas Margin="8,68,8,19">
 			<Image Name="imgMap" Width="876" Height="505"/>
 			<Rectangle Fill="White" Stroke="Black" Width="262" Height="120" Canvas.Left="8" Canvas.Top="8" RadiusX="10" RadiusY="10"/>
-			<Label Content="清洁站名：" Canvas.Left="37" Canvas.Top="17" FontSize="14.667"/>
-			<Label Content="所在地：" Canvas.Left="51.666" Canvas.Top="51.274" FontSize="14.667"/>
-			<Label Content="今日发车辆：" Canvas.Left="22.333" Canvas.Top="87.978" FontSize="14.667"/>
+			<Label Content="清洁站名:" Canvas.Left="37" Canvas.Top="17" FontSize="14.667"/>
+			<Label Content="所在地:" Canvas.Left="51.666" Canvas.Top="51.274" FontSize="14.667"/>
+			<Label Content="今日发车辆:" Canvas.Left="22.333" Canvas.Top="87.978" FontSize="14.667"/>
 			<Label x:Name="lblStation" Content="" FontSize="14.667" Canvas.Left="124.333" Canvas.Top="17" RenderTransformOrigin="1.692,0.469"/>
 			<Label x:Name="lblAddress" Content="" FontSize="14.667" Canvas.Left="124.333" Canvas.Top="51.274" RenderTransformOrigin="1.692,0.469"/>
 			<Label x:Name="lblCarNum" Content="" FontSize="14.667" Canvas.Left="124.333" Canvas.Top="87.978" RenderTransformOrigin="1.692,0.469"/>

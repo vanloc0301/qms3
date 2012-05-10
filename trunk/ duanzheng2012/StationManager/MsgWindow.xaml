@@ -43,7 +43,7 @@
 				</LinearGradientBrush>
 			</Button.Background>
 		</Button>
-		<Label x:Name="lblContent" Margin="75,0,126,55" VerticalAlignment="Bottom" Height="40" Content="消息内容：" FontSize="16" Foreground="White">
+		<Label x:Name="lblContent" Margin="75,0,126,55" VerticalAlignment="Bottom" Height="40" Content="消息内容:" FontSize="16" Foreground="White">
 			<Label.Background>
 				<SolidColorBrush Color="#7F000000"/>
 			</Label.Background>

@@ -18,13 +18,13 @@
 		<Label HorizontalAlignment="Left" Margin="8,8,0,0" VerticalAlignment="Top" Width="364" Height="64" Content="六道口垃圾站--本站报表" Foreground="White" FontSize="32" x:Name="lblTitle"/>
 		<Rectangle Stroke="White" Margin="38,91,38,0" RadiusX="10" RadiusY="10" VerticalAlignment="Top" Height="60.75"/>
 		<Rectangle Stroke="White" Margin="38,176.5,38,27" RadiusX="10" RadiusY="10"/>
-		<Label HorizontalAlignment="Left" Margin="60.5,101.5,0,0" VerticalAlignment="Top" Content="选择报表类型：" FontSize="21.333" Foreground="White"/>
+		<Label HorizontalAlignment="Left" Margin="60.5,101.5,0,0" VerticalAlignment="Top" Content="选择报表类型:" FontSize="21.333" Foreground="White"/>
 		<ComboBox HorizontalAlignment="Left" Margin="223.833,101.5,0,0" VerticalAlignment="Top" Width="131.667" Height="35.75" SelectedIndex="0" FontSize="22" SelectionChanged="ComboBox_SelectionChanged" x:Name="cbRptType">
             <ComboBoxItem Content="年报表"/>
             <ComboBoxItem Content="月报表"/>
             <ComboBoxItem Content="日报表"/>
         </ComboBox>
-        <Label Margin="440,101.5,292.666,0" VerticalAlignment="Top" Content="选择日期：" FontSize="21.333" Foreground="White" d:LayoutOverrides="Width"/>
+        <Label Margin="440,101.5,292.666,0" VerticalAlignment="Top" Content="选择日期:" FontSize="21.333" Foreground="White" d:LayoutOverrides="Width"/>
         <wfi:WindowsFormsHost Margin="0,101.5,259.666,0" Background="Cyan" Height="35.75" VerticalAlignment="Top" HorizontalAlignment="Right" Width="164.334">
 
             <wf:DateTimePicker Margin="0,101,234,0" Height="35" Width="100" x:Name="dpDate" />

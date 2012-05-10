@@ -44,7 +44,7 @@ namespace StationManager
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            this.lblTitle.Content = BaseData.stationName + "清洁站--打印";
+            this.lblTitle.Content = BaseData.stationName.Replace(" ", "") + "清洁站--打印";
             
             DataSet dsStart;
             DataSet dsEnd;
@@ -173,7 +173,7 @@ namespace StationManager
             code += DateTime.Parse(dataTable.Rows[0]["PushTime"].ToString()).ToString("yyyy-MM-dd,HH:mm:ss") + " ";
             code += dataTable.Rows[0]["Type1"].ToString().Trim();
 
-            string pstr = "" + BaseData.stationName + "清洁站管理系统\n";
+            string pstr = "" + BaseData.stationName.Replace(" ", "") + "清洁站管理系统\n";
             pstr += "车牌号:" + dataTable.Rows[0]["TruckNo"].ToString().Trim() + "\n";
             pstr += "出发时间:" + DateTime.Parse(dataTable.Rows[0]["PushTime"].ToString()).ToString("yy-MM-dd,HH:mm:ss") + "\n";
             pstr += "垃圾类型:" + dataTable.Rows[0]["Type1"].ToString().Trim() + "\n";

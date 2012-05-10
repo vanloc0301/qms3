@@ -35,8 +35,8 @@ namespace StationManager
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
-            lblTitle.Content = BaseData.stationName+"清洁站--卫星影像";
-            lblStation.Content = BaseData.stationName + "清洁站";
+            lblTitle.Content = BaseData.stationName.Replace(" ","")+"清洁站--卫星影像";
+            lblStation.Content = BaseData.stationName.Replace(" ", "") + "清洁站";
             lblAddress.Content = BaseData.stationAddress;
 
             String imgName = BaseData.stationName.Trim().Replace(" ","")+"楼.jpg";
