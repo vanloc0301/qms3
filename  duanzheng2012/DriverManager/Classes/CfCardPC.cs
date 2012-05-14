@@ -115,7 +115,8 @@ namespace DriverManager.Classes
 
         #endregion
 
-        //////////////////////////Library Import//////////////////////////
+        ///////////////////
+        ///////Library Import//////////////////////////
         #region Library Import
 
         [DllImport("kernel32.dll")]
@@ -162,7 +163,7 @@ namespace DriverManager.Classes
         }
 
         [DllImport("Reader2600DLL.dll")]
-        public static extern int ConnectScanner(ref int hScanner, string PortNum, int nBaudRate, int Address);
+        public static extern int ConnectScanner(ref int hScanner, string PortNum, int nBaudRate);
         //[DllImport("Reader2600DLL.dll")]
         //public static extern int DisconnectScanner(ref int hScanner);
         [DllImport("Reader2600DLL.dll")]
@@ -428,7 +429,7 @@ namespace DriverManager.Classes
                     {
                         for (int i = 0; i < 5; i++)
                         {
-                            status = ConnectScanner(ref m_hScanner, "COM" + n.ToString(), nBaudRate, 0);
+                            status = ConnectScanner(ref m_hScanner, "COM" + n.ToString(), nBaudRate);
                             if (status == OK)
                             {
                                 break;
@@ -444,7 +445,7 @@ namespace DriverManager.Classes
                 {
                     for (int i = 0; i < 5; i++)
                     {
-                        status = ConnectScanner(ref m_hScanner, "COM" + "3", nBaudRate, 0);
+                        status = ConnectScanner(ref m_hScanner, "COM" + "3", nBaudRate);
                         if (status == OK)
                         {
                             break;
@@ -634,7 +635,7 @@ namespace DriverManager.Classes
                         MessageBox.Show("出问题啦！读卡器天线连接失败！", "出问题啦！", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                     case 2:
-                        //MessageBox.Show("未检测到有效的数据卡！请扫描卡片！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("未检测到有效的数据卡！请扫描卡片！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         break;
                     case 3:
                         MessageBox.Show("出问题啦！检测到非法的数据卡！", "出问题啦！", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -983,7 +984,7 @@ namespace DriverManager.Classes
 
             byte[] AccessPassword = new byte[4];
 
-            string str_temp = "00000000";           // 读取密码
+            string str_temp = "00000000";           //  
             for (int i = 0; i < 4; i++)
             {
                 AccessPassword[i] = Convert.ToByte(str_temp[i * 2] + str_temp[i * 2 + 1]);
@@ -1264,7 +1265,7 @@ namespace DriverManager.Classes
         #region Member Variables
 
         string sKey;     //密钥
-        int nComPort;    //串口
+        int nComPort = 3;    //串口
         bool bConnectedDevice;/*是否连接上设备*/
 
         int m_hScanner;
