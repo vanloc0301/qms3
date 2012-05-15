@@ -427,6 +427,11 @@ namespace Distributor
             LBStatus.Refresh();
             progressBar1.Value = 95;
             progressBar1.Refresh();
+            int dest = 1;
+            if (comboBox1.Text == "大屯")
+                dest = 1;
+            else
+                dest = 2;
             if (myCfCard.Write(sInfoW, 10) == 0)
             {
                 //MessageBox.Show("写卡成功！");
@@ -434,7 +439,7 @@ namespace Distributor
                // !@!#!#!#!#
             //    PlaySound("\\User_Storage\\sound\\suc.wav", IntPtr.Zero, 0x0002);
                 f2.setmsg("写卡成功", 1, "\\User_Storage\\sound\\suc.wav");
-                Updater.insertTask(sBoxCardNum, sCarNum, sStartTime, N_START_SPOT_NUM,0);
+                Updater.insertTask(sBoxCardNum, sCarNum, sStartTime, N_START_SPOT_NUM,0,dest);
             } 
             else
             {

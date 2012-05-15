@@ -73,6 +73,8 @@
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.goodsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.db_rfidtestDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dboGoodsBindingSource)).BeginInit();
@@ -134,9 +136,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(137, 113);
+            this.button1.Location = new System.Drawing.Point(54, 130);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(72, 20);
+            this.button1.Size = new System.Drawing.Size(18, 20);
             this.button1.TabIndex = 7;
             this.button1.Text = "x";
             this.button1.Visible = false;
@@ -146,9 +148,9 @@
             // 
             this.pbReadBoxCard.BackColor = System.Drawing.Color.Transparent;
             this.pbReadBoxCard.Image = ((System.Drawing.Image)(resources.GetObject("pbReadBoxCard.Image")));
-            this.pbReadBoxCard.Location = new System.Drawing.Point(121, 139);
+            this.pbReadBoxCard.Location = new System.Drawing.Point(130, 159);
             this.pbReadBoxCard.Name = "pbReadBoxCard";
-            this.pbReadBoxCard.Size = new System.Drawing.Size(88, 110);
+            this.pbReadBoxCard.Size = new System.Drawing.Size(72, 94);
             this.pbReadBoxCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbReadBoxCard.Click += new System.EventHandler(this.pbReadBoxCard_Click);
             this.pbReadBoxCard.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbReadBoxCard_MouseDown);
@@ -157,9 +159,9 @@
             // 
             this.pbReadCarCard.BackColor = System.Drawing.Color.SlateBlue;
             this.pbReadCarCard.Image = ((System.Drawing.Image)(resources.GetObject("pbReadCarCard.Image")));
-            this.pbReadCarCard.Location = new System.Drawing.Point(16, 139);
+            this.pbReadCarCard.Location = new System.Drawing.Point(23, 158);
             this.pbReadCarCard.Name = "pbReadCarCard";
-            this.pbReadCarCard.Size = new System.Drawing.Size(88, 110);
+            this.pbReadCarCard.Size = new System.Drawing.Size(74, 95);
             this.pbReadCarCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbReadCarCard.Click += new System.EventHandler(this.pbReadCarCard_Click);
             this.pbReadCarCard.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbReadCarCard_MouseDown);
@@ -233,7 +235,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(75, 113);
+            this.pictureBox1.Location = new System.Drawing.Point(71, 98);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(80, 80);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -241,7 +243,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(75, 113);
+            this.pictureBox2.Location = new System.Drawing.Point(70, 98);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(80, 80);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -326,7 +328,7 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.pictureBox6);
             this.panel1.Controls.Add(this.pictureBox5);
-            this.panel1.Location = new System.Drawing.Point(3, 23);
+            this.panel1.Location = new System.Drawing.Point(3, 21);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(220, 268);
             // 
@@ -395,11 +397,29 @@
             // 
             this.pictureBox7.BackColor = System.Drawing.Color.Chartreuse;
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(3, 102);
+            this.pictureBox7.Location = new System.Drawing.Point(3, 130);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(31, 31);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(3, 107);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(100, 20);
+            this.label7.Text = "目的地：";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Items.Add("大屯");
+            this.comboBox2.Items.Add("马家楼");
+            this.comboBox2.Location = new System.Drawing.Point(97, 105);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(112, 22);
+            this.comboBox2.TabIndex = 29;
             // 
             // Form1
             // 
@@ -410,6 +430,10 @@
             this.ClientSize = new System.Drawing.Size(240, 320);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.NetPIC);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.taskPIC);
@@ -418,8 +442,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.LBStatus);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tbCarNum);
             this.Controls.Add(this.labCarNum);
@@ -494,6 +516,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label7;
+        public System.Windows.Forms.ComboBox comboBox2;
     }
 }
 
