@@ -43,7 +43,7 @@ namespace Distributor
             return root.HasChildNodes;
 
         }
-        public static void insertTask(String sBoxCardNum, string sCarNum, string sStartTime, int N_START_SPOT, int type)//添加任务
+        public static void insertTask(String sBoxCardNum, string sCarNum, string sStartTime, int N_START_SPOT, int type,int dest)//添加任务
         {
             XmlDocument task = readXML();
             XmlNode root = task.SelectSingleNode("Tasks");
@@ -60,7 +60,8 @@ namespace Distributor
             xStartSpot.InnerText = N_START_SPOT.ToString();
             XmlElement xType = task.CreateElement("type");
             xType.InnerText = type.ToString();
-
+            XmlElement xDest = task.CreateElement("sDestination");
+            xDest.InnerText = dest.ToString();
             xe1.AppendChild(xBoxCardNum);
             xe1.AppendChild(xCarNum);
             xe1.AppendChild(xStartTime);
