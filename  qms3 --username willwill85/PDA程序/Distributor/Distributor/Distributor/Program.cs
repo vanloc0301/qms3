@@ -26,7 +26,7 @@ namespace Distributor
                 Application.Exit();
             } 
         }
-        class SingleInstance
+        public class SingleInstance
         {
             private static string runFlagFullname = null;
 

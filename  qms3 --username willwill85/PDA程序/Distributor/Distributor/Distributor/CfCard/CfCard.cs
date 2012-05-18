@@ -128,8 +128,6 @@ namespace Distributor.CfCard
             int Cnt = 0x01;
 
             //获取要读取卡的卡号，若没有选择，则默认为列表的最后一个
-            string strUid = "";
-
             byte[] byUUID = new byte[256];
             byUUID = myid;
             StringBuilder PassWord;
@@ -182,7 +180,7 @@ namespace Distributor.CfCard
                 if (iRet != 1)
                 {
                     return false;
-                    break;
+                  //  break;
                 }
                 else
                     iWriteSuccessCount += 2;

@@ -72,6 +72,9 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.timer2 = new System.Windows.Forms.Timer();
+            this.signalpic = new System.Windows.Forms.PictureBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.goodsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.db_rfidtestDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dboGoodsBindingSource)).BeginInit();
@@ -90,7 +93,7 @@
             this.comboBox1.Items.Add("厨余垃圾");
             this.comboBox1.Items.Add("餐厨垃圾");
             this.comboBox1.Items.Add("可回收垃圾");
-            this.comboBox1.Location = new System.Drawing.Point(97, 77);
+            this.comboBox1.Location = new System.Drawing.Point(97, 75);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(112, 22);
             this.comboBox1.TabIndex = 15;
@@ -118,14 +121,14 @@
             // 
             this.labCarNum.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
             this.labCarNum.ForeColor = System.Drawing.Color.White;
-            this.labCarNum.Location = new System.Drawing.Point(3, 50);
+            this.labCarNum.Location = new System.Drawing.Point(3, 49);
             this.labCarNum.Name = "labCarNum";
             this.labCarNum.Size = new System.Drawing.Size(100, 20);
             this.labCarNum.Text = "卡车牌号：";
             // 
             // tbCarNum
             // 
-            this.tbCarNum.Location = new System.Drawing.Point(97, 50);
+            this.tbCarNum.Location = new System.Drawing.Point(97, 49);
             this.tbCarNum.Name = "tbCarNum";
             this.tbCarNum.Size = new System.Drawing.Size(112, 21);
             this.tbCarNum.TabIndex = 5;
@@ -133,9 +136,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(137, 113);
+            this.button1.Location = new System.Drawing.Point(202, 229);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(72, 20);
+            this.button1.Size = new System.Drawing.Size(22, 20);
             this.button1.TabIndex = 7;
             this.button1.Text = "x";
             this.button1.Visible = false;
@@ -145,9 +148,9 @@
             // 
             this.pbReadBoxCard.BackColor = System.Drawing.Color.Transparent;
             this.pbReadBoxCard.Image = ((System.Drawing.Image)(resources.GetObject("pbReadBoxCard.Image")));
-            this.pbReadBoxCard.Location = new System.Drawing.Point(121, 139);
+            this.pbReadBoxCard.Location = new System.Drawing.Point(127, 158);
             this.pbReadBoxCard.Name = "pbReadBoxCard";
-            this.pbReadBoxCard.Size = new System.Drawing.Size(88, 110);
+            this.pbReadBoxCard.Size = new System.Drawing.Size(71, 84);
             this.pbReadBoxCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbReadBoxCard.Click += new System.EventHandler(this.pbReadBoxCard_Click);
             this.pbReadBoxCard.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbReadBoxCard_MouseDown);
@@ -156,9 +159,9 @@
             // 
             this.pbReadCarCard.BackColor = System.Drawing.Color.SlateBlue;
             this.pbReadCarCard.Image = ((System.Drawing.Image)(resources.GetObject("pbReadCarCard.Image")));
-            this.pbReadCarCard.Location = new System.Drawing.Point(16, 139);
+            this.pbReadCarCard.Location = new System.Drawing.Point(29, 157);
             this.pbReadCarCard.Name = "pbReadCarCard";
-            this.pbReadCarCard.Size = new System.Drawing.Size(88, 110);
+            this.pbReadCarCard.Size = new System.Drawing.Size(71, 84);
             this.pbReadCarCard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbReadCarCard.Click += new System.EventHandler(this.pbReadCarCard_Click);
             this.pbReadCarCard.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pbReadCarCard_MouseDown);
@@ -265,14 +268,14 @@
             // 
             this.label1.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(3, 78);
+            this.label1.Location = new System.Drawing.Point(3, 75);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 20);
             this.label1.Text = "箱的类型：";
             // 
             // taskPIC
             // 
-            this.taskPIC.Location = new System.Drawing.Point(215, 7);
+            this.taskPIC.Location = new System.Drawing.Point(176, 7);
             this.taskPIC.Name = "taskPIC";
             this.taskPIC.Size = new System.Drawing.Size(8, 8);
             // 
@@ -280,10 +283,10 @@
             // 
             this.label2.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(157, 4);
+            this.label2.Location = new System.Drawing.Point(143, 4);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 16);
-            this.label2.Text = "数据同步";
+            this.label2.Text = "数据";
             // 
             // NetPIC
             // 
@@ -309,7 +312,7 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.pictureBox6);
             this.panel1.Controls.Add(this.pictureBox5);
-            this.panel1.Location = new System.Drawing.Point(3, 21);
+            this.panel1.Location = new System.Drawing.Point(20, 286);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(220, 268);
             // 
@@ -358,7 +361,7 @@
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(129, 176);
+            this.pictureBox6.Location = new System.Drawing.Point(129, 166);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(75, 75);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -368,7 +371,7 @@
             // 
             this.pictureBox5.BackColor = System.Drawing.Color.SlateBlue;
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(25, 176);
+            this.pictureBox5.Location = new System.Drawing.Point(25, 167);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(75, 75);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -378,7 +381,7 @@
             // 
             this.pictureBox7.BackColor = System.Drawing.Color.Chartreuse;
             this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.Location = new System.Drawing.Point(3, 102);
+            this.pictureBox7.Location = new System.Drawing.Point(3, 121);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(31, 31);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -390,6 +393,32 @@
             this.timer2.Interval = 200000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // signalpic
+            // 
+            this.signalpic.Location = new System.Drawing.Point(204, 2);
+            this.signalpic.Name = "signalpic";
+            this.signalpic.Size = new System.Drawing.Size(18, 18);
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(3, 101);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(100, 20);
+            this.label7.Text = "目的地：";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DisplayMember = "大屯";
+            this.comboBox2.Items.Add("大屯");
+            this.comboBox2.Items.Add("马家楼");
+            this.comboBox2.Location = new System.Drawing.Point(97, 102);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(112, 22);
+            this.comboBox2.TabIndex = 27;
+            this.comboBox2.ValueMember = "大屯";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -398,6 +427,9 @@
             this.BackColor = System.Drawing.Color.SlateBlue;
             this.ClientSize = new System.Drawing.Size(240, 320);
             this.ControlBox = false;
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.signalpic);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.NetPIC);
             this.Controls.Add(this.label3);
@@ -481,6 +513,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox1;
         public System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.PictureBox signalpic;
+        private System.Windows.Forms.Label label7;
+        public System.Windows.Forms.ComboBox comboBox2;
     }
 }
 
