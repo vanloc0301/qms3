@@ -55,14 +55,26 @@
     <Reference Include="mscorlib">
       <Private>True</Private>
     </Reference>
-    <Reference Include="SEUIC.Phone, Version=1.0.0.5, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="NDeviceIOControl, Version=1.0.4149.31072, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>CfCard\SEUIC.Phone.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Phone\Dll_Bin\C#\NDeviceIOControl.dll</HintPath>
+    </Reference>
+    <Reference Include="P2PMessageQueue, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Phone\Dll_Bin\C#\P2PMessageQueue.dll</HintPath>
+    </Reference>
+    <Reference Include="SEUIC.Phone, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Phone\Dll_Bin\C#\SEUIC.Phone.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.SqlClient, Version=3.0.3600.0, Culture=neutral, PublicKeyToken=3be235df1c8d2ad3, processorArchitecture=MSIL">
       <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SqlServerCe, Version=3.0.3600.0, Culture=neutral, PublicKeyToken=3be235df1c8d2ad3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Phone\Dll_Bin\C#\System.Data.SqlServerCe.dll</HintPath>
     </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -169,6 +181,11 @@
     <None Include="Resources\failed.jpg" />
     <None Include="Resources\info.jpg" />
     <None Include="Resources\suc.jpg" />
+    <None Include="Resources\nm_signal_00.png" />
+    <None Include="Resources\nm_signal_100.png" />
+    <None Include="Resources\nm_signal_25.png" />
+    <None Include="Resources\nm_signal_50.png" />
+    <None Include="Resources\nm_signal_75.png" />
     <Content Include="UniButtonDemo.ico" />
     <None Include="Resources\phonedownDown.png" />
     <None Include="Resources\phonedownUp.png" />

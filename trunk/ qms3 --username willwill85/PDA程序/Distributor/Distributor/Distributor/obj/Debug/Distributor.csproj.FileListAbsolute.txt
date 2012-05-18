@@ -117,3 +117,6 @@ C:\Users\will\Desktop\icons\qms3-my\PDA程序\Distributor\Distributor\Distributo
 C:\Users\will\Desktop\icons\qms3-my\PDA程序\Distributor\Distributor\Distributor\obj\Debug\Distributor.csproj.GenerateResource.Cache
 C:\Users\will\Desktop\icons\qms3-my\PDA程序\Distributor\Distributor\Distributor\obj\Debug\Distributor.exe
 C:\Users\will\Desktop\icons\qms3-my\PDA程序\Distributor\Distributor\Distributor\obj\Debug\Distributor.pdb
+C:\Users\will\Desktop\icons\qms3-my\PDA程序\Distributor\Distributor\Distributor\bin\Debug\NDeviceIOControl.dll
+C:\Users\will\Desktop\icons\qms3-my\PDA程序\Distributor\Distributor\Distributor\bin\Debug\P2PMessageQueue.dll
+C:\Users\will\Desktop\icons\qms3-my\PDA程序\Distributor\Distributor\Distributor\bin\Debug\System.Data.SqlServerCe.dll

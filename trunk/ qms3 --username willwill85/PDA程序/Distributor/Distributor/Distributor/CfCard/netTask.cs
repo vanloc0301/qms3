@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml;
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 namespace Distributor
 {
     public class Updater
@@ -43,7 +44,7 @@ namespace Distributor
             return root.HasChildNodes;
 
         }
-        public static void insertTask(String sBoxCardNum, string sCarNum, string sStartTime, int N_START_SPOT, int type)//添加任务
+        public static void insertTask(String sBoxCardNum, string sCarNum, string sStartTime, int N_START_SPOT, int type, string endstation)//添加任务
         {
             XmlDocument task = readXML();
             XmlNode root = task.SelectSingleNode("Tasks");
@@ -60,27 +61,33 @@ namespace Distributor
             xStartSpot.InnerText = N_START_SPOT.ToString();
             XmlElement xType = task.CreateElement("type");
             xType.InnerText = type.ToString();
+            XmlElement xEnd = task.CreateElement("sEndStation");
+            xEnd.InnerText = endstation;
+
 
             xe1.AppendChild(xBoxCardNum);
             xe1.AppendChild(xCarNum);
             xe1.AppendChild(xStartTime);
             xe1.AppendChild(xStartSpot);
             xe1.AppendChild(xType);
-
+            xe1.AppendChild(xEnd);
             root.AppendChild(xe1);
 
             task.Save("Task.xml");
 
         }
-        private static void insertDB(String sBoxCardNum, string sCarNum, string sStartTime, int N_START_SPOT, int type)//添加任务
+        private static void insertDB(String sBoxCardNum, string sCarNum, string sStartTime, int N_START_SPOT, int type,int endStation)//添加任务
         {
-            string mssqlstring = "EXEC pda_InsertGoods '" +
+            string mssqlstring = "EXEC pda_InsertGoods2 '" +
                         sBoxCardNum + "','" +
                         sCarNum + "','" +
-                        sStartTime + "'," +
+                        sStartTime + "','" +
                 //cbxDriverGender.Text + "','" +
-                        N_START_SPOT.ToString();
+                        N_START_SPOT.ToString() + "','" +
+                        type.ToString() + "'," +
+                        endStation.ToString();
 
+           // MessageBox.Show(mssqlstring);
             BaseOperate.getcom(mssqlstring);
             
         }
@@ -101,7 +108,8 @@ namespace Distributor
                     list.Item(1).InnerText,
                     list.Item(2).InnerText,
                     int.Parse(list.Item(3).InnerText),
-                    int.Parse(list.Item(4).InnerText)
+                    int.Parse(list.Item(4).InnerText),
+                    int.Parse(list.Item(5).InnerText)
                     );
 
                 root.RemoveChild(xe1);
