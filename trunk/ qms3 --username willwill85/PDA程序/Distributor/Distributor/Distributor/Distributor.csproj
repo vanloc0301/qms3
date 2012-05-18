@@ -19,6 +19,7 @@
     <FormFactorID>
     </FormFactorID>
     <ApplicationIcon>UniButtonDemo.ico</ApplicationIcon>
+    <DeployDirPrefix>\</DeployDirPrefix>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
