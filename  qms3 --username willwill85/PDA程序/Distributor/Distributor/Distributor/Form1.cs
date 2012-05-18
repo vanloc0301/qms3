@@ -13,14 +13,14 @@ using SEUIC.Phone;
 using SEUIC.Phone.Module;
 using SEUIC.Phone.RAS;
 using System.Threading;
-
-
+using Microsoft.WindowsCE.Forms;
+using System.Net;
 namespace Distributor
 {
 
     public partial class Form1 : Form
     {
-        
+
         private SYSTEM_POWER_STATUS_EX2 status = new SYSTEM_POWER_STATUS_EX2();
         private SYSTEM_POWER_STATUS_EX status2 = new SYSTEM_POWER_STATUS_EX();
         [DllImport("coredll")]
@@ -28,7 +28,87 @@ namespace Distributor
         [DllImport("coredll")]
         public static extern void SystemIdleTimerReset();
         [DllImport("coredll.dll")]
-        public static extern uint GetSystemPowerStatusEx2(ref SYSTEM_POWER_STATUS_EX2 pSystemPowerStatusEx2,int dwLen, int fUpdate);
+        public static extern uint GetSystemPowerStatusEx2(ref SYSTEM_POWER_STATUS_EX2 pSystemPowerStatusEx2, int dwLen, int fUpdate);
+        [DllImport("D300SysUI.dll")]
+        public static extern bool D300SysUI_SetSystemPowerStateSuspend();
+
+
+        [DllImport("D300SysUI.dll")]
+        public static extern void D300SysUI_SetResumeRegister(IntPtr hResumeWnd, int msgID);
+        [DllImport("coredll.dll")]
+        private static extern bool GetLastInputInfo(ref LASTINPUTINFO plii);
+
+        //Step 4
+
+        internal struct LASTINPUTINFO
+        {
+            public uint cbSize;
+            public uint dwTime;
+        }
+
+
+
+
+        public const int WM_RESUME = 0x4010;
+
+        internal class ProcMessageWindow : MessageWindow
+        {
+            public ProcMessageWindow()
+            {
+
+            }
+
+            protected override void WndProc(ref Message msg)
+            {
+                switch (msg.Msg)
+                {
+                    case WM_RESUME:
+                        {
+                            Thread th1 = new Thread(checkmyself);
+                            th1.Start();
+                        }
+                        break;
+                }
+              //  base.WndProc(ref msg);
+            }
+
+        }
+        public static void checkmyself()
+        {
+            int iloop = 10;
+            int iRssi = 0;
+            ras.HangUp();
+            Thread.Sleep(10000);
+
+            iRssi = Module.GetRSSI();
+            if (iRssi <= 0)
+            {
+                SEUIC.Phone.Initialize.ModuleReset();
+                Thread.Sleep(3000);
+                for (int i = 0; i < iloop; i++)
+                {
+                    iRssi = Module.GetRSSI();
+                    if (iRssi > 0)
+                        break;
+                    Thread.Sleep(2000);
+                }
+            }
+            dialup();
+            System.Threading.Thread.Sleep(10000);
+            try
+            {
+                HttpWebRequest myreq = (HttpWebRequest)WebRequest.Create("http://180.186.12.183/log/add.php?no=" + S_START_SPOT_NUM);
+                HttpWebResponse myrep = (HttpWebResponse)myreq.GetResponse();
+            }
+            catch { }
+                
+        }
+
+        //   /////////////////////////////////////////////////////////////////////////////////
+
+        ProcMessageWindow MsgWin;
+
+        public delegate void SendStrCallback(string text);
         public Form1()
         {
             InitializeComponent();
@@ -36,19 +116,32 @@ namespace Distributor
             clearMemProperties();
         }
         Form2 f2;
-        public void dialup()
+        public static void dialup()
         {
-            SEUIC.Phone.Initialize.UnInit();
-            Thread.Sleep(100);
-            SEUIC.Phone.Initialize.Init();
-            ras = Ras.GetInstance();
+            int iloop = 10;
+            int iRssi = 0;
+            iRssi = Module.GetRSSI();
+            if (iRssi <= 0)
+            {
+                SEUIC.Phone.Initialize.ModuleReset();
+                Thread.Sleep(3000);
+                for (int i = 0; i < iloop; i++)
+                {
+                    iRssi = Module.GetRSSI();
+                    if (iRssi > 0)
+                        break;
+                    Thread.Sleep(2000);
+                }
+            }
             ras.RasDialMode = SEUIC.Phone.RAS.RasDialMode.Sync;//同步拨号,SEUIC.Phone.RAS.RasDialMode.Async 为异步拨号
             ras.DialUp("card", "card", "#777");
+            
+            
         }
-   
+
 
         public Thread ringthd;// = new Thread(ring);
-      
+
         public static void ring()
         {
             while (true)
@@ -57,12 +150,13 @@ namespace Distributor
                 System.Threading.Thread.Sleep(1000);
             }
         }
-        
+
         public bool checknet()
         {
-            Ras myras = Ras.GetInstance();
+         //   Ras myras = Ras.GetInstance();
             RASConnState netstate = RASConnState.RASCS_Disconnected;
-            netstate = myras.GetStatus();
+
+            netstate = ras.GetStatus();
             if (netstate == RASConnState.RASCS_Connected)
                 return true;
             return false;
@@ -78,7 +172,8 @@ namespace Distributor
             sCarCardNum = "";
             sBoxCardNum = "";
             myCfCard.disconnect();
-           // SEUIC.Phone.Initialize.UnInit();//必须要调用。
+            useractive();
+            // SEUIC.Phone.Initialize.UnInit();//必须要调用。
         }
 
         protected void clearPropShow()
@@ -89,18 +184,28 @@ namespace Distributor
             tbCarNum.Select(1, 0);
             LBStatus.Visible = false;
             progressBar1.Visible = false;
-            pictureBox1.Visible = false;
-            pictureBox2.Visible = false;
+            //    pictureBox1.Visible = false;
+            //   pictureBox2.Visible = false;
             pbReadBoxCard.Enabled = true;
-            pictureBox1.Visible = false;
+            useractive();
+            //  pictureBox1.Visible = false;
         }
         //读司机卡
         private void pbReadCarCard_Click(object sender, EventArgs e)
         {
+            useractive();
             if (!myCfCard.connect())
             {
-                MessageBox.Show("连接读卡器失败！");
-                this.Close();
+                if (!myCfCard.connect())
+                {
+                    f2.setmsg("没有检测到卡片", 3, "\\User_Storage\\sound\\nocard.wav");
+                    // PlaySound("\\User_Storage\\sound\\nocard.wav", IntPtr.Zero, 0x0002);
+                    string xx = tbCarNum.Text;
+                    clearMemProperties();
+                    clearPropShow();
+                    tbCarNum.Text = xx;
+                    return;
+                }
             }
 
             this.pbReadCarCard.Image = Properties.Resources.btReadUp;
@@ -116,58 +221,96 @@ namespace Distributor
                 return;
             }
             else
-                sCarCardNum = myCfCard.carid();
-            
+                try
+                {
+                    sCarCardNum = myCfCard.carid();
+                }
+                catch 
+                {
+                    f2.setmsg("没有检测到卡片", 3, "\\User_Storage\\sound\\nocard.wav");
+                    // PlaySound("\\User_Storage\\sound\\nocard.wav", IntPtr.Zero, 0x0002);
+                    string xx = tbCarNum.Text;
+                    clearMemProperties();
+                    clearPropShow();
+                    tbCarNum.Text = xx;
+                    return;
+                }
+
 
             //读取卡类型
-            if (myCfCard.ReadString(0, 1, ref sInfoR) != 0)
+            //     if (myCfCard.ReadString(0, 1, ref sInfoR) != 0)
+            if (!CfCard.CfCard.read())
             {
-                MessageBox.Show("读取卡类型错误！");
+                f2.setmsg("没有检测到卡片", 3, "\\User_Storage\\sound\\nocard.wav");
                 clearMemProperties();
                 clearPropShow();
                 return;
             }
-          //  MessageBox.Show(myCfCard.StrToHex(sInfoR));
-            
+            //  MessageBox.Show(myCfCard.StrToHex(sInfoR));
+            sInfoR = CfCard.CfCard.myread.Cardtype;
             if (sInfoR != "B")
             {
                 //MessageBox.Show("此卡不是司机卡！");
                 f2.setmsg("此卡不是司机卡", 3, "\\User_Storage\\sound\\driver.wav");
-              //  PlaySound("\\User_Storage\\sound\\driver.wav", IntPtr.Zero, 0x0002);
-                
+                //  PlaySound("\\User_Storage\\sound\\driver.wav", IntPtr.Zero, 0x0002);
+
                 clearMemProperties();
                 clearPropShow();
                 return;
             }
 
             //读取车牌号
-            string Truckno = "";
-            if (myCfCard.ReadString(1,9, ref Truckno) != 0)
+            string Truckno = "京" + CfCard.CfCard.myread.CarNum;
+            //if (myCfCard.ReadString(1,9, ref Truckno) != 0)
             {
-               // MessageBox.Show("读取车牌号错误！");
-                f2.setmsg("读卡失败,请重试", 2, "\\User_Storage\\sound\\failed.wav");
-              //  PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
-                
-                clearMemProperties();
-                clearPropShow();
-                return;
+                // MessageBox.Show("读取车牌号错误！");
+                // f2.setmsg("读卡失败,请重试", 2, "\\User_Storage\\sound\\failed.wav");
+                //  PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
+                //  
+                //  clearMemProperties();
+                // //  clearPropShow();
+                // return;
             }
+            sCarNum = Truckno;
+            //   tbCarNum.Text = sCarNum;
+
+
+            SendStr(sCarNum);
             clearMemProperties();
             clearPropShow();
-            sCarNum = Truckno;
-            tbCarNum.Text = sCarNum;
+            tbCarNum.Text = Truckno;
 
-            
-            
+
+        }
+        private void SendStr(string text)
+        {
+            if (this.tbCarNum.InvokeRequired)
+            {
+                SendStrCallback d = new SendStrCallback(SendStr);
+                this.Invoke(d, new object[] { text });
+            }
+            else
+            {
+ 
+                tbCarNum.Text = sCarNum;
+            }
         }
         //读箱卡
         private void pbReadBoxCard_Click(object sender, EventArgs e)
         {
-
+            useractive();
             if (!myCfCard.connect())
             {
-                MessageBox.Show("连接读卡器失败！");
-                this.Close();
+                if (!myCfCard.connect())
+                {
+                    f2.setmsg("没有检测到卡片", 3, "\\User_Storage\\sound\\nocard.wav");
+                    // PlaySound("\\User_Storage\\sound\\nocard.wav", IntPtr.Zero, 0x0002);
+                    string xx = tbCarNum.Text;
+                    clearMemProperties();
+                    clearPropShow();
+                    tbCarNum.Text = xx;
+                    return;
+                }
             }
             this.pbReadBoxCard.Image = Properties.Resources.btWriteUp;
             this.Refresh();
@@ -178,34 +321,35 @@ namespace Distributor
             LBStatus.Visible = true;
             LBStatus.Text = "数据处理中";
             LBStatus.Refresh();
-            pictureBox1.Refresh();
+            //   pictureBox1.Refresh();
             string sInfoR = "";
             string sInfoW = "";
             sStartTime = System.DateTime.Now.ToString("yy-MM-dd,HH:mm");
             sStartTime2 = System.DateTime.Now.ToString("yyMMddHHmm");
+            System.DateTime dt2 = System.DateTime.Now;
             sCarNum = tbCarNum.Text;
             if (sCarNum == "")
                 sCarNum = "京";
-          //  MessageBox.Show(sCarNum);
+            //  MessageBox.Show(sCarNum);
             if (sCarNum == "京BYD")
             {
                 myCfCard.disconnect();
                 clearMemProperties();
                 clearPropShow();
                 mytask.Abort();
-                
+
                 //this.Close();
                 Application.Exit();
                 return;
             }
             int Percent;
             Percent = GetSystemPowerStatusEx(status2,/*System.Runtime.InteropServices.Marshal.SizeOf(status),*/ 1);
-            if (status2.BatteryLifePercent < 40)
+            if (status2.BatteryLifePercent < 35)
             {
-               // MessageBox.Show("电池电量不足 不能读卡！");
+                // MessageBox.Show("电池电量不足 不能读卡！");
                 f2.setmsg("电量不足，请充电", 3, "\\User_Storage\\sound\\nobat.wav");
-             //   PlaySound("\\User_Storage\\sound\\nobat.wav", IntPtr.Zero, 0x0002);
-                
+                //   PlaySound("\\User_Storage\\sound\\nobat.wav", IntPtr.Zero, 0x0002);
+
                 clearMemProperties();
                 clearPropShow();
 
@@ -213,10 +357,10 @@ namespace Distributor
             }
             if (sCarNum.ToString().Length != 7)
             {
-               // MessageBox.Show("车牌号输入有误");
+                // MessageBox.Show("车牌号输入有误");
                 f2.setmsg("请先读司机卡", 3, "\\User_Storage\\sound\\dfirst.wav");
-              //  PlaySound("\\User_Storage\\sound\\dfirst.wav", IntPtr.Zero, 0x0002);
-                
+                //  PlaySound("\\User_Storage\\sound\\dfirst.wav", IntPtr.Zero, 0x0002);
+
                 clearMemProperties();
                 clearPropShow();
 
@@ -225,10 +369,10 @@ namespace Distributor
             if (sCarNum == "京")
             {
                 //MessageBox.Show("请先读取司机卡");
-               // MessageBox.Show("请先输入车牌号");
+                // MessageBox.Show("请先输入车牌号");
                 f2.setmsg("请先读司机卡", 3, "\\User_Storage\\sound\\dfirst.wav");
-              //  PlaySound("\\User_Storage\\sound\\dfirst.wav", IntPtr.Zero, 0x0002);
-                
+                //  PlaySound("\\User_Storage\\sound\\dfirst.wav", IntPtr.Zero, 0x0002);
+
                 clearMemProperties();
                 clearPropShow();
                 return;
@@ -240,26 +384,55 @@ namespace Distributor
             if (myCfCard.request(ref sBoxCardNum) != 0)
             {
                 f2.setmsg("没有检测到卡片", 3, "\\User_Storage\\sound\\nocard.wav");
-               // PlaySound("\\User_Storage\\sound\\nocard.wav", IntPtr.Zero, 0x0002);
-               
+                // PlaySound("\\User_Storage\\sound\\nocard.wav", IntPtr.Zero, 0x0002);
+                string xx = tbCarNum.Text;
                 clearMemProperties();
                 clearPropShow();
+                tbCarNum.Text = xx;
                 return;
             }
+
             else
             {
-                sBoxCardNum = myCfCard.carid();
-       
+                try
+                {
+                    sBoxCardNum = myCfCard.carid();
+                }
+                catch
+                {
+                    f2.setmsg("没有检测到卡片", 3, "\\User_Storage\\sound\\nocard.wav");
+                    // PlaySound("\\User_Storage\\sound\\nocard.wav", IntPtr.Zero, 0x0002);
+                    string xx = tbCarNum.Text;
+                    clearMemProperties();
+                    clearPropShow();
+                    tbCarNum.Text = xx;
+                    return;
+                }
+
             }
-            myCfCard.ReadString(0, 1, ref sInfoR);
-            
-            if (sInfoR =="B")
+
+
+
+            if (!CfCard.CfCard.read())
             {
-                f2.setmsg("不是货箱卡", 3, "\\User_Storage\\sound\\box.wav");
-             //   PlaySound("\\User_Storage\\sound\\box.wav", IntPtr.Zero, 0x0002); ;
-               
+                f2.setmsg("没有检测到卡片", 3, "\\User_Storage\\sound\\nocard.wav");
+                string xx = tbCarNum.Text;
                 clearMemProperties();
                 clearPropShow();
+                tbCarNum.Text = xx;
+                return;
+            }
+            //  MessageBox.Show(myCfCard.StrToHex(sInfoR));
+            sInfoR = CfCard.CfCard.myread.Cardtype;
+
+            if (sInfoR == "B")
+            {
+                f2.setmsg("不是货箱卡", 3, "\\User_Storage\\sound\\box.wav");
+                //   PlaySound("\\User_Storage\\sound\\box.wav", IntPtr.Zero, 0x0002); ;
+                string xx = tbCarNum.Text;
+                clearMemProperties();
+                clearPropShow();
+                tbCarNum.Text = xx;
                 return;
             }
 
@@ -278,39 +451,44 @@ namespace Distributor
             }*/
 
             sInfoR = "";
-           /* 其它
-            厨余垃圾
-            餐厨垃圾
-            可回收垃圾*/
+            /* 其它
+             厨余垃圾
+             餐厨垃圾
+             可回收垃圾*/
 
 
             progressBar1.Value = 15;
             progressBar1.Refresh();
             LBStatus.Text = "读取状态字中...";
             LBStatus.Refresh();
-            if (myCfCard.ReadString(10, 1, ref sInfoR) != 0)
-            {
-               // MessageBox.Show("无法读取任务状态！");
-                f2.setmsg("写卡失败,请重试", 2, "\\User_Storage\\sound\\failed.wav");
-              //  PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
-                
-                clearMemProperties();
-                clearPropShow();
-               return;
-            }
-         //   MessageBox.Show(sInfoR);
+            sInfoR = CfCard.CfCard.myread.Status;
+            //   MessageBox.Show(sInfoR);
+
             if (sInfoR == "S")
             {
-               // MessageBox.Show("任务未完成，不能写入");
-                f2.setmsg("任务未完成，不能写入", 3, "\\User_Storage\\sound\\done.wav");
-             //   PlaySound("\\User_Storage\\sound\\done.wav", IntPtr.Zero, 0x0002);
-                
-                clearMemProperties();
-                clearPropShow();
-              return;
+                // MessageBox.Show("任务未完成，不能写入");
+                DateTime nt=System.DateTime.Now;
+                byte[] tempn=new byte[3];
+               tempn[0] = Convert.ToByte((nt.Year - 2000).ToString(),16);
+
+               tempn[1] = Convert.ToByte(nt.Month.ToString(), 16);
+
+
+               tempn[2] = Convert.ToByte(nt.Day.ToString(), 16);
+               string nowt = tempn[0].ToString("X2") + tempn[1].ToString("X2") + tempn[2].ToString("X2");
+              //  MessageBox.Show(nowt);
+                if(CfCard.CfCard.myread.date==nowt)
+                {
+                       f2.setmsg("此卡已经发送", 1, "\\User_Storage\\sound\\done.wav");
+                 //  PlaySound("\\User_Storage\\sound\\done.wav", IntPtr.Zero, 0x0002);
+
+                      clearMemProperties();
+                      clearPropShow();
+                    return;
+                }
             }
-            pictureBox1.Visible = true; ;
-            pictureBox1.Refresh();
+            //   pictureBox1.Visible = true; ;
+            //  pictureBox1.Refresh();
             //写入运输车号
             LBStatus.Text = "写入垃圾类型...";
             LBStatus.Refresh();
@@ -343,12 +521,15 @@ namespace Distributor
                     sInfoR = "0";
                     break;
             }
-            if (myCfCard.Write(sInfoR, 0) != 0)
+            // if (myCfCard.Write(sInfoR, 0) != 0)
+
+
+            if (!CfCard.CfCard.newwrite(0, System.Text.Encoding.Default.GetBytes(sInfoR)))
             {
-               // MessageBox.Show("写卡失败！");
+                // MessageBox.Show("写卡失败！");
                 f2.setmsg("写卡失败,请重试", 2, "\\User_Storage\\sound\\failed.wav");
-               // PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
-                
+                // PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
+
                 clearMemProperties();
                 clearPropShow();
                 return;
@@ -357,11 +538,12 @@ namespace Distributor
             LBStatus.Refresh();
             progressBar1.Value = 25;
             progressBar1.Refresh();
-            if (myCfCard.Write(sCarNum, 1) != 0)
+            //if (myCfCard.Write(sCarNum, 1) != 0)
+            if (!CfCard.CfCard.newwrite(1, System.Text.Encoding.Default.GetBytes(sCarNum)))
             {
                 f2.setmsg("写卡失败,请重试", 2, "\\User_Storage\\sound\\failed.wav");
-               // PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
-                
+                // PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
+
                 clearMemProperties();
                 clearPropShow();
                 return;
@@ -372,11 +554,28 @@ namespace Distributor
             LBStatus.Refresh();
             progressBar1.Value = 65;
             progressBar1.Refresh();
-            if (myCfCard.Write2(sStartTime2,6) != 0)
+            // if (myCfCard.Write2(sStartTime2,6) != 0)
+            byte[] temp = new byte[6];
+            temp[0] = Convert.ToByte((dt2.Year - 2000).ToString(),16);
+
+            temp[1] = Convert.ToByte(dt2.Month.ToString(), 16);
+
+
+            temp[2] = Convert.ToByte(dt2.Day.ToString(), 16);
+
+            temp[3] = Convert.ToByte(dt2.Hour.ToString(), 16);
+
+            temp[4] =Convert.ToByte(dt2.Minute.ToString(), 16);
+
+ 
+            temp[5] = 0x00;
+
+
+            if (!CfCard.CfCard.newwrite(6, temp))
             {
                 f2.setmsg("写卡失败,请重试", 2, "\\User_Storage\\sound\\failed.wav");
-              //  PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
-                
+                //  PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
+
                 clearMemProperties();
                 clearPropShow();
                 return;
@@ -410,10 +609,11 @@ namespace Distributor
             progressBar1.Value = 85;
             progressBar1.Refresh();
             sStartSpotNum = S_START_SPOT_NUM;
-            if (myCfCard.Write(S_START_SPOT_NUM,9) != 0)
+            // if (myCfCard.Write(S_START_SPOT_NUM,9) != 0)
+            if (!CfCard.CfCard.newwrite(9, System.Text.Encoding.Default.GetBytes(sStartSpotNum)))
             {
-              //  MessageBox.Show("出发地点写入失败！");
-              //  PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
+                //  MessageBox.Show("出发地点写入失败！");
+                //  PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
                 f2.setmsg("写卡失败,请重试", 2, "\\User_Storage\\sound\\failed.wav");
                 clearMemProperties();
                 clearPropShow();
@@ -427,56 +627,62 @@ namespace Distributor
             LBStatus.Refresh();
             progressBar1.Value = 95;
             progressBar1.Refresh();
-            if (myCfCard.Write(sInfoW, 10) == 0)
+            //if (myCfCard.Write(sInfoW, 10) == 0)
+            if (CfCard.CfCard.newwrite(10, System.Text.Encoding.Default.GetBytes(sInfoW)))
             {
                 //MessageBox.Show("写卡成功！");
 
-               // !@!#!#!#!#
-            //    PlaySound("\\User_Storage\\sound\\suc.wav", IntPtr.Zero, 0x0002);
+                // !@!#!#!#!#
+                //    PlaySound("\\User_Storage\\sound\\suc.wav", IntPtr.Zero, 0x0002);
                 f2.setmsg("写卡成功", 1, "\\User_Storage\\sound\\suc.wav");
-                Updater.insertTask(sBoxCardNum, sCarNum, sStartTime, N_START_SPOT_NUM,0);
-            } 
+                Updater.insertTask(sBoxCardNum, sCarNum, sStartTime, N_START_SPOT_NUM, 0);
+            }
             else
             {
-          //      PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
+                //      PlaySound("\\User_Storage\\sound\\failed.wav", IntPtr.Zero, 0x0002);
                 f2.setmsg("写卡失败,请重试", 2, "\\User_Storage\\sound\\failed.wav");
                 try
                 {
                     //this.goodsTableAdapter.DeleteQueryByIdTime(sBoxCardNum);
-                  //  if(network)
+                    //  if(network)
                     //    this.dbo_GoodsTableAdapter1.DeleteQueryByIdTime(sBoxCardNum);
                 }
-                catch (System.Exception )
+                catch (System.Exception)
                 {
-                    MessageBox.Show("清除缓存数据失败！");
+                    
                 }
                 clearMemProperties();
                 clearPropShow();
                 return;
-           }
+            }
             LBStatus.Text = "写卡成功";
             LBStatus.Refresh();
             progressBar1.Value = 100;
             progressBar1.Refresh();
 
-/*            tbCarNum.Text = "";
-            sCarNum = "";
-            iStartSpotNum = -1;*/
+            /*            tbCarNum.Text = "";
+                        sCarNum = "";
+                        iStartSpotNum = -1;*/
 
 
-            this.pictureBox1.Visible = false;
-            this.pictureBox2.Visible = true;
-            pictureBox2.Refresh();
-           // networkupdate();
-            pictureBox2.Visible = false;
+            //  this.pictureBox1.Visible = false;
+            //   this.pictureBox2.Visible = true;
+            //   pictureBox2.Refresh();
+            // networkupdate();
+            //    pictureBox2.Visible = false;
             this.pbReadBoxCard.Enabled = true;
             clearPropShow();
             clearMemProperties();
             myCfCard.disconnect();
         }
 
+
+
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.MsgWin = new ProcMessageWindow();
+            D300SysUI_SetResumeRegister(MsgWin.Hwnd, WM_RESUME);
+            //   D300SysUI_SetResumeRegister(mycallback, WM_RESUME);
             panel1.Visible = false;
             comboBox1.SelectedIndex = 0;
             S_START_SPOT_NUM = stationID();
@@ -496,14 +702,14 @@ namespace Distributor
             else
                 NetPIC.BackColor = Color.Red;
 
-            pictureBox1.Visible = false;
-            pictureBox2.Visible = false;
+            //      pictureBox1.Visible = false;
+            //      pictureBox2.Visible = false;
             SEUIC.Phone.Initialize.Init();
             backgroundwork();
             clearPropShow();
         }
         //获得始发站号
-        public string stationID()
+        public static string stationID()
         {
             StreamReader objReader = new StreamReader("\\User_Storage\\station.ini");
             string sLine = "";
@@ -523,7 +729,7 @@ namespace Distributor
 
 
         #region 全局变量
-        public string S_START_SPOT_NUM = "69";//00-99数字必须为2位;
+        public static string S_START_SPOT_NUM = "69";//00-99数字必须为2位;
         public int N_START_SPOT_NUM = 69;
         private const string CAR_CARD = "43";
         private const string BOX_CARD = "42";
@@ -544,13 +750,13 @@ namespace Distributor
         #endregion
 
         private string entryname = "Dail-up";
-        Ras ras = Ras.GetInstance();
+        static Ras ras = Ras.GetInstance();
         bool bConnected = false;
         public delegate void connectinvoke();
 
         private bool bdoconnect = false;
 
-        private Call call = Call.GetInstance();
+        private static Call call = Call.GetInstance();
 
         int iSMSIndexDelete = 0;
 
@@ -559,21 +765,29 @@ namespace Distributor
         private extern static bool PlaySound(string strFile, IntPtr hMod, int flag);
 
 
-        
+
         private void OnDisconnectedEvent()
         {
             NetPIC.BackColor = Color.Red;
         }
         private void OnConnectedEvent()
         {
-            NetPIC.BackColor = Color.Green;
+            try
+            {
+                NetPIC.BackColor = Color.Green;
+            }
+            catch
+            {
+ 
+            }
+
         }
 
         //来电时收到该事件
         private void OnCallInEvent()
         {
             label4.Text = "指挥中心来电,请接听";
-            
+
             //.Visible = true;
             panel1.Visible = true;
             ringthd = new Thread(ring);
@@ -589,20 +803,23 @@ namespace Distributor
             //ShowMessage("Phone hangup");
             label4.Text = "呼叫指挥中心";
             panel1.Visible = false;
+            useractive();
 
 
         }
         //应答时收到该事件
         private void OnCallAnwserEvent()
         {
+            timer2.Enabled = false;
             //ShowMessage("Phone accept");
         }
         //拨打电话收到该事件
         private void OnCallDialingEvent()
         {
+            timer2.Enabled = false;
             //ShowMessage("Is dialing");
         }
-           
+
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -617,9 +834,10 @@ namespace Distributor
         {
             this.pbReadBoxCard.Image = Properties.Resources.btWriteDown;
         }
-        
+
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
+            useractive();
             if ((e.KeyCode == System.Windows.Forms.Keys.Up))
             {
                 if (panel1.Visible == true)
@@ -639,7 +857,7 @@ namespace Distributor
                         label6.Visible = false;
                     }
                 }
-                    
+
             }
             if ((e.KeyCode == System.Windows.Forms.Keys.Down))
             {
@@ -706,12 +924,12 @@ namespace Distributor
                 // Enter
             }
 
-            
+
 
         }
         private void textbox1_focus(object sender, EventArgs e)
         {
-            if(panel1.Visible)
+            if (panel1.Visible)
                 textBox1.Focus();
         }
         private void timer1_Tick(object sender, EventArgs e)
@@ -725,7 +943,7 @@ namespace Distributor
             //    status.BackupBatteryLifePercent.ToString() + "+" + status.BackupBatteryLifeTime.ToString());
             if (status2.BatteryLifePercent < 50)
             {
-                bat.Text = "电量不足！请尽快充电！";
+                bat.Text = "电量不足！" + status2.BatteryLifePercent.ToString() + "%";
                 bat.ForeColor = Color.Red;
             }
             else
@@ -733,11 +951,18 @@ namespace Distributor
                 bat.Text = "电量：" + status2.BatteryLifePercent.ToString() + "%";
                 bat.ForeColor = Color.Green;
             }
-            
+
+        }
+        public void useractive()
+        {
+            timer2.Enabled = false;
+            timer2.Interval = 200000;
+            timer2.Enabled = true;
         }
 
         private void tbCarNum_TextChanged(object sender, EventArgs e)
         {
+            useractive();
             tbCarNum.Text = tbCarNum.Text.ToUpper();
             tbCarNum.Select(tbCarNum.Text.Length, 0);
             if (tbCarNum.Text.Length > 7)
@@ -756,12 +981,12 @@ namespace Distributor
                 tbCarNum.Text = "京";
                 tbCarNum.Select(1, 0);
             }
-            
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         Thread mytask;
@@ -772,30 +997,33 @@ namespace Distributor
             mytask.Start();
         }
 
-        public void NettaskTH() 
+        public void NettaskTH()
         {
             NetInvoke updatetask = new NetInvoke(Net_status);
-           // TaskInvoke statusreport = new StatusInvoke(updateUIprocess);
+            // TaskInvoke statusreport = new StatusInvoke(updateUIprocess);
+            bool isin=false;
             while (true)
             {
-               
 
-                if (Updater.isBusy())
-                {
-                    this.BeginInvoke(updatetask, new Object[] {false });
+                    if (Updater.isBusy()&&!isin)
                     {
-                        if (!checknet())
+                        this.BeginInvoke(updatetask, new Object[] { false });
                         {
-                            dialup();
-                            //System.Threading.Thread.Sleep(10000);
+                            isin = true;
+                            if (!checknet())
+                            {
+                                dialup();
+                                System.Threading.Thread.Sleep(1000);
+                            }
+                            Updater.doWork();
+                            isin = false;
                         }
-                        Updater.doWork();
+
                     }
-       
-                }
-                else
-                    this.BeginInvoke(updatetask, new Object[] { true });
-                System.Threading.Thread.Sleep(10000);
+                    else
+                        this.BeginInvoke(updatetask, new Object[] { true });
+                    System.Threading.Thread.Sleep(20000);
+
 
             }
         }
@@ -813,6 +1041,8 @@ namespace Distributor
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
+            useractive();
+            timer2.Enabled = false;
             pictureBox5.Image = Properties.Resources.phoneupDonw;
             this.Refresh();
             pictureBox5.Refresh();
@@ -825,7 +1055,7 @@ namespace Distributor
                     strphnum = label6.Text;
                 label4.Text = "呼叫中请等待";
                 SEUIC.Phone.Call.MakeCall(strphnum);
-             //   MessageBox.Show(strphnum);
+                //   MessageBox.Show(strphnum);
                 OnCallDialingEvent();
             }
             if (label4.Text == "指挥中心来电,请接听")
@@ -834,13 +1064,14 @@ namespace Distributor
                 ringthd.Abort();
                 this.OnCallAnwserEvent();
             }
-            pictureBox5.Image=Properties.Resources.phoneupUp;
+            pictureBox5.Image = Properties.Resources.phoneupUp;
             this.Refresh();
             pictureBox5.Refresh();
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
+            useractive();
             pictureBox6.Image = Properties.Resources.phonedownDown;
             this.Refresh();
             pictureBox5.Refresh();
@@ -856,6 +1087,7 @@ namespace Distributor
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
+            useractive();
             panel1.Visible = !panel1.Visible;
             label4.Text = "请用方向箭头选择呼叫目标";
             phonelist.getxml();
@@ -879,7 +1111,17 @@ namespace Distributor
                 label6.Visible = false;
             }
         }
-   }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            D300SysUI_SetSystemPowerStateSuspend();
+        }
+
+        private void Form1_Closing(object sender, CancelEventArgs e)
+        {
+         //   SEUIC.Phone.Initialize.UnInit();
+        }
+    }
     public struct SYSTEM_POWER_STATUS_EX2
     {  //c# Windows CE读取电池电量的实现
         public byte ACLineStatus;

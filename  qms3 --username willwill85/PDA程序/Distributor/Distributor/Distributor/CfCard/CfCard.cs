@@ -5,6 +5,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading;
 using System.Runtime.InteropServices;
+using System.Globalization;
+
 namespace Distributor.CfCard
 {
     public class CfCard
@@ -14,11 +16,11 @@ namespace Distributor.CfCard
 
         // 联接uhf设备，并确保通讯正常
         [DllImport("UHF_API.dll")]
-        public static extern int RmuOpenAndConnect(ref int hCom, char cPort, int flagCrc);
+        public static extern int RmuOpenAndConnect(ref int hCom, char[] cPort, int flagCrc);
 
         // 关闭RMU 的功放并关闭通信端口
         [DllImport("UHF_API.dll")]
-        public static extern int RmuCloseAndDisconnect(int hCom, int flagCrc);
+        public static extern int RmuCloseAndDisconnect(ref int hCom, int flagCrc);
 
         // 读取RMU 功放状态
         [DllImport("UHF_API.dll")]
@@ -31,6 +33,9 @@ namespace Distributor.CfCard
         // 设置RMU 的功率。
         [DllImport("UHF_API.dll")]
         public static extern int RmuSetPower(int hCom, int uOption, int uPower, int flagCrc);
+        
+
+
 
         // 打开RMU 的功放
         [DllImport("UHF_API.dll")]
@@ -46,21 +51,26 @@ namespace Distributor.CfCard
 
         // 读取RMU 返回的标签UII
         [DllImport("UHF_API.dll")]
-        public static extern int RmuGetReceived(int hCom, StringBuilder databuffer);
-
+       // public static extern int RmuGetReceived(int hCom, StringBuilder databuffer);
+        public static extern int RmuGetReceived(int hCom, ref byte dataLen, ref byte databuffer);
         // 停止RMU 的识别循环
         [DllImport("UHF_API.dll")]
         public static extern int RmuStopGet(int hCom, int flagCrc);
 
         // 数读取标签数据
-        [DllImport("UHF_API.dll")]
-        public static extern int RmuReadData(int hCom, StringBuilder Passwordbuffer, int uBank, StringBuilder Ptr, int uCnt, StringBuilder DIS_UII, StringBuilder DIS_ReadData, StringBuilder uErrorCode, int flagCrc);
+        [DllImport("UHF_API.dll", SetLastError = true)]
+      //  public static extern int RmuReadData(int hCom, StringBuilder Passwordbuffer, int uBank, StringBuilder Ptr, int uCnt, StringBuilder DIS_UII, StringBuilder DIS_ReadData, StringBuilder uErrorCode, int flagCrc);
+        public static extern int RmuReadData(int hCom, StringBuilder Passwordbuffer, int uBank, ref char Ptr, int uCnt, byte[] DIS_UII, ref byte DIS_ReadData, StringBuilder uErrorCode, int flagCrc);
+      
+        
         // RmuReadData (HANDLE hCom, UCHAR* uAccessPwd, UCHAR uBank, UCHAR* uPtr, UCHAR uCnt,
         //     LPWSTR DIS_UII, LPWSTR DIS_ReadData, UCHAR* uErrorCode, UCHAR flagCrc);
 
         // 写入标签数据
         [DllImport("UHF_API.dll")]
-        public static extern int RmuWriteData(int hCom, StringBuilder Passwordbuffer, int uBank, StringBuilder Ptr, int uCnt, StringBuilder DIS_UII, StringBuilder DIS_WriteData, StringBuilder uErrorCode, int flagCrc);
+        //public static extern int RmuWriteData(int hCom, StringBuilder Passwordbuffer, int uBank, StringBuilder Ptr, int uCnt, StringBuilder DIS_UII, StringBuilder DIS_WriteData, StringBuilder uErrorCode, int flagCrc);
+        public static extern int RmuWriteData(int hCom, StringBuilder Passwordbuffer, int uBank, ref char Ptr, int uCnt, byte[] DIS_UII, byte[] DIS_WriteData, StringBuilder uErrorCode, int flagCrc);
+        // public static extern int RmuWriteData(int hCom, StringBuilder Passwordbuffer, int uBank, StringBuilder Ptr, int uCnt, StringBuilder DIS_UII, StringBuilder DIS_WriteData, StringBuilder uErrorCode, int flagCrc);
         //int WINAPI RmuWriteData (HANDLE hCom, UCHAR* uAccessPwd, UCHAR uBank,
         //UCHAR* uPtr, UCHAR uCnt, UCHAR* uUii, UCHAR* uWriteData, UCHAR* uErrorCode,
         //UCHAR flagCrc);
@@ -93,15 +103,226 @@ namespace Distributor.CfCard
         public static extern bool MessageBeep(int uType);
 
         ////////////////////////Library Import End////////////////////////
-        int hReader = 0;
-        bool threadflag = true;
-        int flagCrc = 0;        //crc校验使能位
-        int flagAnti = 0;       //防碰撞标使能志位 1使能
-        int AntiQ = 0;          //碰撞次数，当flagAnti时有效 
-        StringBuilder DIS_UII;
+        static int hReader = 0;
+        static bool threadflag = true;
+        static int flagCrc = 0;        //crc校验使能位
+        static int flagAnti = 0;       //防碰撞标使能志位 1使能
+        static int AntiQ = 0;          //碰撞次数，当flagAnti时有效 
+        static byte[] myid;
+        public static Read myread;
+        static StringBuilder DIS_UII;
         // Thread ChekButtonThread;
         ////////////////////Member Function Definition/////////////////////
+        public class Read
+        {
+            public string CarNum = "";
+            public string Status = "";
+            public string Cardtype = "";
+           // byReceive[i].ToString("x2");
+            public string date = "";
+        }
+        public static bool newwrite(int ptr, byte[] data)
+        {
+            //listBox2.Items.Add((string)listBox1.SelectedItem);
+            int Bank = 3;
+            int Cnt = 0x01;
+
+            //获取要读取卡的卡号，若没有选择，则默认为列表的最后一个
+            string strUid = "";
+
+            byte[] byUUID = new byte[256];
+            byUUID = myid;
+            StringBuilder PassWord;
+            PassWord = new StringBuilder();
+            PassWord.Capacity = 4;
+            PassWord.Append("");
+
+            StringBuilder Ptr;
+            Ptr = new StringBuilder();
+            Ptr.Capacity = 2;
+            Ptr.Append("");
+
+            StringBuilder uErrorCode;
+            uErrorCode = new StringBuilder();
+            uErrorCode.Capacity = 2;
+
+
+            char cPtr = Convert.ToChar(ptr);
+
+            byte[] byWriteData = new byte[64];
+            //   byWriteData = System.Text.Encoding.Default.GetBytes(textBox2.Text);
+            
+
+            byte[] byWrite = new byte[8];
+
+
+            if (data.Length == 1)
+            {
+                byte[] tempt=new byte[2];
+                tempt[0] = data[0];
+                tempt[1] = 0x00;
+              //  byReceive[i].ToString("x2");
+                data = tempt;
+            }
+            byWriteData = data;
+            int i = 0;
+            int iRet = 0;
+            int iWriteSuccessCount = 0;
+            for (i = 0; i < byWriteData.Length / 2; i++)
+            {
+                cPtr = (char)(i+ptr);
+                byWrite[0] = byWriteData[2 * i];
+                byWrite[1] = byWriteData[2 * i + 1];
+                for (int oo = 0; oo < 5; oo++)
+                {
+                    iRet = RmuWriteData(hReader, PassWord, Bank, ref cPtr, Cnt, byUUID, byWrite, uErrorCode, flagCrc);
+                    if (iRet == 1)
+                        break;
+                }
+                if (iRet != 1)
+                {
+                    return false;
+                    break;
+                }
+                else
+                    iWriteSuccessCount += 2;
+
+            }
+
+            return true;
+        }
+
         //返回id一部分
+        public static bool read()//(string strUid)
+        {
+            byte[] readdata;
+            readdata = new byte[32];
+            myread = new Read();
+            byte[] byUUID = new byte[256];
+            string strUid = DIS_UII.ToString();
+            byUUID = myid;
+            StringBuilder DIS_ReadData;
+            DIS_ReadData = new StringBuilder();
+            DIS_ReadData.Capacity = 256;
+
+            StringBuilder PassWord;
+            PassWord = new StringBuilder();
+            PassWord.Capacity = 4;
+            PassWord.Append("");
+
+            StringBuilder Ptr;
+            Ptr = new StringBuilder();
+            Ptr.Capacity = 2;
+            Ptr.Append("");
+
+            StringBuilder uErrorCode;
+            uErrorCode = new StringBuilder();
+            uErrorCode.Capacity = 2;
+
+            string strRead = "";
+            byte[] byRead = new byte[256];
+
+            bool status = false;
+            char cPtr = (char)0;
+
+//            char cPtr2 = (char)4;
+ //           char cPtr3 = (char)8;
+  //          char cPtr4 = (char)10;
+            for (int i = 0; i <3; i++)
+            {
+
+                if (RmuReadData(hReader, PassWord, 3, ref cPtr, 12, byUUID, ref byRead[0], uErrorCode, flagCrc) == 1)
+                {
+                    //  ASCIIEncoding asciiEncoding = new ASCIIEncoding();
+                    //strRead = asciiEncoding.GetString(byRead, 0, byRead.Length);
+                    // strRead = 
+
+                    //  listBox2.Items.Add(strRead);
+                    MessageBeep(0);
+                    status = true;
+                    for (int k = 0; k < 24; k++)
+                        readdata[k] = byRead[k];
+                    break;
+                }
+
+
+            }
+            if (status == false)
+                return false;
+            //status = false;
+            //for (int i = 0; i < 3; i++)
+            //{
+
+            //    if (RmuReadData(hReader, PassWord, 3, ref cPtr2, 8, byUUID, ref byRead[0], uErrorCode, flagCrc) == 1)
+            //    {
+            //        // ASCIIEncoding asciiEncoding = new ASCIIEncoding();
+            //        // strRead = asciiEncoding.GetString(byRead, 0, byRead.Length);
+
+            //        //  listBox2.Items.Add(strRead);
+            //        MessageBeep(0);
+            //        status = true;
+            //        for (int k = 8; k < 16; k++)
+            //            readdata[k] = byRead[k - 8];
+            //        break;
+            //    }
+
+
+            //}
+            //if (status == false)
+            //    return false;
+            //status = false;
+            //for (int i = 0; i < 3; i++)
+            //{
+
+            //    if (RmuReadData(hReader, PassWord, 3, ref cPtr3, 4, byUUID, ref byRead[0], uErrorCode, flagCrc) == 1)
+            //    {
+            //        // ASCIIEncoding asciiEncoding = new ASCIIEncoding();
+            //        // strRead = asciiEncoding.GetString(byRead, 0, byRead.Length);
+
+            //        //  listBox2.Items.Add(strRead);
+            //        MessageBeep(0);
+            //        status = true;
+            //        for (int k = 16; k < 20; k++)
+            //            readdata[k] = byRead[k - 16];
+            //        break;
+            //    }
+
+
+            //}
+            //if (status == false)
+            //    return false;
+            //status = false;
+
+            //for (int i = 0; i <3; i++)
+            //{
+
+            //    if (RmuReadData(hReader, PassWord, 3, ref cPtr4, 4, byUUID, ref byRead[0], uErrorCode, flagCrc) == 1)
+            //    {
+            //        // ASCIIEncoding asciiEncoding = new ASCIIEncoding();
+            //        // strRead = asciiEncoding.GetString(byRead, 0, byRead.Length);
+
+            //        //  listBox2.Items.Add(strRead);
+            //        MessageBeep(0);
+            //        status = true;
+            //        for (int k = 20; k < 24; k++)
+            //            readdata[k] = byRead[k - 20];
+            //        break;
+            //    }
+            //}
+            if (status == false)
+                return false;
+            else
+            {
+                myread.CarNum = System.Text.Encoding.Default.GetString(readdata, 4, 6);
+                myread.Cardtype = ((char)readdata[0]).ToString();
+                myread.Status = ((char)readdata[20]).ToString();
+             //   byReceive[i].ToString("x2");
+                myread.date = readdata[12].ToString("x2") + readdata[13].ToString("x2") + readdata[14].ToString("x2");
+           //     MessageBox.Show(myread.date);
+                return true;
+            }
+
+        }
         public string carid()
         {
             return DIS_UII.ToString().Substring(4,DIS_UII.Length-4);
@@ -111,9 +332,12 @@ namespace Distributor.CfCard
         //连接函数
         public bool connect()
         {
-            char comnum;
-            comnum = Convert.ToChar(0x9);
+           // char[] comnum;
+            char[] comnum = new char[16];
+            string str = "COM5:";
+            comnum = str.ToCharArray();
             //  Thread.Sleep(100);
+            try{
             if (RmuOpenAndConnect(ref hReader, comnum, flagCrc) == 1)
             {
                 //        MessageBox.Show( hReader.ToString());
@@ -130,75 +354,126 @@ namespace Distributor.CfCard
                 }
                 else
                 {
-                    MessageBox.Show("set power failed");
+                   // MessageBox.Show("set power failed");
                 }
             }
             else
             {
-                MessageBox.Show("Not found Reader connect to the COM! ");
+            //    MessageBox.Show("Not found Reader connect to the COM! ");
                 // EventArgs e ;
                 // Form1_Closed();
-               // this.Close();
+                // this.Close();
                 return false;
             }
+            }
+            catch
+            {
+             //   MessageBox.Show(" conn");
+            }
+ 
             return true;
         }
         //读取UII
-        public int GetReceivedUII()
+        //public int GetReceivedUII()
+        //{
+        //    StringBuilder databuffer;
+        //    databuffer = new StringBuilder();
+        //    databuffer.Capacity = 256;
+        //    int count = 10;
+        //    int i = 0;
+        //    bool sign = true;
+        //    while (i <= count && sign)
+        //    {
+
+        //        if (RmuGetReceived(hReader, databuffer) == 1)
+        //        {
+        //            DIS_UII = new StringBuilder();
+        //            DIS_UII.Capacity = 256;
+        //            DIS_UII.Append(databuffer.ToString().Replace("\n\r", ""));
+        //            MessageBeep(0);
+        //            sign = false;
+        //        }
+        //        else
+        //        {
+        //            i++;
+        //            Thread.Sleep(20);
+        //           // Sleep(20);
+        //        }
+        //    }
+        //    if (sign == true)
+        //        return 1;
+        //    else
+        //        return 0;
+        //}
+        //连接卡
+
+        private void GetSingleRecivedUII()
         {
             StringBuilder databuffer;
+
             databuffer = new StringBuilder();
             databuffer.Capacity = 256;
-            int count = 10;
-            int i = 0;
-            bool sign = true;
-            while (i <= count && sign)
-            {
+            byte datalen = 0;
+            byte[] byReceive = new byte[256];
+            byte[] byChange = new byte[256];
+            string str = "";
 
-                if (RmuGetReceived(hReader, databuffer) == 1)
+            if (RmuGetReceived(hReader, ref datalen, ref byReceive[0]) == 1)
+            {
+                myid = byReceive;
+                for (int i = 0; i < datalen; i++)
                 {
-                    DIS_UII = new StringBuilder();
-                    DIS_UII.Capacity = 256;
-                    DIS_UII.Append(databuffer.ToString().Replace("\n\r", ""));
-                    MessageBeep(0);
-                    sign = false;
+                    str += byReceive[i].ToString("x2");
+                }
+
+              //  SendStr(str);
+                            DIS_UII = new StringBuilder();
+                            DIS_UII.Capacity = 256;
+               //             DIS_UII.Append(databuffer.ToString().Replace("\n\r", ""));
+                DIS_UII.Append(str);
+                MessageBeep(0);
+            }
+
+            else
+            { } //MessageBox.Show("get  faild! ");
+        }
+
+        public int request(ref string sCardNum)
+        {
+            int count = 20;           
+                //if (RmuInventory(hReader, flagAnti, AntiQ, flagCrc) == 1)
+                //{
+                //    MessageBox.Show("nocard");
+                //    if (GetReceivedUII() == 1)
+                //    {
+                //        //MessageBox.Show("没有检测到卡片！请重试！");
+                //        return 1;
+                //    }
+                //    while (RmuStopGet(hReader, flagCrc) == 0 && count > 0)
+                //    {
+                //        //     MessageBox.Show("stop get UID faild! ");
+                //        Thread.Sleep(20);
+                //        count--;
+                //    }
+               // }
+
+
+                if (RmuInventory(hReader, flagAnti, AntiQ, flagCrc) == 1)
+                {
+                    GetSingleRecivedUII();
+                    while (RmuStopGet(hReader, flagCrc) == 0)
+                    {
+                        // MessageBox.Show("stop get UID faild! ");
+                    }
+                    //MessageBox.Show("stop get uid ok!");
                 }
                 else
                 {
-                    i++;
-                    Thread.Sleep(20);
-                   // Sleep(20);
-                }
-            }
-            if (sign == true)
-                return 1;
-            else
-                return 0;
-        }
-        //连接卡
-        public int request(ref string sCardNum)
-        {
-            int count = 20;
-            if (RmuInventory(hReader, flagAnti, AntiQ, flagCrc) == 1)
-            {
-                if (GetReceivedUII() == 1)
-                {
-                    //MessageBox.Show("没有检测到卡片！请重试！");
+                    // MessageBox.Show("没有检测到卡片！");
                     return 1;
-                }
-                while (RmuStopGet(hReader, flagCrc) == 0 && count > 0)
-                {
-                    //     MessageBox.Show("stop get UID faild! ");
-                   Thread.Sleep(20);
-                    count--;
-                }
-            }
-            else
-            {
-               // MessageBox.Show("没有检测到卡片！");
-                return 1;
 
-            }
+                }
+           
             if (count == 0)
             {
               //  MessageBox.Show("没有检测到卡片！");
@@ -211,6 +486,7 @@ namespace Distributor.CfCard
         {
             return 0;
         }
+        /*
         //写一个word
         public int Writeword(string temp, int sptr)
         {
@@ -391,84 +667,88 @@ namespace Distributor.CfCard
             return 0;
         }
         //读一个字符串
-        public string Readword(int sptr, int Cnt)
-        {
-            int Bank = 3;
+        //public string Readword(int sptr, int Cnt)
+        //{
+        //    int Bank = 3;
 
-            string x = "";
+        //    string x = "";
 
-            StringBuilder DIS_ReadData;
-            DIS_ReadData = new StringBuilder();
-            DIS_ReadData.Capacity = 256;
+        //    StringBuilder DIS_ReadData;
+        //    DIS_ReadData = new StringBuilder();
+        //    DIS_ReadData.Capacity = 256;
 
-            StringBuilder PassWord;
-            PassWord = new StringBuilder();
-            PassWord.Capacity = 4;
-            PassWord.Append("0000");
+        //    StringBuilder PassWord;
+        //    PassWord = new StringBuilder();
+        //    PassWord.Capacity = 4;
+        //    PassWord.Append("0000");
 
 
-            StringBuilder Ptr;
-            Ptr = new StringBuilder();
-            Ptr.Capacity = 2;
-            string ssptr = "";
-            if (sptr < 10)
-                ssptr = "0" + sptr.ToString();
-            else
-            {
-                if (sptr == 10)
-                    ssptr = "0A";
-                if (sptr == 11)
-                    ssptr = "0B";
-                if (sptr == 12)
-                    ssptr = "0C";
-                if (sptr == 13)
-                    ssptr = "0D";
-                if (sptr == 14)
-                    ssptr = "0E";
-                if (sptr == 15)
-                    ssptr = "0F";
-                if (sptr == 16)
-                    ssptr = "10";
+        //    StringBuilder Ptr;
+        //    Ptr = new StringBuilder();
+        //    Ptr.Capacity = 2;
+        //    string ssptr = "";
+        //    if (sptr < 10)
+        //        ssptr = "0" + sptr.ToString();
+        //    else
+        //    {
+        //        if (sptr == 10)
+        //            ssptr = "0A";
+        //        if (sptr == 11)
+        //            ssptr = "0B";
+        //        if (sptr == 12)
+        //            ssptr = "0C";
+        //        if (sptr == 13)
+        //            ssptr = "0D";
+        //        if (sptr == 14)
+        //            ssptr = "0E";
+        //        if (sptr == 15)
+        //            ssptr = "0F";
+        //        if (sptr == 16)
+        //            ssptr = "10";
 
-            }
-            Ptr.Append(ssptr);
-            StringBuilder uErrorCode;
-            uErrorCode = new StringBuilder();
-            uErrorCode.Capacity = 2;
+        //    }
+        //    Ptr.Append(ssptr);
+        //    StringBuilder uErrorCode;
+        //    uErrorCode = new StringBuilder();
+        //    uErrorCode.Capacity = 2;
 
-            int i = 0;
-            bool sign = true;
-            while (i <= 50 && sign)
-            {
-                if (RmuReadData(hReader, PassWord, Bank, Ptr, Cnt, DIS_UII, DIS_ReadData, uErrorCode, flagCrc) == 1)
-                {
-                    x = DIS_ReadData.ToString();
-                    sign = false;
-                }
-                else
-                {
-                    i++;
-                }
-            }
-            if (sign)
-            {
-             //   MessageBox.Show("读出数据失败！");
-            }
-            return x;
-        }
+        //    int i = 0;
+        //    bool sign = true;
+        //    while (i <= 50 && sign)
+        //    {
+        //        if (RmuReadData(hReader, PassWord, Bank, Ptr, Cnt, DIS_UII, DIS_ReadData, uErrorCode, flagCrc) == 1)
+        //        {
+        //            x = DIS_ReadData.ToString();
+        //            sign = false;
+        //        }
+        //        else
+        //        {
+        //            i++;
+        //        }
+        //    }
+        //    if (sign)
+        //    {
+        //     //   MessageBox.Show("读出数据失败！");
+        //    }
+        //    return x;
+        //}
+
+
+        */
         public void disconnect()
         {
             char comnum;
             comnum = Convert.ToChar(0x9);
             //  Thread.Sleep(100);
-           RmuCloseAndDisconnect( hReader,  flagCrc);
+           RmuCloseAndDisconnect( ref hReader,  flagCrc);
 
         }
         //read套壳 编码
         public int ReadString(int ptr, int cnt, ref string x)
         {
 
-            x = Readword(ptr, cnt);
+            //x = Readword(ptr, cnt);
+            
             MessageBeep(0);
             x = HexToStr(x);
             return 0;
@@ -476,7 +756,7 @@ namespace Distributor.CfCard
         //read套壳 不编码
         public int ReadString2(int ptr, int cnt, ref string x)
         {
-            x = Readword(ptr, cnt);
+        //    x = Readword(ptr, cnt);
             MessageBeep(0);
             return 0;
         }

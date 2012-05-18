@@ -69,5 +69,10 @@ namespace Distributor
         {
             this.Visible = false;
         }
+
+        private void label1_ParentChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
