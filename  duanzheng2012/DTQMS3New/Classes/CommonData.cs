@@ -9,8 +9,8 @@ namespace DTQMS3New.Classes
 {
     public class CommonData
     {
-        public static int stationID = 1;                    //本站ID
-        public static string stationName = "大屯";          //本站名称
+        public static int stationID = 2;                    //本站ID
+        public static string stationName = "马家楼";        //本站名称
         public static int sumTime = 0;                      //车次计数
         public static double sumWeight = 0;                 //运输总吨量
         public static int curUpdateIndex = 0;              //当前正在更新的数据下标

@@ -79,6 +79,7 @@ namespace DTQMS3New.Classes
             catch(Exception e)
             {
                 CommonData.errorLabel.Text = "网络异常！";
+                MessageBox.Show(e.Message);
             }
             return myds;
         }
