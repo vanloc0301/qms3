@@ -10,6 +10,7 @@ using DTQMS3New.Classes;
 using System.Threading;
 using System.Diagnostics;
 using System.Xml;
+using System.IO;
 
 namespace DTQMS3New
 {
@@ -38,9 +39,23 @@ namespace DTQMS3New
         private void MainWindow_Load(object sender, EventArgs e)
         {
             Process.Start("转运中心.exe");
-            
+            this.dgvMsg.AutoGenerateColumns = false;
             CommonData.errorLabel = lblError;
-            
+
+            //登录摄像头
+            StreamReader sr = new StreamReader("xdview.cfg");
+            xDview.URL = sr.ReadLine();
+            xDview.Port = int.Parse(sr.ReadLine());
+            xDview.UserName = sr.ReadLine();
+            xDview.UserPswd = sr.ReadLine();
+            xDview.ChannelNum = "0";
+            int r = xDview.LoginNVS();
+            xDview.StartView();
+
+
+           
+
+            //读取配置文件
             //查询垃圾楼信息
             string sql = "SELECT * FROM [dbo.Station]";
             BaseOperate op = new BaseOperate();
@@ -62,7 +77,6 @@ namespace DTQMS3New
             fUpui = updateUIFunc;
 
             this.lblStation.Text = CommonData.stationName;
-
            
         }
 
@@ -83,6 +97,18 @@ namespace DTQMS3New
         {
             if (!UHF.connect())
                 return;
+            CommPort cmp = new CommPort();
+            try
+            {
+                cmp.loadData();
+                cmp.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("打开称重器端口有误！");
+                return;
+            }
+            
 
             while (true)
             {
@@ -105,6 +131,18 @@ namespace DTQMS3New
                 {
                     //设置到站时间
                     card.EndTime = DateTime.Now.ToString("yy-MM-dd,HH:mm");
+                    //循环5次读取重量
+                    for (int i = 0; i < 5; i++)
+                    {
+                        byte[] data = cmp.Read(8).Reverse<byte>().ToArray();
+                        string str = "";
+                        for (int j = 0; j < 8; i++)
+                            str += data[j].ToString();
+                        if (card.weight > int.Parse(str))
+                            card.weight = int.Parse(str);
+                    }
+                    ////抓拍车牌号
+                    xDview.ChannelCapture(0);
                     //将信息保存到data.xml中
                     CommonData.data.Add(card);
                     
@@ -112,7 +150,6 @@ namespace DTQMS3New
                     //更新UI界面
                     this.Invoke(fUpui, new Object[] { card });
                 }
-                UHF.PutDataIntoCard(3, 10, 1, UHF.MISSION_ING, card);
             }
         }
 
@@ -179,8 +216,15 @@ namespace DTQMS3New
 
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
-            readCardThread.Abort();
-            updateDBThread.Abort();
+            try
+            {
+                readCardThread.Abort();
+                updateDBThread.Abort();
+            }
+            catch
+            { 
+                
+            }
         }
 
         private void groupCard_Enter(object sender, EventArgs e)
@@ -206,7 +250,11 @@ namespace DTQMS3New
             foreach (DataRow row in ds.Tables[0].Rows)
             {
                 row["StartStationName"] = CommonData.stations.GetValueByKey("StationID", row["StartStationID"], "Name");
-                sumWeight += int.Parse(row["Weight"].ToString());
+                try
+                {
+                    sumWeight += int.Parse(row["Weight"].ToString());
+                }
+                catch { }
             }
 
             this.dgvMsg.DataSource = ds.Tables[0];
@@ -238,6 +286,12 @@ namespace DTQMS3New
             vschart.setType(type);
             webBrowser.Url = vschart.displayChart();
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            
         }
     }
 }

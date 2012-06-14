@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.panelTtile = new System.Windows.Forms.Panel();
+            this.lblError = new System.Windows.Forms.Label();
             this.lblSumWeight = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblSum = new System.Windows.Forms.Label();
@@ -53,12 +54,14 @@
             this.StartTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EndTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TruckNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bgwUpdateUI = new System.ComponentModel.BackgroundWorker();
-            this.lblError = new System.Windows.Forms.Label();
+            this.xDview = new AxXDVIEWLib.AxXDView();
             this.panelTtile.SuspendLayout();
             this.groupCard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMsg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xDview)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTtile
@@ -76,6 +79,16 @@
             this.panelTtile.Size = new System.Drawing.Size(1024, 65);
             this.panelTtile.TabIndex = 0;
             this.panelTtile.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTtile_Paint);
+            // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(769, 20);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(0, 28);
+            this.lblError.TabIndex = 6;
             // 
             // lblSumWeight
             // 
@@ -292,16 +305,17 @@
             this.StartTime,
             this.EndTime,
             this.TruckNo,
+            this.ID,
             this.Type});
             this.dgvMsg.Location = new System.Drawing.Point(487, 417);
             this.dgvMsg.Name = "dgvMsg";
             this.dgvMsg.RowTemplate.Height = 23;
-            this.dgvMsg.Size = new System.Drawing.Size(534, 366);
+            this.dgvMsg.Size = new System.Drawing.Size(534, 203);
             this.dgvMsg.TabIndex = 3;
             // 
             // StartStation
             // 
-            this.StartStation.DataPropertyName = "StartStation";
+            this.StartStation.DataPropertyName = "StartStationName";
             this.StartStation.HeaderText = "起始站";
             this.StartStation.Name = "StartStation";
             // 
@@ -323,21 +337,27 @@
             this.TruckNo.HeaderText = "车牌号";
             this.TruckNo.Name = "TruckNo";
             // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "id";
+            this.ID.Name = "ID";
+            this.ID.Visible = false;
+            // 
             // Type
             // 
             this.Type.DataPropertyName = "Type";
             this.Type.HeaderText = "垃圾类型";
             this.Type.Name = "Type";
             // 
-            // lblError
+            // xDview
             // 
-            this.lblError.AutoSize = true;
-            this.lblError.Font = new System.Drawing.Font("微软雅黑", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblError.ForeColor = System.Drawing.Color.Red;
-            this.lblError.Location = new System.Drawing.Point(769, 20);
-            this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(0, 28);
-            this.lblError.TabIndex = 6;
+            this.xDview.Enabled = true;
+            this.xDview.Location = new System.Drawing.Point(487, 626);
+            this.xDview.Name = "xDview";
+            this.xDview.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("xDview.OcxState")));
+            this.xDview.Size = new System.Drawing.Size(534, 148);
+            this.xDview.TabIndex = 10;
             // 
             // MainWindow
             // 
@@ -346,6 +366,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1024, 786);
+            this.Controls.Add(this.xDview);
             this.Controls.Add(this.dgvMsg);
             this.Controls.Add(this.webBrowser);
             this.Controls.Add(this.groupCard);
@@ -360,6 +381,7 @@
             this.groupCard.ResumeLayout(false);
             this.groupCard.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMsg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xDview)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -386,12 +408,14 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dgvMsg;
+        private System.ComponentModel.BackgroundWorker bgwUpdateUI;
+        private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.DataGridViewTextBoxColumn StartStation;
         private System.Windows.Forms.DataGridViewTextBoxColumn StartTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn EndTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn TruckNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
-        private System.ComponentModel.BackgroundWorker bgwUpdateUI;
-        private System.Windows.Forms.Label lblError;
+        private AxXDVIEWLib.AxXDView xDview;
     }
 }

@@ -354,7 +354,7 @@ namespace DTQMS3New.Classes
             {
                 MessageBox.Show(error.Message);
             }
-            ipaddr2 = myHost.AddressList[0].ToString().ToCharArray();
+            ipaddr2 = myHost.AddressList[myHost.AddressList.Length-1].ToString().ToCharArray();
             if (Net_ConnectScanner(ref m_hScanner, ipaddr, 1969, ipaddr2, 5000) != 0)
             {
                 MessageBox.Show("读卡器连接失败！\n请检查网络是否可用。\n" + "远程IP：" + st + "\n本地IP：" + myHost.AddressList[0].ToString());
@@ -531,7 +531,7 @@ namespace DTQMS3New.Classes
                 byte[] IDTemp = new byte[12];               //目前认为ID是6位
 
                 for (int i = 0; i < Data.TagBuffer[0] * 2; i++)
-                {
+                { 
                     IDTemp[i] = Data.TagBuffer[i + 1];
                 }
                 status = Net_EPC1G2_ReadWordBlock(m_hScanner, EPC_BYTE, IDTemp, Convert.ToByte(3), Convert.ToByte(0), Convert.ToByte(8), DB, AccessPassword);
@@ -708,6 +708,7 @@ namespace DTQMS3New.Classes
     }
     public class Task
     {
+        public int weight = 0;
         public string BOXID = "";
         public byte[] TagBuffer = new byte[16];
         public string CarNum = "";
