@@ -88,6 +88,11 @@ namespace DTQMS3New
             this.lblStartTime.Text = card.StartTime;
             this.lblStartStation.Text = CommonData.stations.GetValueByKey("StationID",card.StartSpot,"Name").ToString();
             this.lblEndTime.Text = card.EndTime;
+            this.label9.Text = card.weight.ToString();
+            if (card.cardStatus != 0)
+                this.label11.Text = (card.weight - card.nweight).ToString();
+            else
+                this.label11.Text = "未知";
             bgwUpdateUI_DoWork();
         }
 
@@ -138,11 +143,29 @@ namespace DTQMS3New
                         string str = "";
                         for (int j = 0; j < 8; i++)
                             str += data[j].ToString();
-                        if (card.weight > int.Parse(str))
-                            card.weight = int.Parse(str);
+                        if (card.cardStatus == 0)
+                        {
+                            if (card.weight > int.Parse(str))
+                                card.weight = int.Parse(str);
+                        }
+                        else
+                        {
+                            if (card.nweight > int.Parse(str))
+                                card.nweight = int.Parse(str);
+                        }
+                    }
+
+                    //如果为下行，则从数据库中读取重量
+                    if (card.cardStatus == 1)
+                    {
+                        BaseOperate op = new BaseOperate();
+                        string sql = "SELECT Weight FROM [dbo.Goods] WHERE " + "\r\nWHERE (StartTime = '" + card.StartTime + "')  AND (TruckNo='" + card.CarNum + "')";
+                        card.weight = int.Parse(op.getds(sql,"[dbo.Goods]").Tables[0].Rows[0][0].ToString());
                     }
                     ////抓拍车牌号
                     xDview.ChannelCapture(0);
+                    //将图片保存
+                    card.picPath = xDview.CaptureChannel(0);
                     //将信息保存到data.xml中
                     CommonData.data.Add(card);
                     
@@ -174,6 +197,10 @@ namespace DTQMS3New
                               newNode.SetAttribute("StartTime", item.StartTime);
                               newNode.SetAttribute("EndTime", item.EndTime);
                               newNode.SetAttribute("StartStationID", item.StartSpot.ToString());
+                              newNode.SetAttribute("Weight",item.weight.ToString());
+                              newNode.SetAttribute("picPath",item.picPath);
+                              newNode.SetAttribute("cardStatus",item.cardStatus.ToString());
+                              newNode.SetAttribute("nweight", item.nweight.ToString());
                               xdoc.SelectSingleNode("Datas").AppendChild(newNode);
                           }
                           xdoc.Save("data.xml");
@@ -188,11 +215,23 @@ namespace DTQMS3New
                         card.StartTime = xRoot.Attributes["StartTime"].Value;
                         card.EndTime = xRoot.Attributes["EndTime"].Value;
                         card.CarNum = xRoot.Attributes["TruckNo"].Value;
+                        card.cardStatus = int.Parse(xRoot.Attributes["cardStatus"].Value);
+                        card.weight = int.Parse(xRoot.Attributes["Weight"].Value);
+                        card.nweight = int.Parse(xRoot.Attributes["nweight"].Value);
+                        card.picPath = xRoot.Attributes["picPath"].Value;
 
-                        //更新数据
-                        string sql = "UPDATE [dbo.Goods]\r\nSET [EndTime]='" + card.EndTime + "',EndStationID=" + CommonData.stationID + "\r" +
-                        "\nWHERE (StartTime = '" + card.StartTime + "')  AND (TruckNo='" + card.CarNum + "')";
-
+                        string sql;
+                        if (card.cardStatus == 0)
+                        {
+                            //更新数据
+                            sql = "UPDATE [dbo.Goods]\r\nSET [EndTime]='" + card.EndTime + "',weight="+card.weight+",EndStationID=" + CommonData.stationID + ",picPath='" + card.picPath + "'\r" +
+                            "\nWHERE (StartTime = '" + card.StartTime + "')  AND (TruckNo='" + card.CarNum + "')";
+                        }
+                        else
+                        {
+                            sql = "UPDATE [dbo.Goods]\r\nSET Weight=" +(card.weight-card.nweight)+
+                            "\r\nWHERE (StartTime = '" + card.StartTime + "')  AND (TruckNo='" + card.CarNum + "')";
+                        }
                         BaseOperate op = new BaseOperate();
                         if (op.getcom(sql))
                         {
@@ -259,7 +298,7 @@ namespace DTQMS3New
 
             this.dgvMsg.DataSource = ds.Tables[0];
             this.lblSum.Text = ds.Tables[0].Rows.Count + "次";
-            this.lblSumWeight.Text = sumWeight + "吨";
+            this.lblSumWeight.Text = sumWeight + "";
 
             ChartData chartdata = new ChartData();
             visifire vschart = new visifire();

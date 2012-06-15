@@ -477,11 +477,10 @@ namespace DTQMS3New.Classes
             }
             if (Data.finished == MISSION_FINISH)
             {
-                Data.status = false;
+                Data.status = true;
                 Data.EndTime = System.DateTime.Now.ToString("yy-MM-dd,HH:mm");
+                Data.cardStatus = 1;
                 Data.log = "任务已完成";
-
-                return;
             }
 
             //  MessageBox.Show(Data.StartSpot.ToString());
@@ -708,6 +707,9 @@ namespace DTQMS3New.Classes
     }
     public class Task
     {
+        public int nweight = 0;
+        public string picPath = "";
+        public int cardStatus = 0;
         public int weight = 0;
         public string BOXID = "";
         public byte[] TagBuffer = new byte[16];

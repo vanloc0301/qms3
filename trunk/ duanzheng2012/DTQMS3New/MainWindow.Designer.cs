@@ -58,6 +58,10 @@
             this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bgwUpdateUI = new System.ComponentModel.BackgroundWorker();
             this.xDview = new AxXDVIEWLib.AxXDView();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.panelTtile.SuspendLayout();
             this.groupCard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMsg)).BeginInit();
@@ -159,6 +163,10 @@
             // groupCard
             // 
             this.groupCard.BackColor = System.Drawing.Color.Transparent;
+            this.groupCard.Controls.Add(this.label11);
+            this.groupCard.Controls.Add(this.label12);
+            this.groupCard.Controls.Add(this.label9);
+            this.groupCard.Controls.Add(this.label10);
             this.groupCard.Controls.Add(this.lblType);
             this.groupCard.Controls.Add(this.lblTruck);
             this.groupCard.Controls.Add(this.lblEndTime);
@@ -359,6 +367,50 @@
             this.xDview.Size = new System.Drawing.Size(534, 148);
             this.xDview.TabIndex = 10;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(491, 31);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(46, 38);
+            this.label9.TabIndex = 11;
+            this.label9.Text = "无";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(327, 31);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(162, 38);
+            this.label10.TabIndex = 10;
+            this.label10.Text = "车辆总重：";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(473, 285);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(75, 38);
+            this.label11.TabIndex = 13;
+            this.label11.Text = "未知";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("微软雅黑", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label12.ForeColor = System.Drawing.Color.White;
+            this.label12.Location = new System.Drawing.Point(309, 285);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(162, 38);
+            this.label12.TabIndex = 12;
+            this.label12.Text = "垃圾净重：";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -417,5 +469,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type;
         private AxXDVIEWLib.AxXDView xDview;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }
