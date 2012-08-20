@@ -39,7 +39,7 @@ namespace QMS3.Classes
         public double[] stationlastmonth;
         public double[] stationlastyearmonth;
 
-        public int[] stationdaybox;
+        public double[] stationdaybox;
 
         private int[] PercentOfThread;
 
@@ -80,7 +80,7 @@ namespace QMS3.Classes
             {
                 this.PercentOfThread[i] = 100;
             }
-            this.stationdaybox = new int[16];
+            this.stationdaybox = new double[16];
             for (int i = 0; i <= 15; i++)
             {
                 this.stationdaybox[i] =0;
@@ -118,7 +118,7 @@ namespace QMS3.Classes
 
                                 for (int i = 0; i <= 11; i++)
                                 {
-                                    this.year[i] = int.Parse(ds.Tables[0].Rows[i]["sumbox"].ToString());
+                                    this.year[i] = double.Parse(ds.Tables[0].Rows[i]["sumbox"].ToString());
                                 }
 
                             }
@@ -156,7 +156,7 @@ namespace QMS3.Classes
 
                                 for (int i = 0; i <= 11; i++)
                                 {
-                                    this.lastyear[i] = int.Parse(ds.Tables[0].Rows[i]["sumbox"].ToString());
+                                    this.lastyear[i] = double.Parse(ds.Tables[0].Rows[i]["sumbox"].ToString());
                                 }
 
                             }
@@ -192,7 +192,7 @@ namespace QMS3.Classes
 
                             for (int i = 0; i <QMS3.Classes.Datetimecalc.daysofmonth(dt); i++)
                             {
-                                this.month[i] = int.Parse(ds.Tables[0].Rows[i]["sumbox"].ToString());
+                                this.month[i] = double.Parse(ds.Tables[0].Rows[i]["sumbox"].ToString());
                             }
 
                         }
@@ -227,7 +227,7 @@ namespace QMS3.Classes
 
                             for (int i = 0; i < QMS3.Classes.Datetimecalc.daysofmonth(dt); i++)
                             {
-                                this.lastmonth[i] = int.Parse(ds.Tables[0].Rows[i]["sumbox"].ToString());
+                                this.lastmonth[i] = double.Parse(ds.Tables[0].Rows[i]["sumbox"].ToString());
                             }
 
                         }
@@ -262,7 +262,7 @@ namespace QMS3.Classes
 
                             for (int i = 0; i < QMS3.Classes.Datetimecalc.daysofmonth(dt); i++)
                             {
-                                this.lastmonth[i] = int.Parse(ds.Tables[0].Rows[i]["sumbox"].ToString());
+                                this.lastmonth[i] = double.Parse(ds.Tables[0].Rows[i]["sumbox"].ToString());
                             }
 
                         }
@@ -299,7 +299,7 @@ namespace QMS3.Classes
 
                                 for (int i = 0; i <= 15; i++)
                                 {
-                                    this.stationdaybox[i] = int.Parse(ds.Tables[0].Rows[i]["sumbox"].ToString() );
+                                    this.stationdaybox[i] = double.Parse(ds.Tables[0].Rows[i]["sumbox"].ToString() );
                                 }
 
                             }
