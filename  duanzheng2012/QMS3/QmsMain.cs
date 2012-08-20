@@ -19,6 +19,7 @@ using Microsoft.Office.Interop;
 using Microsoft.Office.Core;
 using System.Threading;
 using QMS3.BaseClass;
+using System.Web.UI.WebControls;
 
 namespace QMS3
 {
@@ -1665,6 +1666,11 @@ drop table res;";
 
                     DataTable tb_result = crform_ds.Tables["Result"];
                     DataRow new_row = tb_result.NewRow();
+                    foreach (DataColumn column in crform_ds.Tables["Result"].Columns)
+                    {
+                        column.AllowDBNull = true;
+                    }
+
                     foreach (DataRow row in dt_goods.Rows)//从Goods_table中取出当天的，放入Result中
                     {
                         if (row["DateID"].ToString() == str_cur_day)
@@ -1927,6 +1933,16 @@ else
                     DataTable tb_result = crform_ds.Tables["Result"];
                     DataRow new_row = tb_result.NewRow();
                     //DataTable dt_goods = crform_ds.Tables["Goods_Table"];
+                    foreach (DataColumn column in crform_ds.Tables["Result"].Columns)
+                    {
+                        column.AllowDBNull = true;
+                    }
+
+
+                    foreach (DataColumn column in crform_ds.Tables["Result"].Columns)
+                    {
+                        column.AllowDBNull = true;
+                    }
                     foreach (DataRow row in dt_goods.Rows)
                     {
                         if (row["DateID"].ToString() == str_cur_day)
@@ -2490,8 +2506,13 @@ else
                 
                 
                 DataRow new_row = crform_ds.Tables["Result"].NewRow();
+                foreach (DataColumn column in crform_ds.Tables["Result"].Columns)
+                {
+                    column.AllowDBNull = true;
+                }
                 foreach (DataRow row in dt_goods.Rows)
                 {
+                    
 
                     if (row["DateID"].ToString() == query_day)
                     {   
@@ -2570,6 +2591,11 @@ else
                     string sql_team = "select * from [rfidtest].[dbo.Station] where Class=" + i.ToString();
                     crform_sqlda = new SqlDataAdapter(sql_team, sqlcon);
                     crform_sqlda.Fill(crform_ds, "Temp_Result");
+
+                    foreach (DataColumn column in crform_ds.Tables["Result"].Columns)
+                    {
+                        column.AllowDBNull = true;
+                    }
 
 
                     foreach (DataRow row in crform_ds.Tables["Temp_Result"].Rows)
@@ -3470,7 +3496,12 @@ drop table resMon;";
                         labelProgYear.Update();
 
                         dataGridViewMon.DataSource = crform_ds.Tables["MonOutPut"];
-                                                
+                        foreach (DataColumn column in crform_ds.Tables["Result"].Columns)
+                        {
+                            column.AllowDBNull = true;
+                        }
+
+
                         for (int cur_sheet = 1; cur_sheet <= 12; cur_sheet++)
                         {
 
@@ -3830,6 +3861,17 @@ drop table tempTable;";
                  groupBoxSelect4.Enabled = true;
                  return;
              }
+             foreach (DataColumn column in crform_ds.Tables["Result"].Columns)
+             {
+                 column.AllowDBNull = true;
+             }
+
+
+             foreach (DataColumn column in crform_ds.Tables["Result"].Columns)
+             {
+                 column.AllowDBNull = true;
+             }
+
 
              DataTable t_moncheci = crform_ds.Tables["MonCheCi"];
              DataRow new_row = t_moncheci.NewRow();
@@ -6861,15 +6903,23 @@ drop table tempTable;";
           //  string systime = dateTimePicker1.Value.ToString("yy-MM-dd");
            // string systime =d;
             showDayreport.ReportProgress(30);
-            string strSQL = "SELECT DISTINCT  [db_rfidtest].[rfidtest].[dbo.Station].[Name] AS '起始站点' , " +
-                " [db_rfidtest].[rfidtest].[dbo.Goods].[BoxCardID] AS '货箱卡号' ,  " +
-                "[db_rfidtest].[rfidtest].[dbo.Goods].[TruckNo] AS '货车牌号' ,  " +
-                "[db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] AS '开始时间' ,  " +
-                "[db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] AS '结束时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[Weight] AS '重量(单位:吨)'" +
-                " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] ON   " +
-                "[db_rfidtest].[rfidtest].[dbo.Goods].[StartStationID] = [db_rfidtest].[rfidtest].[dbo.Station].[StationID] " +
-                "WHERE  [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] > '" + dateTimePicker_22.Value.ToString("yy-MM-dd") + ",00:00' AND [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] < '" + dateTimePicker_22_2.Value.ToString("yy-MM-dd") + ",23:59'";
+            string strSQL = "SELECT DISTINCT  s1.[Name] AS '起始站点' , " +
+                " g.[BoxCardID] AS '货箱卡号' ,  " +
+                "g.[TruckNo] AS '货车牌号' ,  " +
+                "g.[StartTime] AS '开始时间' ,  " +
+                "g.[EndTime] AS '结束时间' , g.[DownTime] AS '下行时间' , g.[Weight] AS '重量(单位:吨)',s2.Name as '结束站点'" +
+                " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] AS g INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] AS s1 ON   " +
+                "g.[StartStationID] = s1.[StationID] " +
+                " INNER JOIN [db_rfidtest].[rfidtest].[dbo.Station] as s2 ON g.EndStationID = s2.StationID " +
+                "WHERE  g.[EndTime] > '" + dateTimePicker_22.Value.ToString("yy-MM-dd") + ",00:00' AND g.[EndTime] < '" + dateTimePicker_22_2.Value.ToString("yy-MM-dd") + ",23:59'";
+
+            if (cbCenter.SelectedIndex <= 0)
+                ;
+            else
+                strSQL += " AND g.EndStationID = "+cbCenter.SelectedIndex;
+
             string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
+            //MessageBox.Show(strSQL);
             showDayreport.ReportProgress(80);
             try
             {
@@ -7117,14 +7167,24 @@ drop table tempTable;";
             }
             string sttime = dateTimePicker_81.Value.ToString("yy-MM-dd");
             string sttime2 = dateTimePicker_82.Value.AddDays(1).ToString("yy-MM-dd");
-            string strSQL = "SELECT DISTINCT  [db_rfidtest].[rfidtest].[dbo.Station].[Name] AS '起始站点' , " +
-                "[db_rfidtest].[rfidtest].[dbo.Goods].[TruckNo] AS '车牌号' ,  " +
+            string strSQL = "SELECT DISTINCT  s1.[Name] AS '起始站点' , " +
+                "g.[TruckNo] AS '车牌号' ,  " +
 
-                "[db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] AS '开始时间'" +
-
-                " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] ON  " +
-                "[db_rfidtest].[rfidtest].[dbo.Goods].[StartStationID] = [db_rfidtest].[rfidtest].[dbo.Station].[StationID] " +
-                "WHERE [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] is null AND [db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] > '" + sttime + "' AND [db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] <'"+sttime2+"'";
+                "g.[StartTime] AS '开始时间'," +
+                "s2.[Name] AS '目的地'" +
+                " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] as g INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] as s1 ON  " +
+                "g.[StartStationID] = s1.[StationID] " +
+                " INNER JOIN [db_rfidtest].[rfidtest].[dbo.Station] as s2 ON" +
+                " g.EndStationID = s2.StationID "+
+                "WHERE g.[EndTime] is null AND g.[StartTime] > '" + sttime + "' AND g.[StartTime] <'"+sttime2+"'";
+            string stres = "(";
+            if (cbES1.Checked == true)
+                stres += "1,";
+            if (cbES2.Checked == true)
+                stres += "2,";
+            stres += "3)";
+            strSQL += " AND g.EndStationID in " + stres;
+            //MessageBox.Show(strSQL);
             string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
 
             try
@@ -7238,9 +7298,9 @@ drop table tempTable;";
             if (comboBox_23_2.Text == "     去年同比    ")
                 chartdata.updateData(2, dateTimePicker_23.Value, 0);
             vschart.reSize(webBrowser_23.Size.Width, webBrowser_23.Size.Height);
-            vschart.settitle(dateTimePicker_23.Value.ToString("yyyy") + "年报表", "日期", "运输量(单位:箱)");
+            vschart.settitle(dateTimePicker_23.Value.ToString("yyyy") + "年报表", "日期", "运输量(单位:吨)");
             if (comboBox_23_2.Text == "     去年同比    ")
-                vschart.settitle(dateTimePicker_23.Value.ToString("yyyy") + "年同比报表", "日期", "运输量(单位:箱)");
+                vschart.settitle(dateTimePicker_23.Value.ToString("yyyy") + "年同比报表", "日期", "运输量(单位:吨)");
             string[] column = new string[12];
             double[] data = new double[12];
             double[] data2 = new double[12];
@@ -7321,11 +7381,11 @@ drop table tempTable;";
             if (comboBox_23_4.Text == "     本年环比    ")
                 chartdata.updateData(4, dateTimePicker_23_2.Value, 0);
             vschart.reSize(webBrowser_23_2.Size.Width, webBrowser_23_2.Size.Height);
-            vschart.settitle(dateTimePicker_23_2.Value.ToString("yyyy年MM月") + "报表", "日期", "运输量(单位:箱)");
+            vschart.settitle(dateTimePicker_23_2.Value.ToString("yyyy年MM月") + "报表", "日期", "运输量(单位:吨)");
             if (comboBox_23_4.Text == "     去年同比    ")
-                vschart.settitle(dateTimePicker_23_2.Value.ToString("MM月") + "年同比报表", "日期", "运输量(单位:箱)");
+                vschart.settitle(dateTimePicker_23_2.Value.ToString("MM月") + "年同比报表", "日期", "运输量(单位:吨)");
             if (comboBox_23_4.Text == "     本年环比    ")
-                vschart.settitle(dateTimePicker_23_2.Value.ToString("MM月") + "与上月环比报表", "日期", "运输量(单位:箱)");
+                vschart.settitle(dateTimePicker_23_2.Value.ToString("MM月") + "与上月环比报表", "日期", "运输量(单位:吨)");
             string[] column = new string[31];
             double[] data = new double[31];
             double[] data2 = new double[31];
@@ -7422,7 +7482,7 @@ drop table tempTable;";
             string sttime2 = dateTimePicker_24_2.Value.AddDays(1).ToString("yy-MM-dd");
             string strSQL = "SELECT DISTINCT  [db_rfidtest].[rfidtest].[dbo.Station].[Name] AS '起始站点' , " +
                " [db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] AS '开始时间' ,  " +
-               " [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] AS '结束时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[Weight] AS '重量(单位:吨)'" +
+               " [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] AS '结束时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[Weight] AS '重量(单位:吨)',[dbo.Goods].[downTime] as '下行时间'" +
                 " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] ON   " +
                " [db_rfidtest].[rfidtest].[dbo.Goods].[StartStationID] = [db_rfidtest].[rfidtest].[dbo.Station].[StationID] WHERE (TruckNo = '"+ textBox_24.Text + "') AND (StartTime > '" + sttime + "'AND StartTime < '"+sttime2+"')";
             string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
@@ -8442,8 +8502,6 @@ drop table tempTable;";
                     subsql += "1,";
                 if (rbLv1.Checked)
                     subsql += "2,";
-                if (rbLv2.Checked)
-                    subsql += "3,";
                 subsql += "'" + this.UNtextBox .Text+ "',";
                 subsql += GetRowByValue(stations,"Name",item)["StationID"].ToString()+",";
                 subsql += "0)";
@@ -8498,7 +8556,9 @@ drop table tempTable;";
 
         private void dgvMsgList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.RowIndex == dgvMsgList.Rows.Count - 1 && e.RowIndex < 0)
+            if (e.RowIndex < 0)
+                return;
+            if (e.RowIndex == dgvMsgList.Rows.Count - 1 && e.RowIndex <= 0)
             {
                 cbRevStation.SelectedIndex = -1;
                 btnSaveMsg.Enabled = false;
@@ -8533,8 +8593,6 @@ drop table tempTable;";
                 rbLv0c.Checked = true;
             if (dgvMsgList.Rows[e.RowIndex].Cells["MsgLevel"].Value.ToString() == "2")
                 rbLv1c.Checked = true;
-            if (dgvMsgList.Rows[e.RowIndex].Cells["MsgLevel"].Value.ToString() == "3")
-                rbLv2c.Checked = true;
         }
 
 
@@ -8556,8 +8614,6 @@ drop table tempTable;";
                 if (e.Value.ToString() == "1")
                     e.Value = "一般";
                 if (e.Value.ToString() == "2")
-                    e.Value = "重要";
-                if (e.Value.ToString() == "3")
                     e.Value = "紧急";
             }
             if (dgvMsgList.Columns[e.ColumnIndex].Name == "MsgState")
@@ -8577,8 +8633,6 @@ drop table tempTable;";
                 lv = 1;
             if (rbLv1c.Checked)
                 lv = 2;
-            if (rbLv2c.Checked)
-                lv = 3;
             string sql = "UPDATE [Message] SET SendTime='"+DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")+"',MsgContent='"+
                                 txtMsgContent1.Text+"',MsgLevel="+
                                 lv+",SendPeople='"+
@@ -8592,13 +8646,35 @@ drop table tempTable;";
         
         #endregion
 
-        
+        private void lbRecvStation_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
-        
+        }
 
-        
+        private void cmsDelete_Opening(object sender, CancelEventArgs e)
+        {
 
-        
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < this.lbAllStation.Items.Count;i++ )
+            {
+                if (this.lbAllStation.SelectedIndices.IndexOf(i) == -1)
+                    this.lbAllStation.SelectedIndices.Add(i);
+            }
+            lblAddMsg_Click(null, null);
+
+        }
+
+
+
+
+
+
+
+
+
 
     }
 }
