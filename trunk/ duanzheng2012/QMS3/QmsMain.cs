@@ -7255,7 +7255,7 @@ drop table tempTable;";
             Uri url = new Uri(str + "chart/Demo.htm");
             webBrowser_21.Url = url;
 
-            chartdata.updateData(5, dateTimePicker_21.Value, 0).ToString();
+            chartdata.updateData(5, dateTimePicker_21.Value, comboBoxCenter.SelectedIndex).ToString();
             vschart.reSize(webBrowser_21.Size.Width, webBrowser_21.Size.Height);
             vschart.settitle("当日转运中心报表", "时间", "运输量");
             string[] column=new string[16];

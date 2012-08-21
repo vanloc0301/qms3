@@ -282,6 +282,10 @@ namespace QMS3.Classes
                             DataSet ds;
                             string sttime = dt.ToString("yy-MM-dd");
                             string strSQL = "DECLARE	@return_value int EXEC	@return_value = [rfidtest].[GetStationDetailbyDay] @day = N'" + sttime + "'";
+                            if (stationID > 0)
+                            {
+                                strSQL = "DECLARE	@return_value int EXEC	@return_value = [rfidtest].[GetDetailByDayDT] @day = N'" + sttime + "',@stationID="+stationID;
+                            }
                             string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
                            // MessageBox.Show(strSQL);
                             try
