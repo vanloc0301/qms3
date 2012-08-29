@@ -482,7 +482,7 @@ namespace Distributor
             }
             string strtype = sInfoR;
             string endstation = "1";
-            if (comboBox1.Text == "马家楼")
+            if (comboBox2.Text == "马家楼")
                 endstation = "2";
 
 
