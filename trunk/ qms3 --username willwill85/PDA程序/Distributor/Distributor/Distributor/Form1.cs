@@ -323,7 +323,7 @@ namespace Distributor
             }
             int Percent;
             Percent = GetSystemPowerStatusEx(status2,/*System.Runtime.InteropServices.Marshal.SizeOf(status),*/ 1);
-            if (status2.BatteryLifePercent < 35)
+            if (status2.BatteryLifePercent < 30)
             {
                 f2.setmsg("电量不足，请充电", 3, "\\User_Storage\\sound\\nobat.wav");
 

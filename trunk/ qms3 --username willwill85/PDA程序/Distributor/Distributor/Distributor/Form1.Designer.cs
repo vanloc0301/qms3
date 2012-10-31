@@ -312,7 +312,7 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.pictureBox6);
             this.panel1.Controls.Add(this.pictureBox5);
-            this.panel1.Location = new System.Drawing.Point(20, 286);
+            this.panel1.Location = new System.Drawing.Point(4, 23);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(220, 268);
             // 
@@ -427,10 +427,10 @@
             this.BackColor = System.Drawing.Color.SlateBlue;
             this.ClientSize = new System.Drawing.Size(240, 320);
             this.ControlBox = false;
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.signalpic);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.NetPIC);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.taskPIC);
