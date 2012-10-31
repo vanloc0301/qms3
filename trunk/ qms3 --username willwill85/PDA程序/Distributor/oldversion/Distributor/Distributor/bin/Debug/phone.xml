@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<root>
+<phone>
+	<id>1</id>
+	<name>一班</name>
+	<num>68560634</num>
+	<private>false</private>
+</phone>
+<phone>
+	<id>2</id>
+	<name>二班</name>
+	<num>68023180</num>
+	<private>false</private>
+</phone>
+<phone>
+	<id>3</id>
+	<name>三班</name>
+	<num>84033695</num>
+	<private>false</private>
+</phone>
+<phone>
+	<id>4</id>
+	<name>业务科</name>
+	<num>68995747</num>
+	<private>false</private>
+</phone>
+<phone>
+	<id>5</id>
+	<name>业务经理</name>
+	<num>68998860</num>
+	<private>false</private>
+</phone>
+<phone>
+	<id>6</id>
+	<name>指挥中心</name>
+	<num>68998860</num>
+	<private>false</private>
+</phone>
+<phone>
+	<id>7</id>
+	<name>拨打号码</name>
+	<num></num>
+	<private>true</private>
+</phone>
+</root>
