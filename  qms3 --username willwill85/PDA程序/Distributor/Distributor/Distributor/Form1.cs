@@ -172,11 +172,22 @@ namespace Distributor
             pbReadCarCard.Enabled = false;
             pbReadBoxCard.Enabled = false;
             useractive();
-            if (!myCfCard.connect())
+
+
+            this.pbReadCarCard.Image = Properties.Resources.btReadUp;
+            this.Refresh();
+            if (status2.BatteryLifePercent < 25)
             {
+                f2.setmsg("电量不足，请充电", 3, "\\User_Storage\\sound\\nobat.wav");
+
+                clearMemProperties();
+                clearPropShow();
+
+                return;
+            }
                 if (!myCfCard.connect())
                 {
-                    f2.setmsg("没有检测到卡片", 3, "\\User_Storage\\sound\\nocard.wav");
+                    f2.setmsg("连接读卡器失败", 3, "\\User_Storage\\sound\\nocard.wav");
                     // PlaySound("\\User_Storage\\sound\\nocard.wav", IntPtr.Zero, 0x0002);
                     string xx = tbCarNum.Text;
                     clearMemProperties();
@@ -184,11 +195,7 @@ namespace Distributor
                     tbCarNum.Text = xx;
                     return;
                 }
-            }
-
-            this.pbReadCarCard.Image = Properties.Resources.btReadUp;
-            this.Refresh();
-
+        
 
             string sInfoR = "";
 
@@ -278,19 +285,7 @@ namespace Distributor
         {
             useractive();
             pbReadCarCard.Enabled = false;
-            if (!myCfCard.connect())
-            {
-                if (!myCfCard.connect())
-                {
-                    f2.setmsg("没有检测到卡片", 3, "\\User_Storage\\sound\\nocard.wav");
-                    // PlaySound("\\User_Storage\\sound\\nocard.wav", IntPtr.Zero, 0x0002);
-                    string xx = tbCarNum.Text;
-                    clearMemProperties();
-                    clearPropShow();
-                    tbCarNum.Text = xx;
-                    return;
-                }
-            }
+
             this.pbReadBoxCard.Image = Properties.Resources.btWriteUp;
             this.Refresh();
             this.pbReadBoxCard.Enabled = false;
@@ -323,7 +318,7 @@ namespace Distributor
             }
             int Percent;
             Percent = GetSystemPowerStatusEx(status2,/*System.Runtime.InteropServices.Marshal.SizeOf(status),*/ 1);
-            if (status2.BatteryLifePercent < 30)
+            if (status2.BatteryLifePercent < 25)
             {
                 f2.setmsg("电量不足，请充电", 3, "\\User_Storage\\sound\\nobat.wav");
 
@@ -332,6 +327,18 @@ namespace Distributor
 
                 return;
             }
+
+                if (!myCfCard.connect())
+                {
+                    f2.setmsg("连接读卡器失败", 3, "\\User_Storage\\sound\\nocard.wav");
+                    // PlaySound("\\User_Storage\\sound\\nocard.wav", IntPtr.Zero, 0x0002);
+                    string xx = tbCarNum.Text;
+                    clearMemProperties();
+                    clearPropShow();
+                    tbCarNum.Text = xx;
+                    return;
+                }
+            
             if (sCarNum.ToString().Length != 7)
             {
                 f2.setmsg("请先读司机卡", 3, "\\User_Storage\\sound\\dfirst.wav");
