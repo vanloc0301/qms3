@@ -1,0 +1,5 @@
+E:\西城环卫\NetCheck\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+E:\西城环卫\NetCheck\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+E:\西城环卫\NetCheck\ClassLibrary1\obj\Debug\ResolveAssemblyReference.cache
+E:\西城环卫\NetCheck\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+E:\西城环卫\NetCheck\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
