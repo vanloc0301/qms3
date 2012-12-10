@@ -1,0 +1,63 @@
+﻿<Window
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	x:Class="StationManager.LoginWindow"
+	x:Name="Window"
+	Title="LoginWindow"
+	Width="700" Height="600" WindowStartupLocation="CenterScreen" WindowStyle="None" mc:Ignorable="d" Loaded="Window_Loaded">
+	<Window.Background>
+		<ImageBrush ImageSource="bg.png"></ImageBrush>
+	</Window.Background>
+	<Grid x:Name="LayoutRoot">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="0*"/>
+			<ColumnDefinition/>
+			<ColumnDefinition Width="0*"/>
+		</Grid.ColumnDefinitions>
+		<Label Margin="309.817,22,264.511,0" VerticalAlignment="Top" Height="70" Content="登陆" Grid.Column="1" FontSize="48" Foreground="White"/>
+		<Button HorizontalAlignment="Left" Margin="62.244,0,0,198" VerticalAlignment="Bottom" Width="48" Height="48" Content="1" Background="White" Grid.Column="1" FontSize="26.667" Name="btn1" Click="ButtonNum_Click" RenderTransformOrigin="0.521,0.479"/>
+		<Button Margin="166.5,0,0,198" VerticalAlignment="Bottom" Height="48" Content="3" Background="White" Grid.Column="1" FontSize="26.667" Name="btn3" Click="ButtonNum_Click" HorizontalAlignment="Left" Width="48"/>
+		<Button Margin="114.244,0,0,198" VerticalAlignment="Bottom" Height="48" Content="2" Background="White" Grid.Column="1" FontSize="26.667" Name="btn2" Click="ButtonNum_Click" HorizontalAlignment="Left" Width="48.256"/>
+		<Button HorizontalAlignment="Left" Margin="217.732,0,0,198" Width="48" Content="4" Background="White" Grid.Column="1" FontSize="26.667" Height="48" Name="btn4" Click="ButtonNum_Click" VerticalAlignment="Bottom" d:LayoutOverrides="Height"/>
+		<Button Margin="321.988,0,322.012,198" Content="6" Background="White" Grid.Column="1" FontSize="26.667" Height="48" Name="btn6" Click="ButtonNum_Click" VerticalAlignment="Bottom" d:LayoutOverrides="Height"/>
+		<Button Margin="269.732,0,0,198" Content="5" Background="White" Grid.Column="1" FontSize="26.667" Height="48" Name="btn5" Click="ButtonNum_Click" VerticalAlignment="Bottom" d:LayoutOverrides="Height" HorizontalAlignment="Left" Width="48.256"/>
+		<Button Margin="0,0,270.012,198" Content="7" Background="White" Grid.Column="1" Height="48" FontSize="26.667" VerticalAlignment="Bottom" d:LayoutOverrides="Height" Name="btn7" Click="ButtonNum_Click" HorizontalAlignment="Right" Width="48"/>
+		<Button Margin="0,0,164.756,198" Content="9" Background="White" Grid.Column="1" Height="48" FontSize="26.667" VerticalAlignment="Bottom" d:LayoutOverrides="Height" Name="btn9" Click="ButtonNum_Click" HorizontalAlignment="Right" Width="48"/>
+		<Button Margin="0,0,216.756,198" Content="8" Background="White" Grid.Column="1" Height="48" FontSize="26.667" VerticalAlignment="Bottom" d:LayoutOverrides="Height" Name="btn8" Click="ButtonNum_Click" RenderTransformOrigin="0.458,0.43" HorizontalAlignment="Right" Width="48.256"/>
+		<Button HorizontalAlignment="Right" Margin="0,0,60.5,198" VerticalAlignment="Bottom" Width="48" Height="48" Content="退格" Background="White" Grid.Column="1" FontSize="18.667" Foreground="#FFF81818" Click="Button_Click_1" />
+		<Button Margin="0,0,141,42" VerticalAlignment="Bottom" Height="48" Content="清除" Background="White" Grid.Column="1" FontSize="18.667" Foreground="#FF17F04B" Click="Button_Click_2" HorizontalAlignment="Right" Width="48" />
+		<Button Margin="0,0,112.5,198" VerticalAlignment="Bottom" Height="48" Content="0" Background="White" Grid.Column="1" FontSize="26.667" Name="btn0" Click="ButtonNum_Click" HorizontalAlignment="Right" Width="48.256"/>
+		<Label Margin="73,136,0,0" VerticalAlignment="Top" Content="用户名:" Grid.Column="1" FontSize="24" Height="37.97" Foreground="White" HorizontalAlignment="Left" Width="99.992"/>
+		<Label Margin="73,208,0,0" Content="密   码:" FontSize="24" Foreground="White" Grid.Column="1" HorizontalAlignment="Left" Width="99.992" VerticalAlignment="Top" Height="39" />
+		<PasswordBox Margin="190,208.38,82.256,0" Grid.Column="1" Name="txtPwd" VerticalAlignment="Top" Height="38.62" FontSize="24"/>
+		<ComboBox Margin="190,136,82.256,0" VerticalAlignment="Top" Height="38.62" Grid.Column="1" Name="cbUser" FontSize="24" />
+		<Button Margin="294.489,263,270.511,264" Content="登陆" Grid.Column="1" Style="{DynamicResource btnSearch}" FontSize="21.333" Foreground="White" Click="Button_Click" d:LayoutOverrides="HorizontalAlignment" />
+		<Button HorizontalAlignment="Left" Margin="85.744,0,0,146" VerticalAlignment="Bottom" Width="48" Height="48" Content="Q" Background="White" Grid.Column="1" FontSize="26.667" x:Name="btn1_Copy" Click="ButtonNum_Click" RenderTransformOrigin="0.521,0.479"/>
+		<Button Margin="190,0,0,146" VerticalAlignment="Bottom" Height="48" Content="E" Background="White" Grid.Column="1" FontSize="26.667" x:Name="btn3_Copy" Click="ButtonNum_Click" HorizontalAlignment="Left" Width="48"/>
+		<Button Margin="137.744,0,0,146" VerticalAlignment="Bottom" Height="48" Content="W" Background="White" Grid.Column="1" FontSize="26.667" x:Name="btn2_Copy" Click="ButtonNum_Click" HorizontalAlignment="Left" Width="48.256"/>
+		<Button HorizontalAlignment="Left" Margin="241.232,0,0,146" Width="48" Content="R" Background="White" Grid.Column="1" FontSize="26.667" Height="48" x:Name="btn4_Copy" Click="ButtonNum_Click" VerticalAlignment="Bottom" d:LayoutOverrides="Height"/>
+		<Button Margin="345.488,0,298.512,146" Content="Y" Background="White" Grid.Column="1" FontSize="26.667" Height="48" x:Name="btn6_Copy" Click="ButtonNum_Click" VerticalAlignment="Bottom" d:LayoutOverrides="Height"/>
+		<Button Margin="293.232,0,0,146" Content="T" Background="White" Grid.Column="1" FontSize="26.667" Height="48" x:Name="btn5_Copy" Click="ButtonNum_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="48.256" d:LayoutOverrides="Height"/>
+		<Button Margin="0,0,246.512,146" Content="U" Background="White" Grid.Column="1" Height="48" FontSize="26.667" VerticalAlignment="Bottom" x:Name="btn7_Copy" Click="ButtonNum_Click" d:LayoutOverrides="Height" HorizontalAlignment="Right" Width="48"/>
+		<Button Margin="0,0,141.256,146" Content="O" Background="White" Grid.Column="1" Height="48" FontSize="26.667" VerticalAlignment="Bottom" x:Name="btn9_Copy" Click="ButtonNum_Click" HorizontalAlignment="Right" Width="48" d:LayoutOverrides="Height"/>
+		<Button Margin="0,0,193.256,146" Content="I" Background="White" Grid.Column="1" Height="48" FontSize="26.667" VerticalAlignment="Bottom" x:Name="btn8_Copy" Click="ButtonNum_Click" RenderTransformOrigin="0.458,0.43" HorizontalAlignment="Right" Width="48.256" d:LayoutOverrides="Height"/>
+		<Button Margin="0,0,89,146" VerticalAlignment="Bottom" Height="48" Content="P" Background="White" Grid.Column="1" FontSize="26.667" x:Name="btn0_Copy" Click="ButtonNum_Click" HorizontalAlignment="Right" Width="48.256"/>
+		<Button Margin="163,0,0,94" VerticalAlignment="Bottom" Height="48" Content="S" Background="White" Grid.Column="1" FontSize="26.667" x:Name="btn3_Copy1" Click="ButtonNum_Click" HorizontalAlignment="Left" Width="48"/>
+		<Button Margin="110.744,0,0,94" VerticalAlignment="Bottom" Height="48" Content="A" Background="White" Grid.Column="1" FontSize="26.667" x:Name="btn2_Copy1" Click="ButtonNum_Click" HorizontalAlignment="Left" Width="48.256"/>
+		<Button HorizontalAlignment="Left" Margin="214.232,0,0,94" Width="48" Content="D" Background="White" Grid.Column="1" FontSize="26.667" Height="48" x:Name="btn4_Copy1" Click="ButtonNum_Click" VerticalAlignment="Bottom" d:LayoutOverrides="Height"/>
+		<Button Margin="318.488,0,325.512,94" Content="G" Background="White" Grid.Column="1" FontSize="26.667" Height="48" x:Name="btn6_Copy1" Click="ButtonNum_Click" VerticalAlignment="Bottom" d:LayoutOverrides="Height"/>
+		<Button Margin="266.232,0,0,94" Content="F" Background="White" Grid.Column="1" FontSize="26.667" Height="48" x:Name="btn5_Copy1" Click="ButtonNum_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="48.256" d:LayoutOverrides="Height"/>
+		<Button Margin="0,0,273.512,94" Content="H" Background="White" Grid.Column="1" Height="48" FontSize="26.667" VerticalAlignment="Bottom" x:Name="btn7_Copy1" Click="ButtonNum_Click" HorizontalAlignment="Right" Width="48" d:LayoutOverrides="Height"/>
+		<Button Margin="0,0,115.744,94" Content="L" Background="White" Grid.Column="1" Height="48" FontSize="26.667" VerticalAlignment="Bottom" x:Name="btn9_Copy1" Click="ButtonNum_Click" HorizontalAlignment="Right" Width="48" d:LayoutOverrides="Height"/>
+		<Button Margin="0,0,167.744,94" Content="K" Background="White" Grid.Column="1" Height="48" FontSize="26.667" VerticalAlignment="Bottom" x:Name="btn8_Copy1" Click="ButtonNum_Click" RenderTransformOrigin="0.458,0.43" HorizontalAlignment="Right" Width="48.256" d:LayoutOverrides="Height"/>
+		<Button Margin="138,0,0,42" VerticalAlignment="Bottom" Height="48" Content="Z" Background="White" Grid.Column="1" FontSize="26.667" x:Name="btn3_Copy2" Click="ButtonNum_Click" HorizontalAlignment="Left" Width="48"/>
+		<Button HorizontalAlignment="Left" Margin="189.232,0,0,42" Width="48" Content="X" Background="White" Grid.Column="1" FontSize="26.667" Height="48" x:Name="btn4_Copy2" Click="ButtonNum_Click" VerticalAlignment="Bottom" d:LayoutOverrides="Height"/>
+		<Button Margin="293.488,0,0,42" Content="V" Background="White" Grid.Column="1" FontSize="26.667" Height="48" x:Name="btn6_Copy2" Click="ButtonNum_Click" VerticalAlignment="Bottom" d:LayoutOverrides="Height" HorizontalAlignment="Left" Width="48"/>
+		<Button Margin="241.232,0,0,42" Content="C" Background="White" Grid.Column="1" FontSize="26.667" Height="48" x:Name="btn5_Copy2" Click="ButtonNum_Click" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="48.256" d:LayoutOverrides="Height"/>
+		<Button Margin="345.488,0,298.512,42" Content="B" Background="White" Grid.Column="1" Height="48" FontSize="26.667" VerticalAlignment="Bottom" x:Name="btn7_Copy2" Click="ButtonNum_Click" d:LayoutOverrides="Height"/>
+		<Button Margin="0,0,245.256,42" Content="N" Background="White" Grid.Column="1" Height="48" FontSize="26.667" VerticalAlignment="Bottom" x:Name="btn8_Copy2" Click="ButtonNum_Click" RenderTransformOrigin="0.458,0.43" HorizontalAlignment="Right" Width="48.256" d:LayoutOverrides="Height"/>
+		<Button Margin="0,0,220,94" Content="J" Background="White" Grid.Column="1" Height="48" FontSize="26.667" VerticalAlignment="Bottom" x:Name="btn8_Copy3" Click="ButtonNum_Click" RenderTransformOrigin="0.458,0.43" HorizontalAlignment="Right" Width="48.256" d:LayoutOverrides="Height"/>
+		<Button Margin="0,0,193,42" Content="M" Background="White" Grid.Column="1" Height="48" FontSize="26.667" VerticalAlignment="Bottom" x:Name="btn8_Copy4" Click="ButtonNum_Click" RenderTransformOrigin="0.458,0.43" HorizontalAlignment="Right" Width="48.256" d:LayoutOverrides="Height"/>
+	</Grid>
+</Window>
