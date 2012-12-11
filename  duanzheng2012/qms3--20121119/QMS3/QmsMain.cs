@@ -177,9 +177,9 @@ namespace QMS3
                        " g.[BoxCardID] AS '货箱卡号' ,  " +
                        "g.[TruckNo] AS '货车牌号' ,  " +
                        "g.[StartTime] AS '开始时间' ,  " +
-                       "g.[EndTime] AS '结束时间' ,  g.[Weight] AS '重量(单位:吨)'" +
+                       "g.[EndTime] AS '结束时间' ,  g.[Weight] AS '重量(单位:吨)',g.[Up] as '上行重量',g.[down] as '下行重量',wt.UpWeight,wt.UpWeight" +
                        " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] AS g INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] AS s1 ON   " +
-                       "g.[StartStationID] = s1.[StationID] INNER JOIN [dbo.Station] AS s2 ON g.EndStationID = s2.StationID " +
+                       "g.[StartStationID] = s1.[StationID] INNER JOIN [dbo.Station] AS s2 ON g.EndStationID = s2.StationID LEFT JOIN WeightTest as wt ON g.TruckNo = wt.TruckNo and g.StartTime = wt.StartTime " +
                        "WHERE  g.[EndTime] > '" + dateTimePicker2.Value.ToString("yy-MM-dd") + ",00:00' AND g.[EndTime] < '" + dateTimePicker2.Value.ToString("yy-MM-dd") + ",23:59' and (g.Weight>" + maxW + " or g.Weight<" + minW + ")";
                     string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
 
@@ -195,6 +195,10 @@ namespace QMS3
                     try
                     {
                         dataGridView2.DataSource = ds.Tables[0];
+                        dataGridView2.Columns[7].Visible = false;
+                        dataGridView2.Columns[8].Visible = false;
+                        dataGridView2.Columns[9].Visible = false;
+                        dataGridView2.Columns[10].Visible = false;
                     }
                     catch { }
                     MainTab.SelectTab(12);
@@ -6610,30 +6614,50 @@ drop table tempTable;";
         {
             try
             {
-                this.dbo_GoodsTableAdapter.UpdateGoodsByEndTime(2, double.Parse(WeightTxt.Text), EndTimeTxt.Text, CarNumTxt.Text,StartTimeTxt.Text);
+                double b = 0;
+                try{
+                     b= double.Parse(cmbUpWeight.Text)-double.Parse(cmbDownWeight.Text);
+                }
+                catch { MessageBox.Show("输入的数据不正确！"); return; }
+                this.dbo_GoodsTableAdapter.UpdateGoodsByEndTime(2, b, EndTimeTxt.Text, CarNumTxt.Text,StartTimeTxt.Text);
                 StartStationTxt.Text = "";
                 CarNumTxt.Text = "";
                 StartTimeTxt.Text = "";
                 EndTimeTxt.Text = "";
-                WeightTxt.Text = "";
+                cmbUpWeight.Items.Clear();
+                cmbUpWeight.Text = "";
+                cmbDownWeight.Items.Clear();
+                cmbDownWeight.Text = "";
+                //WeightTxt.Text = "";
+                double minW = 0;
+                double maxW = 0;
+                try
+                {
+                    minW = double.Parse(txtMinWeight.Text);
+                    maxW = double.Parse(txtMaxWeight.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("重量区间必须为数字！");
+                }
                 string systime = System.DateTime.Now.ToString("yy-MM-dd"); //"10-06-11";
                 // System.DateTime.Now.ToString("yy-MM-dd");
 
-                string strSQL = "SELECT DISTINCT  [db_rfidtest].[rfidtest].[dbo.Station].[Name] AS '起始站点' , " +
-                    " [db_rfidtest].[rfidtest].[dbo.Goods].[BoxCardID] AS '货箱卡号' ,  " +
-                    "[db_rfidtest].[rfidtest].[dbo.Goods].[TruckNo] AS '货车牌号' ,  " +
-                    "[db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] AS '开始时间' ,  " +
-                    "[db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] AS '结束时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[Weight] AS '重量(单位:吨)'" +
-                    " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] ON   " +
-                    "[db_rfidtest].[rfidtest].[dbo.Goods].[StartStationID] = [db_rfidtest].[rfidtest].[dbo.Station].[StationID] " +
-                    "WHERE  [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] > '" + systime + ",00:00' AND [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] < '" + systime + ",23:59'";
+                string strSQL = "SELECT DISTINCT  s1.[Name] AS '起始站点' ,s2.Name AS '到达站点',  " +
+                       " g.[BoxCardID] AS '货箱卡号' ,  " +
+                       "g.[TruckNo] AS '货车牌号' ,  " +
+                       "g.[StartTime] AS '开始时间' ,  " +
+                       "g.[EndTime] AS '结束时间' ,  g.[Weight] AS '重量(单位:吨)',g.[Up] as '上行重量',g.[down] as '下行重量',wt.UpWeight,wt.UpWeight" +
+                       " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] AS g INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] AS s1 ON   " +
+                       "g.[StartStationID] = s1.[StationID] INNER JOIN [dbo.Station] AS s2 ON g.EndStationID = s2.StationID LEFT JOIN WeightTest as wt ON g.TruckNo = wt.TruckNo and g.StartTime = wt.StartTime " +
+                       "WHERE  g.[EndTime] > '" + dateTimePicker2.Value.ToString("yy-MM-dd") + ",00:00' AND g.[EndTime] < '" + dateTimePicker2.Value.ToString("yy-MM-dd") + ",23:59' and (g.Weight>" + maxW + " or g.Weight<" + minW + ")";
                 string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
 
                 try
                 {
                     ds = boperate.getds(strSQL, strTable);
                 }
-                catch
+                catch(Exception)
                 {
                     MessageBox.Show("网络连接失败！请稍后重试（错误1015）");
                     //showDayreport.CancelAsync();
@@ -6662,15 +6686,25 @@ drop table tempTable;";
                 textBox6.Text = "";
                 string systime = System.DateTime.Now.ToString("yy-MM-dd"); //;
                 // System.DateTime.Now.ToString("yy-MM-dd");
-
-                string strSQL = "SELECT DISTINCT  [db_rfidtest].[rfidtest].[dbo.Station].[Name] AS '起始站点' , " +
-                    " [db_rfidtest].[rfidtest].[dbo.Goods].[BoxCardID] AS '货箱卡号' ,  " +
-                    "[db_rfidtest].[rfidtest].[dbo.Goods].[TruckNo] AS '货车牌号' ,  " +
-                    "[db_rfidtest].[rfidtest].[dbo.Goods].[StartTime] AS '开始时间' ,  " +
-                    "[db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] AS '结束时间' ,  [db_rfidtest].[rfidtest].[dbo.Goods].[Weight] AS '重量(单位:吨)'" +
-                    " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] ON   " +
-                    "[db_rfidtest].[rfidtest].[dbo.Goods].[StartStationID] = [db_rfidtest].[rfidtest].[dbo.Station].[StationID] " +
-                    "WHERE  [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] > '" + systime + ",00:00' AND [db_rfidtest].[rfidtest].[dbo.Goods].[EndTime] < '" + systime + ",23:59'";
+                double minW = 0;
+                double maxW = 0;
+                try
+                {
+                    minW = double.Parse(txtMinWeight.Text);
+                    maxW = double.Parse(txtMaxWeight.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("重量区间必须为数字！");
+                }
+                string strSQL = "SELECT DISTINCT  s1.[Name] AS '起始站点' ,s2.Name AS '到达站点',  " +
+                       " g.[BoxCardID] AS '货箱卡号' ,  " +
+                       "g.[TruckNo] AS '货车牌号' ,  " +
+                       "g.[StartTime] AS '开始时间' ,  " +
+                       "g.[EndTime] AS '结束时间' ,  g.[Weight] AS '重量(单位:吨)',g.[Up] as '上行重量',g.[down] as '下行重量',wt.UpWeight,wt.UpWeight" +
+                       " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] AS g INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] AS s1 ON   " +
+                       "g.[StartStationID] = s1.[StationID] INNER JOIN [dbo.Station] AS s2 ON g.EndStationID = s2.StationID LEFT JOIN WeightTest as wt ON g.TruckNo = wt.TruckNo and g.StartTime = wt.StartTime " +
+                       "WHERE  g.[EndTime] > '" + dateTimePicker2.Value.ToString("yy-MM-dd") + ",00:00' AND g.[EndTime] < '" + dateTimePicker2.Value.ToString("yy-MM-dd") + ",23:59' and (g.Weight>" + maxW + " or g.Weight<" + minW + ")";
                 string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
 
                 try
@@ -6702,7 +6736,15 @@ drop table tempTable;";
                 CarNumTxt.Text = dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString();
                 StartTimeTxt.Text = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString();
                 EndTimeTxt.Text = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString();
-                WeightTxt.Text = dataGridView2.Rows[e.RowIndex].Cells[6].Value.ToString();
+                //WeightTxt.Text = dataGridView2.Rows[e.RowIndex].Cells[6].Value.ToString();
+                string[] upList = dataGridView2.Rows[e.RowIndex].Cells[9].Value.ToString().Split(',');
+                cmbUpWeight.Items.Clear();
+                cmbUpWeight.Items.AddRange(upList);
+                cmbUpWeight.Text = dataGridView2.Rows[e.RowIndex].Cells[7].Value.ToString();
+                string[] downList = dataGridView2.Rows[e.RowIndex].Cells[10].Value.ToString().Split(',');
+                cmbDownWeight.Items.Clear();
+                cmbDownWeight.Items.AddRange(downList);
+                cmbDownWeight.Text = dataGridView2.Rows[e.RowIndex].Cells[8].Value.ToString();
             }
             catch
             { }
@@ -6716,7 +6758,16 @@ drop table tempTable;";
                 CarNumTxt.Text = dataGridView2.Rows[e.RowIndex].Cells[3].Value.ToString();
                 StartTimeTxt.Text = dataGridView2.Rows[e.RowIndex].Cells[4].Value.ToString();
                 EndTimeTxt.Text = dataGridView2.Rows[e.RowIndex].Cells[5].Value.ToString();
-                WeightTxt.Text = dataGridView2.Rows[e.RowIndex].Cells[6].Value.ToString();
+                //WeightTxt.Text = dataGridView2.Rows[e.RowIndex].Cells[6].Value.ToString();
+                string[] upList = dataGridView2.Rows[e.RowIndex].Cells[9].Value.ToString().Split(',');
+                cmbUpWeight.Items.Clear();
+                cmbUpWeight.Items.AddRange(upList);
+                cmbUpWeight.Text = dataGridView2.Rows[e.RowIndex].Cells[7].Value.ToString();
+                
+                string[] downList = dataGridView2.Rows[e.RowIndex].Cells[10].Value.ToString().Split(',');
+                cmbDownWeight.Items.Clear();
+                cmbDownWeight.Items.AddRange(downList);
+                cmbDownWeight.Text = dataGridView2.Rows[e.RowIndex].Cells[8].Value.ToString();
             }
             catch
             { }
@@ -6929,11 +6980,12 @@ drop table tempTable;";
             string strSQL = "SELECT DISTINCT  s1.[Name] AS '起始站点' , " +
                 " g.[BoxCardID] AS '货箱卡号' ,  " +
                 "g.[TruckNo] AS '货车牌号' ,  " +
+                "d.[NoErDUI] AS '车门号' ,  " +
                 "g.[StartTime] AS '开始时间' ,  " +
                 "g.[EndTime] AS '结束时间' , g.[DownTime] AS '下行时间' , g.[Weight] AS '重量(单位:吨)',s2.Name as '结束站点'" +
                 " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] AS g INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] AS s1 ON   " +
                 "g.[StartStationID] = s1.[StationID] " +
-                " INNER JOIN [db_rfidtest].[rfidtest].[dbo.Station] as s2 ON g.EndStationID = s2.StationID " +
+                " INNER JOIN [db_rfidtest].[rfidtest].[dbo.Station] as s2 ON g.EndStationID = s2.StationID LEFT JOIN [dbo.Driver] as d ON d.TruckNo = g.TruckNo " +
                 "WHERE  g.[EndTime] > '" + dateTimePicker_22.Value.ToString("yy-MM-dd") + ",00:00' AND g.[EndTime] < '" + dateTimePicker_22_2.Value.ToString("yy-MM-dd") + ",23:59'";
 
             if (cbCenter.SelectedIndex <= 0)
@@ -7089,10 +7141,11 @@ drop table tempTable;";
 
             string sttime = dateTimePicker_8.Value.ToString("yy-MM-dd");
             string strSQL = "SELECT			g.[TruckNo] AS '运输车号' , " +
+                "d.[NoERDUI] as '车门号' , "+
                " g.[StartTime] AS '开始时间' ,  " +
                 "g.[EndTime] AS '结束时间' ,  " +
                 "g.[Weight] AS '重量(单位:吨)',s.Name AS '目的地' " +
-                "FROM [dbo.Goods] AS g INNER JOIN [dbo.Station] AS s ON g.EndStationID = s.StationID" +
+                "FROM [dbo.Goods] AS g INNER JOIN [dbo.Station] AS s ON g.EndStationID = s.StationID LEFT JOIN [dbo.Driver] as d ON d.TruckNo = g.TruckNo " +
                 " WHERE (g.StartTime > '" + sttime+"') AND (g.StartTime < '"+dateTimePicker_8_2.Value.AddDays(1).ToString("yy-MM-dd")+"')AND (g.StartStationID=" + stationid.ToString() + ")";
 
             string strTable = " [db_rfidtest].[rfidtest].[dbo.goods]";
@@ -7126,20 +7179,20 @@ drop table tempTable;";
             for (int i = 0; i < rowsnum; i++)
             {
                 //pictureBox10.Load();
-                if (dataGridView11.Rows[i].Cells[2].Value.ToString().Length == 0)
+                if (dataGridView11.Rows[i].Cells[3].Value.ToString().Length == 0)
                     point += "o,FF0000,0," + i.ToString() + ",10.0|";
                 else
                     point += "s,00ff00,0," + i.ToString() + ",10.0|";
                 try
                 {
-                    int itsh = int.Parse(dataGridView11.Rows[i].Cells[1].Value.ToString().Substring(9, 2)) - 5;
-                    int itsm = int.Parse(dataGridView11.Rows[i].Cells[1].Value.ToString().Substring(12, 2)) + itsh * 60;
+                    int itsh = int.Parse(dataGridView11.Rows[i].Cells[2].Value.ToString().Substring(9, 2)) - 5;
+                    int itsm = int.Parse(dataGridView11.Rows[i].Cells[2].Value.ToString().Substring(12, 2)) + itsh * 60;
                     data1 += (itsm * 100 / sum).ToString() + ",";
                     data2 += "50,";
                 }
                 catch
                 {
-                    MessageBox.Show(dataGridView11.Rows[i].Cells[1].Value.ToString());
+                    MessageBox.Show(dataGridView11.Rows[i].Cells[2].Value.ToString());
                 }
                 ;
             }
@@ -7196,13 +7249,13 @@ drop table tempTable;";
             string sttime2 = dateTimePicker_82.Value.AddDays(1).ToString("yy-MM-dd");
             string strSQL = "SELECT DISTINCT  s1.[Name] AS '起始站点' , " +
                 "g.[TruckNo] AS '车牌号' ,  " +
-
+                "d.[NoERDUI] AS '车门号' , " +
                 "g.[StartTime] AS '开始时间'," +
                 "s2.[Name] AS '目的地'" +
                 " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] as g INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] as s1 ON  " +
                 "g.[StartStationID] = s1.[StationID] " +
                 " INNER JOIN [db_rfidtest].[rfidtest].[dbo.Station] as s2 ON" +
-                " g.EndStationID = s2.StationID "+
+                " g.EndStationID = s2.StationID  LEFT JOIN [dbo.Driver] as d ON g.TruckNo = d.TruckNo "+
                 "WHERE g.[EndTime] is null AND g.[StartTime] > '" + sttime + "' AND g.[StartTime] <'"+sttime2+"'";
             string stres = "(";
             if (cbES1.Checked == true)
@@ -7586,13 +7639,13 @@ drop table tempTable;";
                 MessageBox.Show("重量区间必须为数字！");
             }
             string strSQL = "SELECT DISTINCT  s1.[Name] AS '起始站点' ,s2.Name AS '到达站点',  " +
-               " g.[BoxCardID] AS '货箱卡号' ,  " +
-               "g.[TruckNo] AS '货车牌号' ,  " +
-               "g.[StartTime] AS '开始时间' ,  " +
-               "g.[EndTime] AS '结束时间' ,  g.[Weight] AS '重量(单位:吨)'" +
-               " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] AS g INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] AS s1 ON   " +
-               "g.[StartStationID] = s1.[StationID] INNER JOIN [dbo.Station] AS s2 ON g.EndStationID = s2.StationID " +
-               "WHERE  g.[EndTime] > '" + dateTimePicker2.Value.ToString("yy-MM-dd") + ",00:00' AND g.[EndTime] < '" + dateTimePicker2.Value.ToString("yy-MM-dd") + ",23:59' and (g.Weight>"+maxW+" or g.Weight<"+minW+")";
+                       " g.[BoxCardID] AS '货箱卡号' ,  " +
+                       "g.[TruckNo] AS '货车牌号' ,  " +
+                       "g.[StartTime] AS '开始时间' ,  " +
+                       "g.[EndTime] AS '结束时间' ,  g.[Weight] AS '重量(单位:吨)',g.[Up] as '上行重量',g.[down] as '下行重量',wt.UpWeight,wt.UpWeight" +
+                       " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] AS g INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] AS s1 ON   " +
+                       "g.[StartStationID] = s1.[StationID] INNER JOIN [dbo.Station] AS s2 ON g.EndStationID = s2.StationID LEFT JOIN WeightTest as wt ON g.TruckNo = wt.TruckNo and g.StartTime = wt.StartTime " +
+                       "WHERE  g.[EndTime] > '" + dateTimePicker2.Value.ToString("yy-MM-dd") + ",00:00' AND g.[EndTime] < '" + dateTimePicker2.Value.ToString("yy-MM-dd") + ",23:59' and (g.Weight>" + maxW + " or g.Weight<" + minW + ")";
 
             if (comboBox14.SelectedIndex > 0)
                 strSQL += " AND g.EndStationID = " + comboBox14.SelectedIndex;
@@ -7601,6 +7654,7 @@ drop table tempTable;";
             try
             {
                 ds = boperate.getds(strSQL, strTable);
+
             }
             catch
             {
@@ -7608,6 +7662,7 @@ drop table tempTable;";
                 //showDayreport.CancelAsync();
             }
             dataGridView2.DataSource = ds.Tables[0];
+
 
         }
         #region 软键盘
