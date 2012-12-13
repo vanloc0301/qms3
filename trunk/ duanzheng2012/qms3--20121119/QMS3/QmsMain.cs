@@ -60,7 +60,17 @@ namespace QMS3
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            Control.CheckForIllegalCrossThreadCalls = false;
+            //20121213 重新生成年信息
+            int minYear = 2009;
+            int maxYear = int.Parse(DateTime.Now.ToString("yyyy"));
+            for (; minYear <= maxYear; maxYear--)
+            {
+                comboBoxYear1.Items.Add(maxYear.ToString());
+                comboBoxYear3.Items.Add(maxYear.ToString());
+                comboBoxYear4.Items.Add(maxYear.ToString());
+            }
+
+                Control.CheckForIllegalCrossThreadCalls = false;
             MainTab.ItemSize = new Size(1, 1);
             treeView1.Nodes.Clear();
             pictureBox1.Controls.Add(label69);
@@ -1909,7 +1919,7 @@ else
                         end
                     end
 
-                    select * from res;
+                    select * from res is not null;
                     drop table res;";
 
                 crform_sqlda = new SqlDataAdapter(sql_goods, sqlcon);
@@ -7644,7 +7654,7 @@ drop table tempTable;";
                        "g.[StartTime] AS '开始时间' ,  " +
                        "g.[EndTime] AS '结束时间' ,  g.[Weight] AS '重量(单位:吨)',g.[Up] as '上行重量',g.[down] as '下行重量',wt.UpWeight,wt.UpWeight" +
                        " FROM  [db_rfidtest].[rfidtest].[dbo.Goods] AS g INNER JOIN  [db_rfidtest].[rfidtest].[dbo.Station] AS s1 ON   " +
-                       "g.[StartStationID] = s1.[StationID] INNER JOIN [dbo.Station] AS s2 ON g.EndStationID = s2.StationID LEFT JOIN WeightTest as wt ON g.TruckNo = wt.TruckNo and g.StartTime = wt.StartTime " +
+                       "g.[StartStationID] = s1.[StationID] INNER JOIN [dbo.Station] AS s2 ON g.EndStationID = s2.StationID LEFT JOIN WeightTest as wt ON g.TruckNo = wt.TruckNo and g.StartTime = wt.StartTime  " +
                        "WHERE  g.[EndTime] > '" + dateTimePicker2.Value.ToString("yy-MM-dd") + ",00:00' AND g.[EndTime] < '" + dateTimePicker2.Value.ToString("yy-MM-dd") + ",23:59' and (g.Weight>" + maxW + " or g.Weight<" + minW + ")";
 
             if (comboBox14.SelectedIndex > 0)
@@ -8193,6 +8203,7 @@ drop table tempTable;";
                         em.StationID = int.Parse(row["StationID"].ToString());
                         em.Num = int.Parse(row["num"].ToString());
                         em.Employee = row["Employee"].ToString();
+                        em.IsSee = dataGridView5.Rows[e.RowIndex].Cells[4].Value.ToString().Trim() == em.Employee.Trim() ? "是" : "否";
                         list.Add(em);
                     }
                 }
@@ -8392,7 +8403,11 @@ drop table tempTable;";
         {
             try
             {
-                this.dbo_ClassTableAdapter1.DeleteClass(int.Parse(label44.Text));
+                if (MessageBox.Show("确定要删除?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+
+                    this.dbo_ClassTableAdapter1.DeleteClass(int.Parse(label44.Text));
+                else
+                    return;
             }
             catch
             {
@@ -8974,6 +8989,11 @@ drop table tempTable;";
         }
 
         private void button16_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void crystalReportViewerMon_Load(object sender, EventArgs e)
         {
 
         }

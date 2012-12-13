@@ -14,6 +14,13 @@ namespace QMS3.Classes
             get { return employee; }
             set { employee = value; }
         }
+        private string isSee;
+
+        public string IsSee
+        {
+            get { return isSee; }
+            set { isSee = value; }
+        }
         private int id;
 
         public int Id
