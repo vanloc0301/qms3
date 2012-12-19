@@ -159,10 +159,9 @@ namespace CarReader
                 
                 int s = 0;
                 //称重
-                data.allWeight = GetStableWeightUp.getstable(ref s);
-                
                 lock (GetStableWeightUp.myarray)
                 {
+		    data.allWeight = GetStableWeightUp.getstable(ref s);
                     foreach (double item in GetStableWeightUp.myarray)
                     {
                         data.uplist += item + ",";
@@ -195,9 +194,10 @@ namespace CarReader
             Thread.Sleep(3000);
             
             //读取重量
-            data.carWeight = GetStableWeight.getstable(ref s);
-            lock (GetStableWeight.myarray)
+	    lock (GetStableWeight.myarray)
             {
+            	data.carWeight = GetStableWeight.getstable(ref s);
+            
                 foreach (double item in GetStableWeight.myarray)
                 {
                     data.downlist += item + ",";
@@ -258,7 +258,7 @@ namespace CarReader
                 +data.stationID+","+data.type+","+CommonData.stationID+",'"+data.parseData(0)
                 +"',"+(data.allWeight-data.carWeight)+",'"
                 +data.picPath+"',@status="+this.state+",@allWeight="
-                +this.data.allWeight+",@downWeight="+this.data.carWeight+",@downTime='"
+                +this.data.allWeight+",@downWeight="+this.data.carWeight.ToString("##.##")+",@downTime='"
                 +data.downTime+"',@uplist='"+data.uplist+"',@downlist='"+data.downlist+"'";
             BaseOperate op = new BaseOperate();
             if (op.getcom(sql) == false)
