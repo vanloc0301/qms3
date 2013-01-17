@@ -64,7 +64,7 @@ namespace CarReader.Classes
             foreach (double x in myarray)
             {
                 bool getit = false;
-                if (x <= 3)//过滤掉没用的小数
+                if (x <= 3 || x>=7)//过滤掉没用的小数
                     continue;
                 foreach (elementcounter e in mystatement)//统计出现的次数
                 {
@@ -113,7 +113,7 @@ namespace CarReader.Classes
                 double maxv = 0;
                 foreach (double x in myarray)
                 {
-                    if (x > maxv)
+                    if (x > maxv && maxv>=4 && maxv <=7)
                         maxv = x;
                 }
                 state = 1;
@@ -180,7 +180,7 @@ namespace CarReader.Classes
             foreach (double x in myarray)
             {
                 bool getit = false;
-                if (x <= 4)//过滤掉没用的小数
+                if (x <= 4 || x>=14)//过滤掉没用的小数
                     continue;
                 foreach (elementcounter e in mystatement)//统计出现的次数
                 {
@@ -229,7 +229,7 @@ namespace CarReader.Classes
                 double maxv = 0;
                 foreach (double x in myarray)
                 {
-                    if (x > maxv)
+                    if (x > maxv && maxv<=20)
                         maxv = x;
                 }
                 state = 1;

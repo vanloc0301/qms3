@@ -54,7 +54,9 @@
     <Reference Include="LLRP, Version=10.8.0.240, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>bin\Debug\LLRP.dll</HintPath>
     </Reference>
-    <Reference Include="LLRP.Impinj, Version=10.8.0.240, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="LLRP.Impinj, Version=10.8.0.240, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>bin\x86\Debug\LLRP.Impinj.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>

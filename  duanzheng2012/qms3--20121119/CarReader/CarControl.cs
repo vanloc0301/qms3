@@ -91,7 +91,7 @@ namespace CarReader
         public void CarControl_Load(object sender, EventArgs e)
         {
             tmrDown = new System.Timers.Timer(1000 * 10 * 3);
-            tmrTimeOut = new System.Timers.Timer(1000 * 60 * 60);
+            tmrTimeOut = new System.Timers.Timer(1000 * 60 * 60*2);
             tmrDown.Elapsed += tmrDown_Tick;
             tmrTimeOut.Elapsed += tmrTimeOut_Tick;
             tmrDownOut = new System.Timers.Timer(4000*60);
@@ -154,7 +154,7 @@ namespace CarReader
                 //保存信息
                 data = (CarData)car;
                 //延迟三秒
-                GetStableWeight.tag = 1;
+                GetStableWeightUp.tag = 1;
                 Thread.Sleep(5*1000);
                 
                 int s = 0;
@@ -167,7 +167,7 @@ namespace CarReader
                         data.uplist += item + ",";
                     }
                 }
-                GetStableWeight.tag = 0;
+                GetStableWeightUp.tag = 0;
                 state = s * 100;
                 //拍照
                 data.picPath = GetPic(); 
@@ -191,7 +191,7 @@ namespace CarReader
             data.downTime = DateTime.Now.ToString("yy-MM-dd,HH:mm");
             //延迟3秒
             GetStableWeight.tag = 1;
-            Thread.Sleep(3000);
+            Thread.Sleep(6000);
             
             //读取重量
 	    lock (GetStableWeight.myarray)
@@ -256,7 +256,7 @@ namespace CarReader
             string sql = "EXEC center_updatedata '"+data.boxid+"','"
                 +data.truckNo+"','"+data.parseData(1)+"',"
                 +data.stationID+","+data.type+","+CommonData.stationID+",'"+data.parseData(0)
-                +"',"+(data.allWeight-data.carWeight)+",'"
+                +"',"+(data.allWeight-data.carWeight).ToString().Substring(0,4)+",'"
                 +data.picPath+"',@status="+this.state+",@allWeight="
                 +this.data.allWeight+",@downWeight="+this.data.carWeight.ToString("##.##")+",@downTime='"
                 +data.downTime+"',@uplist='"+data.uplist+"',@downlist='"+data.downlist+"'";
