@@ -4,16 +4,17 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
+using System.Text;
 using CarReader.Classes;
 using System.IO;
-using Org.LLRP.LTK.LLRPV1;
-using Org.LLRP.LTK.LLRPV1.DataType;
 using System.Xml.Serialization;
 using System.Threading;
 using System.Data.OleDb;
 using System.Diagnostics;
+using Org.LLRP.LTK.LLRPV1;
+using Org.LLRP.LTK.LLRPV1.DataType;
+using Org.LLRP.LTK.LLRPV1.Impinj;
 
 namespace CarReader
 {
@@ -36,6 +37,7 @@ namespace CarReader
         public MainWindow()
         {
             InitializeComponent();
+
         }
 
         private void MainWindow_Load(object sender, EventArgs e)
@@ -86,7 +88,9 @@ namespace CarReader
                     Application.Exit();
                 }
 
-                
+                Enable_Impinj_Extension();
+                //button1.Text = "Close";
+                Set_Reader_Config();
 
                 STOP_ROSPEC(123);
 
@@ -118,14 +122,15 @@ namespace CarReader
                 CommonData.groupCard = this.groupCard;
                 CommonData.groupWeight = this.groupBox1;
 
-                //设置称重机
-                comm2.Open();
-                comm1.Open();
+                
                 //读取配置文件
                 sr = new StreamReader("timeout.txt");
                 CommonData.sec = int.Parse(sr.ReadLine());
                 CommonData.min = int.Parse(sr.ReadLine());
                 sr.Close();
+                //设置称重机
+                comm2.Open();
+                comm1.Open();
             }
             catch(Exception ex)
             {
@@ -148,8 +153,14 @@ namespace CarReader
                    // sw.Close();
                    // fs.Close();
                     //MessageBox.Show(ex.Message);
-                    whileCar.Abort();
-                    thread.Abort();
+                    //MessageBox.Show(ex.Message);
+                    try
+                    {
+                        whileCar.Abort();
+                        thread.Abort();
+                    }
+                    catch { }
+                    //MessageBox.Show(ex.Message);
                     Application.Exit();
                 }
                 catch { }
@@ -197,7 +208,7 @@ namespace CarReader
                 
             }
         }
-
+        //  int count = 0;
         private void reader_OnRoAccessReportReceived(MSG_RO_ACCESS_REPORT msg)
         {
             Control.CheckForIllegalCrossThreadCalls = false;
@@ -209,9 +220,11 @@ namespace CarReader
             {
                 carQueue.Enqueue(data);
             }
+            //count++;
+            //label15.Text = count.ToString();
         }
 
-        //更新窗口
+        //更新窗口P
         private void updateWindow()
         {
             try
@@ -320,6 +333,231 @@ namespace CarReader
         }
 
         #region 读卡相关
+        private void Enable_Impinj_Extension()
+        {
+            MSG_IMPINJ_ENABLE_EXTENSIONS imp_msg = new MSG_IMPINJ_ENABLE_EXTENSIONS();
+            MSG_CUSTOM_MESSAGE cust_rsp = reader.CUSTOM_MESSAGE(imp_msg, out msg_err, 8000);
+            MSG_IMPINJ_ENABLE_EXTENSIONS_RESPONSE msg_rsp =
+                cust_rsp as MSG_IMPINJ_ENABLE_EXTENSIONS_RESPONSE;
+
+            
+        }
+        private void Set_Reader_Config()
+        {
+            try
+            {
+                MSG_SET_READER_CONFIG msg = new MSG_SET_READER_CONFIG();
+
+                msg.AccessReportSpec = new PARAM_AccessReportSpec();
+                msg.AccessReportSpec.AccessReportTrigger = ENUM_AccessReportTriggerType.End_Of_AccessSpec;
+
+                PARAM_C1G2InventoryCommand cmd = new PARAM_C1G2InventoryCommand();
+                cmd.C1G2RFControl = new PARAM_C1G2RFControl();
+
+
+                cmd.C1G2RFControl.ModeIndex = 1000;
+
+                // 1000 = AD - Auto Dense Interrogator
+                // 1001 = AS - Auto Single Interrogator
+                //    0 = 0 - High Speed 640k bps
+                //    1 = 1 - Hybrid 80k/160k bps
+                //    2 = 2 - Dense Reader M=4 HiSpd
+                //    3 = 3 - Dense Reader M=8 LoSpd
+                //    4 = 4 - Dense Reader MaxMiller
+                cmd.C1G2RFControl.Tari = 0;
+                cmd.C1G2SingulationControl = new PARAM_C1G2SingulationControl();
+                cmd.C1G2SingulationControl.Session = new TwoBits(1);
+                cmd.C1G2SingulationControl.TagPopulation = 32;
+
+                cmd.C1G2SingulationControl.Session.Equals(1);
+
+
+                cmd.C1G2SingulationControl.TagTransitTime = 0;
+                cmd.TagInventoryStateAware = false;
+                PARAM_ImpinjInventorySearchMode search_mode = new PARAM_ImpinjInventorySearchMode();
+
+                search_mode.InventorySearchMode = ENUM_ImpinjInventorySearchType.Dual_Target;
+
+                //search_mode.InventorySearchMode = ENUM_ImpinjInventorySearchType.Dual_Target;
+                cmd.AddCustomParameter(search_mode);
+
+
+
+
+                //msg.AntennaConfiguration[0].AntennaID = 0;  // 0 = all 4 antennas
+
+                //msg.AntennaConfiguration = new PARAM_AntennaConfiguration[1];
+                /*
+                if (cbAnt1.Checked == true)
+                {
+                    msg.AntennaConfiguration[0].AntennaID = 1;
+                }
+
+                if (cbAnt2.Checked == true)
+                {
+                    msg.AntennaConfiguration[0].AntennaID = 2;
+                }
+
+                if (cbAnt3.Checked == true)
+                {
+                    msg.AntennaConfiguration[0].AntennaID = 3;
+                }
+
+                if (cbAnt4.Checked == true)
+                {
+                    msg.AntennaConfiguration[0].AntennaID = 4;
+                }
+               */
+                msg.AntennaConfiguration = new PARAM_AntennaConfiguration[0];
+                msg.AntennaConfiguration[0].AntennaID = 0;
+                //
+                msg.AntennaConfiguration[0] = new PARAM_AntennaConfiguration();
+                msg.AntennaConfiguration[0].AirProtocolInventoryCommandSettings = new UNION_AirProtocolInventoryCommandSettings();
+                //msg.AntennaConfiguration[0] = new PARAM_AntennaConfiguration();
+
+                msg.AntennaConfiguration[0].AirProtocolInventoryCommandSettings = new UNION_AirProtocolInventoryCommandSettings();
+                msg.AntennaConfiguration[0].AirProtocolInventoryCommandSettings.Add(cmd);
+                msg.AntennaConfiguration[0].RFReceiver = new PARAM_RFReceiver();
+                msg.AntennaConfiguration[0].RFReceiver.ReceiverSensitivity = 1;// (ushort)tbReaderSensitivity.Value;
+                // 1 = max, 2 = -70, 3 = -69, 4 = -68, 5 = -67...
+                msg.AntennaConfiguration[0].RFTransmitter = new PARAM_RFTransmitter();
+                msg.AntennaConfiguration[0].RFTransmitter.ChannelIndex = 1;
+                msg.AntennaConfiguration[0].RFTransmitter.HopTableID = 1;
+                msg.AntennaConfiguration[0].RFTransmitter.TransmitPower = 30;//(ushort)tbTxPower.Value;
+
+
+
+                //###########################################################################################
+                //###########################################################################################
+                //###########################################################################################
+                // made change so Matho could test channel index values for Japanese readers
+                //ushort i;
+                //i = ushort.Parse(tbChannelIndex.Text);
+                //msg.AntennaConfiguration[0].RFTransmitter.ChannelIndex = i;
+                //MessageBox.Show("Channel Index = " + i.ToString());
+                // made change so Matho could test channel index values for Japanese readers
+                //###########################################################################################
+                //###########################################################################################
+                //###########################################################################################
+
+                //////if you want to set antenana property. un-comment following code. Impinj reader does not support
+                //msg.AntennaProperties = new PARAM_AntennaProperties[1];
+                //msg.AntennaProperties[0] = new PARAM_AntennaProperties();
+                //msg.AntennaProperties[0].AntennaConnected = true;
+                //msg.AntennaProperties[0].AntennaGain = 0;
+                //msg.AntennaProperties[0].AntennaID = 0;
+                //////If you want to enable fixed frequency feature. un-comment following code.
+                //PARAM_ImpinjFixedFrequencyList fix_list = new PARAM_ImpinjFixedFrequencyList();
+                //fix_list.FixedFrequencyMode = ENUM_FixedFrequencyMode.Disabled;
+                //cmd.AddCustomParameter(fix_list);
+                //////If you want to enable reduced power list, un-comment following code and add channels
+                //PARAM_ImpinjReducedPowerFrequencyList power_list = new PARAM_ImpinjReducedPowerFrequencyList();
+                //power_list.ReducedPowerMode = ENUM_ImpinjReducedPowerMode.Enabled;
+                //power_list.ChannelList.Add(chanellist);
+                //cmd.AddCustomParameter(power_list);
+                //////If you want to enable low duty cycle, un-comment following code
+                //PARAM_ImpinjLowDutyCycle lowDuty = new PARAM_ImpinjLowDutyCycle();
+                //lowDuty.LowDutyCycleMode =  ENUM_ImpinjLowDutyCycleMode.Disabled;
+                //lowDuty.EmptyFieldTimeout = 0;
+                //lowDuty.FieldPingInterval = 0;
+                //cmd.AddCustomParameter(lowDuty);
+                //////If you want to select reader events to send to application, change the following code
+                //msg.EventsAndReports = new PARAM_EventsAndReports();
+                //msg.EventsAndReports.HoldEventsAndReportsUponReconnect = false;
+                //msg.KeepaliveSpec = new PARAM_KeepaliveSpec();
+                //msg.KeepaliveSpec.KeepaliveTriggerType = ENUM_KeepaliveTriggerType.Null;
+                //msg.KeepaliveSpec.PeriodicTriggerValue = 0;
+                msg.ReaderEventNotificationSpec = new PARAM_ReaderEventNotificationSpec();
+                msg.ReaderEventNotificationSpec.EventNotificationState = new PARAM_EventNotificationState[7];
+                msg.ReaderEventNotificationSpec.EventNotificationState[0] = new PARAM_EventNotificationState();
+                msg.ReaderEventNotificationSpec.EventNotificationState[0].EventType = ENUM_NotificationEventType.AISpec_Event;
+                msg.ReaderEventNotificationSpec.EventNotificationState[0].NotificationState = false;
+
+                msg.ReaderEventNotificationSpec.EventNotificationState[1] = new PARAM_EventNotificationState();
+                msg.ReaderEventNotificationSpec.EventNotificationState[1].EventType = ENUM_NotificationEventType.Antenna_Event;
+                msg.ReaderEventNotificationSpec.EventNotificationState[1].NotificationState = false;
+
+                msg.ReaderEventNotificationSpec.EventNotificationState[2] = new PARAM_EventNotificationState();
+                msg.ReaderEventNotificationSpec.EventNotificationState[2].EventType = ENUM_NotificationEventType.GPI_Event;
+                msg.ReaderEventNotificationSpec.EventNotificationState[2].NotificationState = false;
+
+                msg.ReaderEventNotificationSpec.EventNotificationState[3] = new PARAM_EventNotificationState();
+                msg.ReaderEventNotificationSpec.EventNotificationState[3].EventType = ENUM_NotificationEventType.Reader_Exception_Event;
+                msg.ReaderEventNotificationSpec.EventNotificationState[3].NotificationState = false;
+
+                msg.ReaderEventNotificationSpec.EventNotificationState[4] = new PARAM_EventNotificationState();
+                msg.ReaderEventNotificationSpec.EventNotificationState[4].EventType = ENUM_NotificationEventType.Upon_Hopping_To_Next_Channel;
+                msg.ReaderEventNotificationSpec.EventNotificationState[4].NotificationState = false;
+
+                msg.ReaderEventNotificationSpec.EventNotificationState[5] = new PARAM_EventNotificationState();
+                msg.ReaderEventNotificationSpec.EventNotificationState[5].EventType = ENUM_NotificationEventType.ROSpec_Event;
+                msg.ReaderEventNotificationSpec.EventNotificationState[5].NotificationState = false;
+
+                msg.ReaderEventNotificationSpec.EventNotificationState[6] = new PARAM_EventNotificationState();
+                msg.ReaderEventNotificationSpec.EventNotificationState[6].EventType = ENUM_NotificationEventType.Report_Buffer_Fill_Warning;
+                msg.ReaderEventNotificationSpec.EventNotificationState[6].NotificationState = false;
+
+                msg.ROReportSpec = new PARAM_ROReportSpec();
+                msg.ROReportSpec.N = 1;
+                msg.ROReportSpec.ROReportTrigger = ENUM_ROReportTriggerType.Upon_N_Tags_Or_End_Of_ROSpec;
+
+                msg.ROReportSpec.TagReportContentSelector = new PARAM_TagReportContentSelector();
+
+                msg.ROReportSpec.TagReportContentSelector.AirProtocolEPCMemorySelector = new UNION_AirProtocolEPCMemorySelector();
+                PARAM_C1G2EPCMemorySelector c1g2mem = new PARAM_C1G2EPCMemorySelector();
+                c1g2mem.EnableCRC = false;
+                c1g2mem.EnablePCBits = false;
+                msg.ROReportSpec.TagReportContentSelector.AirProtocolEPCMemorySelector.Add(c1g2mem);
+
+                msg.ROReportSpec.TagReportContentSelector.EnableAccessSpecID = false;
+                msg.ROReportSpec.TagReportContentSelector.EnableAntennaID = false;
+                msg.ROReportSpec.TagReportContentSelector.EnableChannelIndex = false;
+                msg.ROReportSpec.TagReportContentSelector.EnableFirstSeenTimestamp = true;
+                msg.ROReportSpec.TagReportContentSelector.EnableInventoryParameterSpecID = false;
+                msg.ROReportSpec.TagReportContentSelector.EnableLastSeenTimestamp = false;
+                msg.ROReportSpec.TagReportContentSelector.EnablePeakRSSI = true;
+                msg.ROReportSpec.TagReportContentSelector.EnableROSpecID = false;
+                msg.ROReportSpec.TagReportContentSelector.EnableSpecIndex = false;
+                msg.ROReportSpec.TagReportContentSelector.EnableTagSeenCount = false;
+
+                /////If you want to enable GPIO function, un-comment following code.
+
+                //msg.GPIPortCurrentState = new PARAM_GPIPortCurrentState[1];
+                //msg.GPIPortCurrentState[0] = new PARAM_GPIPortCurrentState();
+                //msg.GPIPortCurrentState[0].Config = true;
+                //msg.GPIPortCurrentState[0].GPIPortNum = 2;
+                //msg.GPIPortCurrentState[0].State = ENUM_GPIPortState.Low;
+
+                //msg.GPOWriteData = new PARAM_GPOWriteData[1];
+                //msg.GPOWriteData[0] = new PARAM_GPOWriteData();
+                //msg.GPOWriteData[0].GPOData = true;
+                //msg.GPOWriteData[0].GPOPortNumber = 1;
+
+                //////If you want to use tag direction function, un-comment following code
+
+                //PARAM_ImpinjTagDirectionReporting imp_tag_reporting = new PARAM_ImpinjTagDirectionReporting();
+
+                //imp_tag_reporting.AntennaConfiguration = ENUM_ImpinjTagDirectionAntennaConfiguration.Dual_Antenna;
+                //imp_tag_reporting.EnableTagDirection = true;
+                //msg.ROReportSpec.AddCustomParameter(imp_tag_reporting);
+
+                /////If you want to set sub-region, un-comment following code
+
+                //PARAM_ImpinjSubRegulatoryRegion sub_region = new PARAM_ImpinjSubRegulatoryRegion();
+                //sub_region.RegulatoryRegion = ENUM_ImpinjRegulatoryRegion.FCC_Part_15_247;
+                //msg.AddCustomParameter(sub_region);
+
+                //msg.ResetToFactoryDefault = false;
+
+                MSG_SET_READER_CONFIG_RESPONSE rsp = reader.SET_READER_CONFIG(msg, out msg_err, 2121);
+
+                
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show(ex.ToString());
+            }
+        }
         private void STOP_ROSPEC(uint id)
         {
             MSG_STOP_ROSPEC msg = new MSG_STOP_ROSPEC();
@@ -455,7 +693,7 @@ namespace CarReader
             }
             else
             {
-                MessageBox.Show("Read Duration must be a numeric integer");
+                //MessageBox.Show("Read Duration must be a numeric integer");
                 return;
             }
 
@@ -584,18 +822,19 @@ namespace CarReader
                 try
                 {
                     //textBox2.Text = msg.ToString();
-                    string a = ((PARAM_C1G2ReadOpSpecResult)(msg.TagReportData[0].AccessCommandOpSpecResult[0])).ReadData.ToHexWordString();
-                    uint a1 = ((PARAM_C1G2ReadOpSpecResult)(msg.TagReportData[0].AccessCommandOpSpecResult[0])).ReadData.data[0];
-                    uint a2 = ((PARAM_C1G2ReadOpSpecResult)(msg.TagReportData[0].AccessCommandOpSpecResult[0])).ReadData.data[1];
-                    uint a3 = ((PARAM_C1G2ReadOpSpecResult)(msg.TagReportData[0].AccessCommandOpSpecResult[0])).ReadData.data[2];
-                    uint a4 = ((PARAM_C1G2ReadOpSpecResult)(msg.TagReportData[0].AccessCommandOpSpecResult[0])).ReadData.data[3];
-                    uint a5 = ((PARAM_C1G2ReadOpSpecResult)(msg.TagReportData[0].AccessCommandOpSpecResult[0])).ReadData.data[4];
-                    uint a6 = ((PARAM_C1G2ReadOpSpecResult)(msg.TagReportData[0].AccessCommandOpSpecResult[0])).ReadData.data[5];
-                    uint a7 = ((PARAM_C1G2ReadOpSpecResult)(msg.TagReportData[0].AccessCommandOpSpecResult[0])).ReadData.data[6];
-                    uint a8 = ((PARAM_C1G2ReadOpSpecResult)(msg.TagReportData[0].AccessCommandOpSpecResult[0])).ReadData.data[7];
-                    uint a9 = ((PARAM_C1G2ReadOpSpecResult)(msg.TagReportData[0].AccessCommandOpSpecResult[0])).ReadData.data[8];
-                    uint a10 = ((PARAM_C1G2ReadOpSpecResult)(msg.TagReportData[0].AccessCommandOpSpecResult[0])).ReadData.data[9];
-                    uint a11 = ((PARAM_C1G2ReadOpSpecResult)(msg.TagReportData[0].AccessCommandOpSpecResult[0])).ReadData.data[10];
+                    
+                        string a = ((PARAM_C1G2ReadOpSpecResult)(msg.TagReportData[0].AccessCommandOpSpecResult[0])).ReadData.ToHexWordString();
+                        uint a1 = ((PARAM_C1G2ReadOpSpecResult)(msg.TagReportData[0].AccessCommandOpSpecResult[0])).ReadData.data[0];
+                        uint a2 = ((PARAM_C1G2ReadOpSpecResult)(msg.TagReportData[0].AccessCommandOpSpecResult[0])).ReadData.data[1];
+                        uint a3 = ((PARAM_C1G2ReadOpSpecResult)(msg.TagReportData[0].AccessCommandOpSpecResult[0])).ReadData.data[2];
+                        uint a4 = ((PARAM_C1G2ReadOpSpecResult)(msg.TagReportData[0].AccessCommandOpSpecResult[0])).ReadData.data[3];
+                        uint a5 = ((PARAM_C1G2ReadOpSpecResult)(msg.TagReportData[0].AccessCommandOpSpecResult[0])).ReadData.data[4];
+                        uint a6 = ((PARAM_C1G2ReadOpSpecResult)(msg.TagReportData[0].AccessCommandOpSpecResult[0])).ReadData.data[5];
+                        uint a7 = ((PARAM_C1G2ReadOpSpecResult)(msg.TagReportData[0].AccessCommandOpSpecResult[0])).ReadData.data[6];
+                        uint a8 = ((PARAM_C1G2ReadOpSpecResult)(msg.TagReportData[0].AccessCommandOpSpecResult[0])).ReadData.data[7];
+                        uint a9 = ((PARAM_C1G2ReadOpSpecResult)(msg.TagReportData[0].AccessCommandOpSpecResult[0])).ReadData.data[8];
+                        uint a10 = ((PARAM_C1G2ReadOpSpecResult)(msg.TagReportData[0].AccessCommandOpSpecResult[0])).ReadData.data[9];
+                        uint a11 = ((PARAM_C1G2ReadOpSpecResult)(msg.TagReportData[0].AccessCommandOpSpecResult[0])).ReadData.data[10];
 
                     string epc;
                     if (msg.TagReportData[0].EPCParameter[0].GetType() == typeof(PARAM_EPC_96))
@@ -609,7 +848,7 @@ namespace CarReader
                         //MessageBox.Show("EPC");
                     }
                     if (a1.ToString() == "12288" || a1.ToString()== "12544"  || a1.ToString()== "12800" || a1.ToString() == "13056")
-                    ;
+                        ;
                     else
                         return null;
 
@@ -658,11 +897,16 @@ namespace CarReader
                 }
                 catch (Exception e)
                 {
+                    //((PARAM_C1G2ReadOpSpecResult)(msg.TagReportData[0].AccessCommandOpSpecResult[0])).ReadData.ToHexWordString();
+                   // MessageBox.Show(e.Message);
                 }
             }
             catch (Exception ex)
             {
+
+                ((PARAM_C1G2ReadOpSpecResult)(msg.TagReportData[0].AccessCommandOpSpecResult[0])).ReadData.ToHexWordString();
                 // textBox2.Text = ((PARAM_C1G2WriteOpSpecResult)(msg.TagReportData[0].AccessCommandOpSpecResult[0])).OpSpecID.ToString();
+                //MessageBox.Show(ex.Message);
             }
             return null;
         }
@@ -708,7 +952,7 @@ namespace CarReader
                 }
                 try
                 {
-                    double x = double.Parse(reverse);
+                    double x = double.Parse(reverse)/1000;
                     return x;
                 }
                 catch { return 0; }
@@ -728,8 +972,8 @@ namespace CarReader
                 xx += a.ToString();
                 if (a == '=')
                 {
-                    lblComm2.Text = convert(w).ToString();
-                    GetStableWeight.insert(convert(w));
+                    lblComm2.Text = convert2(w).ToString();
+                    GetStableWeight.insert(convert2(w));
                     w = "";
                 }
                 else
@@ -848,9 +1092,6 @@ namespace CarReader
                 DataSet ds = op.getds(sql, "[dbo.Goods]");
                 if (ds.Tables.Count <= 0)
                     return;
-
-                
-
                 ChartData chartdata = new ChartData();
                 vschart = new visifire();
 
