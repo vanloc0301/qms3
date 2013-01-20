@@ -127,7 +127,7 @@ namespace CarReader.Classes
     public static class GetStableWeightUp
     {
         public static System.Collections.ArrayList myarray = new System.Collections.ArrayList();
-        const int length = 30;
+        const int length = 50;
         const int stablegate = 6;//稳定指数
         static int zeroCount = 0;
         public static int tag = 0;

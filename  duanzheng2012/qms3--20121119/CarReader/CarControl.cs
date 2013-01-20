@@ -155,7 +155,7 @@ namespace CarReader
                 data = (CarData)car;
                 //延迟三秒
                 GetStableWeightUp.tag = 1;
-                Thread.Sleep(5*1000);
+                Thread.Sleep(8*1000);
                 
                 int s = 0;
                 //称重
