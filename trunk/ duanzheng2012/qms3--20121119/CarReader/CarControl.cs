@@ -39,20 +39,20 @@ namespace CarReader
         //序列化文件
         public void  SaveFile(string sql1)
         {
+            string sql = "";
             try
             {
                 OleDbConnection cn = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=C:\\Windows\\System32\\data\\data.mdb;");
                 cn.Open();
-                string sql = "Insert into [data](boxid,truckNo,starttime,startstationid,type,endstationid,endtime,weight,picPath,allWeight,downWeight,downTime,upList,downList) Values('" + data.boxid + "','" + data.truckNo + "','" + data.startTime + "'," +
+                sql = "Insert into [data](boxid,truckNo,starttime,startstationid,type,endstationid,endtime,weight,picPath,allWeight,downWeight,downTime,upList,downList) Values('" + data.boxid + "','" + data.truckNo + "','" + data.startTime + "'," +
                     data.stationID + "," + data.type + "," + CommonData.stationID + ",'" + data.endTime + "'," +
-                    (data.allWeight - data.carWeight) + ",'" + data.picPath + "'," + data.allWeight + "," + data.carWeight + ",'" +
+                    (data.allWeight - data.carWeight).ToString("##.##") + ",'" + data.picPath + "'," + data.allWeight + "," + data.carWeight + ",'" +
                     data.downTime + "','" + data.uplist + "','" + data.downlist + "')";
                 OleDbCommand cmd = new OleDbCommand(sql, cn);
                 cmd.ExecuteNonQuery();
                 cn.Close();
             }
-            catch (Exception ex)
-            { }
+            catch (Exception ex) { LogWriter.WriteLog(ex.Message + "\n" +"sql"+"\n"+ ex.StackTrace); }
         }
 
 
@@ -125,8 +125,9 @@ namespace CarReader
         //超时操作
         private void tmrTimeOut_Tick(object sender, EventArgs e)
         {
-            state += 3;
-            this.SaveData();
+                state += 3;
+                this.SaveData();
+                LogWriter.WriteLog("TimeOut:"+data.truckNo);
         }
 
         //拍照方法 n
@@ -155,7 +156,7 @@ namespace CarReader
                 data = (CarData)car;
                 //延迟三秒
                 GetStableWeightUp.tag = 1;
-                Thread.Sleep(8*1000);
+                Thread.Sleep(5*1000);
                 
                 int s = 0;
                 //称重
@@ -175,42 +176,39 @@ namespace CarReader
                 DelUpdateUI d = new DelUpdateUI(UpdateUI);
                 this.Invoke(d,1);
             }
-            catch (Exception ex)
-            {
-                FileStream fs = new FileStream("error.log", FileMode.OpenOrCreate);
-                StreamWriter sw = new StreamWriter(fs);
-                sw.WriteLine(ex.Message);
-                sw.Close();
-                fs.Close();
-            }
+            catch (Exception ex) { LogWriter.WriteLog(ex.Message+"\n"+ex.StackTrace); }
         }
         //刷到下行卡时的操作
         public void CarDown()
         {
-            int s = 0;
-            data.downTime = DateTime.Now.ToString("yy-MM-dd,HH:mm");
-            //延迟3秒
-            GetStableWeight.tag = 1;
-            Thread.Sleep(6000);
-            
-            //读取重量
-	    lock (GetStableWeight.myarray)
+            try
             {
-            	data.carWeight = GetStableWeight.getstable(ref s);
-            
-                foreach (double item in GetStableWeight.myarray)
+                int s = 0;
+                data.downTime = DateTime.Now.ToString("yy-MM-dd,HH:mm");
+                //延迟3秒
+                GetStableWeight.tag = 1;
+                Thread.Sleep(6000);
+
+                //读取重量
+                lock (GetStableWeight.myarray)
                 {
-                    data.downlist += item + ",";
+                    data.carWeight = GetStableWeight.getstable(ref s);
+
+                    foreach (double item in GetStableWeight.myarray)
+                    {
+                        data.downlist += item + ",";
+                    }
                 }
+                GetStableWeight.tag = 0;
+                if (s != 0)
+                    state += s % 10;
+                //更新界面
+                DelUpdateUI d = new DelUpdateUI(UpdateUI);
+                this.Invoke(d, 0);
+                //保存数据
+                SaveData();
             }
-            GetStableWeight.tag = 0;
-            if (s != 0)
-                state += s%10;
-            //更新界面
-            DelUpdateUI d = new DelUpdateUI(UpdateUI);
-            this.Invoke(d,0);
-            //保存数据
-            SaveData();
+            catch (Exception ex) { LogWriter.WriteLog(ex.Message + "\n" + ex.StackTrace); }
         }
 
 
@@ -253,26 +251,32 @@ namespace CarReader
         //保存文件
         public void SaveData()
         {
-            string sql = "EXEC center_updatedata '"+data.boxid+"','"
-                +data.truckNo+"','"+data.parseData(1)+"',"
-                +data.stationID+","+data.type+","+CommonData.stationID+",'"+data.parseData(0)
-                +"',"+(data.allWeight-data.carWeight).ToString().Substring(0,4)+",'"
-                +data.picPath+"',@status="+this.state+",@allWeight="
-                +this.data.allWeight+",@downWeight="+this.data.carWeight.ToString("##.##")+",@downTime='"
-                +data.downTime+"',@uplist='"+data.uplist+"',@downlist='"+data.downlist+"'";
-            BaseOperate op = new BaseOperate();
-            if (op.getcom(sql) == false)
+            try
             {
-                this.SaveFile(sql);
-
+                string strWeight = (data.allWeight - data.carWeight).ToString();
+                if (strWeight.Length > 4)
+                    strWeight = strWeight.Substring(0,4);
+                string sql = "EXEC center_updatedata '" + data.boxid + "','"
+                    + data.truckNo + "','" + data.parseData(1) + "',"
+                    + data.stationID + "," + data.type + "," + CommonData.stationID + ",'" + data.parseData(0)
+                    + "'," + strWeight + ",'"
+                    + data.picPath + "',@status=" + this.state + ",@allWeight="
+                    + this.data.allWeight + ",@downWeight=" + this.data.carWeight + ",@downTime='"
+                    + data.downTime + "',@uplist='" + data.uplist + "',@downlist='" + data.downlist + "'";
+                BaseOperate op = new BaseOperate();
+                if (op.getcom(sql) == false)
+                {
+                    this.SaveFile(sql);
+                }
+                if (tmrDownOut == null)
+                {
+                    CommonData.datas.Remove(this);
+                    this.Dispose();
+                    return;
+                }
+                tmrDownOut.Start();
             }
-            if (tmrDownOut == null)
-            {
-                CommonData.datas.Remove(this);
-                this.Dispose();
-                return;
-            }
-            tmrDownOut.Start();
+            catch (Exception ex) { LogWriter.WriteLog(ex.Message + "\n" + ex.StackTrace); }
         }
         private void tmrDownOut_Tick(object sender, EventArgs e)
         {

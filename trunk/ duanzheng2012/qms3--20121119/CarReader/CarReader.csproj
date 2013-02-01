@@ -89,6 +89,7 @@
     <Compile Include="Classes\Datetimecalc.cs" />
     <Compile Include="Classes\ExtensionMethod.cs" />
     <Compile Include="Classes\GetStableWeight.cs" />
+    <Compile Include="Classes\LogWriter.cs" />
     <Compile Include="visifire.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>

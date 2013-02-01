@@ -131,6 +131,8 @@ namespace CarReader
                 //设置称重机
                 comm2.Open();
                 comm1.Open();
+                //测试是否启动成功
+                LogWriter.WriteLog("Startup Success!");
             }
             catch(Exception ex)
             {
@@ -161,6 +163,8 @@ namespace CarReader
                     }
                     catch { }
                     //MessageBox.Show(ex.Message);
+                    LogWriter.WriteLog(ex.Message + "\n" + ex.StackTrace);
+
                     Application.Exit();
                 }
                 catch { }
@@ -204,7 +208,7 @@ namespace CarReader
                         this.Invoke(d);
                     }
                 }
-                catch { }
+                catch (Exception ex) { LogWriter.WriteLog(ex.Message + "\n" + ex.StackTrace); }
                 
             }
         }
@@ -285,7 +289,7 @@ namespace CarReader
         {
             while (true)
             {
-                Thread.Sleep(1000*60*60);
+                Thread.Sleep(1000*60);
                 try
                 {
                     OleDbConnection cn = new OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=C:\\Windows\\System32\\data\\data.mdb;");
@@ -324,10 +328,7 @@ namespace CarReader
                     }
                     cn.Close();
                 }
-                catch (Exception ex)
-                {
-                    
-                }
+                catch (Exception ex) { LogWriter.WriteLog(ex.Message + "\n" + ex.StackTrace); }
             }
             
         }
@@ -961,23 +962,30 @@ namespace CarReader
         }
         private void comm1_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
-            Control.CheckForIllegalCrossThreadCalls = false;
-            byte[] bs = new byte[9];
-            comm1.Read(bs, 0, 9);
-            string temp=comm1.ReadExisting();
-            string xx = "";
-            foreach (byte b in bs)
+            try
             {
-                char a=(char)b;
-                xx += a.ToString();
-                if (a == '=')
+                Control.CheckForIllegalCrossThreadCalls = false;
+                byte[] bs = new byte[9];
+                comm1.Read(bs, 0, 9);
+                string temp = comm1.ReadExisting();
+                string xx = "";
+                foreach (byte b in bs)
                 {
-                    lblComm2.Text = convert2(w).ToString();
-                    GetStableWeight.insert(convert2(w));
-                    w = "";
+                    char a = (char)b;
+                    xx += a.ToString();
+                    if (a == '=')
+                    {
+                        lblComm2.Text = convert2(w).ToString();
+                        GetStableWeight.insert(convert2(w));
+                        w = "";
+                    }
+                    else
+                        w += a.ToString();
                 }
-                else
-                    w += a.ToString();
+            }
+            catch (Exception ex)
+            {
+                LogWriter.WriteLog(ex.Message + "\n" + ex.StackTrace);
             }
             //lblComm1.Text = w;
         }
@@ -1004,22 +1012,29 @@ namespace CarReader
         string w2 = "";
         private void comm2_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
-            Control.CheckForIllegalCrossThreadCalls = false;
-            byte[] bs = new byte[9];
-            comm2.Read(bs, 0, 9);
-            UpWindowLabelDel d = new UpWindowLabelDel(LabelUpdate);
-            string xx = "";
-            foreach (byte b in bs)
+            try
             {
-                char a = (char)b;
-                if (a == '=')
+                Control.CheckForIllegalCrossThreadCalls = false;
+                byte[] bs = new byte[9];
+                comm2.Read(bs, 0, 9);
+                UpWindowLabelDel d = new UpWindowLabelDel(LabelUpdate);
+                string xx = "";
+                foreach (byte b in bs)
                 {
-                    lblComm1.Text = convert2(w2).ToString();
-                    GetStableWeightUp.insert(convert2(w2));
-                    w2 = "";
+                    char a = (char)b;
+                    if (a == '=')
+                    {
+                        lblComm1.Text = convert2(w2).ToString();
+                        GetStableWeightUp.insert(convert2(w2));
+                        w2 = "";
+                    }
+                    else
+                        w2 += a.ToString();
                 }
-                else
-                    w2 += a.ToString();
+            }
+            catch (Exception ex)
+            {
+                LogWriter.WriteLog(ex.Message + "\n" + ex.StackTrace);
             }
         }
 
@@ -1059,27 +1074,6 @@ namespace CarReader
                 catch { return 0; }
             }
         }
-        public void GetWeight1(object data)
-        {
-            Thread.Sleep(3000);
-            try
-            {
-                ((CarData)data).allWeight = double.Parse(lblComm1.Text);
-            }
-            catch { }
-        }
-        public void GetWeight2(object data)
-        {
-            Thread.Sleep(3000);
-            try
-            {
-                ((CarData)data).carWeight = double.Parse(lblComm2.Text);
-                //MessageBox.Show(lblComm2.Text);
-                label13.Text = lblComm2.Text;
-            }
-            catch { }
-        }
-
         visifire vschart;
         private void bgwUpdate_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -1123,7 +1117,7 @@ namespace CarReader
                 else
                     CommonData.stations = ds1.Tables[0]; 
             }
-            catch { }
+            catch (Exception ex) { LogWriter.WriteLog(ex.Message + "\n" + ex.StackTrace); }
         }
 
         private void bgwUpdate_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -1152,7 +1146,12 @@ namespace CarReader
 
                 webBrowser.Url = vschart.displayChart();
             }
-            catch { }
+            catch (Exception ex) { LogWriter.WriteLog(ex.Message + "\n" + ex.StackTrace); }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

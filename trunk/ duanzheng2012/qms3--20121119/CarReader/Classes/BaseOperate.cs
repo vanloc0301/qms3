@@ -57,6 +57,7 @@ namespace CarReader.Classes
             catch (Exception ex)
             {
                 CommonData.errorLabel.Text = "网络异常！";
+                LogWriter.WriteLog(ex.Message + "\n" +MStrSQLStr+"\n"+ ex.StackTrace);
                 return false;
             }
             finally {}
