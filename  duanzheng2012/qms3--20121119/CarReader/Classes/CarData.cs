@@ -12,14 +12,14 @@ namespace CarReader.Classes
     {
         
 
-        public string truckNo;
-        public string startTime;
-        public int stationID;
-        public string stationName;
+        public string truckNo = "";
+        public string startTime = "";
+        public int stationID = 0;
+        public string stationName = "";
         public double carWeight = 0;
         public double allWeight = 0;
-        public string endTime;
-        public string picPath;
+        public string endTime = "";
+        public string picPath = "";
         public int isUsed = 0;
         public int type = 0;
         public string boxid = "";
